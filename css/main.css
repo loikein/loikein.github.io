@@ -94,9 +94,10 @@ code {
   max-width: 700px;
   margin: 40px auto 10px;
   padding: 0 15px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
   color: #333;
+  text-align: justify;
 }
 
 .article-title {
@@ -268,8 +269,9 @@ code {
   }
 
   .content {
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.8;
+    text-align: justify;
   }
 
   .highlight {
@@ -286,7 +288,7 @@ code {
   }
 
   .archive-item-date {
-    font-size: 19px;
+    font-size: 18px;
     text-align: right;
     float: right;
   }
