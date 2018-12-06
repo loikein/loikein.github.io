@@ -93,6 +93,14 @@ a {
   color: #333;
 }
 
+.figure {
+  margin: auto;
+}
+
+.figure img{
+  width: 100%;
+}
+
 .article-title {
   font-size: 34px;
   color: #222;
@@ -278,6 +286,8 @@ a {
     line-height: 1.7;
     text-align: justify;
   }
+
+
 
   .highlight {
     font-size: 16px;
