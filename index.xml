@@ -17,7 +17,7 @@
       <pubDate>Fri, 30 Nov 2018 17:58:00 -0700</pubDate>
       
       <guid>/about/</guid>
-      <description>Hello. I&amp;rsquo;m loikein from China. Welcome to my research blog.
+      <description>Hello. I&amp;rsquo;m loikein from China. Welcome to my academic blog.
 Currently I live in Bonn, Germany for my master&amp;rsquo;s study in economics.
 My research interests include microeconomic theory, experimental economics and game theory. I am also interested in computer science.
 I speak Chinese (native), Japanese (near native) and English (academic proficient).
@@ -26,12 +26,12 @@ This blog is powered by the blogdown package of R.</description>
     </item>
     
     <item>
-      <title>hello world</title>
-      <link>/2018/11/30/hello-world/</link>
-      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      <title>Notes on Introduction to C Language</title>
+      <link>/2018/05/24/notes-intro-c/</link>
+      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/11/30/hello-world/</guid>
-      <description>aha!</description>
+      <guid>/2018/05/24/notes-intro-c/</guid>
+      <description>0419 1.2 プリント #include &amp;lt;stdio.h&amp;gt; int main(void) { printf(&amp;quot;Hello!\n\nMy name is Rachel!\n&amp;quot;); return 0; }  2.a 変数 #include &amp;lt;stdio.h&amp;gt; int main(void) { int tokuten = 50; printf(&amp;quot;試験の点数は%d点です。\n&amp;quot;, tokuten); return 0; }  2.b 変数の型 #include &amp;lt;stdio.h&amp;gt; int main(void) { int seisu = 10; double jissu = 3.14; char moji = &#39;m&#39;; printf(&amp;quot;整数は%dです\n&amp;quot;, seisu); printf(&amp;quot;実数は%fです\n&amp;quot;, jissu); printf(&amp;quot;文字は%cです\n&amp;quot;, moji); return 0; }  2.c 演算子 #include &amp;lt;stdio.h&amp;gt; int main(void) { int x, y, z; x = 25; y = 35; z = x + y; printf(&amp;quot;xとyの和は%dです\n&amp;quot;, z); return 0; }  2.</description>
     </item>
     
     <item>
@@ -43,15 +43,6 @@ This blog is powered by the blogdown package of R.</description>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>/2015/01/01/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
   </channel>

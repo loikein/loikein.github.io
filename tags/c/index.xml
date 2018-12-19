@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on loikein</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on loikein</description>
+    <title>C on loikein</title>
+    <link>/tags/c/</link>
+    <description>Recent content in C on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,17 +18,6 @@
       
       <guid>/2018/05/24/notes-intro-c/</guid>
       <description>0419 1.2 プリント #include &amp;lt;stdio.h&amp;gt; int main(void) { printf(&amp;quot;Hello!\n\nMy name is Rachel!\n&amp;quot;); return 0; }  2.a 変数 #include &amp;lt;stdio.h&amp;gt; int main(void) { int tokuten = 50; printf(&amp;quot;試験の点数は%d点です。\n&amp;quot;, tokuten); return 0; }  2.b 変数の型 #include &amp;lt;stdio.h&amp;gt; int main(void) { int seisu = 10; double jissu = 3.14; char moji = &#39;m&#39;; printf(&amp;quot;整数は%dです\n&amp;quot;, seisu); printf(&amp;quot;実数は%fです\n&amp;quot;, jissu); printf(&amp;quot;文字は%cです\n&amp;quot;, moji); return 0; }  2.c 演算子 #include &amp;lt;stdio.h&amp;gt; int main(void) { int x, y, z; x = 25; y = 35; z = x + y; printf(&amp;quot;xとyの和は%dです\n&amp;quot;, z); return 0; }  2.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>
