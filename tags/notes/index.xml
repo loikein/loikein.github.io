@@ -18,8 +18,11 @@
       
       <guid>/2018/12/29/notes-math-proof/</guid>
       <description>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).
-Logic Truth table  PS1.Q1
-Let \(p\) and \(q\) be two statements. Prove that \(\lnot (p \lor q) \iff \lnot p \land \lnot q\).
+ [x] PS1
+ [ ] PS2
+ [ ]  Logic Truth table  PS1.Q1
+Let \(p\) and \(q\) be two statements
+Prove that \(\lnot (p \lor q) \iff \lnot p \land \lnot q\).
    \(p\) \(\lnot p\) \(q\) \(\lnot q\) \(p \lor q\) \(\lnot (p \lor q)\)    T F T F T F  T F F T T F  F T T F T F  F T F T F T     Direct proof  PS2.</description>
     </item>
     

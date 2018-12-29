@@ -54,7 +54,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">3 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -68,13 +68,21 @@
 
 
 <p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
+<ul>
+<li>[x] PS1<br />
+</li>
+<li>[ ] PS2<br />
+</li>
+<li>[ ]</li>
+</ul>
 <div id="logic" class="section level2">
 <h2>Logic</h2>
 <div id="truth-table" class="section level3">
 <h3>Truth table</h3>
 <blockquote>
 <p>PS1.Q1<br />
-Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be two statements. Prove that <span class="math inline">\(\lnot (p \lor q) \iff \lnot p \land \lnot q\)</span>.</p>
+Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be two statements<br />
+Prove that <span class="math inline">\(\lnot (p \lor q) \iff \lnot p \land \lnot q\)</span>.</p>
 </blockquote>
 <table>
 <thead>
@@ -127,7 +135,8 @@ Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</
 <h3>Direct proof</h3>
 <blockquote>
 <p>PS2.Q2<br />
-Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> be three statements. Prove that if <span class="math inline">\(p \implies q\)</span> and <span class="math inline">\(q \implies r\)</span>, then <span class="math inline">\(p \implies r\)</span>.</p>
+Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> be three statements<br />
+Prove that if <span class="math inline">\(p \implies q\)</span> and <span class="math inline">\(q \implies r\)</span>, then <span class="math inline">\(p \implies r\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(p\)</span> is TRUE<br />
@@ -142,27 +151,101 @@ Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</spa
 </div>
 <div id="set" class="section level2">
 <h2>Set</h2>
-<blockquote>
-<p>PS1.Q4<br />
-Let <span class="math inline">\(A, B \subset U\)</span> be two sets. Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span>.</p>
-</blockquote>
+<div id="proof-by-logic-twice-if-unlucky" class="section level3">
+<h3>Proof by Logic (twice if unlucky)</h3>
 <blockquote>
 <p>PS1.Q3<br />
-Let <span class="math inline">\(\{ A_i \}_{i \in Ι}\)</span> be any arbitrary collection of sets. Prove that <span class="math inline">\(\big( \cup_{i\in Ι} A_i \big)^c = \cap _{i\in Ι} A_i^c\)</span>.</p>
+Let <span class="math inline">\(\{ A_i \}_{i \in Ι}\)</span> be any arbitrary collection of sets<br />
+Prove that <span class="math inline">\(\big( \cup_{i\in Ι} A_i \big)^c = \cap _{i\in Ι} A_i^c\)</span></p>
 </blockquote>
-<div id="direct-proof-1" class="section level3">
-<h3>Direct Proof</h3>
-<p>Let <span class="math inline">\(x \in A\)</span><br />
-<span class="math inline">\(\implies x \notin A^C\)</span></p>
+<blockquote>
+<p>PS1.Q4<br />
+Let <span class="math inline">\(A, B \subset U\)</span> be two sets<br />
+Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(x\in (A\backslash B)^c\)</span><br />
+<span class="math inline">\(\iff x \notin A \backslash B\)</span><br />
+<span class="math inline">\(\iff \lnot \{ x \in A \land x\notin B\}\)</span><br />
+<span class="math inline">\(\iff \{ x \notin A \lor x\in B\}\)</span><br />
+<span class="math inline">\(\iff \{ x \in A^c \lor x\in B\}\)</span><br />
+<span class="math inline">\(\iff x \in A^c \cup B\)</span><br />
+<span class="math inline">\(\implies (A\backslash B)^c = A^c \cup B\)</span></p>
+<blockquote>
+<p>PS1.Q9<br />
+Let <span class="math inline">\(f: U \to U&#39;\)</span>, <span class="math inline">\(\{ B_i\}_{i \in Ι}\)</span> be a collection of subsets of <span class="math inline">\(U&#39;\)</span><br />
+Prove <span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) = \cap _{i\in Ι} f^{-1} \big( B_i \big)\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) \subset \cap _{i\in Ι} f^{-1} \big( B_i \big)\)</span><br />
+<span class="math inline">\(x \in f^{-1} \big( \cap _{i \in Ι} B_i \big)\)</span><br />
+<span class="math inline">\(\implies f(x) \in \cap _{i\in Ι} B_i\)</span><br />
+<span class="math inline">\(\implies f(x) \in B_i \forall i \in I\)</span><br />
+<span class="math inline">\(\implies x \in f ^{-1} \big( B_i \big) \forall i \in I\)</span><br />
+<span class="math inline">\(\implies x \in \cap f^{-1}\big( B_i \big)\)</span><br />
+</li>
+<li><span class="math inline">\(\cap _{i\in Ι} f^{-1} \big( B_i \big) \subset f^{-1} \big( \cap _{i\in Ι} B_i \big)\)</span><br />
+<span class="math inline">\(x \in \cap _{i \in Ι} f ^ {-1} \big( B_i \big)\)</span><br />
+<span class="math inline">\(\implies x\inf^{-1}\big( B_i \big) \forall i \in I\)</span><br />
+<span class="math inline">\(\implies f(x) \in B_i \forall i\in I\)</span><br />
+<span class="math inline">\(\implies f(x) \in \cap B_i\)</span><br />
+<span class="math inline">\(\implies x \inf^{-1}\big( \cap B_i \big)\)</span></li>
+</ol>
+</div>
+<div id="proof-by-b_" class="section level3">
+<h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
+<blockquote>
+<p>PS2.Q8<br />
+1. Show that the intersection of a finite collection of open sets is open<br />
+2. Show that the intersection of an arbitrary collection of open sets may not be open</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>for <span class="math inline">\(\{ A_n\} _{n\in N}\)</span> , <span class="math inline">\(A_n\)</span> is open <span class="math inline">\(\forall n\in N \implies \cap A_n\)</span> is open<br />
+Take arbitrary <span class="math inline">\(x\in \cap A_n\)</span>, <span class="math inline">\(\exists\)</span> sequence <span class="math inline">\(\{ε_n\}_n &gt; 0\)</span> s.t. <span class="math inline">\(B_{ε_n} (x) \subset A_n\)</span><br />
+Take <span class="math inline">\(\underline{ε} \equiv \min \{ ε_n\}\)</span><br />
+<span class="math inline">\(\implies B_{ \underline{ε}} (x) \subset B_{ε_n} (x) \subset A_n \forall n \in N\)</span><br />
+<span class="math inline">\(\implies B_{ \underline{ε}} (x) \subset \cap A_n \forall n \in N\)</span><br />
+<span class="math inline">\(x\in \cap A_n \implies B_{\underline{ε}} (x) \subset A_n \cap A_n\)</span><br />
+<span class="math inline">\(\implies \cap A_n\)</span> is open</li>
+</ol>
 </div>
 </div>
 <div id="relation" class="section level2">
 <h2>Relation</h2>
-<div id="preorder" class="section level3">
-<h3>Preorder</h3>
+<div id="complete-order" class="section level3">
+<h3>Complete Order</h3>
+<blockquote>
+<p>PS1.Q5 (the lexicographic order)<br />
+Let <span class="math inline">\(R\)</span> be the relation on <span class="math inline">\(\mathbb{R}^2\)</span> given by: for any <span class="math inline">\((x_1,y_1) ,\  (x_2, y_2) \in \mathbb{R}^2\)</span>, <span class="math inline">\((x_1,y_1) R (x_2, y_2) \iff x_1 &gt; x_2\)</span> or <span class="math inline">\(x_1 = x_2 \land y_1 \geq y_2\)</span><br />
+Prove that <span class="math inline">\(R\)</span> is a complete order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+:) <span class="math inline">\((x_1,y_1)R(x_1,y_1)\)</span><br />
+</li>
+<li>Transitive<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_3, y_3) \implies (x_1,y_1) R(x_3, y_3)\)</span></li>
+<li>Anti-Symmetry<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_1, y_1) \iff (x_1,y_1) = (x_2, y_2)\)</span><br />
+</li>
+<li>Complete<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \lor (x_2,y_2) R (x_1, y_1) \forall x, y\)</span></li>
+</ol>
 </div>
-<div id="order" class="section level3">
-<h3>Order</h3>
+<div id="partial-order" class="section level3">
+<h3>Partial Order</h3>
+<blockquote>
+<p>PS1.Q6<br />
+Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two partial orders in some space <span class="math inline">\(U\)</span><br />
+Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
+Prove that <span class="math inline">\(R_3\)</span> is a partial order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+</li>
+<li>Transitive<br />
+</li>
+<li>Anti-Symmetry</li>
+</ol>
 </div>
 </div>
 

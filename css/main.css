@@ -35,12 +35,13 @@ a {
 
 table {
 	margin: auto;
+	width: 100%;
 }
 
 table, table tr th, table tr td{
 	border: 1px solid var(--mid-grey);
 	border-collapse: collapse;
-	padding: 0.3em;
+	/*padding: 0.1em 1em 0.1em 1em;*/
 	text-align: center
 }
 
