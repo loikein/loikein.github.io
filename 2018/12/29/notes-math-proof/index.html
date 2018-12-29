@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Mathematical Proofs - loikein</title>
+<meta property="og:title" content="Notes on Mathematical Proofs - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Notes on Mathematical Proofs</h1>
+
+    
+    <span class="article-date">2018/12/29</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
+<div id="logic" class="section level2">
+<h2>Logic</h2>
+<div id="truth-table" class="section level3">
+<h3>Truth table</h3>
+<blockquote>
+<p>PS1.Q1<br />
+Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be two statements. Prove that <span class="math inline">\(\lnot (p \lor q) \iff \lnot p \land \lnot q\)</span>.</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(p\)</span></th>
+<th align="left"><span class="math inline">\(\lnot p\)</span></th>
+<th align="left"><span class="math inline">\(q\)</span></th>
+<th align="left"><span class="math inline">\(\lnot q\)</span></th>
+<th align="left"><span class="math inline">\(p \lor q\)</span></th>
+<th align="left"><span class="math inline">\(\lnot (p \lor q)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">T</td>
+<td align="left">F</td>
+<td align="left">T</td>
+<td align="left">F</td>
+<td align="left">T</td>
+<td align="left">F</td>
+</tr>
+<tr class="even">
+<td align="left">T</td>
+<td align="left">F</td>
+<td align="left">F</td>
+<td align="left">T</td>
+<td align="left">T</td>
+<td align="left">F</td>
+</tr>
+<tr class="odd">
+<td align="left">F</td>
+<td align="left">T</td>
+<td align="left">T</td>
+<td align="left">F</td>
+<td align="left">T</td>
+<td align="left">F</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="left">T</td>
+<td align="left">F</td>
+<td align="left">T</td>
+<td align="left">F</td>
+<td align="left">T</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="direct-proof" class="section level3">
+<h3>Direct proof</h3>
+<blockquote>
+<p>PS2.Q2<br />
+Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> be three statements. Prove that if <span class="math inline">\(p \implies q\)</span> and <span class="math inline">\(q \implies r\)</span>, then <span class="math inline">\(p \implies r\)</span>.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(p\)</span> is TRUE<br />
+<span class="math inline">\(p\implies q\)</span> means <span class="math inline">\(q\)</span> is TRUE<br />
+<span class="math inline">\(q \implies r\)</span> means <span class="math inline">\(r\)</span> is TRUE<br />
+<span class="math inline">\(\therefore\)</span> <span class="math inline">\(p\)</span> is TRUE <span class="math inline">\(\implies\)</span> <span class="math inline">\(r\)</span> is TRUE<br />
+<span class="math inline">\(\therefore\)</span> <span class="math inline">\(p \implies r\)</span> is TRUE</li>
+<li><span class="math inline">\(p\)</span> is FALSE<br />
+<span class="math inline">\(p\implies r\)</span> is always TRUE</li>
+</ol>
+</div>
+</div>
+<div id="set" class="section level2">
+<h2>Set</h2>
+<blockquote>
+<p>PS1.Q4<br />
+Let <span class="math inline">\(A, B \subset U\)</span> be two sets. Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>PS1.Q3<br />
+Let <span class="math inline">\(\{ A_i \}_{i \in Ι}\)</span> be any arbitrary collection of sets. Prove that <span class="math inline">\(\big( \cup_{i\in Ι} A_i \big)^c = \cap _{i\in Ι} A_i^c\)</span>.</p>
+</blockquote>
+<div id="direct-proof-1" class="section level3">
+<h3>Direct Proof</h3>
+<p>Let <span class="math inline">\(x \in A\)</span><br />
+<span class="math inline">\(\implies x \notin A^C\)</span></p>
+</div>
+</div>
+<div id="relation" class="section level2">
+<h2>Relation</h2>
+<div id="preorder" class="section level3">
+<h3>Preorder</h3>
+</div>
+<div id="order" class="section level3">
+<h3>Order</h3>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
