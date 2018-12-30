@@ -19,7 +19,8 @@
       <guid>/2018/12/29/notes-math-proof/</guid>
       <description>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).
  [x] PS1
- [ ] PS2
+ [x] PS2
+ [ ] PS3
  [ ]  Logic Truth table  PS1.Q1
 Let \(p\) and \(q\) be two statements
 Prove that \(\lnot (p \lor q) \iff \lnot p \land \lnot q\).

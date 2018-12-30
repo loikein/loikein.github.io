@@ -54,7 +54,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -71,7 +71,9 @@
 <ul>
 <li>[x] PS1<br />
 </li>
-<li>[ ] PS2<br />
+<li>[x] PS2<br />
+</li>
+<li>[ ] PS3<br />
 </li>
 <li>[ ]</li>
 </ul>
@@ -149,8 +151,8 @@ Prove that if <span class="math inline">\(p \implies q\)</span> and <span class=
 </ol>
 </div>
 </div>
-<div id="set" class="section level2">
-<h2>Set</h2>
+<div id="set-collection-operation" class="section level2">
+<h2>Set Collection &amp; Operation</h2>
 <div id="proof-by-logic-twice-if-unlucky" class="section level3">
 <h3>Proof by Logic (twice if unlucky)</h3>
 <blockquote>
@@ -209,6 +211,47 @@ Take <span class="math inline">\(\underline{ε} \equiv \min \{ ε_n\}\)</span><b
 </ol>
 </div>
 </div>
+<div id="set" class="section level2">
+<h2>Set</h2>
+<div id="close-open" class="section level3">
+<h3>Close / Open</h3>
+</div>
+<div id="interior-boundary-closure" class="section level3">
+<h3>Interior &amp; Boundary &amp; Closure</h3>
+<p>Interior of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\text{int}(A) = \{ x\in A | B_ε(x)\subset A\}\)</span> for some <span class="math inline">\(ε&gt;0\)</span></p>
+<p>Closure of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\bar { A } = \{ x \in U | B_ε (x)\cap A \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></p>
+<p>Boundary of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\partial A = \{ x| B_ε(x)\cap A \neq \emptyset \land B_ε(x)\cap A^C \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></p>
+<blockquote>
+<p>PS2.Q4<br />
+Show <span class="math inline">\(\partial A = \bar{A}\backslash \text{int}(A)\)</span> for any set <span class="math inline">\(A\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x \in A\)</span><br />
+<span class="math inline">\(x \in \bar{A}\backslash \text{int}(A) \iff \big(x \in \bar{A} \big) \land \big( x \notin \text{int}(A) \big)\)</span><br />
+And <span class="math inline">\(x \notin \text{int}(A) \iff B_ε(x)\not\subset A\)</span> for all <span class="math inline">\(ε&gt;0\)</span> <span class="math inline">\(\iff B_ε(x)\cap A^C \neq \emptyset\)</span><br />
+Therefore, <span class="math inline">\(x\in \bar{A}\backslash \text{int}(A) \iff x \in \partial A\)</span></p>
+</div>
+<div id="convex" class="section level3">
+<h3>Convex</h3>
+</div>
+<div id="dense" class="section level3">
+<h3>Dense</h3>
+<p>Set <span class="math inline">\(A\)</span> is dense in <span class="math inline">\(U\)</span> if <span class="math inline">\(A \cap B_ε(x)\neq \emptyset \forall x\in U\)</span>, <span class="math inline">\(\forall ε&gt;0\)</span></p>
+<blockquote>
+<p>PS3.Q9<br />
+Show that <span class="math inline">\(\mathbb{Q}\)</span> is dense in <span class="math inline">\(\mathbb{R}\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in\mathbb{R}\)</span>, :) <span class="math inline">\(B_ε(x) \cap \mathbb{Q} \neq \emptyset\)</span><br />
+1. <span class="math inline">\(x\in \mathbb{Q}\)</span> (trivial)<br />
+2. <span class="math inline">\(x\notin \mathbb{Q}\)</span><br />
+Take arbitrary <span class="math inline">\(ε &gt; 0\)</span><br />
+Take <span class="math inline">\(N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(N&gt; \frac{1}{ε}\)</span><br />
+<span class="math inline">\(\implies ε&gt; \frac{1}{N}\)</span><br />
+Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(\frac{n}{N}\leq x - ε\)</span> and <span class="math inline">\(x-ε&lt; \frac{n+1}{N}\)</span><br />
+<span class="math display">\[\begin{aligned} \implies x-ε &lt; \frac{n+1}{N} &amp;\leq x-ε + \frac{1}{N} \\ &amp;&lt; x-ε+ε \\&amp;=x\end{aligned}\]</span><br />
+<span class="math inline">\(\implies \frac{n+1}{N} \in B_ε(x)\)</span><br />
+<span class="math inline">\(\frac{n+1}{N} \in \mathbb{Q} \implies B_ε(x) \cap \mathbb{Q} \neq \emptyset\)</span></p>
+</div>
+</div>
 <div id="relation" class="section level2">
 <h2>Relation</h2>
 <div id="complete-order" class="section level3">
@@ -224,7 +267,7 @@ Prove that <span class="math inline">\(R\)</span> is a complete order</p>
 </li>
 <li>Transitive<br />
 :) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_3, y_3) \implies (x_1,y_1) R(x_3, y_3)\)</span></li>
-<li>Anti-Symmetry<br />
+<li>Anti-Symmetric<br />
 :) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_1, y_1) \iff (x_1,y_1) = (x_2, y_2)\)</span><br />
 </li>
 <li>Complete<br />
@@ -247,6 +290,97 @@ Prove that <span class="math inline">\(R_3\)</span> is a partial order</p>
 <li>Anti-Symmetry</li>
 </ol>
 </div>
+</div>
+<div id="function" class="section level2">
+<h2>Function</h2>
+<div id="range-image" class="section level3">
+<h3>Range / Image</h3>
+<blockquote>
+<p>PS2.Q3<br />
+Let <span class="math inline">\(f:U\to U&#39;\)</span>, <span class="math inline">\(A \subset U\)</span> and <span class="math inline">\(B \subset U&#39;\)</span><br />
+Prove that <span class="math inline">\((f|_A)^{-1} (B) = f^{-1}(B) \cap A\)</span></p>
+</blockquote>
+<p><span class="math inline">\(x \in f^{-1} (B) \cap A\)</span><br />
+<span class="math inline">\(\iff x\in A\)</span> and <span class="math inline">\(f(x) \in B\)</span><br />
+<span class="math inline">\(\iff (f|_A)(x ) \in B\)</span><br />
+<span class="math inline">\(\iff x\in (f|_A)^{-1} (B)\)</span></p>
+<blockquote>
+<p>PS2.Q5<br />
+Let <span class="math inline">\(A \subset U\)</span> and <span class="math inline">\(f: U \to U&#39;\)</span><br />
+Show that <span class="math inline">\(f^{-1} \big( f(A) \big) \supset A\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(A \neq \emptyset\)</span>
+Take arbitary <span class="math inline">\(x\in A \subset U\)</span><br />
+<span class="math inline">\(\implies f(x) \subset f(A)\)</span><br />
+<span class="math inline">\(\implies x \in f^{-1} \big( f(x) \big) \subset f^{-1} \big( f(A) \big)\)</span><br />
+<span class="math inline">\(\implies x \in f^{-1}\big( f(A) \big)\)</span><br />
+</li>
+<li><span class="math inline">\(A = \emptyset\)</span><br />
+<span class="math inline">\(\implies f(A)=\emptyset\)</span><br />
+<span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset = A\)</span></li>
+</ol>
+</div>
+<div id="injection-surjection" class="section level3">
+<h3>Injection &amp; Surjection</h3>
+<blockquote>
+<p>PS2.Q1<br />
+Let <span class="math inline">\(f(x) = x^2: \mathbb{R} \to \mathbb{R}_+\)</span><br />
+Prove that it is not injective<br />
+Is it surjective?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Injective<br />
+:) <span class="math inline">\(x_1 \neq x_2 \implies f(x_1) \neq f(x_2)\)</span><br />
+</li>
+<li>Surjective<br />
+:) <span class="math inline">\(x\in f( \text{domain}) \iff x \in \text{range}\)</span></li>
+</ol>
+</div>
+<div id="composite-function" class="section level3">
+<h3>Composite Function</h3>
+</div>
+<div id="supremum" class="section level3">
+<h3>Supremum</h3>
+<blockquote>
+<p>PS2.Q2<br />
+Let <span class="math inline">\(f,g:A\to \mathbb{R}\)</span> be two functions with a finite supremum in some set <span class="math inline">\(A\)</span><br />
+Show that <span class="math inline">\(\sup_{x\in A} \big( f(x) +g(x) \big) \leq \sup_{x\in A} f(x) + \sup_{x\in A} g(x)\)</span></p>
+</blockquote>
+<p>Denote <span class="math inline">\(h \equiv f+g\)</span>, <span class="math inline">\(\bar{f} \equiv \sup\big(f(x)\big)\)</span>, <span class="math inline">\(\bar{g} \equiv \sup\big(g(x)\big)\)</span>, <span class="math inline">\(\bar{h} \equiv \sup\big(h(x)\big)\)</span></p>
+<div id="direct-proof-1" class="section level4">
+<h4>Direct Proof</h4>
+<p><span class="math inline">\(h(x) = f(x) + g(x) \leq \bar{f }+\bar{g}\)</span><br />
+<span class="math inline">\(\implies \bar{f} + \bar{g}\)</span> is an upper bound of <span class="math inline">\(h(x)\)</span><br />
+Since supremum is the least upper bound<br />
+<span class="math inline">\(\implies\bar{h} \leq \bar{f} + \bar{g}\)</span></p>
+</div>
+<div id="proof-by-contradiction" class="section level4">
+<h4>Proof by Contradiction</h4>
+<p>FSOC assume <span class="math inline">\(\exists \bar{h} &gt; \bar{f }+\bar{g}\)</span><br />
+<span class="math inline">\(\implies \exists \bar{x}\)</span> s.t. <span class="math inline">\((f+g)(\bar{x}) &gt; \bar{f} + \bar{g}\)</span><br />
+<span class="math inline">\(\implies f(\bar{x}) &gt; \bar{f} \lor g(\bar{x}) &gt; \bar{g}\)</span><br />
+Contradicts to supremum</p>
+</div>
+</div>
+</div>
+<div id="distance" class="section level2">
+<h2>Distance</h2>
+<blockquote>
+<p>PS2.Q6<br />
+Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance in <span class="math inline">\(\mathbb{R}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative<br />
+:) <span class="math inline">\(d(x,y) \geq 0\)</span></li>
+<li>Identity of Indiscernibles<br />
+:) <span class="math inline">\(d(x,y) = 0 \iff x = y\)</span><br />
+</li>
+<li>Symmetric<br />
+:) <span class="math inline">\(d(x,y) = d(y,x)\)</span></li>
+<li>Triangle Inequality<br />
+:) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
+</ol>
 </div>
 
     </div>
