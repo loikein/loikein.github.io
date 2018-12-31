@@ -54,7 +54,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">7 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -68,6 +68,8 @@
 
 
 <p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
+<p>:) means “we want to show”<br />
+FSOC means “for the sake of controdiction”</p>
 <ul>
 <li>[x] PS1<br />
 </li>
@@ -215,12 +217,44 @@ Take <span class="math inline">\(\underline{ε} \equiv \min \{ ε_n\}\)</span><b
 <h2>Set</h2>
 <div id="close-open" class="section level3">
 <h3>Close / Open</h3>
+<p>Set <span class="math inline">\(A\)</span> is open if <span class="math inline">\(B_ε(x) \subset A\)</span> for all <span class="math inline">\(x \in A\)</span> and some <span class="math inline">\(ε &gt; 0\)</span></p>
+<p>Set <span class="math inline">\(A\)</span> is closed if <span class="math inline">\(A^C\)</span> is open</p>
+<blockquote>
+<p>PS3.Q1<br />
+Show that <span class="math inline">\([a,b] \subset \mathbb{R}\)</span> is closed for any <span class="math inline">\(a&lt;b \in \mathbb{R}\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(A \equiv [a,b]\)</span>, :) <span class="math inline">\(A^c = (-\infty, a) \cup (b, \infty)\)</span> is open<br />
+Take arbitrary <span class="math inline">\(x \in A\)</span><br />
+1. If <span class="math inline">\(x &lt; a\)</span><br />
+Let <span class="math inline">\(ε \equiv \frac{a-x}{2} &gt;0\)</span><br />
+<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&lt; x+ε \\ &amp;= \frac{x}{2} + \frac{a}{2} \\ &amp;&lt; a \end{aligned}\]</span><br />
+<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span><br />
+2. If <span class="math inline">\(x &gt; b\)</span><br />
+Let <span class="math inline">\(ε \equiv \frac{x-b}{2} &gt;0\)</span><br />
+<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&gt; x+ε \\ &amp;= \frac{x}{2} + \frac{b}{2} \\ &amp;&gt; b \end{aligned}\]</span><br />
+<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span><br />
+~<br />
+<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span> for all <span class="math inline">\(x\in A^c\)</span> and some <span class="math inline">\(ε &gt; 0\)</span><br />
+<span class="math inline">\(\implies A^C\)</span> is open, <span class="math inline">\(A\)</span> is closed</p>
 </div>
-<div id="interior-boundary-closure" class="section level3">
-<h3>Interior &amp; Boundary &amp; Closure</h3>
-<p>Interior of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\text{int}(A) = \{ x\in A | B_ε(x)\subset A\}\)</span> for some <span class="math inline">\(ε&gt;0\)</span></p>
+<div id="closure-interior-boundary" class="section level3">
+<h3>Closure &amp; Interior &amp; Boundary</h3>
 <p>Closure of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\bar { A } = \{ x \in U | B_ε (x)\cap A \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></p>
+<p>Interior of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\text{int}(A) = \{ x\in A | B_ε(x)\subset A\}\)</span> for some <span class="math inline">\(ε&gt;0\)</span></p>
 <p>Boundary of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\partial A = \{ x| B_ε(x)\cap A \neq \emptyset \land B_ε(x)\cap A^C \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></p>
+<blockquote>
+<p>PS3.Q3<br />
+Prove that <span class="math inline">\(\bar{A}\)</span> is closed</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x \in \bar{A}^C\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap A = \emptyset\)</span> for some <span class="math inline">\(ε &gt; 0\)</span><br />
+<!-- :) $B_ε(x) \cap \bar{A} = \emptyset$ for some $ε > 0$  -->
+FSOC assume <span class="math inline">\(\bar{A}\)</span> is open<br />
+<span class="math inline">\(\implies \exists y \in B_{ε/2} (x)\)</span> and <span class="math inline">\(y\in \bar{A}\)</span><br />
+<span class="math inline">\(\implies \exists z \in A\)</span> s.t. <span class="math inline">\(z \in B_{ε/2} (y)\)</span><br />
+<span class="math display">\[\begin{aligned} \implies  d(x,z) &amp;\leq d(x,y) + d(y,z)\\ &amp;&lt;\frac{ε}{2}+\frac{ε}{2} \\ &amp;=ε \end{aligned}\]</span><br />
+<span class="math inline">\(\implies B_{ε} (x) \cap A \neq \emptyset\)</span><br />
+Contradicts to <span class="math inline">\(B_ε(x) \cap A = \emptyset\)</span></p>
 <blockquote>
 <p>PS2.Q4<br />
 Show <span class="math inline">\(\partial A = \bar{A}\backslash \text{int}(A)\)</span> for any set <span class="math inline">\(A\)</span></p>
@@ -229,9 +263,25 @@ Show <span class="math inline">\(\partial A = \bar{A}\backslash \text{int}(A)\)<
 <span class="math inline">\(x \in \bar{A}\backslash \text{int}(A) \iff \big(x \in \bar{A} \big) \land \big( x \notin \text{int}(A) \big)\)</span><br />
 And <span class="math inline">\(x \notin \text{int}(A) \iff B_ε(x)\not\subset A\)</span> for all <span class="math inline">\(ε&gt;0\)</span> <span class="math inline">\(\iff B_ε(x)\cap A^C \neq \emptyset\)</span><br />
 Therefore, <span class="math inline">\(x\in \bar{A}\backslash \text{int}(A) \iff x \in \partial A\)</span></p>
+<blockquote>
+<p>PS3.Q2<br />
+Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> be two sets, <span class="math inline">\(B\)</span> is open and <span class="math inline">\(B \subset A\)</span><br />
+Prove that <span class="math inline">\(B \subset \text{int}(A)\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in B\)</span><br />
+<span class="math inline">\(B\)</span> is open <span class="math inline">\(\implies \exists ε&gt;0\)</span> s.t. <span class="math inline">\(B_ε(x) \subset B \subset A\)</span><br />
+<span class="math inline">\(\implies x \in \text{int}(A)\)</span><br />
+<span class="math inline">\(\implies B \subset \text{int}(A)\)</span></p>
 </div>
 <div id="convex" class="section level3">
 <h3>Convex</h3>
+<blockquote>
+<p>PS3.Q5<br />
+Fix <span class="math inline">\(x\in \mathbb{R}^n\)</span> and <span class="math inline">\(ε &gt;0\)</span>, prove that <span class="math inline">\(B_ε(x)\)</span> is convex<br />
+Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, take <span class="math inline">\(λ\in (0,1)\)</span><br />
+<span class="math inline">\(\implies y= λx_1 + (1-λ)x_2\)</span> is a convex combination</p>
 </div>
 <div id="dense" class="section level3">
 <h3>Dense</h3>
