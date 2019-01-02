@@ -8,9 +8,6 @@
 
 <title>Notes on Mathematical Proofs - loikein</title>
 <meta property="og:title" content="Notes on Mathematical Proofs - loikein">
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
 
 <link rel="stylesheet" href="fonts.css" media="all">
 <link rel="stylesheet" href="main.css" media="all">
@@ -46,7 +43,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">12 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -59,13 +56,25 @@
       
 
 
+<p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
+<ul>
+<li>:) means “we want to show”</li>
+<li>FSOC means “for the sake of controdiction”</li>
+<li><p>s.t. means “such that”</p></li>
+<li>[x] PS1</li>
+<li>[x] PS2</li>
+<li>[x] PS3</li>
+<li>[ ] PS4</li>
+<li><p>[ ]</p></li>
+</ul>
 <div id="logic" class="section level2">
 <h2>Logic</h2>
 <div id="truth-table" class="section level3">
 <h3>Truth table</h3>
 <blockquote>
 <p>PS1.Q1<br />
-Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be two statements. Prove that <span class="math inline">\(\lnot (p \lor q) \iff \lnot p \land \lnot q\)</span>.</p>
+Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be two statements<br />
+Prove that <span class="math inline">\(\lnot (p \lor q) \iff \lnot p \land \lnot q\)</span>.</p>
 </blockquote>
 <table>
 <thead>
@@ -118,7 +127,8 @@ Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</
 <h3>Direct proof</h3>
 <blockquote>
 <p>PS2.Q2<br />
-Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> be three statements. Prove that if <span class="math inline">\(p \implies q\)</span> and <span class="math inline">\(q \implies r\)</span>, then <span class="math inline">\(p \implies r\)</span>.</p>
+Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> be three statements<br />
+Prove that if <span class="math inline">\(p \implies q\)</span> and <span class="math inline">\(q \implies r\)</span>, then <span class="math inline">\(p \implies r\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(p\)</span> is TRUE<br />
@@ -131,8 +141,425 @@ Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</spa
 </ol>
 </div>
 </div>
+<div id="set-collection-operation" class="section level2">
+<h2>Set Collection &amp; Operation</h2>
+<div id="proof-by-logic-twice-if-unlucky" class="section level3">
+<h3>Proof by Logic (twice if unlucky)</h3>
+<blockquote>
+<p>PS1.Q3<br />
+Let <span class="math inline">\(\{ A_i \}_{i \in Ι}\)</span> be any arbitrary collection of sets<br />
+Prove that <span class="math inline">\(\big( \cup_{i\in Ι} A_i \big)^c = \cap _{i\in Ι} A_i^c\)</span></p>
+</blockquote>
+<blockquote>
+<p>PS1.Q4<br />
+Let <span class="math inline">\(A, B \subset U\)</span> be two sets<br />
+Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(x\in (A\backslash B)^c\)</span><br />
+<span class="math inline">\(\iff x \notin A \backslash B\)</span><br />
+<span class="math inline">\(\iff \lnot \{ x \in A \land x\notin B\}\)</span><br />
+<span class="math inline">\(\iff \{ x \notin A \lor x\in B\}\)</span><br />
+<span class="math inline">\(\iff \{ x \in A^c \lor x\in B\}\)</span><br />
+<span class="math inline">\(\iff x \in A^c \cup B\)</span><br />
+<span class="math inline">\(\implies (A\backslash B)^c = A^c \cup B\)</span></p>
+<blockquote>
+<p>PS1.Q9<br />
+Let <span class="math inline">\(f: U \to U&#39;\)</span>, <span class="math inline">\(\{ B_i\}_{i \in Ι}\)</span> be a collection of subsets of <span class="math inline">\(U&#39;\)</span><br />
+Prove <span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) = \cap _{i\in Ι} f^{-1} \big( B_i \big)\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) \subset \cap _{i\in Ι} f^{-1} \big( B_i \big)\)</span><br />
+<span class="math inline">\(x \in f^{-1} \big( \cap _{i \in Ι} B_i \big)\)</span><br />
+<span class="math inline">\(\implies f(x) \in \cap _{i\in Ι} B_i\)</span><br />
+<span class="math inline">\(\implies f(x) \in B_i \forall i \in I\)</span><br />
+<span class="math inline">\(\implies x \in f ^{-1} \big( B_i \big) \forall i \in I\)</span><br />
+<span class="math inline">\(\implies x \in \cap f^{-1}\big( B_i \big)\)</span><br />
+</li>
+<li><span class="math inline">\(\cap _{i\in Ι} f^{-1} \big( B_i \big) \subset f^{-1} \big( \cap _{i\in Ι} B_i \big)\)</span><br />
+<span class="math inline">\(x \in \cap _{i \in Ι} f ^ {-1} \big( B_i \big)\)</span><br />
+<span class="math inline">\(\implies x\inf^{-1}\big( B_i \big) \forall i \in I\)</span><br />
+<span class="math inline">\(\implies f(x) \in B_i \forall i\in I\)</span><br />
+<span class="math inline">\(\implies f(x) \in \cap B_i\)</span><br />
+<span class="math inline">\(\implies x \inf^{-1}\big( \cap B_i \big)\)</span></li>
+</ol>
+</div>
+<div id="proof-by-b_" class="section level3">
+<h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
+<blockquote>
+<p>PS2.Q8, PS3.Q8<br />
+1. Show that the intersection of a finite collection of open sets is open<br />
+2. Show that the intersection of an arbitrary collection of open sets may not be open</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>for <span class="math inline">\(\{ A_n\} _{n\in N}\)</span> , <span class="math inline">\(A_n\)</span> is open <span class="math inline">\(\forall n\in N \implies \cap A_n\)</span> is open<br />
+Take arbitrary <span class="math inline">\(x\in \cap A_n\)</span>, <span class="math inline">\(\exists\)</span> sequence <span class="math inline">\(\{ε_n\}_n &gt; 0\)</span> s.t. <span class="math inline">\(B_{ε_n} (x) \subset A_n\)</span><br />
+Take <span class="math inline">\(\underline{ε} \equiv \min \{ ε_n\}\)</span><br />
+<span class="math inline">\(\implies B_{ \underline{ε}} (x) \subset B_{ε_n} (x) \subset A_n \forall n \in N\)</span><br />
+<span class="math inline">\(\implies B_{ \underline{ε}} (x) \subset \cap A_n \forall n \in N\)</span><br />
+<span class="math inline">\(x\in \cap A_n \implies B_{\underline{ε}} (x) \subset A_n \cap A_n\)</span><br />
+<span class="math inline">\(\implies \cap A_n\)</span> is open</li>
+</ol>
+</div>
+</div>
 <div id="set" class="section level2">
 <h2>Set</h2>
+<div id="close-open" class="section level3">
+<h3>Close / Open</h3>
+<ul>
+<li>Set <span class="math inline">\(A\)</span> is open if <span class="math inline">\(B_ε(x) \subset A\)</span> for all <span class="math inline">\(x \in A\)</span> and some <span class="math inline">\(ε &gt; 0\)</span></li>
+<li>Set <span class="math inline">\(A\)</span> is closed if <span class="math inline">\(A^C\)</span> is open</li>
+<li>Set <span class="math inline">\(B \subset A\)</span> is relatively open in <span class="math inline">\(A \iff\)</span> <span class="math inline">\(B = A \cap C\)</span> for some <span class="math inline">\(C\)</span> open in <span class="math inline">\(U\)</span></li>
+</ul>
+<blockquote>
+<p>PS3.Q1<br />
+Show that <span class="math inline">\([a,b] \subset \mathbb{R}\)</span> is closed for any <span class="math inline">\(a&lt;b \in \mathbb{R}\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(A \equiv [a,b]\)</span>, :) <span class="math inline">\(A^c = (-\infty, a) \cup (b, \infty)\)</span> is open<br />
+Take arbitrary <span class="math inline">\(x \in A\)</span><br />
+1. If <span class="math inline">\(x &lt; a\)</span><br />
+Let <span class="math inline">\(ε \equiv \frac{a-x}{2} &gt;0\)</span><br />
+<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&lt; x+ε \\ &amp;= \frac{x}{2} + \frac{a}{2} \\ &amp;&lt; a \end{aligned}\]</span><br />
+<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span><br />
+2. If <span class="math inline">\(x &gt; b\)</span><br />
+Let <span class="math inline">\(ε \equiv \frac{x-b}{2} &gt;0\)</span><br />
+<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&gt; x+ε \\ &amp;= \frac{x}{2} + \frac{b}{2} \\ &amp;&gt; b \end{aligned}\]</span><br />
+<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span><br />
+~<br />
+<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span> for all <span class="math inline">\(x\in A^c\)</span> and some <span class="math inline">\(ε &gt; 0\)</span><br />
+<span class="math inline">\(\implies A^C\)</span> is open, <span class="math inline">\(A\)</span> is closed</p>
+<blockquote>
+<p>PS4.Q1<br />
+Let <span class="math inline">\(A\equiv [0,1)\)</span><br />
+Prove that $B A $ is relatively open in <span class="math inline">\(A\)</span> only if it is open in <span class="math inline">\(\mathbb{R}\)</span> or it contains <span class="math inline">\(0\)</span></p>
+</blockquote>
+<p>Assume <span class="math inline">\(B\)</span> is indeed relatively open in <span class="math inline">\(A\)</span><br />
+Exists some open set <span class="math inline">\(C \subset \mathbb{R}\)</span> s.t. <span class="math inline">\(B = A \cap C\)</span><br />
+Assume <span class="math inline">\(0 \notin B\)</span><br />
+<span class="math inline">\(\implies 0 \notin C\)</span><br />
+<span class="math inline">\(\implies B = C \cap (0,1)\)</span><br />
+Since <span class="math inline">\(C\)</span> and <span class="math inline">\((0,1)\)</span> are open, <span class="math inline">\(B\)</span> is also open</p>
+</div>
+<div id="closure-interior-boundary" class="section level3">
+<h3>Closure &amp; Interior &amp; Boundary</h3>
+<ul>
+<li>Closure of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\bar { A } = \{ x \in U | B_ε (x)\cap A \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></li>
+<li>Interior of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\text{int}(A) = \{ x\in A | B_ε(x)\subset A\}\)</span> for some <span class="math inline">\(ε&gt;0\)</span></li>
+<li>Boundary of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\partial A = \{ x| B_ε(x)\cap A \neq \emptyset \land B_ε(x)\cap A^C \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></li>
+</ul>
+<blockquote>
+<p>PS3.Q3<br />
+Prove that <span class="math inline">\(\bar{A}\)</span> is closed</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x \in \bar{A}^C\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap A = \emptyset\)</span> for some <span class="math inline">\(ε &gt; 0\)</span><br />
+<!-- :) $B_ε(x) \cap \bar{A} = \emptyset$ for some $ε > 0$  -->
+FSOC assume <span class="math inline">\(\bar{A}\)</span> is open<br />
+<span class="math inline">\(\implies \exists y \in B_{ε/2} (x)\)</span> and <span class="math inline">\(y\in \bar{A}\)</span><br />
+<span class="math inline">\(\implies \exists z \in A\)</span> s.t. <span class="math inline">\(z \in B_{ε/2} (y)\)</span><br />
+<span class="math display">\[\begin{aligned} \implies  d(x,z) &amp;\leq d(x,y) + d(y,z)\\ &amp;&lt;\frac{ε}{2}+\frac{ε}{2} \\ &amp;=ε \end{aligned}\]</span><br />
+<span class="math inline">\(\implies B_{ε} (x) \cap A \neq \emptyset\)</span><br />
+Contradicts to <span class="math inline">\(B_ε(x) \cap A = \emptyset\)</span></p>
+<blockquote>
+<p>PS2.Q4<br />
+Show <span class="math inline">\(\partial A = \bar{A}\backslash \text{int}(A)\)</span> for any set <span class="math inline">\(A\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x \in A\)</span><br />
+<span class="math inline">\(x \in \bar{A}\backslash \text{int}(A) \iff \big(x \in \bar{A} \big) \land \big( x \notin \text{int}(A) \big)\)</span><br />
+And <span class="math inline">\(x \notin \text{int}(A) \iff B_ε(x)\not\subset A\)</span> for all <span class="math inline">\(ε&gt;0\)</span> <span class="math inline">\(\iff B_ε(x)\cap A^C \neq \emptyset\)</span><br />
+Therefore, <span class="math inline">\(x\in \bar{A}\backslash \text{int}(A) \iff x \in \partial A\)</span></p>
+<blockquote>
+<p>PS3.Q2<br />
+Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> be two sets, <span class="math inline">\(B\)</span> is open and <span class="math inline">\(B \subset A\)</span><br />
+Prove that <span class="math inline">\(B \subset \text{int}(A)\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in B\)</span><br />
+<span class="math inline">\(B\)</span> is open <span class="math inline">\(\implies \exists ε&gt;0\)</span> s.t. <span class="math inline">\(B_ε(x) \subset B \subset A\)</span><br />
+<span class="math inline">\(\implies x \in \text{int}(A)\)</span><br />
+<span class="math inline">\(\implies B \subset \text{int}(A)\)</span></p>
+</div>
+<div id="convex" class="section level3">
+<h3>Convex</h3>
+<blockquote>
+<p>PS3.Q5<br />
+Fix <span class="math inline">\(x\in \mathbb{R}^n\)</span> and <span class="math inline">\(ε &gt;0\)</span>, prove that <span class="math inline">\(B_ε(x)\)</span> is convex<br />
+Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, take <span class="math inline">\(λ\in (0,1)\)</span><br />
+<span class="math inline">\(\implies y= λx_1 + (1-λ)x_2\)</span> is a convex combination<br />
+<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\  &amp;= \| λx_1 + (1-λ)x_2 - x \| \\ &amp;= \| λx_1 + x_2 - λx_2 - x \| \\ &amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\ &amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\ &amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\ &amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\ &amp;&lt; λε + (1-λ) ε \\ &amp;= ε \end{aligned}\]</span><br />
+<span class="math inline">\(\implies y \in B_ε(x)\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\)</span> is convex</p>
+<blockquote>
+<p>PS4.Q6<br />
+Let <span class="math inline">\(A, B \in \mathbb{R}^n\)</span> be two convex sets<br />
+Let <span class="math inline">\(C \equiv \{ z\in \mathbb{R} | z=x+y, \ x\in A, \ y\in B \}\)</span><br />
+Prove that <span class="math inline">\(C\)</span> is convex</p>
+</blockquote>
+<p>Take some <span class="math inline">\(x_1, x_2 \in A\)</span> and <span class="math inline">\(y_1,y_2 \in B\)</span><br />
+Take <span class="math inline">\(z_1, z_2 \in C\)</span> s.t. <span class="math inline">\(z_1 = x_1+ y_1\)</span>, <span class="math inline">\(z_2 = x_2+ y_2\)</span><br />
+Let <span class="math display">\[\begin{aligned} z_3 &amp;\equiv λz_1 + (1-λ)z_2 \\ &amp;= λ(x_1+y_1) + (1-λ)(x_2+y_2) \\ &amp;= λx_1+(1-λ)x_2 + λy_1 + (1-λ)y_2 \end{aligned}\]</span><br />
+Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are convex<br />
+<span class="math inline">\(\implies λx_1+(1-λ)x_2 \in A\)</span> and <span class="math inline">\(λy_1+(1-λ)y_2 \in B\)</span><br />
+<span class="math inline">\(\implies z_3 \in C\)</span><br />
+<span class="math inline">\(\implies C\)</span> is convex</p>
+</div>
+<div id="maximum-supremum" class="section level3">
+<h3>Maximum &amp; Supremum</h3>
+<ul>
+<li><span class="math inline">\(x&#39;\)</span> is a upper bound of set <span class="math inline">\(A\)</span> if <span class="math inline">\(x&#39; \geq x\)</span> for all <span class="math inline">\(x \in A\)</span> (not unique)</li>
+<li>Maximum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(x \equiv \max(A)\)</span>, if <span class="math inline">\(x \in A\)</span> and x is an upper bound of <span class="math inline">\(A\)</span> (only exists if <span class="math inline">\(A\)</span> is finite)</li>
+<li>Supremum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\sup(A)\)</span>, is the lowest upper bound of <span class="math inline">\(A\)</span> (always exists)</li>
+</ul>
+<blockquote>
+<p>PS3.Q7<br />
+Show that for any bounded and non-empty set <span class="math inline">\(A\subset \mathbb{R}\)</span>, <span class="math inline">\(B_ε \big( \sup(A) \big) \cap A \neq \emptyset\)</span> for all <span class="math inline">\(ε &gt;0\)</span></p>
+</blockquote>
+<p><span class="math inline">\(A\)</span> is bounded <span class="math inline">\(\implies \sup(A) \in \mathbb{R}\)</span><br />
+Let <span class="math inline">\(\bar{x} \equiv \sup(A)\)</span>, <span class="math inline">\(\bar{x} \geq \forall x\)</span><br />
+FSOC assume <span class="math inline">\(\exists ε&lt;0\)</span> s.t. <span class="math inline">\(B_ε (\bar{x}) \cap A = \emptyset\)</span><br />
+<span class="math inline">\(\implies B_ε(\bar{x}) = (\bar{x}-ε,\bar{x}+ε)\)</span><br />
+<span class="math inline">\(\implies\)</span> for all <span class="math inline">\(x\in A\)</span>, <span class="math inline">\(x\leq \bar{x} - ε\)</span><br />
+Let <span class="math inline">\(x&#39;=\bar{x}-\frac{ε}{2}\)</span><br />
+<span class="math inline">\(\implies x\leq \bar{x} - ε &lt; x&#39;\)</span> for all <span class="math inline">\(x\in A\)</span><br />
+<span class="math inline">\(\implies x&#39;\)</span> is an upper bound of <span class="math inline">\(A\)</span><br />
+But <span class="math inline">\(x&#39; &lt; \bar{x}\)</span> contradicts that <span class="math inline">\(\bar{x}\)</span> is supremum</p>
+<blockquote>
+<p>PS3.Q6<br />
+Show that if <span class="math inline">\(A\subset \mathbb{R}\)</span> is bounded and <span class="math inline">\(A \neq \emptyset\)</span>, then <span class="math inline">\(\sup (A) = \max(\bar{A})\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Show <span class="math inline">\(\sup (A) \in \bar{A}\)</span> (see last question)<br />
+</li>
+<li>Show <span class="math inline">\(\sup (A)\)</span> is an upper bound of <span class="math inline">\(\bar{A}\)</span><br />
+FSOC assume <span class="math inline">\(\exists x\in \bar{A}\)</span> s.t. <span class="math inline">\(x&gt;\sup(A)\)</span>, let <span class="math inline">\(ε\equiv \frac{x-\sup(A)}{2}\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap A = \emptyset\)</span><br />
+Contradicts to <span class="math inline">\(x\in \bar{A}\)</span></li>
+</ol>
+</div>
+<div id="dense" class="section level3">
+<h3>Dense</h3>
+<ul>
+<li>Set <span class="math inline">\(A\)</span> is dense in <span class="math inline">\(U\)</span> if <span class="math inline">\(A \cap B_ε(x)\neq \emptyset \forall x\in U\)</span>, <span class="math inline">\(\forall ε&gt;0\)</span></li>
+</ul>
+<blockquote>
+<p>PS3.Q9<br />
+Show that <span class="math inline">\(\mathbb{Q}\)</span> is dense in <span class="math inline">\(\mathbb{R}\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in\mathbb{R}\)</span>, :) <span class="math inline">\(B_ε(x) \cap \mathbb{Q} \neq \emptyset\)</span><br />
+1. <span class="math inline">\(x\in \mathbb{Q}\)</span> (trivial)<br />
+2. <span class="math inline">\(x\notin \mathbb{Q}\)</span><br />
+Take arbitrary <span class="math inline">\(ε &gt; 0\)</span><br />
+Take <span class="math inline">\(N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(N&gt; \frac{1}{ε}\)</span><br />
+<span class="math inline">\(\implies ε&gt; \frac{1}{N}\)</span><br />
+Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(\frac{n}{N}\leq x - ε\)</span> and <span class="math inline">\(x-ε&lt; \frac{n+1}{N}\)</span><br />
+<span class="math display">\[\begin{aligned} \implies x-ε &lt; \frac{n+1}{N} &amp;\leq x-ε + \frac{1}{N} \\ &amp;&lt; x-ε+ε \\&amp;=x\end{aligned}\]</span><br />
+<span class="math inline">\(\implies \frac{n+1}{N} \in B_ε(x)\)</span><br />
+<span class="math inline">\(\frac{n+1}{N} \in \mathbb{Q} \implies B_ε(x) \cap \mathbb{Q} \neq \emptyset\)</span></p>
+</div>
+</div>
+<div id="relation" class="section level2">
+<h2>Relation</h2>
+<div id="complete-order" class="section level3">
+<h3>Complete Order</h3>
+<blockquote>
+<p>PS1.Q5 (the lexicographic order)<br />
+Let <span class="math inline">\(R\)</span> be the relation on <span class="math inline">\(\mathbb{R}^2\)</span> given by: for any <span class="math inline">\((x_1,y_1) ,\  (x_2, y_2) \in \mathbb{R}^2\)</span>, <span class="math inline">\((x_1,y_1) R (x_2, y_2) \iff x_1 &gt; x_2\)</span> or <span class="math inline">\(x_1 = x_2 \land y_1 \geq y_2\)</span><br />
+Prove that <span class="math inline">\(R\)</span> is a complete order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+:) <span class="math inline">\((x_1,y_1)R(x_1,y_1)\)</span><br />
+</li>
+<li>Transitive<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_3, y_3) \implies (x_1,y_1) R(x_3, y_3)\)</span></li>
+<li>Anti-Symmetric<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_1, y_1) \iff (x_1,y_1) = (x_2, y_2)\)</span><br />
+</li>
+<li>Complete<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \lor (x_2,y_2) R (x_1, y_1) \forall x, y\)</span></li>
+</ol>
+</div>
+<div id="partial-order" class="section level3">
+<h3>Partial Order</h3>
+<blockquote>
+<p>PS1.Q6<br />
+Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two partial orders in some space <span class="math inline">\(U\)</span><br />
+Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
+Prove that <span class="math inline">\(R_3\)</span> is a partial order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+</li>
+<li>Transitive<br />
+</li>
+<li>Anti-Symmetry</li>
+</ol>
+</div>
+</div>
+<div id="function" class="section level2">
+<h2>Function</h2>
+<div id="range-image" class="section level3">
+<h3>Range / Image</h3>
+<blockquote>
+<p>PS2.Q3<br />
+Let <span class="math inline">\(f:U\to U&#39;\)</span>, <span class="math inline">\(A \subset U\)</span> and <span class="math inline">\(B \subset U&#39;\)</span><br />
+Prove that <span class="math inline">\((f|_A)^{-1} (B) = f^{-1}(B) \cap A\)</span></p>
+</blockquote>
+<p><span class="math inline">\(x \in f^{-1} (B) \cap A\)</span><br />
+<span class="math inline">\(\iff x\in A\)</span> and <span class="math inline">\(f(x) \in B\)</span><br />
+<span class="math inline">\(\iff (f|_A)(x ) \in B\)</span><br />
+<span class="math inline">\(\iff x\in (f|_A)^{-1} (B)\)</span></p>
+<blockquote>
+<p>PS2.Q5<br />
+Let <span class="math inline">\(A \subset U\)</span> and <span class="math inline">\(f: U \to U&#39;\)</span><br />
+Show that <span class="math inline">\(f^{-1} \big( f(A) \big) \supset A\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(A \neq \emptyset\)</span>
+Take arbitary <span class="math inline">\(x\in A \subset U\)</span><br />
+<span class="math inline">\(\implies f(x) \subset f(A)\)</span><br />
+<span class="math inline">\(\implies x \in f^{-1} \big( f(x) \big) \subset f^{-1} \big( f(A) \big)\)</span><br />
+<span class="math inline">\(\implies x \in f^{-1}\big( f(A) \big)\)</span><br />
+</li>
+<li><span class="math inline">\(A = \emptyset\)</span><br />
+<span class="math inline">\(\implies f(A)=\emptyset\)</span><br />
+<span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset = A\)</span></li>
+</ol>
+</div>
+<div id="injection-surjection" class="section level3">
+<h3>Injection &amp; Surjection</h3>
+<blockquote>
+<p>PS2.Q1<br />
+Let <span class="math inline">\(f(x) = x^2: \mathbb{R} \to \mathbb{R}_+\)</span><br />
+Prove that it is not injective<br />
+Is it surjective?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Injective<br />
+:) <span class="math inline">\(x_1 \neq x_2 \implies f(x_1) \neq f(x_2)\)</span><br />
+</li>
+<li>Surjective<br />
+:) <span class="math inline">\(x\in f( \text{domain}) \iff x \in \text{range}\)</span></li>
+</ol>
+</div>
+<div id="composite-function" class="section level3">
+<h3>Composite Function</h3>
+</div>
+<div id="supremum" class="section level3">
+<h3>Supremum</h3>
+<blockquote>
+<p>PS2.Q2<br />
+Let <span class="math inline">\(f,g:A\to \mathbb{R}\)</span> be two functions with a finite supremum in some set <span class="math inline">\(A\)</span><br />
+Show that <span class="math inline">\(\sup_{x\in A} \big( f(x) +g(x) \big) \leq \sup_{x\in A} f(x) + \sup_{x\in A} g(x)\)</span></p>
+</blockquote>
+<p>Denote <span class="math inline">\(h \equiv f+g\)</span>, <span class="math inline">\(\bar{f} \equiv \sup\big(f(x)\big)\)</span>, <span class="math inline">\(\bar{g} \equiv \sup\big(g(x)\big)\)</span>, <span class="math inline">\(\bar{h} \equiv \sup\big(h(x)\big)\)</span></p>
+<div id="direct-proof-1" class="section level4">
+<h4>Direct Proof</h4>
+<p><span class="math inline">\(h(x) = f(x) + g(x) \leq \bar{f }+\bar{g}\)</span><br />
+<span class="math inline">\(\implies \bar{f} + \bar{g}\)</span> is an upper bound of <span class="math inline">\(h(x)\)</span><br />
+Since supremum is the least upper bound<br />
+<span class="math inline">\(\implies\bar{h} \leq \bar{f} + \bar{g}\)</span></p>
+</div>
+<div id="proof-by-contradiction" class="section level4">
+<h4>Proof by Contradiction</h4>
+<p>FSOC assume <span class="math inline">\(\exists \bar{h} &gt; \bar{f }+\bar{g}\)</span><br />
+<span class="math inline">\(\implies \exists \bar{x}\)</span> s.t. <span class="math inline">\((f+g)(\bar{x}) &gt; \bar{f} + \bar{g}\)</span><br />
+<span class="math inline">\(\implies f(\bar{x}) &gt; \bar{f} \lor g(\bar{x}) &gt; \bar{g}\)</span><br />
+Contradicts to supremum</p>
+</div>
+</div>
+</div>
+<div id="distance" class="section level2">
+<h2>Distance</h2>
+<blockquote>
+<p>PS2.Q6<br />
+Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance in <span class="math inline">\(\mathbb{R}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative<br />
+:) <span class="math inline">\(d(x,y) \geq 0\)</span></li>
+<li>Identity of Indiscernibles<br />
+:) <span class="math inline">\(d(x,y) = 0 \iff x = y\)</span><br />
+</li>
+<li>Symmetric<br />
+:) <span class="math inline">\(d(x,y) = d(y,x)\)</span></li>
+<li>Triangle Inequality<br />
+:) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
+</ol>
+</div>
+<div id="sequence" class="section level2">
+<h2>Sequence</h2>
+<div id="un-bounded" class="section level3">
+<h3>(Un-)bounded</h3>
+<blockquote>
+<p>PS4.Q2
+Prove that if a real sequence <span class="math inline">\((x_n)_n\)</span> is unbounded, then it contains a subsequence that tends either to <span class="math inline">\(\infty\)</span> or to <span class="math inline">\(-\infty\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\((x_n)_n\)</span> be unbounded above<br />
+:) construct subsequence of <span class="math inline">\((x_n)_n \to \infty \iff \forall M&gt;0\)</span>, <span class="math inline">\(\exists N\in \mathbb{N}\)</span> s.t. <span class="math inline">\(x_N &gt;M\)</span><br />
+Let <span class="math inline">\(\{ M_n\}_n =n\)</span><br />
+Define <span class="math inline">\((z_n)_n \equiv (x_{k_n})_n\)</span> as subsequence of <span class="math inline">\((x_n)_n\)</span> s.t.:<br />
+1. For <span class="math inline">\(n=1\)</span>, let <span class="math inline">\(k_1 = \min \{ m&gt;0| x_m &gt;M_1 \}\)</span><br />
+2. For <span class="math inline">\(n=2\)</span>, let <span class="math inline">\(k_2 = \min \{ m&gt;k_1| x_m &gt;M_2 \}\)</span><br />
+3. For <span class="math inline">\(n &gt; 2\)</span>, let <span class="math inline">\(k_n = \min \{ m&gt;k_{n-1}| x_m &gt;M_n \}\)</span><br />
+Since <span class="math inline">\((k_n)_n\)</span> is a subset of <span class="math inline">\(\mathbb{N}\)</span>, it is strictly increasing and well-defined<br />
+<span class="math inline">\(\implies \forall M&gt;0\)</span>, <span class="math inline">\(\exists M_n&gt;M\)</span> s.t. <span class="math inline">\(z_n &gt; M_n &gt; N\)</span> for all <span class="math inline">\(n &gt; N\)</span><br />
+<span class="math inline">\(\implies (z_n)_n \to \infty\)</span></p>
+</div>
+<div id="convergence" class="section level3">
+<h3>Convergence</h3>
+<ul>
+<li>Sequence <span class="math inline">\((x_n)_n\)</span> converges to <span class="math inline">\(x&#39;\)</span> if <span class="math inline">\(\exists N_ε\)</span> s.t. <span class="math inline">\(d(x_n, x&#39;) &lt; ε\)</span>, for all <span class="math inline">\(ε &gt; 0\)</span> and for all <span class="math inline">\(n &gt; N_ε\)</span></li>
+<li>Limit of sequence <span class="math inline">\((x_n)_n\)</span>, denoted by <span class="math inline">\(x&#39; \equiv \lim_{n\to\infty} x_n\)</span> if <span class="math inline">\((x_n)_n \to x&#39;\)</span></li>
+<li><span class="math inline">\(x&#39;\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n\)</span> if <span class="math inline">\(\exists N&#39;&gt;N\)</span> s.t. <span class="math inline">\(d(x_{N&#39;}, x )&lt;ε\)</span> for all <span class="math inline">\(ε&gt;0\)</span> and <span class="math inline">\(N \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\(x&#39;\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x&#39;\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></li>
+</ul>
+<blockquote>
+<p>PS4.Q4<br />
+Let <span class="math inline">\((x_n)_{n\in \mathbb{N} } \to x^*\)</span> and <span class="math inline">\((y_n)_{n\in \mathbb{N} } \to y^*\)</span><br />
+Show that if <span class="math inline">\(x_n \geq y_n\)</span> for all <span class="math inline">\(n\)</span>, then <span class="math inline">\(x^* \geq y^*\)</span></p>
+</blockquote>
+<p>FSOC assume <span class="math inline">\(x^* &lt; y^*\)</span><br />
+Let <span class="math inline">\(ε \equiv \frac{y^*-x^*}{2}\)</span><br />
+<span class="math inline">\(\exists N_x\)</span> and <span class="math inline">\(N_y\)</span> s.t. <span class="math inline">\(| x_n - x^*| &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_x\)</span>,<br />
+~~~~~~~~~~~~~~<span class="math inline">\(| y_n - y^*| &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_y\)</span><br />
+Let <span class="math inline">\(N\equiv \max \{ N_x, N_y \}\)</span><br />
+<span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
+<span class="math display">\[\begin{aligned}x_n - y_n &amp;= x_n - x^* + x^* - y^* + y^* - y_n \\ &amp;\leq | x_n - x^*| + x^* - y^* + | y_n - y^*| \\ &amp;&lt; x^* - y^* + 2ε \\ &amp;=0 \end{aligned}\]</span><br />
+<span class="math inline">\(\implies x_n &lt; y_n\)</span> contradiction</p>
+<blockquote>
+<p>PS4.Q3<br />
+Prove that <span class="math inline">\(x\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Suppose <span class="math inline">\(x\)</span> is a cluster point of <span class="math inline">\((x_n)_n\)</span><br />
+:) construct subsequence of <span class="math inline">\((x_n)_n \to x\)</span><br />
+Define <span class="math inline">\((ε_n)_n\)</span> as:
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(ε_1=1\)</span></li>
+<li><span class="math inline">\(ε_{n+1}=\frac{ε_n}{2}=\frac{1}{2^{n-1}}\)</span></li>
+</ol>
+And define <span class="math inline">\((k_n)_n\)</span> as:
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(k_1 = \min \{ m&gt;0| x_m \in B_{ε_1}(x) \}\)</span></li>
+<li><span class="math inline">\(k_2 = \min \{ m&gt;k_1| x_m \in B_{ε_2}(x) \}\)</span></li>
+<li><span class="math inline">\(k_n = \min \{ m&gt;k_{n-1}| x_m \in B_{ε_n}(x) \}\)</span></li>
+</ol>
+Since <span class="math inline">\((k_n)_n\)</span> is strictly increasing and <span class="math inline">\((ε_n)_n\)</span> is strictly decreasing<br />
+<span class="math inline">\(\implies \exists ε_n&lt;ε\)</span> s.t. <span class="math inline">\(| x_{k_n} - x | &lt; ε_n &lt; ε\)</span>, for all <span class="math inline">\(ε &gt; 0\)</span> and <span class="math inline">\(n &gt; N_ε\)</span><br />
+<span class="math inline">\(\implies x_{k_n} \to x\)</span></li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Suppose <span class="math inline">\(x\)</span> is the limit of subsequence <span class="math inline">\((x_{k_n})_n\)</span><br />
+Fix some <span class="math inline">\(ε&gt;0\)</span><br />
+FSOC assume <span class="math inline">\(B_ε(x) \cap \{x_n\}_{n&gt;N} = \emptyset\)</span> for some <span class="math inline">\(N \in \mathbb{N}\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap \{x_{k_n}\}_{n&gt;N} = \emptyset\)</span><br />
+<span class="math inline">\(\implies \exists N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(| x_{k_n} - x | \geq ε\)</span> for all <span class="math inline">\(n\geq N\)</span><br />
+Contradicts to <span class="math inline">\(x\)</span> is the limit of <span class="math inline">\((x_{k_n})_n\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap \{x_n\}_{n&gt;N} \neq\emptyset\)</span> for all <span class="math inline">\(N \in \mathbb{N}\)</span><br />
+<span class="math inline">\(\implies x\)</span> is a cluster point of <span class="math inline">\((x_n)_n\)</span></li>
+</ol>
+</div>
 </div>
 
     </div>
@@ -158,8 +585,8 @@ Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</spa
     
 
     
-<script src="/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="../js/math-code.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
     

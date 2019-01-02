@@ -54,7 +54,7 @@
 
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">13 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -68,16 +68,16 @@
 
 
 <p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
-<p>:) means “we want to show”<br />
-FSOC means “for the sake of controdiction”</p>
 <ul>
-<li>[x] PS1<br />
-</li>
-<li>[x] PS2<br />
-</li>
-<li>[ ] PS3<br />
-</li>
-<li>[ ]</li>
+<li>:) means “we want to show”</li>
+<li>FSOC means “for the sake of controdiction”</li>
+<li><p>s.t. means “such that”</p></li>
+<li>[x] PS1</li>
+<li>[x] PS2</li>
+<li>[x] PS3</li>
+<li>[x] PS4</li>
+<li>[ ] PS5</li>
+<li><p>[ ]</p></li>
 </ul>
 <div id="logic" class="section level2">
 <h2>Logic</h2>
@@ -198,7 +198,7 @@ Prove <span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) = \cap 
 <div id="proof-by-b_" class="section level3">
 <h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
 <blockquote>
-<p>PS2.Q8<br />
+<p>PS2.Q8, PS3.Q8<br />
 1. Show that the intersection of a finite collection of open sets is open<br />
 2. Show that the intersection of an arbitrary collection of open sets may not be open</p>
 </blockquote>
@@ -217,8 +217,11 @@ Take <span class="math inline">\(\underline{ε} \equiv \min \{ ε_n\}\)</span><b
 <h2>Set</h2>
 <div id="close-open" class="section level3">
 <h3>Close / Open</h3>
-<p>Set <span class="math inline">\(A\)</span> is open if <span class="math inline">\(B_ε(x) \subset A\)</span> for all <span class="math inline">\(x \in A\)</span> and some <span class="math inline">\(ε &gt; 0\)</span></p>
-<p>Set <span class="math inline">\(A\)</span> is closed if <span class="math inline">\(A^C\)</span> is open</p>
+<ul>
+<li>Set <span class="math inline">\(A\)</span> is open if <span class="math inline">\(B_ε(x) \subset A\)</span> for all <span class="math inline">\(x \in A\)</span> and some <span class="math inline">\(ε &gt; 0\)</span></li>
+<li>Set <span class="math inline">\(A\)</span> is closed if <span class="math inline">\(A^C\)</span> is open</li>
+<li>Set <span class="math inline">\(B \subset A\)</span> is relatively open in <span class="math inline">\(A \iff\)</span> <span class="math inline">\(B = A \cap C\)</span> for some <span class="math inline">\(C\)</span> open in <span class="math inline">\(U\)</span></li>
+</ul>
 <blockquote>
 <p>PS3.Q1<br />
 Show that <span class="math inline">\([a,b] \subset \mathbb{R}\)</span> is closed for any <span class="math inline">\(a&lt;b \in \mathbb{R}\)</span></p>
@@ -236,12 +239,25 @@ Let <span class="math inline">\(ε \equiv \frac{x-b}{2} &gt;0\)</span><br />
 ~<br />
 <span class="math inline">\(\implies B_ε(x) \subset A^c\)</span> for all <span class="math inline">\(x\in A^c\)</span> and some <span class="math inline">\(ε &gt; 0\)</span><br />
 <span class="math inline">\(\implies A^C\)</span> is open, <span class="math inline">\(A\)</span> is closed</p>
+<blockquote>
+<p>PS4.Q1<br />
+Let <span class="math inline">\(A\equiv [0,1)\)</span><br />
+Prove that $B A $ is relatively open in <span class="math inline">\(A\)</span> only if it is open in <span class="math inline">\(\mathbb{R}\)</span> or it contains <span class="math inline">\(0\)</span></p>
+</blockquote>
+<p>Assume <span class="math inline">\(B\)</span> is indeed relatively open in <span class="math inline">\(A\)</span><br />
+Exists some open set <span class="math inline">\(C \subset \mathbb{R}\)</span> s.t. <span class="math inline">\(B = A \cap C\)</span><br />
+Assume <span class="math inline">\(0 \notin B\)</span><br />
+<span class="math inline">\(\implies 0 \notin C\)</span><br />
+<span class="math inline">\(\implies B = C \cap (0,1)\)</span><br />
+Since <span class="math inline">\(C\)</span> and <span class="math inline">\((0,1)\)</span> are open, <span class="math inline">\(B\)</span> is also open</p>
 </div>
 <div id="closure-interior-boundary" class="section level3">
 <h3>Closure &amp; Interior &amp; Boundary</h3>
-<p>Closure of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\bar { A } = \{ x \in U | B_ε (x)\cap A \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></p>
-<p>Interior of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\text{int}(A) = \{ x\in A | B_ε(x)\subset A\}\)</span> for some <span class="math inline">\(ε&gt;0\)</span></p>
-<p>Boundary of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\partial A = \{ x| B_ε(x)\cap A \neq \emptyset \land B_ε(x)\cap A^C \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></p>
+<ul>
+<li>Closure of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\bar { A } = \{ x \in U | B_ε (x)\cap A \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></li>
+<li>Interior of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\text{int}(A) = \{ x\in A | B_ε(x)\subset A\}\)</span> for some <span class="math inline">\(ε&gt;0\)</span></li>
+<li>Boundary of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\partial A = \{ x| B_ε(x)\cap A \neq \emptyset \land B_ε(x)\cap A^C \neq \emptyset\}\)</span> for all <span class="math inline">\(ε&gt;0\)</span></li>
+</ul>
 <blockquote>
 <p>PS3.Q3<br />
 Prove that <span class="math inline">\(\bar{A}\)</span> is closed</p>
@@ -281,11 +297,62 @@ Fix <span class="math inline">\(x\in \mathbb{R}^n\)</span> and <span class="math
 Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span></p>
 </blockquote>
 <p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, take <span class="math inline">\(λ\in (0,1)\)</span><br />
-<span class="math inline">\(\implies y= λx_1 + (1-λ)x_2\)</span> is a convex combination</p>
+<span class="math inline">\(\implies y= λx_1 + (1-λ)x_2\)</span> is a convex combination<br />
+<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\  &amp;= \| λx_1 + (1-λ)x_2 - x \| \\ &amp;= \| λx_1 + x_2 - λx_2 - x \| \\ &amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\ &amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\ &amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\ &amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\ &amp;&lt; λε + (1-λ) ε \\ &amp;= ε \end{aligned}\]</span>
+<span class="math inline">\(\implies y \in B_ε(x)\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\)</span> is convex</p>
+<blockquote>
+<p>PS4.Q6<br />
+Let <span class="math inline">\(A, B \in \mathbb{R}^n\)</span> be two convex sets<br />
+Let <span class="math inline">\(C \equiv \{ z\in \mathbb{R} | z=x+y, \ x\in A, \ y\in B \}\)</span><br />
+Prove that <span class="math inline">\(C\)</span> is convex</p>
+</blockquote>
+<p>Take some <span class="math inline">\(x_1, x_2 \in A\)</span> and <span class="math inline">\(y_1,y_2 \in B\)</span><br />
+Take <span class="math inline">\(z_1, z_2 \in C\)</span> s.t. <span class="math inline">\(z_1 = x_1+ y_1\)</span>, <span class="math inline">\(z_2 = x_2+ y_2\)</span><br />
+Let <span class="math display">\[\begin{aligned} z_3 &amp;\equiv λz_1 + (1-λ)z_2 \\ &amp;= λ(x_1+y_1) + (1-λ)(x_2+y_2) \\ &amp;= λx_1+(1-λ)x_2 + λy_1 + (1-λ)y_2 \end{aligned}\]</span><br />
+Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are convex<br />
+<span class="math inline">\(\implies λx_1+(1-λ)x_2 \in A\)</span> and <span class="math inline">\(λy_1+(1-λ)y_2 \in B\)</span><br />
+<span class="math inline">\(\implies z_3 \in C\)</span><br />
+<span class="math inline">\(\implies C\)</span> is convex</p>
+</div>
+<div id="maximum-supremum" class="section level3">
+<h3>Maximum &amp; Supremum</h3>
+<ul>
+<li><span class="math inline">\(x&#39;\)</span> is a upper bound of set <span class="math inline">\(A\)</span> if <span class="math inline">\(x&#39; \geq x\)</span> for all <span class="math inline">\(x \in A\)</span> (not unique)</li>
+<li>Maximum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(x \equiv \max(A)\)</span>, if <span class="math inline">\(x \in A\)</span> and x is an upper bound of <span class="math inline">\(A\)</span> (only exists if <span class="math inline">\(A\)</span> is finite)</li>
+<li>Supremum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\sup(A)\)</span>, is the lowest upper bound of <span class="math inline">\(A\)</span> (always exists)</li>
+</ul>
+<blockquote>
+<p>PS3.Q7<br />
+Show that for any bounded and non-empty set <span class="math inline">\(A\subset \mathbb{R}\)</span>, <span class="math inline">\(B_ε \big( \sup(A) \big) \cap A \neq \emptyset\)</span> for all <span class="math inline">\(ε &gt;0\)</span></p>
+</blockquote>
+<p><span class="math inline">\(A\)</span> is bounded <span class="math inline">\(\implies \sup(A) \in \mathbb{R}\)</span><br />
+Let <span class="math inline">\(\bar{x} \equiv \sup(A)\)</span>, <span class="math inline">\(\bar{x} \geq \forall x\)</span><br />
+FSOC assume <span class="math inline">\(\exists ε&lt;0\)</span> s.t. <span class="math inline">\(B_ε (\bar{x}) \cap A = \emptyset\)</span><br />
+<span class="math inline">\(\implies B_ε(\bar{x}) = (\bar{x}-ε,\bar{x}+ε)\)</span><br />
+<span class="math inline">\(\implies\)</span> for all <span class="math inline">\(x\in A\)</span>, <span class="math inline">\(x\leq \bar{x} - ε\)</span><br />
+Let <span class="math inline">\(x&#39;=\bar{x}-\frac{ε}{2}\)</span><br />
+<span class="math inline">\(\implies x\leq \bar{x} - ε &lt; x&#39;\)</span> for all <span class="math inline">\(x\in A\)</span><br />
+<span class="math inline">\(\implies x&#39;\)</span> is an upper bound of <span class="math inline">\(A\)</span><br />
+But <span class="math inline">\(x&#39; &lt; \bar{x}\)</span> contradicts that <span class="math inline">\(\bar{x}\)</span> is supremum</p>
+<blockquote>
+<p>PS3.Q6<br />
+Show that if <span class="math inline">\(A\subset \mathbb{R}\)</span> is bounded and <span class="math inline">\(A \neq \emptyset\)</span>, then <span class="math inline">\(\sup (A) = \max(\bar{A})\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Show <span class="math inline">\(\sup (A) \in \bar{A}\)</span> (see last question)<br />
+</li>
+<li>Show <span class="math inline">\(\sup (A)\)</span> is an upper bound of <span class="math inline">\(\bar{A}\)</span><br />
+FSOC assume <span class="math inline">\(\exists x\in \bar{A}\)</span> s.t. <span class="math inline">\(x&gt;\sup(A)\)</span>, let <span class="math inline">\(ε\equiv \frac{x-\sup(A)}{2}\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap A = \emptyset\)</span><br />
+Contradicts to <span class="math inline">\(x\in \bar{A}\)</span></li>
+</ol>
 </div>
 <div id="dense" class="section level3">
 <h3>Dense</h3>
-<p>Set <span class="math inline">\(A\)</span> is dense in <span class="math inline">\(U\)</span> if <span class="math inline">\(A \cap B_ε(x)\neq \emptyset \forall x\in U\)</span>, <span class="math inline">\(\forall ε&gt;0\)</span></p>
+<ul>
+<li>Set <span class="math inline">\(A\)</span> is dense in <span class="math inline">\(U\)</span> if <span class="math inline">\(A \cap B_ε(x)\neq \emptyset \forall x\in U\)</span>, <span class="math inline">\(\forall ε&gt;0\)</span></li>
+</ul>
 <blockquote>
 <p>PS3.Q9<br />
 Show that <span class="math inline">\(\mathbb{Q}\)</span> is dense in <span class="math inline">\(\mathbb{R}\)</span></p>
@@ -370,6 +437,10 @@ Take arbitary <span class="math inline">\(x\in A \subset U\)</span><br />
 <span class="math inline">\(\implies f(A)=\emptyset\)</span><br />
 <span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset = A\)</span></li>
 </ol>
+<blockquote>
+<p>PS5. Q1<br />
+Prove that if <span class="math inline">\(f: U \to U&#39;\)</span> and <span class="math inline">\(A \subset U\)</span>, then <span class="math inline">\(f^{-1}(f(A)) \supset A\)</span></p>
+</blockquote>
 </div>
 <div id="injection-surjection" class="section level3">
 <h3>Injection &amp; Surjection</h3>
@@ -386,6 +457,16 @@ Is it surjective?</p>
 <li>Surjective<br />
 :) <span class="math inline">\(x\in f( \text{domain}) \iff x \in \text{range}\)</span></li>
 </ol>
+<blockquote>
+<p>PS4.Q8<br />
+Prove that <span class="math inline">\(\mathbb{Z}\)</span> is countable by explicitly finding a bijection between <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{N}\)</span></p>
+</blockquote>
+<p>Define <span class="math inline">\(f: \mathbb{Z} \to \mathbb{N}\)</span> as<br />
+<span class="math display">\[f(x) \equiv \begin{cases} 2x &amp; \text{if } x&gt;0 \\ -2x+1 &amp; \text{if } x\leq 0 \end{cases}\]</span><br />
+1. Injective<br />
+2. Surjective<br />
+3. Find <span class="math inline">\(f^{-1}\)</span><br />
+<span class="math display">\[f^{-1}(y) \equiv \begin{cases} \frac{y}{2} &amp; \text{if y is even}\\ -\frac{y-1}{2} &amp; \text{if y is odd or } 0 \end{cases}\]</span></p>
 </div>
 <div id="composite-function" class="section level3">
 <h3>Composite Function</h3>
@@ -398,6 +479,19 @@ Let <span class="math inline">\(f,g:A\to \mathbb{R}\)</span> be two functions wi
 Show that <span class="math inline">\(\sup_{x\in A} \big( f(x) +g(x) \big) \leq \sup_{x\in A} f(x) + \sup_{x\in A} g(x)\)</span></p>
 </blockquote>
 <p>Denote <span class="math inline">\(h \equiv f+g\)</span>, <span class="math inline">\(\bar{f} \equiv \sup\big(f(x)\big)\)</span>, <span class="math inline">\(\bar{g} \equiv \sup\big(g(x)\big)\)</span>, <span class="math inline">\(\bar{h} \equiv \sup\big(h(x)\big)\)</span></p>
+<blockquote>
+<p>PS4.Q7<br />
+Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be a bounded function and <span class="math inline">\(h(y) \equiv \sup_{x\geq y} \big( f(x) \big)\)</span><br />
+Show that <span class="math inline">\(h\)</span> is decreasing</p>
+</blockquote>
+<p><span class="math inline">\(f\)</span> is bounded <span class="math inline">\(\implies \{ f(x) | x\geq y \}\)</span> is bounded<br />
+<span class="math inline">\(\implies h(\cdot)\)</span> is well-defined<br />
+Take <span class="math inline">\(y_1&lt;y_2\)</span><br />
+<span class="math inline">\(\implies \{ f(x)| x\geq y_2\} \subset \{ f(x)| x\geq y_1\}\)</span><br />
+<span class="math inline">\(h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_1\}\)</span><br />
+<span class="math inline">\(\implies h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
+Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
+<span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span></p>
 <div id="direct-proof-1" class="section level4">
 <h4>Direct Proof</h4>
 <p><span class="math inline">\(h(x) = f(x) + g(x) \leq \bar{f }+\bar{g}\)</span><br />
@@ -431,6 +525,80 @@ Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance 
 <li>Triangle Inequality<br />
 :) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
 </ol>
+</div>
+<div id="sequence" class="section level2">
+<h2>Sequence</h2>
+<div id="un-bounded" class="section level3">
+<h3>(Un-)bounded</h3>
+<blockquote>
+<p>PS4.Q2
+Prove that if a real sequence <span class="math inline">\((x_n)_n\)</span> is unbounded, then it contains a subsequence that tends either to <span class="math inline">\(\infty\)</span> or to <span class="math inline">\(-\infty\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\((x_n)_n\)</span> be unbounded above<br />
+:) construct subsequence of <span class="math inline">\((x_n)_n \to \infty \iff \forall M&gt;0\)</span>, <span class="math inline">\(\exists N\in \mathbb{N}\)</span> s.t. <span class="math inline">\(x_N &gt;M\)</span><br />
+Let <span class="math inline">\(\{ M_n\}_n =n\)</span><br />
+Define <span class="math inline">\((z_n)_n \equiv (x_{k_n})_n\)</span> as subsequence of <span class="math inline">\((x_n)_n\)</span> s.t.:<br />
+1. For <span class="math inline">\(n=1\)</span>, let <span class="math inline">\(k_1 = \min \{ m&gt;0| x_m &gt;M_1 \}\)</span><br />
+2. For <span class="math inline">\(n=2\)</span>, let <span class="math inline">\(k_2 = \min \{ m&gt;k_1| x_m &gt;M_2 \}\)</span><br />
+3. For <span class="math inline">\(n &gt; 2\)</span>, let <span class="math inline">\(k_n = \min \{ m&gt;k_{n-1}| x_m &gt;M_n \}\)</span><br />
+Since <span class="math inline">\((k_n)_n\)</span> is a subset of <span class="math inline">\(\mathbb{N}\)</span>, it is strictly increasing and well-defined<br />
+<span class="math inline">\(\implies \forall M&gt;0\)</span>, <span class="math inline">\(\exists M_n&gt;M\)</span> s.t. <span class="math inline">\(z_n &gt; M_n &gt; N\)</span> for all <span class="math inline">\(n &gt; N\)</span><br />
+<span class="math inline">\(\implies (z_n)_n \to \infty\)</span></p>
+</div>
+<div id="convergence" class="section level3">
+<h3>Convergence</h3>
+<ul>
+<li>Sequence <span class="math inline">\((x_n)_n\)</span> converges to <span class="math inline">\(x&#39;\)</span> if <span class="math inline">\(\exists N_ε\)</span> s.t. <span class="math inline">\(d(x_n, x&#39;) &lt; ε\)</span>, for all <span class="math inline">\(ε &gt; 0\)</span> and for all <span class="math inline">\(n &gt; N_ε\)</span></li>
+<li>Limit of sequence <span class="math inline">\((x_n)_n\)</span>, denoted by <span class="math inline">\(x&#39; \equiv \lim_{n\to\infty} x_n\)</span> if <span class="math inline">\((x_n)_n \to x&#39;\)</span></li>
+<li><span class="math inline">\(x&#39;\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n\)</span> if <span class="math inline">\(\exists N&#39;&gt;N\)</span> s.t. <span class="math inline">\(d(x_{N&#39;}, x )&lt;ε\)</span> for all <span class="math inline">\(ε&gt;0\)</span> and <span class="math inline">\(N \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\(x&#39;\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x&#39;\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></li>
+</ul>
+<blockquote>
+<p>PS4.Q4<br />
+Let <span class="math inline">\((x_n)_{n\in \mathbb{N} } \to x^*\)</span> and <span class="math inline">\((y_n)_{n\in \mathbb{N} } \to y^*\)</span><br />
+Show that if <span class="math inline">\(x_n \geq y_n\)</span> for all <span class="math inline">\(n\)</span>, then <span class="math inline">\(x^* \geq y^*\)</span></p>
+</blockquote>
+<p>FSOC assume <span class="math inline">\(x^* &lt; y^*\)</span><br />
+Let <span class="math inline">\(ε \equiv \frac{y^*-x^*}{2}\)</span><br />
+<span class="math inline">\(\exists N_x\)</span> and <span class="math inline">\(N_y\)</span> s.t. <span class="math inline">\(| x_n - x^*| &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_x\)</span>,<br />
+~~~~~~~~~~~~~~<span class="math inline">\(| y_n - y^*| &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_y\)</span><br />
+Let <span class="math inline">\(N\equiv \max \{ N_x, N_y \}\)</span><br />
+<span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
+<span class="math display">\[\begin{aligned}x_n - y_n &amp;= x_n - x^* + x^* - y^* + y^* - y_n \\ &amp;\leq | x_n - x^*| + x^* - y^* + | y_n - y^*| \\ &amp;&lt; x^* - y^* + 2ε \\ &amp;=0 \end{aligned}\]</span><br />
+<span class="math inline">\(\implies x_n &lt; y_n\)</span> contradiction</p>
+<blockquote>
+<p>PS4.Q3<br />
+Prove that <span class="math inline">\(x\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Suppose <span class="math inline">\(x\)</span> is a cluster point of <span class="math inline">\((x_n)_n\)</span><br />
+:) construct subsequence of <span class="math inline">\((x_n)_n \to x\)</span><br />
+Define <span class="math inline">\((ε_n)_n\)</span> as:
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(ε_1=1\)</span></li>
+<li><span class="math inline">\(ε_{n+1}=\frac{ε_n}{2}=\frac{1}{2^{n-1}}\)</span></li>
+</ol>
+And define <span class="math inline">\((k_n)_n\)</span> as:
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(k_1 = \min \{ m&gt;0| x_m \in B_{ε_1}(x) \}\)</span></li>
+<li><span class="math inline">\(k_2 = \min \{ m&gt;k_1| x_m \in B_{ε_2}(x) \}\)</span></li>
+<li><span class="math inline">\(k_n = \min \{ m&gt;k_{n-1}| x_m \in B_{ε_n}(x) \}\)</span></li>
+</ol>
+Since <span class="math inline">\((k_n)_n\)</span> is strictly increasing and <span class="math inline">\((ε_n)_n\)</span> is strictly decreasing<br />
+<span class="math inline">\(\implies \exists ε_n&lt;ε\)</span> s.t. <span class="math inline">\(| x_{k_n} - x | &lt; ε_n &lt; ε\)</span>, for all <span class="math inline">\(ε &gt; 0\)</span> and <span class="math inline">\(n &gt; N_ε\)</span><br />
+<span class="math inline">\(\implies x_{k_n} \to x\)</span></li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Suppose <span class="math inline">\(x\)</span> is the limit of subsequence <span class="math inline">\((x_{k_n})_n\)</span><br />
+Fix some <span class="math inline">\(ε&gt;0\)</span><br />
+FSOC assume <span class="math inline">\(B_ε(x) \cap \{x_n\}_{n&gt;N} = \emptyset\)</span> for some <span class="math inline">\(N \in \mathbb{N}\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap \{x_{k_n}\}_{n&gt;N} = \emptyset\)</span><br />
+<span class="math inline">\(\implies \exists N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(| x_{k_n} - x | \geq ε\)</span> for all <span class="math inline">\(n\geq N\)</span><br />
+Contradicts to <span class="math inline">\(x\)</span> is the limit of <span class="math inline">\((x_{k_n})_n\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap \{x_n\}_{n&gt;N} \neq\emptyset\)</span> for all <span class="math inline">\(N \in \mathbb{N}\)</span><br />
+<span class="math inline">\(\implies x\)</span> is a cluster point of <span class="math inline">\((x_n)_n\)</span></li>
+</ol>
+</div>
 </div>
 
     </div>
