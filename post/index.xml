@@ -17,21 +17,16 @@
       <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/12/29/notes-math-proof/</guid>
-      <description>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).
- :) means “we want to show” FSOC means “for the sake of controdiction” s.t. means “such that”
- [x] PS1 [x] PS2 [x] PS3 [x] PS4 [ ] PS5 [ ]
-  Logic Truth table  PS1.Q1
-Let \(p\) and \(q\) be two statements
-Prove that \(\lnot (p \lor q) \iff \lnot p \land \lnot q\).</description>
+      <description>Logic Truth table Direct proof  Set Collection &amp;amp; Operation Proof by Logic (twice if unlucky) Proof by \(B_ε\)  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Relation Complete Order Partial Order  Function Range / Image Injection &amp;amp; Surjection Composite Function Supremum  Distance Sequence (Un-)bounded Convergence    Wrote by a MSc student dying of end-of-term reviews (a.</description>
     </item>
     
     <item>
       <title>Notes on Introduction to C Language</title>
-      <link>/2018/05/24/notes-intro-c/</link>
+      <link>/2018/05/24/notes-intro-c-rmd/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/24/notes-intro-c/</guid>
-      <description>0419 1.2 プリント #include &amp;lt;stdio.h&amp;gt; int main(void) { printf(&amp;quot;Hello!\n\nMy name is Rachel!\n&amp;quot;); return 0; }  2.a 変数 #include &amp;lt;stdio.h&amp;gt; int main(void) { int tokuten = 50; printf(&amp;quot;試験の点数は%d点です。\n&amp;quot;, tokuten); return 0; }  2.b 変数の型 #include &amp;lt;stdio.h&amp;gt; int main(void) { int seisu = 10; double jissu = 3.14; char moji = &#39;m&#39;; printf(&amp;quot;整数は%dです\n&amp;quot;, seisu); printf(&amp;quot;実数は%fです\n&amp;quot;, jissu); printf(&amp;quot;文字は%cです\n&amp;quot;, moji); return 0; }  2.c 演算子 #include &amp;lt;stdio.h&amp;gt; int main(void) { int x, y, z; x = 25; y = 35; z = x + y; printf(&amp;quot;xとyの和は%dです\n&amp;quot;, z); return 0; }  2.</description>
+      <guid>/2018/05/24/notes-intro-c-rmd/</guid>
+      <description>0419 1.2 プリント 2.a 変数 2.b 変数の型 2.c 演算子 2.d プリント2 3.a プリントと変数 3.b プリント：出力指定 3.3 円の面積 3.4 演算子2 4.a 読み込み 4.2 読み込みと円の面積 4.3 読み込みと三角形の面積 5.a 型の変換 5.b 型の変換2 5.3 型の変換と平均値 6.2 数学関数と円の面積  0426 7.c if else：大きい方を出力 7.2 if else：等さの判断 7.3 if else：偶数か奇数かの判断 7.4 if else：等さの判断2 8.a if else：入れ子 8.b ３つの整数の最大値判断 8.4 ３つの整数の最小値判断 8.5 BMIの計算・判定 8.6 閏年 8.7 自販機 9.b switch 10.a ループ：for 10.b ループ：合計の計算 10.c ループ：合計の計算2 10.</description>
     </item>
     
     <item>
@@ -40,9 +35,9 @@ Prove that \(\lnot (p \lor q) \iff \lnot p \land \lnot q\).</description>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+      <description>R Markdown Including Plots   R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.</description>
     </item>
     
   </channel>

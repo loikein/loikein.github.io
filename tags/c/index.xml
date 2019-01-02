@@ -13,11 +13,11 @@
     
     <item>
       <title>Notes on Introduction to C Language</title>
-      <link>/2018/05/24/notes-intro-c/</link>
+      <link>/2018/05/24/notes-intro-c-rmd/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/24/notes-intro-c/</guid>
-      <description>0419 1.2 プリント #include &amp;lt;stdio.h&amp;gt; int main(void) { printf(&amp;quot;Hello!\n\nMy name is Rachel!\n&amp;quot;); return 0; }  2.a 変数 #include &amp;lt;stdio.h&amp;gt; int main(void) { int tokuten = 50; printf(&amp;quot;試験の点数は%d点です。\n&amp;quot;, tokuten); return 0; }  2.b 変数の型 #include &amp;lt;stdio.h&amp;gt; int main(void) { int seisu = 10; double jissu = 3.14; char moji = &#39;m&#39;; printf(&amp;quot;整数は%dです\n&amp;quot;, seisu); printf(&amp;quot;実数は%fです\n&amp;quot;, jissu); printf(&amp;quot;文字は%cです\n&amp;quot;, moji); return 0; }  2.c 演算子 #include &amp;lt;stdio.h&amp;gt; int main(void) { int x, y, z; x = 25; y = 35; z = x + y; printf(&amp;quot;xとyの和は%dです\n&amp;quot;, z); return 0; }  2.</description>
+      <guid>/2018/05/24/notes-intro-c-rmd/</guid>
+      <description>0419 1.2 プリント 2.a 変数 2.b 変数の型 2.c 演算子 2.d プリント2 3.a プリントと変数 3.b プリント：出力指定 3.3 円の面積 3.4 演算子2 4.a 読み込み 4.2 読み込みと円の面積 4.3 読み込みと三角形の面積 5.a 型の変換 5.b 型の変換2 5.3 型の変換と平均値 6.2 数学関数と円の面積  0426 7.c if else：大きい方を出力 7.2 if else：等さの判断 7.3 if else：偶数か奇数かの判断 7.4 if else：等さの判断2 8.a if else：入れ子 8.b ３つの整数の最大値判断 8.4 ３つの整数の最小値判断 8.5 BMIの計算・判定 8.6 閏年 8.7 自販機 9.b switch 10.a ループ：for 10.b ループ：合計の計算 10.c ループ：合計の計算2 10.</description>
     </item>
     
   </channel>
