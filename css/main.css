@@ -293,6 +293,12 @@ blockquote{
 	margin-left: 2px;
 }
 
+/* Disqus */
+
+.author.publisher-anchor-color a {
+	color: var(--black);
+}
+
 @media (min-width: 600px) {
 	.header {
 		padding: 25px 0;
