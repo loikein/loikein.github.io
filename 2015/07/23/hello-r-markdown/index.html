@@ -43,6 +43,10 @@
 
   <ul class="nav-links">
     
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
     <li><a href="/about/">About</a></li>
     
     <li><a href="https://github.com/loikein">GitHub</a></li>
@@ -115,8 +119,16 @@ Figure 1: A fancy pie chart.
     </div>
   </article>
 
-  
-
+  <div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://loikein.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </main>
 
@@ -128,6 +140,7 @@ Figure 1: A fancy pie chart.
           <li>
             <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
           </li>
+          <li>By loikein with love</li>
         </ul>
       </footer>
 
