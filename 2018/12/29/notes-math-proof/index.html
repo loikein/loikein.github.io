@@ -351,7 +351,7 @@ Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span></p>
 </blockquote>
 <p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, take <span class="math inline">\(λ\in (0,1)\)</span><br />
 <span class="math inline">\(\implies y= λx_1 + (1-λ)x_2\)</span> is a convex combination<br />
-<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\  &amp;= \| λx_1 + (1-λ)x_2 - x \| \\ &amp;= \| λx_1 + x_2 - λx_2 - x \| \\ &amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\ &amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\ &amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\ &amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\ &amp;&lt; λε + (1-λ) ε \\ &amp;= ε \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\  &amp;= \| λx_1 + (1-λ)x_2 - x \| \\ &amp;= \| λx_1 + x_2 - λx_2 - x \| \\ &amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\ &amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\ &amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\ &amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\ &amp;&lt; λε + (1-λ) ε \\ &amp;= ε \end{aligned}\]</span><br />
 <span class="math inline">\(\implies y \in B_ε(x)\)</span><br />
 <span class="math inline">\(\implies B_ε(x)\)</span> is convex</p>
 <blockquote>
