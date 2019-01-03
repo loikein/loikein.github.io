@@ -120,6 +120,53 @@ blockquote{
 	color: var(--black);
 }
 
+/* archive */
+
+.archive {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 1.3em;
+	text-align: left;
+	color: var(--black);
+}
+
+.archive-title {
+	font-size: 38px;
+	margin-top: 60px;
+}
+
+.archive-item {
+	margin: 5px 0 15px;
+	padding: 0;
+}
+
+.archive-item-date {
+	color: var(--grey);
+	font-size: 19px;
+	padding: 5px 0;
+	margin-top: 5px;
+	display: block;
+	text-align: right;
+	float: right;
+}
+
+.archive-item-link {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 21px;
+	font-weight: bold;
+	color: var(--black);
+	padding: 5px 0;
+	border-bottom: 1px solid var(--light-grey);
+}
+
+.archive-item-link:hover {
+	border-bottom-color: var(--black);
+}
+
+/* content */
+
 .content {
 	max-width: 700px;
 	margin: 40px auto 10px;
@@ -210,47 +257,6 @@ blockquote{
 
 .highlight pre {
 	padding: 10px;
-}
-
-.archive {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	line-height: 1.3em;
-	text-align: left;
-	color: #111;
-}
-
-.archive-title {
-	font-size: 34px;
-	margin-top: 60px;
-}
-
-.archive-item {
-	margin: 5px 0 15px;
-	padding: 0;
-}
-
-.archive-item-date {
-	color: var(--light-grey);
-	font-size: 14px;
-	padding: 5px 0;
-	margin-top: 5px;
-	display: block;
-}
-
-.archive-item-link {
-	display: inline-block;
-	text-decoration: none;
-	font-size: 21px;
-	font-weight: bold;
-	color: var(--black);
-	padding: 5px 0;
-	border-bottom: 1px solid var(--light-grey);
-}
-
-.archive-item-link:hover {
-	border-bottom-color: var(--black);
 }
 
 .footer {
@@ -419,22 +425,22 @@ blockquote{
 		margin: 0 0 0 30px;
 	}
 
-	.content {
-		font-size: 16px;
-		text-align: left;
-	}
+/* archive */
 
-	.archive-item-date {
-		font-size: 18px;
-		text-align: right;
-		float: right;
-	}
-
+	.archive {
+		text-align: center;
+}
 	.archive-item-link {
 		text-overflow: ellipsis;
 		max-width: calc(100% - 120px);
 		white-space: nowrap;
 		overflow: hidden;
+	}
+
+	.archive-item-date {
+		font-size: 14px;
+		text-align: center;
+		float: none;
 	}
 
 	.article-title {
@@ -444,6 +450,18 @@ blockquote{
 	.article-duration {
 		font-size: 10px;
 	}
+
+/* content */
+
+	.content {
+		font-size: 16px;
+		text-align: left;
+		overflow-x: auto;
+	}
+
+	.article-content {
+		text-align: left;
+}
 
 	.footer-links {
 		font-size: 14px;
