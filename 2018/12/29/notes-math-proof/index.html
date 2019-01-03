@@ -58,7 +58,7 @@
 
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">15 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -115,8 +115,9 @@
 <li><a href="#distance">Distance</a></li>
 <li><a href="#sequence">Sequence</a><ul>
 <li><a href="#un-bounded">(Un-)bounded</a></li>
-<li><a href="#convergence">Convergence</a></li>
+<li><a href="#convergent-limit">Convergent, limit</a></li>
 </ul></li>
+<li><a href="#set-times-sequence">Set <span class="math inline">\(\times\)</span> Sequence</a></li>
 </ul>
 </div>
 
@@ -341,6 +342,20 @@ Prove that <span class="math inline">\(B \subset \text{int}(A)\)</span></p>
 <span class="math inline">\(B\)</span> is open <span class="math inline">\(\implies \exists ε&gt;0\)</span> s.t. <span class="math inline">\(B_ε(x) \subset B \subset A\)</span><br />
 <span class="math inline">\(\implies x \in \text{int}(A)\)</span><br />
 <span class="math inline">\(\implies B \subset \text{int}(A)\)</span></p>
+<blockquote>
+<p>PS5.Q3<br />
+Let <span class="math inline">\(B\)</span> be closed and <span class="math inline">\(A \subset B\)</span><br />
+Prove that <span class="math inline">\(\bar{A }\subset B\)</span></p>
+</blockquote>
+<p>FSOC assume <span class="math inline">\(\exists x\in \bar{A}\)</span> s.t. <span class="math inline">\(x\notin B\)</span><br />
+Since <span class="math inline">\(x\in \bar{A}\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap A \neq \emptyset\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \not\subset A^C\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+Since <span class="math inline">\(A \subset B \iff A^C \supset B^C\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \not\subset B^C\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+Since <span class="math inline">\(x\notin B \implies x \in B^C\)</span><br />
+<span class="math inline">\(\implies B^C\)</span> is not open<br />
+<span class="math inline">\(\implies B\)</span> is not closed (contradiction)</p>
 </div>
 <div id="convex" class="section level3">
 <h3>Convex</h3>
@@ -475,25 +490,39 @@ Prove that <span class="math inline">\((f|_A)^{-1} (B) = f^{-1}(B) \cap A\)</spa
 <span class="math inline">\(\iff (f|_A)(x ) \in B\)</span><br />
 <span class="math inline">\(\iff x\in (f|_A)^{-1} (B)\)</span></p>
 <blockquote>
-<p>PS2.Q5<br />
-Let <span class="math inline">\(A \subset U\)</span> and <span class="math inline">\(f: U \to U&#39;\)</span><br />
+<p>PS5.Q2<br />
+Let <span class="math inline">\(f: U \to U&#39;\)</span> and <span class="math inline">\(B \subset U&#39;\)</span><br />
+Show that <span class="math inline">\(f(f^{-1}(B)) \subset B\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(B \neq \emptyset\)</span><br />
+Take arbitary <span class="math inline">\(y\in B \subset U&#39;\)</span><br />
+<span class="math inline">\(\implies f^{-1}(y) \in f^{-1}(B)\)</span><br />
+<span class="math inline">\(\implies \exists x \in f^{-1}(B)\)</span> s.t. <span class="math inline">\(f(x) = y\)</span> for all <span class="math inline">\(y\)</span><br />
+Since <span class="math inline">\(f(x) \in B\)</span> for all <span class="math inline">\(x\)</span><br />
+<span class="math inline">\(\implies y \in B\)</span> for all <span class="math inline">\(y = f(x)\)</span><br />
+<span class="math inline">\(\implies f(f^{-1}(B)) \subset B\)</span><br />
+</li>
+<li><span class="math inline">\(B = \emptyset\)</span><br />
+<span class="math inline">\(\implies f^{-1}(B)=\emptyset\)</span><br />
+<span class="math inline">\(\implies f\big( f^{ -1 } ( B ) \big) = \emptyset \subset B\)</span></li>
+</ol>
+<blockquote>
+<p>PS2.Q5, PS5.Q1<br />
+Let <span class="math inline">\(f: U \to U&#39;\)</span> and <span class="math inline">\(A \subset U\)</span><br />
 Show that <span class="math inline">\(f^{-1} \big( f(A) \big) \supset A\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(A \neq \emptyset\)</span>
+<li><span class="math inline">\(A \neq \emptyset\)</span><br />
 Take arbitary <span class="math inline">\(x\in A \subset U\)</span><br />
-<span class="math inline">\(\implies f(x) \subset f(A)\)</span><br />
+<span class="math inline">\(\implies f(x) \in f(A)\)</span><br />
 <span class="math inline">\(\implies x \in f^{-1} \big( f(x) \big) \subset f^{-1} \big( f(A) \big)\)</span><br />
 <span class="math inline">\(\implies x \in f^{-1}\big( f(A) \big)\)</span><br />
 </li>
 <li><span class="math inline">\(A = \emptyset\)</span><br />
 <span class="math inline">\(\implies f(A)=\emptyset\)</span><br />
-<span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset = A\)</span></li>
+<span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset \supset A\)</span></li>
 </ol>
-<blockquote>
-<p>PS5.Q1<br />
-Prove that if <span class="math inline">\(f: U \to U&#39;\)</span> and <span class="math inline">\(A \subset U\)</span>, then <span class="math inline">\(f^{-1}(f(A)) \supset A\)</span></p>
-</blockquote>
 </div>
 <div id="injection-surjection" class="section level3">
 <h3>Injection &amp; Surjection</h3>
@@ -578,6 +607,15 @@ Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance 
 <li>Triangle Inequality<br />
 :) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
 </ol>
+<blockquote>
+<p>PS5.Q4<br />
+Prove the Cauchy-Schwarz inequality for <span class="math inline">\(\mathbb{R}^2\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(u = (u_1, u_2), v = (v_1, v_2)\)</span><br />
+<span class="math inline">\(\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\)</span>, <span class="math inline">\(| u\cdot v | = | u_1 v_1 + u_2 v_2 |\)</span><br />
+Assume Cauchy-Schwarz inequality: <span class="math inline">\(| u\cdot v | \leq \|u\| \cdot \|v\|\)</span> is true<br />
+<span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\\ u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2)\\ 0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span><br />
+Since the last line is obviously true, all previous statements are true</p>
 </div>
 <div id="sequence" class="section level2">
 <h2>Sequence</h2>
@@ -598,8 +636,8 @@ Since <span class="math inline">\((k_n)_n\)</span> is a subset of <span class="m
 <span class="math inline">\(\implies \forall M&gt;0\)</span>, <span class="math inline">\(\exists M_n&gt;M\)</span> s.t. <span class="math inline">\(z_n &gt; M_n &gt; N\)</span> for all <span class="math inline">\(n &gt; N\)</span><br />
 <span class="math inline">\(\implies (z_n)_n \to \infty\)</span></p>
 </div>
-<div id="convergence" class="section level3">
-<h3>Convergence</h3>
+<div id="convergent-limit" class="section level3">
+<h3>Convergent, limit</h3>
 <ul>
 <li>Sequence <span class="math inline">\((x_n)_n\)</span> converges to <span class="math inline">\(x&#39;\)</span> if <span class="math inline">\(\exists N_ε\)</span> s.t. <span class="math inline">\(d(x_n, x&#39;) &lt; ε\)</span>, for all <span class="math inline">\(ε &gt; 0\)</span> and for all <span class="math inline">\(n &gt; N_ε\)</span></li>
 <li>Limit of sequence <span class="math inline">\((x_n)_n\)</span>, denoted by <span class="math inline">\(x&#39; \equiv \lim_{n\to\infty} x_n\)</span> if <span class="math inline">\((x_n)_n \to x&#39;\)</span></li>
@@ -640,7 +678,8 @@ And define <span class="math inline">\((k_n)_n\)</span> as:
 </ol>
 Since <span class="math inline">\((k_n)_n\)</span> is strictly increasing and <span class="math inline">\((ε_n)_n\)</span> is strictly decreasing<br />
 <span class="math inline">\(\implies \exists ε_n&lt;ε\)</span> s.t. <span class="math inline">\(| x_{k_n} - x | &lt; ε_n &lt; ε\)</span>, for all <span class="math inline">\(ε &gt; 0\)</span> and <span class="math inline">\(n &gt; N_ε\)</span><br />
-<span class="math inline">\(\implies x_{k_n} \to x\)</span></li>
+<span class="math inline">\(\implies x_{k_n} \to x\)</span><br />
+</li>
 <li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
 Suppose <span class="math inline">\(x\)</span> is the limit of subsequence <span class="math inline">\((x_{k_n})_n\)</span><br />
 Fix some <span class="math inline">\(ε&gt;0\)</span><br />
@@ -652,6 +691,24 @@ Contradicts to <span class="math inline">\(x\)</span> is the limit of <span clas
 <span class="math inline">\(\implies x\)</span> is a cluster point of <span class="math inline">\((x_n)_n\)</span></li>
 </ol>
 </div>
+</div>
+<div id="set-times-sequence" class="section level2">
+<h2>Set <span class="math inline">\(\times\)</span> Sequence</h2>
+<ul>
+<li><span class="math inline">\(x\)</span> is is the limit of some sequence in <span class="math inline">\(A \iff x \in \bar{A}\)</span> (closure of <span class="math inline">\(A\)</span>)</li>
+<li><span class="math inline">\(x\)</span> is is a limit point of <span class="math inline">\(A \iff x\)</span> is the limit of some sequence in <span class="math inline">\(A\backslash \{x\}\)</span></li>
+<li><span class="math inline">\(A\)</span> is closed <span class="math inline">\(\iff A\)</span> contains all its limit points</li>
+</ul>
+<blockquote>
+<p>PS5.Q5<br />
+Prove that <span class="math inline">\(A \in \mathbb{R}\)</span> is closed <span class="math inline">\(\iff\)</span> it contains all its limit points</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Suppose <span class="math inline">\(A\)</span> is closed<br />
+FSOC assume some <span class="math inline">\(x\in A^C\)</span> be the limit point of <span class="math inline">\(\{x_n\}_{n\in N}\subset A\backslash \{x\}\)</span></p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>)</p></li>
+</ol>
 </div>
 
     </div>
