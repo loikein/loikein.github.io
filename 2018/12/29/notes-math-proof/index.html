@@ -58,7 +58,7 @@
 
   <article class="article">
     
-    <span class="article-duration">15 min read</span>
+    <span class="article-duration">16 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -704,11 +704,46 @@ Contradicts to <span class="math inline">\(x\)</span> is the limit of <span clas
 Prove that <span class="math inline">\(A \in \mathbb{R}\)</span> is closed <span class="math inline">\(\iff\)</span> it contains all its limit points</p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><p>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
-Suppose <span class="math inline">\(A\)</span> is closed<br />
-FSOC assume some <span class="math inline">\(x\in A^C\)</span> be the limit point of <span class="math inline">\(\{x_n\}_{n\in N}\subset A\backslash \{x\}\)</span></p></li>
-<li><p>(<span class="math inline">\(\Longleftarrow\)</span>)</p></li>
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Suppose <span class="math inline">\(A\)</span> is closed, then <span class="math inline">\(A^C\)</span> is open<br />
+FSOC assume some <span class="math inline">\(x\in A^C\)</span> be the limit point of <span class="math inline">\(\{x_n\}_{n\in N}\subset A\backslash \{x\}\)</span><br />
+<span class="math inline">\(\implies x\in A^C\)</span><br />
+<span class="math inline">\(\implies\)</span> for some <span class="math inline">\(B_ε(x) \subset A^C\)</span>, <span class="math inline">\(B_ε(x) \cap A = \emptyset\)</span><br />
+<span class="math inline">\(\implies B_ε(x) \cap \{x_n\}_{n\in N} = \emptyset\)</span><br />
+Contradicts to <span class="math inline">\(x\)</span> being the limit<br />
+</li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Suppose <span class="math inline">\(A\)</span> contains all its limit points<br />
+FSOC assume <span class="math inline">\(A^C\)</span> is not open<br />
+Construct sequence <span class="math inline">\((ε_n)_n\)</span> s.t. <span class="math inline">\(ε_1 = 1\)</span> and <span class="math inline">\(ε_{n+1} = \frac{ε_n}{2}\)</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span><br />
+Take arbitrary <span class="math inline">\(x\in A^C\)</span><br />
+Construct sequence <span class="math inline">\((y_n)_n\)</span> s.t. <span class="math inline">\(y_n \in A \cap B_{ε_n}(x)\)</span> for all <span class="math inline">\(n \in \mathbb{N}\)</span><br />
+<span class="math inline">\(\implies y_n \in A \backslash \{x\}\)</span> for all <span class="math inline">\(n\)</span><br />
+Since <span class="math inline">\((ε_n)_n \to 0 \implies (y_n)_n \to x\)</span><br />
+<span class="math inline">\(\implies x \in A\)</span>, contradiction</li>
 </ol>
+<blockquote>
+<p>PS5.Q6<br />
+Fix <span class="math inline">\(r\in \mathbb{R}_{++}\)</span> and set <span class="math inline">\(A\subset\mathbb{R}^n\)</span><br />
+Show that <span class="math inline">\(\{ x\in A | B_r(x) \subset A \}\)</span> is closed</p>
+</blockquote>
+<p>Let <span class="math inline">\(B \equiv \{ x\in A | B_r(x) \subset A \}\)</span>, :) <span class="math inline">\(B^C\)</span> is open<br />
+Since <span class="math inline">\(B_r(x) \subset A \implies x\in A\)</span><br />
+<span class="math inline">\(\implies B = \{ x | B_r(x) \subset A \}\)</span><br />
+1. If <span class="math inline">\(B^C = \emptyset\)</span> (trivial)<br />
+2. If <span class="math inline">\(B^C \neq \emptyset\)</span><br />
+FSOC assume <span class="math inline">\(B^C\)</span> is not open<br />
+<span class="math inline">\(\implies \exists x \in B^C\)</span> s.t. <span class="math inline">\(B_ε(x)\not\subset B^C\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\cap B \neq \emptyset\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+Since <span class="math inline">\(x \in B^C \implies B_r(x)\not\subset A\)</span><br />
+<span class="math inline">\(\implies \exists x&#39; \in B_r(x)\)</span> s.t. <span class="math inline">\(B_r(x&#39;)\not\subset A\)</span><br />
+<span class="math inline">\(\implies x&#39; \notin A\)</span><br />
+Take a strictly decreasing sequence <span class="math inline">\((ε_n)_n \to 0\)</span>, s.t. <span class="math inline">\(\exists x_n \in B_{ε_n}(x) \cap B\)</span> for each <span class="math inline">\(ε_n\)</span><br />
+<span class="math inline">\(\implies (x_n)_n \to x\)</span>, <span class="math inline">\(d(x_n,x)\to 0\)</span><br />
+Take sufficiently large <span class="math inline">\(N\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} d(x_N,x) &amp;&lt; r-d(x,x&#39;) \\ \implies d(x_N,x&#39;) &amp;\leq d(x_N,x) + d(x, x&#39;) \ \text{triangle ineq.}\\ &amp;&lt; r-d(x,x&#39;) + d(x,x&#39;) \\ &amp;=r \end{aligned}\]</span><br />
+<span class="math inline">\(\implies x&#39; \in B_r(x_N)\)</span><br />
+But by construction <span class="math inline">\(x_N \in B \implies B_r(x_N) \subset A\)</span>, contradiction</p>
 </div>
 
     </div>
