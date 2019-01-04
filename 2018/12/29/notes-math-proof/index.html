@@ -58,7 +58,7 @@
 
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">18 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -91,6 +91,14 @@
 <li><a href="#truth-table">Truth table</a></li>
 <li><a href="#direct-proof">Direct proof</a></li>
 </ul></li>
+<li><a href="#relation">Relation</a><ul>
+<li><a href="#complete-order">Complete Order</a></li>
+<li><a href="#partial-order">Partial Order</a></li>
+</ul></li>
+<li><a href="#space">Space</a><ul>
+<li><a href="#distance">Distance</a></li>
+<li><a href="#cauchy-schwarz-inequality">Cauchy-Schwarz Inequality</a></li>
+</ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
 <li><a href="#proof-by-logic-twice-if-unlucky">Proof by Logic (twice if unlucky)</a></li>
 <li><a href="#proof-by-b_">Proof by <span class="math inline">\(B_ε\)</span></a></li>
@@ -102,20 +110,20 @@
 <li><a href="#maximum-supremum">Maximum &amp; Supremum</a></li>
 <li><a href="#dense">Dense</a></li>
 </ul></li>
-<li><a href="#relation">Relation</a><ul>
-<li><a href="#complete-order">Complete Order</a></li>
-<li><a href="#partial-order">Partial Order</a></li>
-</ul></li>
 <li><a href="#function">Function</a><ul>
 <li><a href="#range-image">Range / Image</a></li>
 <li><a href="#injection-surjection">Injection &amp; Surjection</a></li>
 <li><a href="#composite-function">Composite Function</a></li>
 <li><a href="#supremum">Supremum</a></li>
 </ul></li>
-<li><a href="#distance">Distance</a></li>
+<li><a href="#set-times-function">Set <span class="math inline">\(\times\)</span> Function</a><ul>
+<li><a href="#injection-surjection-revisited">Injection &amp; Surjection (revisited)</a></li>
+<li><a href="#finite-countable">Finite &amp; Countable</a></li>
+</ul></li>
 <li><a href="#sequence">Sequence</a><ul>
 <li><a href="#un-bounded">(Un-)bounded</a></li>
-<li><a href="#convergent-limit">Convergent, limit</a></li>
+<li><a href="#convergent">Convergent</a></li>
+<li><a href="#limit-cluster-point">Limit &amp; Cluster Point</a></li>
 </ul></li>
 <li><a href="#set-times-sequence">Set <span class="math inline">\(\times\)</span> Sequence</a></li>
 </ul>
@@ -130,7 +138,8 @@
 <li>[x] PS2</li>
 <li>[x] PS3</li>
 <li>[x] PS4</li>
-<li>[ ] PS5</li>
+<li>[x] PS5</li>
+<li>[ ] PS6</li>
 <li><p>[ ]</p></li>
 </ul>
 <div id="logic" class="section level2">
@@ -205,6 +214,87 @@ Prove that if <span class="math inline">\(p \implies q\)</span> and <span class=
 <li><span class="math inline">\(p\)</span> is FALSE<br />
 <span class="math inline">\(p\implies r\)</span> is always TRUE</li>
 </ol>
+</div>
+</div>
+<div id="relation" class="section level2">
+<h2>Relation</h2>
+<div id="complete-order" class="section level3">
+<h3>Complete Order</h3>
+<blockquote>
+<p>PS1.Q5 (the lexicographic order)<br />
+Let <span class="math inline">\(R\)</span> be the relation on <span class="math inline">\(\mathbb{R}^2\)</span> given by: for any <span class="math inline">\((x_1,y_1) ,\  (x_2, y_2) \in \mathbb{R}^2\)</span>, <span class="math inline">\((x_1,y_1) R (x_2, y_2) \iff x_1 &gt; x_2\)</span> or <span class="math inline">\(x_1 = x_2 \land y_1 \geq y_2\)</span><br />
+Prove that <span class="math inline">\(R\)</span> is a complete order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+:) <span class="math inline">\((x_1,y_1)R(x_1,y_1)\)</span><br />
+</li>
+<li>Transitive<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_3, y_3) \implies (x_1,y_1) R(x_3, y_3)\)</span></li>
+<li>Anti-Symmetric<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_1, y_1) \iff (x_1,y_1) = (x_2, y_2)\)</span><br />
+</li>
+<li>Complete<br />
+:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \lor (x_2,y_2) R (x_1, y_1) \forall x, y\)</span></li>
+</ol>
+</div>
+<div id="partial-order" class="section level3">
+<h3>Partial Order</h3>
+<blockquote>
+<p>PS1.Q6<br />
+Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two partial orders in some space <span class="math inline">\(U\)</span><br />
+Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
+Prove that <span class="math inline">\(R_3\)</span> is a partial order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+</li>
+<li>Transitive<br />
+</li>
+<li>Anti-Symmetry</li>
+</ol>
+</div>
+</div>
+<div id="space" class="section level2">
+<h2>Space</h2>
+<ul>
+<li>norm <span class="math inline">\(\supset\)</span> (induces) metric</li>
+<li>metric space <span class="math inline">\(\supset\)</span> complete (Cauchy) space <span class="math inline">\(\supset\)</span> Banach (complete normed vector) space</li>
+<li>vector (linear) space <span class="math inline">\(\supset\)</span> normed vector space <span class="math inline">\(\supset\)</span> Banach space <span class="math inline">\(\supset\)</span> Euclidean space</li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-math-proof--spaces.png" alt="Relation of Spaces, Source: Space – AKKAWUTVANICH" />
+<p class="caption">Relation of Spaces, Source: <a href="https://akkawutvanich.wordpress.com/2017/11/09/space/">Space – AKKAWUTVANICH</a></p>
+</div>
+<div id="distance" class="section level3">
+<h3>Distance</h3>
+<blockquote>
+<p>PS2.Q6<br />
+Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance in <span class="math inline">\(\mathbb{R}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative<br />
+:) <span class="math inline">\(d(x,y) \geq 0\)</span></li>
+<li>Identity of Indiscernibles<br />
+:) <span class="math inline">\(d(x,y) = 0 \iff x = y\)</span><br />
+</li>
+<li>Symmetric<br />
+:) <span class="math inline">\(d(x,y) = d(y,x)\)</span></li>
+<li>Triangle Inequality<br />
+:) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
+</ol>
+</div>
+<div id="cauchy-schwarz-inequality" class="section level3">
+<h3>Cauchy-Schwarz Inequality</h3>
+<blockquote>
+<p>PS5.Q4<br />
+Prove the Cauchy-Schwarz inequality for <span class="math inline">\(\mathbb{R}^2\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(u = (u_1, u_2), v = (v_1, v_2)\)</span><br />
+<span class="math inline">\(\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\)</span>, <span class="math inline">\(| u\cdot v | = | u_1 v_1 + u_2 v_2 |\)</span><br />
+Assume Cauchy-Schwarz inequality: <span class="math inline">\(| u\cdot v | \leq \|u\| \cdot \|v\|\)</span> is true<br />
+<span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\\ u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2)\\ 0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span><br />
+Since the last line is obviously true, all previous statements are true</p>
 </div>
 </div>
 <div id="set-collection-operation" class="section level2">
@@ -437,45 +527,6 @@ Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class
 <span class="math inline">\(\frac{n+1}{N} \in \mathbb{Q} \implies B_ε(x) \cap \mathbb{Q} \neq \emptyset\)</span></p>
 </div>
 </div>
-<div id="relation" class="section level2">
-<h2>Relation</h2>
-<div id="complete-order" class="section level3">
-<h3>Complete Order</h3>
-<blockquote>
-<p>PS1.Q5 (the lexicographic order)<br />
-Let <span class="math inline">\(R\)</span> be the relation on <span class="math inline">\(\mathbb{R}^2\)</span> given by: for any <span class="math inline">\((x_1,y_1) ,\  (x_2, y_2) \in \mathbb{R}^2\)</span>, <span class="math inline">\((x_1,y_1) R (x_2, y_2) \iff x_1 &gt; x_2\)</span> or <span class="math inline">\(x_1 = x_2 \land y_1 \geq y_2\)</span><br />
-Prove that <span class="math inline">\(R\)</span> is a complete order</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Reflective<br />
-:) <span class="math inline">\((x_1,y_1)R(x_1,y_1)\)</span><br />
-</li>
-<li>Transitive<br />
-:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_3, y_3) \implies (x_1,y_1) R(x_3, y_3)\)</span></li>
-<li>Anti-Symmetric<br />
-:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_1, y_1) \iff (x_1,y_1) = (x_2, y_2)\)</span><br />
-</li>
-<li>Complete<br />
-:) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \lor (x_2,y_2) R (x_1, y_1) \forall x, y\)</span></li>
-</ol>
-</div>
-<div id="partial-order" class="section level3">
-<h3>Partial Order</h3>
-<blockquote>
-<p>PS1.Q6<br />
-Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two partial orders in some space <span class="math inline">\(U\)</span><br />
-Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
-Prove that <span class="math inline">\(R_3\)</span> is a partial order</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Reflective<br />
-</li>
-<li>Transitive<br />
-</li>
-<li>Anti-Symmetry</li>
-</ol>
-</div>
-</div>
 <div id="function" class="section level2">
 <h2>Function</h2>
 <div id="range-image" class="section level3">
@@ -539,16 +590,6 @@ Is it surjective?</p>
 <li>Surjective<br />
 :) <span class="math inline">\(x\in f( \text{domain}) \iff x \in \text{range}\)</span></li>
 </ol>
-<blockquote>
-<p>PS4.Q8<br />
-Prove that <span class="math inline">\(\mathbb{Z}\)</span> is countable by explicitly finding a bijection between <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{N}\)</span></p>
-</blockquote>
-<p>Define <span class="math inline">\(f: \mathbb{Z} \to \mathbb{N}\)</span> as<br />
-<span class="math display">\[f(x) \equiv \begin{cases} 2x &amp; \text{if } x&gt;0 \\ -2x+1 &amp; \text{if } x\leq 0 \end{cases}\]</span><br />
-1. Injective<br />
-2. Surjective<br />
-3. Find <span class="math inline">\(f^{-1}\)</span><br />
-<span class="math display">\[f^{-1}(y) \equiv \begin{cases} \frac{y}{2} &amp; \text{if y is even}\\ -\frac{y-1}{2} &amp; \text{if y is odd or } 0 \end{cases}\]</span></p>
 </div>
 <div id="composite-function" class="section level3">
 <h3>Composite Function</h3>
@@ -590,32 +631,33 @@ Contradicts to supremum</p>
 </div>
 </div>
 </div>
-<div id="distance" class="section level2">
-<h2>Distance</h2>
+<div id="set-times-function" class="section level2">
+<h2>Set <span class="math inline">\(\times\)</span> Function</h2>
+<div id="injection-surjection-revisited" class="section level3">
+<h3>Injection &amp; Surjection (revisited)</h3>
 <blockquote>
-<p>PS2.Q6<br />
-Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance in <span class="math inline">\(\mathbb{R}\)</span></p>
+<p>PS4.Q8<br />
+Prove that <span class="math inline">\(\mathbb{Z}\)</span> is countable by explicitly finding a bijection between <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{N}\)</span></p>
 </blockquote>
-<ol style="list-style-type: decimal">
-<li>Non-negative<br />
-:) <span class="math inline">\(d(x,y) \geq 0\)</span></li>
-<li>Identity of Indiscernibles<br />
-:) <span class="math inline">\(d(x,y) = 0 \iff x = y\)</span><br />
-</li>
-<li>Symmetric<br />
-:) <span class="math inline">\(d(x,y) = d(y,x)\)</span></li>
-<li>Triangle Inequality<br />
-:) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
-</ol>
+<p>Define <span class="math inline">\(f: \mathbb{Z} \to \mathbb{N}\)</span> as<br />
+<span class="math display">\[f(x) \equiv \begin{cases} 2x &amp; \text{if } x&gt;0 \\ -2x+1 &amp; \text{if } x\leq 0 \end{cases}\]</span><br />
+1. Injective<br />
+2. Surjective<br />
+3. Find <span class="math inline">\(f^{-1}\)</span><br />
+<span class="math display">\[f^{-1}(y) \equiv \begin{cases} \frac{y}{2} &amp; \text{if y is even}\\ -\frac{y-1}{2} &amp; \text{if y is odd or } 0 \end{cases}\]</span><br />
+~</p>
+</div>
+<div id="finite-countable" class="section level3">
+<h3>Finite &amp; Countable</h3>
+<ul>
+<li>Set <span class="math inline">\(A\)</span> is finite if <span class="math inline">\(A = \emptyset\)</span> or exists a bijection between <span class="math inline">\(A\)</span> and <span class="math inline">\(\{1,2,3,\cdots,n\}\)</span> for some <span class="math inline">\(n \in\mathbb{N}\)</span></li>
+<li>Set <span class="math inline">\(A\)</span> is countable (or countably infinite) if exists a bijection between <span class="math inline">\(A\)</span> and <span class="math inline">\(\mathbb{N}\)</span></li>
+</ul>
 <blockquote>
-<p>PS5.Q4<br />
-Prove the Cauchy-Schwarz inequality for <span class="math inline">\(\mathbb{R}^2\)</span></p>
+<p>PS5.Q8 (bonus)<br />
+Prove <span class="math inline">\(\mathbb{Q}\)</span> is countable</p>
 </blockquote>
-<p>Let <span class="math inline">\(u = (u_1, u_2), v = (v_1, v_2)\)</span><br />
-<span class="math inline">\(\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\)</span>, <span class="math inline">\(| u\cdot v | = | u_1 v_1 + u_2 v_2 |\)</span><br />
-Assume Cauchy-Schwarz inequality: <span class="math inline">\(| u\cdot v | \leq \|u\| \cdot \|v\|\)</span> is true<br />
-<span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\\ u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2)\\ 0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span><br />
-Since the last line is obviously true, all previous statements are true</p>
+</div>
 </div>
 <div id="sequence" class="section level2">
 <h2>Sequence</h2>
@@ -636,13 +678,10 @@ Since <span class="math inline">\((k_n)_n\)</span> is a subset of <span class="m
 <span class="math inline">\(\implies \forall M&gt;0\)</span>, <span class="math inline">\(\exists M_n&gt;M\)</span> s.t. <span class="math inline">\(z_n &gt; M_n &gt; N\)</span> for all <span class="math inline">\(n &gt; N\)</span><br />
 <span class="math inline">\(\implies (z_n)_n \to \infty\)</span></p>
 </div>
-<div id="convergent-limit" class="section level3">
-<h3>Convergent, limit</h3>
+<div id="convergent" class="section level3">
+<h3>Convergent</h3>
 <ul>
 <li>Sequence <span class="math inline">\((x_n)_n\)</span> converges to <span class="math inline">\(x&#39;\)</span> if <span class="math inline">\(\exists N_ε\)</span> s.t. <span class="math inline">\(d(x_n, x&#39;) &lt; ε\)</span>, for all <span class="math inline">\(ε &gt; 0\)</span> and for all <span class="math inline">\(n &gt; N_ε\)</span></li>
-<li>Limit of sequence <span class="math inline">\((x_n)_n\)</span>, denoted by <span class="math inline">\(x&#39; \equiv \lim_{n\to\infty} x_n\)</span> if <span class="math inline">\((x_n)_n \to x&#39;\)</span></li>
-<li><span class="math inline">\(x&#39;\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n\)</span> if <span class="math inline">\(\exists N&#39;&gt;N\)</span> s.t. <span class="math inline">\(d(x_{N&#39;}, x )&lt;ε\)</span> for all <span class="math inline">\(ε&gt;0\)</span> and <span class="math inline">\(N \in \mathbb{N}\)</span></li>
-<li><span class="math inline">\(x&#39;\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x&#39;\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></li>
 </ul>
 <blockquote>
 <p>PS4.Q4<br />
@@ -657,6 +696,60 @@ Let <span class="math inline">\(N\equiv \max \{ N_x, N_y \}\)</span><br />
 <span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
 <span class="math display">\[\begin{aligned}x_n - y_n &amp;= x_n - x^* + x^* - y^* + y^* - y_n \\ &amp;\leq | x_n - x^*| + x^* - y^* + | y_n - y^*| \\ &amp;&lt; x^* - y^* + 2ε \\ &amp;=0 \end{aligned}\]</span><br />
 <span class="math inline">\(\implies x_n &lt; y_n\)</span> contradiction</p>
+<blockquote>
+<p>PS5.Q7.1<br />
+Let <span class="math inline">\((x_n)_n \to x^*\)</span> and <span class="math inline">\((y_n)_n \to y^*\)</span><br />
+Prove <span class="math inline">\((x_n + y_n)_n \to x^* + y^*\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Fix some <span class="math inline">\(ε &gt; 0\)</span><br />
+Exist <span class="math inline">\(N_{1(ε)}, N_{2(ε)} \in \mathbb{N}\)</span> s.t.<span class="math inline">\(| x_n - x^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{1(ε)}\)</span>, and <span class="math inline">\(| y_n - y^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{2(ε)}\)</span><br />
+Let <span class="math inline">\(N \equiv \max\{N_{1(ε)}, N_{2(ε)} \}\)</span><br />
+<span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
+<span class="math display">\[\begin{aligned} |(x_n + y_n) - (x^* + y^*)| &amp;=|x_n - x^* + y_n - y^*| \\ &amp;\leq |x_n - x^*|+|y_n - y^*| \\ &amp;&lt; 2ε \end{aligned}\]</span><br />
+Let <span class="math inline">\(ε&#39; \equiv 2ε\)</span>,<br />
+<span class="math display">\[|(x_n + y_n) - (x^* + y^*)| &lt; ε&#39;\]</span><br />
+~</li>
+</ol>
+<blockquote>
+<p>PS5.Q7.2<br />
+Let <span class="math inline">\((x_n)_n \to x^*\)</span> and <span class="math inline">\((y_n)_n \to y^*\)</span><br />
+Prove <span class="math inline">\((x_n y_n)_n \to x^*y^*\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Fix some <span class="math inline">\(ε &gt; 0\)</span><br />
+Exist <span class="math inline">\(N_{1(ε)}, N_{2(ε)} \in \mathbb{N}\)</span> s.t.<span class="math inline">\(| x_n - x^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{1(ε)}\)</span>, and <span class="math inline">\(| y_n - y^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{2(ε)}\)</span><br />
+Let <span class="math inline">\(N \equiv \max\{N_{1(ε)}, N_{2(ε)} \}\)</span><br />
+<span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
+<span class="math display">\[\begin{aligned} | x_n y_n - x^* y^* | &amp;= | x_n y_n - x_n y^* + x_n y^* - x^* y^*| \\ &amp;= | x_n ( y_n - y^*) + y^* (x_n - x^*) | \\ &amp;\leq |x^n| |y_n - y^*| + | y^*| |x_n - x^*| \\ &amp;&lt; (|x_n| + |y^*|) \cdot ε \end{aligned}\]</span><br />
+Let <span class="math inline">\(M \equiv \sup\{ |x_n|, n \in \mathbb{N} \}\)</span><br />
+<span class="math display">\[\begin{aligned} | x_n y_n - x^* y^* | &amp;&lt; (|x_n| + |y^*|) \cdot ε \\ &amp;\leq (M + |y^*|) \cdot ε \end{aligned}\]</span><br />
+~</li>
+</ol>
+<blockquote>
+<p>PS5.Q7.3<br />
+Let <span class="math inline">\((x_n)_n \to x^*\)</span> and <span class="math inline">\((y_n)_n \to y^*\)</span><br />
+If <span class="math inline">\(x_n, x^* \neq 0\)</span>, then <span class="math inline">\((\frac{1}{x_n})_n \to \frac{1}{x^*}\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Fix some <span class="math inline">\(ε &gt; 0\)</span><br />
+Exists <span class="math inline">\(N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(| x_n - x^*| &lt; ε\)</span> for all <span class="math inline">\(n&gt;N\)</span><br />
+<span class="math display">\[\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &amp;= \left| \frac{x^* - x_n}{x^*x_n} \right| \\ &amp;= | x^* - x_n | \cdot \frac{1}{|x^*|\cdot |x_n|} \\ &amp;&lt; ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \end{aligned}\]</span><br />
+Let <span class="math inline">\(M \equiv \sup\left\{ \frac{1}{|x_n|}, n \in \mathbb{N} \right\}\)</span><br />
+Since <span class="math inline">\(x_n, x^* \neq 0 \implies M\)</span> is well-defined<br />
+<span class="math display">\[\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &amp;&lt; ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \\ &amp;\leq ε\cdot\frac{M}{|x^*|}\end{aligned}\]</span><br />
+Let <span class="math inline">\(ε&#39; \equiv ε\cdot\frac{M}{|x^*|}\)</span>,<br />
+<span class="math display">\[\left| \frac{1}{x_n} - \frac{1}{x^*} \right| &lt; ε&#39;\]</span><br />
+~</li>
+</ol>
+</div>
+<div id="limit-cluster-point" class="section level3">
+<h3>Limit &amp; Cluster Point</h3>
+<ul>
+<li>Limit of sequence <span class="math inline">\((x_n)_n\)</span>, denoted by <span class="math inline">\(x \equiv \lim_{n\to\infty} x_n\)</span> if <span class="math inline">\((x_n)_n \to x\)</span></li>
+<li><span class="math inline">\(x\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n\)</span> if <span class="math inline">\(\exists N&#39;&gt;N\)</span> s.t. <span class="math inline">\(d(x_{N&#39;}, x )&lt;ε\)</span> for all <span class="math inline">\(ε&gt;0\)</span> and <span class="math inline">\(N \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\(x\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></li>
+</ul>
 <blockquote>
 <p>PS4.Q3<br />
 Prove that <span class="math inline">\(x\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></p>
