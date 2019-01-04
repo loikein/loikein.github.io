@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Econometrics: PS2 - loikein</title>
+<meta property="og:title" content="Notes on Econometrics: PS2 - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+
+    <h1 class="article-title">Notes on Econometrics: PS2</h1>
+
+    
+    <span class="article-date">2018/11/22</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/r'>R</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#q1">Q1</a></li>
+<li><a href="#q2">Q2</a><ul>
+<li><a href="#a">(a)</a></li>
+<li><a href="#c">(c)</a></li>
+<li><a href="#d">(d)</a></li>
+<li><a href="#e">(e)</a></li>
+</ul></li>
+<li><a href="#q3">Q3</a><ul>
+<li><a href="#a-1">(a)</a></li>
+<li><a href="#critical-value">critical value</a></li>
+<li><a href="#e-1">(e)</a></li>
+<li><a href="#f">(f)</a></li>
+</ul></li>
+<li><a href="#q4">Q4</a><ul>
+<li><a href="#a-2">(a)</a></li>
+<li><a href="#b">(b)</a></li>
+</ul></li>
+</ul>
+</div>
+
+<pre class="r"><code>dir()</code></pre>
+<pre class="r"><code>library(repr)
+options(repr.plot.width=4, repr.plot.height=3)</code></pre>
+<div id="q1" class="section level2">
+<h2>Q1</h2>
+<p>Consider two linear regression models. In the first model only the regressors in a matrix X1 are used as explanatory variables for <span class="math inline">\(y\)</span>. The matrix <span class="math inline">\(X_1\)</span> contains an intercept. In contrast, the second model uses the regressors in <span class="math inline">\(X_2\)</span> as explanatory variables in addition to <span class="math inline">\(X_1\)</span> for <span class="math inline">\(y\)</span>. The solution to the minimization problem of the first model is given by <span class="math inline">\(b_{11}\)</span> and for the second model by <span class="math inline">\(b_{21}\)</span> for the regressors in <span class="math inline">\(X_1\)</span> and <span class="math inline">\(b_{22}\)</span> for the regressors in <span class="math inline">\(X_2\)</span>. <span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span> denote the residuals. This leads to<br />
+<span class="math display">\[y = X_1 b_{11} + e_1 \\  
+y = X_1 b_{21} + X_2 b_{22} + e_2\]</span><br />
+In order to say something about the goodness-of-fit consider <span class="math inline">\(R^2\)</span>. Denote the <span class="math inline">\(R^2\)</span> for the first model by <span class="math inline">\(R_1^2\)</span> and for the second model by <span class="math inline">\(R^2\)</span>.<br />
+Show that <span class="math inline">\(R^2 ≥ R_1^2\)</span>, that is <span class="math inline">\(R^2\)</span> always increases if we increase the number of regressors in models with intercept.</p>
+<hr>
+<p>as <span class="math inline">\(X_1\)</span> contact an intercept, the <span class="math inline">\(R^2\)</span> can be written as<br />
+<span class="math display">\[R^2 = 1- \frac{e&#39;e}{\sum_{i=1}^N (y_i - \bar{y})^2}\]</span><br />
+we need to compare <span class="math inline">\(R^2_1\)</span> and <span class="math inline">\(R^2\)</span><br />
+so we need to compare only <span class="math inline">\(e_1&#39;e_1\)</span> and <span class="math inline">\(e_2&#39;e_2\)</span><br />
+<span class="math inline">\(e_2&#39;e_2 \leq e_1&#39;e_1\)</span><br />
+objective function for regression 2 is maximized at <span class="math inline">\((b_{21},b_{22})\)</span> in comparison to <span class="math inline">\((b_{11},0)\)</span></p>
+</div>
+<div id="q2" class="section level2">
+<h2>Q2</h2>
+<p>Consider the linear regression model<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+with <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span> and <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>. Furthermore, <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span>are independent.</p>
+<div id="a" class="section level3">
+<h3>(a)</h3>
+<p>What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</p>
+<hr>
+<p><span class="math display">\[E(x_t ε_t) = 0\]</span><br />
+independent &lt;=&gt; uncorrelated<br />
+<span class="math display">\[\frac{cov(x_t ε_t)}{\sqrt{var(x_t) var(ε_t)}} = 0 \\
+cov(x_t ε_t) = 0 \\
+= E(x_t ε_t) - E(x_t) E(ε_t) \\
+= E(x_t ε_t) = 0
+\]</span>
+### (b)<br />
+Verify that the OLS estimator can be written as
+<span class="math display">\[b = β + \Big[\sum_{t=1}^N x_t^2] \Big] ^{-1}  \sum_{t=1}^N x_t ε_t\]</span></p>
+<hr>
+<p>we can rewrite <span class="math inline">\(b\)</span> as $ b = β + (X’X)^{-1} X’ε$</p>
+</div>
+<div id="c" class="section level3">
+<h3>(c)</h3>
+<p>Use the LLN to find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span>.<br />
+Where does <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span> converge to (given the appropriate value for <span class="math inline">\(k\)</span>)?<br />
+Hint: In order to characterize the object to which the scaled sum converges, find <span class="math inline">\(E(x_t)\)</span>.</p>
+<hr>
+<p>according to LLN, <span class="math inline">\(k=1\)</span><br />
+…</p>
+</div>
+<div id="d" class="section level3">
+<h3>(d)</h3>
+<p>In order to find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>, first find the variance of <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>. For which unique choice of <span class="math inline">\(k\)</span> does this variance neither approach zero, nor explode? Hence, find the value for <span class="math inline">\(k\)</span> which stabilizes the variance.</p>
+<hr>
+<p><span class="math display">\[var\Big( N^{−k} \sum^N_{t=1} x_t ε_t \Big) = (N^{-k})^2 var\big( \sum x_t ε_t \big) = N^{-2k} var\big( \sum x_t ε_t \big)\\
+var\big( \sum x_t ε_t \big) = var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
+= \sum var (x_t ε_t ) = \sum var (x_t) var( ε_t ) = \sum σ^2_x σ^2_ε = N σ^2_x σ^2_ε \\
+\implies \\
+var\Big( N^{−k} \sum^N_{t=1} x_t ε_t \Big) = N^{-2k} Nσ^2_x σ^2_ε = N^{1-2k} σ^2_x σ^2_ε \\
+k = -1/2
+\]</span></p>
+</div>
+<div id="e" class="section level3">
+<h3>(e)</h3>
+<p>Consider the difference <span class="math inline">\(b − β\)</span>.<br />
+Combine your findings from (c) and (d) to find the implied appropriate scaling (i.e. the convergence rate) of <span class="math inline">\(b − β\)</span>.</p>
+<hr>
+<p>write <span class="math display">\[b-β = (\sum x_t^2) \sum(x_t ε_t)\]</span>
+and write <span class="math display">\[\sqrt{N}(b-β) = (\frac{1}{N}\sum x_t^2)^{-1} \frac{1}{\sqrt{N}}\sum(x_t ε_t)\]</span><br />
+has a stable variance in the limit!<br />
+and therefore a well-defined distribution (normal according to the CLT)</p>
+</div>
+</div>
+<div id="q3" class="section level2">
+<h2>Q3</h2>
+<div id="a-1" class="section level3">
+<h3>(a)</h3>
+</div>
+<div id="critical-value" class="section level3">
+<h3>critical value</h3>
+<pre class="r"><code># quantile of F distribution
+?qf</code></pre>
+<pre class="r"><code>#       (1-α),     (J),       (N - K)
+qf( p = 0.95, df1 = 1, df2 = (1972-5) ) ## significant at 95%
+qf( p = 0.99, df1 = 1, df2 = (1972-5) ) ## significant at 99%</code></pre>
+<pre class="r"><code># calc p-value
+?dt</code></pre>
+<pre class="r"><code>dt( x = 3.84, df = (1972-5) )</code></pre>
+</div>
+<div id="e-1" class="section level3">
+<h3>(e)</h3>
+<pre class="r"><code># F = [[ (R^2 - R0^2) / J ]] / [[ (1 - R^2) / (N - K)]]
+( (0.4032-0.3976) / (11-6) ) / ( (1-0.4032)/(1472 - 12) )</code></pre>
+</div>
+<div id="f" class="section level3">
+<h3>(f)</h3>
+</div>
+</div>
+<div id="q4" class="section level2">
+<h2>Q4</h2>
+<p>Use R to perform the following experiment: For <span class="math inline">\(N = 500\)</span> observations, generate data from the linear regression model as follows:<br />
+<span class="math display">\[y_t = 0.5x_t + ε_t\]</span>
+with <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span> being independent of <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>.<br />
+Fix <span class="math inline">\(σ_ε = 4\)</span> and choose different values for <span class="math inline">\(σ_x\)</span>, say <span class="math inline">\(0.01\)</span> and <span class="math inline">\(100\)</span>.<br />
+Compute the OLS estimator for the true model (excluding the intercept) and its standard deviation.</p>
+<div id="a-2" class="section level3">
+<h3>(a)</h3>
+<p>Verify that the standard deviation can be computed as
+<span class="math display">\[\sqrt{ \frac{\sum_t e_t^2}{N-1}\cdot \frac{1}{\sum_t x_t^2} }\]</span>
+where <span class="math inline">\(e\)</span> denotes as the OLS residual.</p>
+<hr>
+<p>standard deviation of <span class="math inline">\(b\)</span> is given as above</p>
+</div>
+<div id="b" class="section level3">
+<h3>(b)</h3>
+<p>Generate a scatter plot for different values of σx to explain why an increasing variance of the regressor makes the OLS estimator more precise.</p>
+<pre class="r"><code># normal distribution
+?rnorm</code></pre>
+<pre class="r"><code>sd = 100
+
+y &lt;- rnorm( 100, mean = 0, sd)
+x &lt;- rnorm( 100, mean = 0, sd)
+
+# lm( formula = y ~ x - 1)
+
+plot( x, y )</code></pre>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

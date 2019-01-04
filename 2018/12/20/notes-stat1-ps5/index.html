@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Econometrics: PS5 - loikein</title>
+<meta property="og:title" content="Notes on Econometrics: PS5 - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Notes on Econometrics: PS5</h1>
+
+    
+    <span class="article-date">2018/12/20</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#q1">Q1</a></li>
+<li><a href="#q2">Q2</a></li>
+<li><a href="#q3">Q3</a></li>
+<li><a href="#q4">Q4</a><ul>
+<li><a href="#a">a)</a></li>
+<li><a href="#b">b)</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="q1" class="section level2">
+<h2>Q1</h2>
+<p>Show that <span class="math inline">\(\hat{β}_{IV} =(X′ZW_N Z′X)^{−1}X′ZW_N Z′y\)</span> minimizes<br />
+<span class="math display">\[Q_N(β) = \Big[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i\Big]&#39; W_N 
+​           \Big[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i\Big]\]</span>
+​ <span class="math display">\[= \Big[ \frac{1}{N}Z&#39; (y - X β)\Big]&#39; W_N 
+​           \Big[ \frac{1}{N}Z&#39; (y - X β)\Big]\]</span></p>
+<hr>
+<p><span class="math inline">\(Q_N(β) = \frac{1}{N^2}\Big[ (y&#39; - β&#39;X&#39;)Z W_N (Z&#39;y - Z&#39;X β)\Big]\)</span><br />
+——–<span class="math inline">\(= \frac{1}{N^2}\Big[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;yβ \Big]\)</span><br />
+——–<span class="math inline">\(= \frac{1}{N^2}\Big[ y&#39;ZW_NZ&#39;y - 2\big( β&#39;X&#39;Z W_N Z&#39;y \big) + β&#39;X&#39; Z W_N Z&#39;yβ \Big]\)</span><br />
+FOC<br />
+<span class="math inline">\(\frac{\partial Q}{\partial β} = -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0\)</span><br />
+<span class="math inline">\(- X&#39;ZW_N Z&#39;y + X&#39;ZW_N Z&#39;Xβ = 0\)</span><br />
+$  = (X’ZW_N Z’X)^{-1} (X’ZW_N Z’y) $</p>
+</div>
+<div id="q2" class="section level2">
+<h2>Q2</h2>
+Derive the covariance matrix of the IV estimator <span class="math inline">\(\hat{β}_{IV} = (Z′X)^{−1}Z′y\)</span> in the model <span class="math inline">\(y = Xβ+ε\)</span> with homoskedastic and serially uncorrelated errors.<br />
+Argue why the correlation between instruments and regressors matter for the precision of the IV estimator.<br />
+What happens in the limiting case when this correlation approaches zero?
+<hr>
+<p>let <span class="math inline">\(W_N = I_N\)</span><br />
+<span class="math inline">\(\hat{β}_{IV} = (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y\)</span><br />
+—– <span class="math inline">\(= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y\)</span><br />
+—– <span class="math inline">\(= (Z&#39;X)^{-1}Z&#39;y\)</span><br />
+<span class="math inline">\(V(\hat{β}_{IV})\)</span>?</p>
+<p><span class="math inline">\(\hat{β}_{IV} = (Z&#39;X)^{-1}Z&#39;(Xβ+ε)\)</span><br />
+—– <span class="math inline">\(= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε\)</span>, <span class="math inline">\(V(ε) = σ^2 I\)</span><br />
+<span class="math inline">\(\implies\)</span><br />
+<span class="math inline">\(V(\hat{β}_{IV}) = V(β + (Z&#39;X)^{-1}Z&#39;ε)\)</span><br />
+——– $ = (Z’X)<sup>{-1}Z’σ</sup>2 I [(Z’X)^{-1}Z’]’$<br />
+——– $ = σ^2 (Z’X)<sup>{-1}Z’Z(X’Z)</sup>{-1}$</p>
+</div>
+<div id="q3" class="section level2">
+<h2>Q3</h2>
+Derive the GIVE.<br />
+Start with the first stage regression <span class="math inline">\(X = Zγ + v\)</span> and obtain its fitted values <span class="math inline">\(\hat{X}\)</span>.<br />
+Show that the first stage fit <span class="math inline">\(\hat{X}\)</span> is given by <span class="math inline">\(P_ZX\)</span> with <span class="math inline">\(P_Z = Z(Z′Z)^{−1}Z′\)</span>.<br />
+Then consider the OLS estimator in the second stage (<span class="math inline">\(y = Xβ+ε\)</span>) based on fitted values <span class="math inline">\(\hat{X}\)</span> instead of <span class="math inline">\(X\)</span> from the first stage regression, i.e. <span class="math inline">\(y = \hat{X} β + ε\)</span>.<br />
+Show that the resulting estimator equals the GIVE.<br />
+Derive the covariance matrix of the GIVE under homoskedasticity and absence of autocorrelation.<br />
+Compare your result to Problem 2.
+<hr>
+<p><span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}ZX\)</span><br />
+fitted values:<br />
+<span class="math inline">\(\hat{X} = Z \hat{γ}\)</span><br />
+– $ = Z(Z’Z)^{-1}ZX = P_Z X$</p>
+<p>check <span class="math inline">\(P_Z\)</span> is symmetric:<br />
+<span class="math inline">\(P_Z&#39; = [Z(Z&#39;Z)^{-1}Z&#39;]&#39; = Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
+<p>check <span class="math inline">\(P_Z\)</span> is idopotent:<br />
+<span class="math inline">\(P_ZP_Z = Z(Z&#39;Z)^{-1}Z&#39; Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
+<p>second stage estimator:<br />
+<span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
+<span class="math inline">\(b = (\hat{X}&#39;\hat{X})^{-1} \hat{X}&#39;y\)</span><br />
+so $ = P_Z X $ and <span class="math inline">\(\hat{X}&#39; = X&#39;P_Z&#39; = X&#39;P_Z\)</span><br />
+<span class="math inline">\(b = (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y\)</span><br />
+—<span class="math inline">\(= (X&#39;P_ZX)^{-1} X&#39;P_Z y\)</span><br />
+—<span class="math inline">\(= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y\)</span></p>
+<p>Variance:<br />
+<span class="math inline">\(V(b) = σ^2 (\hat{X}&#39; \hat{X})^{-1}\)</span><br />
+——-<span class="math inline">\(= σ^2 (X&#39;P_Z X)^{-1}\)</span><br />
+——-<span class="math inline">\(= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1}\)</span><br />
+——-<span class="math inline">\(= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\)</span></p>
+</div>
+<div id="q4" class="section level2">
+<h2>Q4</h2>
+<p>Consider the model <span class="math inline">\(y^∗_i = x&#39;_i β + ε_i\)</span><br />
+where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>.<br />
+In addition, <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
+The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span><br />
+where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
+(The unobserved yi is sometimes called a latent variable - an unobserved, but otherwise important component.)<br />
+Regress now <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span></p>
+<div id="a" class="section level3">
+<h3>a)</h3>
+Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?
+<hr>
+<p>rewrite <span class="math inline">\(y_i - v_i = x_i&#39; β ε_i\)</span><br />
+<span class="math inline">\(\implies\)</span><br />
+<span class="math inline">\(y_i = x_i&#39; β ε_i + v_i\)</span> where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
+let <span class="math inline">\(ε_i + v_i = u_i\)</span>, <span class="math inline">\(u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span></p>
+<p>OLS estimator:<br />
+<span class="math inline">\(\tilde{β} = (\sum^N_{i=1} x_i x_i&#39;)^{-1}\sum^N_{i=1} x_iy_i\)</span><br />
+– $ = β + (^N_{i=1} x_i x_i’)<sup>{-1}</sup>N_{i=1} x_iu_i$</p>
+<p>since <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated, <span class="math inline">\(\text{plim}\sum^N_{i=1} x_iu_i = 0\)</span> (<span class="math inline">\(x&#39;x\)</span> converges to a stable and well-defined likelihood matrix Σ)<br />
+as long as <span class="math inline">\(\text{plim}\sum^N_{i=1} x_ix_i&#39; &gt; 0\)</span>, <span class="math inline">\(\tilde{β}\)</span> is consistent</p>
+</div>
+<div id="b" class="section level3">
+<h3>b)</h3>
+(How) Does your answer change if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?
+<hr>
+<p>only the variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
+<span class="math inline">\(var(u_i) = σ^2_ε + ε^2_v + 2cov(ε_i, v_i)\)</span><br />
+but importantly, consistency remains</p>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

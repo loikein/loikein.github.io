@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Econometrics: PS3 - loikein</title>
+<meta property="og:title" content="Notes on Econometrics: PS3 - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Notes on Econometrics: PS3</h1>
+
+    
+    <span class="article-date">2018/11/27</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/r'>R</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#q1">Q1</a><ul>
+<li><a href="#a">a)</a></li>
+<li><a href="#b">b)</a></li>
+<li><a href="#c">c)</a></li>
+<li><a href="#d">d)</a></li>
+<li><a href="#e">e)</a></li>
+</ul></li>
+<li><a href="#q2">Q2</a><ul>
+<li><a href="#a-1">a)</a></li>
+<li><a href="#b-1">b)</a></li>
+<li><a href="#c-1">c)</a></li>
+<li><a href="#c-2">c)</a></li>
+<li><a href="#d-1">d)</a></li>
+<li><a href="#e-1">e)</a></li>
+<li><a href="#f">f)</a></li>
+<li><a href="#g">g)</a></li>
+</ul></li>
+<li><a href="#original-true-model">original (true) model</a></li>
+</ul>
+</div>
+
+<pre class="r"><code>library(repr)
+options(repr.plot.width=4, repr.plot.height=3)</code></pre>
+<div id="q1" class="section level2">
+<h2>Q1</h2>
+<p>Consider the Cobb-Douglas production function
+<span class="math display">\[Y =F(K,L)=τK^{β_1}L^{β_2}\]</span>
+where <span class="math inline">\(F\)</span> is the production function, <span class="math inline">\(K\)</span> capital and <span class="math inline">\(L\)</span> labor. Technology is assumed to be constant and represented by <span class="math inline">\(τ\)</span>.</p>
+<div id="a" class="section level3">
+<h3>a)</h3>
+Which coefficients are elasticities?<br />
+
+<hr>
+<p><span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span><br />
+proof:<br />
+elasticity: <span class="math inline">\(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</span></p>
+<p><span class="math inline">\(\implies\frac{\partial Y}{\partial K}\cdot\frac{K}{Y} = τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} = β_1\)</span></p>
+</div>
+<div id="b" class="section level3">
+<h3>b)</h3>
+Specify the econometric model you think is appropriate to estimate the coefficients of the production function.<br />
+
+<hr>
+<p>take log</p>
+<p><span class="math inline">\(\log{Y} = \log{τ} + β_1\log{K} + β_2\log{L}\)</span></p>
+<p><span class="math inline">\(\log{Y_t} = \log{τ} (:=β_0) + β_1\log{K_t} + β_2\log{L_t} + ε_t\)</span></p>
+</div>
+<div id="c" class="section level3">
+<h3>c)</h3>
+<p>Test the significance of the elasticities at the 5% level.</p>
+<p>H0: <span class="math inline">\(β_1 = 0, β_2 = 0\)</span><br />
+H1: <span class="math inline">\(β_1 &gt; 0, β_2 &gt;0\)</span><br />
+at 5%, df = 40, critical value = ?</p>
+<pre class="r"><code>qt( 0.95, 40 )
+qt( 0.99, 40 )</code></pre>
+<p>and we have t-ratio of 2.29,<br />
+so K is significant at 5% level,<br />
+L is significant at 1% level.</p>
+</div>
+<div id="d" class="section level3">
+<h3>d)</h3>
+<p>Conduct a test of explanatory power (all coefficients are zero except the intercept).</p>
+<p>calculate F-statistics, assume that <span class="math inline">\(R^2_U = 0\)</span><br />
+we have F = 1936, 2 restrictions, df = 40<br />
+critical value = ?</p>
+<pre class="r"><code>qf( 0.95, 2, 40)</code></pre>
+<p>so this is significant at 5% level</p>
+</div>
+<div id="e" class="section level3">
+<h3>e)</h3>
+<p>Test the hypothesis of constant returns to scale at the 5% level.</p>
+<p>H0: <span class="math inline">\(β_1 + β_2 = 1\)</span><br />
+H1: H0 is wrong (2-sided)<br />
+<span class="math display">\[ t-stat = \frac{\hat{β_1} + \hat{β_2} - 1}{\sqrt{var(\hat{β_1}) + var(\hat{β_2}) + 2cor(\hat{β_1}, \hat{β_2})}} = \]</span><br />
+covariance matrix: $ s^2 (X’X)^{-1}$<br />
+F = 1.8957<br />
+(note: w-stat and F-stat are always 2-sided)<br />
+critical value =</p>
+<pre class="r"><code>qf( 0.95, 1, 40)</code></pre>
+</div>
+</div>
+<div id="q2" class="section level2">
+<h2>Q2</h2>
+<p>The data set <code>hetero.txt</code> contains data on <span class="math inline">\(y_i\)</span> and three regressors <span class="math inline">\(x_{2i}\)</span>, <span class="math inline">\(x_{3i}\)</span>, <span class="math inline">\(x_{4i}\)</span> for <span class="math inline">\(i = 1, 2, ..., 250\)</span>.<br />
+The data has been generated by simulation and the task is to model the data and to find the underlying data generating process (DGP).<br />
+The true DGP will be revealed during the solution session. All relevant regressors are included in the data set (also for heteroskedasticity regressions).<br />
+The regression model to be estimated shall contain an intercept and all three regressors.<br />
+A skeleton R code is available.<br />
+Apply a nominal significance level of five percent in each testing situation.</p>
+<div id="a-1" class="section level3">
+<h3>a)</h3>
+<p>Apply OLS to find the estimated coefficients of the regression model <span class="math inline">\(y_i =β_1 +β_2x_{2i} +β_3x_{3i} +β_4x_{4i} +ε_i\)</span><br />
+Report the results in a Table as usually shown in the lecture slides (see also Problem 1).</p>
+<pre class="r"><code>rm(list=ls())
+
+dat = read.table(file=&quot;hetero.txt&quot;,header=TRUE)
+N = dim(dat)[1]
+colnames(dat)</code></pre>
+<pre class="r"><code>str(dat)</code></pre>
+<pre class="r"><code>library(ggplot2)
+ggplot(dat, aes(x = x1, y = y)) +
+    geom_point()
+
+ggplot(dat, aes(x = x2, y = y)) +
+    geom_point()
+
+ggplot(dat, aes(x = x3, y = y)) +
+    geom_point()</code></pre>
+<pre class="r"><code>reg = lm(dat$y ~ dat$x1 + dat$x2 + dat$x3)
+summary(reg)</code></pre>
+<pre class="r"><code>library(stargazer)</code></pre>
+</div>
+<div id="b-1" class="section level3">
+<h3>b)</h3>
+<p>Compute the correlation matrix of the regressors to see if there is any sign of multi-collinearity.</p>
+<pre class="r"><code>X.mat  = cbind(dat$x1,dat$x2,dat$x3)
+cor(X.mat)</code></pre>
+<p>they are pretty much not correlated. good.</p>
+</div>
+<div id="c-1" class="section level3">
+<h3>c)</h3>
+<p>Generate scatter plots of (i) the residuals and the fitted values and (ii) the residuals and each individual regressor.<br />
+Are there any visual signs of heteroskedasticity?</p>
+<pre class="r"><code>res = reg$res
+fit = reg$fit
+par(mfrow=c(2,2))
+plot(fit,res)
+plot(dat$x1,res)
+plot(dat$x2,res)
+plot(dat$x3,res)</code></pre>
+<p>x2 is potentially bad</p>
+</div>
+<div id="c-2" class="section level3">
+<h3>c)</h3>
+<p>In order to investigate more formally whether the residual variances are constant, run heteroskedasticity OLS regressions of the following type
+<span class="math display">\[e^2_i =α_1+α_2x^2_{ji}+v_i\]</span>
+where <span class="math inline">\(j = 2,3,4\)</span>.<br />
+Test in each of these simple regressions <span class="math inline">\(H_0 : α2 = 0\)</span>.<br />
+Find an appropriate alternative hypothesis.<br />
+Explain why we can do these simple regressions using a single regressor only safely?<br />
+Or should we worry about an omitted variable bias here?</p>
+<p>since e^2 is var of residual,<br />
+we want a2 to be larger than 0 –&gt; one-sided</p>
+<pre class="r"><code>#simple regressions
+reg.res = lm(I(res^2) ~ I(dat$x1^2))
+summary(reg.res)</code></pre>
+<pre class="r"><code>qnorm(0.95)</code></pre>
+<pre class="r"><code>reg.res = lm(I(res^2) ~ I(dat$x2^2))
+summary(reg.res)</code></pre>
+<pre class="r"><code>reg.res = lm(I(res^2) ~ I(dat$x3^2))
+summary(reg.res)</code></pre>
+<p>but: x’s are not correlated<br />
+-/-&gt;<br />
+transformed x’s are not correlated<br />
+we have to check for omitted variable bias also for transformed x’s</p>
+<pre class="r"><code># sth on multicollinearity in the heterosked regressions
+X2.mat  = cbind(dat$x1^2,dat$x2^2,dat$x3^2)
+cor(X2.mat)</code></pre>
+</div>
+<div id="d-1" class="section level3">
+<h3>d)</h3>
+<p>Collect the significant regressors from the three simple regressions to estimated a joint model containing all significant regressors simultaneously.<br />
+Such an approach would be called specific-to-general.<br />
+What is your chosen specification?</p>
+<pre class="r"><code># using two regressors
+reg.res = lm(I(res^2) ~ I(dat$x1^2) + I(dat$x2^2))
+summary(reg.res)</code></pre>
+</div>
+<div id="e-1" class="section level3">
+<h3>e)</h3>
+<p>In contrast to specific-to-general, consider the reverse idea and start with a general model
+<span class="math display">\[ e_{2i} = α_1 + α_2 x^2_{2i} + α_3 x^2_{3i} + α_4 x^2_{4i} + v_i \]</span>
+Eliminate the most insignificant regressor (only one in each step) and re-estimate the restricted model.<br />
+Continue until all contained regressors are significant.<br />
+What is your chosen specification (model)?<br />
+Compare the adjusted R2 values across all specifications you have estimated.<br />
+Which is the one you would choose on the basis of the adjusted R2 measure?</p>
+<pre class="r"><code># using three regressors
+reg.res = lm(I(res^2) ~ I(dat$x1^2) + I(dat$x2^2) + I(dat$x3^2))
+summary(reg.res)</code></pre>
+<p>x3 should be excluded –&gt; same conclusion as spscific to general approach</p>
+</div>
+<div id="f" class="section level3">
+<h3>f)</h3>
+<p>Plot the estimated h2i values. Are there any signs of heteroskedasticity?<br />
+Transform the original regression model from a) to carry out a feasible GLS regression.<br />
+Compare the FGLS regression results to the OLS results.</p>
+<pre class="r"><code># find the estimated h values
+h.estim = reg.res$fit
+ts.plot(h.estim)
+
+# fit: 
+ts.plot(res^2)
+lines( h.estim, col=2)</code></pre>
+<pre class="r"><code># FGLS transform
+y.star = dat$y/sqrt(h.estim)
+x1.star = dat$x1/sqrt(h.estim)
+x2.star = dat$x2/sqrt(h.estim)
+x3.star = dat$x3/sqrt(h.estim)
+
+reg.star = lm(y.star ~ x1.star + x2.star + x3.star)
+summary(reg.star)</code></pre>
+<hr>
+<p>alternative: sandwidch</p>
+</div>
+<div id="g" class="section level3">
+<h3>g)</h3>
+<p>Apply White standard errors to the OLS regression from a), recompute the t-values and compare the results again.<br />
+What do you find?</p>
+<pre class="r"><code># load sandwich package
+library(sandwich)</code></pre>
+<pre class="r"><code># apply robust standard errors to OLS regression from line 10
+vcovHC(reg)
+
+# round standard deviations
+round( sqrt( diag( vcovHC(reg) )), 3 )</code></pre>
+<pre class="r"><code># call summary again
+summary(reg)
+
+#### compare
+summary(reg.star)`</code></pre>
+<pre class="r"><code># finally, compare the t-ratios
+round(summary(reg)$coef[,1]/sqrt(diag(vcovHC(reg))),3)</code></pre>
+</div>
+</div>
+<div id="original-true-model" class="section level2">
+<h2>original (true) model</h2>
+<pre class="r"><code>sd.eps = 1
+sd.x1 = 1
+sd.x2 = 2
+sd.x3 = 5
+
+xi = rnorm( N, 0, sd.xi )
+
+h = 1 + 10*x1^2 + 10*x2^2
+
+y = 1 + 0.8*x2 +0.8*x3 + sqrt(h) * rnorm(N, 0, sd.eps)</code></pre>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

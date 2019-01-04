@@ -6,18 +6,63 @@
     <description>Recent content in Posts on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on Mathematical Proofs</title>
-      <link>/2018/12/29/notes-math-proof/</link>
-      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      <link>/2019/01/05/notes-math-proof/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2018/12/29/notes-math-proof/</guid>
+      <guid>/2019/01/05/notes-math-proof/</guid>
       <description>Logic Truth table Direct proof  Relation Complete Order Partial Order  Space Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation Proof by Logic (twice if unlucky) Proof by \(B_ε\)  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function Range / Image Injection &amp;amp; Surjection Composite Function Supremum  Set \(\times\) Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence (Un-)bounded Convergent Limit &amp;amp; Cluster Point  Set \(\times\) Sequence   Wrote by a MSc student dying of end-of-term reviews (a.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Econometrics: PS5</title>
+      <link>/2018/12/20/notes-stat1-ps5/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/20/notes-stat1-ps5/</guid>
+      <description>Q1 Q2 Q3 Q4 a) b)    Q1 Show that \(\hat{β}_{IV} =(X′ZW_N Z′X)^{−1}X′ZW_N Z′y\) minimizes
+\[Q_N(β) = \Big[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&amp;#39; β)z_i\Big]&amp;#39; W_N ​ \Big[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&amp;#39; β)z_i\Big]\] ​ \[= \Big[ \frac{1}{N}Z&amp;#39; (y - X β)\Big]&amp;#39; W_N ​ \Big[ \frac{1}{N}Z&amp;#39; (y - X β)\Big]\]
+ \(Q_N(β) = \frac{1}{N^2}\Big[ (y&amp;#39; - β&amp;#39;X&amp;#39;)Z W_N (Z&amp;#39;y - Z&amp;#39;X β)\Big]\)
+——–\(= \frac{1}{N^2}\Big[ y&amp;#39;ZW_NZ&amp;#39;y - y&amp;#39;ZW_N Z&amp;#39;Xβ - β&amp;#39;X&amp;#39;Z W_N Z&amp;#39;y + β&amp;#39;X&amp;#39; Z W_N Z&amp;#39;yβ \Big]\)</description>
+    </item>
+    
+    <item>
+      <title>Notes on Econometrics: PS4</title>
+      <link>/2018/12/04/notes-stat1-ps4/</link>
+      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/04/notes-stat1-ps4/</guid>
+      <description>Q1 a) b) c) d) e) f) g)  Q2 a) b) c) d) e) f) g) h) i)    library(repr) options(repr.plot.width=4,repr.plot.height=4) Q1 Consider the nonlinear consumption function \[c_t = α + γ y_t^δ\] where \(c_t\) is real consumption and yt labels real income and \(α ≥ 0\), \(γ &amp;gt; 0\) and \(δ &amp;gt; 0\)
+a) Can this function be linearized?
+ no. \(\log(c_t) = \log(α + γ y_t^δ)\)</description>
+    </item>
+    
+    <item>
+      <title>Notes on Econometrics: PS3</title>
+      <link>/2018/11/27/notes-stat1-ps3/</link>
+      <pubDate>Tue, 27 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/11/27/notes-stat1-ps3/</guid>
+      <description>Q1 a) b) c) d) e)  Q2 a) b) c) c) d) e) f) g)  original (true) model   library(repr) options(repr.plot.width=4, repr.plot.height=3) Q1 Consider the Cobb-Douglas production function \[Y =F(K,L)=τK^{β_1}L^{β_2}\] where \(F\) is the production function, \(K\) capital and \(L\) labor. Technology is assumed to be constant and represented by \(τ\).
+a) Which coefficients are elasticities?
+ \(β_1\) and \(β_2\)
+proof:
+elasticity: \(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</description>
+    </item>
+    
+    <item>
+      <title>Notes on Econometrics: PS2</title>
+      <link>/2018/11/22/notes-stat1-ps2/</link>
+      <pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/11/22/notes-stat1-ps2/</guid>
+      <description>Q1 Q2 (a) (c) (d) (e)  Q3 (a) critical value (e) (f)  Q4 (a) (b)    dir() library(repr) options(repr.plot.width=4, repr.plot.height=3) Q1 Consider two linear regression models. In the first model only the regressors in a matrix X1 are used as explanatory variables for \(y\). The matrix \(X_1\) contains an intercept. In contrast, the second model uses the regressors in \(X_2\) as explanatory variables in addition to \(X_1\) for \(y\).</description>
     </item>
     
     <item>
@@ -30,14 +75,16 @@
     </item>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>Rmd Template</title>
+      <link>/2018/01/01/rmd-template/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R Markdown Including Plots   R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.</description>
+      <guid>/2018/01/01/rmd-template/</guid>
+      <description>Words of warning First Glance Inline Code Plots   Words of warning Typora usually processes .Rmd file correctly, but it gets lost in a file as complicated as this one.
+Always check twice and preview the .html page.
+ First Glance Rmd home page: R Markdown
+Cheatsheet: rmarkdown - reference
+Detailed list of knitr patterns: Patterns - A list of regular expressions to extract R code and chunk options from the input document - Yihui Xie</description>
     </item>
     
   </channel>
