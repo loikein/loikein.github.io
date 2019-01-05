@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">21 min read</span>
+    <span class="article-duration">22 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -101,12 +101,14 @@
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
 <li><a href="#derive">Derive</a></li>
 <li><a href="#unbiased">Unbiased</a></li>
-<li><a href="#consistent">Consistent</a></li>
+<li><a href="#consistent-asymptotic">Consistent (Asymptotic)</a></li>
 <li><a href="#efficienty">Efficienty</a></li>
 <li><a href="#blue-best-linear-unbiased-estimator">BLUE (Best Linear Unbiased Estimator)</a></li>
+<li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
 </ul></li>
-<li><a href="#ols-residual">OLS Residual</a><ul>
-<li><a href="#variance-unbiased">Variance / Unbiased</a></li>
+<li><a href="#ols-error">OLS Error</a><ul>
+<li><a href="#unbiased-1">Unbiased</a></li>
+<li><a href="#consistent">Consistent</a></li>
 </ul></li>
 <li><a href="#ols-model">OLS Model</a></li>
 <li><a href="#interpretation">Interpretation</a><ul>
@@ -117,6 +119,7 @@
 <li><a href="#iv-estimator-hat_iv">IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
+<li><a href="#maximum-likelihood-model">Maximum Likelihood Model</a></li>
 <li><a href="#compare-models">Compare Models</a><ul>
 <li><a href="#linear-log-interaction-f-stat">Linear / Log &amp; Interaction : F-stat</a></li>
 <li><a href="#ols-gls-robust-standard-error">OLS / GLS : Robust Standard Error</a></li>
@@ -137,12 +140,12 @@
 <p>PS4.Q2.1<br />
 Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased.</p>
 </blockquote>
-<p>True. See slides</p>
+<p>True. See slide</p>
 <blockquote>
 <p>PS4.Q2.2<br />
 Under heteroskedastiticity and/or autocorrelation of the errors, the covariance matrix of the OLS estimator does not change in comparison to the case of homoscedasticity and absence of autocorrelation.</p>
 </blockquote>
-<p>False. See slides</p>
+<p>False. See slide</p>
 <blockquote>
 <p>PS4.Q2.3<br />
 When applying robust standard errors, the OLS point estimates do not change.</p>
@@ -159,12 +162,12 @@ White robust standard error = hetero</p>
 <p>PS4.Q2.5<br />
 The PE test cannot be applied to compare a linear to an exponential specification.</p>
 </blockquote>
-<p>False. See slides 5 P12-13</p>
+<p>False. See slide 5 P12-13</p>
 <blockquote>
 <p>PS4.Q2.6<br />
 The Chow breakpoint test cannot be applied in a cross-sectional regression.</p>
 </blockquote>
-<p>False. See slides 5 P17</p>
+<p>False. See slide 5 P17</p>
 <blockquote>
 <p>PS4.Q2.7<br />
 The LLN states that sample moments converge in probability to their population counterparts.</p>
@@ -224,14 +227,16 @@ objective function for regression 2 is maximized at <span class="math inline">\(
 <p>(A1) ~ (A4): textbook P15, slide 2 P23 = BLUE<br />
 (A5): textbook P19, slide 2 P29 ~~~~~ = (A1) + (A3) + (A4) + normal<br />
 (A6): textbook P34, slide 4 P10<br />
-(A7): textbook P35, slide 4 P11 ~~~ <span class="math inline">\(\Longleftarrow\)</span> (A1)</p>
+(A7): textbook P35, slide 4 P11 ~~~ <span class="math inline">\(\Longleftarrow\)</span> (A1), (A2) or (A8)<br />
+(A8): textbook P37 ~~~~~~~~~~~~~ <span class="math inline">\(\Longleftarrow\)</span> (A2)</p>
 <p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
 (A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
 (A3): <span class="math inline">\(V(ε_i) = σ^2\)</span><br />
-(A4): <span class="math inline">\(cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span><br />
-(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
+(A4): <span class="math inline">\(cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
+<p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
 (A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
-(A7): <span class="math inline">\(E[ε_i x_i] = 0 \Longleftarrow E[ε_i | x_i] = 0 \Longleftarrow E[ε_i] = 0\)</span></p>
+(A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
+(A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent for all <span class="math inline">\(i\)</span></p>
 </div>
 <div id="ols-estimator" class="section level2">
 <h2>OLS Estimator</h2>
@@ -257,8 +262,8 @@ The OLS estimator minimizes the sum of squared residuals:<br />
 ~</li>
 </ul>
 </div>
-<div id="consistent" class="section level3">
-<h3>Consistent</h3>
+<div id="consistent-asymptotic" class="section level3">
+<h3>Consistent (Asymptotic)</h3>
 <ul>
 <li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
 <li>Obtained if: (textbook P35)<br />
@@ -316,11 +321,20 @@ And another linear and unbiased estimator <span class="math inline">\(\tilde{b} 
 <li>Obtained if (A1) ~ (A4) are all satisfied (textbook P17, slide 2 P26)</li>
 </ul>
 </div>
+<div id="can-consistent-and-asymptotically-normal" class="section level3">
+<h3>CAN (Consistent and Asymptotically Normal)</h3>
+<ul>
+<li>OLS estimator is CAN when <span class="math inline">\(\sqrt{N} (b-β) \to^a \mathcal{N}(0, σ^2 Σ_{xx}^{-1})\)</span></li>
+<li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)<br />
+</li>
+<li><span class="math inline">\(\sqrt{N}\)</span> is called the rate of convergence</li>
+</ul>
 </div>
-<div id="ols-residual" class="section level2">
-<h2>OLS Residual</h2>
-<div id="variance-unbiased" class="section level3">
-<h3>Variance / Unbiased</h3>
+</div>
+<div id="ols-error" class="section level2">
+<h2>OLS Error</h2>
+<div id="unbiased-1" class="section level3">
+<h3>Unbiased</h3>
 <blockquote>
 <p>PS1.Q2<br />
 Consider the linear regression model:<br />
@@ -331,6 +345,14 @@ Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N} \sum^N_{i=1} e_i
 Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
 ~~~~ Recall that <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
 </blockquote>
+</div>
+<div id="consistent" class="section level3">
+<h3>Consistent</h3>
+<ul>
+<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
+<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
+~</li>
+</ul>
 </div>
 </div>
 <div id="ols-model" class="section level2">
@@ -498,13 +520,16 @@ fitted values:<br />
 <span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\ &amp;= σ^2 (X&#39;P_Z X)^{-1} \\ &amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\ &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
 </div>
 </div>
+<div id="maximum-likelihood-model" class="section level2">
+<h2>Maximum Likelihood Model</h2>
+</div>
 <div id="compare-models" class="section level2">
 <h2>Compare Models</h2>
 <div id="linear-log-interaction-f-stat" class="section level3">
 <h3>Linear / Log &amp; Interaction : F-stat</h3>
 <blockquote>
 <p>PS2.Q3<br />
-Consider the wage regressions from slides 5 (text P85).<br />
+Consider the wage regressions from slide 5 (text P85).<br />
 1. Compute F-statistics for comparing the loglinear model with and without squared experience.<br />
 2. In the loglinear model without squared experience, what is expected wage gap in percent- ages?</p>
 </blockquote>
@@ -519,25 +544,25 @@ qf( p = 0.99, df1 = 1, df2 = (1972-5) ) ## significant at 99%
 dt( x = 3.84, df = (1972-5) )</code></pre>
 <blockquote>
 <p>PS2.Q3<br />
-Consider the wage regressions from slides 5 (text P85).<br />
+Consider the wage regressions from slide 5 (text P85).<br />
 3. Consider the implied estimates regarding the expected increases of log wage due to in- creases in education (slide 5 P27).<br />
 Redo the computation for the loglinear model with squared experience and compare the results.</p>
 </blockquote>
 <blockquote>
 <p>PS2.Q3<br />
-Consider the wage regressions from slides 5 (text P85).<br />
+Consider the wage regressions from slide 5 (text P85).<br />
 4. Explain why the comparison of specifications 5 and 4 involve <span class="math inline">\(J = 3\)</span> restrictions in the corresponding F-statistic.</p>
 </blockquote>
 <blockquote>
 <p>PS2.Q3<br />
-Consider the wage regressions from slides 5 (text P85).<br />
+Consider the wage regressions from slide 5 (text P85).<br />
 5. Compute an F-statistic for comparing specifications 6 and 5.</p>
 </blockquote>
 <pre class="r"><code># F = [[ (R^2 - R0^2) / J ]] / [[ (1 - R^2) / (N - K)]]
 ( (0.4032-0.3976) / (11-6) ) / ( (1-0.4032)/(1472 - 12) )</code></pre>
 <blockquote>
 <p>PS2.Q3<br />
-Consider the wage regressions from slides 5 (text P85).<br />
+Consider the wage regressions from slide 5 (text P85).<br />
 6. Find the estimated elasticities for the effect of experience for males and females.<br />
 At which conventional level is the gender effect of experience significant?<br />
 Is the gender effect (measured by the male dummy coefficient) significant at <span class="math inline">\(10%\)</span> or <span class="math inline">\(5%\)</span> level when using a one-sided alternative (namely, positive coefficient)?</p>
