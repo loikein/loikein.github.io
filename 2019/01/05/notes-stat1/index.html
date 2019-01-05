@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">18 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -99,6 +99,8 @@
 <li><a href="#arbitrary-linear-model">(Arbitrary) Linear Model</a></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
 <li><a href="#derive-b">Derive <span class="math inline">\(b\)</span></a></li>
+<li><a href="#consistent">Consistent</a></li>
+<li><a href="#unbiased">Unbiased</a></li>
 <li><a href="#efficienty">Efficienty</a></li>
 </ul></li>
 <li><a href="#ols-residual">OLS Residual</a><ul>
@@ -225,6 +227,45 @@ The OLS estimator minimizes the sum of squared residuals:<br />
 ~~ Do you need any further assumption to verify that?</p>
 </blockquote>
 </div>
+<div id="consistent" class="section level3">
+<h3>Consistent</h3>
+<ul>
+<li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
+<li>OLS estimator is consistent if<br />
+<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[x_i ε_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span> (textbook P35)</li>
+</ul>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model<br />
+<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span><br />
+where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
+The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span>,<br />
+where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
+(The unobserved <span class="math inline">\(y_i\)</span> is sometimes called a latent variable.)<br />
+Regress <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span>.<br />
+1. Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?</p>
+</blockquote>
+<p>Rewrite <span class="math inline">\(y_i - v_i = x_i&#39; β ε_i\)</span><br />
+<span class="math inline">\(\implies y_i = x_i&#39; β ε_i + v_i\)</span> where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
+Let <span class="math inline">\(ε_i + v_i = u_i\)</span>, <span class="math inline">\(u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
+OLS estimator:<br />
+<span class="math display">\[\begin{aligned} \tilde{β} &amp;= (\sum^N_{i=1} x_i x_i&#39;)^{-1}\sum^N_{i=1} x_i y_i \\ &amp;= β + (\sum^N_{i=1} x_i x_i&#39;)^{-1}\sum^N_{i=1} x_i u_i \end{aligned}\]</span><br />
+Since <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated<br />
+<span class="math inline">\(\implies \text{plim}\sum^N_{i=1} x_iu_i = 0\)</span> (<span class="math inline">\(x&#39;x\)</span> converges to a stable and well-defined matrix <span class="math inline">\(Σ\)</span>)<br />
+As long as <span class="math inline">\(\text{plim}\sum^N_{i=1} x_ix_i&#39; &gt; 0\)</span>, <span class="math inline">\(\tilde{β}\)</span> is consistent</p>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model<br />
+<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span><br />
+2. (How) Does your answer change if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
+</blockquote>
+<p>Only the variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
+<span class="math inline">\(var(u_i) = σ^2_ε + ε^2_v + 2cov(ε_i, v_i)\)</span><br />
+However, consistency remains</p>
+</div>
+<div id="unbiased" class="section level3">
+<h3>Unbiased</h3>
+</div>
 <div id="efficienty" class="section level3">
 <h3>Efficienty</h3>
 <blockquote>
@@ -263,10 +304,8 @@ Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
 <span class="math display">\[y_t = β x_t + ε_t\]</span><br />
-where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span>are independent.</p>
-<ol style="list-style-type: decimal">
-<li>What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</li>
-</ol>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span>are independent.<br />
+1. What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</p>
 </blockquote>
 <p><span class="math display">\[E(x_t ε_t) = 0\]</span><br />
 independent <span class="math inline">\(\iff\)</span> uncorrelated<br />
@@ -315,20 +354,16 @@ and therefore a well-defined distribution (normal according to the CLT)</p>
 Consider the Cobb-Douglas production function:<br />
 <span class="math display">\[Y =F(K,L)=τK^{β_1}L^{β_2}\]</span><br />
 where <span class="math inline">\(F\)</span> is the production function, <span class="math inline">\(K\)</span> capital and <span class="math inline">\(L\)</span> labor.<br />
-Technology is assumed to be constant and represented by <span class="math inline">\(τ\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li>Which coefficients are elasticities?</li>
-</ol>
+Technology is assumed to be constant and represented by <span class="math inline">\(τ\)</span>.<br />
+1. Which coefficients are elasticities?</p>
 </blockquote>
 <p><span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span><br />
 proof:<br />
 elasticity: <span class="math inline">\(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</span></p>
 <p><span class="math inline">\(\implies\frac{\partial Y}{\partial K}\cdot\frac{K}{Y} = τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} = β_1\)</span></p>
 <blockquote>
-<p>PS3.Q1.1</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Specify the econometric model you think is appropriate to estimate the coefficients of the production function.</li>
-</ol>
+<p>PS3.Q1.1<br />
+2. Specify the econometric model you think is appropriate to estimate the coefficients of the production function.</p>
 </blockquote>
 <p>Take log:<br />
 <span class="math display">\[\begin{aligned}\log{Y} &amp;= \log{τ} + β_1\log{K} + β_2\log{L} \\ \log{Y_t} &amp;= \log{τ} (:=β_0) + β_1\log{K_t} + β_2\log{L_t} + ε_t \end{aligned}\]</span>
@@ -338,10 +373,8 @@ elasticity: <span class="math inline">\(\frac{\partial A}{\partial B}\cdot\frac{
 <h3>Regression Table</h3>
 <blockquote>
 <p>PS3.Q1.2<br />
-Consider the regression output.</p>
-<ol style="list-style-type: decimal">
-<li>Test the significance of the elasticities at <span class="math inline">\(5%\)</span> level.</li>
-</ol>
+Consider the regression output.<br />
+1. Test the significance of the elasticities at <span class="math inline">\(5%\)</span> level.</p>
 </blockquote>
 <p>H0: <span class="math inline">\(β_1 = 0, β_2 = 0\)</span><br />
 H1: <span class="math inline">\(β_1 &gt; 0, β_2 &gt;0\)</span><br />
@@ -353,10 +386,8 @@ so K is significant at <span class="math inline">\(5%\)</span> level,<br />
 L is significant at <span class="math inline">\(1%\)</span> level.</p>
 <blockquote>
 <p>PS3.Q1.2<br />
-Consider the regression output.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Conduct a test of explanatory power (all coefficients are zero except the intercept).</li>
-</ol>
+Consider the regression output.<br />
+2. Conduct a test of explanatory power (all coefficients are zero except the intercept).</p>
 </blockquote>
 <p>calculate F-statistics, assume that <span class="math inline">\(R^2_U = 0\)</span><br />
 we have <span class="math inline">\(F = 1936\)</span>, 2 restrictions, <span class="math inline">\(df = 40\)</span><br />
@@ -365,10 +396,8 @@ critical value:</p>
 <p>so this is significant at <span class="math inline">\(5%\)</span> level</p>
 <blockquote>
 <p>PS3.Q1.2<br />
-Consider the regression output.</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Test the hypothesis of constant returns to scale at <span class="math inline">\(5%\)</span> level.</li>
-</ol>
+Consider the regression output.<br />
+3. Test the hypothesis of constant returns to scale at <span class="math inline">\(5%\)</span> level.</p>
 </blockquote>
 <p>H0: <span class="math inline">\(β_1 + β_2 = 1\)</span><br />
 H1: H0 is wrong (2-sided)<br />
@@ -407,17 +436,13 @@ Redo the computation for the loglinear model with squared experience and compare
 </blockquote>
 <blockquote>
 <p>PS2.Q3<br />
-Consider the wage regressions from slides 5 (text P85).</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Explain why the comparison of specifications 5 and 4 involve <span class="math inline">\(J = 3\)</span> restrictions in the corresponding F-statistic.</li>
-</ol>
+Consider the wage regressions from slides 5 (text P85).<br />
+4. Explain why the comparison of specifications 5 and 4 involve <span class="math inline">\(J = 3\)</span> restrictions in the corresponding F-statistic.</p>
 </blockquote>
 <blockquote>
 <p>PS2.Q3<br />
-Consider the wage regressions from slides 5 (text P85).</p>
-<ol start="5" style="list-style-type: decimal">
-<li>Compute an F-statistic for comparing specifications 6 and 5.</li>
-</ol>
+Consider the wage regressions from slides 5 (text P85).<br />
+5. Compute an F-statistic for comparing specifications 6 and 5.</p>
 </blockquote>
 <pre class="r"><code># F = [[ (R^2 - R0^2) / J ]] / [[ (1 - R^2) / (N - K)]]
 ( (0.4032-0.3976) / (11-6) ) / ( (1-0.4032)/(1472 - 12) )</code></pre>
@@ -464,10 +489,8 @@ summary(reg)
 # autogen regression tables
 library(stargazer)</code></pre>
 <blockquote>
-<p>PS3.Q2</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Compute the correlation matrix of the regressors to see if there is any sign of multi-collinearity.</li>
-</ol>
+<p>PS3.Q2<br />
+2. Compute the correlation matrix of the regressors to see if there is any sign of multi-collinearity.</p>
 </blockquote>
 <pre class="r"><code>X.mat  = cbind(dat$x1,dat$x2,dat$x3)
 cor(X.mat)</code></pre>
