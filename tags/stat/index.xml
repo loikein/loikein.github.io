@@ -17,11 +17,9 @@
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/01/05/notes-stat1/</guid>
-      <description>Matrix Algebra (Arbitrary) Linear Model OLS Estimator Derive \(b\) Efficienty  OLS Residual Variance / Unbiased  OLS Model R Workouts Monte Carlo Simulation &amp;amp; Check Gauss-Markov assumptions  Rmd Reference   Matrix Algebra  PS1.Q1.1
-Consider the matrix:
-\[M = \begin{pmatrix} \frac{1}{4} &amp;amp; \frac{\sqrt{3}}{4} \\ \frac{\sqrt{3}}{4} &amp;amp; \frac{1}{4} \end{pmatrix}\]
-Calculate the trace of \(λM′M\) where \(λ\) is a scalar.
-Check whether \(M\) is invertible and find the inverse if possible.</description>
+      <description>True or False? Matrix Algebra (Arbitrary) Linear Model OLS Estimator Derive \(b\) Efficienty  OLS Residual Variance / Unbiased  OLS Model Interpretation Elasticity Regression Table  Compare Models Linear / Log &amp;amp; Interaction : F-stat OLS / GLS : Robust Standard Error Weird Models  R Workout Data Generation OLS Regression    Warning: haven’t reviewed yet
+True or False?  PS4.Q2.1
+Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased.</description>
     </item>
     
     <item>
@@ -34,39 +32,6 @@ Check whether \(M\) is invertible and find the inverse if possible.</description
 \[Q_N(β) = \Big[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&amp;#39; β)z_i\Big]&amp;#39; W_N ​ \Big[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&amp;#39; β)z_i\Big]\] ​ \[= \Big[ \frac{1}{N}Z&amp;#39; (y - X β)\Big]&amp;#39; W_N ​ \Big[ \frac{1}{N}Z&amp;#39; (y - X β)\Big]\]
  \(Q_N(β) = \frac{1}{N^2}\Big[ (y&amp;#39; - β&amp;#39;X&amp;#39;)Z W_N (Z&amp;#39;y - Z&amp;#39;X β)\Big]\)
 ——–\(= \frac{1}{N^2}\Big[ y&amp;#39;ZW_NZ&amp;#39;y - y&amp;#39;ZW_N Z&amp;#39;Xβ - β&amp;#39;X&amp;#39;Z W_N Z&amp;#39;y + β&amp;#39;X&amp;#39; Z W_N Z&amp;#39;yβ \Big]\)</description>
-    </item>
-    
-    <item>
-      <title>Notes on Econometrics: PS4</title>
-      <link>/2018/12/04/notes-stat1-ps4/</link>
-      <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/12/04/notes-stat1-ps4/</guid>
-      <description>Q1 a) b) c) d) e) f) g)  Q2 a) b) c) d) e) f) g) h) i)    library(repr) options(repr.plot.width=4,repr.plot.height=4) Q1 Consider the nonlinear consumption function \[c_t = α + γ y_t^δ\] where \(c_t\) is real consumption and yt labels real income and \(α ≥ 0\), \(γ &amp;gt; 0\) and \(δ &amp;gt; 0\)
-a) Can this function be linearized?
- no. \(\log(c_t) = \log(α + γ y_t^δ)\)</description>
-    </item>
-    
-    <item>
-      <title>Notes on Econometrics: PS3</title>
-      <link>/2018/11/27/notes-stat1-ps3/</link>
-      <pubDate>Tue, 27 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/11/27/notes-stat1-ps3/</guid>
-      <description>Q1 a) b) c) d) e)  Q2 a) b) c) c) d) e) f) g)  original (true) model   library(repr) options(repr.plot.width=4, repr.plot.height=3) Q1 Consider the Cobb-Douglas production function \[Y =F(K,L)=τK^{β_1}L^{β_2}\] where \(F\) is the production function, \(K\) capital and \(L\) labor. Technology is assumed to be constant and represented by \(τ\).
-a) Which coefficients are elasticities?
- \(β_1\) and \(β_2\)
-proof:
-elasticity: \(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</description>
-    </item>
-    
-    <item>
-      <title>Notes on Econometrics: PS2</title>
-      <link>/2018/11/22/notes-stat1-ps2/</link>
-      <pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/11/22/notes-stat1-ps2/</guid>
-      <description>Q1 Q2 (a) (b) (c) (d) (e)  Q3 (a) critical value (e) (f)  Q4 (a) (b)    dir() library(repr) options(repr.plot.width=4, repr.plot.height=3) Q1 Consider two linear regression models. In the first model only the regressors in a matrix X1 are used as explanatory variables for \(y\). The matrix \(X_1\) contains an intercept. In contrast, the second model uses the regressors in \(X_2\) as explanatory variables in addition to \(X_1\) for \(y\).</description>
     </item>
     
   </channel>
