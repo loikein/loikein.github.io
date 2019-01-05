@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">20 min read</span>
+    <span class="article-duration">21 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -97,11 +97,13 @@
 <li><a href="#true-or-false">True or False?</a></li>
 <li><a href="#matrix-algebra">Matrix Algebra</a></li>
 <li><a href="#arbitrary-linear-model">(Arbitrary) Linear Model</a></li>
+<li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
-<li><a href="#derive-b">Derive <span class="math inline">\(b\)</span></a></li>
-<li><a href="#consistent">Consistent</a></li>
+<li><a href="#derive">Derive</a></li>
 <li><a href="#unbiased">Unbiased</a></li>
+<li><a href="#consistent">Consistent</a></li>
 <li><a href="#efficienty">Efficienty</a></li>
+<li><a href="#blue-best-linear-unbiased-estimator">BLUE (Best Linear Unbiased Estimator)</a></li>
 </ul></li>
 <li><a href="#ols-residual">OLS Residual</a><ul>
 <li><a href="#variance-unbiased">Variance / Unbiased</a></li>
@@ -127,7 +129,8 @@
 </ul>
 </div>
 
-<p>Warning: haven’t reviewed yet</p>
+<p>Warning: haven’t proofread yet</p>
+<p>Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
 <div id="true-or-false" class="section level2">
 <h2>True or False?</h2>
 <blockquote>
@@ -167,7 +170,7 @@ The Chow breakpoint test cannot be applied in a cross-sectional regression.</p>
 The LLN states that sample moments converge in probability to their population counterparts.</p>
 </blockquote>
 <p>True.<br />
-<span class="math display">\[\frac{1}{T}\sum y_t^2 \to P\to E(y_t^2)\]</span>
+<span class="math display">\[\frac{1}{T}\sum y_t^2 \to P\to E(y_t^2)\]</span><br />
 ~</p>
 <blockquote>
 <p>PS4.Q2.8<br />
@@ -216,10 +219,24 @@ so we need to compare only <span class="math inline">\(e_1&#39;e_1\)</span> and 
 <span class="math inline">\(e_2&#39;e_2 \leq e_1&#39;e_1\)</span><br />
 objective function for regression 2 is maximized at <span class="math inline">\((b_{21},b_{22})\)</span> in comparison to <span class="math inline">\((b_{11},0)\)</span></p>
 </div>
+<div id="gauss-markov-assumptions" class="section level2">
+<h2>Gauss-Markov Assumptions</h2>
+<p>(A1) ~ (A4): textbook P15, slide 2 P23 = BLUE<br />
+(A5): textbook P19, slide 2 P29 ~~~~~ = (A1) + (A3) + (A4) + normal<br />
+(A6): textbook P34, slide 4 P10<br />
+(A7): textbook P35, slide 4 P11 ~~~ <span class="math inline">\(\Longleftarrow\)</span> (A1)</p>
+<p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
+(A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
+(A3): <span class="math inline">\(V(ε_i) = σ^2\)</span><br />
+(A4): <span class="math inline">\(cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span><br />
+(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
+(A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
+(A7): <span class="math inline">\(E[ε_i x_i] = 0 \Longleftarrow E[ε_i | x_i] = 0 \Longleftarrow E[ε_i] = 0\)</span></p>
+</div>
 <div id="ols-estimator" class="section level2">
 <h2>OLS Estimator</h2>
-<div id="derive-b" class="section level3">
-<h3>Derive <span class="math inline">\(b\)</span></h3>
+<div id="derive" class="section level3">
+<h3>Derive</h3>
 <blockquote>
 <p>PS1.Q1.3<br />
 Consider the linear model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
@@ -231,12 +248,21 @@ The OLS estimator minimizes the sum of squared residuals:<br />
 ~~ Do you need any further assumption to verify that?</p>
 </blockquote>
 </div>
+<div id="unbiased" class="section level3">
+<h3>Unbiased</h3>
+<ul>
+<li>OLS estimator is unbiased when <span class="math inline">\(E(b) = β\)</span></li>
+<li>Obtained if: (textbook P16, slide 2 P24)<br />
+<span class="math display">\[\begin{cases} E[ε_i] = 0 &amp;&amp; \text{(A1)} \\ \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)}\end{cases}\]</span>
+~</li>
+</ul>
+</div>
 <div id="consistent" class="section level3">
 <h3>Consistent</h3>
 <ul>
 <li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
-<li>OLS estimator is consistent if (textbook P35)<br />
-<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[x_i ε_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
+<li>Obtained if: (textbook P35)<br />
+<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
 ~</li>
 </ul>
 <blockquote>
@@ -268,9 +294,6 @@ Consider the model<br />
 <span class="math inline">\(var(u_i) = σ^2_ε + ε^2_v + 2cov(ε_i, v_i)\)</span><br />
 However, consistency remains</p>
 </div>
-<div id="unbiased" class="section level3">
-<h3>Unbiased</h3>
-</div>
 <div id="efficienty" class="section level3">
 <h3>Efficienty</h3>
 <blockquote>
@@ -285,6 +308,13 @@ And another linear and unbiased estimator <span class="math inline">\(\tilde{b} 
 ~~ Make use of <span class="math inline">\(W X = I\)</span> and find a quadratic form in which the matrix <span class="math inline">\(MX\)</span> appears.<br />
 ~~ Show in the final step that the difference between the covariance matrices is positive semi-definite.</p>
 </blockquote>
+</div>
+<div id="blue-best-linear-unbiased-estimator" class="section level3">
+<h3>BLUE (Best Linear Unbiased Estimator)</h3>
+<ul>
+<li>OLS estimator is BLUE when <span class="math inline">\(V(\tilde{b}) \geq V(b) \iff V(\tilde{b}) - V(b)\)</span> is positive semi-definite</li>
+<li>Obtained if (A1) ~ (A4) are all satisfied (textbook P17, slide 2 P26)</li>
+</ul>
 </div>
 </div>
 <div id="ols-residual" class="section level2">
@@ -364,8 +394,8 @@ Technology is assumed to be constant and represented by <span class="math inline
 </blockquote>
 <p><span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span><br />
 proof:<br />
-elasticity: <span class="math inline">\(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</span></p>
-<p><span class="math inline">\(\implies\frac{\partial Y}{\partial K}\cdot\frac{K}{Y} = τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} = β_1\)</span></p>
+elasticity: <span class="math inline">\(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</span><br />
+<span class="math inline">\(\implies\frac{\partial Y}{\partial K}\cdot\frac{K}{Y} = τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} = β_1\)</span></p>
 <blockquote>
 <p>PS3.Q1.1<br />
 2. Specify the econometric model you think is appropriate to estimate the coefficients of the production function.</p>
@@ -867,7 +897,7 @@ Conduct Monte Carlo simulations.<br />
 The idea is to take a data generating process (DGP) with an assumed parameterization, simulate data from it, and estimate the parameters by OLS.<br />
 1. The first DGP is given by <span class="math inline">\(y_t = β_1 + β_2 x_t + ε_t\)</span> where <span class="math inline">\(ε_t ∼ \mathcal{N} (0, 1)\)</span>.<br />
 ~~ The exogenous regressor <span class="math inline">\(x_t\)</span> is set to be always drawn from <span class="math inline">\(\mathcal{N} (0, 1)\)</span>.<br />
-~~ Given this regressor, simulate 10000 samples for <span class="math inline">\(y\)</span> of sizes $n = {10, 50, 100, 500}, using <span class="math inline">\(β_1 = 1\)</span> and <span class="math inline">\(β_2 = 2\)</span>.<br />
+~~ Given this regressor, simulate 10000 samples for <span class="math inline">\(y\)</span> of sizes <span class="math inline">\(n = \{10, 50, 100, 500\}\)</span>, using <span class="math inline">\(β_1 = 1\)</span> and <span class="math inline">\(β_2 = 2\)</span>.<br />
 2. For each of these samples, compute the OLS estimator <span class="math inline">\(b_2\)</span>.<br />
 3. Save the result in a matrix and plot it as a smoothed histogram (i.e. kernel density estimator).<br />
 4. Do the same for the DGP where <span class="math inline">\(x_t\)</span> and <span class="math inline">\(ε_t\)</span> are drawn individually from a <span class="math inline">\(t(5)\)</span>-distribution instead.<br />
