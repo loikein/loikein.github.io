@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Econometrics - loikein</title>
+<meta property="og:title" content="Notes on Econometrics - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Notes on Econometrics</h1>
+
+    
+    <span class="article-date">2019/01/05</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/r'>R</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#matrix-algebra">Matrix Algebra</a></li>
+<li><a href="#arbitrary-linear-model">(Arbitrary) Linear Model</a></li>
+<li><a href="#ols-estimator">OLS Estimator</a><ul>
+<li><a href="#derive-b">Derive <span class="math inline">\(b\)</span></a></li>
+<li><a href="#efficienty">Efficienty</a></li>
+</ul></li>
+<li><a href="#ols-residual">OLS Residual</a><ul>
+<li><a href="#variance-unbiased">Variance / Unbiased</a></li>
+</ul></li>
+<li><a href="#ols-model">OLS Model</a></li>
+<li><a href="#r-workouts">R Workouts</a><ul>
+<li><a href="#monte-carlo-simulation-check-gauss-markov-assumptions">Monte Carlo Simulation &amp; Check Gauss-Markov assumptions</a></li>
+</ul></li>
+<li><a href="#rmd-reference">Rmd Reference</a></li>
+</ul>
+</div>
+
+<div id="matrix-algebra" class="section level2">
+<h2>Matrix Algebra</h2>
+<blockquote>
+<p>PS1.Q1.1<br />
+Consider the matrix:<br />
+<span class="math display">\[M = \begin{pmatrix} \frac{1}{4} &amp; \frac{\sqrt{3}}{4} \\ \frac{\sqrt{3}}{4} &amp;  \frac{1}{4} \end{pmatrix}\]</span><br />
+Calculate the trace of <span class="math inline">\(λM′M\)</span> where <span class="math inline">\(λ\)</span> is a scalar.<br />
+Check whether <span class="math inline">\(M\)</span> is invertible and find the inverse if possible.</p>
+</blockquote>
+<blockquote>
+<p>PS1.Q1.2<br />
+Consider the matrix:<br />
+<span class="math display">\[X = \begin{pmatrix} 1 &amp; 4 \\ 2 &amp; 5 \\ 3 &amp; 6 \end{pmatrix}\]</span><br />
+and recall that <span class="math inline">\(X′ X\)</span> is equivalent to <span class="math inline">\(\sum^3_{i=1} x_i x_i′\)</span>.<br />
+Define the vectors <span class="math inline">\(x_1 , \dots , x_3\)</span>.<br />
+Check that the notations are indeed equivalent.</p>
+</blockquote>
+</div>
+<div id="arbitrary-linear-model" class="section level2">
+<h2>(Arbitrary) Linear Model</h2>
+<blockquote>
+<p>PS2.Q1<br />
+Consider two linear regression models:<br />
+<span class="math display">\[\begin{aligned} y &amp;= X_1 b_{11} + e_1 \\  y &amp;= X_1 b_{21} + X_2 b_{22} + e_2\end{aligned}\]</span><br />
+The solution to the minimization problem of the first model is given by <span class="math inline">\(b_{11}\)</span> and for the second model by <span class="math inline">\(b_{21}\)</span> for the regressors in <span class="math inline">\(X_1\)</span> and <span class="math inline">\(b_{22}\)</span> for the regressors in <span class="math inline">\(X_2\)</span>.<br />
+<span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span> denote the residuals.<br />
+Denote the <span class="math inline">\(R^2\)</span> for the first model by <span class="math inline">\(R_1^2\)</span> and for the second model by <span class="math inline">\(R^2\)</span>.<br />
+Show that <span class="math inline">\(R^2 ≥ R_1^2\)</span> (<span class="math inline">\(R^2\)</span> always increases if we increase the number of regressors in models with intercept)</p>
+</blockquote>
+<p>as <span class="math inline">\(X_1\)</span> contact an intercept, the <span class="math inline">\(R^2\)</span> can be written as<br />
+<span class="math display">\[R^2 = 1- \frac{e&#39;e}{\sum_{i=1}^N (y_i - \bar{y})^2}\]</span><br />
+we need to compare <span class="math inline">\(R^2_1\)</span> and <span class="math inline">\(R^2\)</span><br />
+so we need to compare only <span class="math inline">\(e_1&#39;e_1\)</span> and <span class="math inline">\(e_2&#39;e_2\)</span><br />
+<span class="math inline">\(e_2&#39;e_2 \leq e_1&#39;e_1\)</span><br />
+objective function for regression 2 is maximized at <span class="math inline">\((b_{21},b_{22})\)</span> in comparison to <span class="math inline">\((b_{11},0)\)</span></p>
+</div>
+<div id="ols-estimator" class="section level2">
+<h2>OLS Estimator</h2>
+<div id="derive-b" class="section level3">
+<h3>Derive <span class="math inline">\(b\)</span></h3>
+<blockquote>
+<p>PS1.Q1.3<br />
+Consider the linear model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
+The OLS estimator minimizes the sum of squared residuals:<br />
+<span class="math display">\[S(\tilde{β}) = ε′ε = (y − X\tilde{β})′(y − X\tilde{β})\]</span><br />
+1. Derive the first order condition of <span class="math inline">\(S(\tilde{β})\)</span>.<br />
+2. Find the solution of the minimization problem and state all needed assumptions.<br />
+3. Check whether the solution in (2) is a minimum.<br />
+~~ Do you need any further assumption to verify that?</p>
+</blockquote>
+</div>
+<div id="efficienty" class="section level3">
+<h3>Efficienty</h3>
+<blockquote>
+<p>PS1.Q4<br />
+Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.<br />
+Consider the linear and unbiased OLS estimator <span class="math inline">\(b = (X′X)^{−1} X′y = Cy\)</span> with <span class="math inline">\(C = (X′X)−1X′\)</span>,<br />
+And another linear and unbiased estimator <span class="math inline">\(\tilde{b} = Wy\)</span> with <span class="math inline">\(W =W(X)\)</span>.<br />
+1. Verify that <span class="math inline">\(W X = I\)</span> holds due to unbiasedness (similar to <span class="math inline">\(CX = I\)</span>).<br />
+~~ Hint: Find <span class="math inline">\(E[\tilde{b}]\)</span> and insert the true model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
+2. Find the covariance matrix of <span class="math inline">\(\tilde{b}\)</span>, i.e. <span class="math inline">\(V(\tilde{b})\)</span>.<br />
+3. Compare the covariance matrices of <span class="math inline">\(\tilde{b}\)</span> and <span class="math inline">\(b\)</span> by building their difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span>.<br />
+~~ Make use of <span class="math inline">\(W X = I\)</span> and find a quadratic form in which the matrix <span class="math inline">\(MX\)</span> appears.<br />
+~~ Show in the final step that the difference between the covariance matrices is positive semi-definite.</p>
+</blockquote>
+</div>
+</div>
+<div id="ols-residual" class="section level2">
+<h2>OLS Residual</h2>
+<div id="variance-unbiased" class="section level3">
+<h3>Variance / Unbiased</h3>
+<blockquote>
+<p>PS1.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span><br />
+with <span class="math inline">\(εi ∼ NID(0,σ2)\)</span>.<br />
+Denote by K the number of regressors including the intercept.<br />
+Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
+Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
+~~~~ Recall that <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
+</blockquote>
+</div>
+</div>
+<div id="ols-model" class="section level2">
+<h2>OLS Model</h2>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span>are independent.<br />
+1. What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</p>
+</blockquote>
+<p><span class="math display">\[E(x_t ε_t) = 0\]</span><br />
+independent <span class="math inline">\(\iff\)</span> uncorrelated<br />
+<span class="math display">\[\begin{aligned}\frac{cov(x_t ε_t)}{\sqrt{var(x_t) var(ε_t)}} &amp;= 0 \\ cov(x_t ε_t) &amp;= 0 \\ &amp;= E(x_t ε_t) - E(x_t) E(ε_t) \\ &amp;= E(x_t ε_t) = 0 \end{aligned}\]</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+2. Verify that the OLS estimator can be written as<br />
+<span class="math inline">\(b = β + \left[ \sum_{t=1}^N x_t^2] \right] ^{-1} \sum_{t=1}^N x_t ε_t\)</span></p>
+</blockquote>
+<p>rewrite <span class="math inline">\(b\)</span> as <span class="math inline">\(b = β + (X&#39;X)^{-1} X&#39;ε\)</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+3.</p>
+</blockquote>
+</div>
+<div id="r-workouts" class="section level2">
+<h2>R Workouts</h2>
+<div id="monte-carlo-simulation-check-gauss-markov-assumptions" class="section level3">
+<h3>Monte Carlo Simulation &amp; Check Gauss-Markov assumptions</h3>
+<blockquote>
+<p>PS1.Q3<br />
+Conduct Monte Carlo simulations.<br />
+The idea is to take a data generating process (DGP) with an assumed parameterization, simulate data from it, and estimate the parameters by OLS.<br />
+1. The first DGP is given by <span class="math inline">\(y_t = β_1 + β_2 x_t + ε_t\)</span> where <span class="math inline">\(ε_t ∼ \mathcal{N} (0, 1)\)</span>.<br />
+~~ The exogenous regressor <span class="math inline">\(x_t\)</span> is set to be always drawn from <span class="math inline">\(\mathcal{N} (0, 1)\)</span>.<br />
+~~ Given this regressor, simulate 10000 samples for <span class="math inline">\(y\)</span> of sizes $n = {10, 50, 100, 500}, using <span class="math inline">\(β_1 = 1\)</span> and <span class="math inline">\(β_2 = 2\)</span>.<br />
+2. For each of these samples, compute the OLS estimator <span class="math inline">\(b_2\)</span>.<br />
+3. Save the result in a matrix and plot it as a smoothed histogram (i.e. kernel density estimator).<br />
+4. Do the same for the DGP where <span class="math inline">\(x_t\)</span> and <span class="math inline">\(ε_t\)</span> are drawn individually from a <span class="math inline">\(t(5)\)</span>-distribution instead.<br />
+5. What do you find? Are the assumptions A1–A4 are satisfied?</p>
+</blockquote>
+</div>
+</div>
+<div id="rmd-reference" class="section level2">
+<h2>Rmd Reference</h2>
+<p>Rmd home page: <a href="https://rmarkdown.rstudio.com/">R Markdown</a></p>
+<p>Blogdown documentation: <a href="https://bookdown.org/yihui/blogdown/r-markdown.html">Appendix A: R Markdown | blogdown</a></p>
+<p>Sample site: <a href="https://blogdown-demo.rbind.io/">A minimal example website using blogdown</a></p>
+<p>Explanation of YAML in Pandoc documentation: <a href="http://pandoc.org/MANUAL.html#extension-yaml_metadata_block">yaml_metadata_block - Pandoc User’s Guide</a></p>
+<p>Cheatsheet:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a></li>
+<li><a href="chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/index.html">R Markdown Cheatsheet</a></li>
+<li><a href="https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/">Markdown &amp; YAML cheat sheet</a></li>
+</ol>
+<p>Detailed list of knitr patterns: <a href="https://yihui.name/knitr/patterns/">Patterns - A list of regular expressions to extract R code and chunk options from the input document - Yihui Xie</a></p>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

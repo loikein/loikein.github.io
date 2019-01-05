@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Notes on Econometrics</title>
+      <link>/2019/01/05/notes-stat1/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/05/notes-stat1/</guid>
+      <description>Matrix Algebra (Arbitrary) Linear Model OLS Estimator Derive \(b\) Efficienty  OLS Residual Variance / Unbiased  OLS Model R Workouts Monte Carlo Simulation &amp;amp; Check Gauss-Markov assumptions  Rmd Reference   Matrix Algebra  PS1.Q1.1
+Consider the matrix:
+\[M = \begin{pmatrix} \frac{1}{4} &amp;amp; \frac{\sqrt{3}}{4} \\ \frac{\sqrt{3}}{4} &amp;amp; \frac{1}{4} \end{pmatrix}\]
+Calculate the trace of \(λM′M\) where \(λ\) is a scalar.
+Check whether \(M\) is invertible and find the inverse if possible.</description>
+    </item>
+    
+    <item>
       <title>Notes on Mathematical Proofs</title>
       <link>/2019/01/05/notes-math-proof/</link>
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
@@ -62,7 +75,7 @@ elasticity: \(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</description>
       <pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/11/22/notes-stat1-ps2/</guid>
-      <description>Q1 Q2 (a) (c) (d) (e)  Q3 (a) critical value (e) (f)  Q4 (a) (b)    dir() library(repr) options(repr.plot.width=4, repr.plot.height=3) Q1 Consider two linear regression models. In the first model only the regressors in a matrix X1 are used as explanatory variables for \(y\). The matrix \(X_1\) contains an intercept. In contrast, the second model uses the regressors in \(X_2\) as explanatory variables in addition to \(X_1\) for \(y\).</description>
+      <description>Q1 Q2 (a) (b) (c) (d) (e)  Q3 (a) critical value (e) (f)  Q4 (a) (b)    dir() library(repr) options(repr.plot.width=4, repr.plot.height=3) Q1 Consider two linear regression models. In the first model only the regressors in a matrix X1 are used as explanatory variables for \(y\). The matrix \(X_1\) contains an intercept. In contrast, the second model uses the regressors in \(X_2\) as explanatory variables in addition to \(X_1\) for \(y\).</description>
     </item>
     
     <item>
@@ -72,19 +85,6 @@ elasticity: \(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</description>
       
       <guid>/2018/05/24/notes-intro-c-rmd/</guid>
       <description>0419 1.2 プリント 2.a 変数 2.b 変数の型 2.c 演算子 2.d プリント2 3.a プリントと変数 3.b プリント：出力指定 3.3 円の面積 3.4 演算子2 4.a 読み込み 4.2 読み込みと円の面積 4.3 読み込みと三角形の面積 5.a 型の変換 5.b 型の変換2 5.3 型の変換と平均値 6.2 数学関数と円の面積  0426 7.c if else：大きい方を出力 7.2 if else：等さの判断 7.3 if else：偶数か奇数かの判断 7.4 if else：等さの判断2 8.a if else：入れ子 8.b ３つの整数の最大値判断 8.4 ３つの整数の最小値判断 8.5 BMIの計算・判定 8.6 閏年 8.7 自販機 9.b switch 10.a ループ：for 10.b ループ：合計の計算 10.c ループ：合計の計算2 10.</description>
-    </item>
-    
-    <item>
-      <title>Rmd Template</title>
-      <link>/2018/01/01/rmd-template/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/01/01/rmd-template/</guid>
-      <description>Words of warning First Glance Inline Code Plots   Words of warning Typora usually processes .Rmd file correctly, but it gets lost in a file as complicated as this one.
-Always check twice and preview the .html page.
- First Glance Rmd home page: R Markdown
-Cheatsheet: rmarkdown - reference
-Detailed list of knitr patterns: Patterns - A list of regular expressions to extract R code and chunk options from the input document - Yihui Xie</description>
     </item>
     
   </channel>

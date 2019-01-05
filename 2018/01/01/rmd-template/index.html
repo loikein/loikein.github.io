@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">3 min read</span>
     
 
     <h1 class="article-title">Rmd Template</h1>
@@ -78,8 +78,6 @@
     
     Tags:
     
-    <a href='/tags/notes'>notes</a>
-    
     <a href='/tags/r'>R</a>
     
     
@@ -92,38 +90,107 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#words-of-warning">Words of warning</a></li>
-<li><a href="#first-glance">First Glance</a></li>
-<li><a href="#inline-code">Inline Code</a></li>
-<li><a href="#plots">Plots</a></li>
+<li><a href="#words-of-warning">Words of Warning</a></li>
+<li><a href="#rmd-reference">Rmd Reference</a><ul>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#cheatsheet">Cheatsheet</a></li>
+</ul></li>
+<li><a href="#inline-code">Inline Code</a><ul>
+<li><a href="#executed">Executed</a></li>
+</ul></li>
+<li><a href="#display-code">Display Code</a><ul>
+<li><a href="#r-code-chunk">R Code Chunk</a></li>
+<li><a href="#r-code-inline">R Code (Inline)</a></li>
+<li><a href="#code-from-other-languages">Code from Other Languages</a></li>
+<li><a href="#reference-1">Reference</a></li>
+</ul></li>
+<li><a href="#image-reference">Image Reference</a></li>
+<li><a href="#plot">Plot</a></li>
 </ul>
 </div>
 
 <div id="words-of-warning" class="section level2">
-<h2>Words of warning</h2>
-<p>Typora usually processes <code>.Rmd</code> file correctly, but it gets lost in a file as complicated as this one.<br />
+<h2>Words of Warning</h2>
+<p>I use Typora to write my posts. It usually processes <code>.Rmd</code> file correctly, but it gets lost in a file as complicated as this one.<br />
 Always check twice and preview the <code>.html</code> page.</p>
-</div>
-<div id="first-glance" class="section level2">
-<h2>First Glance</h2>
-<p>Rmd home page: <a href="https://rmarkdown.rstudio.com/">R Markdown</a></p>
-<p>Cheatsheet: <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">rmarkdown - reference</a></p>
-<p>Detailed list of knitr patterns: <a href="https://yihui.name/knitr/patterns/">Patterns - A list of regular expressions to extract R code and chunk options from the input document - Yihui Xie</a></p>
-<p>All codes will be displayed but not executed under default settings of this template. To turn on executing codes, write</p>
-<pre class="markdown"><code>```{r, eval = TRUE}
-   (your code here)
-​```</code></pre>
+<p>DO NOT put spaces right after and before the <span class="math inline">\(\LaTeX\)</span> $ $ pair or the expression will not be rendered properly.</p>
+<p>All codes will be displayed but not executed under default settings of this template. To turn on executing codes, type</p>
+<pre class="markdown"><code> ```{r, eval = TRUE}
+    (your code here)
+ ```</code></pre>
 <p>for the chunk option.</p>
+</div>
+<div id="rmd-reference" class="section level2">
+<h2>Rmd Reference</h2>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li>Rmd home page: <a href="https://rmarkdown.rstudio.com/">R Markdown</a></li>
+<li>Blogdown documentation: <a href="https://bookdown.org/yihui/blogdown/r-markdown.html">Appendix A: R Markdown | blogdown</a></li>
+<li>Sample site: <a href="https://blogdown-demo.rbind.io/">A minimal example website using blogdown</a></li>
+<li>Explanation of YAML in Pandoc documentation: <a href="http://pandoc.org/MANUAL.html#extension-yaml_metadata_block">yaml_metadata_block - Pandoc User’s Guide</a></li>
+<li>Detailed list of knitr patterns: <a href="https://yihui.name/knitr/patterns/">Patterns - A list of regular expressions to extract R code and chunk options from the input document - Yihui Xie</a></li>
+</ul>
+</div>
+<div id="cheatsheet" class="section level3">
+<h3>Cheatsheet</h3>
+<ul>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">R Markdown Reference Guide</a><br />
+</li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown Cheatsheet</a><br />
+</li>
+<li><a href="https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/">Markdown &amp; YAML cheat sheet</a></li>
+</ul>
+</div>
 </div>
 <div id="inline-code" class="section level2">
 <h2>Inline Code</h2>
+<div id="executed" class="section level3">
+<h3>Executed</h3>
 <p>Type</p>
 <pre class="r"><code>`r 2 + 3`</code></pre>
 <p>to get: 5</p>
 </div>
-<div id="plots" class="section level2">
-<h2>Plots</h2>
-<p>If you want to refer to a figure, you must name the chunk that produces it.<br />
+</div>
+<div id="display-code" class="section level2">
+<h2>Display Code</h2>
+<div id="r-code-chunk" class="section level3">
+<h3>R Code Chunk</h3>
+</div>
+<div id="r-code-inline" class="section level3">
+<h3>R Code (Inline)</h3>
+</div>
+<div id="code-from-other-languages" class="section level3">
+<h3>Code from Other Languages</h3>
+<p>Potential ways to display code from other languages:<br />
+<img src="/post-img/rmd-template--display-code.png" width="290" /><br />
+which all failed while all I wanted to display was this:<br />
+<img src="/post-img/rmd-template--latex-code.png" width="90" /><br />
+This is hilarious. Currently I don’t have time to dig into this, but one day I will.</p>
+</div>
+<div id="reference-1" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li><a href="https://blogdown-demo.rbind.io/2017/10/06/adding-r-code-to-r-markdown-posts/">Adding R code to R Markdown posts - blogdown sample site</a></li>
+<li><a href="https://rviews.rstudio.com/2017/12/04/how-to-show-r-inline-code-blocks-in-r-markdown/">How to Show R Inline Code Blocks in R Markdown · R Views</a></li>
+<li><a href="https://yihui.name/en/2017/11/knitr-verbatim-code-chunk/">Generate A Verbatim Code Chunk or Inline R Expression in knitr Output - Yihui Xie</a></li>
+<li><a href="https://yihui.name/knitr/faq/">Frequently Asked Questions - Yihui Xie</a></li>
+<li><a href="https://stackoverflow.com/questions/47710427/how-to-show-code-but-hide-output-in-rmarkdown">r - How to show code but hide output in RMarkdown? - Stack Overflow</a></li>
+<li><a href="http://www.pzhao.org/zh/post/backticks-in-rmd/">如何在 R markdown 里输出 r pi 并前后加上小撇` | Peng Zhao</a></li>
+</ul>
+</div>
+</div>
+<div id="image-reference" class="section level2">
+<h2>Image Reference</h2>
+<ul>
+<li><a href="https://blogdown-demo.rbind.io/2017/10/06/adding-figures-and-other-images-to-posts/">Adding figures and other images to posts - blogdown sample site</a></li>
+<li><a href="https://stackoverflow.com/questions/14675913/changing-image-size-in-markdown/41169162#41169162">Changing image size in Markdown - Stack Overflow</a></li>
+</ul>
+<p>TL;DR: If you are using MacBook Pro 13 like me, the best sizing is to put <code>{width=(1/3 of origin)px}</code> after the markdown image code.</p>
+</div>
+<div id="plot" class="section level2">
+<h2>Plot</h2>
+<p>In order to refer to a figure, you must name the chunk that produces it, and turn on <code>eval</code>.<br />
 See Figure <a href="#fig:pie">1</a> for example:</p>
 <pre class="r"><code>par( mar = c( 0, 1, 0, 1 ))
 pie(
@@ -191,6 +258,9 @@ Figure 1: A fancy pie chart.
 
 
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
   </body>
