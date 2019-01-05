@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">18 min read</span>
+    <span class="article-duration">20 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -110,6 +110,10 @@
 <li><a href="#interpretation">Interpretation</a><ul>
 <li><a href="#elasticity">Elasticity</a></li>
 <li><a href="#regression-table">Regression Table</a></li>
+</ul></li>
+<li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
+<li><a href="#iv-estimator-hat_iv">IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></a></li>
+<li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
 <li><a href="#compare-models">Compare Models</a><ul>
 <li><a href="#linear-log-interaction-f-stat">Linear / Log &amp; Interaction : F-stat</a></li>
@@ -408,6 +412,60 @@ covariance matrix: <span class="math inline">\(s^2 \cdot (X&#39;X)^{-1}\)</span>
 (note: w-stat and F-stat are always 2-sided)<br />
 critical value:</p>
 <pre class="r"><code>qf( 0.95, 1, 40)</code></pre>
+</div>
+</div>
+<div id="iv-instrument-variable" class="section level2">
+<h2>IV (Instrument Variable)</h2>
+<div id="iv-estimator-hat_iv" class="section level3">
+<h3>IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></h3>
+<blockquote>
+<p>PS5.Q1<br />
+Show that <span class="math inline">\(\hat{β}_{IV} =(X′ZW_N Z′X)^{−1}X′ZW_N Z′y\)</span> minimizes<br />
+<span class="math display">\[\begin{aligned} Q_N(β) &amp;= \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right]&#39; W_N \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right] \\ &amp;= \left[ \frac{1}{N}Z&#39; (y - X β) \right]&#39; W_N \left[ \frac{1}{N}Z&#39; (y - X β) \right] \end{aligned}\]</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} Q_N(β) &amp;=  \frac{1}{N^2}\left[ (y&#39; - β&#39;X&#39;)Z W_N (Z&#39;y - Z&#39;X β) \right] \\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;yβ \right] \\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - 2\left( β&#39;X&#39;Z W_N Z&#39;y \right)  + β&#39;X&#39; Z W_N Z&#39;yβ \right] \end{aligned}\]</span><br />
+FOC<br />
+<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\ \hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span></p>
+<blockquote>
+<p>PS5.Q2<br />
+In the model <span class="math inline">\(y = Xβ+ε\)</span>,<br />
+Derive the covariance matrix of the IV estimator <span class="math inline">\(\hat{β}_{IV} = (Z′X)^{−1}Z′y\)</span> with homoskedastic and serially uncorrelated errors.<br />
+Argue why the correlation between instruments and regressors matter for the precision of the IV estimator.<br />
+What happens in the limiting case when this correlation approaches zero?</p>
+</blockquote>
+<p>let <span class="math inline">\(W_N = I_N\)</span><br />
+<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y \\ &amp;= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y \\ &amp;= (Z&#39;X)^{-1}Z&#39;y \end{aligned}\]</span><br />
+Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span>:<br />
+<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\ &amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε$, $V(ε) = σ^2 I \end{aligned}\]</span><br />
+<span class="math inline">\(\implies\)</span><br />
+<span class="math display">\[\begin{aligned}V(\hat{β}_{IV}) &amp;= V\Big(β + (Z&#39;X)^{-1}Z&#39;ε \Big) \\ &amp;= (Z&#39;X)^{-1}Z&#39;σ^2 I \left[(Z&#39;X)^{-1}Z&#39; \right]&#39; \\ &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
+</div>
+<div id="give-generalized-iv-estimator" class="section level3">
+<h3>GIVE (Generalized IV Estimator)</h3>
+<blockquote>
+<p>PS5.Q3<br />
+Derive the GIVE.<br />
+Start with the first stage regression <span class="math inline">\(X = Zγ + v\)</span> and obtain its fitted values <span class="math inline">\(\hat{X}\)</span>.<br />
+Show that the first stage fit <span class="math inline">\(\hat{X}\)</span> is given by <span class="math inline">\(P_ZX\)</span> with <span class="math inline">\(P_Z = Z(Z′Z)^{−1}Z′\)</span>.<br />
+Then consider the OLS estimator in the second stage (<span class="math inline">\(y = Xβ+ε\)</span>) based on fitted values <span class="math inline">\(\hat{X}\)</span> instead of <span class="math inline">\(X\)</span> from the first stage regression, i.e. <span class="math inline">\(y = \hat{X} β + ε\)</span>.<br />
+Show that the resulting estimator equals the GIVE.<br />
+Derive the covariance matrix of the GIVE under homoskedasticity and absence of autocorrelation.<br />
+Compare the results with PS5.Q2.</p>
+</blockquote>
+<p><span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}ZX\)</span><br />
+fitted values:<br />
+<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \hat{γ} \\ &amp;= Z(Z&#39;Z)^{-1}ZX = P_Z X\end{aligned}\]</span></p>
+<p>Check <span class="math inline">\(P_Z\)</span> is symmetric:<br />
+<span class="math inline">\(P_Z&#39; = [Z(Z&#39;Z)^{-1}Z&#39;]&#39; = Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
+<p>Check <span class="math inline">\(P_Z\)</span> is idopotent:<br />
+<span class="math inline">\(P_ZP_Z = Z(Z&#39;Z)^{-1}Z&#39; Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
+<p>Second stage estimator:<br />
+<span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
+<span class="math inline">\(b = (\hat{X}&#39;\hat{X})^{-1} \hat{X}&#39;y\)</span><br />
+<span class="math inline">\(\implies \hat{X} = P_Z X\)</span> and <span class="math inline">\(\hat{X}&#39; = X&#39;P_Z&#39; = X&#39;P_Z\)</span><br />
+<span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\ &amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\ &amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span></p>
+<p>Variance:<br />
+<span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\ &amp;= σ^2 (X&#39;P_Z X)^{-1} \\ &amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\ &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
 </div>
 </div>
 <div id="compare-models" class="section level2">

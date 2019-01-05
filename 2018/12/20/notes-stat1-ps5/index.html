@@ -111,7 +111,7 @@
 FOC<br />
 <span class="math inline">\(\frac{\partial Q}{\partial β} = -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0\)</span><br />
 <span class="math inline">\(- X&#39;ZW_N Z&#39;y + X&#39;ZW_N Z&#39;Xβ = 0\)</span><br />
-$  = (X’ZW_N Z’X)^{-1} (X’ZW_N Z’y) $</p>
+<span class="math inline">\(\hat{β} = (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y)\)</span></p>
 </div>
 <div id="q2" class="section level2">
 <h2>Q2</h2>
@@ -120,16 +120,16 @@ Argue why the correlation between instruments and regressors matter for the prec
 What happens in the limiting case when this correlation approaches zero?
 <hr>
 <p>let <span class="math inline">\(W_N = I_N\)</span><br />
-<span class="math inline">\(\hat{β}_{IV} = (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y\)</span><br />
-—– <span class="math inline">\(= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y\)</span><br />
-—– <span class="math inline">\(= (Z&#39;X)^{-1}Z&#39;y\)</span><br />
-<span class="math inline">\(V(\hat{β}_{IV})\)</span>?</p>
-<p><span class="math inline">\(\hat{β}_{IV} = (Z&#39;X)^{-1}Z&#39;(Xβ+ε)\)</span><br />
-—– <span class="math inline">\(= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε\)</span>, <span class="math inline">\(V(ε) = σ^2 I\)</span><br />
+<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y \\
+&amp;= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y \\
+&amp;= (Z&#39;X)^{-1}Z&#39;y \end{aligned}\]</span></p>
+<p>Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span><br />
+<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\
+&amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε$, $V(ε) = σ^2 I \end{aligned}\]</span><br />
 <span class="math inline">\(\implies\)</span><br />
-<span class="math inline">\(V(\hat{β}_{IV}) = V(β + (Z&#39;X)^{-1}Z&#39;ε)\)</span><br />
-——– $ = (Z’X)<sup>{-1}Z’σ</sup>2 I [(Z’X)^{-1}Z’]’$<br />
-——– $ = σ^2 (Z’X)<sup>{-1}Z’Z(X’Z)</sup>{-1}$</p>
+<span class="math display">\[\begin{aligned}V(\hat{β}_{IV}) &amp;= V(β + (Z&#39;X)^{-1}Z&#39;ε) \\
+&amp;= (Z&#39;X)^{-1}Z&#39;σ^2 I [(Z&#39;X)^{-1}Z&#39;]&#39; \\
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
 </div>
 <div id="q3" class="section level2">
 <h2>Q3</h2>
@@ -143,8 +143,8 @@ Compare your result to Problem 2.
 <hr>
 <p><span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}ZX\)</span><br />
 fitted values:<br />
-<span class="math inline">\(\hat{X} = Z \hat{γ}\)</span><br />
-– $ = Z(Z’Z)^{-1}ZX = P_Z X$</p>
+<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \hat{γ} \\
+&amp;= Z(Z&#39;Z)^{-1}ZX = P_Z X\end{aligned}\]</span></p>
 <p>check <span class="math inline">\(P_Z\)</span> is symmetric:<br />
 <span class="math inline">\(P_Z&#39; = [Z(Z&#39;Z)^{-1}Z&#39;]&#39; = Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
 <p>check <span class="math inline">\(P_Z\)</span> is idopotent:<br />
@@ -152,15 +152,15 @@ fitted values:<br />
 <p>second stage estimator:<br />
 <span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
 <span class="math inline">\(b = (\hat{X}&#39;\hat{X})^{-1} \hat{X}&#39;y\)</span><br />
-so $ = P_Z X $ and <span class="math inline">\(\hat{X}&#39; = X&#39;P_Z&#39; = X&#39;P_Z\)</span><br />
-<span class="math inline">\(b = (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y\)</span><br />
-—<span class="math inline">\(= (X&#39;P_ZX)^{-1} X&#39;P_Z y\)</span><br />
-—<span class="math inline">\(= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y\)</span></p>
+so <span class="math inline">\(\hat{X} = P_Z X\)</span> and <span class="math inline">\(\hat{X}&#39; = X&#39;P_Z&#39; = X&#39;P_Z\)</span><br />
+<span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\
+&amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\
+&amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span></p>
 <p>Variance:<br />
-<span class="math inline">\(V(b) = σ^2 (\hat{X}&#39; \hat{X})^{-1}\)</span><br />
-——-<span class="math inline">\(= σ^2 (X&#39;P_Z X)^{-1}\)</span><br />
-——-<span class="math inline">\(= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1}\)</span><br />
-——-<span class="math inline">\(= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\)</span></p>
+<span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\
+&amp;= σ^2 (X&#39;P_Z X)^{-1} \\
+&amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
 </div>
 <div id="q4" class="section level2">
 <h2>Q4</h2>
