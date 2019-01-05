@@ -215,6 +215,10 @@ blockquote{
 	margin: 15px 0 25px;
 }
 
+.article-content code {
+	background-color: var(--light-grey);
+}
+
 .article-content pre {
 	background-color: var(--light-grey);
 	font-size: 16px;
