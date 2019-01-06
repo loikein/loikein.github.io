@@ -63,6 +63,12 @@ blockquote{
 	border-left: 5px solid var(--blue);
 }
 
+strong {
+	font-weight: inherit;
+	font-style: inherit;
+	text-decoration:underline;
+}
+
 .wrapper {
 	overflow: hidden;
 	position: relative;

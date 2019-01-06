@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">22 min read</span>
+    <span class="article-duration">23 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -95,7 +95,15 @@
 <div id="TOC">
 <ul>
 <li><a href="#true-or-false">True or False?</a></li>
-<li><a href="#matrix-algebra">Matrix Algebra</a></li>
+<li><a href="#formulas-tests-statistics">Formulas &amp; Tests &amp; Statistics</a><ul>
+<li><a href="#standard-error">Standard Error</a></li>
+<li><a href="#r2"><span class="math inline">\(R^2\)</span></a></li>
+<li><a href="#t-test">t-test</a></li>
+<li><a href="#f-test-joint-test">F-test (Joint Test)</a></li>
+<li><a href="#j-test">J Test</a></li>
+<li><a href="#pe-test">PE Test</a></li>
+<li><a href="#chow-test">Chow Test</a></li>
+</ul></li>
 <li><a href="#arbitrary-linear-model">(Arbitrary) Linear Model</a></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 <li><a href="#ols-error">OLS Error</a><ul>
@@ -121,6 +129,10 @@
 <li><a href="#iv-estimator-hat_iv">IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
+<li><a href="#heteroskedasticity-autocorrelation">Heteroskedasticity &amp; Autocorrelation</a><ul>
+<li><a href="#white-hetero-consistent-standard-error">White (Hetero-Consistent) Standard Error</a></li>
+<li><a href="#hac-standard-error">HAC Standard Error</a></li>
+</ul></li>
 <li><a href="#maximum-likelihood-model">Maximum Likelihood Model</a></li>
 <li><a href="#compare-models">Compare Models</a><ul>
 <li><a href="#linear-log-interaction-f-stat">Linear / Log &amp; Interaction : F-stat</a></li>
@@ -134,74 +146,86 @@
 </ul>
 </div>
 
-<p>Warning: haven’t proofread yet</p>
-<p>Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
+<p>Warning: proofreading</p>
+<p>All I wanted was a complete &amp; clear guidance.<br />
+Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
 <div id="true-or-false" class="section level2">
 <h2>True or False?</h2>
-<blockquote>
-<p>PS4.Q2.3<br />
-T/F?<br />
-When applying robust standard errors, the OLS point estimates do not change.</p>
-</blockquote>
-<p>True.<br />
-Robust standard error = hetero + autocorrelation</p>
-<blockquote>
-<p>PS4.Q2.4<br />
-T/F?<br />
-When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
-</blockquote>
-<p>True.<br />
-White robust standard error = hetero</p>
-<blockquote>
-<p>PS4.Q2.5<br />
-T/F?<br />
-The PE test cannot be applied to compare a linear to an exponential specification.</p>
-</blockquote>
-<p>False. See slide 5 P12-13</p>
-<blockquote>
-<p>PS4.Q2.6<br />
-T/F?<br />
-The Chow breakpoint test cannot be applied in a cross-sectional regression.</p>
-</blockquote>
-<p>False. See slide 5 P17</p>
-<blockquote>
-<p>PS4.Q2.7<br />
-T/F?<br />
-The LLN states that sample moments converge in probability to their population counterparts.</p>
-</blockquote>
-<p>True.<br />
-<span class="math display">\[\frac{1}{T}\sum y_t^2 \to P\to E(y_t^2)\]</span><br />
+<!--
+## Matrix Algebra
+
+> PS1.Q1.1  
+> Consider the matrix:  
+> $$M = \begin{pmatrix} \frac{1}{4} & \frac{\sqrt{3}}{4} \\ \frac{\sqrt{3}}{4} &  \frac{1}{4} \end{pmatrix}$$   
+> Calculate the trace of $λM′M$ where $λ$ is a scalar.   
+> Check whether $M$ is invertible and find the inverse if possible.
+
+> PS1.Q1.2  
+> Consider the matrix:  
+> $$X = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}$$   
+> and recall that $X′ X$ is equivalent to $\sum^3_{i=1} x_i x_i′$.   
+> Define the vectors $x_1 , \dots  , x_3$.   
+> Check that the notations are indeed equivalent.
+-->
+</div>
+<div id="formulas-tests-statistics" class="section level2">
+<h2>Formulas &amp; Tests &amp; Statistics</h2>
+<div id="standard-error" class="section level3">
+<h3>Standard Error</h3>
+</div>
+<div id="r2" class="section level3">
+<h3><span class="math inline">\(R^2\)</span></h3>
+</div>
+<div id="t-test" class="section level3">
+<h3>t-test</h3>
+<p>(textbook P26, slide 3 P16)</p>
+<p><span class="math display">\[t = \frac{\hat{β} - β_0}{se(\hat{β})}\]</span><br />
 ~</p>
-<blockquote>
-<p>PS4.Q2.8<br />
-T/F?<br />
-When testing a single restriction, a t-test must be used as an F-test cannot be computed for <span class="math inline">\(J = 1\)</span>.</p>
-</blockquote>
-<p>False.</p>
 <blockquote>
 <p>PS4.Q2.9<br />
 T/F?<br />
 When testing multiple restrictions, a t-test cannot be used.</p>
 </blockquote>
 <p>True.</p>
+<blockquote>
+<p>PS4.Q2.8<br />
+T/F?<br />
+When testing a single restriction, a t-test must be used as an F-test cannot be computed for <span class="math inline">\(J = 1\)</span>.</p>
+</blockquote>
+<p>False.<br />
+When testing a single restriction, F-test is equivalent to t-test squared.<br />
+Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/when-does-the-f-test-reduce-to-t-test/">Juan Manuel</a>.</p>
 </div>
-<div id="matrix-algebra" class="section level2">
-<h2>Matrix Algebra</h2>
+<div id="f-test-joint-test" class="section level3">
+<h3>F-test (Joint Test)</h3>
+<p>(textbook P26, slide 3 P18)</p>
+<p><span class="math display">\[F = \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)}\]</span><br />
+~</p>
+</div>
+<div id="j-test" class="section level3">
+<h3>J Test</h3>
+<p>(textbook P72, slide 5 P11)</p>
+</div>
+<div id="pe-test" class="section level3">
+<h3>PE Test</h3>
+<p>(textbook P72, slide 5 P13)</p>
 <blockquote>
-<p>PS1.Q1.1<br />
-Consider the matrix:<br />
-<span class="math display">\[M = \begin{pmatrix} \frac{1}{4} &amp; \frac{\sqrt{3}}{4} \\ \frac{\sqrt{3}}{4} &amp;  \frac{1}{4} \end{pmatrix}\]</span><br />
-Calculate the trace of <span class="math inline">\(λM′M\)</span> where <span class="math inline">\(λ\)</span> is a scalar.<br />
-Check whether <span class="math inline">\(M\)</span> is invertible and find the inverse if possible.</p>
+<p>PS4.Q2.5<br />
+T/F?<br />
+The PE test cannot be applied to compare a linear to an exponential specification.</p>
 </blockquote>
+<p>False.</p>
+</div>
+<div id="chow-test" class="section level3">
+<h3>Chow Test</h3>
+<p>(textbook P75, slide 5 P17)</p>
 <blockquote>
-<p>PS1.Q1.2<br />
-Consider the matrix:<br />
-<span class="math display">\[X = \begin{pmatrix} 1 &amp; 4 \\ 2 &amp; 5 \\ 3 &amp; 6 \end{pmatrix}\]</span><br />
-and recall that <span class="math inline">\(X′ X\)</span> is equivalent to <span class="math inline">\(\sum^3_{i=1} x_i x_i′\)</span>.<br />
-Define the vectors <span class="math inline">\(x_1 , \dots , x_3\)</span>.<br />
-Check that the notations are indeed equivalent.</p>
+<p>PS4.Q2.6<br />
+T/F?<br />
+The Chow (breakpoint) test cannot be applied in a cross-sectional regression.</p>
 </blockquote>
+<p>False.</p>
+</div>
 </div>
 <div id="arbitrary-linear-model" class="section level2">
 <h2>(Arbitrary) Linear Model</h2>
@@ -321,6 +345,15 @@ Unbiasedness is only conditional on the average of errors and independence betwe
 <span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
 ~</li>
 </ul>
+<blockquote>
+<p>PS4.Q2.7<br />
+T/F?<br />
+The LLN (Law of Large Numbers) states that sample moments converge in probability to their population counterparts.</p>
+</blockquote>
+<p>True.<br />
+According to LLN:<br />
+<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\ \implies \frac{1}{N}\sum y_i^2 &amp;\to^p E(y_i^2)\end{aligned}\]</span><br />
+~</p>
 <blockquote>
 <p>PS5.Q4<br />
 Consider the model<br />
@@ -545,6 +578,29 @@ fitted values:<br />
 <span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\ &amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\ &amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span></p>
 <p>Variance:<br />
 <span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\ &amp;= σ^2 (X&#39;P_Z X)^{-1} \\ &amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\ &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
+</div>
+</div>
+<div id="heteroskedasticity-autocorrelation" class="section level2">
+<h2>Heteroskedasticity &amp; Autocorrelation</h2>
+<div id="white-hetero-consistent-standard-error" class="section level3">
+<h3>White (Hetero-Consistent) Standard Error</h3>
+<p>(slide 6 P18)</p>
+<blockquote>
+<p>PS4.Q2.4<br />
+T/F?<br />
+When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
+</blockquote>
+<p>True.</p>
+</div>
+<div id="hac-standard-error" class="section level3">
+<h3>HAC Standard Error</h3>
+<p>(textbook P128, slide 7 P14)</p>
+<blockquote>
+<p>PS4.Q2.3<br />
+T/F?<br />
+When applying robust standard errors, the <strong>OLS point estimates</strong> (estimators) do not change.</p>
+</blockquote>
+<p>True.</p>
 </div>
 </div>
 <div id="maximum-likelihood-model" class="section level2">
