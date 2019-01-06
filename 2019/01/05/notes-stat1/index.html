@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">23 min read</span>
+    <span class="article-duration">24 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -94,14 +94,13 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#formulas-tests-statistics">Formulas &amp; Tests &amp; Statistics</a><ul>
-<li><a href="#standard-error">Standard Error</a></li>
+<li><a href="#tests-statistics">Tests &amp; Statistics</a><ul>
 <li><a href="#r2"><span class="math inline">\(R^2\)</span></a></li>
 <li><a href="#t-test">t-test</a></li>
 <li><a href="#f-test-joint-test">F-test (Joint Test)</a></li>
 <li><a href="#j-test">J Test</a></li>
 <li><a href="#pe-test">PE Test</a></li>
-<li><a href="#chow-test">Chow Test</a></li>
+<li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
 </ul></li>
 <li><a href="#arbitrary-linear-model">(Arbitrary) Linear Model</a></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
@@ -164,19 +163,21 @@ Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A58
 > Define the vectors $x_1 , \dots  , x_3$.   
 > Check that the notations are indeed equivalent.
 -->
-<div id="formulas-tests-statistics" class="section level2">
-<h2>Formulas &amp; Tests &amp; Statistics</h2>
-<div id="standard-error" class="section level3">
-<h3>Standard Error</h3>
-</div>
+<div id="tests-statistics" class="section level2">
+<h2>Tests &amp; Statistics</h2>
 <div id="r2" class="section level3">
 <h3><span class="math inline">\(R^2\)</span></h3>
+<p>(textbook P21, slide 3 P4)<br />
+<span class="math display">\[\begin{aligned}  &amp;&amp; &amp;R^2 = 1 - \frac{\sum^N_{i-1} e_i^2}{\sum^N_{i-1} (y_i-\bar{y})^2} \\
+\text{adjusted:} &amp;&amp; &amp;\bar{R^2} = 1 - \frac{\frac{1}{N-K}\sum^N_{i-1} e_i^2}{\frac{1}{N-1}\sum^N_{i-1} (y_i-\bar{y})^2}\end{aligned}\]</span><br />
+~</p>
 </div>
 <div id="t-test" class="section level3">
 <h3>t-test</h3>
-<p>(textbook P26, slide 3 P16)</p>
-<p><span class="math display">\[t = \frac{\hat{β} - β_0}{se(\hat{β})}\]</span><br />
-~</p>
+<p>(textbook P26, slide 3 P16)<br />
+<span class="math display">\[t = \frac{\hat{β} - β_0}{se(\hat{β})}\]</span><br />
+<span class="math inline">\(H_0: t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)\)</span><br />
+<span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's.</p>
 <blockquote>
 <p>PS4.Q2.9<br />
 T/F?<br />
@@ -194,17 +195,32 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 </div>
 <div id="f-test-joint-test" class="section level3">
 <h3>F-test (Joint Test)</h3>
-<p>(textbook P26, slide 3 P18)</p>
-<p><span class="math display">\[F = \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)}\]</span><br />
-~</p>
+<p>(textbook P26, slide 3 P18)<br />
+<span class="math display">\[F = \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)}\]</span><br />
+<span class="math inline">\(H_0: F ∼ F_{N-K}^J\)</span><br />
+<span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested (<span class="math inline">\(= 0\)</span>), <span class="math inline">\(F \geq J + 1\)</span>.</p>
 </div>
 <div id="j-test" class="section level3">
 <h3>J Test</h3>
-<p>(textbook P72, slide 5 P11)</p>
+<p>(textbook P72, slide 5 P11)<br />
+<span class="math display">\[\begin{aligned} \text{Model A: } y_i &amp;= x_i&#39; β + ε_i \\
+\text{Model B: } y_i &amp;= z_i&#39; γ + v_i \\
+\text{Test Model: } y_i &amp;= \underbrace{(1-δ)x_i&#39; β}_{\text{Model A}} + \underbrace{δ z_i&#39; γ }_{\text{Model B}} + u_i \\
+&amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i\\
+H_0: &amp;t_{δ} = \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span><br />
+~</p>
 </div>
 <div id="pe-test" class="section level3">
 <h3>PE Test</h3>
-<p>(textbook P72, slide 5 P13)</p>
+<p>(textbook P72, slide 5 P13)<br />
+<span class="math display">\[\begin{aligned}\text{Linear Model: }&amp;\hat{y_i} = \dots \\ \text{Log Model: }&amp;\log\tilde{y_i} = \dots \end{aligned}\]</span><br />
+~<br />
+<span class="math display">\[\begin{aligned}\text{Test Models: }\phantom{\log} y_i &amp;= x_i&#39; β + δ_{Lin} (\log \underbrace{\hat{y_i}}_{\text{Linear Model}} - \underbrace{\log\tilde{y_i}}_{\text{Log Model}}) + u_i \\
+\log y_i &amp;= (\log x_i)&#39; γ + δ_{Log} \big(\overbrace{\hat{y_i}} - \exp(\overbrace{\log\tilde{y_i}})\big) + u_i \end{aligned}\]</span><br />
+~<br />
+<span class="math display">\[\begin{aligned}H_0\text{&#39;s: } &amp;t_{δ_{Lin}} ∼ t \implies\text{linear model is preferred} \\
+&amp;t_{δ_{Log}} ∼ t \implies\text{log model is preferred}\end{aligned}\]</span><br />
+If both <span class="math inline">\(H_0\)</span>’s are rejected, should consider more general model.</p>
 <blockquote>
 <p>PS4.Q2.5<br />
 T/F?<br />
@@ -212,13 +228,19 @@ The PE test cannot be applied to compare a linear to an exponential specificatio
 </blockquote>
 <p>False.</p>
 </div>
-<div id="chow-test" class="section level3">
-<h3>Chow Test</h3>
-<p>(textbook P75, slide 5 P17)</p>
+<div id="chow-breakpoint-test" class="section level3">
+<h3>Chow (Breakpoint) Test</h3>
+<p>(textbook P75, slide 5 P17)<br />
+<span class="math display">\[\begin{aligned}\text{Test Model: } y_i &amp;= x_i&#39; β + g_i x_i&#39; γ + ε_i \\ S_R &amp;= e&#39;e \\
+\text{Split Models: } y_i &amp;=  x_i&#39;β_1 + ε_i &amp;&amp; i = 1, \dots, T^* \\
+y_i &amp;=  x_i&#39;β_2 + ε_i &amp;&amp; i = T^*+1, \dots, n \\
+S_{UR} &amp;= e_1&#39; e_1 + e_2&#39; e_2\end{aligned}\]</span><br />
+<span class="math display">\[H_0: \frac{\frac{1}{K} S_R - S_{UR}}{\frac{1}{N-2K}S_{UR}} ∼ F_{N-2K}^K\]</span><br />
+<span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(T^*\)</span> is the hypothetical breakpoint.</p>
 <blockquote>
 <p>PS4.Q2.6<br />
 T/F?<br />
-The Chow (breakpoint) test cannot be applied in a cross-sectional regression.</p>
+The Chow test cannot be applied in a cross-sectional regression.</p>
 </blockquote>
 <p>False.</p>
 </div>
@@ -304,7 +326,7 @@ The OLS estimator minimizes the sum of squared residuals:<br />
 <ul>
 <li>OLS estimator is normally distributed with <span class="math inline">\(b ~ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big)\)</span></li>
 <li>Obtained if: (slide 2 P30)<br />
-<span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span>
+<span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span>
 ~</li>
 </ul>
 <blockquote>
@@ -514,7 +536,8 @@ Consider the regression output.<br />
 </blockquote>
 <p>H0: <span class="math inline">\(β_1 + β_2 = 1\)</span><br />
 H1: H0 is wrong (2-sided)<br />
-<span class="math display">\[\begin{aligned}t-stat &amp;= \frac{\hat{β_1} + \hat{β_2} - 1}{\sqrt{var(\hat{β_1}) + var(\hat{β_2}) + 2cor(\hat{β_1}, \hat{β_2})}} \\ &amp;= \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned}t-stat &amp;= \frac{\hat{β_1} + \hat{β_2} - 1}{\sqrt{var(\hat{β_1}) + var(\hat{β_2}) + 2cor(\hat{β_1}, \hat{β_2})}} \\
+&amp;= \end{aligned}\]</span><br />
 covariance matrix: <span class="math inline">\(s^2 \cdot (X&#39;X)^{-1}\)</span><br />
 <span class="math inline">\(F = 1.8957\)</span><br />
 (note: w-stat and F-stat are always 2-sided)<br />
@@ -529,11 +552,15 @@ critical value:</p>
 <blockquote>
 <p>PS5.Q1<br />
 Show that <span class="math inline">\(\hat{β}_{IV} =(X′ZW_N Z′X)^{−1}X′ZW_N Z′y\)</span> minimizes<br />
-<span class="math display">\[\begin{aligned} Q_N(β) &amp;= \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right]&#39; W_N \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right] \\ &amp;= \left[ \frac{1}{N}Z&#39; (y - X β) \right]&#39; W_N \left[ \frac{1}{N}Z&#39; (y - X β) \right] \end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned} Q_N(β) &amp;= \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right]&#39; W_N \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right] \\
+&amp;= \left[ \frac{1}{N}Z&#39; (y - X β) \right]&#39; W_N \left[ \frac{1}{N}Z&#39; (y - X β) \right] \end{aligned}\]</span></p>
 </blockquote>
-<p><span class="math display">\[\begin{aligned} Q_N(β) &amp;=  \frac{1}{N^2}\left[ (y&#39; - β&#39;X&#39;)Z W_N (Z&#39;y - Z&#39;X β) \right] \\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;yβ \right] \\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - 2\left( β&#39;X&#39;Z W_N Z&#39;y \right)  + β&#39;X&#39; Z W_N Z&#39;yβ \right] \end{aligned}\]</span><br />
+<p><span class="math display">\[\begin{aligned} Q_N(β) &amp;=  \frac{1}{N^2}\left[ (y&#39; - β&#39;X&#39;)Z W_N (Z&#39;y - Z&#39;X β) \right]
+\\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;yβ \right] \\
+&amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - 2\left( β&#39;X&#39;Z W_N Z&#39;y \right)  + β&#39;X&#39; Z W_N Z&#39;yβ \right] \end{aligned}\]</span><br />
 FOC<br />
-<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\ \hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\ \hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span><br />
+~</p>
 <blockquote>
 <p>PS5.Q2<br />
 In the model <span class="math inline">\(y = Xβ+ε\)</span>,<br />
@@ -542,11 +569,16 @@ Argue why the correlation between instruments and regressors matter for the prec
 What happens in the limiting case when this correlation approaches zero?</p>
 </blockquote>
 <p>let <span class="math inline">\(W_N = I_N\)</span><br />
-<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y \\ &amp;= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y \\ &amp;= (Z&#39;X)^{-1}Z&#39;y \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y \\
+&amp;= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y \\ &amp;= (Z&#39;X)^{-1}Z&#39;y \end{aligned}\]</span><br />
 Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span>:<br />
-<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\ &amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε$, $V(ε) = σ^2 I \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\
+&amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε$, $V(ε) = σ^2 I \end{aligned}\]</span><br />
 <span class="math inline">\(\implies\)</span><br />
-<span class="math display">\[\begin{aligned}V(\hat{β}_{IV}) &amp;= V\Big(β + (Z&#39;X)^{-1}Z&#39;ε \Big) \\ &amp;= (Z&#39;X)^{-1}Z&#39;σ^2 I \left[(Z&#39;X)^{-1}Z&#39; \right]&#39; \\ &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned}V(\hat{β}_{IV}) &amp;= V\Big(β + (Z&#39;X)^{-1}Z&#39;ε \Big) \\
+&amp;= (Z&#39;X)^{-1}Z&#39;σ^2 I \left[(Z&#39;X)^{-1}Z&#39; \right]&#39; \\
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span><br />
+~</p>
 </div>
 <div id="give-generalized-iv-estimator" class="section level3">
 <h3>GIVE (Generalized IV Estimator)</h3>
@@ -562,7 +594,7 @@ Compare the results with PS5.Q2.</p>
 </blockquote>
 <p><span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}ZX\)</span><br />
 fitted values:<br />
-<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \hat{γ} \\ &amp;= Z(Z&#39;Z)^{-1}ZX = P_Z X\end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \hat{γ} \\&amp;= Z(Z&#39;Z)^{-1}ZX = P_Z X\end{aligned}\]</span></p>
 <p>Check <span class="math inline">\(P_Z\)</span> is symmetric:<br />
 <span class="math inline">\(P_Z&#39; = [Z(Z&#39;Z)^{-1}Z&#39;]&#39; = Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
 <p>Check <span class="math inline">\(P_Z\)</span> is idopotent:<br />
@@ -571,9 +603,15 @@ fitted values:<br />
 <span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
 <span class="math inline">\(b = (\hat{X}&#39;\hat{X})^{-1} \hat{X}&#39;y\)</span><br />
 <span class="math inline">\(\implies \hat{X} = P_Z X\)</span> and <span class="math inline">\(\hat{X}&#39; = X&#39;P_Z&#39; = X&#39;P_Z\)</span><br />
-<span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\ &amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\ &amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\
+&amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\
+&amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span></p>
 <p>Variance:<br />
-<span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\ &amp;= σ^2 (X&#39;P_Z X)^{-1} \\ &amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\ &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\
+&amp;= σ^2 (X&#39;P_Z X)^{-1} \\
+&amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span><br />
+~</p>
 </div>
 </div>
 <div id="heteroskedasticity-autocorrelation" class="section level2">
