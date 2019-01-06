@@ -32,7 +32,7 @@
     <item>
       <title>About</title>
       <link>/about/</link>
-      <pubDate>Fri, 30 Nov 2018 17:58:00 -0700</pubDate>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
       <description>Hello. I&amp;rsquo;m loikein from China. Welcome to my academic blog.
@@ -40,7 +40,7 @@ Currently I live in Bonn, Germany for my master&amp;rsquo;s study in economics.
 My research interests include microeconomic theory, experimental economics and game theory. I am also interested in computer science.
 I speak Chinese (native), Japanese (near native) and English (academic proficient).
 If you are a Chinese user, you may also want to check my personal blog: Untitled Life.
-This blog is powered by the blogdown package of R.</description>
+This theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui and me.</description>
     </item>
     
     <item>
