@@ -144,7 +144,7 @@
 </ul>
 </div>
 
-<p>Warning: proofreading</p>
+<p>Warning: under proofreading</p>
 <p>All I wanted was a complete &amp; clear guidance.<br />
 Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
 <!--
@@ -220,29 +220,32 @@ H_0: &amp;t_{δ} = \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span><br />
 ~<br />
 <span class="math display">\[\begin{aligned}H_0\text{&#39;s: } &amp;t_{δ_{Lin}} ∼ t \implies\text{linear model is preferred} \\
 &amp;t_{δ_{Log}} ∼ t \implies\text{log model is preferred}\end{aligned}\]</span><br />
-If both <span class="math inline">\(H_0\)</span>’s are rejected, should consider more general model.</p>
+If both <span class="math inline">\(H_0\)</span>’s are rejected, should consider more general models.</p>
 <blockquote>
 <p>PS4.Q2.5<br />
 T/F?<br />
 The PE test cannot be applied to compare a linear to an exponential specification.</p>
 </blockquote>
-<p>False.</p>
+<p>False.<br />
+Just <span class="math inline">\(\log\)</span> both of them.</p>
 </div>
 <div id="chow-breakpoint-test" class="section level3">
 <h3>Chow (Breakpoint) Test</h3>
 <p>(textbook P75, slide 5 P17)<br />
-<span class="math display">\[\begin{aligned}\text{Test Model: } y_i &amp;= x_i&#39; β + g_i x_i&#39; γ + ε_i \\ S_R &amp;= e&#39;e \\
+<span class="math display">\[\begin{aligned}\text{Pooled Model: } y_i &amp;= x_i&#39; β + g_i x_i&#39; γ + ε_i \\ S_R &amp;= e&#39;e \\
 \text{Split Models: } y_i &amp;=  x_i&#39;β_1 + ε_i &amp;&amp; i = 1, \dots, T^* \\
 y_i &amp;=  x_i&#39;β_2 + ε_i &amp;&amp; i = T^*+1, \dots, n \\
 S_{UR} &amp;= e_1&#39; e_1 + e_2&#39; e_2\end{aligned}\]</span><br />
 <span class="math display">\[H_0: \frac{\frac{1}{K} S_R - S_{UR}}{\frac{1}{N-2K}S_{UR}} ∼ F_{N-2K}^K\]</span><br />
-<span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(T^*\)</span> is the hypothetical breakpoint.</p>
+<span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(T^*\)</span> is the hypothetical breakpoint.<br />
+Note: Chow test can also test two or more breakpoints / groups.</p>
 <blockquote>
 <p>PS4.Q2.6<br />
 T/F?<br />
 The Chow test cannot be applied in a cross-sectional regression.</p>
 </blockquote>
-<p>False.</p>
+<p>False.<br />
+Chow test can also be used to detach groups in a cross-sectional regression.</p>
 </div>
 </div>
 <div id="arbitrary-linear-model" class="section level2">
