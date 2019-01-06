@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">25 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -102,7 +102,6 @@
 <li><a href="#pe-test">PE Test</a></li>
 <li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
 </ul></li>
-<li><a href="#arbitrary-linear-model">(Arbitrary) Linear Model</a></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 <li><a href="#ols-error">OLS Error</a><ul>
 <li><a href="#normality-of-">Normality of <span class="math inline">\(ε\)</span></a></li>
@@ -118,7 +117,11 @@
 <li><a href="#blue-best-linear-unbiased-estimator">BLUE (Best Linear Unbiased Estimator)</a></li>
 <li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
 </ul></li>
-<li><a href="#ols-model">OLS Model</a></li>
+<li><a href="#ols-model">OLS Model</a><ul>
+<li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
+<li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
+<li><a href="#untitled">Untitled</a></li>
+</ul></li>
 <li><a href="#interpretation">Interpretation</a><ul>
 <li><a href="#elasticity">Elasticity</a></li>
 <li><a href="#regression-table">Regression Table</a></li>
@@ -145,7 +148,7 @@
 </div>
 
 <p>Warning: under proofreading</p>
-<p>All I wanted was a complete &amp; clear guidance.<br />
+<p>All I wanted was a clear &amp; complete guidance. So I wrote one (for upcoming exams).<br />
 Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
 <!--
 ## Matrix Algebra
@@ -248,24 +251,6 @@ The Chow test cannot be applied in a cross-sectional regression.</p>
 Chow test can also be used to detach groups in a cross-sectional regression.</p>
 </div>
 </div>
-<div id="arbitrary-linear-model" class="section level2">
-<h2>(Arbitrary) Linear Model</h2>
-<blockquote>
-<p>PS2.Q1<br />
-Consider two linear regression models:<br />
-<span class="math display">\[\begin{aligned} y &amp;= X_1 b_{11} + e_1 \\  y &amp;= X_1 b_{21} + X_2 b_{22} + e_2\end{aligned}\]</span><br />
-The solution to the minimization problem of the first model is given by <span class="math inline">\(b_{11}\)</span> and for the second model by <span class="math inline">\(b_{21}\)</span> for the regressors in <span class="math inline">\(X_1\)</span> and <span class="math inline">\(b_{22}\)</span> for the regressors in <span class="math inline">\(X_2\)</span>.<br />
-<span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span> denote the residuals.<br />
-Denote the <span class="math inline">\(R^2\)</span> for the first model by <span class="math inline">\(R_1^2\)</span> and for the second model by <span class="math inline">\(R^2\)</span>.<br />
-Show that <span class="math inline">\(R^2 ≥ R_1^2\)</span> (<span class="math inline">\(R^2\)</span> always increases if we increase the number of regressors in models with intercept)</p>
-</blockquote>
-<p>as <span class="math inline">\(X_1\)</span> contact an intercept, the <span class="math inline">\(R^2\)</span> can be written as<br />
-<span class="math display">\[R^2 = 1- \frac{e&#39;e}{\sum_{i=1}^N (y_i - \bar{y})^2}\]</span><br />
-we need to compare <span class="math inline">\(R^2_1\)</span> and <span class="math inline">\(R^2\)</span><br />
-so we need to compare only <span class="math inline">\(e_1&#39;e_1\)</span> and <span class="math inline">\(e_2&#39;e_2\)</span><br />
-<span class="math inline">\(e_2&#39;e_2 \leq e_1&#39;e_1\)</span><br />
-objective function for regression 2 is maximized at <span class="math inline">\((b_{21},b_{22})\)</span> in comparison to <span class="math inline">\((b_{11},0)\)</span></p>
-</div>
 <div id="gauss-markov-assumptions" class="section level2">
 <h2>Gauss-Markov Assumptions</h2>
 <p>(A1) ~ (A4): textbook P15, slide 2 P23 = BLUE<br />
@@ -281,6 +266,19 @@ objective function for regression 2 is maximized at <span class="math inline">\(
 (A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
 (A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
 (A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent for all <span class="math inline">\(i\)</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span>are independent.<br />
+1. What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</p>
+</blockquote>
+<p>Since <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent, they are not correlated
+<span class="math display">\[\begin{aligned} Corr(x_t, ε_t)\frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
+Cov(x_t ε_t) &amp;= 0 \\
+&amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\
+&amp;= E[x_t ε_t] - 0 \cdot 0 = 0 \end{aligned}\]</span><br />
+~</p>
 </div>
 <div id="ols-error" class="section level2">
 <h2>OLS Error</h2>
@@ -318,11 +316,23 @@ Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or
 Consider the linear model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
 The OLS estimator minimizes the sum of squared residuals:<br />
 <span class="math display">\[S(\tilde{β}) = ε′ε = (y − X\tilde{β})′(y − X\tilde{β})\]</span><br />
-1. Derive the first order condition of <span class="math inline">\(S(\tilde{β})\)</span>.<br />
-2. Find the solution of the minimization problem and state all needed assumptions.<br />
+1. Derive the first order condition of <span class="math inline">\(S(\tilde{β})\)</span>.
+2. Find the solution of the minimization problem and state all needed assumptions.
 3. Check whether the solution in (2) is a minimum.<br />
 ~~ Do you need any further assumption to verify that?</p>
 </blockquote>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+2. Verify that the OLS estimator can be written as<br />
+<span class="math display">\[b = β + \left[ \sum_{t=1}^N x_t^2] \right] ^{-1} \sum_{t=1}^N x_t ε_t\]</span><br />
+~</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} b &amp;= (X′X)^{−1} X′ y \\
+&amp;= β + (X&#39;X)^{-1} X&#39;ε \\
+&amp;= β + \left[ \sum_{t=1}^N x_t^2] \right] ^{-1} \sum_{t=1}^N x_t ε_t \end{aligned}\]</span><br />
+~</p>
 </div>
 <div id="normality-of-b" class="section level3">
 <h3>Normality of <span class="math inline">\(b\)</span></h3>
@@ -361,20 +371,12 @@ Unbiasedness is only conditional on the average of errors and independence betwe
 <div id="consistent-of-b-asymptotic" class="section level3">
 <h3>Consistent of <span class="math inline">\(b\)</span> (Asymptotic)</h3>
 <ul>
+<li>See the whole section: <a href="#ols-model">#OLS Model</a></li>
 <li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
 <li>Obtained if: (textbook P35)<br />
 <span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
 ~</li>
 </ul>
-<blockquote>
-<p>PS4.Q2.7<br />
-T/F?<br />
-The LLN (Law of Large Numbers) states that sample moments converge in probability to their population counterparts.</p>
-</blockquote>
-<p>True.<br />
-According to LLN:<br />
-<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\ \implies \frac{1}{N}\sum y_i^2 &amp;\to^p E(y_i^2)\end{aligned}\]</span><br />
-~</p>
 <blockquote>
 <p>PS5.Q4<br />
 Consider the model<br />
@@ -401,7 +403,7 @@ Consider the model<br />
 2. (How) Does your answer change if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
 </blockquote>
 <p>Only the variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
-<span class="math inline">\(var(u_i) = σ^2_ε + ε^2_v + 2cov(ε_i, v_i)\)</span><br />
+<span class="math inline">\(Var(u_i) = σ^2_ε + ε^2_v + 2cov(ε_i, v_i)\)</span><br />
 However, consistency remains</p>
 </div>
 <div id="efficienty" class="section level3">
@@ -430,51 +432,99 @@ And another linear and unbiased estimator <span class="math inline">\(\tilde{b} 
 <h3>CAN (Consistent and Asymptotically Normal)</h3>
 <ul>
 <li>OLS estimator is CAN when <span class="math inline">\(\sqrt{N} (b-β) \to^a \mathcal{N}(0, σ^2 Σ_{xx}^{-1})\)</span></li>
-<li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)<br />
-</li>
+<li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)</li>
 <li><span class="math inline">\(\sqrt{N}\)</span> is called the rate of convergence</li>
 </ul>
 </div>
 </div>
 <div id="ols-model" class="section level2">
 <h2>OLS Model</h2>
+<div id="converge-in-probability-mean-square" class="section level3">
+<h3>Converge in Probability &amp; Mean Square</h3>
+<ul>
+<li>Vector sequence <span class="math inline">\(\{x_n\}\)</span> converges in p when <span class="math inline">\(\mathbb{P}\{ \|x_n - x\| &gt; \exists δ\} \to 0\)</span> as <span class="math inline">\(N \to \infty\)</span></li>
+<li>Also: <span class="math inline">\(x_n \to^p x\)</span> or <span class="math inline">\(\text{plim} x_n = x\)</span></li>
+<li><span class="math inline">\(x_n \to^p x \implies g(x_n) \to^p g(x)\)</span> for all continuous function <span class="math inline">\(g\)</span></li>
+</ul>
+<p>~</p>
+<ul>
+<li>Scalar sequence <span class="math inline">\(\{x_n\}\)</span> converges in ms when <span class="math inline">\(E\big[ (x_n - x)^2 \big] \to 0\)</span> as <span class="math inline">\(N \to \infty\)</span></li>
+<li>Also: <span class="math inline">\(x_n \to^{ms} x\)</span></li>
+<li><span class="math inline">\(x_n \to^{ms} x \implies x_n \to^p x\)</span></li>
+<li><span class="math inline">\(x_n \to^{ms} α \implies E[x_n] \to α\)</span> and <span class="math inline">\(Var(x_n) \to 0\)</span></li>
+</ul>
+</div>
+<div id="lln-law-of-large-numbers" class="section level3">
+<h3>LLN (Law of Large Numbers)</h3>
+<ul>
+<li><span class="math inline">\(\frac{1}{N}\sum^N_{i=1} x_n \to^p E[x]\)</span> as <span class="math inline">\(N \to \infty\)</span>, if <span class="math inline">\(\{x_n\}\)</span> are <span class="math inline">\(i.i.d\)</span> copies of <span class="math inline">\(\mathbb{x}\)</span></li>
+<li>(A6) + (A7) + LLN = <a href="#consistent-of-b-asymptotic">Asymptotic Consistency of OLS estimator</a></li>
+</ul>
+<p>Under LLN:<br />
+<span class="math display">\[\begin{aligned}\frac{1}{N} \sum^N_{i=1} x_i x_i&#39; \to^p Σ_{xx}^{-1} &amp;&amp; \text{(A6)}\end{aligned}\]</span><br />
+and<br />
+<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
+b - β = \left( \frac{1}{N} \sum x_i x_i’ \right)^{-1} \left( \frac{1}{N} \sum x_i ε_i \right) &amp;\to^p Σ_{xx}^{-1} \cdot E[x_i ε_i] \end{aligned}\]</span><br />
+If <span class="math inline">\(E[x_i ε_i]\)</span> (A7), then <span class="math inline">\(b - β \to 0\)</span></p>
+<blockquote>
+<p>PS4.Q2.7<br />
+T/F?<br />
+The LLN states that sample moments converge in probability to their population counterparts.</p>
+</blockquote>
+<p>True.<br />
+According to LLN:<br />
+<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
+\implies \frac{1}{N}\sum y_i^2 &amp;\to^p E[y_i^2]\end{aligned}\]</span><br />
+~</p>
 <blockquote>
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
 <span class="math display">\[y_t = β x_t + ε_t\]</span><br />
-where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span>are independent.<br />
-1. What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</p>
-</blockquote>
-<p><span class="math display">\[E(x_t ε_t) = 0\]</span><br />
-independent <span class="math inline">\(\iff\)</span> uncorrelated<br />
-<span class="math display">\[\begin{aligned}\frac{cov(x_t ε_t)}{\sqrt{var(x_t) var(ε_t)}} &amp;= 0 \\ cov(x_t ε_t) &amp;= 0 \\ &amp;= E(x_t ε_t) - E(x_t) E(ε_t) \\ &amp;= E(x_t ε_t) = 0 \end{aligned}\]</span></p>
-<blockquote>
-<p>PS2.Q2<br />
-2. Verify that the OLS estimator can be written as<br />
-<span class="math inline">\(b = β + \left[ \sum_{t=1}^N x_t^2] \right] ^{-1} \sum_{t=1}^N x_t ε_t\)</span></p>
-</blockquote>
-<p>rewrite <span class="math inline">\(b\)</span> as <span class="math inline">\(b = β + (X&#39;X)^{-1} X&#39;ε\)</span></p>
-<blockquote>
-<p>PS2.Q2<br />
 3. Use the LLN to find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span>.<br />
 Where does <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span> converge to (given the appropriate value for <span class="math inline">\(k\)</span>)?<br />
-Hint: In order to characterize the object to which the scaled sum converges, find <span class="math inline">\(E(x_t)\)</span>.</p>
+Hint: In order to characterize the object to which the scaled sum converges, find <span class="math inline">\(E[x_t]\)</span>.</p>
 </blockquote>
-<p>according to LLN, <span class="math inline">\(k=1\)</span><br />
-…</p>
+<p>according to LLN, <span class="math inline">\(k=1\)</span></p>
+</div>
+<div id="untitled" class="section level3">
+<h3>Untitled</h3>
+<blockquote>
+<p>PS2.Q1<br />
+Consider two linear regression models:<br />
+<span class="math display">\[\begin{aligned} y &amp;= X_1 b_{11} + e_1 \\
+y &amp;= X_1 b_{21} + X_2 b_{22} + e_2\end{aligned}\]</span><br />
+The solution to the minimization problem of the first model is given by <span class="math inline">\(b_{11}\)</span> and for the second model by <span class="math inline">\(b_{21}\)</span> for the regressors in <span class="math inline">\(X_1\)</span> and <span class="math inline">\(b_{22}\)</span> for the regressors in <span class="math inline">\(X_2\)</span>.<br />
+<span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span> denote the residuals.<br />
+Denote the <span class="math inline">\(R^2\)</span> for the first model by <span class="math inline">\(R^2_1\)</span> and for the second model by <span class="math inline">\(R^2_2\)</span>.<br />
+Show that <span class="math inline">\(R^2_2 ≥ R^2_1\)</span> (<span class="math inline">\(R^2\)</span> always increases if we increase the number of regressors in models with intercept)</p>
+</blockquote>
+<p>According to the models,<br />
+<span class="math display">\[\begin{aligned} R^2_1 &amp;= 1- \frac{e_1&#39;e_1}{\sum_{i=1}^N (y_i - \bar{y})^2} \\
+R^2_2 &amp;= 1- \frac{e_2&#39;e_2}{\sum_{i=1}^N (y_i - \bar{y})^2}\end{aligned}\]</span><br />
+Note for model 2, <span class="math inline">\(b_{21}\)</span> and <span class="math inline">\(b_{22}\)</span> are s.t.<br />
+<span class="math display">\[S(\mathbf{\tilde{b_2}}) = \sum^N_{i=1} (y_i - x_i&#39; \mathbf{\tilde{b_2}})\]</span><br />
+is minimized. Therefore,<br />
+<span class="math display">\[\begin{aligned} \sum^N_{i=1} \big(y_i - x_i&#39; (b_{21},b_{22})&#39; \big) &amp;\leq \sum^N_{i=1} \big(y_i - x_i&#39; (b_{1}, 0)&#39; \big) \\
+e_2&#39;e_2 &amp;\leq e_1&#39;e_1 \\ 
+R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span><br />
+~</p>
 <blockquote>
 <p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
 4. To find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>, first find the variance of <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>.<br />
 For which unique choice of <span class="math inline">\(k\)</span> does this variance neither approach zero, nor explode?<br />
 Hence, find the value for <span class="math inline">\(k\)</span> which stabilizes the variance.</p>
 </blockquote>
 <p><span class="math display">\[\begin{aligned}var\Big( N^{−k} \sum^N_{t=1} x_t ε_t \Big) &amp;= (N^{-k})^2 var\big( \sum x_t ε_t \big) = N^{-2k} var\big( \sum x_t ε_t \big)\\
-var\big( \sum x_t ε_t \big) &amp;= var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
-&amp;= \sum var (x_t ε_t ) = \sum var (x_t) var( ε_t ) = \sum σ^2_x σ^2_ε = N σ^2_x σ^2_ε \\
+var\big( \sum x_t ε_t \big) &amp;= Var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
+&amp;= \sum Var(x_t ε_t ) = \sum Var(x_t) Var( ε_t ) = \sum σ^2_x σ^2_ε = N σ^2_x σ^2_ε \\
 var\Big( N^{−k} \sum^N_{t=1} x_t ε_t \Big) &amp;= N^{-2k} Nσ^2_x σ^2_ε = N^{1-2k} σ^2_x σ^2_ε \\
 k &amp;= -1/2 \end{aligned}\]</span></p>
 <blockquote>
 <p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
 5. Consider the difference <span class="math inline">\(b − β\)</span>.<br />
 Combine (3) and (4) to find the implied appropriate scaling (i.e. the convergence rate) of <span class="math inline">\(b − β\)</span>.</p>
 </blockquote>
@@ -482,6 +532,7 @@ Combine (3) and (4) to find the implied appropriate scaling (i.e. the convergen
 and write <span class="math display">\[\sqrt{N}(b-β) = (\frac{1}{N}\sum x_t^2)^{-1} \frac{1}{\sqrt{N}}\sum(x_t ε_t)\]</span><br />
 has a stable variance in the limit!<br />
 and therefore a well-defined distribution (normal according to the CLT)</p>
+</div>
 </div>
 <div id="interpretation" class="section level2">
 <h2>Interpretation</h2>
@@ -539,7 +590,7 @@ Consider the regression output.<br />
 </blockquote>
 <p>H0: <span class="math inline">\(β_1 + β_2 = 1\)</span><br />
 H1: H0 is wrong (2-sided)<br />
-<span class="math display">\[\begin{aligned}t-stat &amp;= \frac{\hat{β_1} + \hat{β_2} - 1}{\sqrt{var(\hat{β_1}) + var(\hat{β_2}) + 2cor(\hat{β_1}, \hat{β_2})}} \\
+<span class="math display">\[\begin{aligned}t-stat &amp;= \frac{\hat{β_1} + \hat{β_2} - 1}{\sqrt{Var(\hat{β_1}) + Var(\hat{β_2}) + 2Cor(\hat{β_1}, \hat{β_2})}} \\
 &amp;= \end{aligned}\]</span><br />
 covariance matrix: <span class="math inline">\(s^2 \cdot (X&#39;X)^{-1}\)</span><br />
 <span class="math inline">\(F = 1.8957\)</span><br />
