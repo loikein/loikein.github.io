@@ -98,17 +98,19 @@
 <li><a href="#matrix-algebra">Matrix Algebra</a></li>
 <li><a href="#arbitrary-linear-model">(Arbitrary) Linear Model</a></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
+<li><a href="#ols-error">OLS Error</a><ul>
+<li><a href="#normality-of-">Normality of <span class="math inline">\(ε\)</span></a></li>
+<li><a href="#unbiasedness-of-s2">Unbiasedness of <span class="math inline">\(s^2\)</span></a></li>
+<li><a href="#consistency-of-s2">Consistency of <span class="math inline">\(s^2\)</span></a></li>
+</ul></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
 <li><a href="#derive">Derive</a></li>
-<li><a href="#unbiased">Unbiased</a></li>
-<li><a href="#consistent-asymptotic">Consistent (Asymptotic)</a></li>
+<li><a href="#normality-of-b">Normality of <span class="math inline">\(b\)</span></a></li>
+<li><a href="#unbiasedness-of-b">Unbiasedness of <span class="math inline">\(b\)</span></a></li>
+<li><a href="#consistent-of-b-asymptotic">Consistent of <span class="math inline">\(b\)</span> (Asymptotic)</a></li>
 <li><a href="#efficienty">Efficienty</a></li>
 <li><a href="#blue-best-linear-unbiased-estimator">BLUE (Best Linear Unbiased Estimator)</a></li>
 <li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
-</ul></li>
-<li><a href="#ols-error">OLS Error</a><ul>
-<li><a href="#unbiased-1">Unbiased</a></li>
-<li><a href="#consistent">Consistent</a></li>
 </ul></li>
 <li><a href="#ols-model">OLS Model</a></li>
 <li><a href="#interpretation">Interpretation</a><ul>
@@ -137,39 +139,34 @@
 <div id="true-or-false" class="section level2">
 <h2>True or False?</h2>
 <blockquote>
-<p>PS4.Q2.1<br />
-Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased.</p>
-</blockquote>
-<p>True. See slide</p>
-<blockquote>
-<p>PS4.Q2.2<br />
-Under heteroskedastiticity and/or autocorrelation of the errors, the covariance matrix of the OLS estimator does not change in comparison to the case of homoscedasticity and absence of autocorrelation.</p>
-</blockquote>
-<p>False. See slide</p>
-<blockquote>
 <p>PS4.Q2.3<br />
+T/F?<br />
 When applying robust standard errors, the OLS point estimates do not change.</p>
 </blockquote>
 <p>True.<br />
 Robust standard error = hetero + autocorrelation</p>
 <blockquote>
 <p>PS4.Q2.4<br />
+T/F?<br />
 When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
 </blockquote>
 <p>True.<br />
 White robust standard error = hetero</p>
 <blockquote>
 <p>PS4.Q2.5<br />
+T/F?<br />
 The PE test cannot be applied to compare a linear to an exponential specification.</p>
 </blockquote>
 <p>False. See slide 5 P12-13</p>
 <blockquote>
 <p>PS4.Q2.6<br />
+T/F?<br />
 The Chow breakpoint test cannot be applied in a cross-sectional regression.</p>
 </blockquote>
 <p>False. See slide 5 P17</p>
 <blockquote>
 <p>PS4.Q2.7<br />
+T/F?<br />
 The LLN states that sample moments converge in probability to their population counterparts.</p>
 </blockquote>
 <p>True.<br />
@@ -177,11 +174,13 @@ The LLN states that sample moments converge in probability to their population c
 ~</p>
 <blockquote>
 <p>PS4.Q2.8<br />
+T/F?<br />
 When testing a single restriction, a t-test must be used as an F-test cannot be computed for <span class="math inline">\(J = 1\)</span>.</p>
 </blockquote>
 <p>False.</p>
 <blockquote>
 <p>PS4.Q2.9<br />
+T/F?<br />
 When testing multiple restrictions, a t-test cannot be used.</p>
 </blockquote>
 <p>True.</p>
@@ -238,6 +237,33 @@ objective function for regression 2 is maximized at <span class="math inline">\(
 (A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
 (A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent for all <span class="math inline">\(i\)</span></p>
 </div>
+<div id="ols-error" class="section level2">
+<h2>OLS Error</h2>
+<div id="normality-of-" class="section level3">
+<h3>Normality of <span class="math inline">\(ε\)</span></h3>
+</div>
+<div id="unbiasedness-of-s2" class="section level3">
+<h3>Unbiasedness of <span class="math inline">\(s^2\)</span></h3>
+<blockquote>
+<p>PS1.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span><br />
+with <span class="math inline">\(εi ∼ NID(0,σ2)\)</span>.<br />
+Denote by K the number of regressors including the intercept.<br />
+Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
+Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
+~~~~ Recall that <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
+</blockquote>
+</div>
+<div id="consistency-of-s2" class="section level3">
+<h3>Consistency of <span class="math inline">\(s^2\)</span></h3>
+<ul>
+<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
+<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
+~</li>
+</ul>
+</div>
+</div>
 <div id="ols-estimator" class="section level2">
 <h2>OLS Estimator</h2>
 <div id="derive" class="section level3">
@@ -253,17 +279,42 @@ The OLS estimator minimizes the sum of squared residuals:<br />
 ~~ Do you need any further assumption to verify that?</p>
 </blockquote>
 </div>
-<div id="unbiased" class="section level3">
-<h3>Unbiased</h3>
+<div id="normality-of-b" class="section level3">
+<h3>Normality of <span class="math inline">\(b\)</span></h3>
+<ul>
+<li>OLS estimator is normally distributed with <span class="math inline">\(b ~ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big)\)</span></li>
+<li>Obtained if: (slide 2 P30)<br />
+<span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span>
+~</li>
+</ul>
+<blockquote>
+<p>PS4.Q2.2<br />
+T/F?<br />
+Under heteroskedastiticity and/or autocorrelation of the errors, the covariance matrix of the OLS estimator does not change in comparison to the case of homoscedasticity and absence of autocorrelation.</p>
+</blockquote>
+<p>False.<br />
+Under heteroskedastiticity or autocorrelation,<br />
+the covariance of the errors is different from benchmark case,<br />
+thus the covariance matrix of OLS estimator also changes.</p>
+</div>
+<div id="unbiasedness-of-b" class="section level3">
+<h3>Unbiasedness of <span class="math inline">\(b\)</span></h3>
 <ul>
 <li>OLS estimator is unbiased when <span class="math inline">\(E(b) = β\)</span></li>
 <li>Obtained if: (textbook P16, slide 2 P24)<br />
 <span class="math display">\[\begin{cases} E[ε_i] = 0 &amp;&amp; \text{(A1)} \\ \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)}\end{cases}\]</span>
 ~</li>
 </ul>
+<blockquote>
+<p>PS4.Q2.1<br />
+T/F?<br />
+Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased.</p>
+</blockquote>
+<p>True.<br />
+Unbiasedness is only conditional on the average of errors and independence between error and <span class="math inline">\(x\)</span>'s.</p>
 </div>
-<div id="consistent-asymptotic" class="section level3">
-<h3>Consistent (Asymptotic)</h3>
+<div id="consistent-of-b-asymptotic" class="section level3">
+<h3>Consistent of <span class="math inline">\(b\)</span> (Asymptotic)</h3>
 <ul>
 <li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
 <li>Obtained if: (textbook P35)<br />
@@ -328,30 +379,6 @@ And another linear and unbiased estimator <span class="math inline">\(\tilde{b} 
 <li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)<br />
 </li>
 <li><span class="math inline">\(\sqrt{N}\)</span> is called the rate of convergence</li>
-</ul>
-</div>
-</div>
-<div id="ols-error" class="section level2">
-<h2>OLS Error</h2>
-<div id="unbiased-1" class="section level3">
-<h3>Unbiased</h3>
-<blockquote>
-<p>PS1.Q2<br />
-Consider the linear regression model:<br />
-<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span><br />
-with <span class="math inline">\(εi ∼ NID(0,σ2)\)</span>.<br />
-Denote by K the number of regressors including the intercept.<br />
-Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
-Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
-~~~~ Recall that <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
-</blockquote>
-</div>
-<div id="consistent" class="section level3">
-<h3>Consistent</h3>
-<ul>
-<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
-~</li>
 </ul>
 </div>
 </div>

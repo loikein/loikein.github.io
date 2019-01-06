@@ -17,7 +17,7 @@
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/01/05/notes-stat1/</guid>
-      <description>True or False? Matrix Algebra (Arbitrary) Linear Model Gauss-Markov Assumptions OLS Estimator Derive Unbiased Consistent (Asymptotic) Efficienty BLUE (Best Linear Unbiased Estimator) CAN (Consistent and Asymptotically Normal)  OLS Error Unbiased Consistent  OLS Model Interpretation Elasticity Regression Table  IV (Instrument Variable) IV Estimator \(\hat{β}_{IV}\) GIVE (Generalized IV Estimator)  Maximum Likelihood Model Compare Models Linear / Log &amp;amp; Interaction : F-stat OLS / GLS : Robust Standard Error Weird Models  R Workout Data Generation OLS Regression    Warning: haven’t proofread yet</description>
+      <description>True or False? Matrix Algebra (Arbitrary) Linear Model Gauss-Markov Assumptions OLS Error Normality of \(ε\) Unbiasedness of \(s^2\) Consistency of \(s^2\)  OLS Estimator Derive Normality of \(b\) Unbiasedness of \(b\) Consistent of \(b\) (Asymptotic) Efficienty BLUE (Best Linear Unbiased Estimator) CAN (Consistent and Asymptotically Normal)  OLS Model Interpretation Elasticity Regression Table  IV (Instrument Variable) IV Estimator \(\hat{β}_{IV}\) GIVE (Generalized IV Estimator)  Maximum Likelihood Model Compare Models Linear / Log &amp;amp; Interaction : F-stat OLS / GLS : Robust Standard Error Weird Models  R Workout Data Generation OLS Regression    Warning: haven’t proofread yet</description>
     </item>
     
     <item>
