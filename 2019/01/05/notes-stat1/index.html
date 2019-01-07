@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">27 min read</span>
+    <span class="article-duration">29 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -120,7 +120,6 @@
 <li><a href="#ols-model">OLS Model</a><ul>
 <li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
 <li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
-<li><a href="#untitled">Untitled</a></li>
 </ul></li>
 <li><a href="#interpretation">Interpretation</a><ul>
 <li><a href="#elasticity">Elasticity</a></li>
@@ -172,8 +171,26 @@ Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A58
 <h3><span class="math inline">\(R^2\)</span></h3>
 <p>(textbook P21, slide 3 P4)<br />
 <span class="math display">\[\begin{aligned}  &amp;&amp; &amp;R^2 = 1 - \frac{\sum^N_{i-1} e_i^2}{\sum^N_{i-1} (y_i-\bar{y})^2} \\
-\text{adjusted:} &amp;&amp; &amp;\bar{R^2} = 1 - \frac{\frac{1}{N-K}\sum^N_{i-1} e_i^2}{\frac{1}{N-1}\sum^N_{i-1} (y_i-\bar{y})^2}\end{aligned}\]</span><br />
-~</p>
+\text{adjusted:} &amp;&amp; &amp;\bar{R^2} = 1 - \frac{\frac{1}{N-K}\sum^N_{i-1} e_i^2}{\frac{1}{N-1}\sum^N_{i-1} (y_i-\bar{y})^2}\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS2.Q1<br />
+Consider two linear regression models:<br />
+<span class="math display">\[\begin{aligned} y &amp;= X_1 b_{11} + e_1 \\
+y &amp;= X_1 b_{21} + X_2 b_{22} + e_2\end{aligned}\]</span><br />
+The solution to the minimization problem of the first model is given by <span class="math inline">\(b_{11}\)</span> and for the second model by <span class="math inline">\(b_{21}\)</span> for the regressors in <span class="math inline">\(X_1\)</span> and <span class="math inline">\(b_{22}\)</span> for the regressors in <span class="math inline">\(X_2\)</span>.<br />
+<span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span> denote the residuals.<br />
+Denote the <span class="math inline">\(R^2\)</span> for the first model by <span class="math inline">\(R^2_1\)</span> and for the second model by <span class="math inline">\(R^2_2\)</span>.<br />
+Show that <span class="math inline">\(R^2_2 ≥ R^2_1\)</span> (<span class="math inline">\(R^2\)</span> always increases if we increase the number of regressors in models with intercept)</p>
+</blockquote>
+<p>According to the models,<br />
+<span class="math display">\[\begin{aligned} R^2_1 &amp;= 1- \frac{e_1&#39;e_1}{\sum_{i=1}^N (y_i - \bar{y})^2} \\
+R^2_2 &amp;= 1- \frac{e_2&#39;e_2}{\sum_{i=1}^N (y_i - \bar{y})^2}\end{aligned}\]</span><br />
+Note for model 2, <span class="math inline">\(b_{21}\)</span> and <span class="math inline">\(b_{22}\)</span> are s.t.<br />
+<span class="math display">\[S(\mathbf{\tilde{b_2}}) = \sum^N_{i=1} (y_i - x_i&#39; \mathbf{\tilde{b_2}})\]</span><br />
+is minimized. Therefore,<br />
+<span class="math display">\[\begin{aligned} \sum^N_{i=1} \big(y_i - x_i&#39; (b_{21},b_{22})&#39; \big) &amp;\leq \sum^N_{i=1} \big(y_i - x_i&#39; (b_{1}, 0)&#39; \big) \\
+e_2&#39;e_2 &amp;\leq e_1&#39;e_1 \\ 
+R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span> ~</p>
 </div>
 <div id="t-test" class="section level3">
 <h3>t-test</h3>
@@ -210,17 +227,14 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 \text{Model B: } y_i &amp;= z_i&#39; γ + v_i \\
 \text{Test Model: } y_i &amp;= \underbrace{(1-δ)x_i&#39; β}_{\text{Model A}} + \underbrace{δ z_i&#39; γ }_{\text{Model B}} + u_i \\
 &amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i\\
-H_0: \ t_{δ} &amp;= \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span><br />
-~</p>
+H_0: \ t_{δ} &amp;= \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span> ~</p>
 </div>
 <div id="pe-test" class="section level3">
 <h3>PE Test</h3>
 <p>(textbook P72, slide 5 P13)<br />
-<span class="math display">\[\begin{aligned}\text{Linear Model: }&amp;\hat{y_i} = \dots \\ \text{Log Model: }&amp;\log\tilde{y_i} = \dots \end{aligned}\]</span><br />
-~<br />
+<span class="math display">\[\begin{aligned}\text{Linear Model: }&amp;\hat{y_i} = \dots \\ \text{Log Model: }&amp;\log\tilde{y_i} = \dots \end{aligned}\]</span> ~<br />
 <span class="math display">\[\begin{aligned}\text{Test Models: }\phantom{\log} y_i &amp;= x_i&#39; β + δ_{Lin} (\log \underbrace{\hat{y_i}}_{\text{Linear Model}} - \underbrace{\log\tilde{y_i}}_{\text{Log Model}}) + u_i \\
-\log y_i &amp;= (\log x_i)&#39; γ + δ_{Log} \big(\overbrace{\hat{y_i}} - \exp(\overbrace{\log\tilde{y_i}})\big) + u_i \end{aligned}\]</span><br />
-~<br />
+\log y_i &amp;= (\log x_i)&#39; γ + δ_{Log} \big(\overbrace{\hat{y_i}} - \exp(\overbrace{\log\tilde{y_i}})\big) + u_i \end{aligned}\]</span> ~
 <span class="math display">\[\begin{aligned}H_0\text{&#39;s: } &amp;t_{δ_{Lin}} ∼ t \implies\text{linear model is preferred} \\
 &amp;t_{δ_{Log}} ∼ t \implies\text{log model is preferred}\end{aligned}\]</span><br />
 If both <span class="math inline">\(H_0\)</span>’s are rejected, should consider more general models.</p>
@@ -321,8 +335,7 @@ And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \imp
 <h3>Consistency of <span class="math inline">\(s^2\)</span></h3>
 <ul>
 <li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
-~</li>
+<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span> ~</li>
 </ul>
 </div>
 </div>
@@ -353,14 +366,15 @@ Assuming <span class="math inline">\(X&#39;X\)</span> is invertible <span class=
 SOC<br />
 <span class="math display">\[\frac{\partial ^2 S(β)}{\partial β \partial β&#39;} = 2X&#39; X\]</span><br />
 <span class="math inline">\(\implies\)</span> the solution is a minimum if <span class="math inline">\(X&#39; X\)</span> is positive semi-definite.<br />
-Take arbitrary <span class="math inline">\(c\neq 0\)</span>, let<br />
-<span class="math display">\[\begin{aligned} q &amp;= c&#39; X&#39; Xc \\ &amp;= \sum^N_{i=0} x_i^2 c^2 \\ &amp;\geq 0\end{aligned}\]</span><br />
-<span class="math inline">\(\implies\)</span> For all <span class="math inline">\(c\neq 0\)</span>, <span class="math inline">\(q &gt; 0\)</span>, <span class="math inline">\(X&#39; X\)</span> is positive semi-definite, no further assumptions needed.</li>
+Take arbitrary <span class="math inline">\(a\neq 0\)</span>, let<br />
+<span class="math display">\[\begin{aligned} q &amp;= a&#39; X&#39; Xa \\ &amp;= \sum^N_{i=0} x_i^2 a_i^2 \\ &amp;\geq 0\end{aligned}\]</span><br />
+<span class="math inline">\(\implies\)</span> For all <span class="math inline">\(a\neq 0\)</span>, <span class="math inline">\(q &gt; 0\)</span>, <span class="math inline">\(X&#39; X\)</span> is positive semi-definite, no further assumptions needed.</li>
 </ol>
 <blockquote>
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
 <span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
 2. Verify that the OLS estimator can be written as<br />
 <span class="math display">\[b = β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t\]</span> ~</p>
 </blockquote>
@@ -371,7 +385,7 @@ Consider the linear regression model:<br />
 <div id="normality-of-b" class="section level3">
 <h3>Normality of <span class="math inline">\(b\)</span></h3>
 <ul>
-<li>OLS estimator is normally distributed with <span class="math inline">\(b ~ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big)\)</span></li>
+<li>OLS estimator is normally distributed with <span class="math inline">\(b ∼ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big)\)</span></li>
 <li>Obtained if: (slide 2 P30)<br />
 <span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span> ~</li>
 </ul>
@@ -384,6 +398,61 @@ Under heteroskedastiticity and/or autocorrelation of the errors, the covariance 
 Under heteroskedastiticity or autocorrelation,<br />
 the covariance of the errors is different from benchmark case,<br />
 thus the covariance matrix of OLS estimator also changes.</p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+3. Use the LLN to find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span>.<br />
+~~ What does <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span> converge to?<br />
+Hint: Find <span class="math inline">\(E[x_t]\)</span> to characterize the object to which the scaled sum converges.</p>
+</blockquote>
+<p>LLN suggests <span class="math inline">\(k=1\)</span><br />
+Since <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, <span class="math inline">\(E[x_t] = 0\)</span>, <span class="math inline">\(Var(x_t) = σ_x^2\)</span><br />
+<span class="math display">\[\begin{aligned} \frac{1}{N} \sum^N_{t=1} x_t^2 &amp;\to^p E[x_t^2] \\
+&amp;= σ_x^2\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+4. To find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>, first find the variance of <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>.<br />
+For which unique choice of <span class="math inline">\(k\)</span> does this variance neither approach zero, nor explode?<br />
+Hence, find the value for <span class="math inline">\(k\)</span> which stabilizes the variance.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned}Var\left( N^{−k} \textstyle{\sum}^N_{t=1} x_t ε_t \right) &amp;= (N^{-k})^2 \cdot Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right) \\
+&amp;= N^{-2k} \cdot Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right)\\
+Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right) &amp;= Var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
+&amp;= \textstyle{\sum}^N_{i=1} Var(x_t ε_t ) \\
+&amp;= \textstyle{\sum}^N_{i=1} \left[ Var(x_t) \cdot Var( ε_t ) \right] \\
+&amp;= \textstyle{\sum}^N_{i=1} σ^2_x σ^2_ε  \\
+&amp;= N \cdot σ^2_x σ^2_ε \\
+Var\left( N^{−k} \textstyle{\sum}^N_{t=1} x_t ε_t \right) &amp;= N^{-2k} \cdot N \cdot σ^2_x σ^2_ε \\
+&amp;= N^{1-2k} \cdot σ^2_x σ^2_ε\end{aligned}\]</span><br />
+Set <span class="math inline">\(1 - 2k = 1\)</span>, <span class="math inline">\(k = \frac{1}{2}\)</span><br />
+<span class="math display">\[\frac{1}{\sqrt{N}}\sum^N_{t=1} x_t ε_t \to^p σ^2_x σ^2_ε\]</span> ~</p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+5. Consider the difference <span class="math inline">\(b − β\)</span>.<br />
+Combine (3) and (4) to find the implied appropriate scaling (i.e. the convergence rate) of <span class="math inline">\(b − β\)</span>.</p>
+</blockquote>
+<p>We know<br />
+<span class="math display">\[b-β = \left(\sum^N_{i=1} x_t^2 \right)^{-1} \sum^N_{i=1}x_t ε_t\]</span><br />
+From (3) and (4):<br />
+<span class="math display">\[\begin{aligned} \frac{1}{N} \sum^N_{t=1} x_t^2 &amp;\to^p σ_x^2 \\
+\frac{1}{\sqrt{N}}\sum^N_{t=1} x_t ε_t &amp;\to^p σ_x^2 σ_ε^2 \end{aligned}\]</span><br />
+Assume <span class="math inline">\(N^k(b-β)\)</span> converges in distribution, therefore<br />
+<span class="math display">\[\begin{aligned} N^k(b-β) &amp;= N^k \cdot \left(\sum^N_{i=1} x_t^2 \right)^{-1} \sum^N_{i=1} x_t ε_t \\
+&amp;= \left(\frac{1}{N}\sum^N_{i=1} x_t^2 \right)^{-1} \frac{1}{\sqrt{N}}\sum^N_{i=1} x_t ε_t \\
+N^k &amp;= N \cdot \frac{1}{\sqrt{N}} \\
+k &amp;= \frac{1}{2}\end{aligned}\]</span><br />
+Therefore <span class="math inline">\(\sqrt{N}\)</span> is the implied convergence rate of <span class="math inline">\(b − β\)</span>.<br />
+<span class="math display">\[\sqrt{N}(b − β) \to^d \mathcal{N} \big(0, (σ_x^2 σ_ε^2)(σ_x^2)^{-1} \big)\]</span><br />
+Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^2 σ_ε^2\)</span>, <span class="math inline">\(Σ_{xx} \equiv σ_x^2\)</span><br />
+<span class="math inline">\(\implies \sqrt{N}(b − β) \to^d \mathcal{N} (0, σ^2 Σ_{xx}^{-1})\)</span></p>
 </div>
 <div id="unbiasedness-of-b" class="section level3">
 <h3>Unbiasedness of <span class="math inline">\(b\)</span></h3>
@@ -449,15 +518,49 @@ While everything remaining is unchanged, therefore the consistency of <span clas
 <blockquote>
 <p>PS1.Q4<br />
 Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.<br />
-Consider the linear and unbiased OLS estimator <span class="math inline">\(b = (X′X)^{−1} X′y = Cy\)</span> with <span class="math inline">\(C = (X′X)−1X′\)</span>,<br />
-And another linear and unbiased estimator <span class="math inline">\(\tilde{b} = Wy\)</span> with <span class="math inline">\(W =W(X)\)</span>.<br />
-1. Verify that <span class="math inline">\(W X = I\)</span> holds due to unbiasedness (similar to <span class="math inline">\(CX = I\)</span>).<br />
-~~ Hint: Find <span class="math inline">\(E[\tilde{b}]\)</span> and insert the true model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
-2. Find the covariance matrix of <span class="math inline">\(\tilde{b}\)</span>, i.e. <span class="math inline">\(V(\tilde{b})\)</span>.<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span><br />
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span><br />
+1. Verify that <span class="math inline">\(W X = I\)</span> holds due to unbiasedness (similar to <span class="math inline">\(CX = I\)</span>).</p>
+</blockquote>
+<p>Take expectation<br />
+<span class="math display">\[\begin{aligned} E[\tilde{b}] &amp;= E[Wy] \\ &amp;= E\big[ W(Xβ + ε)\big] \\
+&amp;= WXβ + W \cdot E[ε] \\ &amp;= WXβ\end{aligned}\]</span><br />
+Since <span class="math inline">\(\tilde{b}\)</span> is unbiased,<br />
+<span class="math display">\[\begin{aligned} E[\tilde{b}] = WXβ &amp;= β \\ WX &amp;= I\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS1.Q4<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span><br />
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span><br />
+2. Find the covariance matrix of <span class="math inline">\(\tilde{b}\)</span>, i.e. <span class="math inline">\(V(\tilde{b})\)</span>.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} V(\tilde{b}) &amp;= E \big[ (\tilde{b} - β)(\tilde{b} - β)&#39; \big] \\
+&amp;= E \big[ (WXβ + Wε - β)(WXβ + Wε - β)&#39; \big] \\ &amp;= E \big[ (Iβ + Wε - β)(Iβ + Wε - β)&#39; \big] \\ &amp;= E[ Wε ε&#39; W&#39;] \\
+&amp;= W \cdot E[ε ε&#39;] \cdot W&#39; \\ &amp;= σ^2 WW&#39; \end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS1.Q4<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span><br />
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span><br />
 3. Compare the covariance matrices of <span class="math inline">\(\tilde{b}\)</span> and <span class="math inline">\(b\)</span> by building their difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span>.<br />
-~~ Make use of <span class="math inline">\(W X = I\)</span> and find a quadratic form in which the matrix <span class="math inline">\(MX\)</span> appears.<br />
 ~~ Show in the final step that the difference between the covariance matrices is positive semi-definite.</p>
 </blockquote>
+<p><span class="math display">\[\begin{aligned} V (\tilde{b}) − V (b) &amp;= σ^2 WW&#39; - σ^2 (X&#39;X)^{-1} \\
+&amp;= σ^2 \big[ WW&#39; - (X&#39;X)^{-1} \big] \\
+&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1}\cdot (WX)&#39; \big] \\
+&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1} \cdot X&#39;W&#39; \big] \\
+&amp;= σ^2 \left\{ W \big[ I - X(X&#39;X)^{-1}X&#39; \big] W&#39; \right\} \\
+&amp;= σ^2 W M_X W&#39;\end{aligned}\]</span><br />
+Take arbitrary <span class="math inline">\(a \neq 0\)</span><br />
+<span class="math display">\[\begin{aligned} a&#39; (σ^2 W M_X W&#39;) a &amp;= σ^2 a&#39; W M_X W&#39; a \\
+&amp;= σ^2 a&#39; W M_X M_X W&#39; a \\
+&amp;= σ^2 (M_X W&#39; a)&#39; (M_X W&#39; a) \\ &amp;\geq 0\end{aligned}\]</span><br />
+Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span> is positive semi-definite.<br />
+<span class="math inline">\(\implies\)</span> Any unbiased linear estimator cannot offer a variance smaller than the OLS estimator.</p>
 </div>
 <div id="blue-best-linear-unbiased-estimator" class="section level3">
 <h3>BLUE (Best Linear Unbiased Estimator)</h3>
@@ -514,62 +617,6 @@ According to LLN:<br />
 <span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
 \implies \frac{1}{N}\sum y_i^2 &amp;\to^p E[y_i^2]\end{aligned}\]</span><br />
 ~</p>
-<blockquote>
-<p>PS2.Q2<br />
-Consider the linear regression model:<br />
-<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
-3. Use the LLN to find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span>.<br />
-Where does <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span> converge to (given the appropriate value for <span class="math inline">\(k\)</span>)?<br />
-Hint: In order to characterize the object to which the scaled sum converges, find <span class="math inline">\(E[x_t]\)</span>.</p>
-</blockquote>
-<p>according to LLN, <span class="math inline">\(k=1\)</span></p>
-</div>
-<div id="untitled" class="section level3">
-<h3>Untitled</h3>
-<blockquote>
-<p>PS2.Q1<br />
-Consider two linear regression models:<br />
-<span class="math display">\[\begin{aligned} y &amp;= X_1 b_{11} + e_1 \\
-y &amp;= X_1 b_{21} + X_2 b_{22} + e_2\end{aligned}\]</span><br />
-The solution to the minimization problem of the first model is given by <span class="math inline">\(b_{11}\)</span> and for the second model by <span class="math inline">\(b_{21}\)</span> for the regressors in <span class="math inline">\(X_1\)</span> and <span class="math inline">\(b_{22}\)</span> for the regressors in <span class="math inline">\(X_2\)</span>.<br />
-<span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span> denote the residuals.<br />
-Denote the <span class="math inline">\(R^2\)</span> for the first model by <span class="math inline">\(R^2_1\)</span> and for the second model by <span class="math inline">\(R^2_2\)</span>.<br />
-Show that <span class="math inline">\(R^2_2 ≥ R^2_1\)</span> (<span class="math inline">\(R^2\)</span> always increases if we increase the number of regressors in models with intercept)</p>
-</blockquote>
-<p>According to the models,<br />
-<span class="math display">\[\begin{aligned} R^2_1 &amp;= 1- \frac{e_1&#39;e_1}{\sum_{i=1}^N (y_i - \bar{y})^2} \\
-R^2_2 &amp;= 1- \frac{e_2&#39;e_2}{\sum_{i=1}^N (y_i - \bar{y})^2}\end{aligned}\]</span><br />
-Note for model 2, <span class="math inline">\(b_{21}\)</span> and <span class="math inline">\(b_{22}\)</span> are s.t.<br />
-<span class="math display">\[S(\mathbf{\tilde{b_2}}) = \sum^N_{i=1} (y_i - x_i&#39; \mathbf{\tilde{b_2}})\]</span><br />
-is minimized. Therefore,<br />
-<span class="math display">\[\begin{aligned} \sum^N_{i=1} \big(y_i - x_i&#39; (b_{21},b_{22})&#39; \big) &amp;\leq \sum^N_{i=1} \big(y_i - x_i&#39; (b_{1}, 0)&#39; \big) \\
-e_2&#39;e_2 &amp;\leq e_1&#39;e_1 \\ 
-R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span> ~</p>
-<blockquote>
-<p>PS2.Q2<br />
-Consider the linear regression model:<br />
-<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
-4. To find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>, first find the variance of <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>.<br />
-For which unique choice of <span class="math inline">\(k\)</span> does this variance neither approach zero, nor explode?<br />
-Hence, find the value for <span class="math inline">\(k\)</span> which stabilizes the variance.</p>
-</blockquote>
-<p><span class="math display">\[\begin{aligned}Var\left( N^{−k} \sum^N_{t=1} x_t ε_t \right) &amp;= (N^{-k})^2 \cdot Var\left( \sum x_t ε_t \right) \\
-&amp;= N^{-2k} \cdot Var\left( \sum x_t ε_t \right)\\
-Var\left( \sum x_t ε_t \right) &amp;= Var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
-&amp;= \sum Var(x_t ε_t ) = \sum Var(x_t) \cdot Var( ε_t ) \\ &amp;= \sum σ^2_x σ^2_ε  \\ &amp;= N σ^2_x σ^2_ε \\
-Var\left( N^{−k} \sum^N_{t=1} x_t ε_t \right) &amp;= N^{-2k} Nσ^2_x σ^2_ε = N^{1-2k} σ^2_x σ^2_ε \\
-k &amp;= -\frac{1}{2} \end{aligned}\]</span> ~</p>
-<blockquote>
-<p>PS2.Q2<br />
-Consider the linear regression model:<br />
-<span class="math display">\[y_t = β x_t + ε_t\]</span><br />
-5. Consider the difference <span class="math inline">\(b − β\)</span>.<br />
-Combine (3) and (4) to find the implied appropriate scaling (i.e. the convergence rate) of <span class="math inline">\(b − β\)</span>.</p>
-</blockquote>
-<p>write <span class="math display">\[b-β = (\sum x_t^2) \sum(x_t ε_t)\]</span><br />
-and write <span class="math display">\[\sqrt{N}(b-β) = (\frac{1}{N}\sum x_t^2)^{-1} \frac{1}{\sqrt{N}}\sum(x_t ε_t)\]</span><br />
-has a stable variance in the limit!<br />
-and therefore a well-defined distribution (normal according to the CLT)</p>
 </div>
 </div>
 <div id="interpretation" class="section level2">
