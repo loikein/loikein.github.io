@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">27 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -270,15 +270,13 @@ Chow test can also be used to detach groups in a cross-sectional regression.</p>
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
 <span class="math display">\[y_t = β x_t + ε_t\]</span><br />
-where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span>are independent.<br />
-1. What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</p>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+1. What does the independence imply for <span class="math inline">\(E[x_t ε_t]\)</span>?</p>
 </blockquote>
 <p>Since <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent, they are not correlated
 <span class="math display">\[\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
-Cov(x_t ε_t) &amp;= 0 \\
-&amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\
-&amp;= E[x_t ε_t] - 0 \cdot 0 \\ &amp;= 0 \end{aligned}\]</span><br />
-~</p>
+Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε_t]\end{aligned}\]</span><br />
+<span class="math inline">\(\implies E[x_t ε_t] = 0\)</span></p>
 </div>
 <div id="ols-error" class="section level2">
 <h2>OLS Error</h2>
@@ -336,32 +334,46 @@ And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \imp
 <p>PS1.Q1.3<br />
 Consider the linear model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
 The OLS estimator minimizes the sum of squared residuals:<br />
-<span class="math display">\[S(\tilde{β}) = ε′ε = (y − X\tilde{β})′(y − X\tilde{β})\]</span><br />
-1. Derive the first order condition of <span class="math inline">\(S(\tilde{β})\)</span>.
-2. Find the solution of the minimization problem and state all needed assumptions.
-3. Check whether the solution in (2) is a minimum.<br />
-~~ Do you need any further assumption to verify that?</p>
+<span class="math display">\[S(\tilde{β}) = ε′ε = (y − X\tilde{β})&#39; (y − X\tilde{β})\]</span><br />
+1. Derive the first order condition of <span class="math inline">\(S(\tilde{β})\)</span>.<br />
+~~ Find the solution of the minimization problem and state all needed assumptions.<br />
+2. Check whether the solution in (1) is a minimum. Do you need any further assumption to verify that?</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Solve minimization problem<br />
+<span class="math display">\[\begin{aligned} S(β) &amp;= (y − Xβ)&#39; (y − Xβ) \\
+&amp;= (y&#39; - β&#39;X&#39;)(y − Xβ) \\ &amp;= y&#39;y - y&#39;Xβ -β&#39; X&#39; y + β&#39; X&#39; Xβ \\
+&amp;= y&#39;y -2β&#39; X&#39; y + β&#39;X&#39;Xβ\end{aligned}\]</span><br />
+FOC<br />
+<span class="math display">\[\begin{aligned} \frac{\partial S(β)}{\partial β} = -2 X&#39; y + 2X&#39;X \hat{β} &amp;= 0 \\
+X&#39;X \hat{β} &amp;= X&#39; y \\ \hat{β} &amp;= (X&#39;X)^{-1} X&#39; y\end{aligned}\]</span><br />
+Assuming <span class="math inline">\(X&#39;X\)</span> is invertible <span class="math inline">\(\Longleftarrow X\)</span> is full-rank.<br />
+</li>
+<li>Check whether is minimum<br />
+SOC<br />
+<span class="math display">\[\frac{\partial ^2 S(β)}{\partial β \partial β&#39;} = 2X&#39; X\]</span><br />
+<span class="math inline">\(\implies\)</span> the solution is a minimum if <span class="math inline">\(X&#39; X\)</span> is positive semi-definite.<br />
+Take arbitrary <span class="math inline">\(c\neq 0\)</span>, let<br />
+<span class="math display">\[\begin{aligned} q &amp;= c&#39; X&#39; Xc \\ &amp;= \sum^N_{i=0} x_i^2 c^2 \\ &amp;\geq 0\end{aligned}\]</span><br />
+<span class="math inline">\(\implies\)</span> For all <span class="math inline">\(c\neq 0\)</span>, <span class="math inline">\(q &gt; 0\)</span>, <span class="math inline">\(X&#39; X\)</span> is positive semi-definite, no further assumptions needed.</li>
+</ol>
 <blockquote>
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
 <span class="math display">\[y_t = β x_t + ε_t\]</span><br />
 2. Verify that the OLS estimator can be written as<br />
-<span class="math display">\[b = β + \left[ \sum_{t=1}^N x_t^2] \right] ^{-1} \sum_{t=1}^N x_t ε_t\]</span><br />
-~</p>
+<span class="math display">\[b = β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t\]</span> ~</p>
 </blockquote>
 <p><span class="math display">\[\begin{aligned} b &amp;= (X′X)^{−1} X′ y \\
 &amp;= β + (X&#39;X)^{-1} X&#39;ε \\
-&amp;= β + \left[ \sum_{t=1}^N x_t^2] \right] ^{-1} \sum_{t=1}^N x_t ε_t \end{aligned}\]</span><br />
-~</p>
+&amp;= β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t \end{aligned}\]</span> ~</p>
 </div>
 <div id="normality-of-b" class="section level3">
 <h3>Normality of <span class="math inline">\(b\)</span></h3>
 <ul>
 <li>OLS estimator is normally distributed with <span class="math inline">\(b ~ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big)\)</span></li>
 <li>Obtained if: (slide 2 P30)<br />
-<span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span>
-~</li>
+<span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span> ~</li>
 </ul>
 <blockquote>
 <p>PS4.Q2.2<br />
@@ -378,8 +390,7 @@ thus the covariance matrix of OLS estimator also changes.</p>
 <ul>
 <li>OLS estimator is unbiased when <span class="math inline">\(E(b) = β\)</span></li>
 <li>Obtained if: (textbook P16, slide 2 P24)<br />
-<span class="math display">\[\begin{cases} E[ε_i] = 0 &amp;&amp; \text{(A1)} \\ \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)}\end{cases}\]</span>
-~</li>
+<span class="math display">\[\begin{cases} E[ε_i] = 0 &amp;&amp; \text{(A1)} \\ \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)}\end{cases}\]</span> ~</li>
 </ul>
 <blockquote>
 <p>PS4.Q2.1<br />
@@ -395,13 +406,12 @@ Unbiasedness is only conditional on the average of errors and independence betwe
 <li>See the whole section: <a href="#ols-model">#OLS Model</a></li>
 <li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
 <li>Obtained if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span><br />
-~</li>
+<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span> ~</li>
 </ul>
 <blockquote>
 <p>PS5.Q4<br />
-Consider the model<br />
-<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span><br />
+Consider the model with a latent (unobserved) variable <span class="math inline">\(y_i^*\)</span>:<br />
+<span class="math display">\[y_i^∗ = x&#39;_i β + ε_i\]</span><br />
 where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
 The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span>,<br />
 where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
@@ -409,23 +419,30 @@ where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independ
 Regress <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span>.<br />
 1. Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?</p>
 </blockquote>
-<p>Rewrite <span class="math inline">\(y_i - v_i = x_i&#39; β ε_i\)</span><br />
-<span class="math inline">\(\implies y_i = x_i&#39; β ε_i + v_i\)</span> where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
-Let <span class="math inline">\(ε_i + v_i = u_i\)</span>, <span class="math inline">\(u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
-OLS estimator:<br />
-<span class="math display">\[\begin{aligned} \tilde{β} &amp;= (\sum^N_{i=1} x_i x_i&#39;)^{-1}\sum^N_{i=1} x_i y_i \\ &amp;= β + (\sum^N_{i=1} x_i x_i&#39;)^{-1}\sum^N_{i=1} x_i u_i \end{aligned}\]</span><br />
-Since <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated<br />
-<span class="math inline">\(\implies \text{plim}\sum^N_{i=1} x_iu_i = 0\)</span> (<span class="math inline">\(x&#39;x\)</span> converges to a stable and well-defined matrix <span class="math inline">\(Σ\)</span>)<br />
-As long as <span class="math inline">\(\text{plim}\sum^N_{i=1} x_ix_i&#39; &gt; 0\)</span>, <span class="math inline">\(\tilde{β}\)</span> is consistent</p>
+<p>Rewrite the model:<br />
+<span class="math display">\[\begin{aligned} y_i - v_i &amp;= x_i&#39; β + ε_i \\ y_i &amp;= x_i&#39; β + ε_i + v_i\end{aligned}\]</span><br />
+where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
+Let <span class="math inline">\(ε_i + v_i = u_i \implies u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
+OLS estimator can be written as:<br />
+<span class="math display">\[\begin{aligned} \tilde{β} &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N} \sum^N_{i=1} x_i y_i \\
+&amp;= β + \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \\
+\tilde{β} - β &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \end{aligned}\]</span><br />
+Apply LLN:
+<span class="math display">\[\begin{aligned} \tilde{β} - β &amp;\to^p \text{plim}(\tilde{β} - β) \\
+&amp;= \frac{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i u_i \right)}{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right)} \\
+&amp;= \frac{E[x_i u_i]}{Σ_{xx}}\end{aligned}\]</span></p>
+<p>where <span class="math inline">\(x&#39;x \to Σ_{xx}\)</span> (A6).<br />
+As long as <span class="math inline">\(E[x_i u_i] = 0\)</span> (A7), <span class="math inline">\(\tilde{β}\)</span> is consistent.</p>
 <blockquote>
 <p>PS5.Q4<br />
 Consider the model<br />
 <span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span><br />
-2. (How) Does your answer change if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
+2. What happens to the consistency of <span class="math inline">\(\tilde{β}\)</span> if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
 </blockquote>
-<p>Only the variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
-<span class="math inline">\(Var(u_i) = σ^2_ε + ε^2_v + 2cov(ε_i, v_i)\)</span><br />
-However, consistency remains</p>
+<p>Variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
+<span class="math display">\[Var(u_i) = σ^2_ε + ε^2_v + 2Cov(ε_i, v_i)\]</span><br />
+<span class="math inline">\(\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)\)</span><br />
+While everything remaining is unchanged, therefore the consistency of <span class="math inline">\(\tilde{β}\)</span>.</p>
 </div>
 <div id="efficienty" class="section level3">
 <h3>Efficienty</h3>
@@ -527,8 +544,7 @@ Note for model 2, <span class="math inline">\(b_{21}\)</span> and <span class="m
 is minimized. Therefore,<br />
 <span class="math display">\[\begin{aligned} \sum^N_{i=1} \big(y_i - x_i&#39; (b_{21},b_{22})&#39; \big) &amp;\leq \sum^N_{i=1} \big(y_i - x_i&#39; (b_{1}, 0)&#39; \big) \\
 e_2&#39;e_2 &amp;\leq e_1&#39;e_1 \\ 
-R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span><br />
-~</p>
+R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span> ~</p>
 <blockquote>
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
@@ -537,11 +553,12 @@ Consider the linear regression model:<br />
 For which unique choice of <span class="math inline">\(k\)</span> does this variance neither approach zero, nor explode?<br />
 Hence, find the value for <span class="math inline">\(k\)</span> which stabilizes the variance.</p>
 </blockquote>
-<p><span class="math display">\[\begin{aligned}var\Big( N^{−k} \sum^N_{t=1} x_t ε_t \Big) &amp;= (N^{-k})^2 var\big( \sum x_t ε_t \big) = N^{-2k} var\big( \sum x_t ε_t \big)\\
-var\big( \sum x_t ε_t \big) &amp;= Var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
-&amp;= \sum Var(x_t ε_t ) = \sum Var(x_t) Var( ε_t ) = \sum σ^2_x σ^2_ε = N σ^2_x σ^2_ε \\
-var\Big( N^{−k} \sum^N_{t=1} x_t ε_t \Big) &amp;= N^{-2k} Nσ^2_x σ^2_ε = N^{1-2k} σ^2_x σ^2_ε \\
-k &amp;= -1/2 \end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}Var\left( N^{−k} \sum^N_{t=1} x_t ε_t \right) &amp;= (N^{-k})^2 \cdot Var\left( \sum x_t ε_t \right) \\
+&amp;= N^{-2k} \cdot Var\left( \sum x_t ε_t \right)\\
+Var\left( \sum x_t ε_t \right) &amp;= Var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
+&amp;= \sum Var(x_t ε_t ) = \sum Var(x_t) \cdot Var( ε_t ) \\ &amp;= \sum σ^2_x σ^2_ε  \\ &amp;= N σ^2_x σ^2_ε \\
+Var\left( N^{−k} \sum^N_{t=1} x_t ε_t \right) &amp;= N^{-2k} Nσ^2_x σ^2_ε = N^{1-2k} σ^2_x σ^2_ε \\
+k &amp;= -\frac{1}{2} \end{aligned}\]</span> ~</p>
 <blockquote>
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
