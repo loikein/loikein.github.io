@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">26 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -148,7 +148,7 @@
 </div>
 
 <p>Warning: under proofreading</p>
-<p>All I wanted was a clear &amp; complete guidance. So I wrote one (for upcoming exams).<br />
+<p>All I wanted was a clear &amp; complete guidance (for upcoming exams).<br />
 Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
 <!--
 ## Matrix Algebra
@@ -210,7 +210,7 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 \text{Model B: } y_i &amp;= z_i&#39; γ + v_i \\
 \text{Test Model: } y_i &amp;= \underbrace{(1-δ)x_i&#39; β}_{\text{Model A}} + \underbrace{δ z_i&#39; γ }_{\text{Model B}} + u_i \\
 &amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i\\
-H_0: &amp;t_{δ} = \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span><br />
+H_0: \ t_{δ} &amp;= \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span><br />
 ~</p>
 </div>
 <div id="pe-test" class="section level3">
@@ -261,7 +261,7 @@ Chow test can also be used to detach groups in a cross-sectional regression.</p>
 <p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
 (A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
 (A3): <span class="math inline">\(V(ε_i) = σ^2\)</span><br />
-(A4): <span class="math inline">\(cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
+(A4): <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
 <p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
 (A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
 (A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
@@ -274,10 +274,10 @@ where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="m
 1. What does the independence imply for <span class="math inline">\(E(x_t ε_t)\)</span>?</p>
 </blockquote>
 <p>Since <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent, they are not correlated
-<span class="math display">\[\begin{aligned} Corr(x_t, ε_t)\frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
+<span class="math display">\[\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
 Cov(x_t ε_t) &amp;= 0 \\
 &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\
-&amp;= E[x_t ε_t] - 0 \cdot 0 = 0 \end{aligned}\]</span><br />
+&amp;= E[x_t ε_t] - 0 \cdot 0 \\ &amp;= 0 \end{aligned}\]</span><br />
 ~</p>
 </div>
 <div id="ols-error" class="section level2">
@@ -293,10 +293,31 @@ Consider the linear regression model:<br />
 <span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span><br />
 with <span class="math inline">\(εi ∼ NID(0,σ2)\)</span>.<br />
 Denote by K the number of regressors including the intercept.<br />
-Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
+Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N-1} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
 Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
-~~~~ Recall that <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
+~~~~ <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
 </blockquote>
+<p>Rewrite the model in matrix form:<br />
+<span class="math display">\[\mathbb{y} = X β + ε\]</span><br />
+Let <span class="math inline">\(P_X \equiv X(X&#39; X)^{-1} X&#39;\)</span>, <span class="math inline">\(M_X = I_N - P_X\)</span>,<br />
+<span class="math display">\[\begin{aligned} M_X X &amp;= \big( I_N − X (X&#39; X)^{-1} X&#39;\big) \cdot X \\
+&amp;= X − X (X&#39; X)^{-1} X&#39; X \\ &amp;= X − X \\ &amp;= 0\end{aligned}\]</span><br />
+Therefore,<br />
+<span class="math display">\[\begin{aligned} \mathbb{e} &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span><br />
+Sum of squared error:<br />
+<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= \mathbb{e}&#39;\mathbb{e} \\ &amp;= tr(\mathbb{e}&#39;\mathbb{e}) \\
+&amp;= tr(ε&#39; M_X&#39; M_X ε) \\ &amp;= tr(ε&#39; M_X ε) \\ &amp;= tr(M_X ε ε&#39;)\end{aligned}\]</span><br />
+Take expectation of both sides<br />
+<span class="math display">\[\begin{aligned} \mathbb{E} [\mathbb{e}&#39;\mathbb{e}] &amp;= tr \big( M_X \mathbb{E} (ε ε&#39;) \big) \\
+&amp;= σ^2 \cdot tr(M_X) \\ &amp;= σ^2 \cdot tr \big( I_N - X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X&#39; X(X&#39; X)^{-1} \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr(I_K) \\ &amp;= σ^2(N - K)\end{aligned}\]</span><br />
+Therefore,<br />
+<span class="math display">\[\begin{aligned} E[s^2] &amp;= \frac{1}{N-K} \cdot E \left[ \sum^N_{i=1} e_i^2 \right] \\
+&amp;= \frac{1}{N-K} \cdot σ^2(N - K) \\ &amp;= σ^2\end{aligned}\]</span><br />
+<span class="math inline">\(\implies s^2\)</span> is unbiased.<br />
+And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
 </div>
 <div id="consistency-of-s2" class="section level3">
 <h3>Consistency of <span class="math inline">\(s^2\)</span></h3>
