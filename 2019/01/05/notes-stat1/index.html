@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">31 min read</span>
+    <span class="article-duration">32 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -111,7 +111,7 @@
 <li><a href="#consistency-of-s2">Consistency of <span class="math inline">\(s^2\)</span></a></li>
 </ul></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
-<li><a href="#derive">Derive</a></li>
+<li><a href="#derive-ols">Derive OLS</a></li>
 <li><a href="#normality-of-b">Normality of <span class="math inline">\(b\)</span></a></li>
 <li><a href="#unbiasedness-of-b">Unbiasedness of <span class="math inline">\(b\)</span></a></li>
 <li><a href="#consistent-of-b-asymptotic">Consistent of <span class="math inline">\(b\)</span> (Asymptotic)</a></li>
@@ -125,7 +125,7 @@
 <li><a href="#elasticity">Elasticity</a></li>
 </ul></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
-<li><a href="#auxiliary-regression">Auxiliary Regression</a></li>
+<li><a href="#derive-iv">Derive IV</a></li>
 <li><a href="#iv-estimator-hat_iv">IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
@@ -417,8 +417,8 @@ And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \imp
 </div>
 <div id="ols-estimator" class="section level2">
 <h2>OLS Estimator</h2>
-<div id="derive" class="section level3">
-<h3>Derive</h3>
+<div id="derive-ols" class="section level3">
+<h3>Derive OLS</h3>
 <blockquote>
 <p>PS1.Q1.3<br />
 Consider the linear model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
@@ -734,13 +734,23 @@ Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inlin
 </div>
 <div id="iv-instrument-variable" class="section level2">
 <h2>IV (Instrument Variable)</h2>
-<div id="auxiliary-regression" class="section level3">
-<h3>Auxiliary Regression</h3>
+<div id="derive-iv" class="section level3">
+<h3>Derive IV</h3>
+<p>(textbook P150, slide 9-1)<br />
+Consider model<br />
+<span class="math display">\[y_i = x_{1i}&#39; β_1 + x_{2i} β_2 + ε_i\]</span><br />
+Moment (expectation) conditions:<br />
+<span class="math display">\[\begin{aligned} E[ε_i x_{1i}] &amp;= E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) x_{1i}\right] = 0 &amp;&amp; \text{(1)}\\
+E[ε_i x_{2i}] &amp;= E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) x_{2i}\right] = 0 &amp;&amp; \text{(2)}\end{aligned}\]</span><br />
+If <span class="math inline">\(E[ε_i x_{2i}] \neq 0\)</span>, OLS gives inconsistent estimator of <span class="math inline">\(β_2\)</span>, need to find instrument variable <span class="math inline">\(z_{2i}\)</span> s.t. (exogeneity)<br />
+<span class="math display">\[\begin{aligned} E[ε_i z_{2i}] = E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) z_{2i}\right] = 0  &amp;&amp; \text{(3)} \end{aligned}\]</span><br />
+Solving (1) and (3) gives consistent estimator <span class="math inline">\(\hat{β}_{IV}\)</span>.</p>
+<p>Test relavance of <span class="math inline">\(z_{2i}\)</span>:<br />
+<span class="math display">\[\text{Auxiliary Regression: }x_{2i} = x_{1i}&#39; π_1 + z_{2i} π_2 + v_i\]</span><br />
+should yield <span class="math inline">\(π_2 \neq 0\)</span>.</p>
 </div>
 <div id="iv-estimator-hat_iv" class="section level3">
 <h3>IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></h3>
-<p>(textbook P151, slide 9-1, 9-2)<br />
-(need more explanation here)</p>
 <blockquote>
 <p>PS5.Q1<br />
 Show that <span class="math inline">\(\hat{β}_{IV} =(X&#39;ZW_N Z′X)^{−1}X&#39;ZW_N Z&#39;y\)</span> minimizes<br />
@@ -774,37 +784,43 @@ Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span>:<br />
 <div id="give-generalized-iv-estimator" class="section level3">
 <h3>GIVE (Generalized IV Estimator)</h3>
 <p>(textbook P166, slide 9-2 P8)<br />
-(need more explanation here)</p>
+Also known as: 2SLS (two-stage least squares) estimator</p>
 <blockquote>
 <p>PS5.Q3<br />
 Derive the GIVE.<br />
-Start with the first stage regression <span class="math inline">\(X = Zγ + v\)</span> and obtain its fitted values <span class="math inline">\(\hat{X}\)</span>.<br />
-Show that the first stage fit <span class="math inline">\(\hat{X}\)</span> is given by <span class="math inline">\(P_ZX\)</span> with <span class="math inline">\(P_Z = Z(Z′Z)^{−1}Z′\)</span>.<br />
-Then consider the OLS estimator in the second stage (<span class="math inline">\(y = Xβ+ε\)</span>) based on fitted values <span class="math inline">\(\hat{X}\)</span> instead of <span class="math inline">\(X\)</span> from the first stage regression, i.e. <span class="math inline">\(y = \hat{X} β + ε\)</span>.<br />
-Show that the resulting estimator equals the GIVE.<br />
-Derive the covariance matrix of the GIVE under homoskedasticity and absence of autocorrelation.<br />
-Compare the results with PS5.Q2.</p>
+1. Start with the first stage regression <span class="math inline">\(X = Zγ + v\)</span> and obtain its fitted values <span class="math inline">\(\hat{X}\)</span>.<br />
+~~ Show that the first stage fit <span class="math inline">\(\hat{X}\)</span> is given by <span class="math inline">\(P_ZX\)</span> with <span class="math inline">\(P_Z = Z(Z′Z)^{−1}Z′\)</span>.<br />
+2. Consider OLS estimator in the second stage, based on fitted values <span class="math inline">\(\hat{X}\)</span>: <span class="math inline">\(y = \hat{X} β + ε\)</span>.<br />
+~~ Show that the resulting estimator equals the GIVE.<br />
+3. Derive the covariance matrix of the GIVE under homoskedasticity and absence of autocorrelation.<br />
+~~ Compare the results with PS5.Q2.</p>
 </blockquote>
-<p><span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}ZX\)</span><br />
-fitted values:<br />
-<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \hat{γ} \\&amp;= Z(Z&#39;Z)^{-1}ZX = P_Z X\end{aligned}\]</span></p>
-<p>Check <span class="math inline">\(P_Z\)</span> is symmetric:<br />
-<span class="math inline">\(P_Z&#39; = [Z(Z&#39;Z)^{-1}Z&#39;]&#39; = Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
-<p>Check <span class="math inline">\(P_Z\)</span> is idopotent:<br />
-<span class="math inline">\(P_ZP_Z = Z(Z&#39;Z)^{-1}Z&#39; Z(Z&#39;Z)^{-1}Z&#39; = P_Z\)</span></p>
-<p>Second stage estimator:<br />
-<span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
-<span class="math inline">\(b = (\hat{X}&#39;\hat{X})^{-1} \hat{X}&#39;y\)</span><br />
-<span class="math inline">\(\implies \hat{X} = P_Z X\)</span> and <span class="math inline">\(\hat{X}&#39; = X&#39;P_Z&#39; = X&#39;P_Z\)</span><br />
+<ol style="list-style-type: decimal">
+<li><p>First stage regression: <span class="math inline">\(X = Zγ + v\)</span><br />
+According to OLS, <span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}Z&#39;X\)</span><br />
+Fitted values:<br />
+<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \cdot\hat{γ} \\&amp;= Z(Z&#39;Z)^{-1}ZX \\ &amp;= P_Z X\end{aligned}\]</span><br />
+<span class="math inline">\(P_Z\)</span> is symmetric:<br />
+<span class="math display">\[\begin{aligned} P_Z&#39; &amp;= \left[Z(Z&#39;Z)^{-1}Z&#39; \right]&#39; \\ &amp;= Z(Z&#39;Z)^{-1}Z&#39; \\ &amp;= P_Z\end{aligned}\]</span><br />
+<span class="math inline">\(P_Z\)</span> is idopotent:<br />
+<span class="math display">\[\begin{aligned} P_ZP_Z &amp;= Z(Z&#39;Z)^{-1}Z&#39; \cdot Z(Z&#39;Z)^{-1}Z&#39; \\
+&amp;= Z(Z&#39;Z)^{-1}Z \\
+&amp;= P_Z\end{aligned}\]</span></p></li>
+<li><p>Second stage regression: <span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
+According to OLS, <span class="math inline">\(b = \big(\hat{X}&#39;\hat{X}\big)^{-1} \hat{X}&#39;y\)</span><br />
+Therefore<br />
+<span class="math display">\[\begin{aligned} \hat{X} &amp;= P_Z X \\
+\hat{X}&#39; &amp;= X&#39;P_Z&#39; \\
+&amp;= X&#39;P_Z\end{aligned}\]</span><br />
 <span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\
 &amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\
-&amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span></p>
-<p>Variance:<br />
+&amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span> ~</p></li>
+<li><p>Variance:<br />
 <span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\
 &amp;= σ^2 (X&#39;P_Z X)^{-1} \\
 &amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\
-&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span><br />
-~</p>
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span> ~</p></li>
+</ol>
 </div>
 </div>
 <div id="heteroskedasticity-autocorrelation" class="section level2">
