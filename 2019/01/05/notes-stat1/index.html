@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">30 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -623,6 +623,17 @@ According to LLN:<br />
 <h2>Interpretation</h2>
 <div id="elasticity" class="section level3">
 <h3>Elasticity</h3>
+<ul>
+<li>Elasticity measures the relative change in the dependent variable owing to a relative change in one of the <span class="math inline">\(x_i\)</span> variables.<br />
+</li>
+<li>For <span class="math inline">\(\log y_i = (\log x_i)&#39; γ + v_i\)</span>, elasticity:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&amp;\approx \frac{\partial E[\log y_i | \log x_i]}{\partial \log x_{ik}} \\ &amp;= γ_k \end{aligned}\]</span><br />
+</li>
+<li>For <span class="math inline">\(y_i = x_i&#39; β + ε_i\)</span>, elasticity:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&amp;= β_k \cdot \frac{x_{ik}}{x_i&#39; β} \end{aligned}\]</span> ~</li>
+</ul>
 <blockquote>
 <p>PS3.Q1.1<br />
 Consider the Cobb-Douglas production function:<br />
@@ -631,23 +642,28 @@ where <span class="math inline">\(F\)</span> is the production function, <span c
 Technology is assumed to be constant and represented by <span class="math inline">\(τ\)</span>.<br />
 1. Which coefficients are elasticities?</p>
 </blockquote>
-<p><span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span><br />
-proof:<br />
-elasticity: <span class="math inline">\(\frac{\partial A}{\partial B}\cdot\frac{B}{A}\)</span><br />
-<span class="math inline">\(\implies\frac{\partial Y}{\partial K}\cdot\frac{K}{Y} = τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} = β_1\)</span></p>
+<p>For <span class="math inline">\(K\)</span>:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial K}\cdot\frac{K}{Y} &amp;= τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} \\
+&amp;= \frac{τβ_1K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&amp;= β_1\end{aligned}\]</span><br />
+For <span class="math inline">\(L\)</span>:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial L}\cdot\frac{L}{Y} &amp;= τβ_2K^{β_1}L^{β_2-1} \cdot \frac{K}{Y} \\
+&amp;= \frac{τβ_2K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&amp;= β_2\end{aligned}\]</span><br />
+Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span> are the elasticities.</p>
 <blockquote>
 <p>PS3.Q1.1<br />
 2. Specify the econometric model you think is appropriate to estimate the coefficients of the production function.</p>
 </blockquote>
 <p>Take log:<br />
-<span class="math display">\[\begin{aligned}\log{Y} &amp;= \log{τ} + β_1\log{K} + β_2\log{L} \\ \log{Y_t} &amp;= \log{τ} (:=β_0) + β_1\log{K_t} + β_2\log{L_t} + ε_t \end{aligned}\]</span>
-~</p>
+<span class="math display">\[\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\]</span> ~</p>
 </div>
 <div id="regression-table" class="section level3">
 <h3>Regression Table</h3>
 <blockquote>
 <p>PS3.Q1.2<br />
 Consider the regression output.<br />
+<img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
 1. Test the significance of the elasticities at <span class="math inline">\(5%\)</span> level.</p>
 </blockquote>
 <p>H0: <span class="math inline">\(β_1 = 0, β_2 = 0\)</span><br />
@@ -661,6 +677,7 @@ L is significant at <span class="math inline">\(1%\)</span> level.</p>
 <blockquote>
 <p>PS3.Q1.2<br />
 Consider the regression output.<br />
+<img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
 2. Conduct a test of explanatory power (all coefficients are zero except the intercept).</p>
 </blockquote>
 <p>calculate F-statistics, assume that <span class="math inline">\(R^2_U = 0\)</span><br />
@@ -671,6 +688,7 @@ critical value:</p>
 <blockquote>
 <p>PS3.Q1.2<br />
 Consider the regression output.<br />
+<img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
 3. Test the hypothesis of constant returns to scale at <span class="math inline">\(5%\)</span> level.</p>
 </blockquote>
 <p>H0: <span class="math inline">\(β_1 + β_2 = 1\)</span><br />
