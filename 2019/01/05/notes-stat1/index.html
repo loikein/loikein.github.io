@@ -63,7 +63,7 @@
 
   <article class="article">
     
-    <span class="article-duration">30 min read</span>
+    <span class="article-duration">31 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics</h1>
@@ -98,6 +98,7 @@
 <li><a href="#r2"><span class="math inline">\(R^2\)</span></a></li>
 <li><a href="#t-test">t-test</a></li>
 <li><a href="#f-test-joint-test">F-test (Joint Test)</a></li>
+<li><a href="#wald-test">Wald Test</a></li>
 <li><a href="#j-test">J Test</a></li>
 <li><a href="#pe-test">PE Test</a></li>
 <li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
@@ -219,6 +220,20 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 <span class="math display">\[F = \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)}\]</span><br />
 <span class="math inline">\(H_0: F ∼ F_{N-K}^J\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested (<span class="math inline">\(= 0\)</span>), <span class="math inline">\(F \geq J + 1\)</span>.</p>
+</div>
+<div id="wald-test" class="section level3">
+<h3>Wald Test</h3>
+<p>(textbook P30, slide 3 P17)</p>
+<ul>
+<li>Note: Wald statistic and F-statistic are always two-sided</li>
+<li><p>Wald statistic:<br />
+<span class="math display">\[ξ = \frac{1}{σ^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span><br />
+<span class="math inline">\(H_0: ξ ∼ Χ^2_J\)</span><br />
+<span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q\)</span>.</p></li>
+<li><p>F-statistic:<br />
+<span class="math display">\[F = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span><br />
+<span class="math inline">\(H_0: F ∼ F^J_{N-K}\)</span></p></li>
+</ul>
 </div>
 <div id="j-test" class="section level3">
 <h3>J Test</h3>
@@ -662,44 +677,63 @@ Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inlin
 <h3>Regression Table</h3>
 <blockquote>
 <p>PS3.Q1.2<br />
-Consider the regression output.<br />
+For model <span class="math inline">\(\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\)</span>, consider the regression output:<br />
 <img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
-1. Test the significance of the elasticities at <span class="math inline">\(5%\)</span> level.</p>
+1. Test the significance of the elasticities at <span class="math inline">\(5\%\)</span> level.</p>
 </blockquote>
-<p>H0: <span class="math inline">\(β_1 = 0, β_2 = 0\)</span><br />
-H1: <span class="math inline">\(β_1 &gt; 0, β_2 &gt;0\)</span><br />
-at 5%, df = 40, critical value:</p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(β_1 = 0\)</span>, <span class="math inline">\(β_2 = 0\)</span><br />
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(β_1 &gt; 0\)</span>, <span class="math inline">\(β_2 &gt;0\)</span><br />
+Calculate critical value at <span class="math inline">\(5\%\)</span> and <span class="math inline">\(1\%\)</span> level, <span class="math inline">\(df = 40\)</span>:</p>
 <pre class="r"><code>qt( 0.95, 40 )
-qt( 0.99, 40 )</code></pre>
-<p>and we have t-ratio of 2.29,<br />
-so K is significant at <span class="math inline">\(5%\)</span> level,<br />
-L is significant at <span class="math inline">\(1%\)</span> level.</p>
+## [1] 1.683851
+qt( 0.99, 40 )
+## [1] 2.423257</code></pre>
+<p>Therefore, <span class="math inline">\(K\)</span> is significant at <span class="math inline">\(5/%\)</span> level, and <span class="math inline">\(L\)</span> is significant at <span class="math inline">\(1/%\)</span> level.</p>
 <blockquote>
 <p>PS3.Q1.2<br />
-Consider the regression output.<br />
+For model <span class="math inline">\(\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\)</span>, consider the regression output:<br />
 <img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
 2. Conduct a test of explanatory power (all coefficients are zero except the intercept).</p>
 </blockquote>
-<p>calculate F-statistics, assume that <span class="math inline">\(R^2_U = 0\)</span><br />
-we have <span class="math inline">\(F = 1936\)</span>, 2 restrictions, <span class="math inline">\(df = 40\)</span><br />
-critical value:</p>
-<pre class="r"><code>qf( 0.95, 2, 40)</code></pre>
-<p>so this is significant at <span class="math inline">\(5%\)</span> level</p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(R^2_U = 0\)</span><br />
+Calculate critical value at <span class="math inline">\(5\%\)</span> level, for two restrictions and <span class="math inline">\(df = 40\)</span>:</p>
+<pre class="r"><code>qf( 0.95, 2, 40)
+## [1] 3.231727</code></pre>
+<p>As <span class="math inline">\(F = 1936 &gt;\)</span> 3.231727, <span class="math inline">\(H_0\)</span> is rejected.</p>
 <blockquote>
 <p>PS3.Q1.2<br />
-Consider the regression output.<br />
+For model <span class="math inline">\(\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\)</span>, consider the regression output:<br />
 <img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
+<span class="math inline">\((X&#39; X)^{-1} = \begin{pmatrix} 5649.38 &amp;&amp; 307.02 &amp;&amp; \\ &amp;&amp; 16.85 &amp;&amp; -29.39 \\ -540.33 &amp;&amp; &amp;&amp; 51.68\end{pmatrix}\)</span><br />
 3. Test the hypothesis of constant returns to scale at <span class="math inline">\(5%\)</span> level.</p>
 </blockquote>
-<p>H0: <span class="math inline">\(β_1 + β_2 = 1\)</span><br />
-H1: H0 is wrong (2-sided)<br />
-<span class="math display">\[\begin{aligned}t-stat &amp;= \frac{\hat{β_1} + \hat{β_2} - 1}{\sqrt{Var(\hat{β_1}) + Var(\hat{β_2}) + 2Cor(\hat{β_1}, \hat{β_2})}} \\
-&amp;= \end{aligned}\]</span><br />
-covariance matrix: <span class="math inline">\(s^2 \cdot (X&#39;X)^{-1}\)</span><br />
-<span class="math inline">\(F = 1.8957\)</span><br />
-(note: w-stat and F-stat are always 2-sided)<br />
-critical value:</p>
-<pre class="r"><code>qf( 0.95, 1, 40)</code></pre>
+<p>Constant return to scale <span class="math inline">\(\implies β_1 + β_2 = 1\)</span><br />
+Let <span class="math inline">\(R = \begin{pmatrix} 0 &amp;&amp; 1 &amp;&amp; 1\end{pmatrix}\)</span>, <span class="math inline">\(β = \begin{pmatrix} \log τ \\ β_1 \\ β_2 \end{pmatrix}\)</span>, <span class="math inline">\(q = 1\)</span>.<br />
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(Rβ = q\)</span><br />
+<span class="math display">\[\begin{aligned}F &amp;= \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q) \\
+&amp;= \frac{1}{1 \cdot 0.0381^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q) \end{aligned}\]</span><br />
+Since <span class="math inline">\(X&#39;X\)</span> is symmetric, <span class="math inline">\((X&#39; X)^{-1} = \begin{pmatrix} 5649.38 &amp;&amp; 307.02 &amp;&amp; -540.33 \\ 307.02 &amp;&amp; 16.85 &amp;&amp; -29.39 \\ -540.33 &amp;&amp; -29.39 &amp;&amp; 51.68\end{pmatrix}\)</span><br />
+Calculate F-statistics:</p>
+<pre class="r"><code>matrix_x &lt;- matrix(c(5649.38, 307.02, -540.33, 307.02, 16.85, -29.39, -540.33, -29.39, 51.68), nrow = 3, byrow = TRUE)
+matrix_r &lt;- matrix(c(0,1,1), nrow = 1, byrow = TRUE)
+matrix_b &lt;- matrix(c(-5.9395, 0.3593, 0.8045), nrow = 3)
+scalar_q &lt;- 1
+
+# parts
+
+result_1 &lt;- 1 / 0.0381^2
+result_2 &lt;-matrix_r %*% matrix_b - scalar_q
+result_3 &lt;- matrix_r %*% matrix_x %*% t(matrix_r)
+
+# calculate F-statistics
+
+result_1 * t(result_2) * result_3^(-1) * result_2
+##          [,1]
+## [1,] 1.895716</code></pre>
+<p>Calculate critical value at <span class="math inline">\(5\%\)</span> level, for one restriction and <span class="math inline">\(df = 40\)</span>:</p>
+<pre class="r"><code>qf( 0.95, 1, 40)
+## [1] 4.084746</code></pre>
+<p>Therefore, <span class="math inline">\(H_0\)</span> is not rejected.</p>
 </div>
 </div>
 <div id="iv-instrument-variable" class="section level2">
