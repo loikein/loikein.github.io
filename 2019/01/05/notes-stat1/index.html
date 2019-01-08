@@ -125,6 +125,7 @@
 <li><a href="#elasticity">Elasticity</a></li>
 </ul></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
+<li><a href="#auxiliary-regression">Auxiliary Regression</a></li>
 <li><a href="#iv-estimator-hat_iv">IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
@@ -733,41 +734,47 @@ Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inlin
 </div>
 <div id="iv-instrument-variable" class="section level2">
 <h2>IV (Instrument Variable)</h2>
+<div id="auxiliary-regression" class="section level3">
+<h3>Auxiliary Regression</h3>
+</div>
 <div id="iv-estimator-hat_iv" class="section level3">
 <h3>IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></h3>
+<p>(textbook P151, slide 9-1, 9-2)<br />
+(need more explanation here)</p>
 <blockquote>
 <p>PS5.Q1<br />
-Show that <span class="math inline">\(\hat{β}_{IV} =(X′ZW_N Z′X)^{−1}X′ZW_N Z′y\)</span> minimizes<br />
+Show that <span class="math inline">\(\hat{β}_{IV} =(X&#39;ZW_N Z′X)^{−1}X&#39;ZW_N Z&#39;y\)</span> minimizes<br />
 <span class="math display">\[\begin{aligned} Q_N(β) &amp;= \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right]&#39; W_N \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right] \\
-&amp;= \left[ \frac{1}{N}Z&#39; (y - X β) \right]&#39; W_N \left[ \frac{1}{N}Z&#39; (y - X β) \right] \end{aligned}\]</span></p>
+&amp;= \left[ \frac{1}{N}Z&#39; (y - X β) \right]&#39; W_N \left[ \frac{1}{N}Z&#39; (y - X β) \right] \end{aligned}\]</span> ~</p>
 </blockquote>
 <p><span class="math display">\[\begin{aligned} Q_N(β) &amp;=  \frac{1}{N^2}\left[ (y&#39; - β&#39;X&#39;)Z W_N (Z&#39;y - Z&#39;X β) \right]
 \\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;yβ \right] \\
 &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - 2\left( β&#39;X&#39;Z W_N Z&#39;y \right)  + β&#39;X&#39; Z W_N Z&#39;yβ \right] \end{aligned}\]</span><br />
 FOC<br />
-<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\ \hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span><br />
-~</p>
+<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\ \hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span> ~</p>
 <blockquote>
 <p>PS5.Q2<br />
-In the model <span class="math inline">\(y = Xβ+ε\)</span>,<br />
-Derive the covariance matrix of the IV estimator <span class="math inline">\(\hat{β}_{IV} = (Z′X)^{−1}Z′y\)</span> with homoskedastic and serially uncorrelated errors.<br />
+In model <span class="math inline">\(y = Xβ+ε\)</span>,<br />
+Derive the covariance matrix of IV estimator <span class="math inline">\(\hat{β}_{IV} = (Z&#39;X)^{−1}Z&#39;y\)</span> with homoskedastic and serially uncorrelated errors.<br />
 Argue why the correlation between instruments and regressors matter for the precision of the IV estimator.<br />
 What happens in the limiting case when this correlation approaches zero?</p>
 </blockquote>
-<p>let <span class="math inline">\(W_N = I_N\)</span><br />
-<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y \\
-&amp;= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y \\ &amp;= (Z&#39;X)^{-1}Z&#39;y \end{aligned}\]</span><br />
+<p><span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{−1}Z&#39;y \\
+&amp;= (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y \\
+&amp;= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y \\
+&amp;= (Z&#39;X)^{-1}Z&#39;y \\
+&amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\
+&amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε \\
+&amp;= β + (Z&#39;X)^{-1}Z&#39;ε\end{aligned}\]</span><br />
 Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span>:<br />
-<span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\
-&amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε$, $V(ε) = σ^2 I \end{aligned}\]</span><br />
-<span class="math inline">\(\implies\)</span><br />
-<span class="math display">\[\begin{aligned}V(\hat{β}_{IV}) &amp;= V\Big(β + (Z&#39;X)^{-1}Z&#39;ε \Big) \\
-&amp;= (Z&#39;X)^{-1}Z&#39;σ^2 I \left[(Z&#39;X)^{-1}Z&#39; \right]&#39; \\
-&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span><br />
-~</p>
+<span class="math display">\[\begin{aligned}V(\hat{β}_{IV}) &amp;= E\left[ (\hat{β}_{IV} - β)^2 \right] \\
+&amp;= E \left[ \left( (Z&#39;X)^{-1}Z&#39;ε \right)^2 \right] \\
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span> ~</p>
 </div>
 <div id="give-generalized-iv-estimator" class="section level3">
 <h3>GIVE (Generalized IV Estimator)</h3>
+<p>(textbook P166, slide 9-2 P8)<br />
+(need more explanation here)</p>
 <blockquote>
 <p>PS5.Q3<br />
 Derive the GIVE.<br />
