@@ -1,0 +1,146 @@
+#TOC {
+	all: initial;
+}
+
+#TOC *,
+#TOC *::before,
+#TOC *::after {
+	all: unset;
+}
+
+#TOC{
+	/*display: flex;
+	flex-direction: column;
+	align-items: stretch;*/
+	position: fixed;
+	bottom: 5vh;
+	left: 5vh;
+	max-width: 22em;
+	min-width: 14em;
+	max-height: 85vh;
+	z-index: 10000;
+	box-sizing: border-box;
+	background-color: #fff;
+	color:var(--black);
+	font-size: 0.8rem;
+	line-height: 1.3;
+	border: 1px solid var(--mid-grey);
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#TOC ul,
+#TOC li {
+	list-style: none;
+	display: block;
+
+}
+
+#TOC li {
+	overflow: hidden;
+	line-height: 1.3;
+
+}
+
+#TOC a {
+	text-decoration: none;
+	color: var(--black);
+	display: block;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+/* active ?? */
+
+#TOC a:hover,
+#TOC a:active {
+	border-left-color: var(--theme);
+	color: var(--dark-theme);
+}
+
+#TOC li.active > a {
+	border-left-color: var(--dark-theme);
+	color: var(--dark-theme);
+}
+
+/* heading level: 1 */
+
+#TOC ul {
+	line-height: 2;
+}
+
+#TOC ul a {
+	font-size: 1em;
+	padding-left: 1.3em;
+}
+
+#TOC ul a:hover,
+#TOC ul a:active,
+#TOC ul li.active > a {
+	border-left-width: 3px;
+	border-left-style: solid;
+	padding-left: calc(1.3em - 3px);
+}
+
+#TOC ul li.active > a {
+	font-weight: bold;
+}
+
+/* heading level: 2 */
+
+#TOC ul ul {
+	line-height: 1.8;
+}
+
+#TOC ul ul a {
+	font-size: 1em;
+	padding-left: 2.7em;
+}
+
+#TOC ul ul a:hover,
+#TOC ul ul a:active,
+#TOC ul ul li.active > a {
+	border-left-width: 2px;
+	border-left-style: solid;
+	padding-left: calc(2.7em - 2px);
+	font-weight: normal;
+}
+
+/* heading level: 3 */
+
+#TOC ul ul ul {
+	line-height: 1.7;
+	display: none;
+}
+
+#TOC ul ul ul a {
+	font-size: 1em;
+	padding-left: 4em;
+}
+
+#TOC ul ul ul a:hover,
+#TOC ul ul ul a:active,
+#TOC ul ul ul li.active > a {
+	border-left-width: 1px;
+	border-left-style: solid;
+	padding-left: calc(4em - 1px);
+	font-weight: normal;
+}
+
+@media (max-width: 1200px) {
+	#TOC{
+		left: unset;
+		bottom: 1vh;
+		right: 1vh;
+		max-height: 50vh;
+	}
+}
+
+@media (max-width: 700px) {
+	#TOC{
+		display: none;
+	}
+}
