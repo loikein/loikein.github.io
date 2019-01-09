@@ -58,7 +58,7 @@
 
   <article class="article">
     
-    <span class="article-duration">18 min read</span>
+    <span class="article-duration">21 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -113,8 +113,10 @@
 <li><a href="#function">Function</a><ul>
 <li><a href="#range-image">Range / Image</a></li>
 <li><a href="#injection-surjection">Injection &amp; Surjection</a></li>
-<li><a href="#composite-function">Composite Function</a></li>
+<li><a href="#continuous">Continuous</a></li>
+<li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
 <li><a href="#supremum">Supremum</a></li>
+<li><a href="#concave-convex">Concave &amp; Convex</a></li>
 </ul></li>
 <li><a href="#set-times-function">Set <span class="math inline">\(\times\)</span> Function</a><ul>
 <li><a href="#injection-surjection-revisited">Injection &amp; Surjection (revisited)</a></li>
@@ -591,8 +593,73 @@ Is it surjective?</p>
 :) <span class="math inline">\(x\in f( \text{domain}) \iff x \in \text{range}\)</span></li>
 </ol>
 </div>
-<div id="composite-function" class="section level3">
-<h3>Composite Function</h3>
+<div id="continuous" class="section level3">
+<h3>Continuous</h3>
+<ul>
+<li>Function <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(x \iff \exists δ&gt;0\)</span> s.t. <span class="math inline">\(f\big( B_δ(x)\big) \subset B_ε\big(f(x)\big)\)</span> for all <span class="math inline">\(ε\)</span>.<br />
+</li>
+<li>Function <span class="math inline">\(f: U \to U&#39;\)</span> is continous at <span class="math inline">\(x \in U\)</span> <span class="math inline">\(\Longleftarrow\)</span> <span class="math inline">\(\big( f(x_n)\big)_n \to x\)</span> for all <span class="math inline">\((x_n)_n \in U \to x\)</span>.<br />
+</li>
+<li>Function <span class="math inline">\(f: U \to U&#39;\)</span> is continuous <span class="math inline">\(\iff\)</span> for open set <span class="math inline">\(A \in U&#39;\)</span>, its inverse image <span class="math inline">\(f^{-1}(A)\)</span> is open.<br />
+</li>
+<li>Function <span class="math inline">\(f: \mathbb{R} \to U&#39;\)</span> is continuous <span class="math inline">\(\iff\)</span> <span class="math inline">\(f(x_n) \to f(x)\)</span> is strictly monotonic for all <span class="math inline">\(x_n \to x\)</span>.</li>
+</ul>
+<blockquote>
+<p>PS6.Q1<br />
+Prove that if <span class="math inline">\(f, \ g \in \mathcal{C}^0(\mathbb{R},\mathbb{R})\)</span><br />
+then <span class="math inline">\(f \circ g \in \mathcal{C}^0(\mathbb{R},\mathbb{R})\)</span></p>
+</blockquote>
+<p>1st approach:<br />
+Let <span class="math inline">\(h\equiv f\circ g\)</span><br />
+Since <span class="math inline">\(f\)</span> is continuous<br />
+<span class="math inline">\(\implies\)</span> for <span class="math inline">\(y\in B_{δ_f}(g(x))\)</span>, <span class="math inline">\(f(y) \in B_ε(f(g(x)))\)</span> for some <span class="math inline">\(δ_f&gt;0\)</span><br />
+Since <span class="math inline">\(g\)</span> is continuous<br />
+<span class="math inline">\(\implies\)</span> for <span class="math inline">\(x&#39;\in B_{δ_g}(x)\)</span>, <span class="math inline">\(g(x&#39;) \in B_{δ_f}(g(x))\)</span> for some <span class="math inline">\(δ_g&gt;0\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math display">\[\begin{aligned} f\big(g(x&#39;)\big) &amp;\in B_ε\left(f\big(g(x)\big)\right) \\
+h(x&#39;) &amp;\in B_ε\big(h(x)\big)\end{aligned}\]</span><br />
+<span class="math inline">\(\implies h\)</span> is continuous</p>
+<p>2nd approach:<br />
+Take arbitrary open set <span class="math inline">\(B\subset \mathbb{R}\)</span><br />
+Since <span class="math inline">\(f\)</span> is continuous,<br />
+<span class="math inline">\(\implies f^{-1}(B)\)</span> is open<br />
+Since <span class="math inline">\(g\)</span> is continuous<br />
+<span class="math inline">\(\implies g^{-1}\big(f^{-1}(B)\big)\)</span> is open<br />
+<span class="math inline">\(\iff (f\circ g)^{-1}(B)\)</span> is open<br />
+<span class="math inline">\(\implies f\circ g\)</span> is continuous</p>
+</div>
+<div id="limit-differenciation" class="section level3">
+<h3>Limit &amp; Differenciation</h3>
+<ul>
+<li>L’Hopital rule: let <span class="math inline">\(f, g \in \mathcal{C}^1\big((b,a),\mathbb{R}\big)\)</span>, <span class="math inline">\(\lim_{x\to a} \frac{f(x)}{g(x)} = \lim_{x\to a} \frac{f&#39;(x)}{g&#39;(x)}\)</span></li>
+</ul>
+<blockquote>
+<p>PS6.Q2<br />
+Prove <span class="math inline">\(\lim_{x\to 0} \frac{e^x - \left(1+x + \frac{x^2}{2} \right)}{x^3} = \frac{1}{6}\)</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} \lim_{x\to 0} \frac{e^x - \left(1+x + \frac{x^2}{2} \right)}{x^3} &amp;= \lim_{x\to 0} \frac{\left(e^x - 1 - x - \frac{x^2}{2} \right)&#39;}{(x^3)&#39;} \\
+&amp;= \lim_{x\to 0} \frac{e^x - 1 - x}{3x^2} \\
+&amp;= \lim_{x\to 0} \frac{(e^x - 1 - x)&#39;}{(3x^2)&#39;} \\
+&amp;= \lim_{x\to 0} \frac{e^x - 1}{6x} \\
+&amp;= \lim_{x\to 0} \frac{(e^x - 1)&#39;}{(6x)&#39;} \\
+&amp;= \lim_{x\to 0} \frac{e^x}{6} \\ &amp;= \frac{1}{6}\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS6.Q3<br />
+Prove that if <span class="math inline">\(f, g \in C^1(\mathbb{R},\mathbb{R})\)</span>, <span class="math inline">\(\lim_{x\to 0} \frac{f(x)-g(x)}{x} = 0\)</span>,<br />
+then <span class="math inline">\(f(0)=g(0)\)</span> and <span class="math inline">\(f&#39;(0)=g&#39;(0)\)</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} \lim_{x\to 0} \frac{f(x)-g(x)}{x} &amp;= 0 \\
+\lim_{x\to 0} f(x) - g(x) &amp;= 0 \\
+f(0) - g(0) &amp;= 0 \\
+f(0) &amp;= g(0)\end{aligned}\]</span><br />
+And<br />
+<span class="math display">\[\begin{aligned} \lim_{x\to 0} f(x) - g(x) &amp;= 0 \\
+\lim_{x\to 0} f&#39;(x) - g&#39;(x) &amp;= 0 \\
+f&#39;(0) - g&#39;(0) &amp;= 0 \\
+f&#39;(0) &amp;= g&#39;(0)\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS6.Q7<br />
+Let <span class="math inline">\(f, g \in \mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span></p>
+</blockquote>
 </div>
 <div id="supremum" class="section level3">
 <h3>Supremum</h3>
@@ -629,6 +696,44 @@ Since supremum is the least upper bound<br />
 <span class="math inline">\(\implies f(\bar{x}) &gt; \bar{f} \lor g(\bar{x}) &gt; \bar{g}\)</span><br />
 Contradicts to supremum</p>
 </div>
+</div>
+<div id="concave-convex" class="section level3">
+<h3>Concave &amp; Convex</h3>
+<ul>
+<li>Function <span class="math inline">\(f\)</span> is concave if <span class="math inline">\(f\big[ λx_1 + (1-λ)x_2\big]\geq λf(x_1) + (1-λ) f(x_2)\)</span> for all <span class="math inline">\(x_1,x_2\)</span>, <span class="math inline">\(λ\in[0,1]\)</span><br />
+</li>
+<li>Function <span class="math inline">\(f\)</span> is strictly concave if <span class="math inline">\(f\big[ λx_1 + (1-λ)x_2\big] &gt; λf(x_1) + (1-λ) f(x_2)\)</span> for all <span class="math inline">\(x_1 \neq x_2\)</span>, <span class="math inline">\(λ\in(0,1)\)</span><br />
+</li>
+<li>Function <span class="math inline">\(f\)</span> is (strictly) convex if <span class="math inline">\(-f\)</span> is (strictly) concave.<br />
+</li>
+<li>Epigraph of <span class="math inline">\(f\)</span>: <span class="math inline">\(\big\{ (x,y) | y \geq f(x) \big\}\)</span><br />
+</li>
+<li><span class="math inline">\(f\)</span> is (strictly) convex <span class="math inline">\(\iff\)</span> its epigraph is (strictly) convex.</li>
+</ul>
+<blockquote>
+<p>PS6.Q5<br />
+Let <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> be convex.<br />
+Prove that <span class="math inline">\(f+g\)</span> is concex.</p>
+</blockquote>
+<p>Let <span class="math inline">\(h\equiv f+g\)</span>, take arbitrary <span class="math inline">\(x_1,x_2 \in \mathbb{R}\)</span><br />
+<span class="math display">\[\begin{aligned} h\big(λx_1+ (1-λ)x_2\big) &amp;= f\big(λx_1+ (1-λ)x_2\big) + g\big(λx_1+ (1-λ)x_2\big) \\
+&amp;\leq λf(x_1) + (1-λ)f(x_2) + λg(x_1) + (1-λ)g(x_2) \\
+&amp;= λh(x_1) + (1-λ)h(x_2)\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS6.Q4<br />
+Prove that the epigraph of a convex function is convex</p>
+</blockquote>
+<p>Let <span class="math inline">\(f: \mathbb{R}^n \to \mathbb{R}\)</span> be convex, its epigraph: <span class="math inline">\(E = \big\{ (x,y) | y \geq f(x) \big\}\)</span><br />
+Take <span class="math inline">\((x_1,y_1),(x_2,y_2)\in E\)</span><br />
+<span class="math inline">\(\implies y_1\geq f(x_1)\)</span> and <span class="math inline">\(y_2\geq f(x_2)\)</span><br />
+Take <span class="math inline">\(λ \in[0,1]\)</span>, let <span class="math inline">\((x_3, y_3) = \big(λx_1+(1-λ)x_2, \ λy_1+(1-λ)y_2 \big)\)</span><br />
+Since <span class="math inline">\(f\)</span> is convex,<br />
+<span class="math display">\[\begin{aligned} f(x_3) &amp;\leq λf(x_1) + (1-λ)f(x_2) \\
+&amp;\leq λ y_1 + (1-λ) y_2 \\
+&amp;= y_3\end{aligned}\]</span><br />
+<span class="math inline">\(\implies y_3 \geq f(x_3)\)</span><br />
+<span class="math inline">\(\implies (x_3,y_3) \in E\)</span><br />
+<span class="math inline">\(\implies E\)</span> is convex.</p>
 </div>
 </div>
 <div id="set-times-function" class="section level2">
