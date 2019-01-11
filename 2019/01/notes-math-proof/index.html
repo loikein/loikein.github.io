@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">22 min read</span>
+    <span class="article-duration">23 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -744,6 +744,29 @@ Prove that <span class="math inline">\(f+g\)</span> is concex.</p>
 &amp;\leq λf(x_1) + (1-λ)f(x_2) + λg(x_1) + (1-λ)g(x_2) \\
 &amp;= λh(x_1) + (1-λ)h(x_2)\end{aligned}\]</span> ~</p>
 <blockquote>
+<p>PS7.Q1<br />
+Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be strictly concave, <span class="math inline">\(x&lt;y&lt;z\in \mathbb{R}\)</span><br />
+Prove that <span class="math inline">\(\frac{f(y)-f(x)}{y-x}&gt;\frac{f(z)-f(x)}{z-x}&gt;\frac{f(z)-f(y)}{z-y}\)</span></p>
+</blockquote>
+<p>Rewrite <span class="math inline">\(y \equiv λ x+(1-λ)z\)</span> for some <span class="math inline">\(λ\)</span><br />
+<span class="math display">\[\begin{aligned} y-x &amp;= (1-λ)(z-x) \\
+1-λ &amp;= \frac{y-x}{z-x} \\
+λ &amp;=\frac{y-z}{x-z} \\
+&amp;=\frac{z-y}{z-x} \end{aligned}\]</span><br />
+Since <span class="math inline">\(f\)</span> is strictly concave,<br />
+<span class="math display">\[\begin{aligned} f(y) &amp;= f(λx + (1-λ)z) \\
+&amp;&gt; λf(x) + (1-λ)f(z) \\
+f(y) - f(x) &amp;&gt; λf(x) - f(x) + (1-λ) f(z) \\
+&amp;&gt; (1-λ) \big( f(z) - f(x)\big) \\
+&amp;&gt; \frac{y-x}{z-x} \big(f(z) -f(x)\big) \\
+\frac{f(y)-f(x)}{y-x} &amp;&gt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span><br />
+Similarly,<br />
+<span class="math display">\[\begin{aligned} f(y)-f(z) &amp;&gt; λf(x) + (1-λ) f(z) - f(z) \\
+&amp;&gt; λ \big(f(x) - f(z)\big) \\
+f(z) -f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
+f(z) - f(y) &amp;&lt; \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
+\frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span> ~</p>
+<blockquote>
 <p>PS6.Q4<br />
 Prove that the epigraph of a convex function is convex</p>
 </blockquote>
@@ -758,6 +781,23 @@ Since <span class="math inline">\(f\)</span> is convex,<br />
 <span class="math inline">\(\implies y_3 \geq f(x_3)\)</span><br />
 <span class="math inline">\(\implies (x_3,y_3) \in E\)</span><br />
 <span class="math inline">\(\implies E\)</span> is convex.</p>
+<blockquote>
+<p>PS7.Q2<br />
+Let <span class="math inline">\(f,g\)</span> be convex, prove <span class="math inline">\(\max\{f,g\}\)</span> is convex<br />
+Hint: show the epigraph is convex</p>
+</blockquote>
+<p>Since <span class="math inline">\(f,g\)</span> are convex<br />
+<span class="math inline">\(\implies\)</span> epigraphs <span class="math inline">\(E_f \equiv \{(x,y)| y\geq f(x)\}\)</span> and <span class="math inline">\(E_g \equiv \{(x,y)| y\geq g(x)\}\)</span> are convex<br />
+Let <span class="math inline">\(h \equiv \max\{f,g\}\)</span><br />
+Epigraph of <span class="math inline">\(h\)</span>:<br />
+<span class="math display">\[\begin{aligned} E_h &amp;\equiv \{(x,y)| y\geq h(x)\} \\
+&amp;= \{(x,y)| y\geq f(x) \land y\geq g(x)\} \\
+&amp;=  E_f \cap E_g \end{aligned}\]</span><br />
+Take <span class="math inline">\(x,y\in E_f \cap E_g\)</span><br />
+<span class="math inline">\(\implies λx+(1-λ)y \in E_f\)</span> and <span class="math inline">\(λx+(1-λ)y \in E_g\)</span><br />
+<span class="math inline">\(\implies λx+(1-λ)y \in E_f \cap E_g\)</span><br />
+<span class="math inline">\(\implies E_h = E_f \cap E_g\)</span> is convex<br />
+<span class="math inline">\(\implies h\)</span> is convex</p>
 </div>
 </div>
 <div id="set-times-function" class="section level2">
