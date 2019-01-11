@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2019/01/05/notes-stat1/</loc>
-    <lastmod>2019-01-05T00:00:00+00:00</lastmod>
+    <loc>/2019/01/notes-math-proof/</loc>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/01/05/notes-math-proof/</loc>
+    <loc>/2019/01/notes-stat1/</loc>
     <lastmod>2019-01-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,12 +18,12 @@
   </url>
   
   <url>
-    <loc>/2018/05/24/notes-intro-c-rmd/</loc>
+    <loc>/2018/05/notes-intro-c-rmd/</loc>
     <lastmod>2018-05-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2018/01/01/rmd-template/</loc>
+    <loc>/2018/01/rmd-template/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -40,19 +40,19 @@
   
   <url>
     <loc>/tags/math/</loc>
-    <lastmod>2019-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/notes/</loc>
-    <lastmod>2019-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -76,7 +76,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

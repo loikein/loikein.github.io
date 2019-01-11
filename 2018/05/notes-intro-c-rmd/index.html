@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Introduction to C Language - loikein</title>
+<meta property="og:title" content="Notes on Introduction to C Language - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">24 min read</span>
+    
+
+    <h1 class="article-title">Notes on Introduction to C Language</h1>
+
+    
+    <span class="article-date">2018/05/24</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/c'>C</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#section">0419</a><ul>
+<li><a href="#section-1">1.2 プリント</a></li>
+<li><a href="#a-">2.a 変数</a></li>
+<li><a href="#b-">2.b 変数の型</a></li>
+<li><a href="#c-">2.c 演算子</a></li>
+<li><a href="#d-2">2.d プリント2</a></li>
+<li><a href="#a--1">3.a プリントと変数</a></li>
+<li><a href="#b--1">3.b プリント：出力指定</a></li>
+<li><a href="#section-2">3.3 円の面積</a></li>
+<li><a href="#section-3">3.4 演算子2</a></li>
+<li><a href="#a--2">4.a 読み込み</a></li>
+<li><a href="#section-4">4.2 読み込みと円の面積</a></li>
+<li><a href="#section-5">4.3 読み込みと三角形の面積</a></li>
+<li><a href="#a--3">5.a 型の変換</a></li>
+<li><a href="#b-2">5.b 型の変換2</a></li>
+<li><a href="#section-6">5.3 型の変換と平均値</a></li>
+<li><a href="#section-7">6.2 数学関数と円の面積</a></li>
+</ul></li>
+<li><a href="#section-8">0426</a><ul>
+<li><a href="#c-if-else">7.c if else：大きい方を出力</a></li>
+<li><a href="#if-else">7.2 if else：等さの判断</a></li>
+<li><a href="#if-else-1">7.3 if else：偶数か奇数かの判断</a></li>
+<li><a href="#if-else2">7.4 if else：等さの判断2</a></li>
+<li><a href="#a-if-else">8.a if else：入れ子</a></li>
+<li><a href="#b--2">8.b ３つの整数の最大値判断</a></li>
+<li><a href="#section-9">8.4 ３つの整数の最小値判断</a></li>
+<li><a href="#bmi">8.5 BMIの計算・判定</a></li>
+<li><a href="#section-10">8.6 閏年</a></li>
+<li><a href="#section-11">8.7 自販機</a></li>
+<li><a href="#b-switch">9.b switch</a></li>
+<li><a href="#a-for">10.a ループ：for</a></li>
+<li><a href="#b--3">10.b ループ：合計の計算</a></li>
+<li><a href="#c-2">10.c ループ：合計の計算2</a></li>
+<li><a href="#d-">10.d 無限ループ</a></li>
+<li><a href="#a">10.2ー10.a</a></li>
+<li><a href="#b">10.4ー10.b</a></li>
+<li><a href="#section-12">10.7 ループ：*を出力</a></li>
+<li><a href="#section-13">10.8 ループ：4の倍数の合計</a></li>
+</ul></li>
+<li><a href="#section-14">0510</a><ul>
+<li><a href="#b---for">11.b ループ ：二重 for</a></li>
+<li><a href="#c---for-2">11.c ループ ：二重 for 2</a></li>
+<li><a href="#d---for-3">11.d ループ ：二重 for 3</a></li>
+<li><a href="#for">11.4 for：九九表</a></li>
+<li><a href="#for2">11.5 for：九九表2</a></li>
+<li><a href="#d">11.6ー11.d</a></li>
+<li><a href="#a-while">12.a ループ：while</a></li>
+<li><a href="#b-while-2">12.b ループ：while 2</a></li>
+<li><a href="#section-15">12.3 ループ：3の倍数の足し算</a></li>
+<li><a href="#section-16">12.4 ループ：3の倍数の足し算2</a></li>
+<li><a href="#a--4">13.a 配列</a></li>
+<li><a href="#b-2-1">13.b 配列2</a></li>
+<li><a href="#c--1">13.c 配列：最大値</a></li>
+<li><a href="#section-17">13.5 配列：最小値</a></li>
+<li><a href="#section-18">13.6 配列：最大最小平均</a></li>
+<li><a href="#a--5">14.a 乱数</a></li>
+<li><a href="#b--4">14.b 乱数：サイコロ</a></li>
+<li><a href="#c--2">14.c 乱数：コイン</a></li>
+<li><a href="#d-2-1">14.d 乱数：コイン2</a></li>
+<li><a href="#section-19">14.5 乱数：サイコロ2</a></li>
+<li><a href="#section-20">14.6 乱数：最大最小平均</a></li>
+</ul></li>
+<li><a href="#section-21">0517</a><ul>
+<li><a href="#a-char">15.a 復習：char</a></li>
+<li><a href="#c--3">15.c 文字コード</a></li>
+<li><a href="#d-char">15.d 配列：char（文字列）</a></li>
+<li><a href="#e-2">15.e 文字列2</a></li>
+<li><a href="#h-">15.h 文字列：入力</a></li>
+<li><a href="#i-">15.i 文字列：書き換え</a></li>
+<li><a href="#section-22">15.9 文字列：書き換え2</a></li>
+<li><a href="#j-">15.j 文字列：文字コード</a></li>
+<li><a href="#section-23">15.11 文字列：文字コード2</a></li>
+<li><a href="#b--5">16.b ポインタ</a></li>
+<li><a href="#c">16.cポインタ：間接参照</a></li>
+<li><a href="#e-">16.e ポインタ：配列</a></li>
+<li><a href="#f-2">16.f ポインタ：配列2</a></li>
+<li><a href="#g-">16.g ポインタ：代入</a></li>
+<li><a href="#h-2">16.h ポインタ：代入2</a></li>
+<li><a href="#g">16.8ー16.g</a></li>
+<li><a href="#c-1">16.9ー13.c</a></li>
+<li><a href="#j">16.10ー15.j</a></li>
+</ul></li>
+<li><a href="#section-24">0524</a><ul>
+<li><a href="#b-void">17.b 関数定義（void）</a></li>
+<li><a href="#c-for">17.c 関数定義（引数あり：for）</a></li>
+<li><a href="#d-if-else">17.d 関数定義（if-else）</a></li>
+<li><a href="#if-else-2">17.4 関数定義（if-else 2）</a></li>
+<li><a href="#for-2">17.5 関数定義（for 2）</a></li>
+<li><a href="#b--6">18.b 構造体の宣言</a></li>
+<li><a href="#c--2-1">18.c 構造体の宣言 2</a></li>
+<li><a href="#e--1">18.e 構造体の値の代入例</a></li>
+<li><a href="#f-">18.f 配列としての構造体</a></li>
+<li><a href="#g--1">18.g 構造体の値の書き込み</a></li>
+<li><a href="#section-25">18.7 配列構造体の値の書き込み</a></li>
+<li><a href="#section-26">18.8 構造体の値の書き込み＋出力</a></li>
+<li><a href="#char">18.9 構造体におけるchar型</a></li>
+</ul></li>
+<li><a href="#section-27">0531</a><ul>
+<li><a href="#d--1">19.d ファイルを開く</a></li>
+<li><a href="#e--2">19.e ファイルに書き込む：数字</a></li>
+<li><a href="#f--1">19.f ファイルに書き込む：文字列</a></li>
+<li><a href="#section-28">21.1 ファイルに書き込む：数字2</a></li>
+<li><a href="#a--6">21.a バブルソート</a></li>
+<li><a href="#section-29">21.3 バブルソートとファイル</a></li>
+<li><a href="#csv">21.4 𝜋計算機と.csv出力</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="section" class="section level2">
+<h2>0419</h2>
+<div id="section-1" class="section level3">
+<h3>1.2 プリント</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+    printf(&quot;Hello!\n\nMy name is Rachel!\n&quot;);
+    return 0;
+}</code></pre>
+</div>
+<div id="a-" class="section level3">
+<h3>2.a 変数</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int tokuten = 50;
+    printf(&quot;試験の点数は%d点です。\n&quot;, tokuten);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="b-" class="section level3">
+<h3>2.b 変数の型</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int seisu = 10;
+    double jissu = 3.14;
+    char moji = &#39;m&#39;;
+
+    printf(&quot;整数は%dです\n&quot;, seisu);
+    printf(&quot;実数は%fです\n&quot;, jissu);
+    printf(&quot;文字は%cです\n&quot;, moji);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="c-" class="section level3">
+<h3>2.c 演算子</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int x, y, z;
+    x = 25;
+    y = 35;
+    z = x + y;
+    printf(&quot;xとyの和は%dです\n&quot;, z);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="d-2" class="section level3">
+<h3>2.d プリント2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int nenrei;
+    nenrei = 21;
+    printf(&quot;私の名前はRachelです。\n&quot;);
+    printf(&quot;私は%d才です。\n&quot;, nenrei);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="a--1" class="section level3">
+<h3>3.a プリントと変数</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int seisu;
+    double jissu;
+    char moji;
+
+    seisu = 10;
+    jissu = 3.14;
+    moji = &#39;m&#39;;
+
+    printf(&quot;整数は%dです。\n実数は%fです。\n文字は%cです。\n&quot;, seisu, jissu, moji);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="b--1" class="section level3">
+<h3>3.b プリント：出力指定</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int n = 10;
+    double x = 3.14;
+    double y = -3.14;
+
+    printf(&quot;%d\n&quot;, n);
+    printf(&quot;%5d\n&quot;, n);
+
+    printf(&quot;%f\n&quot;, x);
+    printf(&quot;%6.3f\n&quot;, x);
+    printf(&quot;%8.4f\n&quot;, x);
+
+    printf(&quot;%f\n&quot;, y);
+    printf(&quot;%6.3f\n&quot;, y);
+    printf(&quot;%8.4f\n&quot;, y);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-2" class="section level3">
+<h3>3.3 円の面積</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    double menseki = 0;
+    double hankei;
+    double pi = 3.14;
+
+    hankei = 2.5;
+    menseki = hankei * hankei * pi;
+
+    printf(&quot;半径 = %8.4f\n&quot;, hankei);
+    printf(&quot;面積 = %8.4f\n&quot;, menseki);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-3" class="section level3">
+<h3>3.4 演算子2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+int main(void)
+{
+    int a = 10, b = 20;
+    int c;
+    double x = 5.0;
+
+    c = a + b;
+    a *= 10;
+    b++;
+    c += 100;
+
+    x += (a + c);
+
+    printf(&quot;a = %d\nb = %d\nc = %d\nx = %f\n&quot;, a, b, c, x);
+    return 0;
+}</code></pre>
+</div>
+<div id="a--2" class="section level3">
+<h3>4.a 読み込み</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int seisu;
+    double jissu;
+
+    printf(&quot;整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;seisu);
+
+    printf(&quot;実数を入力してください\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;jissu);
+
+    printf(&quot;seisuの値は%8dです\n&quot;, seisu);
+    printf(&quot;jissuの値は%8.3fです\n&quot;, jissu);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-4" class="section level3">
+<h3>4.2 読み込みと円の面積</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    double menseki = 0;
+    double hankei;
+    double pi = 3.14;
+
+    printf(&quot;半径を入力してください\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;hankei);
+    menseki = hankei * hankei * pi;
+
+    printf(&quot;半径 = %8.4f\n&quot;, hankei);
+    printf(&quot;面積 = %8.4f\n&quot;, menseki);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-5" class="section level3">
+<h3>4.3 読み込みと三角形の面積</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    double teihen, takasa, menseki;
+
+    printf(&quot;底辺を入力してください\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;teihen);
+    printf(&quot;高さを入力してください\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;takasa);
+
+    menseki = teihen * takasa / 2;  
+
+    printf(&quot;底辺 = %6.3f\n&quot;, teihen);
+    printf(&quot;高さ = %6.3f\n&quot;, takasa);
+    printf(&quot;面積 = %6.3f\n&quot;, menseki);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="a--3" class="section level3">
+<h3>5.a 型の変換</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int a, b, c;
+    double x, y, z;
+
+    a = 16;
+    b = 5;
+    x = 16;
+    y = 5;
+
+    c = a / b;
+    z = x / y;
+
+    printf(&quot;cの値は%dです\n&quot;, c);
+    printf(&quot;zの値は%fです\n&quot;, z);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="b-2" class="section level3">
+<h3>5.b 型の変換2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int a, b, c, d;
+    double p, q, r;
+
+    a = 16;
+    b = 5;
+
+    c = a / b;
+    r = a / b;
+
+    d = (double)a / b;
+    p = (double)a / b;
+    q = (double)(a / b);
+
+    printf(&quot;cの値は%dです\n&quot;, c);
+    printf(&quot;rの値は%fです\n\n&quot;, r);
+
+    printf(&quot;dの値は%fです\n&quot;, d);
+    printf(&quot;dの値は%dです\n\n&quot;, d);
+
+    printf(&quot;pの値は%fです\n&quot;, p);
+    printf(&quot;qの値は%fです\n\n&quot;, q);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-6" class="section level3">
+<h3>5.3 型の変換と平均値</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void){
+    int sugaku, eigo, kokugo;
+    double heikin;
+
+    printf(&quot;数学の点数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;sugaku);
+
+    printf(&quot;英語の点数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;eigo);
+
+    printf(&quot;国語の点数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;kokugo);
+
+    heikin = (sugaku + eigo + kokugo) / 3.0;
+
+    printf(&quot;数学%d点、英語%d点、国語%d点\n&quot;, sugaku, eigo, kokugo);
+    printf(&quot;平均点は%7.2fです。\n&quot;, heikin);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-7" class="section level3">
+<h3>6.2 数学関数と円の面積</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main(void)
+{
+    double menseki;
+    double hankei;
+    double pi = 3.14;
+
+    printf(&quot;半径を入力してください\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;hankei);
+    menseki = pow(hankei, 2) * pi;
+
+    printf(&quot;半径 = %8.4f\n&quot;, hankei);
+    printf(&quot;面積 = %8.4f\n&quot;, menseki);
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div id="section-8" class="section level2">
+<h2>0426</h2>
+<div id="c-if-else" class="section level3">
+<h3>7.c if else：大きい方を出力</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) 
+{
+    int num1 = 0, num2 = 0, max = 0;
+
+    printf(&quot;１つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num1);
+
+    printf(&quot;２つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num2);
+
+    if(num1 &lt; num2) {
+        max = num2;
+    } else {
+        max = num1;
+    }
+
+    printf(&quot;大きいほうの値は%dです\n&quot;, max);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="if-else" class="section level3">
+<h3>7.2 if else：等さの判断</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) 
+{
+    int num1 = 0, num2 = 0;
+
+    printf(&quot;１つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num1);
+
+    printf(&quot;２つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num2);
+
+    if(num1 == num2) {
+        printf(&quot;２つの値は等しい\n&quot;);
+    } else {
+        printf(&quot;２つの値は等しくない\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="if-else-1" class="section level3">
+<h3>7.3 if else：偶数か奇数かの判断</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) 
+{
+    int num = 0, amari = 0;
+
+    printf(&quot;整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num);
+
+    amari = num % 2;
+
+    if(amari == 0) {
+        printf(&quot;偶数です\n&quot;);
+    } else {
+        printf(&quot;奇数です\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="if-else2" class="section level3">
+<h3>7.4 if else：等さの判断2</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) 
+{
+    int score1 = 0, score2 = 0;
+
+    printf(&quot;中間試験の成績を整数で入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;score1);
+
+    printf(&quot;期末試験の成績を整数で入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;score2);
+
+    int avg = (score1 + score2)/ 2;
+
+    if(avg &gt;= 60) {
+        printf(&quot;合格です\n&quot;);
+    } else {
+        printf(&quot;不合格です\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="a-if-else" class="section level3">
+<h3>8.a if else：入れ子</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int tokuten = 0;
+    printf(&quot;点数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;tokuten);
+
+    if (tokuten &lt; 60) {
+        printf(&quot;不合格です\n&quot;);
+    } else {
+        if (tokuten &gt;= 90) {
+            printf(&quot;大変優秀な成績で合格です\n&quot;);
+        } else {
+            printf(&quot;合格です\n&quot;);
+        }
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="b--2" class="section level3">
+<h3>8.b ３つの整数の最大値判断</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int a, b, c, max;
+    printf(&quot;aの値を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;a);
+
+    printf(&quot;bの値を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;b);
+
+    printf(&quot;cの値を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;c);
+
+
+    if (a &gt; b &amp;&amp; a &gt; c) {
+        max = a;
+    } else {
+        if (b &gt; c) {
+            max = b;
+        } else {
+            max = c;
+        }
+    }
+    printf(&quot;最大値は%dです\n&quot;, max);
+    return 0;
+}</code></pre>
+</div>
+<div id="section-9" class="section level3">
+<h3>8.4 ３つの整数の最小値判断</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int a, b, c, min;
+    printf(&quot;aの値を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;a);
+
+    printf(&quot;bの値を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;b);
+
+    printf(&quot;cの値を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;c);
+
+    if (a &lt; b &amp;&amp; a &lt; c) {
+        min = a;
+    } else {
+        if (b &lt; c) {
+            min = b;
+        } else {
+            min = c;
+        }
+    }
+    printf(&quot;最小値は%dです\n&quot;, min);
+    return 0;
+}</code></pre>
+</div>
+<div id="bmi" class="section level3">
+<h3>8.5 BMIの計算・判定</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int height1;
+    double height, weight, BMI, std = 0;
+    printf(&quot;身長(cm)を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;height1);
+
+    height = height1 / 100.0;
+
+    printf(&quot;体重(kg)を入力してください\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;weight);
+
+    BMI = weight / height / height;
+    std = height * height * 22;
+
+    if (BMI &lt; 18.5) {
+        printf(&quot;体重は標準より低いです\n&quot;);
+    } else if (BMI &lt; 25) {
+        printf(&quot;体重は標準範囲です\n&quot;);
+    } else {
+        printf(&quot;体重は標準より高いです\n&quot;);
+    }
+    printf(&quot;BMI = %3.1f（標準体重は%4.2fです）\n&quot;, BMI, std);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-10" class="section level3">
+<h3>8.6 閏年</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int year;
+    printf(&quot;西歴年を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;year);
+
+    if (year % 100 == 0) {
+        if (year % 400 == 0) {
+            printf(&quot;%d年はうるう年です\n&quot;, year);
+        } else {
+            printf(&quot;%d年はうるう年ではありません\n&quot;, year);
+        }
+    } else if (year % 4 == 0) {
+        printf(&quot;%d年はうるう年です\n&quot;, year);
+    } else {
+        printf(&quot;%d年はうるう年ではありません\n&quot;, year);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-11" class="section level3">
+<h3>8.7 自販機</h3>
+<pre class="c"><code>//失敗
+#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int konyu, shiharai, turi;
+
+    printf(&quot;購入金額を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;konyu);
+    printf(&quot;支払額を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;shiharai);
+
+    turi = shiharai - konyu;
+    printf(&quot;お釣りは%d円です\n&quot;, turi);
+
+    int i5000 = 0, i1000 = 0;
+    int i500 = 0, i100 = 0, i50 = 0, i10 = 0, i5 = 0, i1 = 0;
+
+    while (turi &gt;= 0) {
+
+        if (turi &gt;= 5000) {
+            i5000 = i5000 + turi / 5000;
+            turi = turi - 5000 * i5000;
+        }
+        if (turi &gt;= 1000) {
+            i1000 = i1000 + turi / 1000;
+            turi = turi - 1000 * i1000;
+        }
+        if (turi &gt;= 500) {
+            i500 = i500 + turi / 500;
+            turi = turi - 500 * i500;
+        }
+        if (turi &gt;= 100) {
+            i100 = i100 + turi / 100;
+            turi = turi - 100 * i100;
+        }
+        if (turi &gt;= 50) {
+            i50 = i50 + turi / 50;
+            turi = turi - 50 * i50;
+        }
+        if (turi &gt;= 10) {
+            i10 = i10 + turi / 10;
+            turi = turi - 10 * i10;
+        }
+        if (turi &gt;= 5) {
+            i5 = i5 + turi / 5;
+            turi = turi - 5 * i5;
+        }
+        if (turi &gt;= 1) {
+            i1 = i1 + turi / 1;
+            turi = turi - 1 * i1;
+        }
+    }
+
+    printf(&quot;5000円札：%d枚\n&quot;, i5000);
+    printf(&quot;1000円札：%d枚\n&quot;, i1000);
+    printf(&quot;500円玉：%d枚\n&quot;, i500);
+    printf(&quot;100円玉：%d枚\n&quot;, i100);
+    printf(&quot;50円玉：%d枚\n&quot;, i50);
+    printf(&quot;10円玉：%d枚\n&quot;, i10);
+    printf(&quot;5円玉：%d枚\n&quot;, i5);
+    printf(&quot;1円玉：%d枚\n&quot;, i1);
+
+    return 0;
+}</code></pre>
+<pre class="c"><code>//解答
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    int kei, shiharai, tsuri, kazu;
+
+    printf(&quot;合計金額を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;kei);
+    printf(&quot;支払額を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;shiharai);
+
+    tsuri = shiharai - kei;
+    printf(&quot;お釣りは%d円です\n&quot;, tsuri);
+
+    kazu = tsuri / 5000;
+    tsuri = tsuri % 5000;
+    printf(&quot;5000円札：%d枚\n&quot;, kazu);
+
+    kazu = tsuri / 1000;
+    tsuri = tsuri % 1000;
+    printf(&quot;1000円札：%d枚\n&quot;, kazu);
+
+    kazu = tsuri / 500;
+    tsuri = tsuri % 500;
+    printf(&quot;500円玉：%d枚\n&quot;, kazu);
+
+    kazu = tsuri / 100;
+    tsuri = tsuri % 100;
+    printf(&quot;100円玉：%d枚\n&quot;, kazu);
+
+    kazu = tsuri / 50;
+    tsuri = tsuri % 50;
+    printf(&quot;50円玉：%d枚\n&quot;, kazu);
+
+    kazu = tsuri / 10;
+    tsuri = tsuri % 10;
+    printf(&quot;10円玉：%d枚\n&quot;, kazu);
+
+    kazu = tsuri / 5;
+    tsuri = tsuri % 5;
+    printf(&quot;5円玉：%d枚\n&quot;, kazu);
+    printf(&quot;1円玉：%d枚\n&quot;, tsuri);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="b-switch" class="section level3">
+<h3>9.b switch</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int tmp = 0;
+    printf(&quot;該当する月の記号(a, b, c, d)を入力してください\n&quot;);
+    printf(&quot;a: 3-5月, b: 6-8月, c: 9-11月, d: 12-2月\n&quot;);
+    printf(&quot;&gt;&gt;&quot;);
+    scanf(&quot;%c&quot;, &amp;tmp);
+
+    switch(tmp)
+    {
+    case &#39;a&#39;:
+        printf(&quot;季節は春です\n&quot;);
+        break;
+
+    case &#39;b&#39;:
+        printf(&quot;季節は夏です\n&quot;);
+        break;
+
+    case &#39;c&#39;:
+        printf(&quot;季節は秋です\n&quot;);
+        break;
+
+    case &#39;d&#39;:
+        printf(&quot;季節は冬です\n&quot;);
+        break;
+
+    default:
+        printf(&quot;入力が間違っています\n&quot;);
+        break;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="a-for" class="section level3">
+<h3>10.a ループ：for</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) 
+{
+    for(int i = 1; i&lt;= 10; i++) {
+        printf(&quot;%2d回目の繰り返し\n&quot;, i);
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="b--3" class="section level3">
+<h3>10.b ループ：合計の計算</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int sum = 0;
+    
+    for (int i = 1; i &lt;= 20; i++) {
+        printf(&quot;i = %3d\n&quot;, i);
+        sum = sum + i;
+    }
+
+    printf(&quot;１から２０までのすべての整数の合計は%5d\n&quot;, sum);
+    return 0;
+}</code></pre>
+</div>
+<div id="c-2" class="section level3">
+<h3>10.c ループ：合計の計算2</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int sum = 0;
+
+    for (int i = 10; i &lt;= 200; i = i + 10) {
+        printf(&quot;i = %3d\n&quot;, i);
+        sum = sum + i;
+    }
+
+    printf(&quot;合計は%d\n&quot;, sum);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="d-" class="section level3">
+<h3>10.d 無限ループ</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    for (int i = 10; i &gt;= 0; i++) {
+        printf(&quot;%d回目の繰り返し\n&quot;, i);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="a" class="section level3">
+<h3>10.2ー10.a</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) 
+{
+    for(int i = 10; i &gt; 0; i--) {
+        printf(&quot;iの値 = %2d\n&quot;, i);
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="b" class="section level3">
+<h3>10.4ー10.b</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int n, sum = 0;
+    printf(&quot;任意の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (int i = 1; i &lt;= n; i++) {
+        printf(&quot;i = %3d\n&quot;, i);
+        sum = sum + i;
+    }
+
+    printf(&quot;1から%dまでのすべての整数の合計は%d\n&quot;, n, sum);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-12" class="section level3">
+<h3>10.7 ループ：*を出力</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int n;
+    printf(&quot;任意の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (int i = 1; i &lt;= n; i++) {
+        printf(&quot;*&quot;);
+    }
+    printf(&quot;\n&quot;);
+    return 0;
+}</code></pre>
+</div>
+<div id="section-13" class="section level3">
+<h3>10.8 ループ：4の倍数の合計</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int sum = 0;
+
+    for (int i = 1; i &lt;= 10000; i++) {
+        if (i % 4 == 0) {
+            printf(&quot;i = %d\n&quot;, i);
+            sum = sum + i;
+        } else if (i % 6 == 0) {
+            printf(&quot;i = %d\n&quot;, i);
+            sum = sum + i;
+        }
+    }
+    printf(&quot;合計は%dです\n&quot;, sum);
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div id="section-14" class="section level2">
+<h2>0510</h2>
+<div id="b---for" class="section level3">
+<h3>11.b ループ ：二重 for</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int i, j;
+    for(i = 1; i &lt;= 5; i++){
+        for(j = 1; j &lt;= 3; j++){
+            printf(&quot;iは%2dでjは%2d\n&quot;, i, j);
+        }
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="c---for-2" class="section level3">
+<h3>11.c ループ ：二重 for 2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int i, j;
+    for(i = 1; i &lt;= 5; i++){
+        for(j = i; j &gt;= 1; j--){
+            printf(&quot;iは%2dでjは%2d\n&quot;, i, j);
+        }
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="d---for-3" class="section level3">
+<h3>11.d ループ ：二重 for 3</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int i, j;
+    for(i = 1; i &lt;= 5; i++){
+        for(j = 1; j &lt;= 5; j++){
+            printf(&quot;*&quot;);
+        }
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="for" class="section level3">
+<h3>11.4 for：九九表</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int i, j, result;
+    for(i = 1; i &lt;= 9; i++){
+        for(j = 1; j &lt;= 9; j++){
+            result = i * j;
+            printf(&quot;%3d &quot;, result);
+        }
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="for2" class="section level3">
+<h3>11.5 for：九九表2</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int gyo, re, result;
+    printf(&quot;行数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;gyo);
+    printf(&quot;列数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;re);
+
+    for(int i = 1; i &lt;= gyo; i++){
+        for(int j = 1; j &lt;= re; j++){
+            result = i * j;
+            printf(&quot;%3d &quot;, result);
+        }
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="d" class="section level3">
+<h3>11.6ー11.d</h3>
+<pre class="c"><code>// .c
+
+#include &lt;stdio.h&gt;
+int main(void)
+{
+    int i, j;
+    for(i = 1; i &lt;= 6; i++){
+        for(j = 1; j &lt;= i + 1; j++){
+            printf(&quot;*&quot;);
+        }
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="a-while" class="section level3">
+<h3>12.a ループ：while</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int i = 1;
+    while(i &lt;= 1000000) {
+        printf(&quot;i = %d\n&quot;, i);
+        i *= 2;
+    }
+    printf(&quot;i = %d\n&quot;, i);
+    printf(&quot;iは1,000,000を超えました\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="b-while-2" class="section level3">
+<h3>12.b ループ：while 2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int sum = 0;
+    int i = 1;
+    while(sum &lt;= 1000) {
+        sum = sum + i;
+        printf(&quot;i = %dのとき、sum = %d\n&quot;, i, sum);
+        i++;
+    }
+    printf(&quot;最初に和の値が1,000を超えるのはi = %dのときで、和の値は%dです\n&quot;, i - 1, sum);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-15" class="section level3">
+<h3>12.3 ループ：3の倍数の足し算</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int sum = 0;
+    int i = 0;
+
+    while(sum &lt;= 10000) {
+        i++;
+        if(i % 3 == 0) {
+            sum = sum + i;
+            printf(&quot;i = %3d のとき、sum = %5d\n&quot;, i, sum);
+        }
+    }
+    printf(&quot;3の倍数の和が10,000を超えるのはi = %dのときで、和の値は%dです\n&quot;, i, sum);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-16" class="section level3">
+<h3>12.4 ループ：3の倍数の足し算2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int sum = 0;
+    int i = 0;
+
+    while(sum &lt;= 10000) {
+        i++;
+        if(i % 3 == 0 || i % 5 == 0) {
+            sum = sum + i;
+            printf(&quot;i = %3d のとき、sum = %5d\n&quot;, i, sum);
+        }
+    }
+    printf(&quot;3の倍数もしくは5の倍数の和が10,000を超えるのはi = %dのときで、和の値は%dです\n&quot;, i, sum);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="a--4" class="section level3">
+<h3>13.a 配列</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int data[10];
+    int i;
+
+    for(i = 0; i &lt; 10; i++) {
+        data[i] = 0;
+    }
+    for (i = 0; i &lt; 10; i++) {
+        printf(&quot;data[%d] = %d\n&quot;, i, data[i]);
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="b-2-1" class="section level3">
+<h3>13.b 配列2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int data_a[6] = {60, 50, 40, 30, 20, 10};
+    int data_b[6] = {0, 0, 0, 0, 0, 0};
+    int i;
+
+    for (i = 0; i &lt; 6; i++) {
+        data_b[i] = data_a[i];
+    }
+
+    for (i = 0; i &lt; 6; i++) {
+        printf(&quot;data_a[%d] = %d\n&quot;, i, data_a[i]);
+    }
+    for (i = 0; i &lt; 6; i++) {
+        printf(&quot;data_b[%d] = %d\n&quot;, i, data_b[i]);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="c--1" class="section level3">
+<h3>13.c 配列：最大値</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int data[10] = {11, 15, 8, 6, 25, 19, 45, 34, 20, 10};
+    int i, max;
+
+    max = data[0];
+    for (i = 0; i &lt; 10; i++) {
+        if (data[i] &gt; max) {
+            max = data[i];
+        }
+    }
+
+    printf(&quot;最大値は%d\n&quot;, max);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="section-17" class="section level3">
+<h3>13.5 配列：最小値</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int data[10] = {11, 15, 8, 6, 25, 19, 45, 34, 20, 10};
+    int i, min;
+
+    min = data[0];
+    for (i = 0; i &lt; 10; i++) {
+        if (data[i] &lt; min) {
+            min = data[i];
+        }
+    }
+
+    printf(&quot;最小値は%d\n&quot;, min);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="section-18" class="section level3">
+<h3>13.6 配列：最大最小平均</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int data[10] = {11, 15, 8, 6, 25, 19, 45, 34, 20, 10};
+    double avg;
+    int sum = 0;
+    int max = data[0];
+    int min = data[0];
+
+    for (int i = 0; i &lt; 10; i++) {
+        sum = sum + data[i];
+
+        if (data[i] &gt; max) {
+            max = data[i];
+        }
+
+        if (data[i] &lt; min) {
+            min = data[i];
+        }
+    }
+
+    avg = sum / 10.0;
+    printf(&quot;最大値は%5d\n最小値は%5d\n合計値は%5d\n平均値は%5.1f\n&quot;, max, min, sum, avg);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="a--5" class="section level3">
+<h3>14.a 乱数</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    srand((unsigned int)time(NULL));
+
+    int ransu = 0;
+    ransu = rand();
+    printf(&quot;乱数の値は%dです\n&quot;, ransu);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="b--4" class="section level3">
+<h3>14.b 乱数：サイコロ</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    srand((unsigned int)time(NULL));
+
+    int sai = 0;
+    sai = rand() % 6 + 1;
+    printf(&quot;サイコロの目は%dです\n&quot;, sai);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="c--2" class="section level3">
+<h3>14.c 乱数：コイン</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    srand((unsigned int)time(NULL));
+
+    int toss = 0;
+    toss = rand() % 2;
+    if (toss == 0) {
+        printf(&quot;コインは表でした (toss = %d)\n&quot;, toss);
+    }
+    else {
+        printf(&quot;コインは裏でした (toss = %d)\n&quot;, toss);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="d-2-1" class="section level3">
+<h3>14.d 乱数：コイン2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    srand((unsigned int)time(NULL));
+
+    int toss[5] = {0, 0, 0, 0, 0};
+    int i, count = 0;
+
+    for (i = 0; i &lt; 5; i++) {
+        toss[i] = rand() % 2;
+    }
+
+    for (i = 0; i &lt; 5; i++) {
+        printf(&quot;toss[%d] = %d\n&quot;, i, toss[i]);
+        if (toss[i] == 0) {
+            count++;
+        }
+    }
+
+    printf(&quot;表の出た回数は%d回でした\n&quot;, count);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-19" class="section level3">
+<h3>14.5 乱数：サイコロ2</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    srand((unsigned int)time(NULL));
+
+    int sai[2] = {0, 0};
+    int i, ans, sum = 0;
+
+    printf(&quot;サイコロを２回投げます。目の和が偶数か奇数かを予想してください。\n偶数なら０、奇数なら１を入力してください。\n&quot;);
+    scanf(&quot;%d&quot;, &amp;ans);
+
+    for (i = 0; i &lt; 2; i++) {
+        sai[i] = rand() % 6 + 1;
+        printf(&quot;%d回目のサイコロの目は%dです\n&quot;, i + 1, sai[i]);
+        sum = sum + sai[i];
+    }
+
+    if (sum % 2 == ans) {
+        printf(&quot;当たり！\n&quot;);
+    } else {
+        printf(&quot;残念ですね。\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-20" class="section level3">
+<h3>14.6 乱数：最大最小平均</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    srand((unsigned int)time(NULL));
+    int data[100];
+    double avg;
+    int sum = 0, max = 0, min = 10000;
+    int i;
+
+    for (i = 0; i &lt; 100; i++) {
+        data[i] = rand() % 10000 + 1;
+        sum = sum + data[i];
+        
+        if (data[i] &gt; max) {
+            max = data[i];
+        }
+        if (data[i] &lt; min) {
+            min = data[i];
+        }
+    }
+    
+    avg = sum / 100.0;
+    printf(&quot;最大値は%8d\n最小値は%8d\n合計値は%8d\n平均値は%8.2f\n&quot;, max, min, sum, avg);
+    
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div id="section-21" class="section level2">
+<h2>0517</h2>
+<div id="a-char" class="section level3">
+<h3>15.a 復習：char</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void){
+    char moji = &#39;a&#39;;
+
+    printf(&quot;文字型の変数mojiには%cが代入されています\n&quot;, moji);
+    printf(&quot;文字型の変数mojiの文字コードは%dです\n&quot;, moji);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="c--3" class="section level3">
+<h3>15.c 文字コード</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void){
+    char moji;
+
+    printf(&quot;大文字を小文字に変換します\n&quot;);
+    printf(&quot;アルファベット大文字１文字を入力してください\n&quot;);
+    scanf(&quot;%c&quot;, &amp;moji);
+
+    printf(&quot;%cが入力されました\n&quot;, moji);
+    moji = moji + 32;
+    printf(&quot;小文字に変換します：%c\n&quot;, moji);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="d-char" class="section level3">
+<h3>15.d 配列：char（文字列）</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[9];
+    str[0] = &#39;G&#39;;
+    str[1] = &#39;o&#39;;
+    str[2] = &#39;o&#39;;
+    str[3] = &#39;d&#39;;
+    str[4] = &#39; &#39;;
+    str[5] = &#39;d&#39;;
+    str[6] = &#39;a&#39;;
+    str[7] = &#39;y&#39;;
+    str[8] = &#39;\0&#39;;
+
+    for (int i = 0; i &lt; 9; i++) {
+        printf(&quot;%c&quot;, str[i]);
+    }
+    printf(&quot;\n&quot;);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="e-2" class="section level3">
+<h3>15.e 文字列2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[] = &quot;Good day&quot;;
+
+//  printf(str);
+//  printf(&quot;\n&quot;);
+    printf(&quot;出力する文字列は%sです\n&quot;, str);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="h-" class="section level3">
+<h3>15.h 文字列：入力</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[100];
+
+    printf(&quot;半角の英数記号で文字列を入力してください（最大99文字）\n&quot;);
+    scanf(&quot;%s&quot;, str);
+
+    printf(&quot;入力された文字列は%sです\n&quot;, str);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="i-" class="section level3">
+<h3>15.i 文字列：書き換え</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[12];
+
+    printf(&quot;携帯番号を11桁の数字で入力してください\n&quot;);
+    scanf(&quot;%s&quot;, str);
+
+    for (int i = 0; i &lt; 7; i++) {
+        str[i] = &#39;*&#39;;
+    }
+
+    printf(&quot;番号の下4桁のみを表示します\n%s\n&quot;, str);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-22" class="section level3">
+<h3>15.9 文字列：書き換え2</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[12];
+
+    printf(&quot;携帯番号を11桁の数字で入力してください\n&quot;);
+    scanf(&quot;%s&quot;, str);
+
+    for (int i = 0; i &lt; 11; i = i + 2) {
+        str[i] = &#39;*&#39;;
+    }
+
+    printf(&quot;番号の偶数番目の文字だけを伏字します\n%s\n&quot;, str);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="j-" class="section level3">
+<h3>15.j 文字列：文字コード</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[100];
+    int i = 0;
+
+    printf(&quot;半角小文字の英記号で文字列を入力してください（最大99文字）\n&quot;);
+    printf(&quot;小文字を大文字に変換します\n&quot;);
+    scanf(&quot;%s&quot;, str);
+
+    while (str[i] != &#39;\0&#39;) {
+        str[i] = str[i] - 32;
+        i++;
+    }
+
+    printf(&quot;%s\n&quot;, str);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-23" class="section level3">
+<h3>15.11 文字列：文字コード2</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[100];
+    int i = 0;
+
+    printf(&quot;半角の大文字と小文字を含む英記号で文字列を入力してください（最大99文字）\n&quot;);
+    printf(&quot;大文字を小文字に変換します\n&quot;);
+    scanf(&quot;%s&quot;, str);
+
+    while (str[i] != &#39;\0&#39;) {
+        if (str[i] &gt;= 65 &amp;&amp; str[i] &lt;= 90) {
+            str[i] = str[i] + 32;
+        }
+        i++;
+    }
+
+    printf(&quot;%s\n&quot;, str);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="b--5" class="section level3">
+<h3>16.b ポインタ</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int a = 100;
+    double x = 3.0;
+    char m = &#39;W&#39;;
+
+    int *pt1 = &amp;a;
+    double *pt2 = &amp;x;
+    char *pt3 = &amp;m;
+
+    printf(&quot;aの値を表示します： %d\n&quot;, a);
+    printf(&quot;aのアドレスを表示します： %p\n&quot;, &amp;a);
+    printf(&quot;aのアドレスを表示します： %p\n\n&quot;, pt1);
+
+    printf(&quot;xの値を表示します： %.2f\n&quot;, x);
+    printf(&quot;xのアドレスを表示します： %p\n&quot;, &amp;x);
+    printf(&quot;xのアドレスを表示します： %p\n\n&quot;, pt2);
+
+    printf(&quot;mの値を表示します： %c\n&quot;, m);
+    printf(&quot;mのアドレスを表示します： %p\n&quot;, &amp;m);
+    printf(&quot;mのアドレスを表示します： %p\n&quot;, pt3);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="c" class="section level3">
+<h3>16.cポインタ：間接参照</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int a = 100;
+    int b = 300;
+
+    printf(&quot;変数aのアドレスは%p\n&quot;, &amp;a);
+    printf(&quot;変数bのアドレスは%p\n&quot;, &amp;b);
+
+    int *pt = &amp;a;
+    printf(&quot;\nptにaのアドレスを代入する\n\n&quot;);
+
+    printf(&quot;aの値を表示します： %d\n&quot;, a);
+    printf(&quot;bの値を表示します： %d\n&quot;, b);
+    printf(&quot;ptに格納されたアドレスは%p\n&quot;, pt);
+    printf(&quot;ptが指す変数の値を表示します： %d\n&quot;, *pt);
+    printf(&quot;ptのアドレスは%p\n\n&quot;, &amp;pt);
+
+    *pt = 500;
+    printf(&quot;\n*ptに500を代入する\n\n&quot;);
+    printf(&quot;aの値を表示します： %d\n&quot;, a);
+    printf(&quot;bの値を表示します： %d\n&quot;, b);
+    printf(&quot;ptに格納されたアドレスは%p\n&quot;, pt);
+    printf(&quot;ptが指す変数の値を表示します： %d\n&quot;, *pt);
+    printf(&quot;ptのアドレスは%p\n\n&quot;, &amp;pt);
+
+    pt = &amp;b;
+    *pt = 900;
+    printf(&quot;\nptにbのアドレスを代入する\n\n&quot;);
+    printf(&quot;\n*ptに900を代入する\n\n&quot;);
+    printf(&quot;aの値を表示します： %d\n&quot;, a);
+    printf(&quot;bの値を表示します： %d\n&quot;, b);
+    printf(&quot;ptに格納されたアドレスは%p\n&quot;, pt);
+    printf(&quot;ptが指す変数の値を表示します： %d\n&quot;, *pt);
+    printf(&quot;ptのアドレスは%p\n\n&quot;, &amp;pt);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="e-" class="section level3">
+<h3>16.e ポインタ：配列</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int data[6] = {10, 20, 30, 40, 50, 60};
+    int *pt = &amp;data[0];
+
+    printf(&quot;data[0] = %d\n&quot;, data[0]);
+    printf(&quot;data[3] = %d\n&quot;, data[3]);
+
+    printf(&quot;*(pt + 0) = %d\n&quot;, *(pt + 0));
+    printf(&quot;*(pt + 3) = %d\n&quot;, *(pt + 3));
+
+    return 0;
+}</code></pre>
+</div>
+<div id="f-2" class="section level3">
+<h3>16.f ポインタ：配列2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int i;
+    int data[6] = {10, 20, 30, 40, 50, 60};
+    int *pt = &amp;data[0];
+
+    for (i = 0; i &lt; 6; i++) {
+        printf(&quot;data[%d] = %d\n&quot;, i, data[i]);
+    }
+    for (i = 0; i &lt; 6; i++) {
+        printf(&quot;*(pt + %d) = %d\n&quot;, i, *(pt + i));
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="g-" class="section level3">
+<h3>16.g ポインタ：代入</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int i;
+    int data[6] = {10, 20, 30, 40, 50, 60};
+    int *pt = &amp;data[0];
+
+    *pt = 100;
+    *(pt + 3) = 400;
+
+    printf(&quot;配列の値を出力します\n&quot;);
+    for (i = 0; i &lt; 6; i++) {
+        printf(&quot;*(pt + %d) = %d\n&quot;, i, *(pt + i));
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="h-2" class="section level3">
+<h3>16.h ポインタ：代入2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int i;
+    int data[6] = {10, 20, 30, 40, 50, 60};
+
+    *data = 100;
+    *(data + 3) = 400;
+
+    printf(&quot;配列の値を出力します\n&quot;);
+    for (i = 0; i &lt; 6; i++) {
+        printf(&quot;%d\n&quot;, *(data + i));
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="g" class="section level3">
+<h3>16.8ー16.g</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int i;
+    int data[6] = {10, 20, 30, 40, 50, 60};
+    int *pt = &amp;data[0];
+
+    printf(&quot;配列の値を出力します\n&quot;);
+    for (i = 0; i &lt; 6; i++) {
+        *(pt + i) = *(pt + i) * 10;
+        printf(&quot;%d\n&quot;, *(pt + i));
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="c-1" class="section level3">
+<h3>16.9ー13.c</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int data[10] = {11, 15, 8, 6, 25, 19, 45, 34, 20, 10};
+    int i, max;
+    int *pt = &amp;data[0];
+
+    max = *pt;
+
+    for (int i = 0; i &lt; 10; i++) {
+        if (*(pt + i) &gt; max) {
+            max = *(pt + i);
+        }
+    }
+
+    printf(&quot;最大値は%d\n&quot;, max);
+    
+    return 0;
+}</code></pre>
+</div>
+<div id="j" class="section level3">
+<h3>16.10ー15.j</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[100] = &quot;a&quot;;
+    int i = 0;
+    char *pt = str;
+    
+    printf(&quot;半角小文字の英記号で文字列を入力してください（最大99文字）\n&quot;);
+    printf(&quot;小文字を大文字に変換します\n&quot;);
+    scanf(&quot;%s&quot;, pt);
+
+    while (*(pt + i) != &#39;\0&#39;) {
+        *(pt + i) = *(pt + i) - 32;
+        i++;
+    }
+
+    printf(&quot;%s\n&quot;, pt);
+
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div id="section-24" class="section level2">
+<h2>0524</h2>
+<div id="b-void" class="section level3">
+<h3>17.b 関数定義（void）</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+void aisatsu(void) {
+    printf(&quot;こんにちは\n&quot;);
+}
+
+int main(void) {
+    aisatsu();
+    return 0;
+}</code></pre>
+</div>
+<div id="c-for" class="section level3">
+<h3>17.c 関数定義（引数あり：for）</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+void aisatsu(int n) {
+    for (int i = 0; i &lt; n; i++) {
+        printf(&quot;こんにちは\n&quot;);
+    }
+}
+
+int main(void) {
+    int kaisu;
+    
+    printf(&quot;回数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;kaisu);
+    aisatsu(kaisu);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="d-if-else" class="section level3">
+<h3>17.d 関数定義（if-else）</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int fmax(int a, int b) {
+    int max;
+
+    if (a &gt; b) {
+        max = a;
+    } else {
+        max = b;
+    }
+    return max;
+}
+
+int main(void) {
+    int num1, num2;
+    int max_num;
+
+    printf(&quot;１つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num1);
+
+    printf(&quot;２つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num2);
+    
+    max_num = fmax(num1, num2);
+    printf(&quot;大きい方の値は%dです\n&quot;, max_num);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="if-else-2" class="section level3">
+<h3>17.4 関数定義（if-else 2）</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int fmin(int a, int b, int c) {
+    int min;
+    min = a;
+
+    if (b &lt; min) {
+        min = b;
+    }
+    if (c &lt; min) {
+        min = c;
+    } 
+
+    return min;
+}
+
+int main(void) {
+    int num1, num2, num3;
+    int min_num;
+
+    printf(&quot;３つの整数の最小値を計算します\n&quot;);
+
+    printf(&quot;１つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num1);
+
+    printf(&quot;２つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num2);
+    
+    printf(&quot;３つ目の整数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;num3);
+
+    min_num = fmin(num1, num2, num3);
+    printf(&quot;３つの値の最小値は%dです\n&quot;, min_num);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="for-2" class="section level3">
+<h3>17.5 関数定義（for 2）</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+void ast_print(int a) {
+    int i, j;
+    for (i = 1; i &lt;= a; i++) {
+        for (j = 1; j &lt;= i; j++) {
+            printf(&quot;*&quot;);
+        }
+        printf(&quot;\n&quot;);
+    }
+}
+
+int main(void) {
+    int gyosu;
+
+    printf(&quot;行数を入力してください\n&quot;);
+    scanf(&quot;%d&quot;, &amp;gyosu);
+
+    ast_print(gyosu);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="b--6" class="section level3">
+<h3>18.b 構造体の宣言</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+struct student {
+    int snum;
+    double height;
+    double weight;
+};
+
+int main(void) {
+    struct student gakusei = {100, 175.2, 71.5};
+
+    printf(&quot;学生番号：%d\n&quot;, gakusei.snum);
+    printf(&quot;身長：%6.2f\n&quot;, gakusei.height);
+    printf(&quot;体重：%6.2f\n&quot;, gakusei.weight);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="c--2-1" class="section level3">
+<h3>18.c 構造体の宣言 2</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+typedef struct student {
+    int snum;
+    double height;
+    double weight;
+} STUDENT;
+
+int main(void) {
+    STUDENT gakusei = {100, 175.2, 71.5};
+
+    printf(&quot;学生番号：%d\n&quot;, gakusei.snum);
+    printf(&quot;身長：%6.2f\n&quot;, gakusei.height);
+    printf(&quot;体重：%6.2f\n&quot;, gakusei.weight);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="e--1" class="section level3">
+<h3>18.e 構造体の値の代入例</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+typedef struct student {
+    int snum;
+    double height;
+    double weight;
+} STUDENT;
+
+int main(void) {
+    STUDENT gakusei1 = {100, 175.2, 71.5};
+    STUDENT gakusei2;
+    STUDENT gakusei3;
+
+    gakusei2.snum = 101;
+    gakusei2.height = 160.1;
+    gakusei2.weight = 51.3;
+    
+    gakusei3 = gakusei2;
+    gakusei3.snum ++;
+
+    printf(&quot;gakusei1\n&quot;);
+    printf(&quot;学生番号：%d\n&quot;, gakusei1.snum);
+    printf(&quot;身長：%6.2f\n&quot;, gakusei1.height);
+    printf(&quot;体重：%6.2f\n\n&quot;, gakusei1.weight);
+
+    printf(&quot;gakusei2\n&quot;);
+    printf(&quot;学生番号：%d\n&quot;, gakusei2.snum);
+    printf(&quot;身長：%6.2f\n&quot;, gakusei2.height);
+    printf(&quot;体重：%6.2f\n\n&quot;, gakusei2.weight);
+    
+    printf(&quot;gakusei3\n&quot;);
+    printf(&quot;学生番号：%d\n&quot;, gakusei3.snum);
+    printf(&quot;身長：%6.2f\n&quot;, gakusei3.height);
+    printf(&quot;体重：%6.2f\n&quot;, gakusei3.weight);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="f-" class="section level3">
+<h3>18.f 配列としての構造体</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+typedef struct student {
+    int snum;
+    double height;
+    double weight;
+} STUDENT;
+
+int main(void) {
+    STUDENT gakusei[3];
+        
+    gakusei[0].snum = 100;
+    gakusei[0].height = 175.2;
+    gakusei[0].weight = 71.5;
+
+    gakusei[1].snum = 101;
+    gakusei[1].height = 160.1;
+    gakusei[1].weight = 51.3;
+    
+    gakusei[2] = gakusei[1];
+    gakusei[2].snum ++;
+
+    for (int i = 0; i &lt; 3; i++) {
+        printf(&quot;gakusei%d\n&quot;, i + 1);
+        printf(&quot;学生番号：%d\n&quot;, gakusei[i].snum);
+        printf(&quot;身長：%6.2f\n&quot;, gakusei[i].height);
+        printf(&quot;体重：%6.2f\n\n&quot;, gakusei[i].weight);
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="g--1" class="section level3">
+<h3>18.g 構造体の値の書き込み</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+typedef struct student {
+    int snum;
+    double height;
+    double weight;
+} STUDENT;
+
+int main(void) {
+    STUDENT gakusei;
+    
+    printf(&quot;学生データを入力します\n&quot;);
+
+    printf(&quot;gakusei%d：\n&quot;, i + 1);
+    printf(&quot;学生番号を入力してください：&quot;);
+    scanf(&quot;%d&quot;, &amp;gakusei[i].snum);
+    printf(&quot;身長を入力してください：&quot;);
+    scanf(&quot;%lf&quot;, &amp;gakusei[i].height);
+    printf(&quot;体重を入力してください：&quot;);
+    scanf(&quot;%lf&quot;, &amp;gakusei[i].weight);
+    printf(&quot;\n&quot;);
+
+    printf(&quot;gakusei%d：\n&quot;, i + 1);
+    printf(&quot;学生番号：%d\n&quot;, gakusei[i].snum);
+    printf(&quot;身長：%6.2f\n&quot;, gakusei[i].height);
+    printf(&quot;体重：%6.2f\n&quot;, gakusei[i].weight);
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-25" class="section level3">
+<h3>18.7 配列構造体の値の書き込み</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+typedef struct student {
+    int snum;
+    double height;
+    double weight;
+} STUDENT;
+
+int main(void) {
+    STUDENT gakusei[3];
+    int i;
+    
+    printf(&quot;学生データを入力します\n&quot;);
+
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;gakusei[%d]：\n&quot;, i);
+        printf(&quot;学生番号を入力してください：&quot;);
+        scanf(&quot;%d&quot;, &amp;gakusei[i].snum);
+        printf(&quot;身長を入力してください：&quot;);
+        scanf(&quot;%lf&quot;, &amp;gakusei[i].height);
+        printf(&quot;体重を入力してください：&quot;);
+        scanf(&quot;%lf&quot;, &amp;gakusei[i].weight);
+        printf(&quot;\n&quot;);
+    }
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;gakusei[%d]：\n&quot;, i);
+        printf(&quot;学生番号：%d\n&quot;, gakusei[i].snum);
+        printf(&quot;身長：%6.2f\n&quot;, gakusei[i].height);
+        printf(&quot;体重：%6.2f\n\n&quot;, gakusei[i].weight);
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="section-26" class="section level3">
+<h3>18.8 構造体の値の書き込み＋出力</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+typedef struct birthday {
+    int year;
+    int month;
+    int day;
+} BIRTHDAY;
+
+int main(void) {
+    BIRTHDAY tanjobi[3];
+    int i;
+    
+    printf(&quot;三人分のデータを入力します\n&quot;);
+
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;%d人目\n&quot;, i + 1);
+        printf(&quot;生まれた年を入力してください：&quot;);
+        scanf(&quot;%d&quot;, &amp;tanjobi[i].year);
+        printf(&quot;生まれた月を入力してください：&quot;);
+        scanf(&quot;%d&quot;, &amp;tanjobi[i].month);
+        printf(&quot;生まれた日を入力してください：&quot;);
+        scanf(&quot;%d&quot;, &amp;tanjobi[i].day);
+        printf(&quot;\n&quot;);
+    }
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;%d人目：%d年%2d月%2d日生まれ\n&quot;, i + 1, tanjobi[i].year, tanjobi[i].month, tanjobi[i].day);
+    }
+    return 0;
+}</code></pre>
+</div>
+<div id="char" class="section level3">
+<h3>18.9 構造体におけるchar型</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+typedef struct birthday {
+    char name[10];
+    int year;
+    int month;
+    int day;
+} BIRTHDAY;
+
+int main(void) {
+    BIRTHDAY tanjobi[3];
+    int i;
+    
+    printf(&quot;三人分のデータを入力します\n&quot;);
+
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;%d人目\n&quot;, i + 1);
+        printf(&quot;名前を入力してください：&quot;);
+        scanf(&quot;%s&quot;, tanjobi[i].name);
+        printf(&quot;生まれた年を入力してください：&quot;);
+        scanf(&quot;%d&quot;, &amp;tanjobi[i].year);
+        printf(&quot;生まれた月を入力してください：&quot;);
+        scanf(&quot;%d&quot;, &amp;tanjobi[i].month);
+        printf(&quot;生まれた日を入力してください：&quot;);
+        scanf(&quot;%d&quot;, &amp;tanjobi[i].day);
+        printf(&quot;\n&quot;);
+    }
+    for (i = 0; i &lt; 3; i++) {
+        printf(&quot;%d人目\n%s\n%d年%2d月%2d日生まれ\n&quot;, i + 1, tanjobi[i].name, tanjobi[i].year, tanjobi[i].month, tanjobi[i].day);
+    }
+    return 0;
+}</code></pre>
+</div>
+</div>
+<div id="section-27" class="section level2">
+<h2>0531</h2>
+<div id="d--1" class="section level3">
+<h3>19.d ファイルを開く</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    FILE *fp;
+    fp = fopen(&quot;test.txt&quot;, &quot;r&quot;);
+
+    //エラー処理
+    if (fp == NULL) {
+        printf(&quot;ファイルのオープンに失敗しました\n&quot;);
+        return -1;
+    } else {
+        printf(&quot;ファイルのオープンに成功しました\n&quot;);
+    }
+
+    fclose(fp);//忘れないで！！
+    return 0;
+}</code></pre>
+</div>
+<div id="e--2" class="section level3">
+<h3>19.e ファイルに書き込む：数字</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    int data[5];
+    int i;
+
+    FILE *fp1, *fp2;
+    fp1 = fopen(&quot;data.txt&quot;, &quot;r&quot;);
+    fp2 = fopen(&quot;out.txt&quot;, &quot;w&quot;);
+
+    if (fp1 == NULL) {
+        printf(&quot;data.txtのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+    if (fp2 == NULL) {
+        printf(&quot;out.txtのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+    
+    printf(&quot;data.txt, out.txtのオープンに成功しました\n&quot;);
+    printf(&quot;data.txtからデータを読み込みます\n&quot;);
+    
+    for(i = 0; i &lt; 5; i++) {
+        fscanf(fp1, &quot;%d&quot;, &amp;data[i]);
+    }
+
+    printf(&quot;すべてのデータを100倍します\n&quot;);
+    
+    for(i = 0; i &lt; 5; i++) {
+        data[i] *= 100;
+        printf(&quot;%d\n&quot;, data[i]);
+        fprintf(fp2, &quot;%d\n&quot;, data[i]);
+//      fputs(data[i], fp2);    不可
+    }
+
+    fclose(fp1);
+    fclose(fp2);
+    return 0;
+}</code></pre>
+</div>
+<div id="f--1" class="section level3">
+<h3>19.f ファイルに書き込む：文字列</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[100];
+    int i;
+
+    FILE *fp1, *fp2;
+    fp1 = fopen(&quot;lstrings.txt&quot;, &quot;r&quot;);
+    fp2 = fopen(&quot;ustrings.txt&quot;, &quot;w&quot;);
+
+    if (fp1 == NULL) {
+        printf(&quot;lstrings.txtのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+    if (fp2 == NULL) {
+        printf(&quot;ustrings.txtのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+    
+    printf(&quot;lstrings.txt, ustrings.txtのオープンに成功しました\n&quot;);
+    printf(&quot;文字列を小文字から大文字に変換します\n&quot;);
+    
+    while(fgets(str, 100, fp1) != NULL) {
+        i = 0;
+        while (str[i] != &#39;\n&#39; &amp;&amp; str[i] != &#39;\0&#39;) {
+            str[i] -= 32;
+            i++;
+        }
+
+        printf(&quot;%s&quot;, str);
+        fputs(str, fp2);
+//      fprintf(fp2, &quot;%s\n&quot;, str);  こっちも可
+    }
+    printf(&quot;\n&quot;);
+
+    fclose(fp1);
+    fclose(fp2);
+    return 0;
+}</code></pre>
+</div>
+<div id="section-28" class="section level3">
+<h3>21.1 ファイルに書き込む：数字2</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    srand((unsigned int)time(NULL));
+    int data[100];
+    int i;
+
+    FILE *fp;
+    fp = fopen(&quot;data.txt&quot;, &quot;w&quot;);
+
+    if (fp == NULL) {
+        printf(&quot;data.txtのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+    
+    printf(&quot;data.txtのオープンに成功しました\n&quot;);
+    printf(&quot;data.txtに乱数を書き込みます\n&quot;);
+    
+    for (i = 0; i &lt; 100; i++) {
+        data[i] = rand() % 10000 + 1;
+        fprintf(fp, &quot;%d\n&quot;, data[i]);
+/*      if(i &lt; 10) {
+            printf(&quot;%d\n&quot;, data[i]);
+        }
+*/
+    }
+    printf(&quot;...\n&quot;);
+    
+    fclose(fp);
+    return 0;
+}</code></pre>
+</div>
+<div id="a--6" class="section level3">
+<h3>21.a バブルソート</h3>
+<pre class="c"><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int a[5] = {4, 3, 1, 5, 2};
+    int i, j, temp;
+
+    for(i = 3; i &gt;= 0; i--) {
+        for(j = 0; j &lt;= i; j++) {
+// 流れをステップごと表示する
+/*          for(int k = 0; k &lt; 5; k++) {
+                printf(&quot;a[%d] = %3d\n&quot;, k, a[k]);
+            }
+            printf(&quot;\n&quot;);
+*/
+            if(a[j] &gt; a[j + 1]) {
+                temp = a[j + 1];
+                a[j + 1] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+
+    for(i = 0; i &lt; 5; i++) {
+        printf(&quot;a[%d] = %3d\n&quot;, i, a[i]);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+<div id="section-29" class="section level3">
+<h3>21.3 バブルソートとファイル</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    int data[100];
+    int i, temp;
+
+    FILE *fp1, *fp2;
+    fp1 = fopen(&quot;data.txt&quot;, &quot;r&quot;);
+    fp2 = fopen(&quot;sorted.txt&quot;, &quot;w&quot;);
+
+    if (fp1 == NULL) {
+        printf(&quot;data.txtのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+    if (fp2 == NULL) {
+        printf(&quot;sorted.txtのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+
+    for(i = 0; i &lt; 100; i++) {
+        fscanf(fp1, &quot;%d&quot;, &amp;data[i]);
+    }
+
+    for(i = 98; i &gt;= 0; i--) {
+        for(int j = 0; j &lt;= i; j++) {
+            if(data[j] &gt; data[j + 1]) {
+                temp = data[j + 1];
+                data[j + 1] = data[j];
+                data[j] = temp;
+            }
+        }
+    }
+
+    for(i = 0; i &lt; 100; i++) {
+        printf(&quot;data[%d] = %5d\n&quot;, i, data[i]);
+        fprintf(fp2, &quot;%5d\n&quot;, data[i]);
+    }
+    
+    fclose(fp1);
+    fclose(fp2);
+    return 0;
+}
+</code></pre>
+</div>
+<div id="csv" class="section level3">
+<h3>21.4 𝜋計算機と.csv出力</h3>
+<pre class="c"><code>#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+//generate random numbers
+double rnd(void) {
+    double ransu;
+    ransu = (double)rand()/(RAND_MAX + 0.1);
+    return ransu;
+}
+
+int main(void) {
+    srand((unsigned int)time(NULL));
+
+    double data[2];
+    double pi = 4.0;
+    int inside = 0;
+    int outside = 0;
+    int i;
+
+////create file reader, exception, close file
+    FILE *fp;
+    fp = fopen(&quot;pi.csv&quot;, &quot;w&quot;);
+
+    if (fp == NULL) {
+        printf(&quot;pi.csvのオープンに失敗しました\n&quot;);
+        return -1;
+    }
+    
+    printf(&quot;pi.csvのオープンに成功しました\n&quot;);
+    printf(&quot;pi.csvにシミュレーション結果を書き込みます\n&quot;);
+    
+//repeat 500 times
+    for (i = 0; i &lt; 500; i++) {
+        data[0] = rnd();
+        data[1] = rnd();
+
+//whether is in the fan
+        if(data[0] * data[0] + data[1] * data[1] &lt;= 1.0) {
+            inside++;
+        } else {
+            outside++;
+        }
+        printf(&quot;%d - x = %f, y = %f, inside = %d, outside = %d\n&quot;, i + 1, data[0], data[1], inside, outside);
+
+//re-calc pi
+        pi = inside * 4.0 / (inside + outside);
+
+//write # of times + pi into pi.csv file
+        fprintf(fp, &quot;%d, %f,\n&quot;, i + 1, pi);
+    }
+
+    fclose(fp);
+    return 0;
+}</code></pre>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

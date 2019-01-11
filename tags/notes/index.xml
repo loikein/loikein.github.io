@@ -6,35 +6,35 @@
     <description>Recent content in Notes on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Notes on Mathematical Proofs</title>
+      <link>/2019/01/notes-math-proof/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/notes-math-proof/</guid>
+      <description>Logic Truth table Direct proof  Relation Complete Order Partial Order  Space Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation Proof by Logic (twice if unlucky) Proof by \(B_ε\)  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function Range / Image Injection &amp;amp; Surjection Continuous Limit &amp;amp; Differenciation Supremum &amp;amp; Infimum Concave &amp;amp; Convex  Set \(\times\) Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence (Un-)bounded Convergent Limit &amp;amp; Cluster Point  Set \(\times\) Sequence   Wrote by a MSc student dying of end-of-term reviews (a.</description>
+    </item>
+    
+    <item>
       <title>Notes on Econometrics</title>
-      <link>/2019/01/05/notes-stat1/</link>
+      <link>/2019/01/notes-stat1/</link>
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/01/05/notes-stat1/</guid>
+      <guid>/2019/01/notes-stat1/</guid>
       <description>Tests &amp;amp; Statistics \(R^2\) t-test F-test (Joint Test) Wald Test J Test PE Test Chow (Breakpoint) Test Read Regression Table  Gauss-Markov Assumptions OLS Error Normality of \(ε\) Unbiasedness of \(s^2\) Consistency of \(s^2\)  OLS Estimator Derive OLS Normality of \(b\) Unbiasedness of \(b\) Consistent of \(b\) (Asymptotic) Efficienty BLUE (Best Linear Unbiased Estimator) CAN (Consistent and Asymptotically Normal)  OLS Model Converge in Probability &amp;amp; Mean Square LLN (Law of Large Numbers) Elasticity  IV (Instrument Variable) Derive IV IV Estimator \(\hat{β}_{IV}\) GIVE (Generalized IV Estimator)  Heteroskedasticity &amp;amp; Autocorrelation White (Hetero-Consistent) Standard Error HAC Standard Error  Maximum Likelihood Model Compare Models Linear / Log &amp;amp; Interaction : F-stat OLS / GLS : Robust Standard Error Weird Models  R Workout Data Generation OLS Regression    Warning: under proofreading</description>
     </item>
     
     <item>
-      <title>Notes on Mathematical Proofs</title>
-      <link>/2019/01/05/notes-math-proof/</link>
-      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/01/05/notes-math-proof/</guid>
-      <description>Logic Truth table Direct proof  Relation Complete Order Partial Order  Space Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation Proof by Logic (twice if unlucky) Proof by \(B_ε\)  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function Range / Image Injection &amp;amp; Surjection Continuous Limit &amp;amp; Differenciation Supremum Concave &amp;amp; Convex  Set \(\times\) Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence (Un-)bounded Convergent Limit &amp;amp; Cluster Point  Set \(\times\) Sequence   Wrote by a MSc student dying of end-of-term reviews (a.</description>
-    </item>
-    
-    <item>
       <title>Notes on Introduction to C Language</title>
-      <link>/2018/05/24/notes-intro-c-rmd/</link>
+      <link>/2018/05/notes-intro-c-rmd/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/24/notes-intro-c-rmd/</guid>
+      <guid>/2018/05/notes-intro-c-rmd/</guid>
       <description>0419 1.2 プリント 2.a 変数 2.b 変数の型 2.c 演算子 2.d プリント2 3.a プリントと変数 3.b プリント：出力指定 3.3 円の面積 3.4 演算子2 4.a 読み込み 4.2 読み込みと円の面積 4.3 読み込みと三角形の面積 5.a 型の変換 5.b 型の変換2 5.3 型の変換と平均値 6.2 数学関数と円の面積  0426 7.c if else：大きい方を出力 7.2 if else：等さの判断 7.3 if else：偶数か奇数かの判断 7.4 if else：等さの判断2 8.a if else：入れ子 8.b ３つの整数の最大値判断 8.4 ３つの整数の最小値判断 8.5 BMIの計算・判定 8.6 閏年 8.7 自販機 9.b switch 10.a ループ：for 10.b ループ：合計の計算 10.c ループ：合計の計算2 10.</description>
     </item>
     
