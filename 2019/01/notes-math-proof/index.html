@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">25 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -144,7 +144,8 @@
 <li>[x] PS4</li>
 <li>[x] PS5</li>
 <li>[x] PS6</li>
-<li>[] PS7</li>
+<li>[x] PS7</li>
+<li>[] PS8</li>
 <li><p>[]</p></li>
 </ul>
 <div id="logic" class="section level2">
@@ -741,6 +742,18 @@ Prove that <span class="math inline">\(f+g\)</span> is concex.</p>
 &amp;\leq λf(x_1) + (1-λ)f(x_2) + λg(x_1) + (1-λ)g(x_2) \\
 &amp;= λh(x_1) + (1-λ)h(x_2)\end{aligned}\]</span> ~</p>
 <blockquote>
+<p>PS7.Q7<br />
+Prove that if <span class="math inline">\(f:\mathbb{R}\to \mathbb{R}\)</span> is strictly convex,<br />
+then <span class="math inline">\(f(x) = 0\)</span> has at most two solutions</p>
+</blockquote>
+<p>FSOC assume <span class="math inline">\(f(x) = 0\)</span> has more than two solutions<br />
+<span class="math inline">\(\implies\)</span> Exist <span class="math inline">\(x&lt;y&lt;z\in\mathbb{R}\)</span> s.t. <span class="math inline">\(f(x) = f(y) = f(z) = 0\)</span><br />
+Let <span class="math inline">\(λ = \frac{z-y}{z-x} \implies y = λx + (1-λ)z\)</span><br />
+Since <span class="math inline">\(f\)</span> is strictly convex,<br />
+<span class="math display">\[\begin{aligned} f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
+0 &amp;&lt; ) + 0\end{aligned}\]</span><br />
+Contradiction.</p>
+<blockquote>
 <p>PS7.Q1<br />
 Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be strictly concave, <span class="math inline">\(x&lt;y&lt;z\in \mathbb{R}\)</span><br />
 Prove that <span class="math inline">\(\frac{f(y)-f(x)}{y-x}&gt;\frac{f(z)-f(x)}{z-x}&gt;\frac{f(z)-f(y)}{z-y}\)</span></p>
@@ -801,11 +814,40 @@ then <span class="math inline">\(f\big(λx + (1-λ)y\big) \geq λf(x) + (1-λ)f(
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(x = y\)</span> (trivial)<br />
 </li>
-<li>Let <span class="math inline">\(x &lt; y\)</span>
+<li><span class="math inline">\(x &lt; y\)</span>
 <ol style="list-style-type: decimal">
-<li>When <span class="math inline">\(λ &gt; 1\)</span></li>
+<li>When <span class="math inline">\(λ &gt; 1\)</span><br />
+Take <span class="math inline">\(z = λx + (1-λ)y \implies x = \frac{1}{λ}z + \left(1-\frac{1}{λ}\right) y\)</span><br />
+Let <span class="math inline">\(λ_1 = \frac{1}{λ} \in [0,1] \implies x = λ_1 z + (1-λ_1) y\)</span><br />
+Since <span class="math inline">\(f\)</span> is convex,<br />
+<span class="math display">\[\begin{aligned} f(x) &amp;\leq λ_1 f(z) + (1-λ_1) f(y) \\ &amp;\leq \frac{1}{λ} f(z) + \left(1-\frac{1}{λ}\right) f(y) \\ λf(x) &amp;\leq f(z) + (λ-1) f(y) \\ f(z) &amp;\geq λf(x) +(1-λ)f(y) \\ f\big(λx + (1-λ)y\big) &amp;\geq λf(x) + (1-λ)f(y)\end{aligned}\]</span><br />
+</li>
+<li>When <span class="math inline">\(λ &lt; 0\)</span><br />
+Take <span class="math inline">\(z = λx + (1-λ)y \implies y = \frac{1}{1-λ}z - \frac{λ}{1-λ}x\)</span><br />
+Let <span class="math inline">\(λ_2 = \frac{1}{1-λ} \in [0,1] \implies y = λ_2 z + (1-λ_2) x\)</span><br />
+Since <span class="math inline">\(f\)</span> is convex,<br />
+<span class="math display">\[\begin{aligned} f(y) &amp;\leq λ_2 f(z) + (1-λ_2) f(x) \\ f(y) &amp;\leq \frac{1}{1-λ} f(z) + \left(1-\frac{1}{1-λ}\right) f(x) \\ (1-λ) f(y) &amp;\leq f(z) + (1 - 1 + λ) f(x) \\ f(z) &amp;\geq (1-λ) f(y) + λf(x) \\ f(λx + (1-λ)y) &amp;\geq λf(x) + (1-λ)f(y) \end{aligned}\]</span> ~</li>
 </ol></li>
 </ol>
+<blockquote>
+<p>PS7.Q6<br />
+Let <span class="math inline">\(f:\mathbb{R}\to \mathbb{R}\)</span> be strictly increasing, bijective and concave<br />
+Prove its inverse is convex</p>
+</blockquote>
+<p>Let <span class="math inline">\(h = f^{-1}\)</span>, take <span class="math inline">\(y_1, y_2\in \mathbb{R}\)</span><br />
+Since <span class="math inline">\(f\)</span> is bijection,<br />
+<span class="math inline">\(x_1 = f^{-1}(y_1) = h(y_1)\)</span> and <span class="math inline">\(x_2 f^{-1}(y_2) = h(y_2)\)</span><br />
+<span class="math display">\[\begin{aligned} f\big(λx-1 + (1-λ)x_2\big) &amp;\geq λf(x_1) + (1-λ)f(x_2) \\
+&amp;= λy_1 + (1-λ)y_2\end{aligned}\]</span><br />
+Since <span class="math inline">\(f\)</span> is strictly increasing, assume <span class="math inline">\(x_1 &lt; x_2\)</span>,<br />
+<span class="math display">\[\begin{matrix} f(x_1) &lt; f(x_2) &amp; x_1 &lt; x_2 \\
+y_1 &lt; y_2 &amp; h(y_1) &lt; h(y_2)\end{matrix}\]</span><br />
+<span class="math inline">\(\implies h\)</span> is strictly increasing<br />
+<span class="math display">\[\begin{aligned} λy_1 + (1-λ)y_2  &amp;\leq f\big(λx-1 + (1-λ)x_2\big) \\
+h\big( λy_1 + (1-λ)y_2 \big) &amp;\leq h\Big( f\big(λx_1 + (1-λ)x_2 \big) \Big) \\
+&amp;\leq λx_1 + (1-λ)x_2\\ 
+&amp;\leq λh(y_1) + (1-λ)h(y_2)\end{aligned}\]</span><br />
+<span class="math inline">\(\implies h\)</span> is convex</p>
 </div>
 <div id="epigraph" class="section level3">
 <h3>Epigraph</h3>
@@ -1039,9 +1081,10 @@ Show that <span class="math inline">\(\{ x\in A | B_r(x) \subset A \}\)</span> i
 </blockquote>
 <p>Let <span class="math inline">\(B \equiv \{ x\in A | B_r(x) \subset A \}\)</span>, :) <span class="math inline">\(B^C\)</span> is open<br />
 Since <span class="math inline">\(B_r(x) \subset A \implies x\in A\)</span><br />
-<span class="math inline">\(\implies B = \{ x | B_r(x) \subset A \}\)</span><br />
-1. If <span class="math inline">\(B^C = \emptyset\)</span> (trivial)<br />
-2. If <span class="math inline">\(B^C \neq \emptyset\)</span><br />
+<span class="math inline">\(\implies B = \{ x | B_r(x) \subset A \}\)</span></p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(B^C = \emptyset\)</span> (trivial)</li>
+<li>If <span class="math inline">\(B^C \neq \emptyset\)</span><br />
 FSOC assume <span class="math inline">\(B^C\)</span> is not open<br />
 <span class="math inline">\(\implies \exists x \in B^C\)</span> s.t. <span class="math inline">\(B_ε(x)\not\subset B^C\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
 <span class="math inline">\(\implies B_ε(x)\cap B \neq \emptyset\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
@@ -1053,7 +1096,8 @@ Take a strictly decreasing sequence <span class="math inline">\((ε_n)_n \to 0\)
 Take sufficiently large <span class="math inline">\(N\)</span> s.t.<br />
 <span class="math display">\[\begin{aligned} d(x_N,x) &amp;&lt; r-d(x,x&#39;) \\ \implies d(x_N,x&#39;) &amp;\leq d(x_N,x) + d(x, x&#39;) \ \text{triangle ineq.}\\ &amp;&lt; r-d(x,x&#39;) + d(x,x&#39;) \\ &amp;=r \end{aligned}\]</span><br />
 <span class="math inline">\(\implies x&#39; \in B_r(x_N)\)</span><br />
-But by construction <span class="math inline">\(x_N \in B \implies B_r(x_N) \subset A\)</span>, contradiction</p>
+But by construction <span class="math inline">\(x_N \in B \implies B_r(x_N) \subset A\)</span>, contradiction</li>
+</ol>
 </div>
 
     </div>
