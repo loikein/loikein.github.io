@@ -985,7 +985,7 @@ str( PS3Q2_data )
 # ggplot(PS3Q2_data, aes(x = x3, y = y)) + geom_point()
 
 # regression
-PS3Q2_reg = lm(data = PS3Q2_data, y ~ x1 + x2 + x3)
+PS3Q2_reg = lm( data = PS3Q2_data, y ~ x1 + x2 + x3 )
 summary( PS3Q2_reg )
 ## 
 ## Call:
@@ -1025,20 +1025,21 @@ cor( X.mat )
 3. Generate scatter plots of (i) the residuals and the fitted values and (ii) the residuals and each individual regressor.<br />
 Are there any visual signs of heteroskedasticity?</p>
 </blockquote>
-<pre class="r"><code>res = reg$res
-fit = reg$fit
-par(mfrow=c(2,2))
-plot(fit,res)
-plot(dat$x1,res)
-plot(dat$x2,res)
-plot(dat$x3,res)</code></pre>
-<p><span class="math inline">\(x_2\)</span> may have heteroskedasticity</p>
+<pre class="r"><code>PS3Q2_res = PS3Q2_reg$res
+PS3Q2_fit = PS3Q2_reg$fit
+par( mfrow = c( 2, 2 ))
+plot( PS3Q2_fit, PS3Q2_res )
+plot( PS3Q2_data$x1, PS3Q2_res)
+plot( PS3Q2_data$x2, PS3Q2_res)
+plot( PS3Q2_data$x3, PS3Q2_res)</code></pre>
+<p><img src="/post/2019-01-05-notes-stat1_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<span class="math inline">\(x_2\)</span> may have heteroskedasticity</p>
 <blockquote>
 <p>PS3.Q2<br />
 4. In order to investigate more formally whether the residual variances are constant, run heteroskedasticity OLS regressions of the following type<br />
 <span class="math display">\[e^2_i =α_1+α_2x^2_{ji}+v_i\]</span><br />
 where <span class="math inline">\(j = 2,3,4\)</span>.<br />
-Test in each of these simple regressions <span class="math inline">\(H_0 : α2 = 0\)</span>.<br />
+Test in each of these simple regressions <span class="math inline">\(H_0 : α_2 = 0\)</span>.<br />
 Find an appropriate alternative hypothesis.<br />
 Explain why we can do these simple regressions using a single regressor safely? Or should we worry about an omitted variable bias here?</p>
 </blockquote>

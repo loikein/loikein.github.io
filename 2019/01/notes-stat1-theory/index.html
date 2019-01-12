@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.52" />
 
 
-<title>Notes on Econometrics - loikein</title>
-<meta property="og:title" content="Notes on Econometrics - loikein">
+<title>Notes on Econometrics - Theory Part - loikein</title>
+<meta property="og:title" content="Notes on Econometrics - Theory Part - loikein">
 
 
 
@@ -64,13 +64,13 @@
 
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">22 min read</span>
     
 
-    <h1 class="article-title">Notes on Econometrics</h1>
+    <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
 
     
-    <span class="article-date">2019/01/05</span>
+    <span class="article-date">2019/01/11</span>
     
     
     
@@ -103,6 +103,8 @@
 <li><a href="#j-test">J Test</a></li>
 <li><a href="#pe-test">PE Test</a></li>
 <li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
+<li><a href="#sargan-test-overidentifying-restrictions-test">Sargan Test (Overidentifying Restrictions Test)</a></li>
+<li><a href="#durbin-wu-hausman-test-endogeneity-test">Durbin-Wu-Hausman Test (Endogeneity Test)</a></li>
 <li><a href="#read-regression-table">Read Regression Table</a></li>
 </ul></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
@@ -132,18 +134,9 @@
 </ul></li>
 <li><a href="#heteroskedasticity-autocorrelation">Heteroskedasticity &amp; Autocorrelation</a><ul>
 <li><a href="#white-hetero-consistent-standard-error">White (Hetero-Consistent) Standard Error</a></li>
-<li><a href="#hac-standard-error">HAC Standard Error</a></li>
+<li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 </ul></li>
 <li><a href="#maximum-likelihood-model">Maximum Likelihood Model</a></li>
-<li><a href="#compare-models">Compare Models</a><ul>
-<li><a href="#linear-log-interaction-f-stat">Linear / Log &amp; Interaction : F-stat</a></li>
-<li><a href="#ols-gls-robust-standard-error">OLS / GLS : Robust Standard Error</a></li>
-<li><a href="#weird-models">Weird Models</a></li>
-</ul></li>
-<li><a href="#r-workout">R Workout</a><ul>
-<li><a href="#data-generation">Data Generation</a></li>
-<li><a href="#ols-regression">OLS Regression</a></li>
-</ul></li>
 </ul>
 </div>
 
@@ -228,7 +221,7 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 <li><p>Wald statistic:
 <span class="math display">\[ξ = \frac{1}{σ^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span><br />
 <span class="math inline">\(H_0: ξ ∼ Χ^2_J\)</span><br />
-<span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q\)</span>.</p></li>
+<span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q = 0\)</span>.</p></li>
 <li>F-statistic:<br />
 <span class="math display">\[F = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span><br />
 <span class="math inline">\(H_0: F ∼ F^J_{N-K}\)</span><br />
@@ -240,7 +233,7 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 For model <span class="math inline">\(\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\)</span>, consider the regression output:<br />
 <img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
 <span class="math inline">\((X&#39; X)^{-1} = \begin{pmatrix} 5649.38 &amp;&amp; 307.02 &amp;&amp; \\ &amp;&amp; 16.85 &amp;&amp; -29.39 \\ -540.33 &amp;&amp; &amp;&amp; 51.68\end{pmatrix}\)</span><br />
-3. Test the hypothesis of constant returns to scale at <span class="math inline">\(5%\)</span> level.</p>
+3. Test the hypothesis of constant returns to scale at <span class="math inline">\(5\%\)</span> level.</p>
 </blockquote>
 <p>Constant return to scale <span class="math inline">\(\implies β_1 + β_2 = 1\)</span><br />
 Let <span class="math inline">\(R = \begin{pmatrix} 0 &amp;&amp; 1 &amp;&amp; 1\end{pmatrix}\)</span>, <span class="math inline">\(β = \begin{pmatrix} \log τ \\ β_1 \\ β_2 \end{pmatrix}\)</span>, <span class="math inline">\(q = 1 \implies J = 1\)</span>.<br />
@@ -275,8 +268,8 @@ result_1 * t(result_2) * result_3^(-1) * result_2
 <span class="math display">\[\begin{aligned} \text{Model A: } y_i &amp;= x_i&#39; β + ε_i \\
 \text{Model B: } y_i &amp;= z_i&#39; γ + v_i \\
 \text{Test Model: } y_i &amp;= \underbrace{(1-δ)x_i&#39; β}_{\text{Model A}} + \underbrace{δ z_i&#39; γ }_{\text{Model B}} + u_i \\
-&amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i\\
-H_0: \ t_{δ} &amp;= \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span> ~</p>
+&amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i \end{aligned}\]</span><br />
+<span class="math inline">\(H_0: \ t_{δ} = \frac{δ}{se(δ)} ∼ t\)</span></p>
 </div>
 <div id="pe-test" class="section level3">
 <h3>PE Test</h3>
@@ -302,7 +295,7 @@ Just <span class="math inline">\(\log\)</span> both of them.</p>
 \text{Split Models: } y_i &amp;=  x_i&#39;β_1 + ε_i &amp;&amp; i = 1, \dots, T^* \\
 y_i &amp;=  x_i&#39;β_2 + ε_i &amp;&amp; i = T^*+1, \dots, n \\
 S_{UR} &amp;= e_1&#39; e_1 + e_2&#39; e_2\end{aligned}\]</span><br />
-<span class="math display">\[H_0: \frac{\frac{1}{K} S_R - S_{UR}}{\frac{1}{N-2K}S_{UR}} ∼ F_{N-2K}^K\]</span><br />
+<span class="math inline">\(H_0: \frac{\frac{1}{K} S_R - S_{UR}}{\frac{1}{N-2K}S_{UR}} ∼ F_{N-2K}^K\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(T^*\)</span> is the hypothetical breakpoint.<br />
 Note: Chow test can also test two or more breakpoints / groups.</p>
 <blockquote>
@@ -312,6 +305,14 @@ The Chow test cannot be applied in a cross-sectional regression.</p>
 </blockquote>
 <p>False.<br />
 Chow test can also be used to detach groups in a cross-sectional regression.</p>
+</div>
+<div id="sargan-test-overidentifying-restrictions-test" class="section level3">
+<h3>Sargan Test (Overidentifying Restrictions Test)</h3>
+<p>(textbook P168, slide 9-2 P14)</p>
+</div>
+<div id="durbin-wu-hausman-test-endogeneity-test" class="section level3">
+<h3>Durbin-Wu-Hausman Test (Endogeneity Test)</h3>
+<p>(textbook P154, slide 9-2 P15)</p>
 </div>
 <div id="read-regression-table" class="section level3">
 <h3>Read Regression Table</h3>
@@ -731,6 +732,24 @@ Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inlin
 </blockquote>
 <p>Take log:<br />
 <span class="math display">\[\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\]</span> ~</p>
+<blockquote>
+<p>PS2.Q3<br />
+Consider the wage regressions from slide 5 (text P86).<br />
+<img src="/post-img/notes-stat1--PS2Q3-6.png" width="393" /><br />
+6. Find the estimated elasticities for the effect of experience for males and females.<br />
+At which conventional level is the gender effect of experience significant?<br />
+Is the gender effect (measured by the male dummy coefficient) significant at <span class="math inline">\(10 \%\)</span> or <span class="math inline">\(5 \%\)</span> level when using a one-sided alternative (namely, positive coefficient)?</p>
+</blockquote>
+<p>Elasticity for female: <span class="math inline">\(0.207\)</span><br />
+Elasticity for male: <span class="math inline">\(0.207 + 0.041 = 0.248\)</span><br />
+Gender effect: <span class="math inline">\(0.041\)</span><br />
+t-ratio: <span class="math inline">\(1.891\)</span></p>
+<pre class="r"><code># calculate critical value
+qnorm( 0.90 )
+## [1] 1.281552
+qnorm( 0.95 )
+## [1] 1.644854</code></pre>
+<p>Therefore, <span class="math inline">\(H_0\)</span> is rejected at <span class="math inline">\(10 \%\)</span> level, but not rejected at <span class="math inline">\(5 \%\)</span> level.</p>
 </div>
 </div>
 <div id="iv-instrument-variable" class="section level2">
@@ -806,7 +825,7 @@ Fitted values:<br />
 <span class="math inline">\(P_Z\)</span> is idopotent:<br />
 <span class="math display">\[\begin{aligned} P_ZP_Z &amp;= Z(Z&#39;Z)^{-1}Z&#39; \cdot Z(Z&#39;Z)^{-1}Z&#39; \\
 &amp;= Z(Z&#39;Z)^{-1}Z \\
-&amp;= P_Z\end{aligned}\]</span></p></li>
+&amp;= P_Z\end{aligned}\]</span> ~</p></li>
 <li><p>Second stage regression: <span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
 According to OLS, <span class="math inline">\(b = \big(\hat{X}&#39;\hat{X}\big)^{-1} \hat{X}&#39;y\)</span><br />
 Therefore<br />
@@ -815,8 +834,8 @@ Therefore<br />
 &amp;= X&#39;P_Z\end{aligned}\]</span><br />
 <span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\
 &amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\
-&amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z y \end{aligned}\]</span> ~</p></li>
-<li><p>Variance:<br />
+&amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z&#39; y \end{aligned}\]</span> ~</p></li>
+<li><p>Variance: (needs check)<br />
 <span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\
 &amp;= σ^2 (X&#39;P_Z X)^{-1} \\
 &amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z X)^{-1} \\
@@ -836,8 +855,8 @@ When applying White robust standard errors under heteroskedasticity, the t-stati
 </blockquote>
 <p>True.</p>
 </div>
-<div id="hac-standard-error" class="section level3">
-<h3>HAC Standard Error</h3>
+<div id="hac-robust-standard-error" class="section level3">
+<h3>HAC (Robust) Standard Error</h3>
 <p>(textbook P128, slide 7 P14)</p>
 <blockquote>
 <p>PS4.Q2.3<br />
@@ -849,437 +868,6 @@ When applying robust standard errors, the <strong>OLS point estimates</strong> (
 </div>
 <div id="maximum-likelihood-model" class="section level2">
 <h2>Maximum Likelihood Model</h2>
-</div>
-<div id="compare-models" class="section level2">
-<h2>Compare Models</h2>
-<div id="linear-log-interaction-f-stat" class="section level3">
-<h3>Linear / Log &amp; Interaction : F-stat</h3>
-<blockquote>
-<p>PS2.Q3<br />
-Consider the wage regressions from slide 5 (text P85).<br />
-1. Compute F-statistics for comparing the loglinear model with and without squared experience.<br />
-2. In the loglinear model without squared experience, what is expected wage gap in percent- ages?</p>
-</blockquote>
-<pre class="r"><code># quantile of F distribution
-?qf
-#       (1-α),     (J),       (N - K)
-qf( p = 0.95, df1 = 1, df2 = (1972-5) ) ## significant at 95%
-qf( p = 0.99, df1 = 1, df2 = (1972-5) ) ## significant at 99%
-
-# calc p-value
-?dt
-dt( x = 3.84, df = (1972-5) )</code></pre>
-<blockquote>
-<p>PS2.Q3<br />
-Consider the wage regressions from slide 5 (text P85).<br />
-3. Consider the implied estimates regarding the expected increases of log wage due to in- creases in education (slide 5 P27).<br />
-Redo the computation for the loglinear model with squared experience and compare the results.</p>
-</blockquote>
-<blockquote>
-<p>PS2.Q3<br />
-Consider the wage regressions from slide 5 (text P85).<br />
-4. Explain why the comparison of specifications 5 and 4 involve <span class="math inline">\(J = 3\)</span> restrictions in the corresponding F-statistic.</p>
-</blockquote>
-<blockquote>
-<p>PS2.Q3<br />
-Consider the wage regressions from slide 5 (text P85).<br />
-5. Compute an F-statistic for comparing specifications 6 and 5.</p>
-</blockquote>
-<pre class="r"><code># F = [[ (R^2 - R0^2) / J ]] / [[ (1 - R^2) / (N - K)]]
-( (0.4032-0.3976) / (11-6) ) / ( (1-0.4032)/(1472 - 12) )</code></pre>
-<blockquote>
-<p>PS2.Q3<br />
-Consider the wage regressions from slide 5 (text P85).<br />
-6. Find the estimated elasticities for the effect of experience for males and females.<br />
-At which conventional level is the gender effect of experience significant?<br />
-Is the gender effect (measured by the male dummy coefficient) significant at <span class="math inline">\(10%\)</span> or <span class="math inline">\(5%\)</span> level when using a one-sided alternative (namely, positive coefficient)?</p>
-</blockquote>
-</div>
-<div id="ols-gls-robust-standard-error" class="section level3">
-<h3>OLS / GLS : Robust Standard Error</h3>
-<blockquote>
-<p>PS3.Q2<br />
-<code>hetero.txt</code> contains data on <span class="math inline">\(y_i\)</span> and three regressors <span class="math inline">\(x_{2i}\)</span>, <span class="math inline">\(x_{3i}\)</span>, <span class="math inline">\(x_{4i}\)</span> for <span class="math inline">\(i = 1, 2, ..., 250\)</span>.<br />
-The task is to find the underlying data generating process (DGP).<br />
-The regression model to be estimated shall contain an intercept and all three regressors.<br />
-Apply a nominal significance level of five percent in each testing situation.
-1. Apply OLS to find the estimated coefficients of the regression model <span class="math inline">\(y_i =β_1 +β_2x_{2i} +β_3x_{3i} +β_4x_{4i} +ε_i\)</span><br />
-~~ Report the results in a Table (see PS3.Q1).</p>
-</blockquote>
-<pre class="r"><code># rm(list=ls())
-dat = read.table( file=&quot;hetero.txt&quot;, header=TRUE )
-N = dim(dat)[1]
-colnames(dat)
-str(dat)
-
-# plot
-library(ggplot2)
-ggplot(dat, aes(x = x1, y = y)) +
-    geom_point()
-
-ggplot(dat, aes(x = x2, y = y)) +
-    geom_point()
-
-ggplot(dat, aes(x = x3, y = y)) +
-    geom_point()
-
-# regression
-reg = lm(dat$y ~ dat$x1 + dat$x2 + dat$x3)
-summary(reg)
-
-# autogen regression tables
-library(stargazer)</code></pre>
-<blockquote>
-<p>PS3.Q2<br />
-2. Compute the correlation matrix of the regressors to see if there is any sign of multi-collinearity.</p>
-</blockquote>
-<pre class="r"><code>X.mat  = cbind(dat$x1,dat$x2,dat$x3)
-cor(X.mat)</code></pre>
-<p>It seems we are fine.</p>
-<blockquote>
-<p>PS3.Q2<br />
-3. Generate scatter plots of (i) the residuals and the fitted values and (ii) the residuals and each individual regressor.<br />
-Are there any visual signs of heteroskedasticity?</p>
-</blockquote>
-<pre class="r"><code>res = reg$res
-fit = reg$fit
-par(mfrow=c(2,2))
-plot(fit,res)
-plot(dat$x1,res)
-plot(dat$x2,res)
-plot(dat$x3,res)</code></pre>
-<p><span class="math inline">\(x_2\)</span> may have heteroskedasticity</p>
-<blockquote>
-<p>PS3.Q2<br />
-4. In order to investigate more formally whether the residual variances are constant, run heteroskedasticity OLS regressions of the following type<br />
-<span class="math display">\[e^2_i =α_1+α_2x^2_{ji}+v_i\]</span><br />
-where <span class="math inline">\(j = 2,3,4\)</span>.<br />
-Test in each of these simple regressions <span class="math inline">\(H_0 : α2 = 0\)</span>.<br />
-Find an appropriate alternative hypothesis.<br />
-Explain why we can do these simple regressions using a single regressor safely? Or should we worry about an omitted variable bias here?</p>
-</blockquote>
-<p>since <span class="math inline">\(e^2\)</span> is var of residual,<br />
-we want <span class="math inline">\(a_2\)</span> to be larger than 0 –&gt; one-sided</p>
-<pre class="r"><code>#simple regressions
-reg.res = lm(I(res^2) ~ I(dat$x1^2))
-summary(reg.res)
-
-qnorm(0.95)
-
-reg.res = lm(I(res^2) ~ I(dat$x2^2))
-summary(reg.res)
-
-reg.res = lm(I(res^2) ~ I(dat$x3^2))
-summary(reg.res)</code></pre>
-<p>but: x’s are not correlated<br />
--/-&gt;<br />
-transformed x’s are not correlated<br />
-have to check for omitted variable bias also for transformed x’s</p>
-<pre class="r"><code># sth on multicollinearity in the heterosked regressions
-X2.mat  = cbind(dat$x1^2,dat$x2^2,dat$x3^2)
-cor(X2.mat)</code></pre>
-<blockquote>
-<p>PS3.Q2<br />
-5. Collect the significant regressors from the three simple regressions to estimated a joint model containing all significant regressors simultaneously.<br />
-Such an approach would be called specific-to-general. What is your chosen specification?</p>
-</blockquote>
-<pre class="r"><code># using two regressors
-reg.res = lm(I(res^2) ~ I(dat$x1^2) + I(dat$x2^2))
-summary(reg.res)</code></pre>
-<blockquote>
-<p>PS3.Q2<br />
-6. In contrast to specific-to-general, consider the reverse idea and start with a general model:<br />
-<span class="math display">\[ e_{2i} = α_1 + α_2 x^2_{2i} + α_3 x^2_{3i} + α_4 x^2_{4i} + v_i \]</span><br />
-Eliminate the most insignificant regressor (only one in each step) and re-estimate the restricted model.<br />
-Continue until all contained regressors are significant. What is your chosen specification (model)?<br />
-Compare the adjusted R2 values across all specifications you have estimated. Which is the one you would choose on the basis of the adjusted R2 measure?</p>
-</blockquote>
-<pre class="r"><code># using three regressors
-reg.res = lm(I(res^2) ~ I(dat$x1^2) + I(dat$x2^2) + I(dat$x3^2))
-summary(reg.res)</code></pre>
-<p>x3 should be excluded –&gt; same conclusion as spscific to general approach</p>
-<blockquote>
-<p>PS3.Q2<br />
-7. Plot the estimated h2i values. Are there any signs of heteroskedasticity?<br />
-Transform the original regression model from a) to carry out a feasible GLS regression.<br />
-Compare the FGLS regression results to the OLS results.</p>
-</blockquote>
-<pre class="r"><code># find the estimated h values
-h.estim = reg.res$fit
-ts.plot(h.estim)
-
-# fit: 
-ts.plot(res^2)
-lines( h.estim, col=2)
-
-# FGLS transform
-y.star = dat$y/sqrt(h.estim)
-x1.star = dat$x1/sqrt(h.estim)
-x2.star = dat$x2/sqrt(h.estim)
-x3.star = dat$x3/sqrt(h.estim)
-
-reg.star = lm(y.star ~ x1.star + x2.star + x3.star)
-summary(reg.star)</code></pre>
-<blockquote>
-<p>PS3.Q2<br />
-8. Apply White standard errors to the OLS regression from (1).<br />
-Recompute the t-values and compare the results. What do you find?</p>
-</blockquote>
-<pre class="r"><code># load sandwich package
-library(sandwich)
-
-# apply robust standard errors to OLS regression from line 10
-vcovHC(reg)
-
-# round standard deviations
-round( sqrt( diag( vcovHC(reg) )), 3 )
-
-# call summary again
-summary(reg)
-
-#### compare
-summary(reg.star)`
-
-# finally, compare the t-ratios
-round(summary(reg)$coef[,1]/sqrt(diag(vcovHC(reg))),3)</code></pre>
-<blockquote>
-<p>PS3.Q2<br />
-True model used in data generation:</p>
-</blockquote>
-<pre class="r"><code>sd.eps = 1
-sd.x1 = 1
-sd.x2 = 2
-sd.x3 = 5
-
-xi = rnorm( N, 0, sd.xi )
-h = 1 + 10*x1^2 + 10*x2^2
-y = 1 + 0.8*x2 +0.8*x3 + sqrt(h) * rnorm(N, 0, sd.eps)</code></pre>
-</div>
-<div id="weird-models" class="section level3">
-<h3>Weird Models</h3>
-<blockquote>
-<p>PS4.Q1<br />
-Consider the nonlinear consumption function:<br />
-<span class="math display">\[c_t = α + γ y_t^δ\]</span><br />
-where <span class="math inline">\(c_t\)</span> is real consumption and <span class="math inline">\(y_t\)</span> real income. <span class="math inline">\(α ≥ 0\)</span>, <span class="math inline">\(γ &gt; 0\)</span> and <span class="math inline">\(δ &gt; 0\)</span>.<br />
-1. Can this function be linearized?<br />
-2. Under which parameter restriction is the function linear?<br />
-3. Could you estimate the parameters <span class="math inline">\(α, γ, δ\)</span> via OLS directly?</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>No.<br />
-<span class="math inline">\(\log(c_t) = \log(α + γ y_t^δ)\)</span><br />
-</li>
-<li><span class="math inline">\(δ=1\)</span> or <span class="math inline">\(α = 0\)</span><br />
-</li>
-<li>No.<br />
-The estimation problem leads to an objective function that is non-linear.</li>
-</ol>
-<blockquote>
-<p>PS4.Q1<br />
-Consider the nonlinear consumption function:<br />
-<span class="math display">\[c_t = α + γ y_t^δ\]</span><br />
-4. An econometrician who favors OLS wants to estimate the parameters in a reasonable way.<br />
-The following possibilities are considered. Comment on each of the possibilities (provide arguments), figure out when they could work (and when not), and choose the best option.<br />
-i) <span class="math inline">\(c_t = β_1 + β_2 y_t + ε_t\)</span> s.t. hopefully <span class="math inline">\(b_1 = \hat{a}\)</span> and <span class="math inline">\(b_2 = \hat{γ}\)</span>.<br />
-ii) <span class="math inline">\(\ln(c_t) = β_1 + β_2 \ln(y_t) + εt\)</span> s.t. hopefully <span class="math inline">\(b_1 = \ln(\hat{γ})\)</span> and <span class="math inline">\(b_2 = \hat{δ}\)</span>.<br />
-iii) <span class="math inline">\(c_t = β_1 + β_2y_t^2 + ε_t\)</span> s.t. hopefully <span class="math inline">\(b1 = \hat{α}\)</span>, <span class="math inline">\(b_2 = \hat{γ}\)</span> and <span class="math inline">\(δ = 2\)</span>.<br />
-iv) <span class="math inline">\(c_t = β + β \sqrt{y_t} + ε\)</span> s.t. hopefully <span class="math inline">\(b = \hat{α}\)</span>, <span class="math inline">\(b = \hat{γ}\)</span> and <span class="math inline">\(\hat{δ} = \frac{1}{2}\)</span>.<br />
-v) <span class="math inline">\(c_t =β_1+β_2 y_t+ε_t\)</span> where <span class="math inline">\(y_t =y_t a\)</span> with <span class="math inline">\(a\in A =[\underline{a}, \bar{a}]\)</span> and <span class="math inline">\(0&lt;\underline{a}&lt;\bar{a}&lt;\infty\)</span>.<br />
-~~ The regression is considered for many possible values of <span class="math inline">\(a\)</span>, hoping that <span class="math inline">\(δ\in A\)</span>.<br />
-~~ So hopefully <span class="math inline">\(δ = \text{argmin}_{a\in A} s^2(a)\)</span>, and correspondingly, <span class="math inline">\(b_1 = α\)</span> and <span class="math inline">\(b_2 = γ\)</span> from the regression which provides the minimal value for <span class="math inline">\(s^2(a)\)</span>.</p>
-</blockquote>
-<pre class="r"><code>rm(list=ls())
-
-# number of obs
-N = 250
-
-# generate log-normally distributed real income
-y = rlnorm(N,3,1)
-# set parameters (you can vary those, of course)
-beta1 = 1
-beta2 = 0.6
-beta3 = 0.8
-# generate real consumption according to the nonlinear consumption function + random error
-c = beta1 + beta2*y^(beta3) + rnorm(N,0,0.1)
-plot(x = y, y = c)</code></pre>
-<ol style="list-style-type: lower-roman">
-<li><span class="math inline">\(c_t = β_1 + β_2y_t + ε_t\)</span> such that hopefully <span class="math inline">\(b_1 = \hat{α}\)</span> and <span class="math inline">\(b_2 = \hat{γ}\)</span><br />
-is good when <span class="math inline">\(δ = 1\)</span>:</li>
-</ol>
-<pre class="r"><code>reg1 = lm(c ~ y)
-summary(reg1)</code></pre>
-<ol start="2" style="list-style-type: lower-roman">
-<li><span class="math inline">\(\ln(c_t) = β_1 + β_2 \ln(y_t) + ε_t\)</span> such that hopefully <span class="math inline">\(b_1 = \ln(\hat{γ})\)</span> and <span class="math inline">\(b_2 = \hat{δ}\)</span><br />
-is good when <span class="math inline">\(α = 0\)</span>, <span class="math inline">\(\hat{γ} = \exp(b_1)\)</span> and <span class="math inline">\(\hat{δ} = b_2\)</span><br />
-inference on a non-linear transormation of a parameter via the delta method</li>
-</ol>
-<pre class="r"><code>reg2 = lm(log(c) ~ log(y))
-summary(reg2)
-exp(reg2$coef[1])</code></pre>
-<ol start="3" style="list-style-type: lower-roman">
-<li><span class="math inline">\(c_t = β_1 + β_2y_t^2 + ε_t\)</span> such that hopefully <span class="math inline">\(b_1 = \hat{α}\)</span> and <span class="math inline">\(b_2 = \hat{γ}\)</span> and <span class="math inline">\(\hat{δ} = 2\)</span>.<br />
-is good when <span class="math inline">\(δ = 2\)</span></li>
-</ol>
-<pre class="r"><code>reg3 = lm(c ~ I(y^2))
-summary(reg3)</code></pre>
-<ol start="4" style="list-style-type: lower-roman">
-<li><span class="math inline">\(c = β_1 + β_2 \sqrt{y} + ε\)</span> such that hopefully <span class="math inline">\(b_1 = \hat{α}\)</span> and <span class="math inline">\(b_2 = \hat{γ}\)</span> and <span class="math inline">\(\hat{δ} = 1/2\)</span>.<br />
-is good when <span class="math inline">\(δ = 1/2\)</span></li>
-</ol>
-<pre class="r"><code># (iv)
-reg4 = lm(c ~ I(sqrt(y)))
-summary(reg4)</code></pre>
-<p>v)<span class="math inline">\(c_t =β_1+β_2\tilde{y}_t+ε_t\)</span> where <span class="math inline">\(\tilde{y}_t =y_t^a\)</span> with <span class="math inline">\(a\in A=[\underline{a},\bar{a}]\)</span> and <span class="math inline">\(0 &lt; \underline{a} &lt; \bar{a} \leq\infty\)</span><br />
-hopefully works w/o restrictions</p>
-<pre class="r"><code># (v)
-beta3.fix = 1
-reg5 = lm(c ~ I(y^beta3.fix))
-summary(reg5)
-
-beta3.fix = 1.1
-reg5 = lm(c ~ I(y^beta3.fix))
-summary(reg5)
-
-beta3.fix = 0.9
-reg5 = lm(c ~ I(y^beta3.fix))
-summary(reg5)
-
-beta3.fix = 0.8
-reg5 = lm(c ~ I(y^beta3.fix))
-summary(reg5)
-
-beta3.fix = 1.2
-reg5 = lm(c ~ I(y^beta3.fix))
-summary(reg5)</code></pre>
-<blockquote>
-<p>PS4.Q1<br />
-5. Use the US data from 1960:Q1 to 2009:Q4 with N = 200 observations available in the data set usdata.txt to estimate the parameters empirically.<br />
-In the data set, the first column is real consumption, and the second is real disposable income.<br />
-Comment on your findings and summarize them in a regression output table.<br />
-6. Following (5), test the restriction <span class="math inline">\(δ = 1\)</span></p>
-</blockquote>
-<ol start="5" style="list-style-type: decimal">
-<li>~</li>
-</ol>
-<pre class="r"><code># rm(list=ls())
-
-USdata = read.table(file=&quot;usdata.txt&quot;)
-c = USdata[,1]
-y = USdata[,2]
-N = length(y)
-
-# note the data is trending
-ts.plot(USdata)
-
-# using (v)
-beta.fix.vec = seq( 0.01, 2, 0.01 )
-reg5.coef = matrix( NA, length(beta.fix.vec), 2 )
-s2 = matrix( NA, length(beta.fix.vec), 1 )
-
-for(i in 1:length( beta.fix.vec )){
-    beta3.fix = beta.fix.vec[i]
-    reg5 = lm( c ~ I( y^beta3.fix ))
-    reg5.coef[i,] = reg5$coef
-    s2[i,1] = summary(reg5)$sigma^2 }
-
-# plot objective function
-plot(s2)
-
-# find the arg min and run this particular regression
-which.min(s2)
-
-i = which.min(s2)
-(beta3.fix = beta.fix.vec[i])
-
-reg5 = lm(c ~ I( y^beta3.fix ))
-summary(reg5)
-round(reg5$coef,2)</code></pre>
-<ol start="6" style="list-style-type: decimal">
-<li>~</li>
-</ol>
-<pre class="r"><code># restricted model
-reg5r = lm( formula (c ~ y))
-summary(reg5r)</code></pre>
-<blockquote>
-<p>PS4.Q1<br />
-7. Plot the residuals and their autocorrelation function.<br />
-Find the empirical first-order autocorrelation coefficient.<br />
-Use the Box-Pierce test with one and five lags.<br />
-State the null and the alternative hypotheses in both cases.<br />
-Compute the test statistics and compare them to the appropriate critical values. Interpret your findings briefly.</p>
-</blockquote>
-<pre class="r"><code># residuals of unrestricted model
-e = reg5$res
-par( mfrow = c( 1, 2 ))
-
-# plot
-ts.plot( e )
-abline( h = 0 )
-
-# notice that the auto-correlations are getting smaller
-## plot
-acf( e )
-## table
-acf( e, plot = FALSE )</code></pre>
-<p>Box-Pierce test with one and five lags:</p>
-<pre class="r"><code>( rho1 = acf(e,plot=FALSE)$acf[2] )
-( Q1 = N * rho1^2 )
-qchisq( 0.95, 1 )
-qchisq( 0.99, 1 )
-
-( Q5 = N * sum( I( acf( e, plot = F)$acf[2:6]^2 )) )
-
-qchisq( 0.95, 5 )
-
-# choose lag
-log(N)</code></pre>
-</div>
-</div>
-<div id="r-workout" class="section level2">
-<h2>R Workout</h2>
-<pre class="r"><code>dir()
-library(repr)
-options(repr.plot.width=4, repr.plot.height=3)</code></pre>
-<div id="data-generation" class="section level3">
-<h3>Data Generation</h3>
-<blockquote>
-<p>PS1.Q3<br />
-Conduct Monte Carlo simulations.<br />
-The idea is to take a data generating process (DGP) with an assumed parameterization, simulate data from it, and estimate the parameters by OLS.<br />
-1. The first DGP is given by <span class="math inline">\(y_t = β_1 + β_2 x_t + ε_t\)</span> where <span class="math inline">\(ε_t ∼ \mathcal{N} (0, 1)\)</span>.<br />
-~~ The exogenous regressor <span class="math inline">\(x_t\)</span> is set to be always drawn from <span class="math inline">\(\mathcal{N} (0, 1)\)</span>.<br />
-~~ Given this regressor, simulate 10000 samples for <span class="math inline">\(y\)</span> of sizes <span class="math inline">\(n = \{10, 50, 100, 500\}\)</span>, using <span class="math inline">\(β_1 = 1\)</span> and <span class="math inline">\(β_2 = 2\)</span>.<br />
-2. For each of these samples, compute the OLS estimator <span class="math inline">\(b_2\)</span>.<br />
-3. Save the result in a matrix and plot it as a smoothed histogram (i.e. kernel density estimator).<br />
-4. Do the same for the DGP where <span class="math inline">\(x_t\)</span> and <span class="math inline">\(ε_t\)</span> are drawn individually from a <span class="math inline">\(t(5)\)</span>-distribution instead.<br />
-5. What do you find? Are the assumptions A1–A4 are satisfied?</p>
-</blockquote>
-</div>
-<div id="ols-regression" class="section level3">
-<h3>OLS Regression</h3>
-<blockquote>
-<p>PS2.Q4<br />
-For N = 500 observations, generate data from the linear regression model as follows:<br />
-<span class="math display">\[y_t = 0.5x_t + ε_t\]</span><br />
-with <span class="math inline">\(x_t ∼^{iid} N(0,σ_x^2)\)</span> independent of <span class="math inline">\(ε_t ∼^{iid} N(0,σ_ε^2)\)</span>.<br />
-Fix <span class="math inline">\(σ_ε = 4\)</span> and choose different values for <span class="math inline">\(σ_x\)</span>, say 0.01 and 100.<br />
-Compute the OLS estimator for the true model (excluding the intercept) and its standard deviation.<br />
-1. Verify that the standard deviation can be computed as <span class="math inline">\(\sqrt{ \frac{\sum_t e_t^2}{N-1} \cdot\frac{1}{\sum_t x_t^2}}\)</span>, where <span class="math inline">\(e_t\)</span> denotes the OLS residual.<br />
-2. Generate a scatter plot for different values of <span class="math inline">\(σ_x\)</span> to explain why an increasing variance of the regressor makes the OLS estimator more precise.<br />
-3. Vary also the sample size and the variance of the errors and repeat (2). What do you find?</p>
-</blockquote>
-<pre class="r"><code># normal distribution
-?rnorm
-sd = 100
-
-y &lt;- rnorm( 100, mean = 0, sd)
-x &lt;- rnorm( 100, mean = 0, sd)
-
-lm( formula = y ~ x - 1)
-
-plot( x, y )</code></pre>
-</div>
 </div>
 
     </div>
