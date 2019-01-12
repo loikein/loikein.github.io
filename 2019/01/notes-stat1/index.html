@@ -228,7 +228,7 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 <li><p>Wald statistic:
 <span class="math display">\[ξ = \frac{1}{σ^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span><br />
 <span class="math inline">\(H_0: ξ ∼ Χ^2_J\)</span><br />
-<span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q\)</span>.</p></li>
+<span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q = 0\)</span>.</p></li>
 <li>F-statistic:<br />
 <span class="math display">\[F = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span><br />
 <span class="math inline">\(H_0: F ∼ F^J_{N-K}\)</span><br />
@@ -240,7 +240,7 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 For model <span class="math inline">\(\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\)</span>, consider the regression output:<br />
 <img src="/post-img/notes-stat1--PS3Q1.png" width="406" /><br />
 <span class="math inline">\((X&#39; X)^{-1} = \begin{pmatrix} 5649.38 &amp;&amp; 307.02 &amp;&amp; \\ &amp;&amp; 16.85 &amp;&amp; -29.39 \\ -540.33 &amp;&amp; &amp;&amp; 51.68\end{pmatrix}\)</span><br />
-3. Test the hypothesis of constant returns to scale at <span class="math inline">\(5%\)</span> level.</p>
+3. Test the hypothesis of constant returns to scale at <span class="math inline">\(5\%\)</span> level.</p>
 </blockquote>
 <p>Constant return to scale <span class="math inline">\(\implies β_1 + β_2 = 1\)</span><br />
 Let <span class="math inline">\(R = \begin{pmatrix} 0 &amp;&amp; 1 &amp;&amp; 1\end{pmatrix}\)</span>, <span class="math inline">\(β = \begin{pmatrix} \log τ \\ β_1 \\ β_2 \end{pmatrix}\)</span>, <span class="math inline">\(q = 1 \implies J = 1\)</span>.<br />
@@ -275,8 +275,8 @@ result_1 * t(result_2) * result_3^(-1) * result_2
 <span class="math display">\[\begin{aligned} \text{Model A: } y_i &amp;= x_i&#39; β + ε_i \\
 \text{Model B: } y_i &amp;= z_i&#39; γ + v_i \\
 \text{Test Model: } y_i &amp;= \underbrace{(1-δ)x_i&#39; β}_{\text{Model A}} + \underbrace{δ z_i&#39; γ }_{\text{Model B}} + u_i \\
-&amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i\\
-H_0: \ t_{δ} &amp;= \frac{δ}{se(δ)} ∼ t\end{aligned}\]</span> ~</p>
+&amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i \end{aligned}\]</span><br />
+<span class="math inline">\(H_0: \ t_{δ} &amp;= \frac{δ}{se(δ)} ∼ t\)</span></p>
 </div>
 <div id="pe-test" class="section level3">
 <h3>PE Test</h3>
@@ -302,7 +302,7 @@ Just <span class="math inline">\(\log\)</span> both of them.</p>
 \text{Split Models: } y_i &amp;=  x_i&#39;β_1 + ε_i &amp;&amp; i = 1, \dots, T^* \\
 y_i &amp;=  x_i&#39;β_2 + ε_i &amp;&amp; i = T^*+1, \dots, n \\
 S_{UR} &amp;= e_1&#39; e_1 + e_2&#39; e_2\end{aligned}\]</span><br />
-<span class="math display">\[H_0: \frac{\frac{1}{K} S_R - S_{UR}}{\frac{1}{N-2K}S_{UR}} ∼ F_{N-2K}^K\]</span><br />
+<span class="math inline">\(H_0: \frac{\frac{1}{K} S_R - S_{UR}}{\frac{1}{N-2K}S_{UR}} ∼ F_{N-2K}^K\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(T^*\)</span> is the hypothetical breakpoint.<br />
 Note: Chow test can also test two or more breakpoints / groups.</p>
 <blockquote>

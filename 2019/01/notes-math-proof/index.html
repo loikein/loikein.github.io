@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">23 min read</span>
+    <span class="article-duration">24 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -118,6 +118,7 @@
 <li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
 <li><a href="#supremum-infimum">Supremum &amp; Infimum</a></li>
 <li><a href="#concave-convex">Concave &amp; Convex</a></li>
+<li><a href="#epigraph">Epigraph</a></li>
 </ul></li>
 <li><a href="#set-times-function">Set <span class="math inline">\(\times\)</span> Function</a><ul>
 <li><a href="#injection-surjection-revisited">Injection &amp; Surjection (revisited)</a></li>
@@ -728,11 +729,7 @@ Since supremum is the least upper bound<br />
 </li>
 <li>Function <span class="math inline">\(f\)</span> is strictly concave if <span class="math inline">\(f\big[ λx_1 + (1-λ)x_2\big] &gt; λf(x_1) + (1-λ) f(x_2)\)</span> for all <span class="math inline">\(x_1 \neq x_2\)</span>, <span class="math inline">\(λ\in(0,1)\)</span><br />
 </li>
-<li>Function <span class="math inline">\(f\)</span> is (strictly) convex if <span class="math inline">\(-f\)</span> is (strictly) concave.<br />
-</li>
-<li>Epigraph of <span class="math inline">\(f\)</span>: <span class="math inline">\(\big\{ (x,y) | y \geq f(x) \big\}\)</span><br />
-</li>
-<li><span class="math inline">\(f\)</span> is (strictly) convex <span class="math inline">\(\iff\)</span> its epigraph is (strictly) convex.</li>
+<li>Function <span class="math inline">\(f\)</span> is (strictly) convex if <span class="math inline">\(-f\)</span> is (strictly) concave.</li>
 </ul>
 <blockquote>
 <p>PS6.Q5<br />
@@ -766,6 +763,57 @@ Similarly,<br />
 f(z) -f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
 f(z) - f(y) &amp;&lt; \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
 \frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS7.Q3<br />
+Prove that if <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> is convex,<br />
+then <span class="math inline">\(\frac{f(y)-f(x)}{y-x}\)</span> is increasing for all <span class="math inline">\(y &gt; x\)</span></p>
+</blockquote>
+<p>Take <span class="math inline">\(x&lt; y_1\leq y_2\)</span><br />
+Take <span class="math inline">\(λ \in [0,1]\)</span> s.t. <span class="math inline">\(y_1 = λx + (1-λ)y_2\)</span><br />
+<span class="math inline">\(\implies λ = \frac{y_2-y_1}{y_2-x}\)</span> and <span class="math inline">\(1- λ = \frac{y_1-x}{y_2-x}\)</span><br />
+Since <span class="math inline">\(f\)</span> is convex,<br />
+<span class="math display">\[\begin{aligned} f(y_1) &amp;\leq λf(x) + (1-λ) f(y_2)  \\
+f(y_1) -f(x) &amp;\leq λf(x) -f(x) + (1-λ) f(y_2) \\
+&amp;\leq (1-λ) (f(y_2) - f(x)) \\
+&amp;\leq \frac{y_1-x}{y_2-x} \big(f(y_2) - f(x)\big) \\
+\frac{f(y_1)-f(x)}{y_1-x} &amp;\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS7.Q4<br />
+Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span> is concave,<br />
+then <span class="math inline">\(f(x)\leq f(x_0) + f&#39;(x_0)(x-x_0)\)</span> for any <span class="math inline">\(x,x_0\in \mathbb{R}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x = x_0\)</span> (trivial)<br />
+</li>
+<li><span class="math inline">\(x &gt; x_0\)</span><br />
+Take some <span class="math inline">\(y &lt; x_0\)</span> and <span class="math inline">\(λ \in (0,1)\)</span>, s.t. <span class="math inline">\(x_0 = λx + (1-λ) y\)</span><br />
+<span class="math inline">\(\implies λ = \frac{x_0-y}{x-y}\)</span><br />
+Since <span class="math inline">\(f\)</span> is concave,<br />
+<span class="math display">\[\begin{aligned} f(x_0) &amp;\geq λf(x) + (1-λ)f(y) \\ f(x_0) - f(y) &amp;\geq λ\big( f(x) - f(y)\big) \\ &amp;\geq \frac{x_0-y}{x-y}\big( f(x) - f(y)\big) \\ \frac{f(x_0) - f(y)}{x_0-y} &amp;\geq \frac{ f(x) - f(y)}{x-y}\end{aligned}\]</span><br />
+Take limit of both sides<br />
+<span class="math display">\[\begin{aligned} \lim_{y\to x_0}\frac{f(x_0) - f(y)}{x_0-y} &amp;\geq \lim_{y\to x_0}\frac{ f(x) - f(y)}{x-y} \\ f&#39;(x_0) &amp;\geq \frac{f(x)-f(x_0)}{x-x_0} \\ f(x) &amp;\leq f(x_0) + f&#39;(x_0)(x-x_0)\end{aligned}\]</span> ~</li>
+</ol>
+<blockquote>
+<p>PS7.Q5<br />
+Prove that if <span class="math inline">\(f:\mathbb{R}\to \mathbb{R}\)</span> is convex,<br />
+then <span class="math inline">\(f\big(λx + (1-λ)y\big) \geq λf(x) + (1-λ)f(y)\)</span> for all <span class="math inline">\(x,y\)</span> and <span class="math inline">\(λ \notin [0,1]\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x = y\)</span> (trivial)<br />
+</li>
+<li>Let <span class="math inline">\(x &lt; y\)</span>
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(λ &gt; 1\)</span></li>
+</ol></li>
+</ol>
+</div>
+<div id="epigraph" class="section level3">
+<h3>Epigraph</h3>
+<ul>
+<li>Epigraph of <span class="math inline">\(f\)</span>: <span class="math inline">\(\big\{ (x,y) | y \geq f(x) \big\}\)</span><br />
+</li>
+<li><span class="math inline">\(f\)</span> is (strictly) convex <span class="math inline">\(\iff\)</span> its epigraph is (strictly) convex.</li>
+</ul>
 <blockquote>
 <p>PS6.Q4<br />
 Prove that the epigraph of a convex function is convex</p>
