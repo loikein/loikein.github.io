@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Mathematical Proofs - Past Exams - loikein</title>
+<meta property="og:title" content="Notes on Mathematical Proofs - Past Exams - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Notes on Mathematical Proofs - Past Exams</h1>
+
+    
+    <span class="article-date">2019/01/15</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/math'>math</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#logic">Logic</a><ul>
+<li><a href="#truth-table">Truth table</a></li>
+<li><a href="#direct-proof">Direct proof</a></li>
+</ul></li>
+<li><a href="#relation">Relation</a><ul>
+<li><a href="#complete-order">Complete Order</a></li>
+<li><a href="#partial-order">Partial Order</a></li>
+</ul></li>
+<li><a href="#space">Space</a><ul>
+<li><a href="#distance">Distance</a></li>
+<li><a href="#cauchy-schwarz-inequality">Cauchy-Schwarz Inequality</a></li>
+</ul></li>
+<li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
+<li><a href="#proof-by-logic-twice-if-unlucky">Proof by Logic (twice if unlucky)</a></li>
+<li><a href="#proof-by-b_">Proof by <span class="math inline">\(B_ε\)</span></a></li>
+</ul></li>
+<li><a href="#set">Set</a><ul>
+<li><a href="#close-open">Close / Open</a></li>
+<li><a href="#closure-interior-boundary">Closure &amp; Interior &amp; Boundary</a></li>
+<li><a href="#convex">Convex</a></li>
+<li><a href="#maximum-supremum">Maximum &amp; Supremum</a></li>
+<li><a href="#dense">Dense</a></li>
+</ul></li>
+<li><a href="#function">Function</a><ul>
+<li><a href="#range-image">Range / Image</a></li>
+<li><a href="#injection-surjection">Injection &amp; Surjection</a></li>
+<li><a href="#continuous">Continuous</a></li>
+<li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
+<li><a href="#supremum-infimum">Supremum &amp; Infimum</a></li>
+<li><a href="#concave-convex">Concave &amp; Convex</a></li>
+<li><a href="#epigraph">Epigraph</a></li>
+</ul></li>
+<li><a href="#set-times-function">Set <span class="math inline">\(\times\)</span> Function</a><ul>
+<li><a href="#injection-surjection-revisited">Injection &amp; Surjection (revisited)</a></li>
+<li><a href="#finite-countable">Finite &amp; Countable</a></li>
+</ul></li>
+<li><a href="#sequence">Sequence</a><ul>
+<li><a href="#un-bounded">(Un-)bounded</a></li>
+<li><a href="#convergent">Convergent</a></li>
+<li><a href="#limit-cluster-point">Limit &amp; Cluster Point</a></li>
+</ul></li>
+<li><a href="#set-times-sequence">Set <span class="math inline">\(\times\)</span> Sequence</a></li>
+</ul>
+</div>
+
+<p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
+<ul>
+<li>:) means “we want to show”</li>
+<li>FSOC means “for the sake of controdiction”</li>
+<li><p>s.t. means “such that”</p></li>
+<li>[] 2014-1</li>
+<li>[] 2014-2</li>
+<li>[] 2015-1</li>
+<li>[] 2015-2</li>
+<li>[] 2016-1</li>
+<li>[] 2016-2</li>
+<li>[] 2017-1</li>
+<li>[] 2017-2</li>
+<li>[] 2018-1</li>
+<li><p>[] 2018-2</p></li>
+</ul>
+<div id="logic" class="section level2">
+<h2>Logic</h2>
+<div id="truth-table" class="section level3">
+<h3>Truth table</h3>
+</div>
+<div id="direct-proof" class="section level3">
+<h3>Direct proof</h3>
+</div>
+</div>
+<div id="relation" class="section level2">
+<h2>Relation</h2>
+<div id="complete-order" class="section level3">
+<h3>Complete Order</h3>
+</div>
+<div id="partial-order" class="section level3">
+<h3>Partial Order</h3>
+</div>
+</div>
+<div id="space" class="section level2">
+<h2>Space</h2>
+<div id="distance" class="section level3">
+<h3>Distance</h3>
+</div>
+<div id="cauchy-schwarz-inequality" class="section level3">
+<h3>Cauchy-Schwarz Inequality</h3>
+</div>
+</div>
+<div id="set-collection-operation" class="section level2">
+<h2>Set Collection &amp; Operation</h2>
+<div id="proof-by-logic-twice-if-unlucky" class="section level3">
+<h3>Proof by Logic (twice if unlucky)</h3>
+</div>
+<div id="proof-by-b_" class="section level3">
+<h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
+</div>
+</div>
+<div id="set" class="section level2">
+<h2>Set</h2>
+<div id="close-open" class="section level3">
+<h3>Close / Open</h3>
+</div>
+<div id="closure-interior-boundary" class="section level3">
+<h3>Closure &amp; Interior &amp; Boundary</h3>
+</div>
+<div id="convex" class="section level3">
+<h3>Convex</h3>
+</div>
+<div id="maximum-supremum" class="section level3">
+<h3>Maximum &amp; Supremum</h3>
+</div>
+<div id="dense" class="section level3">
+<h3>Dense</h3>
+</div>
+</div>
+<div id="function" class="section level2">
+<h2>Function</h2>
+<div id="range-image" class="section level3">
+<h3>Range / Image</h3>
+</div>
+<div id="injection-surjection" class="section level3">
+<h3>Injection &amp; Surjection</h3>
+</div>
+<div id="continuous" class="section level3">
+<h3>Continuous</h3>
+</div>
+<div id="limit-differenciation" class="section level3">
+<h3>Limit &amp; Differenciation</h3>
+</div>
+<div id="supremum-infimum" class="section level3">
+<h3>Supremum &amp; Infimum</h3>
+</div>
+<div id="concave-convex" class="section level3">
+<h3>Concave &amp; Convex</h3>
+</div>
+<div id="epigraph" class="section level3">
+<h3>Epigraph</h3>
+</div>
+</div>
+<div id="set-times-function" class="section level2">
+<h2>Set <span class="math inline">\(\times\)</span> Function</h2>
+<div id="injection-surjection-revisited" class="section level3">
+<h3>Injection &amp; Surjection (revisited)</h3>
+</div>
+<div id="finite-countable" class="section level3">
+<h3>Finite &amp; Countable</h3>
+</div>
+</div>
+<div id="sequence" class="section level2">
+<h2>Sequence</h2>
+<div id="un-bounded" class="section level3">
+<h3>(Un-)bounded</h3>
+</div>
+<div id="convergent" class="section level3">
+<h3>Convergent</h3>
+</div>
+<div id="limit-cluster-point" class="section level3">
+<h3>Limit &amp; Cluster Point</h3>
+</div>
+</div>
+<div id="set-times-sequence" class="section level2">
+<h2>Set <span class="math inline">\(\times\)</span> Sequence</h2>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

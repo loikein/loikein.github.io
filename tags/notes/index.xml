@@ -6,10 +6,28 @@
     <description>Recent content in Notes on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Mathematical Proofs - Past Exams</title>
+      <link>/2019/01/notes-math-proof-exam/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/notes-math-proof-exam/</guid>
+      <description>Logic Truth table Direct proof  Relation Complete Order Partial Order  Space Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation Proof by Logic (twice if unlucky) Proof by \(B_ε\)  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function Range / Image Injection &amp;amp; Surjection Continuous Limit &amp;amp; Differenciation Supremum &amp;amp; Infimum Concave &amp;amp; Convex Epigraph  Set \(\times\) Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence (Un-)bounded Convergent Limit &amp;amp; Cluster Point  Set \(\times\) Sequence   Wrote by a MSc student dying of end-of-term reviews (a.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Mathematical Proofs</title>
+      <link>/2019/01/notes-math-proof/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/notes-math-proof/</guid>
+      <description>Logic Truth table Direct proof  Relation Complete Order Partial Order  Space Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation Proof by Logic (twice if unlucky) Proof by \(B_ε\)  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function Range / Image Injection &amp;amp; Surjection Continuous Limit &amp;amp; Differenciation Supremum &amp;amp; Infimum Concave &amp;amp; Convex Epigraph  Set \(\times\) Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence (Un-)bounded Convergent Limit &amp;amp; Cluster Point  Set \(\times\) Sequence   Wrote by a MSc student dying of end-of-term reviews (a.</description>
+    </item>
     
     <item>
       <title>Notes on Econometrics - Practice Part</title>
@@ -32,15 +50,6 @@ Consider the wage regressions from slide 5 (text P86).
       
       <guid>/2019/01/notes-stat1-theory/</guid>
       <description>Tests &amp;amp; Statistics \(R^2\) t-test F-test (Joint Test) Wald Test J Test PE Test Chow (Breakpoint) Test Sargan Test (Overidentifying Restrictions Test) Durbin-Wu-Hausman Test (Endogeneity Test) Read Regression Table  Gauss-Markov Assumptions OLS Error Normality of \(ε\) Unbiasedness of \(s^2\) Consistency of \(s^2\)  OLS Estimator Derive OLS Normality of \(b\) Unbiasedness of \(b\) Consistent of \(b\) (Asymptotic) Efficienty BLUE (Best Linear Unbiased Estimator) CAN (Consistent and Asymptotically Normal)  OLS Model Converge in Probability &amp;amp; Mean Square LLN (Law of Large Numbers) Elasticity  IV (Instrument Variable) Derive IV IV Estimator \(\hat{β}_{IV}\) GIVE (Generalized IV Estimator)  Heteroskedasticity &amp;amp; Autocorrelation White (Hetero-Consistent) Standard Error HAC (Robust) Standard Error  Maximum Likelihood Model   Warning: under proofreading</description>
-    </item>
-    
-    <item>
-      <title>Notes on Mathematical Proofs</title>
-      <link>/2019/01/notes-math-proof/</link>
-      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/01/notes-math-proof/</guid>
-      <description>Logic Truth table Direct proof  Relation Complete Order Partial Order  Space Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation Proof by Logic (twice if unlucky) Proof by \(B_ε\)  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function Range / Image Injection &amp;amp; Surjection Continuous Limit &amp;amp; Differenciation Supremum &amp;amp; Infimum Concave &amp;amp; Convex Epigraph  Set \(\times\) Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence (Un-)bounded Convergent Limit &amp;amp; Cluster Point  Set \(\times\) Sequence   Wrote by a MSc student dying of end-of-term reviews (a.</description>
     </item>
     
     <item>

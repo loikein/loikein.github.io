@@ -65,7 +65,7 @@
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
 
     
-    <span class="article-date">2019/01/11</span>
+    <span class="article-date">2019/01/14</span>
     
     
     
@@ -207,7 +207,7 @@ Prove that <span class="math inline">\(\lnot (p \lor q) \iff \lnot p \land \lnot
 <div id="direct-proof" class="section level3">
 <h3>Direct proof</h3>
 <blockquote>
-<p>PS2.Q2<br />
+<p>PS1.Q2<br />
 Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> be three statements<br />
 Prove that if <span class="math inline">\(p \implies q\)</span> and <span class="math inline">\(q \implies r\)</span>, then <span class="math inline">\(p \implies r\)</span></p>
 </blockquote>
@@ -704,7 +704,11 @@ Since <span class="math inline">\(f(x)\)</span> is strictly increasing<br />
 Let <span class="math inline">\(f,g:A\to \mathbb{R}\)</span> be two functions with a finite supremum in some set <span class="math inline">\(A\)</span><br />
 Show that <span class="math inline">\(\sup_{x\in A} \big( f(x) +g(x) \big) \leq \sup_{x\in A} f(x) + \sup_{x\in A} g(x)\)</span></p>
 </blockquote>
-<p>Denote <span class="math inline">\(h \equiv f+g\)</span>, <span class="math inline">\(\bar{f} \equiv \sup\big(f(x)\big)\)</span>, <span class="math inline">\(\bar{g} \equiv \sup\big(g(x)\big)\)</span>, <span class="math inline">\(\bar{h} \equiv \sup\big(h(x)\big)\)</span></p>
+<p>Denote <span class="math inline">\(h \equiv f+g\)</span>, <span class="math inline">\(\bar{f} \equiv \sup\big(f(x)\big)\)</span>, <span class="math inline">\(\bar{g} \equiv \sup\big(g(x)\big)\)</span>, <span class="math inline">\(\bar{h} \equiv \sup\big(h(x)\big)\)</span><br />
+<span class="math inline">\(h(x) = f(x) + g(x) \leq \bar{f }+\bar{g}\)</span><br />
+<span class="math inline">\(\implies \bar{f} + \bar{g}\)</span> is an upper bound of <span class="math inline">\(h(x)\)</span><br />
+Since supremum is the least upper bound<br />
+<span class="math inline">\(\implies\bar{h} \leq \bar{f} + \bar{g}\)</span></p>
 <blockquote>
 <p>PS4.Q7<br />
 Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be a bounded function and <span class="math inline">\(h(y) \equiv \sup_{x\geq y} \big( f(x) \big)\)</span><br />
@@ -717,11 +721,7 @@ Take <span class="math inline">\(y_1&lt;y_2\)</span><br />
 <span class="math inline">\(h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_1\}\)</span><br />
 <span class="math inline">\(\implies h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
-<span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span><br />
-<span class="math inline">\(h(x) = f(x) + g(x) \leq \bar{f }+\bar{g}\)</span><br />
-<span class="math inline">\(\implies \bar{f} + \bar{g}\)</span> is an upper bound of <span class="math inline">\(h(x)\)</span><br />
-Since supremum is the least upper bound<br />
-<span class="math inline">\(\implies\bar{h} \leq \bar{f} + \bar{g}\)</span></p>
+<span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span></p>
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
@@ -751,7 +751,7 @@ then <span class="math inline">\(f(x) = 0\)</span> has at most two solutions</p>
 Let <span class="math inline">\(λ = \frac{z-y}{z-x} \implies y = λx + (1-λ)z\)</span><br />
 Since <span class="math inline">\(f\)</span> is strictly convex,<br />
 <span class="math display">\[\begin{aligned} f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
-0 &amp;&lt; ) + 0\end{aligned}\]</span><br />
+0 &amp;&lt; 0 + 0\end{aligned}\]</span><br />
 Contradiction.</p>
 <blockquote>
 <p>PS7.Q1<br />
