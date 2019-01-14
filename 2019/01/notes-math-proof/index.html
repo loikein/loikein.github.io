@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">26 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -114,7 +114,8 @@
 <li><a href="#function">Function</a><ul>
 <li><a href="#range-image">Range / Image</a></li>
 <li><a href="#injection-surjection">Injection &amp; Surjection</a></li>
-<li><a href="#continuous">Continuous</a></li>
+<li><a href="#continuity">Continuity</a></li>
+<li><a href="#value-theorems">Value Theorems</a></li>
 <li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
 <li><a href="#supremum-infimum">Supremum &amp; Infimum</a></li>
 <li><a href="#concave-convex">Concave &amp; Convex</a></li>
@@ -597,8 +598,8 @@ Is it surjective?</p>
 :) <span class="math inline">\(x\in f( \text{domain}) \iff x \in \text{range}\)</span></li>
 </ol>
 </div>
-<div id="continuous" class="section level3">
-<h3>Continuous</h3>
+<div id="continuity" class="section level3">
+<h3>Continuity</h3>
 <ul>
 <li>Function <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(x \iff \exists δ&gt;0\)</span> s.t. <span class="math inline">\(f\big( B_δ(x)\big) \subset B_ε\big(f(x)\big)\)</span> for all <span class="math inline">\(ε\)</span>.<br />
 </li>
@@ -653,6 +654,45 @@ Take infimum of both sides<br />
 Take <span class="math inline">\(ε \equiv 2δ\)</span><br />
 <span class="math inline">\(\implies\)</span> if <span class="math inline">\(x&#39; \in B_δ(x)\)</span>, then <span class="math inline">\(f(x&#39;) \in B_ε\big( f(x) \big)\)</span><br />
 <span class="math inline">\(\implies f\)</span> is continuous</p>
+</div>
+<div id="value-theorems" class="section level3">
+<h3>Value Theorems</h3>
+<ul>
+<li>Mean value theorem: if <span class="math inline">\(f\ in \mathcal{C}^0[a,b]\)</span> and <span class="math inline">\(f\ in \mathcal{C}^1(a,b)\)</span>, then exists some <span class="math inline">\(c \in (a, b)\)</span> s.t. <span class="math inline">\(f&#39;(c) = \frac{f(b) - f(a)}{b - a}\)</span></li>
+<li>Intermediate value theorem</li>
+<li>Extreme value theorem: if <span class="math inline">\(A\)</span> is compact, <span class="math inline">\(f: A\to \mathbb{R}\)</span> is continuous, then exists some <span class="math inline">\(x \in A\)</span> s.t. <span class="math inline">\(f(x) = \max \big( f(A) \big)\)</span></li>
+<li>Brouwer’s fixed point: if <span class="math inline">\(A\)</span> is compact and convex, <span class="math inline">\(f: A\to A\)</span> is continuous, then <span class="math inline">\(f\)</span> has a fixed point</li>
+<li>Kakutani’s fixed point</li>
+</ul>
+<blockquote>
+<p>PS8.Q1<br />
+Let <span class="math inline">\(f\in \mathcal{C}^1 (\mathbb{R},\mathbb{R})\)</span>, and <span class="math inline">\(f&#39;(a)&gt;0\)</span> for some <span class="math inline">\(a\)</span><br />
+Prove that there exists some <span class="math inline">\(ε&gt;0\)</span> s.t. if <span class="math inline">\(x\in (a, a+ε)\)</span> then <span class="math inline">\(f(x)&gt;f(a)\)</span><br />
+and if <span class="math inline">\(x\in (a-ε,a)\)</span> then <span class="math inline">\(f(x)&lt;f(a)\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x\in (a, a+ε)\)</span><br />
+FSOC assume there is some <span class="math inline">\(x\in (a, a+ε)\)</span> s.t. <span class="math inline">\(f(x)\leq f(a)\)</span><br />
+Consider sequence <span class="math inline">\(\{x_n\}_n\)</span> s.t. <span class="math inline">\(x_n\in \left(a,\frac{a+x_{n-1}}{2} \right)\)</span><br />
+<span class="math inline">\(\implies f(x_n) \leq f(a)\)</span><br />
+Clearly, <span class="math inline">\(\{x_n\}_n\)</span> is strictly decreasing<br />
+<span class="math inline">\(\implies \lim_{n\to\infty} \frac{f(x_n)-f(a)}{x_n-a} \leq 0\)</span><br />
+Contradicts to <span class="math inline">\(f&#39;(a)&gt;0\)</span><br />
+</li>
+<li><span class="math inline">\(x\in (a-ε,a)\)</span><br />
+Similar argument holds</li>
+</ol>
+<blockquote>
+<p>PS8.Q2<br />
+Let <span class="math inline">\(f\in \mathcal{C}^1 (\mathbb{R},\mathbb{R})\)</span>,<br />
+Let <span class="math inline">\(f(a)=f(b) = 0\)</span> and <span class="math inline">\(f&#39;(a)\neq f&#39;(b)\neq 0\)</span> for some <span class="math inline">\(a&lt;b\in \mathbb{R}\)</span><br />
+Prove the mean value theorem</p>
+</blockquote>
+<p>Since <span class="math inline">\([a,b]\)</span> is compact and <span class="math inline">\(f\)</span> is continuous,<br />
+<span class="math inline">\(\implies f\)</span> has maximum and minimum in <span class="math inline">\([a,b]\)</span><br />
+If <span class="math inline">\(\max\left(f|_{[a,b]}\right) = \min\left(f|_{[a,b]}\right)\)</span><br />
+<span class="math inline">\(\implies f&#39;(x)=0\)</span> for all <span class="math inline">\(x \in [a,b]\)</span>, contradicts to <span class="math inline">\(f&#39;(a)\neq f&#39;(b)\neq 0\)</span><br />
+<span class="math inline">\(\implies \max\left(f|_{[a,b]}\right) \neq \min\left(f|_{[a,b]}\right)\)</span></p>
 </div>
 <div id="limit-differenciation" class="section level3">
 <h3>Limit &amp; Differenciation</h3>
