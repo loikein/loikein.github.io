@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">27 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -117,7 +117,8 @@
 <li><a href="#continuity">Continuity</a></li>
 <li><a href="#value-theorems">Value Theorems</a></li>
 <li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
-<li><a href="#supremum-infimum">Supremum &amp; Infimum</a></li>
+<li><a href="#supremum-infimum">Supremum / Infimum</a></li>
+<li><a href="#maximum">Maximum</a></li>
 <li><a href="#concave-convex">Concave &amp; Convex</a></li>
 <li><a href="#epigraph">Epigraph</a></li>
 </ul></li>
@@ -658,7 +659,7 @@ Take <span class="math inline">\(ε \equiv 2δ\)</span><br />
 <div id="value-theorems" class="section level3">
 <h3>Value Theorems</h3>
 <ul>
-<li>Mean value theorem: if <span class="math inline">\(f\ in \mathcal{C}^0[a,b]\)</span> and <span class="math inline">\(f\ in \mathcal{C}^1(a,b)\)</span>, then exists some <span class="math inline">\(c \in (a, b)\)</span> s.t. <span class="math inline">\(f&#39;(c) = \frac{f(b) - f(a)}{b - a}\)</span></li>
+<li>Mean value theorem: if <span class="math inline">\(f \in \mathcal{C}^0[a,b]\)</span> and <span class="math inline">\(f \in \mathcal{C}^1(a,b)\)</span>, then exists some <span class="math inline">\(c \in (a, b)\)</span> s.t. <span class="math inline">\(f&#39;(c) = \frac{f(b) - f(a)}{b - a}\)</span></li>
 <li>Intermediate value theorem</li>
 <li>Extreme value theorem: if <span class="math inline">\(A\)</span> is compact, <span class="math inline">\(f: A\to \mathbb{R}\)</span> is continuous, then exists some <span class="math inline">\(x \in A\)</span> s.t. <span class="math inline">\(f(x) = \max \big( f(A) \big)\)</span></li>
 <li>Brouwer’s fixed point: if <span class="math inline">\(A\)</span> is compact and convex, <span class="math inline">\(f: A\to A\)</span> is continuous, then <span class="math inline">\(f\)</span> has a fixed point</li>
@@ -690,9 +691,20 @@ Prove the mean value theorem</p>
 </blockquote>
 <p>Since <span class="math inline">\([a,b]\)</span> is compact and <span class="math inline">\(f\)</span> is continuous,<br />
 <span class="math inline">\(\implies f\)</span> has maximum and minimum in <span class="math inline">\([a,b]\)</span><br />
-If <span class="math inline">\(\max\left(f|_{[a,b]}\right) = \min\left(f|_{[a,b]}\right)\)</span><br />
+If <span class="math inline">\(\max\Big(f|_{[a,b]}\Big) = \min\Big(f|_{[a,b]}\Big)\)</span><br />
 <span class="math inline">\(\implies f&#39;(x)=0\)</span> for all <span class="math inline">\(x \in [a,b]\)</span>, contradicts to <span class="math inline">\(f&#39;(a)\neq f&#39;(b)\neq 0\)</span><br />
-<span class="math inline">\(\implies \max\left(f|_{[a,b]}\right) \neq \min\left(f|_{[a,b]}\right)\)</span></p>
+<span class="math inline">\(\implies \max\Big(f|_{[a,b]}\Big) \neq \min\Big(f|_{[a,b]}\Big)\)</span><br />
+1. <span class="math inline">\(\max(f|_{[a,b]}) &gt; 0\)</span><br />
+Let <span class="math inline">\(c \in \text{argmax}_{x\in[a,b]} f(x)\)</span><br />
+1.1. <span class="math inline">\(f&#39;(c) = 0\)</span> (trivial)<br />
+1.2. <span class="math inline">\(f&#39;(c) &gt; 0\)</span><br />
+<span class="math inline">\(\implies\)</span> Exists <span class="math inline">\(c&#39;\in (c,c+ε)\)</span> s.t. <span class="math inline">\(f(c&#39;)&gt;f(c)\)</span>, contradiction<br />
+1.3. <span class="math inline">\(f&#39;(c) &lt; 0\)</span><br />
+Let <span class="math inline">\(g(x) \equiv -f(x)\)</span><br />
+<span class="math inline">\(\implies\)</span> Exists <span class="math inline">\(c&#39;\in (c-ε,c)\)</span> s.t. <span class="math inline">\(g(c&#39;)&lt;g(c)\)</span><br />
+<span class="math inline">\(\implies f(c&#39;)&gt;f(c)\)</span>, contradiction<br />
+2. <span class="math inline">\(\max(f|_{[a,b]}) = 0\)</span><br />
+Similar arguments apply</p>
 </div>
 <div id="limit-differenciation" class="section level3">
 <h3>Limit &amp; Differenciation</h3>
@@ -738,7 +750,7 @@ Since <span class="math inline">\(f(x)\)</span> is strictly increasing<br />
 &amp;= g&#39;\big(f(x)\big)\cdot f&#39;(x)\end{aligned}\]</span> ~</p>
 </div>
 <div id="supremum-infimum" class="section level3">
-<h3>Supremum &amp; Infimum</h3>
+<h3>Supremum / Infimum</h3>
 <blockquote>
 <p>PS2.Q2<br />
 Let <span class="math inline">\(f,g:A\to \mathbb{R}\)</span> be two functions with a finite supremum in some set <span class="math inline">\(A\)</span><br />
@@ -762,6 +774,22 @@ Take <span class="math inline">\(y_1&lt;y_2\)</span><br />
 <span class="math inline">\(\implies h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 <span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span></p>
+</div>
+<div id="maximum" class="section level3">
+<h3>Maximum</h3>
+<ul>
+<li>Maximum of function <span class="math inline">\(f: A \to \mathbb{R}\)</span> is <span class="math inline">\(\max_x f(x)\)</span> <span class="math inline">\(\equiv\)</span> <span class="math inline">\(\max \{f(x)|x\in A\}\)</span> <span class="math inline">\(\equiv\)</span> <span class="math inline">\(\max \big( f(A)\big)\)</span></li>
+<li>Argument of maximum is <span class="math inline">\(\text{argmax}_x f(x)\)</span> <span class="math inline">\(\equiv\)</span> <span class="math inline">\(\{ x| f(x) = \max \big( f(A)\big) \} \subset A\)</span></li>
+</ul>
+<blockquote>
+<p>PS8.Q5<br />
+Let <span class="math inline">\(f: [0,1]^2\to \mathbb{R}\)</span> be continuous, and <span class="math inline">\(f(x,y)\)</span> increasing in <span class="math inline">\(x\)</span> for all <span class="math inline">\(y\in [0,1]\)</span><br />
+Show that <span class="math inline">\(\max_{(x,y)\in[0,1]^2} f(x,y) = \max_{y\in[0,1]} f(1,y)\)</span></p>
+</blockquote>
+<p>Since <span class="math inline">\(f(x,y)\)</span> increasing in <span class="math inline">\(x\)</span><br />
+<span class="math inline">\(\implies f(x_1,\bar{y} ) &gt; f(x_2,\bar{y})\)</span> for any <span class="math inline">\(x_1 &gt; x_2\)</span> and for any <span class="math inline">\(\bar{y}\)</span><br />
+<span class="math inline">\(\implies \max_{(x,y)\in[0,1]^2} f(x,y) \geq \max_{y\in[0,1]} f(1,y)\)</span><br />
+FSOC assume <span class="math inline">\(\max_{(x,y)\in[0,1]^2} f(x,y) &gt; \max_{y\in[0,1]} f(1,y)\)</span></p>
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
