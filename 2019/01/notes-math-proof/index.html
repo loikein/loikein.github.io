@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">27 min read</span>
+    <span class="article-duration">28 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -116,6 +116,7 @@
 <li><a href="#injection-surjection">Injection &amp; Surjection</a></li>
 <li><a href="#continuity">Continuity</a></li>
 <li><a href="#value-theorems">Value Theorems</a></li>
+<li><a href="#contraction">Contraction</a></li>
 <li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
 <li><a href="#supremum-infimum">Supremum / Infimum</a></li>
 <li><a href="#maximum">Maximum</a></li>
@@ -147,8 +148,8 @@
 <li>[x] PS5</li>
 <li>[x] PS6</li>
 <li>[x] PS7</li>
-<li>[] PS8</li>
-<li><p>[]</p></li>
+<li>[x] PS8</li>
+<li><p>[ ] PS9</p></li>
 </ul>
 <div id="logic" class="section level2">
 <h2>Logic</h2>
@@ -291,6 +292,12 @@ Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance 
 <li>Triangle Inequality<br />
 :) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
 </ol>
+<blockquote>
+<p>PS8.Q7<br />
+Let <span class="math inline">\(C_B\)</span> be the space of bounded and continuous functions from compact <span class="math inline">\(A\subset \mathbb{R}^n\)</span> to <span class="math inline">\(\mathbb{R}\)</span><br />
+Define <span class="math inline">\(d: C_B\times C_B \to \mathbb{R}\)</span> as <span class="math inline">\(d(f,g)\equiv \max _{x\in A} |f(x) - g(x)|\)</span><br />
+Show that <span class="math inline">\(d\)</span> is a distance on <span class="math inline">\(C_B\)</span></p>
+</blockquote>
 </div>
 <div id="cauchy-schwarz-inequality" class="section level3">
 <h3>Cauchy-Schwarz Inequality</h3>
@@ -706,6 +713,34 @@ Let <span class="math inline">\(g(x) \equiv -f(x)\)</span><br />
 2. <span class="math inline">\(\max(f|_{[a,b]}) = 0\)</span><br />
 Similar arguments apply</p>
 </div>
+<div id="contraction" class="section level3">
+<h3>Contraction</h3>
+<ul>
+<li>Function <span class="math inline">\(f: U\to U\)</span> is a contraction if <span class="math inline">\(d\big(f(x), f(x&#39;)\big) \leq λ d(x,x&#39;)\)</span> for some <span class="math inline">\(λ \in [0,1)\)</span></li>
+</ul>
+<blockquote>
+<p>PS9.Q1<br />
+Prove that if <span class="math inline">\(f\)</span> is contraction, then it is continuous</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(ε &gt; 0\)</span>, <span class="math inline">\(δ &gt; 0\)</span>, <span class="math inline">\(λ \in [0,1)\)</span> and <span class="math inline">\(x\)</span><br />
+Take <span class="math inline">\(x&#39; \in B_δ(x)\)</span>, since <span class="math inline">\(f\)</span> is contraction<br />
+<span class="math inline">\(\implies d\big(f(x),f(x&#39;)\big) \leq λd(x,x&#39;) &lt; σ\)</span><br />
+<span class="math inline">\(\implies f(x&#39;)\in B_δ\big(f(x)\big)\)</span><br />
+Let <span class="math inline">\(ε = δ\)</span><br />
+<span class="math inline">\(x&#39;\in B_δ(x) \implies f(x&#39;)\in B_ε\big(f(x)\big)\)</span><br />
+<span class="math inline">\(\implies f\)</span> is continuous</p>
+<blockquote>
+<p>PS9.Q2<br />
+Let <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})\)</span><br />
+Assume exists <span class="math inline">\(λ\in(0,1)\)</span> s.t. <span class="math inline">\(f&#39;(x)\in [-λ,λ]\)</span> for all <span class="math inline">\(x\)</span><br />
+Prove that <span class="math inline">\(f\)</span> is contraction
+Hint: Use the mean value theorem</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x, y\)</span><br />
+1. <span class="math inline">\(x=y\)</span><br />
+<span class="math inline">\(d\big(f(x), f(y)\big) = 0\)</span>, <span class="math inline">\(λd(x,y) = 0 \implies d\big(f(x), f(y)\big)\leq λd(x,y)\)</span><br />
+2. Assume <span class="math inline">\(x&lt;y\)</span></p>
+</div>
 <div id="limit-differenciation" class="section level3">
 <h3>Limit &amp; Differenciation</h3>
 <ul>
@@ -789,7 +824,37 @@ Show that <span class="math inline">\(\max_{(x,y)\in[0,1]^2} f(x,y) = \max_{y\in
 <p>Since <span class="math inline">\(f(x,y)\)</span> increasing in <span class="math inline">\(x\)</span><br />
 <span class="math inline">\(\implies f(x_1,\bar{y} ) &gt; f(x_2,\bar{y})\)</span> for any <span class="math inline">\(x_1 &gt; x_2\)</span> and for any <span class="math inline">\(\bar{y}\)</span><br />
 <span class="math inline">\(\implies \max_{(x,y)\in[0,1]^2} f(x,y) \geq \max_{y\in[0,1]} f(1,y)\)</span><br />
-FSOC assume <span class="math inline">\(\max_{(x,y)\in[0,1]^2} f(x,y) &gt; \max_{y\in[0,1]} f(1,y)\)</span></p>
+FSOC assume <span class="math inline">\(\max_{(x,y)\in[0,1]^2} f(x,y) &gt; \max_{y\in[0,1]} f(1,y)\)</span><br />
+Let <span class="math inline">\(f(x^*, y^*) = \max_{(x,y)\in[0,1]^2} f(x,y)\)</span><br />
+<span class="math inline">\(\implies f(x^*, y^*) &gt; f(1,y)\)</span> for all <span class="math inline">\(y\)</span><br />
+<span class="math inline">\(\implies f(x^*, y^*) &gt; f(1,y^*)\)</span> contradiction<br />
+<span class="math inline">\(\implies \max_{(x,y)\in[0,1]^2} f(x,y) = \max_{y\in[0,1]} f(1,y)\)</span></p>
+<blockquote>
+<p>PS8.Q4<br />
+Let <span class="math inline">\(f: A\to \mathbb{R}\)</span> be continuous for <span class="math inline">\(A\subset \mathbb{R}^n\)</span><br />
+Let <span class="math inline">\(B\subset A\)</span> be compact, and exists <span class="math inline">\(\bar{x} \in B\)</span> s.t. <span class="math inline">\(f(\bar{x})\geq f(x)\)</span> for all <span class="math inline">\(x\in A\backslash B\)</span><br />
+Show that <span class="math inline">\(\max f(A)\)</span> exists, and <span class="math inline">\(\max f(A) = \max f(B)\)</span></p>
+</blockquote>
+<p>Since <span class="math inline">\(B\)</span> is compact, there exists maximum<br />
+Let <span class="math inline">\(y^* \equiv \max\big(f(B)\big)\)</span><br />
+<span class="math inline">\(\implies y^* \geq f(x)\)</span> for all <span class="math inline">\(x\in B\)</span><br />
+<span class="math inline">\(\implies y^* \geq f(\bar{x}) \geq f(x)\)</span> for all <span class="math inline">\(x\in A\backslash B\)</span><br />
+<span class="math inline">\(\implies y^*\geq f(x)\)</span> for all <span class="math inline">\(x\in A\)</span><br />
+<span class="math inline">\(\implies y^* = \max\big(f(A)\big)\)</span></p>
+<blockquote>
+<p>PS8.Q6<br />
+Show that <span class="math inline">\(f(x) = x^α - x - x^2\)</span> has a unique maximum in <span class="math inline">\(\mathbb{R}_+\)</span> when <span class="math inline">\(α \in(0,1)\)</span></p>
+</blockquote>
+<p>Consider <span class="math inline">\(f(1) = -1\)</span><br />
+Since <span class="math inline">\(x^α &lt; x + x^2\)</span> for all <span class="math inline">\(x&gt;1\)</span><br />
+<span class="math inline">\(\implies f(1) &gt; f(x)\)</span> for all <span class="math inline">\(x&gt;1\)</span><br />
+<span class="math inline">\(\implies f\)</span> has maximum in <span class="math inline">\([0,1]\)</span><br />
+FOC: <span class="math inline">\(f&#39;(x) = αx^{α-1}-1 - 2x\)</span><br />
+SOC: <span class="math inline">\(f&#39;&#39;(x) = α(α-1)x^{α-2} -2 &lt; 0\)</span> (wrong!
+<a href="https://www.wolframalpha.com/input/?i=x%5Ea+-+x+-+x%5E2,+0%3Ca%3C1&amp;assumption=%7B%22C%22,+%220%22%7D+-%3E+%7B%22NumberMath%22%7D">f</a>
+<a href="https://www.wolframalpha.com/input/?i=a*(1-a)*x%5E(a-2)-2,+0%3Ca%3C1&amp;assumption=%7B%22C%22,+%220%22%7D+-%3E+%7B%22NumberMath%22%7D">SOC</a> )<br />
+<span class="math inline">\(\implies f\)</span> is strictly concave in <span class="math inline">\(\mathbb{R}_+\)</span><br />
+<span class="math inline">\(\implies f\)</span> has a unique maximum in <span class="math inline">\([0, 1]\)</span></p>
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
