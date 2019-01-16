@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">28 min read</span>
+    <span class="article-duration">29 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -739,7 +739,27 @@ Hint: Use the mean value theorem</p>
 <p>Take arbitrary <span class="math inline">\(x, y\)</span><br />
 1. <span class="math inline">\(x=y\)</span><br />
 <span class="math inline">\(d\big(f(x), f(y)\big) = 0\)</span>, <span class="math inline">\(λd(x,y) = 0 \implies d\big(f(x), f(y)\big)\leq λd(x,y)\)</span><br />
-2. Assume <span class="math inline">\(x&lt;y\)</span></p>
+2. Assume <span class="math inline">\(x&lt;y\)</span><br />
+By mean value theorem, exists <span class="math inline">\(c\in (x,y)\)</span> s.t. <span class="math inline">\(f&#39;(c)=\frac{f(y)-f(x)}{y-x}\)</span><br />
+And exists <span class="math inline">\(λ\)</span> s.t. <span class="math inline">\(f&#39;(c)\in[-λ,λ]\)</span><br />
+<span class="math display">\[\begin{aligned} -λ \leq \frac{f(y)-f(x)}{y-x} &amp;\leq λ \\
+\frac{\big|f(y)-f(x)\big|}{|y-x|} &amp;\leq λ \\
+\frac{d\big(f(y),f(x)\big)}{d(x,y)} &amp;\leq λ \\
+d\big(f(y),f(x)\big) &amp;\leq λ \cdot d(x,y)\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS9.Q3<br />
+Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})\)</span> is a contraction,<br />
+then <span class="math inline">\(f&#39;(x)\in [-λ,λ]\)</span> for all <span class="math inline">\(x\)</span>, <span class="math inline">\(λ\in(0,1)\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in \mathbb{R}\)</span>, consider a strictly increasing sequence <span class="math inline">\(\{x_n\}_n \to x\)</span><br />
+Since <span class="math inline">\(f\)</span> is contraction,<br />
+<span class="math display">\[\begin{aligned} d\big(f(x),f(x_n)\big) &amp;\leq λd(x,x_n) \\
+\frac{ d\big(f(x),f(x_n)\big)} {d(x,x_n)} &amp;\leq λ \end{aligned}\]</span><br />
+Take limit of botht sides<br />
+<span class="math display">\[\begin{aligned} \lim_{n\to\infty}\frac{d\big(f(x),f(x_n)\big)}{d(x,x_n)} &amp;\leq \lim_{n\to\infty} λ \\
+\lim_{n\to\infty}\frac{f(x)-f(x_n)}{x-x_n} &amp;\leq λ \\
+|f&#39;(x)| &amp;\leq λ\end{aligned}\]</span><br />
+<span class="math inline">\(\implies f&#39;(x)\in [-λ,λ]\)</span></p>
 </div>
 <div id="limit-differenciation" class="section level3">
 <h3>Limit &amp; Differenciation</h3>
@@ -981,6 +1001,12 @@ h\big( λy_1 + (1-λ)y_2 \big) &amp;\leq h\Big( f\big(λx_1 + (1-λ)x_2 \big) \B
 &amp;\leq λx_1 + (1-λ)x_2\\ 
 &amp;\leq λh(y_1) + (1-λ)h(y_2)\end{aligned}\]</span><br />
 <span class="math inline">\(\implies h\)</span> is convex</p>
+<blockquote>
+<p>PS9.Q4<br />
+Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be concave, <span class="math inline">\(g: \mathbb{R} \to \mathbb{R}\)</span> convex and <span class="math inline">\(f(x)\leq g(x)\)</span> for all <span class="math inline">\(x\)</span><br />
+Prove that there exists a linear function <span class="math inline">\(h\)</span> s.t. <span class="math inline">\(f(x)\leq h(x) \leq g(x)\)</span><br />
+Hint: the graph of a linear function from <span class="math inline">\(\mathbb{R}\)</span> to <span class="math inline">\(\mathbb{R}\)</span> is a hyperplane</p>
+</blockquote>
 </div>
 <div id="epigraph" class="section level3">
 <h3>Epigraph</h3>
