@@ -730,6 +730,25 @@ Let <span class="math inline">\(g(x) \equiv -f(x)\)</span><br />
 <span class="math inline">\(\implies f(c&#39;)&gt;f(c)\)</span>, contradiction<br />
 2. <span class="math inline">\(\max(f|_{[a,b]}) = 0\)</span><br />
 Similar arguments apply</p>
+<blockquote>
+<p>PS9.Q6<br />
+Let <span class="math inline">\(f:[0,1]\to[0,1]\)</span> be continuous and convex<br />
+Show that if <span class="math inline">\(f(1)&lt;1\)</span>, then <span class="math inline">\(f\)</span> has a unique fixed point</p>
+</blockquote>
+<p>Since <span class="math inline">\([0,1]\)</span> is compact, <span class="math inline">\(f\)</span> is continuous, <span class="math inline">\(f\)</span> has some fixed point<br />
+FSOC assume there are more than one fixed points<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(x&lt;y\in [0,1)\)</span> s.t. <span class="math inline">\(f(x) = x\)</span> and <span class="math inline">\(f(y) = y\)</span><br />
+Take <span class="math inline">\(λ\in(0,1)\)</span> s.t. <span class="math inline">\(y = λx + (1-λ)1\)</span><br />
+Since <span class="math inline">\(f\)</span> is convex<br />
+<span class="math display">\[\begin{aligned} y &amp;= f(y) \\
+&amp;\leq λ\cdot f(x)+(1-λ)\cdot f(1) \\
+&amp;&lt; λ\cdot x+(1-λ)\cdot 1\end{aligned}\]</span><br />
+Contradiction</p>
+<blockquote>
+<p>PS9.Q7<br />
+Let <span class="math inline">\(f:[0,1]\to[0,1]\)</span> be continuous and concave<br />
+Show that if <span class="math inline">\(f(0)&gt;0\)</span>, then <span class="math inline">\(f\)</span> has a unique fixed point</p>
+</blockquote>
 </div>
 <div id="contraction" class="section level3">
 <h3>Contraction</h3>
@@ -1262,7 +1281,7 @@ Since <span class="math inline">\((ε_n)_n \to 0 \implies (y_n)_n \to x\)</span>
 <span class="math inline">\(\implies x \in A\)</span>, contradiction</li>
 </ol>
 <blockquote>
-<p>PS5.Q6<br />
+<p>PS5.Q6, PS9.Q8<br />
 Fix <span class="math inline">\(r\in \mathbb{R}_{++}\)</span> and set <span class="math inline">\(A\subset\mathbb{R}^n\)</span><br />
 Show that <span class="math inline">\(\{ x\in A | B_r(x) \subset A \}\)</span> is closed</p>
 </blockquote>

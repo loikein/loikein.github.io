@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Microeconomics - loikein</title>
+<meta property="og:title" content="Notes on Microeconomics - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Notes on Microeconomics</h1>
+
+    
+    <span class="article-date">2019/01/16</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/micro'>micro</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#preference">Preference</a></li>
+</ul>
+</div>
+
+<p>Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (2ed)<br />
+Textbook 2:</p>
+<div id="preference" class="section level2">
+<h2>Preference</h2>
+<ul>
+<li>Preferences on a set <span class="math inline">\(X\)</span> are a function <span class="math inline">\(f\)</span> that assigns to any pair <span class="math inline">\((x, y)\in X\)</span> exactly one of the three “values” <span class="math inline">\(x \succ y\)</span>, <span class="math inline">\(y \succ x\)</span>, or <span class="math inline">\(I\)</span> s.t.
+<ul>
+<li>No order effect: <span class="math inline">\(f(x,y)=f(y,x)\)</span></li>
+<li>Transitivity: if <span class="math inline">\(f(x,y) = x \succ y\)</span> and <span class="math inline">\(f(y,z) = y \succ z\)</span>, then <span class="math inline">\(f(x,z) = x \succ z\)</span></li>
+</ul></li>
+<li>Preferences on a set <span class="math inline">\(X\)</span> is a binary relation <span class="math inline">\(\succsim\)</span> s.t. for any <span class="math inline">\(x, y\in X\)</span>:
+<ul>
+<li>Completeness: <span class="math inline">\(x \succsim y\)</span>, or <span class="math inline">\(y \succsim x\)</span></li>
+<li>Transitivity: if <span class="math inline">\(x \succsim y\)</span> and <span class="math inline">\(y \succsim z\)</span>, then <span class="math inline">\(x \succsim z\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>HM1<br />
+Show that the two definitions of preferences are indeed equivalent.</p>
+</blockquote>
+<p>Intuition:</p>
+<table>
+<thead>
+<tr class="header">
+<th>1st definition</th>
+<th>2nd definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x \succ y\)</span></td>
+<td><span class="math inline">\(x \succsim y\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I\)</span></td>
+<td><span class="math inline">\(x \succsim y\)</span> and <span class="math inline">\(y \succsim x\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(y \succ x\)</span></td>
+<td><span class="math inline">\(y \succsim x\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Define <span class="math inline">\(T\)</span> as function of <span class="math inline">\(f\)</span> in definition 1:<br />
+<span class="math display">\[T(f) = \{ (x,y) \in X\times X | f(x,y) = x &gt; y or f(x,y) = I\}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Check completeness<br />
+:) for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, either <span class="math inline">\((x, y) \in T(f)\)</span> or <span class="math inline">\((y, x) \in T(f)\)</span><br />
+</li>
+<li>Check transitivity<br />
+:) if <span class="math inline">\((x, y) \in T(f)\)</span> and <span class="math inline">\((y, z) \in T(f)\)</span>, then <span class="math inline">\((x, z) \in T(f)\)</span><br />
+<span class="math display">\[\begin{cases} x&gt;y \text{ and } y&gt;z \implies x&gt;z \\
+x&gt;y \text{ and } yIz \implies x&gt;z \\
+xIy \text{ and } y&gt;z \implies x&gt;z \\
+xIy \text{ and } yIz \implies xIz \end{cases}\]</span><br />
+</li>
+<li>Check injection<br />
+Let some <span class="math inline">\(f^1\neq f^2\)</span><br />
+<span class="math inline">\(\implies\)</span> there are some <span class="math inline">\(x, y\)</span> s.t. <span class="math inline">\(f^1(x, y)\neq f^2(x, y)\)</span><br />
+<span class="math inline">\(\implies T(f^1)\neq T(f^2)\)</span><br />
+</li>
+<li>Check surjection<br />
+Define <span class="math inline">\(f^R\)</span> s.t.<br />
+<span class="math display">\[f^R(x,y) = \begin{cases}  x&gt;y &amp; \text{if } (x,y) \in R \text{ and } (y,x) \not\in R \\
+I &amp; \text{if } (x,y), (y,x) \in R \\
+y&gt;x &amp; \text{if } (x,y) \not\in R \text{ and } (y,x) \in R\end{cases}\]</span><br />
+Check f^R is transitive<br />
+Assume for some <span class="math inline">\(x, y, z\)</span>, <span class="math inline">\(f^R(x,y) = I\)</span> and <span class="math inline">\(f^R(y,z) = I\)</span><br />
+<span class="math inline">\(\implies x\geq y\)</span> and <span class="math inline">\(y\geq x\)</span>, <span class="math inline">\(y\geq z\)</span> and <span class="math inline">\(z\geq y\)</span><br />
+<span class="math inline">\(\implies x\geq z\)</span> and <span class="math inline">\(z\geq x\)</span><br />
+<span class="math inline">\(\implies xIz\)</span></li>
+</ol>
+<blockquote>
+<p>HM2 (RBST PS1.Q2)<br />
+Consider a binary relation <span class="math inline">\(P\)</span> interpreted as “strictly preferred” s.t.<br />
+1. Asymmetry: For no <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> do we have both <span class="math inline">\(xPy\)</span> and <span class="math inline">\(yPx\)</span><br />
+2. Negative Transitivity: For all <span class="math inline">\(x, y, z \in X\)</span>, if <span class="math inline">\(xPy\)</span>, then either <span class="math inline">\(xPz\)</span> or <span class="math inline">\(zPy\)</span> (or both)<br />
+Explain why it is equivalent to the traditional definition.</p>
+</blockquote>
+<p>Define <span class="math inline">\(T\)</span> as function of <span class="math inline">\(P\)</span> (strict preference):<br />
+<span class="math display">\[T(P) = \{ (x, y) \ | \ \lnot yPx \}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Check completeness<br />
+FSOC assume <span class="math inline">\(T(P)\)</span> is not complete<br />
+<span class="math inline">\(\implies\)</span> there are some <span class="math inline">\(x, y\)</span> s.t. <span class="math inline">\((\lnot xPy)\)</span> and <span class="math inline">\((\lnot yPx)\)</span><br />
+<span class="math inline">\(\implies xPy\)</span> and <span class="math inline">\(yPx\)</span>, contradicts to asymmetry<br />
+</li>
+<li>Check transitivity<br />
+FSOC assume <span class="math inline">\(T(P)\)</span> is not transitive<br />
+<span class="math inline">\(\implies\)</span> there are some <span class="math inline">\(x, y, z\)</span> s.t. <span class="math inline">\(xPy\)</span> and <span class="math inline">\(yPz\)</span>, but <span class="math inline">\((\lnot xPz)\)</span><br />
+<span class="math inline">\(\implies (\lnot yPx)\)</span>, <span class="math inline">\((\lnot zPy)\)</span> and <span class="math inline">\(zPx\)</span><br />
+But <span class="math inline">\(zPx \implies yPx\)</span> or <span class="math inline">\(zPy\)</span>, contradiction<br />
+</li>
+<li>Check injection<br />
+Let some <span class="math inline">\(P^1 \neq P^2\)</span><br />
+<span class="math inline">\(\implies\)</span> there are some <span class="math inline">\((x, y) \in P^1\)</span> but <span class="math inline">\((x, y) \not\in P^2\)</span><br />
+<span class="math inline">\(\implies xP^1y\)</span> and <span class="math inline">\(\lnot xP^2y\)</span><br />
+<span class="math inline">\(\implies (y,x) \not\in T(P^1)\)</span> and <span class="math inline">\((y,x) \in T(P^2)\)</span><br />
+<span class="math inline">\(\implies T(P^1)\neq T(P^2)\)</span><br />
+</li>
+<li>Check surjection<br />
+Let some <span class="math inline">\(R\)</span> satisfy definition 2<br />
+Define <span class="math inline">\(P^R = \{ (x, y) \ | \ \lnot yRx \}\)</span><br />
+<span class="math display">\[\begin{aligned}  T(P^R) &amp;= \{ (x, y) \ | \ \lnot (y, x) \in P) \} \\
+&amp;= \{ (x, y) \ | \ \lnot ( \lnot yRx) \} \\
+&amp;= \{ (x, y) \ | \ xRy \}\end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>HM3 (RBST PS1.Q4)<br />
+Let <span class="math inline">\(\succ\)</span> be an asymmetric binary relation on a finite set <span class="math inline">\(X\)</span> that does not have cycles.<br />
+Show that <span class="math inline">\(\succ\)</span> can be extended to a complete ordering (i.e. complete, asymmetric, and transitive)
+Hint: induce on the size of <span class="math inline">\(X\)</span></p>
+</blockquote>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
