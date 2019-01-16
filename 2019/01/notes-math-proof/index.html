@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">30 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -589,6 +589,24 @@ Take arbitary <span class="math inline">\(x\in A \subset U\)</span><br />
 <span class="math inline">\(\implies f(A)=\emptyset\)</span><br />
 <span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset \supset A\)</span></li>
 </ol>
+<blockquote>
+<p>PS9.Q5<br />
+Let <span class="math inline">\(A\equiv [1,\infty)\)</span> and <span class="math inline">\(f: A \to \mathbb{R}\)</span>, <span class="math inline">\(f(x)= x+\frac{1}{x}\)</span><br />
+1. Prove that <span class="math inline">\(f(A)\subset A\)</span><br />
+2. Prove that <span class="math inline">\(|f(x) - f(y)| &lt;|x - y|\)</span> for all <span class="math inline">\(x\neq y\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Prove that <span class="math inline">\(f(A)\subset A\)</span><br />
+Since <span class="math inline">\(x\in [1,\infty) \implies \frac{1}{x}&gt;0\)</span><br />
+<span class="math inline">\(\implies f(x) = x+\frac{1}{x} &gt; x \geq 1\)</span><br />
+<span class="math inline">\(\implies f(A)\subset (1,\infty) \subset [1,\infty)\)</span><br />
+</li>
+<li>Prove that <span class="math inline">\(|f(x) - f(y)| &lt;|x - y|\)</span> for all <span class="math inline">\(x\neq y\)</span><br />
+<span class="math display">\[\begin{aligned} \left| x + \frac{1}{x} - y - \frac{1}{y} \right| &amp;= \left| x - y + \frac{y-x}{xy}\right| \\
+&amp;= \left|(x-y) \left(1 - \frac{1}{xy}\right)\right| \\
+&amp;= |x-y| \cdot \left|1 - \frac{1}{xy}\right| \\
+&amp;&lt; |x-y|\end{aligned}\]</span> ~</li>
+</ol>
 </div>
 <div id="injection-surjection" class="section level3">
 <h3>Injection &amp; Surjection</h3>
@@ -1007,6 +1025,16 @@ Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be concave
 Prove that there exists a linear function <span class="math inline">\(h\)</span> s.t. <span class="math inline">\(f(x)\leq h(x) \leq g(x)\)</span><br />
 Hint: the graph of a linear function from <span class="math inline">\(\mathbb{R}\)</span> to <span class="math inline">\(\mathbb{R}\)</span> is a hyperplane</p>
 </blockquote>
+<p>Take <span class="math inline">\(F\equiv\{ (x,y) | y &lt; f(x) \}\)</span> and <span class="math inline">\(G\equiv\{ (x,y) | y &gt; g(x) \}\)</span><br />
+Since <span class="math inline">\(f\)</span> is concave and <span class="math inline">\(g\)</span> is convex, <span class="math inline">\(F, G\)</span> are convex<br />
+Since <span class="math inline">\(f(x)\leq h(x) \leq g(x)\)</span>, <span class="math inline">\(F\cap G=\emptyset\)</span><br />
+By separating hyperplane theorem, <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are separated by some hyperplane<br />
+<span class="math inline">\(\implies\)</span> For <span class="math inline">\(z_1\in F\)</span> and <span class="math inline">\(z_2\in G\)</span>, exists <span class="math inline">\(p\in \mathbb{R}^2\)</span> and <span class="math inline">\(α \in \mathbb{R}\)</span> s.t. <span class="math inline">\(p\cdot z_1\leq α \leq p\cdot z_2\)</span><br />
+Let <span class="math inline">\(H = \{ (x,y)| p_1\cdot x+p_2\cdot y =α \}\)</span> and <span class="math inline">\(h(x)= \frac{α - p_1\cdot x}{p_2}\)</span><br />
+FSOC assume <span class="math inline">\(h(x)&lt;f(x)\)</span> for some <span class="math inline">\(x\)</span><br />
+<span class="math inline">\(\implies h(x)&lt; \frac{h(x)+f(x)}{2}&lt; f(x)\)</span>, contradicts to <span class="math inline">\(\frac{h(x)+f(x)}{2} \in F\)</span><br />
+<span class="math inline">\(\implies h(x)\geq f(x)\)</span><br />
+Similarly we can prove <span class="math inline">\(h(x)\leq g(x)\)</span></p>
 </div>
 <div id="epigraph" class="section level3">
 <h3>Epigraph</h3>
