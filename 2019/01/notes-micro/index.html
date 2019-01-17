@@ -45,7 +45,7 @@
     
     <li><a href="/about/">About</a></li>
     
-    <li><a href="https://github.com/loikein">GitHub</a></li>
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
     
     <li><a href="https://twitter.com/LeiqiongWan">Twitter</a></li>
     
@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">4 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -89,6 +89,7 @@
 <div id="TOC">
 <ul>
 <li><a href="#preference">Preference</a></li>
+<li><a href="#utility-function">Utility Function</a></li>
 </ul>
 </div>
 
@@ -197,13 +198,55 @@ Let some <span class="math inline">\(R\)</span> satisfy definition 2<br />
 Define <span class="math inline">\(P^R = \{ (x, y) \ | \ \lnot yRx \}\)</span><br />
 <span class="math display">\[\begin{aligned}  T(P^R) &amp;= \{ (x, y) \ | \ \lnot (y, x) \in P) \} \\
 &amp;= \{ (x, y) \ | \ \lnot ( \lnot yRx) \} \\
-&amp;= \{ (x, y) \ | \ xRy \}\end{aligned}\]</span></li>
+&amp;= \{ (x, y) \ | \ xRy \}\end{aligned}\]</span> ~</li>
 </ol>
 <blockquote>
 <p>HM3 (RBST PS1.Q4)<br />
 Let <span class="math inline">\(\succ\)</span> be an asymmetric binary relation on a finite set <span class="math inline">\(X\)</span> that does not have cycles.<br />
-Show that <span class="math inline">\(\succ\)</span> can be extended to a complete ordering (i.e. complete, asymmetric, and transitive)
+Show that <span class="math inline">\(\succ\)</span> can be extended to a complete ordering (i.e. complete, asymmetric, and transitive)<br />
 Hint: induce on the size of <span class="math inline">\(X\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(|X| = 1 \implies X = \{x\}\)</span><br />
+Since <span class="math inline">\(\succ\)</span> is asymmetric, <span class="math inline">\(\lnot( x \succ x)\)</span><br />
+<span class="math inline">\(\implies \succ^* = \succ\)</span> is transitive and complete<br />
+</li>
+<li>Assume <span class="math inline">\(\succ\)</span> can be extended to a complete and transitive ordering <span class="math inline">\(\succ^*\)</span> for <span class="math inline">\(|X| = n\)</span><br />
+</li>
+<li>Let <span class="math inline">\(|X| = n+1\)</span><br />
+Choose <span class="math inline">\(x^* \in X\)</span> s.t. <span class="math inline">\(\lnot(x&#39; \succ x^*)\)</span> for all <span class="math inline">\(x&#39;\in X\)</span><br />
+<span class="math inline">\(\implies \lnot (x \succ x^*)\)</span> for all <span class="math inline">\(x\in X\backslash x^*\)</span><br />
+Since <span class="math inline">\(|X\backslash x^*| = n\)</span><br />
+<span class="math inline">\(\implies \succ^*\)</span> is complete for all <span class="math inline">\(x\in X\backslash x^*\)</span><br />
+<span class="math inline">\(\implies x \succ^* x&#39; \lor x&#39;\succ^* x\)</span> for all <span class="math inline">\(x, x&#39;\in X\backslash x^*\)</span><br />
+Define <span class="math inline">\(\succ^*\)</span> for <span class="math inline">\(x^*\)</span> as <span class="math inline">\(x^* \succ^* x\)</span> for all <span class="math inline">\(x\in X\backslash x^*\)</span><br />
+<span class="math inline">\(\implies \succ^*\)</span> is complete for all <span class="math inline">\(x\in X\)</span><br />
+And, for all <span class="math inline">\(x \succ^* x&#39;\in X\backslash x^*\)</span>, <span class="math inline">\(x^* \succ^* x\)</span> and <span class="math inline">\(x^* \succ^* x&#39;\)</span><br />
+<span class="math inline">\(\implies x^* \succ^* x \succ^* x&#39;\)</span><br />
+<span class="math inline">\(\implies \succ^*\)</span> is transitive for all <span class="math inline">\(x\in X\)</span></li>
+</ol>
+<blockquote>
+<p>HM4 (omitted)</p>
+</blockquote>
+</div>
+<div id="utility-function" class="section level2">
+<h2>Utility Function</h2>
+<blockquote>
+<p>HM5.1<br />
+T/F:<br />
+If both <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> represent <span class="math inline">\(\succsim\)</span>,<br />
+then there is a strictly monotonic function <span class="math inline">\(f: R \to R\)</span> s.t. <span class="math inline">\(V(x) = f \big(U(x)\big)\)</span></p>
+</blockquote>
+<p>No. Prove by counterexample:<br />
+Let <span class="math inline">\(\succsim\)</span> be defined on <span class="math inline">\(X = \mathbb{R}\)</span>,</p>
+<blockquote>
+<p>HM5.2<br />
+Can a continuous preference relation be represented by a discontinuous utility function?</p>
+</blockquote>
+<blockquote>
+<p>HM5.3<br />
+Show that in the case of <span class="math inline">\(X = R\)</span>,<br />
+the preference relation represented by utility function <span class="math inline">\(u(x) = \lfloor x \rfloor\)</span> (the largest integer <span class="math inline">\(n\)</span> such that <span class="math inline">\(x \geq n\)</span>) is not a continuous relation.</p>
 </blockquote>
 </div>
 
