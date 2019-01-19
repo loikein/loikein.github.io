@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">7 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -89,7 +89,15 @@
 <div id="TOC">
 <ul>
 <li><a href="#preference">Preference</a></li>
-<li><a href="#utility-function">Utility Function</a></li>
+<li><a href="#utility-function">Utility Function</a><ul>
+<li><a href="#continuous-preference">Continuous Preference</a></li>
+</ul></li>
+<li><a href="#choice">Choice</a><ul>
+<li><a href="#choice-function">Choice Function</a></li>
+<li><a href="#rational-choice-function">Rational Choice Function</a></li>
+<li><a href="#warp-weak-axiom-of-revealed-preference">WARP (Weak Axiom of Revealed Preference)</a></li>
+</ul></li>
+<li><a href="#consumer-preference">Consumer Preference</a></li>
 </ul>
 </div>
 
@@ -231,6 +239,10 @@ And, for all <span class="math inline">\(x \succ^* x&#39;\in X\backslash x^*\)</
 </div>
 <div id="utility-function" class="section level2">
 <h2>Utility Function</h2>
+<ul>
+<li>Utility function <span class="math inline">\(U: X\to \mathbb{R}\)</span> represents the preference relation <span class="math inline">\(\succsim\)</span> if <span class="math inline">\(x \succsim y \iff U(x)\geq U(y)\)</span></li>
+<li>If <span class="math inline">\(U\)</span> represents <span class="math inline">\(\succsim\)</span>, then for any strictly increasing <span class="math inline">\(f\)</span>, <span class="math inline">\(f\big( U(x)\big)\)</span> also represents <span class="math inline">\(\succsim\)</span></li>
+</ul>
 <blockquote>
 <p>HM5.1<br />
 T/F:<br />
@@ -246,6 +258,12 @@ U(x) &amp;= \begin{cases} x &amp; x\leq0 \\ x+1 &amp; x&gt;0 \end{cases}\end{ali
 <span class="math inline">\(\implies v\)</span> and <span class="math inline">\(u\)</span> give same results for comparison between any <span class="math inline">\(x, x&#39;\in X\)</span><br />
 Let <span class="math inline">\(f =\begin{cases} x &amp; x\leq 1 \\ x-1 &amp; x &gt; 1 \end{cases}\)</span><br />
 <span class="math inline">\(\implies f\big(U(x)\big) = V(x)\)</span>, but <span class="math inline">\(f\)</span> is not strictly monotonic</p>
+<div id="continuous-preference" class="section level3">
+<h3>Continuous Preference</h3>
+<ul>
+<li><span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> is continuous if for all <span class="math inline">\(a\succsim b\)</span>, there exist balls <span class="math inline">\(B_a\)</span> and <span class="math inline">\(B_b\)</span> s.t. <span class="math inline">\(a&#39;\succsim b&#39;\)</span> for all <span class="math inline">\(a&#39; \in B_a\)</span> and <span class="math inline">\(b&#39; \in B_b\)</span></li>
+<li>Utility representation <span class="math inline">\(U\)</span> is continuous if <span class="math inline">\(\succsim\)</span> is continuous and <span class="math inline">\(X\)</span> is convex</li>
+</ul>
 <blockquote>
 <p>HM5.2<br />
 Can a continuous preference relation be represented by a discontinuous utility function?</p>
@@ -255,6 +273,92 @@ Can a continuous preference relation be represented by a discontinuous utility f
 <p>HM5.3<br />
 Show that in the case of <span class="math inline">\(X = R\)</span>,<br />
 the preference relation represented by utility function <span class="math inline">\(u(x) = \lfloor x \rfloor\)</span> (the largest integer <span class="math inline">\(n\)</span> such that <span class="math inline">\(x \geq n\)</span>) is not a continuous relation.</p>
+</blockquote>
+<p>Take <span class="math inline">\(x=1\)</span>, <span class="math inline">\(y=\frac{1}{2}\)</span><br />
+<span class="math inline">\(u(x) = 1\)</span>, <span class="math inline">\(u(y) = 0\)</span>, <span class="math inline">\(u(x) &gt; u(y)\)</span><br />
+<span class="math inline">\(\implies x\succ y\)</span><br />
+FSOC assume the preference induced by <span class="math inline">\(u()\)</span> is continuous<br />
+<span class="math inline">\(\implies\)</span> exist <span class="math inline">\(B_x\)</span> around <span class="math inline">\(x\)</span> and <span class="math inline">\(B_y\)</span> around <span class="math inline">\(y\)</span> s.t. <span class="math inline">\(x&#39; \succ y&#39;\)</span> for all <span class="math inline">\(x&#39;\in B_x\)</span> and <span class="math inline">\(y&#39;\in B_y\)</span><br />
+But for all <span class="math inline">\(B_x\)</span>, there is some <span class="math inline">\(x&#39;\)</span> s.t. <span class="math inline">\(x&#39; I y\)</span>, contradiction</p>
+</div>
+</div>
+<div id="choice" class="section level2">
+<h2>Choice</h2>
+<div id="choice-function" class="section level3">
+<h3>Choice Function</h3>
+<ul>
+<li>Choice function <span class="math inline">\(C\)</span> is defined on:</li>
+<li>Context <span class="math inline">\((X,D)\)</span>: <span class="math inline">\(X\)</span> is the universe of all alternatives, <span class="math inline">\(D\)</span> is a set of feasibly possible subsets of <span class="math inline">\(X\)</span>, <span class="math inline">\(D \subset 2^X\)</span> (power set of <span class="math inline">\(X\)</span>)</li>
+<li><span class="math inline">\(D\)</span> is the domain of choice function <span class="math inline">\(C\)</span></li>
+<li><span class="math inline">\(C\)</span> assigns the best element(s) <span class="math inline">\(C(A)\in A\)</span> to every possible situation <span class="math inline">\(A\in D\)</span>
+<ul>
+<li>If <span class="math inline">\(x,y\in C(A)\)</span>, then <span class="math inline">\(x\)</span> is revealed to be at least as good as <span class="math inline">\(y\)</span></li>
+<li>If <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\not\in C(A)\)</span>, then <span class="math inline">\(x\)</span> is revealed to be strictly better than <span class="math inline">\(y\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="rational-choice-function" class="section level3">
+<h3>Rational Choice Function</h3>
+<ul>
+<li><span class="math inline">\(C_{\succsim}\)</span> is the choice function induced by <span class="math inline">\(\succsim\)</span> that assigns the <span class="math inline">\(\succsim\)</span>-best element of every <span class="math inline">\(A\in D\)</span></li>
+<li><span class="math inline">\(C\)</span> can be rationalized if there is a preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(C(A) = C_{\succsim}(A)\)</span> for every <span class="math inline">\(A\in D\)</span></li>
+</ul>
+<!-- ### Condition α
+
+- if for $A\subset B\in D$, $C(B)\in A \implies C(A) = C(B)$
+- If $\succsim$ is a preference relation on $X$, then $C_{\succsim}$ satisfies condition α 
+-->
+</div>
+<div id="warp-weak-axiom-of-revealed-preference" class="section level3">
+<h3>WARP (Weak Axiom of Revealed Preference)</h3>
+<ul>
+<li>(RBST P31, Slide 4 P70):</li>
+<li>Choice <span class="math inline">\(C\)</span> satisfies WARP if for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span>
+<ul>
+<li>If <span class="math inline">\(x\)</span> is revealed to be at least as good as <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> is not revealed to be strictly better than <span class="math inline">\(x\)</span></li>
+</ul></li>
+<li>Condition α: if <span class="math inline">\(a\in A\subset B\)</span>, and <span class="math inline">\(a\in C(B)\)</span>, then <span class="math inline">\(a\in C(A)\)</span></li>
+<li>Condition β: if <span class="math inline">\(a,b\in A\subset B\)</span>, <span class="math inline">\(a\in C(A)\)</span>, and <span class="math inline">\(b\in C(B)\)</span>, then also <span class="math inline">\(a\in C(B)\)</span></li>
+</ul>
+<blockquote>
+<p>HM6<br />
+Assume that <span class="math inline">\(C\)</span> is a choice correspondence with a domain that includes at least all subsets of size 2 or 3.<br />
+Prove that if <span class="math inline">\(C\)</span> satisfies WA, then there is a preference <span class="math inline">\(\succsim\)</span> so that <span class="math inline">\(C = C_{\succsim}\)</span>.</p>
+</blockquote>
+<p>Define <span class="math inline">\(x\succsim y\)</span> if <span class="math inline">\(x\in C\big(\{x,y\}\big)\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Completeness<br />
+Since <span class="math inline">\(C\big(\{x,y\}\big)\neq 0\)</span>, <span class="math inline">\(\succsim\)</span> is complete<br />
+</li>
+<li>Transitivity<br />
+Let <span class="math inline">\(x\in C\big(\{x,y\}\big)\)</span> and <span class="math inline">\(y\in C\big(\{y,z\}\big)\)</span><br />
+By WA, <span class="math inline">\(z\in C\big(\{x,y,z\}\big)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(y\in C\big(\{x,y,z\}\big)\)</span>, and <span class="math inline">\(y\in C\big(\{x,y,z\}\big)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C\big(\{x,y,z\}\big)\)</span><br />
+<span class="math inline">\(\implies\)</span> it is always true that <span class="math inline">\(x\in C\big(\{x,y,z\}\big)\)</span><br />
+<span class="math inline">\(\implies x\in C\big(\{x,z\}\big)\)</span><br />
+<span class="math inline">\(\implies x\succsim z\)</span><br />
+</li>
+<li>Show <span class="math inline">\(C(A) = C_{\succsim}(A)\)</span>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(x\in C(A)\)</span><br />
+<span class="math inline">\(\implies x\in C\big(\{x,y\}\big)\)</span> for all <span class="math inline">\(y\in A\)</span><br />
+<span class="math inline">\(\implies x\succsim y\)</span> for all <span class="math inline">\(y\in A\)</span><br />
+<span class="math inline">\(\implies x\in C_{\succsim}(A)\)</span></li>
+<li>Let <span class="math inline">\(x\in C_{\succsim}(A)\)</span><br />
+Let <span class="math inline">\(y\in C(A)\)</span> (? needs check)<br />
+If <span class="math inline">\(x\neq y\implies x\in C_{\succsim}(A)\)</span><br />
+<span class="math inline">\(\implies x\in C(A)\)</span></li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="consumer-preference" class="section level2">
+<h2>Consumer Preference</h2>
+<blockquote>
+<p>HM7<br />
+Assume a consumer has preferences on <span class="math inline">\(\mathbb{R}^2\)</span><br />
+s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</span> can be described as the graph of <span class="math inline">\(f : \mathbb{R} → \mathbb{R}\)</span>.<br />
+What can be said about the differentiability of the preferences at <span class="math inline">\(x\)</span> if <span class="math inline">\(f\)</span> is known to be differentiable with <span class="math inline">\(f&#39;(x) = −2\)</span>?<br />
+What can be said if in addition <span class="math inline">\(f\)</span> is a convex function?</p>
 </blockquote>
 </div>
 
