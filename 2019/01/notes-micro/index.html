@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">10 min read</span>
+    <span class="article-duration">11 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -107,6 +107,10 @@
 <li><a href="#demand">Demand</a><ul>
 <li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
 <li><a href="#demand-function">Demand Function</a></li>
+<li><a href="#rational-demand-function">Rational Demand Function</a></li>
+<li><a href="#warp-revisited">WARP (revisited)</a></li>
+<li><a href="#sarp-strong-axiom-of-revealed-preference">SARP (Strong Axiom of Revealed Preference)</a></li>
+<li><a href="#law-of-demand">Law of Demand</a></li>
 </ul></li>
 </ul>
 </div>
@@ -313,13 +317,8 @@ But for all <span class="math inline">\(B_x\)</span>, there is some <span class=
 <h3>Rational Choice Function</h3>
 <ul>
 <li><span class="math inline">\(C_{\succsim}\)</span> is the choice function induced by <span class="math inline">\(\succsim\)</span> that assigns the <span class="math inline">\(\succsim\)</span>-best element of every <span class="math inline">\(A\in D\)</span></li>
-<li><span class="math inline">\(C\)</span> can be rationalized if there is a preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(C(A) = C_{\succsim}(A)\)</span> for every <span class="math inline">\(A\in D\)</span></li>
+<li><span class="math inline">\(C\)</span> is rationalizable if there is a preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(C(A) = C_{\succsim}(A)\)</span> for every <span class="math inline">\(A\in D\)</span></li>
 </ul>
-<!-- ### Condition α
-
-- if for $A\subset B\in D$, $C(B)\in A \implies C(A) = C(B)$
-- If $\succsim$ is a preference relation on $X$, then $C_{\succsim}$ satisfies condition α 
--->
 </div>
 <div id="warp-weak-axiom-of-revealed-preference" class="section level3">
 <h3>WARP (Weak Axiom of Revealed Preference)</h3>
@@ -435,16 +434,18 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <div id="demand-with-differentiable-preference" class="section level3">
 <h3>Demand with Differentiable Preference</h3>
 <ul>
-<li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
+<li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution to the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
 <li>If <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k, x^*_j &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k} = \frac{v_j(x^*)}{p_j}\)</span>
 <ul>
 <li><span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> only when <span class="math inline">\(x^*\)</span> is a corner solution (see HM8)</li>
 </ul></li>
+<li>Marginal utility: <span class="math inline">\(v_k(x^*) = \frac{\partial U}{\partial x_k}(x^*)\)</span></li>
 </ul>
 <blockquote>
 <p>HM8<br />
-Assume there are two commodities, consider <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x_1^* &gt; 0\)</span> and <span class="math inline">\(x_2^* = 0\)</span><br />
-Prove <span class="math inline">\(\frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
+Assume the solution to consumer problem is <span class="math inline">\(x^* = (x_1^*, x_2^*)\)</span> s.t. <span class="math inline">\(x_1^* &gt; 0\)</span> and <span class="math inline">\(x_2^* = 0\)</span>,<br />
+The preference is differentiable at <span class="math inline">\(x^*\)</span> with some <span class="math inline">\(v(x)\)</span>.<br />
+Show that <span class="math inline">\(\frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
 </blockquote>
 <p>Slope of budget line (frontier of budget set): <span class="math inline">\(-\frac{p_1}{p_2}\)</span><br />
 Let <span class="math inline">\(v&#39; = α\cdot (p_1,p_2)\)</span><br />
@@ -456,19 +457,58 @@ Since <span class="math inline">\(x^*\)</span> is a solution, <span class="math 
 <img src="/post-img/notes-micro--hm8.png" width="363" /></p>
 <blockquote>
 <p>HM9<br />
-Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem for some <span class="math inline">\(p\in (0, \infty)^k\)</span> and <span class="math inline">\(w &gt; 0\)</span><br />
+Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem <span class="math inline">\(B(p,w)\)</span>,<br />
 Prove that if the preferences are represented by a utility function <span class="math inline">\(U\)</span> that is differentiable at <span class="math inline">\(x^*\)</span>,<br />
-then for any commodity k with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span> we have <span class="math inline">\(\frac{D_k u(x*)}{p_k} ≥ \frac{D_l u(x*)}{p_l}\)</span></p>
+then for any commodity <span class="math inline">\(k\)</span> with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span>,<br />
+<span class="math display">\[\frac{\partial_kU(x^*)}{p_k} \geq \frac{\partial_lU(x^*)}{p_l}\]</span> ~</p>
 </blockquote>
+<p>FSOC assume that <span class="math inline">\(\frac{\partial_kU(x^*)}{p_k} &lt; \frac{\partial_lU(x^*)}{p_l}\)</span><br />
+<span class="math inline">\(\implies \partial_lU(x^*)\cdot\frac{p_k}{p_l} - \partial_kU(x^*) &gt; 0\)</span><br />
+<span class="math inline">\(\implies\)</span> reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(1\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(\frac{p_k}{p_l}\)</span> is an improvement<br />
+Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(ε\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(ε\cdot\frac{p_k}{p_l}\)</span> for some small <span class="math inline">\(ε&gt;0\)</span> is feasible and is an improvement<br />
+<span class="math inline">\(\implies\)</span> contradiction to <span class="math inline">\(x^*\)</span> is a solution to <span class="math inline">\(B(p,w)\)</span></p>
 </div>
 <div id="demand-function" class="section level3">
 <h3>Demand Function</h3>
+<ul>
+<li>Demand function <span class="math inline">\(x(p,w)\)</span> is the unique solution to the consumer problem <span class="math inline">\(B(p,w)\)</span></li>
+<li>Homogenous (1): <span class="math inline">\(x(p,w) = x(λp, λw)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
+<li>If <span class="math inline">\(\succsim\)</span> is monotonic, then <span class="math inline">\(p\cdot x(p,w) = w\)</span> (<strong>Walras Law</strong>)</li>
+<li>If <span class="math inline">\(\succsim\)</span> is monotonic, then <span class="math inline">\(x(p,w)\)</span> is continuous in <span class="math inline">\(p,w\)</span></li>
+</ul>
+</div>
+<div id="rational-demand-function" class="section level3">
+<h3>Rational Demand Function</h3>
+<ul>
+<li><span class="math inline">\(x(p,w)\)</span> is rationalizable if there is a preference relation <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(x(p,w)\)</span> is the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
+<li><span class="math inline">\(\succsim\)</span> fully rationalizes <span class="math inline">\(x(p,w)\)</span> if <span class="math inline">\(x(p,w)\)</span> is the unique <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
+</ul>
 <blockquote>
 <p>HM10<br />
 Find preferences rationalizing the following behaviors:<br />
-1.<br />
-2.</p>
+1. A consumer chooses bundle <span class="math inline">\((z,z,\dots, z)\)</span>, where <span class="math inline">\(z\cdot\sum^K_{k=1} p_k = w\)</span><br />
+2. A consumer spends <span class="math inline">\(w\cdot α_k\)</span> on commodity <span class="math inline">\(k\)</span>, where <span class="math inline">\(\sum^K_{k=1} α_k = 1\)</span></p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(U = \min\{ x_1, x_2,\dots, x_K\}\)</span></li>
+<li><span class="math inline">\(U = x_1^{α_1}\cdot x_2^{α_2}\cdot\dots\cdot x_K^{α_K}\)</span></li>
+</ol>
+</div>
+<div id="warp-revisited" class="section level3">
+<h3>WARP (revisited)</h3>
+<ul>
+<li>If <span class="math inline">\(x(p&#39;,w&#39;)\in B(p,w)\)</span> and <span class="math inline">\(x(p,w)\neq x(p&#39;,w&#39;)\)</span>, then <span class="math inline">\(x(p,w)\not\in B(p&#39;,w&#39;)\)</span>
+<ul>
+<li><span class="math inline">\(p\cdot x(p&#39;,w&#39;)\leq w\)</span> (feasible) <span class="math inline">\(\implies p&#39;\cdot x(p,w) &gt; w&#39;\)</span> (infeasible)<br />
+<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" width="224" /></li>
+</ul></li>
+</ul>
+</div>
+<div id="sarp-strong-axiom-of-revealed-preference" class="section level3">
+<h3>SARP (Strong Axiom of Revealed Preference)</h3>
+</div>
+<div id="law-of-demand" class="section level3">
+<h3>Law of Demand</h3>
 </div>
 </div>
 
