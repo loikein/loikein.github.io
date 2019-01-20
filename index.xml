@@ -17,7 +17,7 @@
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/01/notes-micro/</guid>
-      <description>Preference Utility Function Continuous Preference  Choice Choice Function Rational Choice Function WARP (Weak Axiom of Revealed Preference)  Consumer Preference Convex Differentiable Homothetic Preference Quasi-Linear Preference    Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (2ed)
+      <description>Preference Utility Function Continuous Preference  Choice Choice Function Rational Choice Function WARP (Weak Axiom of Revealed Preference)  Consumer Preference Convex Homothetic Preference Quasi-Linear Preference Differentiable Preference  Demand Demand with Differentiable Preference    Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (2ed)
 Textbook 2:
 Preference  Preferences on a set \(X\) are a function \(f\) that assigns to any pair \((x, y)\in X\) exactly one of the three “values” \(x \succ y\), \(y \succ x\), or \(I\) s.</description>
     </item>
@@ -69,11 +69,12 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Me          Hello. I&amp;rsquo;m loikein from China. Welcome to my academic blog.
-Currently I live in Bonn, Germany for my master&amp;rsquo;s study in economics.
-My research interests include microeconomic theory, experimental economics and game theory. I am also interested in computer science.
+      <description>Me          Hello. I&amp;rsquo;m loikein from China.
+I live in Bonn, Germany for my graduate study in economics.
+During undergraduate study, I majored in economics and minored in computer science.
+My current research interests include microeconomic theory, especially experimental economics and game theory.
 I speak Chinese (native), Japanese (near native) and English (academic proficient).
-Dependencies  Theme: @jrutheiser/hugo-lithium-theme, modified by @Yihui and @me</description>
+Feel free to point out any mistakes or compliment my aesthetic talent.</description>
     </item>
     
     <item>

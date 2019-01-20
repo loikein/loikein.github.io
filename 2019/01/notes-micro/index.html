@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">9 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -100,9 +100,12 @@
 </ul></li>
 <li><a href="#consumer-preference">Consumer Preference</a><ul>
 <li><a href="#convex">Convex</a></li>
-<li><a href="#differentiable">Differentiable</a></li>
 <li><a href="#homothetic-preference">Homothetic Preference</a></li>
 <li><a href="#quasi-linear-preference">Quasi-Linear Preference</a></li>
+<li><a href="#differentiable-preference">Differentiable Preference</a></li>
+</ul></li>
+<li><a href="#demand">Demand</a><ul>
+<li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
 </ul></li>
 </ul>
 </div>
@@ -392,9 +395,6 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <img src="/post-img/notes-micro--hm7.png" width="497" /></li>
 </ol>
 </div>
-<div id="differentiable" class="section level3">
-<h3>Differentiable</h3>
-</div>
 <div id="homothetic-preference" class="section level3">
 <h3>Homothetic Preference</h3>
 <ul>
@@ -406,8 +406,53 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <h3>Quasi-Linear Preference</h3>
 <ul>
 <li><span class="math inline">\(x\succsim y\implies (x+εe_1)\succsim (y+εe_1)\)</span> for all <span class="math inline">\(ε\geq 0\)</span>, <span class="math inline">\(e_1 = (1,0,\dots,0)\)</span></li>
-<li><strong>Quasi-Linear + Monotonic + Continuous</strong> preference relations can be represented by <span class="math inline">\(U = x_1 + v(x_2,\dots,x_K)\)</span> for some <span class="math inline">\(v\)</span></li>
+<li><strong>Quasi-Linear + Strong Monotonic + Continuous</strong> preference relations can be represented by <span class="math inline">\(U = x_1 + v(x_2,\dots,x_K)\)</span> for some <span class="math inline">\(v\)</span></li>
 </ul>
+</div>
+<div id="differentiable-preference" class="section level3">
+<h3>Differentiable Preference</h3>
+<ul>
+<li>Set of improvement directions: <span class="math inline">\(D(x)\subset \mathbb{R}^K\)</span></li>
+<li>Improvement direction at <span class="math inline">\(x\)</span>: <span class="math inline">\(d\in D(x)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(λd\in D(x)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x+λd\succ x\)</span>, for all <span class="math inline">\(λ\in (0,\exists λ^*)\)</span></li>
+<li>Subjective value function: <span class="math inline">\(x+d\succ x \iff v(x)^T\cdot d &gt;0\)</span></li>
+<li><span class="math inline">\(\succsim\)</span> is differentiable if can find some <span class="math inline">\(v(x)\)</span> s.t. <span class="math inline">\(D_{\succsim}(x) = D_{v(x)}(x)\)</span>, for all <span class="math inline">\(x\)</span></li>
+</ul>
+</div>
+</div>
+<div id="demand" class="section level2">
+<h2>Demand</h2>
+<ul>
+<li>Budget set: <span class="math inline">\(B(p,w) = \{x\in X | p\cdot x\leq w\}\)</span> (non-empty, compact)</li>
+<li>Consumer problem: find the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span>
+<ul>
+<li>Solution: <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x^*\succsim x\)</span> for all <span class="math inline">\(x\in B(p,w)\)</span></li>
+<li>If <span class="math inline">\(\succsim\)</span> is continuous, then the consumer problem has some solution</li>
+<li>If <span class="math inline">\(\succsim\)</span> is convex, then the set of solutions is convex</li>
+<li>If <span class="math inline">\(\succsim\)</span> is strictly convex, then the consumer problem has at most one solution</li>
+</ul></li>
+</ul>
+<div id="demand-with-differentiable-preference" class="section level3">
+<h3>Demand with Differentiable Preference</h3>
+<ul>
+<li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
+</ul>
+<blockquote>
+<p>HM8<br />
+Assume there are two commodities, consider <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x_1^* &gt; 0\)</span> and <span class="math inline">\(x_2^* = 0\)</span><br />
+Prove <span class="math inline">\(\frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
+</blockquote>
+<blockquote>
+<p>HM9<br />
+Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem for some <span class="math inline">\(p\in (0, \infty)^k\)</span> and <span class="math inline">\(w &gt; 0\)</span><br />
+Prove that if the preferences are represented by a utility function <span class="math inline">\(U\)</span> that is differentiable at <span class="math inline">\(x^*\)</span>,<br />
+then for any commodity k with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span> we have <span class="math inline">\(\frac{D_k u(x*)}{p_k} ≥ \frac{D_l u(x*)}{p_l}\)</span></p>
+</blockquote>
+<blockquote>
+<p>HM10<br />
+Find preferences rationalizing the following behaviors:<br />
+1.<br />
+2.</p>
+</blockquote>
 </div>
 </div>
 
