@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">10 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -106,6 +106,7 @@
 </ul></li>
 <li><a href="#demand">Demand</a><ul>
 <li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
+<li><a href="#demand-function">Demand Function</a></li>
 </ul></li>
 </ul>
 </div>
@@ -435,18 +436,33 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <h3>Demand with Differentiable Preference</h3>
 <ul>
 <li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
+<li>If <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k, x^*_j &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k} = \frac{v_j(x^*)}{p_j}\)</span>
+<ul>
+<li><span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> only when <span class="math inline">\(x^*\)</span> is a corner solution (see HM8)</li>
+</ul></li>
 </ul>
 <blockquote>
 <p>HM8<br />
 Assume there are two commodities, consider <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x_1^* &gt; 0\)</span> and <span class="math inline">\(x_2^* = 0\)</span><br />
 Prove <span class="math inline">\(\frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
 </blockquote>
+<p>Slope of budget line (frontier of budget set): <span class="math inline">\(-\frac{p_1}{p_2}\)</span><br />
+Let <span class="math inline">\(v&#39; = α\cdot (p_1,p_2)\)</span><br />
+<span class="math inline">\(\implies v&#39;\)</span> is orthogonal to the budget line<br />
+<span class="math inline">\(\implies \frac{v_1&#39;}{p_1} = \frac{v_2&#39;}{p_2}\)</span><br />
+Since <span class="math inline">\(x^*\)</span> is a solution, <span class="math inline">\(v = (v_1,v_2)\)</span> s.t. <span class="math inline">\(v_1 &gt; 0\)</span><br />
+<span class="math inline">\(\implies \frac{v_1}{p_1} = \frac{v_1&#39;}{p_1}\)</span>, <span class="math inline">\(\frac{v_2}{p_2} \geq \frac{v_2&#39;}{p_2}\)</span><br />
+<span class="math inline">\(\implies \frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span><br />
+<img src="/post-img/notes-micro--hm8.png" width="363" /></p>
 <blockquote>
 <p>HM9<br />
 Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem for some <span class="math inline">\(p\in (0, \infty)^k\)</span> and <span class="math inline">\(w &gt; 0\)</span><br />
 Prove that if the preferences are represented by a utility function <span class="math inline">\(U\)</span> that is differentiable at <span class="math inline">\(x^*\)</span>,<br />
 then for any commodity k with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span> we have <span class="math inline">\(\frac{D_k u(x*)}{p_k} ≥ \frac{D_l u(x*)}{p_l}\)</span></p>
 </blockquote>
+</div>
+<div id="demand-function" class="section level3">
+<h3>Demand Function</h3>
 <blockquote>
 <p>HM10<br />
 Find preferences rationalizing the following behaviors:<br />
