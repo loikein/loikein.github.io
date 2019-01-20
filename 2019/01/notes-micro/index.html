@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">11 min read</span>
+    <span class="article-duration">12 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -111,11 +111,15 @@
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
 <li><a href="#sarp-strong-axiom-of-revealed-preference">SARP (Strong Axiom of Revealed Preference)</a></li>
 <li><a href="#law-of-demand">Law of Demand</a></li>
+<li><a href="#indirect-preference">Indirect Preference</a></li>
+</ul></li>
+<li><a href="#dual-consumer">Dual Consumer</a><ul>
+<li><a href="#duality-properties">Duality Properties</a></li>
 </ul></li>
 </ul>
 </div>
 
-<p>Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (2ed)<br />
+<p>Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (<a href="#preference">#Preference</a> ~ #Social Choice)<br />
 Textbook 2:</p>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
@@ -159,7 +163,7 @@ Show that the two definitions of preferences are indeed equivalent.</p>
 </tbody>
 </table>
 <p>Define <span class="math inline">\(T\)</span> as function of <span class="math inline">\(f\)</span> in definition 1:<br />
-<span class="math display">\[T(f) = \{ (x,y) \in X\times X | f(x,y) = x &gt; y or f(x,y) = I\}\]</span></p>
+<span class="math display">\[T(f) = \{ (x,y) \in X\times X \ | \ f(x,y) = x &gt; y or f(x,y) = I\}\]</span></p>
 <ol style="list-style-type: decimal">
 <li>Check completeness<br />
 :) for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, either <span class="math inline">\((x, y) \in T(f)\)</span> or <span class="math inline">\((y, x) \in T(f)\)</span><br />
@@ -365,7 +369,7 @@ If <span class="math inline">\(x\neq y\implies x\in C_{\succsim}(A)\)</span><br 
 <div id="consumer-preference" class="section level2">
 <h2>Consumer Preference</h2>
 <ul>
-<li>Universe: <span class="math inline">\(X = \mathbb{R}^K_+\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\big\{(x_1, x_2,\dots, x_K) | x_k\geq 0 \big\}\)</span></li>
+<li>Universe: <span class="math inline">\(X = \mathbb{R}^K_+\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\big\{(x_1, x_2,\dots, x_K) \ | \ x_k\geq 0 \big\}\)</span></li>
 <li>Bundle: <span class="math inline">\(x = (x_1, x_2,\dots, x_K) \in X\)</span>, where <span class="math inline">\(x_k\)</span> represents the quantity of good <span class="math inline">\(k\)</span></li>
 <li>Preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> satisfies:
 <ul>
@@ -422,7 +426,7 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <div id="demand" class="section level2">
 <h2>Demand</h2>
 <ul>
-<li>Budget set: <span class="math inline">\(B(p,w) = \{x\in X | p\cdot x\leq w\}\)</span> (non-empty, compact)</li>
+<li>Budget set: <span class="math inline">\(B(p,w) = \{x\in X \ | \ p\cdot x\leq w\}\)</span> (non-empty, compact)</li>
 <li>Consumer problem: find the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span>
 <ul>
 <li>Solution: <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x^*\succsim x\)</span> for all <span class="math inline">\(x\in B(p,w)\)</span></li>
@@ -509,6 +513,43 @@ Find preferences rationalizing the following behaviors:<br />
 </div>
 <div id="law-of-demand" class="section level3">
 <h3>Law of Demand</h3>
+<ul>
+<li>Let <span class="math inline">\(x\)</span> satisfy WARP and Walras Law<br />
+</li>
+<li>If <span class="math inline">\(w&#39; = p&#39;\cdot (p,w)\)</span>, then<br />
+<span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
+&amp;= w - p \cdot x(p&#39;,w&#39;) \\ &amp;\leq 0\end{aligned}\]</span><br />
+<span class="math display">\[w - p \cdot x(p&#39;,w&#39;) \begin{cases} = 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) = x(p,w) \\
+&lt; 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) &gt; x(p,w)\end{cases}\]</span><br />
+</li>
+<li>It is never the case that <span class="math inline">\(x(p&#39;,w&#39;) &gt; x(p,w)\)</span></li>
+<li>Decomposition: <span class="math inline">\(x(p&#39;,w) - x(p,w) = \underbrace{x(p&#39;,w) - x(p&#39;,w&#39;) }_{\text{income effect}} + \underbrace{x(p&#39;,w&#39;) - x(p,w)}_{\text{substitution effect}} + u_i\)</span></li>
+</ul>
+</div>
+<div id="indirect-preference" class="section level3">
+<h3>Indirect Preference</h3>
+<ul>
+<li><span class="math inline">\((p,w)\succsim^* (p&#39;,w&#39;)\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(x(p,w)\succsim x(p&#39;,w&#39;)\)</span></li>
+<li><span class="math inline">\(\succsim^*\)</span> defined on <span class="math inline">\(\mathbb{R}^{K+1}_{++}\)</span>
+<ul>
+<li>Invariance to presentation: <span class="math inline">\(λ\cdot (p,w) \sim^* (p,w)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
+<li>Monotonicity: <span class="math inline">\(\succsim^*\)</span> is weakly decreasing in <span class="math inline">\(p_k\)</span> and strictly increasing in <span class="math inline">\(w\)</span></li>
+<li>Continuity</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="dual-consumer" class="section level2">
+<h2>Dual Consumer</h2>
+<ul>
+<li>For price vector <span class="math inline">\(p\)</span> and initial bundle <span class="math inline">\(z\)</span></li>
+<li>Prime Problem <span class="math inline">\(P(p,z)\)</span>: Find the <span class="math inline">\(\succsim\)</span>-best bundle <span class="math inline">\(x(p,z)\)</span> that solves <span class="math inline">\(\max_x u(x)\)</span> s.t. <span class="math inline">\(p\cdot x\leq p\cdot z\)</span> (<strong>Marshallian demand function</strong>)</li>
+<li>Dual Problem <span class="math inline">\(D(p,z)\)</span>: Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> that solves <span class="math inline">\(\min_x p\cdot x\)</span> s.t. <span class="math inline">\(u(x)\geq\bar{u} = u(z)\)</span> (<strong>Hicksian demand function</strong>)</li>
+<li>Expenditure function: <span class="math inline">\(e(p,\bar{u}) = p\cdot h(p,\bar{u})\)</span></li>
+</ul>
+<div id="duality-properties" class="section level3">
+<h3>Duality Properties</h3>
+<p>(RBST P82)</p>
 </div>
 </div>
 
