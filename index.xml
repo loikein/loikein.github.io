@@ -69,12 +69,11 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Hello. I&amp;rsquo;m loikein from China. Welcome to my academic blog.
+      <description> Me          Hello. I&amp;rsquo;m loikein from China. Welcome to my academic blog.
 Currently I live in Bonn, Germany for my master&amp;rsquo;s study in economics.
 My research interests include microeconomic theory, experimental economics and game theory. I am also interested in computer science.
 I speak Chinese (native), Japanese (near native) and English (academic proficient).
-If you are a Chinese user, you may also want to check my personal blog: Untitled Life.
-This theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui and me.</description>
+Dependencies  Theme: @jrutheiser/hugo-lithium-theme, modified by @Yihui and @me TOC: @FallenMax/smart-toc, modified by @me Findme Elsewhere: @me/clumsy-findme  </description>
     </item>
     
     <item>
