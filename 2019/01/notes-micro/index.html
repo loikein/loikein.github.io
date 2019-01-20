@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">8 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -98,7 +98,12 @@
 <li><a href="#rational-choice-function">Rational Choice Function</a></li>
 <li><a href="#warp-weak-axiom-of-revealed-preference">WARP (Weak Axiom of Revealed Preference)</a></li>
 </ul></li>
-<li><a href="#consumer-preference">Consumer Preference</a></li>
+<li><a href="#consumer-preference">Consumer Preference</a><ul>
+<li><a href="#convex">Convex</a></li>
+<li><a href="#differentiable">Differentiable</a></li>
+<li><a href="#homothetic-preference">Homothetic Preference</a></li>
+<li><a href="#quasi-linear-preference">Quasi-Linear Preference</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -288,9 +293,11 @@ But for all <span class="math inline">\(B_x\)</span>, there is some <span class=
 <div id="choice-function" class="section level3">
 <h3>Choice Function</h3>
 <ul>
-<li>Choice function <span class="math inline">\(C\)</span> is defined on:</li>
+<li>Choice function <span class="math inline">\(C\)</span> is defined on:
+<ul>
 <li>Context <span class="math inline">\((X,D)\)</span>: <span class="math inline">\(X\)</span> is the universe of all alternatives, <span class="math inline">\(D\)</span> is a set of feasibly possible subsets of <span class="math inline">\(X\)</span>, <span class="math inline">\(D \subset 2^X\)</span> (power set of <span class="math inline">\(X\)</span>)</li>
-<li><span class="math inline">\(D\)</span> is the domain of choice function <span class="math inline">\(C\)</span></li>
+<li>Domain: <span class="math inline">\(D\)</span></li>
+</ul></li>
 <li><span class="math inline">\(C\)</span> assigns the best element(s) <span class="math inline">\(C(A)\in A\)</span> to every possible situation <span class="math inline">\(A\in D\)</span>
 <ul>
 <li>If <span class="math inline">\(x,y\in C(A)\)</span>, then <span class="math inline">\(x\)</span> is revealed to be at least as good as <span class="math inline">\(y\)</span></li>
@@ -312,8 +319,8 @@ But for all <span class="math inline">\(B_x\)</span>, there is some <span class=
 </div>
 <div id="warp-weak-axiom-of-revealed-preference" class="section level3">
 <h3>WARP (Weak Axiom of Revealed Preference)</h3>
+<p>(RBST P31, Slide 4 P70)</p>
 <ul>
-<li>(RBST P31, Slide 4 P70):</li>
 <li>Choice <span class="math inline">\(C\)</span> satisfies WARP if for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span>
 <ul>
 <li>If <span class="math inline">\(x\)</span> is revealed to be at least as good as <span class="math inline">\(y\)</span>, then <span class="math inline">\(y\)</span> is not revealed to be strictly better than <span class="math inline">\(x\)</span></li>
@@ -354,6 +361,23 @@ If <span class="math inline">\(x\neq y\implies x\in C_{\succsim}(A)\)</span><br 
 </div>
 <div id="consumer-preference" class="section level2">
 <h2>Consumer Preference</h2>
+<ul>
+<li>Universe: <span class="math inline">\(X = \mathbb{R}^K_+\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\big\{(x_1, x_2,\dots, x_K) | x_k\geq 0 \big\}\)</span></li>
+<li>Bundle: <span class="math inline">\(x = (x_1, x_2,\dots, x_K) \in X\)</span>, where <span class="math inline">\(x_k\)</span> represents the quantity of good <span class="math inline">\(k\)</span></li>
+<li>Preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> satisfies:
+<ul>
+<li>Strong monotonicity: if <span class="math inline">\(x_k\geq y_k\)</span> for all <span class="math inline">\(k\)</span> and <span class="math inline">\(x\neq y\)</span>, then <span class="math inline">\(x\succ y\)</span>, for all <span class="math inline">\(y\)</span></li>
+<li>Contiuity: <span class="math inline">\(x\succ y\implies x&#39; \succ y&#39;\)</span> for all <span class="math inline">\(d(x,x&#39;)&lt;ε\)</span> and <span class="math inline">\(d(y,y&#39;)&lt;ε\)</span>, for some <span class="math inline">\(ε&gt;0\)</span></li>
+<li>Convexity</li>
+</ul></li>
+<li><strong>Monotonic + Continuity</strong> preference relations can be represented by a utility function</li>
+</ul>
+<div id="convex" class="section level3">
+<h3>Convex</h3>
+<ul>
+<li>Convexity: <span class="math inline">\(x\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)y\succsim y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span></li>
+<li>Strict convexity: <span class="math inline">\(x, x&#39;\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)x&#39;\succ y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span></li>
+</ul>
 <blockquote>
 <p>HM7<br />
 Assume a consumer has preferences on <span class="math inline">\(\mathbb{R}^2\)</span><br />
@@ -364,9 +388,27 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <ol style="list-style-type: decimal">
 <li>Nothing<br />
 </li>
-<li>If <span class="math inline">\(f\)</span> is strictly convex, then<br />
+<li>If <span class="math inline">\(f\)</span> is strictly convex, then there is unique and best <span class="math inline">\(x\)</span> s.t. <span class="math inline">\(f&#39;(x) = −2\)</span><br />
 <img src="/post-img/notes-micro--hm7.png" width="497" /></li>
 </ol>
+</div>
+<div id="differentiable" class="section level3">
+<h3>Differentiable</h3>
+</div>
+<div id="homothetic-preference" class="section level3">
+<h3>Homothetic Preference</h3>
+<ul>
+<li><span class="math inline">\(x\succsim y\implies αx\succsim αy\)</span> for all <span class="math inline">\(α\geq 0\)</span></li>
+<li><strong>Homothetic + Monotonic + Continuous</strong> preference relations can be represented by <strong>Continuous + Homogeneous (1)</strong> utility function</li>
+</ul>
+</div>
+<div id="quasi-linear-preference" class="section level3">
+<h3>Quasi-Linear Preference</h3>
+<ul>
+<li><span class="math inline">\(x\succsim y\implies (x+εe_1)\succsim (y+εe_1)\)</span> for all <span class="math inline">\(ε\geq 0\)</span>, <span class="math inline">\(e_1 = (1,0,\dots,0)\)</span></li>
+<li><strong>Quasi-Linear + Monotonic + Continuous</strong> preference relations can be represented by <span class="math inline">\(U = x_1 + v(x_2,\dots,x_K)\)</span> for some <span class="math inline">\(v\)</span></li>
+</ul>
+</div>
 </div>
 
     </div>

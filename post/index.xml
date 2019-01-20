@@ -17,9 +17,9 @@
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/01/notes-micro/</guid>
-      <description>Preference Utility Function Continuous Preference  Choice Choice Function Rational Choice Function WARP (Weak Axiom of Revealed Preference)  Consumer Preference   Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (2ed)
+      <description>Preference Utility Function Continuous Preference  Choice Choice Function Rational Choice Function WARP (Weak Axiom of Revealed Preference)  Consumer Preference Convex Differentiable Homothetic Preference Quasi-Linear Preference    Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (2ed)
 Textbook 2:
-Preference  Preferences on a set \(X\) are a function \(f\) that assigns to any pair \((x, y)\in X\) exactly one of the three “values” \(x \succ y\), \(y \succ x\), or \(I\) s.t.  No order effect: \(f(x,y)=f(y,x)\) Transitivity: if \(f(x,y) = x \succ y\) and \(f(y,z) = y \succ z\), then \(f(x,z) = x \succ z\)  Preferences on a set \(X\) is a binary relation \(\succsim\) s.</description>
+Preference  Preferences on a set \(X\) are a function \(f\) that assigns to any pair \((x, y)\in X\) exactly one of the three “values” \(x \succ y\), \(y \succ x\), or \(I\) s.</description>
     </item>
     
     <item>
