@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">12 min read</span>
+    <span class="article-duration">13 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -116,12 +116,17 @@
 <li><a href="#dual-consumer">Dual Consumer</a><ul>
 <li><a href="#duality-properties">Duality Properties</a></li>
 </ul></li>
-<li><a href="#producer">Producer</a></li>
+<li><a href="#producer">Producer</a><ul>
+<li><a href="#technology">Technology</a></li>
+<li><a href="#production-function">Production Function</a></li>
+<li><a href="#supply">Supply</a></li>
+<li><a href="#law-of-supply">Law of Supply</a></li>
+</ul></li>
 </ul>
 </div>
 
-<p>Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (<a href="#preference">#Preference</a> ~ <a href="#producer">#Producer</a>)<br />
-Textbook 2:</p>
+<p>Textbook 1: <a href="http://arielrubinstein.tau.ac.il/books.html">Lecture Notes in Microeconomic Theory</a> (~ <a href="#producer">#Producer</a>)<br />
+Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory (3ed)</a></p>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
 <ul>
@@ -555,7 +560,7 @@ Find preferences rationalizing the following behaviors:<br />
 </ul>
 <div id="duality-properties" class="section level3">
 <h3>Duality Properties</h3>
-<p>(RBST P82)</p>
+<p>(RBST P82, Slides 7 P132)</p>
 <ul>
 <li>If <span class="math inline">\(\bar{u} = u\big( x(p,w)\big)\)</span>, then <span class="math inline">\(h(p,\bar{u}) = x(p,w)\)</span></li>
 <li><span class="math inline">\(h(p,\bar{u}) = h(λp,\bar{u})\)</span> and <span class="math inline">\(e(λp,\bar{u}) = λe(p,\bar{u})\)</span></li>
@@ -573,6 +578,56 @@ Find preferences rationalizing the following behaviors:<br />
 </div>
 <div id="producer" class="section level2">
 <h2>Producer</h2>
+<div id="technology" class="section level3">
+<h3>Technology</h3>
+<ul>
+<li>Goods: <span class="math inline">\(1, 2,\dots, K\)</span></li>
+<li>Production Combination: <span class="math inline">\(z\in \mathbb{R}^K\)</span>, positive: output, negative: input</li>
+<li>Technology Space: <span class="math inline">\(Z \subset \mathbb{R}^K\)</span> of all feasible <span class="math inline">\(z\)</span>’s
+<ul>
+<li>Closed and convex <span class="math inline">\(\implies\)</span> decreasing marginal productivity <span class="math inline">\(\implies\)</span> non-increasing returns to scale</li>
+<li>No production with zero resources</li>
+<li>Free disposal</li>
+</ul></li>
+</ul>
+</div>
+<div id="production-function" class="section level3">
+<h3>Production Function</h3>
+<ul>
+<li>Let good <span class="math inline">\(K\)</span> be the only output, vector of inputs: <span class="math inline">\(v\in \mathbb{R}^{K-1}_+\)</span></li>
+<li>Production Function: <span class="math inline">\(f(v) = \max x\)</span> s.t. <span class="math inline">\((-v,x)\in Z\)</span></li>
+</ul>
+</div>
+<div id="supply" class="section level3">
+<h3>Supply</h3>
+<ul>
+<li>Let price vector be <span class="math inline">\(p\)</span></li>
+<li>Choice Set: <span class="math inline">\(B(p) = \big\{ (z,p\cdot z)\big\}\)</span>, <span class="math inline">\(z\in Z\)</span></li>
+<li>Supply Function: <span class="math inline">\(z(p)\)</span>
+<ul>
+<li><span class="math inline">\(z(λp) = z(p)\)</span></li>
+<li>Continuous</li>
+</ul></li>
+<li>Profit Function: <span class="math inline">\(π(p) = \max_z p\cdot z\)</span>
+<ul>
+<li><span class="math inline">\(π(λp) = λπ(p)\)</span></li>
+<li>Continuous</li>
+<li>Convex</li>
+<li><span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span class="math inline">\(p\)</span> and <span class="math inline">\(p^*\)</span> (<strong>Hotelling’s lemma</strong>)</li>
+<li><span class="math inline">\(π(p)\)</span> is differentiable, and <span class="math inline">\(\frac{\partial π}{\partial p_k}(p^*) = z_k(p^*)\)</span></li>
+<li>If <span class="math inline">\(π(p)\)</span> is twice differentiable, then <span class="math inline">\(\frac{\partial z_j}{\partial p_k}(p^*) = \frac{\partial z_k}{\partial p_j}(p^*)\)</span></li>
+</ul></li>
+<li>Cost Function: <span class="math inline">\(c(p,y) = \min_a p\cdot a\)</span> s.t. <span class="math inline">\((-a,y)\in Z\)</span></li>
+</ul>
+</div>
+<div id="law-of-supply" class="section level3">
+<h3>Law of Supply</h3>
+<ul>
+<li>If <span class="math inline">\(z(p)\neq z(p&#39;)\)</span>, then<br />
+<span class="math display">\[\begin{aligned} (p-p&#39;)\big[z(p) - z(p&#39;) \big] &amp;= p\cdot \big[z(p) - z(p&#39;)\big] + p&#39;\big[z(p&#39;) - z(p)\big] \\
+&amp;&gt; 0\end{aligned}\]</span> ~</li>
+</ul>
+</div>
 </div>
 
     </div>
