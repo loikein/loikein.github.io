@@ -116,10 +116,11 @@
 <li><a href="#dual-consumer">Dual Consumer</a><ul>
 <li><a href="#duality-properties">Duality Properties</a></li>
 </ul></li>
+<li><a href="#producer">Producer</a></li>
 </ul>
 </div>
 
-<p>Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (<a href="#preference">#Preference</a> ~ #Social Choice)<br />
+<p>Textbook 1: Rubinstein’s Lecture Notes in Microeconomic Theory (<a href="#preference">#Preference</a> ~ <a href="#producer">#Producer</a>)<br />
 Textbook 2:</p>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
@@ -522,7 +523,7 @@ Find preferences rationalizing the following behaviors:<br />
 <span class="math display">\[w - p \cdot x(p&#39;,w&#39;) \begin{cases} = 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) = x(p,w) \\
 &lt; 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) &gt; x(p,w)\end{cases}\]</span><br />
 </li>
-<li>It is never the case that <span class="math inline">\(x(p&#39;,w&#39;) &gt; x(p,w)\)</span></li>
+<li>It is never the case that <span class="math inline">\(x(p&#39;,w&#39;) &lt; x(p,w)\)</span></li>
 <li>Decomposition: <span class="math inline">\(x(p&#39;,w) - x(p,w) = \underbrace{x(p&#39;,w) - x(p&#39;,w&#39;) }_{\text{income effect}} + \underbrace{x(p&#39;,w&#39;) - x(p,w)}_{\text{substitution effect}} + u_i\)</span></li>
 </ul>
 </div>
@@ -537,6 +538,11 @@ Find preferences rationalizing the following behaviors:<br />
 <li>Continuity</li>
 </ul></li>
 </ul>
+<p>(Slides 7 P136)</p>
+<ul>
+<li>Compensating Variation: <span class="math inline">\(e\big( p&#39;, v(p,w)\big) - w&#39;\)</span></li>
+<li>Equivalent Variation: <span class="math inline">\(e\big( p, v(p&#39;,w&#39;)\big) - w\)</span></li>
+</ul>
 </div>
 </div>
 <div id="dual-consumer" class="section level2">
@@ -550,7 +556,23 @@ Find preferences rationalizing the following behaviors:<br />
 <div id="duality-properties" class="section level3">
 <h3>Duality Properties</h3>
 <p>(RBST P82)</p>
+<ul>
+<li>If <span class="math inline">\(\bar{u} = u\big( x(p,w)\big)\)</span>, then <span class="math inline">\(h(p,\bar{u}) = x(p,w)\)</span></li>
+<li><span class="math inline">\(h(p,\bar{u}) = h(λp,\bar{u})\)</span> and <span class="math inline">\(e(λp,\bar{u}) = λe(p,\bar{u})\)</span></li>
+<li><span class="math inline">\(h(p,\bar{u}) \sim z\)</span></li>
+<li><span class="math inline">\(h(p,\bar{u})\)</span> and <span class="math inline">\(e(p,\bar{u})\)</span> are continuous</li>
+<li><span class="math inline">\(H = \big\{(p,e) \ | \ e = p\cdot h(p^*, \bar{u})\big\}\)</span> is tangent to <span class="math inline">\(e(p,\bar{u})\)</span> at <span class="math inline">\(p^*\)</span></li>
+<li><span class="math inline">\(\frac{\partial e(p,\bar{u})}{\partial p_k} = h_k( p^*, \bar{u})\)</span></li>
+<li><span class="math inline">\(e(p,\bar{u})\)</span> is concave in <span class="math inline">\(p\)</span></li>
+<li><span class="math inline">\(h_k\)</span> is decreasing in <span class="math inline">\(p_k\)</span>, and <span class="math inline">\(e(p,\bar{u})\)</span> is increasing in <span class="math inline">\(p_k\)</span>
+<ul>
+<li><span class="math inline">\(p\cdot h(p&#39;,\bar{u}) &gt; p\cdot h(p,\bar{u})\)</span> for all <span class="math inline">\(p&#39;\)</span></li>
+</ul></li>
+</ul>
 </div>
+</div>
+<div id="producer" class="section level2">
+<h2>Producer</h2>
 </div>
 
     </div>
