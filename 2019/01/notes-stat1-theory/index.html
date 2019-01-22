@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">22 min read</span>
+    <span class="article-duration">24 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -126,6 +126,7 @@
 <li><a href="#ols-model">OLS Model</a><ul>
 <li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
 <li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
+<li><a href="#loglinear-model">Loglinear Model</a></li>
 <li><a href="#elasticity">Elasticity</a></li>
 </ul></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
@@ -144,22 +145,6 @@
 <p>Warning: under proofreading</p>
 <p>All I wanted was a clear &amp; complete guidance (for upcoming exams).<br />
 Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
-<!--
-## Matrix Algebra
-
-> PS1.Q1.1  
-> Consider the matrix:  
-> $$M = \begin{pmatrix} \frac{1}{4} & \frac{\sqrt{3}}{4} \\ \frac{\sqrt{3}}{4} &  \frac{1}{4} \end{pmatrix}$$   
-> Calculate the trace of $λM′M$ where $λ$ is a scalar.   
-> Check whether $M$ is invertible and find the inverse if possible.
-
-> PS1.Q1.2  
-> Consider the matrix:  
-> $$X = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}$$   
-> and recall that $X′ X$ is equivalent to $\sum^3_{i=1} x_i x_i′$.   
-> Define the vectors $x_1 , \dots  , x_3$.   
-> Check that the notations are indeed equivalent.
--->
 <div id="tests-statistics" class="section level2">
 <h2>Tests &amp; Statistics</h2>
 <div id="r2" class="section level3">
@@ -353,7 +338,7 @@ Calculate critical value at <span class="math inline">\(5\%\)</span> level, for 
 (A8): textbook P37 ~~~~~~~~~~~~~ <span class="math inline">\(\Longleftarrow\)</span> (A2)</p>
 <p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
 (A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
-(A3): <span class="math inline">\(V(ε_i) = σ^2\)</span><br />
+(A3): <span class="math inline">\(Var(ε_i) = σ^2\)</span><br />
 (A4): <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
 <p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
 (A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
@@ -696,6 +681,74 @@ According to LLN:<br />
 <span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
 \implies \frac{1}{N}\sum y_i^2 &amp;\to^p E[y_i^2]\end{aligned}\]</span><br />
 ~</p>
+</div>
+<div id="loglinear-model" class="section level3">
+<h3>Loglinear Model</h3>
+<blockquote>
+<p>Mock.Q1.1<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span><br />
+1. Linearize the relationship and state a corresponding linear regression model with parameters <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span>.<br />
+2. Explain whether your regression model is a (i) level-level, (ii) level-log, (iii) log-level or (iv) log-log specification.<br />
+3. How should the slope parameter in your derived regression model be interpreted?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + ε_t\)</span>, where <span class="math inline">\(β_1 = \log α\)</span> and <span class="math inline">\(β_2 = γ\)</span><br />
+</li>
+<li>This is a log-level model, since the dependent variable is in <span class="math inline">\(\log\)</span> form and the independent variable is not.<br />
+</li>
+<li><span class="math display">\[\begin{aligned} Δ\log y_t &amp;= Δ x_t\cdot β_2 \\
+β_2 &amp;= \frac{Δ\log y_t}{Δ x_t}\end{aligned}\]</span><br />
+Therefore, <span class="math inline">\(β_2\)</span> can be interpreted as the expected percentage change of <span class="math inline">\(y_t\)</span> given one unit change of <span class="math inline">\(x_t\)</span>, held everhthing else constant</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.2<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span><br />
+1. Which assumptions on the error term in your regression model are needed s.t. <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> be an appropriate estimator for the covariance matrix of the OLS estimator <span class="math inline">\(b\)</span> for <span class="math inline">\((β_1, β_2)&#39;\)</span>?<br />
+(<span class="math inline">\(X\)</span> denotes the full-rank regressor matrix in your regression model, and <span class="math inline">\(s^2\)</span> is an unbiased estimator of the residual variance <span class="math inline">\(σ^2\)</span>.)<br />
+2. Explain the influence of the variation in (i) the residuals and (ii) the regressor matrix on the precision of the OLS estimator based oh the covariance matrix <span class="math inline">\(σ^2(X&#39;X)^{-1}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> is an appropriate estimator for <span class="math inline">\(b\)</span>, all four Gauss-Markov assumptions are needed.<br />
+<span class="math inline">\(E[ε_t] = 0\)</span>, <span class="math inline">\(Var(ε_t) = σ^2\)</span>, <span class="math inline">\(Cov(ε_t, ε_t&#39;) = 0\)</span> for normal errors, and independence between <span class="math inline">\(ε\)</span> and <span class="math inline">\(x\)</span>.<br />
+</li>
+<li>Larger variance in residuals causes larger variance (less precise) of the OLS estimator,<br />
+while larger variance in the regressors causes the OLS estimator to be more precise.</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.3<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span><br />
+Suppose that you are unsure whether to include an additional regressor <span class="math inline">\(z_t\)</span> to your linear regression model.<br />
+1. Describe three valid procedures to decide whether the additional regressor shall be included or not.<br />
+2. Give two conditions under which the omission of <span class="math inline">\(z_t\)</span> is unproblematic for the OLS estimator in your linearized model (excluding <span class="math inline">\(z_t\)</span>).</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li>Regress the model <span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + β_3\cdot z_t + ε_t\)</span>, and test with <span class="math inline">\(H_0\)</span>: <span class="math inline">\(β_3=0\)</span><br />
+</li>
+<li>Compare <span class="math inline">\(\bar{R^2}\)</span> of the two specifications<br />
+</li>
+<li>Compare AIC or BIC of the two specifications<br />
+</li>
+</ol></li>
+<li>If <span class="math inline">\(β_3=0\)</span> is not rejected, or AIC / BIC is not decreased by the inclusion of <span class="math inline">\(z_t\)</span>, then it is ok to omit it.</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.4<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span><br />
+As an alternative to linearization, one may directly consider the nonlinear regression model <span class="math inline">\(y_t = α \exp(γ\cdot x_t)+ε_t\)</span> with the additional assumption that <span class="math inline">\(ε_t∼^{iid} \mathcal{N}(0,σ^2)\)</span><br />
+1. Outline two appropriate estimntors for <span class="math inline">\((α,γ)&#39;\)</span> other than the OLS estimator (maximal 4 sentences)<br />
+2. For a comparison between your linear regression specification and the given nonlinear one, would it be correct to consider the (adjusted) <span class="math inline">\(R^2\)</span> values?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Maximum likelihood model (does not assume the errors are normal)<br />
+Non-linear model: <span class="math inline">\(y_t = α \exp(γ\cdot x_t) + ε_t\)</span><br />
+</li>
+<li>No, because <span class="math inline">\(R^2\)</span> is conditional on the form of <span class="math inline">\(y_t\)</span></li>
+</ol>
 </div>
 <div id="elasticity" class="section level3">
 <h3>Elasticity</h3>
