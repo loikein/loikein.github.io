@@ -649,7 +649,7 @@ Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)<
 <h3>Converge in Probability &amp; Mean Square</h3>
 <ul>
 <li>Vector sequence <span class="math inline">\(\{x_n\}\)</span> converges in p when <span class="math inline">\(\mathbb{P}\{ \|x_n - x\| &gt; \exists δ\} \to 0\)</span> as <span class="math inline">\(N \to \infty\)</span></li>
-<li>Also: <span class="math inline">\(x_n \to^p x\)</span> or <span class="math inline">\(\text{plim} x_n = x\)</span></li>
+<li>Also: <span class="math inline">\(x_n \to^p x\)</span> or <span class="math inline">\(\text{plim } x_n = x\)</span></li>
 <li><span class="math inline">\(x_n \to^p x \implies g(x_n) \to^p g(x)\)</span> for all continuous function <span class="math inline">\(g\)</span></li>
 </ul>
 <p>~</p>
@@ -948,23 +948,31 @@ Suppose that the error term <span class="math inline">\(ε_t\)</span> follows th
 </li>
 <li><span class="math inline">\(ACF = ρ\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(ρ &gt; 0\)</span><br />
 </li>
-<li>Conditions for stationary <span class="math inline">\(ε_t\)</span>:<br />
-<span class="math display">\[\begin{cases} E[ε_t] = μ \\
-Var(ε_t) = Var(ε_{t&#39;}) = Var(ε_{t-1}) \\
-Cov(ε_t, ε_{t&#39;}) = γ_k\end{cases}\]</span><br />
-Therefore,<br />
-<span class="math display">\[\begin{aligned} Var(ε_t) &amp;= Var(ε_{t-1}) \\
-Var(ρ ε_{t-1} + v_t) &amp;= Var(ε_{t-1}) \\
-ρ\cdot Var(ε_{t-1}) + Var(v_t) &amp;= Var(ε_{t-1}) \\
-Var(ε_{t-1}) &amp;= \frac{σ_v^2}{1-ρ} &gt; 0 \\
-ρ &amp;&lt; 1\end{aligned}\]</span> ~</li>
+<li>Rewrite <span class="math inline">\(ε_t = ρ ε_{t-1} + v_t\)</span> with lag operater:<br />
+<span class="math display">\[\begin{aligned} ε_t &amp;= ρ Lε_t + v_t \\
+(1-ρL) ε_t &amp;= v_t\end{aligned}\]</span><br />
+Characteristic equation:<br />
+<span class="math display">\[\begin{aligned} 1-ρz &amp;= 0 \\
+|z| &amp;= \left| \frac{1}{ρ}\right|\end{aligned}\]</span><br />
+Condition for <span class="math inline">\(ε_t\)</span> to be stationary:<br />
+<span class="math display">\[\begin{aligned} |z| &amp;&gt; 1 \\
+|ρ| &amp;&lt; 1\end{aligned}\]</span> ~
+<!-- $$\begin{cases} E[ε_t] = μ \\
+Var(ε_t) = Var(ε_{t'}) = Var(ε_{t-1}) \\
+Cov(ε_t, ε_{t'}) = γ_k\end{cases}$$  
+Therefore,  
+$$\begin{aligned} Var(ε_t) &= Var(ε_{t-1}) \\
+Var(ρ ε_{t-1} + v_t) &= Var(ε_{t-1}) \\
+ρ\cdot Var(ε_{t-1}) + Var(v_t) &= Var(ε_{t-1}) \\
+Var(ε_{t-1}) &= \frac{σ_v^2}{1-ρ} > 0 \\
+ρ &< 1\end{aligned}$$ ~  --></li>
 </ol>
 <blockquote>
 <p>Mock.Q2.3<br />
 Consider the following regression model with a lagged dependent variable only:<br />
 <span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
 One can show that<br />
-<span class="math display">\[\text{plim}b = \frac{β+ρ}{1+βρ}\]</span><br />
+<span class="math display">\[\text{plim }b = \frac{β+ρ}{1+βρ}\]</span><br />
 where <span class="math inline">\(b\)</span> denotes the OLS estimator for <span class="math inline">\(β\)</span> obtained from the regression model.<br />
 Suppose that the true <span class="math inline">\(β\)</span> equals $0.54 and that <span class="math inline">\(ρ\in (0,1)\)</span>.<br />
 1. Explain whether the OLS estimator <span class="math inline">\(b\)</span> is biased and if so in which direction?<br />
@@ -974,14 +982,21 @@ Suppose that the true <span class="math inline">\(β\)</span> equals $0.54 and t
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Yes.<br />
-<span class="math display">\[\begin{aligned} \text{plim}b &amp;= \frac{β+ρ}{1+βρ} \\
+<span class="math display">\[\begin{aligned} \text{plim }b &amp;= \frac{β+ρ}{1+βρ} \\
 &amp;= \frac{1+\frac{ρ}{β}}{\frac{1}{β}+ρ} \\
 &amp;= \frac{1+\frac{ρ}{β}+ βρ - βρ}{\frac{1}{β}+ρ} \\
 &amp;= \frac{1+ βρ}{\frac{1}{β}+ρ} + \frac{\frac{ρ}{β}- βρ}{\frac{1}{β}+ρ} \\
 &amp;= β + \frac{\frac{1}{β}- β}{\frac{1}{β}+ρ}\cdot ρ \end{aligned}\]</span><br />
 </li>
-<li>When <span class="math inline">\(ρ\to 0\)</span>, <span class="math inline">\(\frac{β+ρ}{1+βρ}\to 1\)</span>, <span class="math inline">\(\text{plim}b\to β\)</span><br />
-When <span class="math inline">\(ρ\to 1\)</span>,</li>
+<li>When <span class="math inline">\(ρ\to 0\)</span>, <span class="math inline">\(\text{plim }b\to β\)</span> (unbiasedness)<br />
+When <span class="math inline">\(ρ\to 1\)</span>, <span class="math inline">\(\text{plim }b\to 1\)</span><br />
+</li>
+<li>Yes, yet with efficiency loss if include <span class="math inline">\(t-3\)</span> term.<br />
+Rewrite the original model with lag operater:<br />
+<span class="math display">\[\begin{aligned} y_t &amp;= βL y_t + ε_t \\
+(1-βL) y_t &amp;= ε_t \\
+&amp;= \frac{1}{1-ρL} v_t\end{aligned}\]</span><br />
+Therefore, two lags will be sufficient.</li>
 </ol>
 <blockquote>
 <p>Mock.Q2.4<br />
