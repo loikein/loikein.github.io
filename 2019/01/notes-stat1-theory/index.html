@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">27 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -932,15 +932,33 @@ Consider the following regression model with a lagged dependent variable only:<b
 <span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
 Provide a simple condition for consistency of the OLS estimator for <span class="math inline">\(β\)</span></p>
 </blockquote>
+<p>The general condition for the OLS estimator for <span class="math inline">\(β\)</span> is <span class="math inline">\(E[x_tε_t] = 0\)</span>,<br />
+here can be written as <span class="math inline">\(E[y_{t-1}ε_t] = 0\)</span></p>
 <blockquote>
 <p>Mock.Q2.2<br />
 Consider the following regression model with a lagged dependent variable only:<br />
 <span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
-Suppose that the error term <span class="math inline">\(ε_t\)</span> follows the process <span class="math inline">\(ε_t = ρ\ ε_{t-1} + v_t\)</span> where <span class="math inline">\(v_t∼^{iid} \mathcal{N}(0,σ_v^2)\)</span><br />
+Suppose that the error term <span class="math inline">\(ε_t\)</span> follows the process <span class="math inline">\(ε_t = ρ ε_{t-1} + v_t\)</span> where <span class="math inline">\(v_t∼^{iid} \mathcal{N}(0,σ_v^2)\)</span><br />
 1. How is the process for <span class="math inline">\(ε_t\)</span> called?<br />
 2. For which values of <span class="math inline">\(ρ\)</span> is <span class="math inline">\(ε_t\)</span> positively autocorrelated? (No derivation needed.)<br />
-3. For which values of p is <span class="math inline">\(ε_t\)</span> stationary? Derive! (Maximal 5 lines).</p>
+3. For which values of <span class="math inline">\(ρ\)</span> is <span class="math inline">\(ε_t\)</span> stationary? Derive! (Maximal 5 lines).</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>AR(1)<br />
+</li>
+<li><span class="math inline">\(ACF = ρ\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(ρ &gt; 0\)</span><br />
+</li>
+<li>Conditions for stationary <span class="math inline">\(ε_t\)</span>:<br />
+<span class="math display">\[\begin{cases} E[ε_t] = μ \\
+Var(ε_t) = Var(ε_{t&#39;}) = Var(ε_{t-1}) \\
+Cov(ε_t, ε_{t&#39;}) = γ_k\end{cases}\]</span><br />
+Therefore,<br />
+<span class="math display">\[\begin{aligned} Var(ε_t) &amp;= Var(ε_{t-1}) \\
+Var(ρ ε_{t-1} + v_t) &amp;= Var(ε_{t-1}) \\
+ρ\cdot Var(ε_{t-1}) + Var(v_t) &amp;= Var(ε_{t-1}) \\
+Var(ε_{t-1}) &amp;= \frac{σ_v^2}{1-ρ} &gt; 0 \\
+ρ &amp;&lt; 1\end{aligned}\]</span> ~</li>
+</ol>
 <blockquote>
 <p>Mock.Q2.3<br />
 Consider the following regression model with a lagged dependent variable only:<br />
@@ -954,6 +972,17 @@ Suppose that the true <span class="math inline">\(β\)</span> equals $0.54 and t
 3. Would the endogeneity bias be circumvented by estimating the following alternative regression?<br />
 <span class="math inline">\(y_t = β_1 y_{t-1} + β_2 y_{t-2} + β_3 y_{t-3} + w_t\)</span></p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Yes.<br />
+<span class="math display">\[\begin{aligned} \text{plim}b &amp;= \frac{β+ρ}{1+βρ} \\
+&amp;= \frac{1+\frac{ρ}{β}}{\frac{1}{β}+ρ} \\
+&amp;= \frac{1+\frac{ρ}{β}+ βρ - βρ}{\frac{1}{β}+ρ} \\
+&amp;= \frac{1+ βρ}{\frac{1}{β}+ρ} + \frac{\frac{ρ}{β}- βρ}{\frac{1}{β}+ρ} \\
+&amp;= β + \frac{\frac{1}{β}- β}{\frac{1}{β}+ρ}\cdot ρ \end{aligned}\]</span><br />
+</li>
+<li>When <span class="math inline">\(ρ\to 0\)</span>, <span class="math inline">\(\frac{β+ρ}{1+βρ}\to 1\)</span>, <span class="math inline">\(\text{plim}b\to β\)</span><br />
+When <span class="math inline">\(ρ\to 1\)</span>,</li>
+</ol>
 <blockquote>
 <p>Mock.Q2.4<br />
 Consider the following regression model with a lagged dependent variable only:<br />
