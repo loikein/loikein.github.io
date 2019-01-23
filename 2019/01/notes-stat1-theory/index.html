@@ -1004,7 +1004,7 @@ Consider the following regression model with a lagged dependent variable only:<b
 <span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
 In order to test for autocorrelation in the residuals <span class="math inline">\(\hat{ε_t}\)</span> (epsilonhat) from the regression <span class="math inline">\(y_t = βy_{t-1} + ε_t\)</span> use the Box-Pierce statistic <span class="math inline">\(Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2\)</span>,<br />
 where <span class="math inline">\(T = 280\)</span> denotes the sample size and <span class="math inline">\(\hat{ρ_j}\)</span> is the empirical <span class="math inline">\(j\)</span>th-order autocorrelation coefficient.<br />
-1. Carry out the test for <span class="math inline">\(m = 2\)</span> and use the information in the corrupted R output below in combination with the estimation results reported in the table:<br />
+Carry out the test for <span class="math inline">\(m = 2\)</span> and use the information in the corrupted R output below in combination with the estimation results reported in the table:<br />
 (Autocorrelations of series epsilonhat, by lag)</p>
 <table>
 <thead>
@@ -1038,8 +1038,8 @@ where <span class="math inline">\(T = 280\)</span> denotes the sample size and <
 #                  Estimate Std. Error t value Pr(&gt;|t|)
 # (Intercept)     -0.001806   0.046903  -0.038    0.969
 # L(epsilonhat,1)  0.437636   0.053792   8.136 1.36e-14 ***</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Stale the null and the alternative hypothesis.<br />
+<ol style="list-style-type: decimal">
+<li>State the null and the alternative hypothesis.<br />
 </li>
 <li>Select the appropriate <span class="math inline">\(5\%\)</span>-critical value from the following set and interpret the test decision:<br />
 <span class="math display">\[\begin{aligned} F^{280-2}_2 &amp;= 3.03 \\ F^2_{280-2} &amp;= 19.49 \\ χ_2^2 &amp;= 5.99 \\ χ_{280-2}^2 &amp;= 317.89 \\ t_2 &amp;= 2.92 \\ t_{280-2} &amp;= 1.65 \end{aligned}\]</span><br />
@@ -1047,6 +1047,18 @@ where <span class="math inline">\(T = 280\)</span> denotes the sample size and <
 <li>Why is the Durbin-Watson test invalid in this setting? (Max 3 sentences)</li>
 </ol>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(ε_t\)</span> has no autocorrelation (first two lags have zero coefficient)<br />
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(ε_t\)</span> has autocorrelation<br />
+</li>
+<li>Critical value: <span class="math inline">\(χ_2^2 = 5.99\)</span> with <span class="math inline">\(df = 2\)</span><br />
+<span class="math display">\[\begin{aligned} Q_2 &amp;= 280\cdot\sum_{j=1}^2 \hat{ρ_j}^2 \\
+&amp;= 280\times (0.4376^2 + 0.212^2) \\
+&amp;= 66.2 &gt; 5.99\end{aligned}\]</span><br />
+Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class="math inline">\(ε_t\)</span> has autocorrelation<br />
+</li>
+<li>Because the dependent variable (<span class="math inline">\(ε_t\)</span>) is lagged.</li>
+</ol>
 </div>
 
     </div>
