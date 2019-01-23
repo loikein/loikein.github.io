@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">26 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -139,6 +139,7 @@
 <li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 </ul></li>
 <li><a href="#maximum-likelihood-model">Maximum Likelihood Model</a></li>
+<li><a href="#time-series">Time Series</a></li>
 </ul>
 </div>
 
@@ -922,6 +923,86 @@ When applying robust standard errors, the <strong>OLS point estimates</strong> (
 </div>
 <div id="maximum-likelihood-model" class="section level2">
 <h2>Maximum Likelihood Model</h2>
+</div>
+<div id="time-series" class="section level2">
+<h2>Time Series</h2>
+<blockquote>
+<p>Mock.Q2.1<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
+Provide a simple condition for consistency of the OLS estimator for <span class="math inline">\(β\)</span></p>
+</blockquote>
+<blockquote>
+<p>Mock.Q2.2<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
+Suppose that the error term <span class="math inline">\(ε_t\)</span> follows the process <span class="math inline">\(ε_t = ρ\ ε_{t-1} + v_t\)</span> where <span class="math inline">\(v_t∼^{iid} \mathcal{N}(0,σ_v^2)\)</span><br />
+1. How is the process for <span class="math inline">\(ε_t\)</span> called?<br />
+2. For which values of <span class="math inline">\(ρ\)</span> is <span class="math inline">\(ε_t\)</span> positively autocorrelated? (No derivation needed.)<br />
+3. For which values of p is <span class="math inline">\(ε_t\)</span> stationary? Derive! (Maximal 5 lines).</p>
+</blockquote>
+<blockquote>
+<p>Mock.Q2.3<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
+One can show that<br />
+<span class="math display">\[\text{plim}b = \frac{β+ρ}{1+βρ}\]</span><br />
+where <span class="math inline">\(b\)</span> denotes the OLS estimator for <span class="math inline">\(β\)</span> obtained from the regression model.<br />
+Suppose that the true <span class="math inline">\(β\)</span> equals $0.54 and that <span class="math inline">\(ρ\in (0,1)\)</span>.<br />
+1. Explain whether the OLS estimator <span class="math inline">\(b\)</span> is biased and if so in which direction?<br />
+2. What happens in the limiting cases where <span class="math inline">\(ρ\to 0\)</span> or <span class="math inline">\(ρ\to 1\)</span>?<br />
+3. Would the endogeneity bias be circumvented by estimating the following alternative regression?<br />
+<span class="math inline">\(y_t = β_1 y_{t-1} + β_2 y_{t-2} + β_3 y_{t-3} + w_t\)</span></p>
+</blockquote>
+<blockquote>
+<p>Mock.Q2.4<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span><br />
+In order to test for autocorrelation in the residuals <span class="math inline">\(\hat{ε_t}\)</span> (epsilonhat) from the regression <span class="math inline">\(y_t = βy_{t-1} + ε_t\)</span> use the Box-Pierce statistic <span class="math inline">\(Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2\)</span>,<br />
+where <span class="math inline">\(T = 280\)</span> denotes the sample size and <span class="math inline">\(\hat{ρ_j}\)</span> is the empirical <span class="math inline">\(j\)</span>th-order autocorrelation coefficient.<br />
+1. Carry out the test for <span class="math inline">\(m = 2\)</span> and use the information in the corrupted R output below in combination with the estimation results reported in the table:<br />
+(Autocorrelations of series epsilonhat, by lag)</p>
+<table>
+<thead>
+<tr class="header">
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.000</td>
+<td></td>
+<td>0.212</td>
+<td>0.152</td>
+<td>-0.253</td>
+<td>-1.000</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>dynlm( formula = epsilonhat ~ L(epsilonhat, 1 ))
+
+# Residuals:
+#     Min     1Q Median     3Q Max
+# -4.0487 0.3869 0.0345 0.3575 3.5857
+
+# Coefficients:
+#                  Estimate Std. Error t value Pr(&gt;|t|)
+# (Intercept)     -0.001806   0.046903  -0.038    0.969
+# L(epsilonhat,1)  0.437636   0.053792   8.136 1.36e-14 ***</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Stale the null and the alternative hypothesis.<br />
+</li>
+<li>Select the appropriate <span class="math inline">\(5\%\)</span>-critical value from the following set and interpret the test decision:<br />
+<span class="math display">\[\begin{aligned} F^{280-2}_2 &amp;= 3.03 \\ F^2_{280-2} &amp;= 19.49 \\ χ_2^2 &amp;= 5.99 \\ χ_{280-2}^2 &amp;= 317.89 \\ t_2 &amp;= 2.92 \\ t_{280-2} &amp;= 1.65 \end{aligned}\]</span><br />
+</li>
+<li>Why is the Durbin-Watson test invalid in this setting? (Max 3 sentences)</li>
+</ol>
+</blockquote>
 </div>
 
     </div>
