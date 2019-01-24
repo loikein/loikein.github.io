@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">27 min read</span>
+    <span class="article-duration">29 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -101,11 +101,17 @@
 <li><a href="#t-test">t-test</a></li>
 <li><a href="#f-test-joint-test">F-test (Joint Test)</a></li>
 <li><a href="#wald-test">Wald Test</a></li>
-<li><a href="#j-test">J Test</a></li>
-<li><a href="#pe-test">PE Test</a></li>
+<li><a href="#bic-aic-nested-model">BIC &amp; AIC (Nested Model)</a></li>
+<li><a href="#j-test-non-nested-model">J Test (Non-Nested Model)</a></li>
+<li><a href="#pe-test-linear-vs-log">PE Test (Linear vs Log)</a></li>
 <li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
-<li><a href="#sargan-test-overidentifying-restrictions-test">Sargan Test (Overidentifying Restrictions Test)</a></li>
-<li><a href="#durbin-wu-hausman-test-endogeneity-test">Durbin-Wu-Hausman Test (Endogeneity Test)</a></li>
+<li><a href="#durbin-watson-test-autocorrelation">Durbin-Watson Test (Autocorrelation)</a></li>
+<li><a href="#goldfeld-quandt-test-heteroskedasticity">Goldfeld-Quandt Test (Heteroskedasticity)</a></li>
+<li><a href="#breusch-pagan-test-heteroskedasticity">Breusch-Pagan Test (Heteroskedasticity)</a></li>
+<li><a href="#breusch-godfrey-test-autocorrelation">Breusch-Godfrey Test (Autocorrelation)</a></li>
+<li><a href="#box-pierce-test-autocorrelation">Box-Pierce Test (Autocorrelation)</a></li>
+<li><a href="#sargan-test-give-overidentification">Sargan Test (GIVE Overidentification)</a></li>
+<li><a href="#durbin-wu-hausman-test-endogeneity">Durbin-Wu-Hausman Test (Endogeneity)</a></li>
 <li><a href="#read-regression-table">Read Regression Table</a></li>
 </ul></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
@@ -139,7 +145,11 @@
 <li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 </ul></li>
 <li><a href="#maximum-likelihood-model">Maximum Likelihood Model</a></li>
-<li><a href="#time-series">Time Series</a></li>
+<li><a href="#time-series">Time Series</a><ul>
+<li><a href="#types-of-process">Types of Process</a></li>
+<li><a href="#lag-operator">Lag Operator</a></li>
+<li><a href="#stationary">Stationary</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -249,8 +259,16 @@ result_1 * t(result_2) * result_3^(-1) * result_2
 ## [1] 4.084746</code></pre>
 <p>Therefore, <span class="math inline">\(H_0\)</span> is not rejected.</p>
 </div>
-<div id="j-test" class="section level3">
-<h3>J Test</h3>
+<div id="bic-aic-nested-model" class="section level3">
+<h3>BIC &amp; AIC (Nested Model)</h3>
+<p>(textbook P69, slide 5 P10)<br />
+BIC is asymptotically consistent:
+<span class="math display">\[\min \ I(K) = \log\left(\frac{e&#39;e}{N}\right) + \frac{K\cdot\log(N)}{N}\]</span><br />
+<span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(e\)</span> is vector of residual.<br />
+If replace <span class="math inline">\(\log(N)\)</span> with <span class="math inline">\(2\)</span>, becomes AIC (inconsistent for large sample)</p>
+</div>
+<div id="j-test-non-nested-model" class="section level3">
+<h3>J Test (Non-Nested Model)</h3>
 <p>(textbook P72, slide 5 P11)<br />
 <span class="math display">\[\begin{aligned} \text{Model A: } y_i &amp;= x_i&#39; β + ε_i \\
 \text{Model B: } y_i &amp;= z_i&#39; γ + v_i \\
@@ -258,8 +276,8 @@ result_1 * t(result_2) * result_3^(-1) * result_2
 &amp;=^{H_0} x_i&#39; + δ \hat{y}_{i,B} + u_i \end{aligned}\]</span><br />
 <span class="math inline">\(H_0: \ t_{δ} = \frac{δ}{se(δ)} ∼ t\)</span></p>
 </div>
-<div id="pe-test" class="section level3">
-<h3>PE Test</h3>
+<div id="pe-test-linear-vs-log" class="section level3">
+<h3>PE Test (Linear vs Log)</h3>
 <p>(textbook P72, slide 5 P13)<br />
 <span class="math display">\[\begin{aligned}\text{Linear Model: }&amp;\hat{y_i} = \dots \\ \text{Log Model: }&amp;\log\tilde{y_i} = \dots \end{aligned}\]</span> ~<br />
 <span class="math display">\[\begin{aligned}\text{Test Models: }\phantom{\log} y_i &amp;= x_i&#39; β + δ_{Lin} (\log \underbrace{\hat{y_i}}_{\text{Linear Model}} - \underbrace{\log\tilde{y_i}}_{\text{Log Model}}) + u_i \\
@@ -293,12 +311,41 @@ The Chow test cannot be applied in a cross-sectional regression.</p>
 <p>False.<br />
 Chow test can also be used to detach groups in a cross-sectional regression.</p>
 </div>
-<div id="sargan-test-overidentifying-restrictions-test" class="section level3">
-<h3>Sargan Test (Overidentifying Restrictions Test)</h3>
+<div id="durbin-watson-test-autocorrelation" class="section level3">
+<h3>Durbin-Watson Test (Autocorrelation)</h3>
+<p>(textbook P120, slide 7 P7)</p>
+<ul>
+<li>(A2) all errors and independent variables are independent</li>
+<li>Non-zero intercept</li>
+<li>No lagged dependent variable (<span class="math inline">\(y_i\)</span>)</li>
+</ul>
+</div>
+<div id="goldfeld-quandt-test-heteroskedasticity" class="section level3">
+<h3>Goldfeld-Quandt Test (Heteroskedasticity)</h3>
+<p>(slide 6 P20)</p>
+</div>
+<div id="breusch-pagan-test-heteroskedasticity" class="section level3">
+<h3>Breusch-Pagan Test (Heteroskedasticity)</h3>
+<p>(textbook P109, slide 6 P20)</p>
+</div>
+<div id="breusch-godfrey-test-autocorrelation" class="section level3">
+<h3>Breusch-Godfrey Test (Autocorrelation)</h3>
+<p>(slide 7 P12)</p>
+</div>
+<div id="box-pierce-test-autocorrelation" class="section level3">
+<h3>Box-Pierce Test (Autocorrelation)</h3>
+<p>(slide 7 P12)<br />
+For <span class="math inline">\(ε_t = ρε_{t-1} + v_t\)</span>:<br />
+<span class="math display">\[Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2\]</span><br />
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(Q_m ∼^a χ^2_m\)</span><br />
+<span class="math inline">\(T\)</span> is number of observations, <span class="math inline">\(m\)</span> is number of lags, and <span class="math inline">\(ρ\)</span> 's are parameters.</p>
+</div>
+<div id="sargan-test-give-overidentification" class="section level3">
+<h3>Sargan Test (GIVE Overidentification)</h3>
 <p>(textbook P168, slide 9-2 P14)</p>
 </div>
-<div id="durbin-wu-hausman-test-endogeneity-test" class="section level3">
-<h3>Durbin-Wu-Hausman Test (Endogeneity Test)</h3>
+<div id="durbin-wu-hausman-test-endogeneity" class="section level3">
+<h3>Durbin-Wu-Hausman Test (Endogeneity)</h3>
 <p>(textbook P154, slide 9-2 P15)</p>
 </div>
 <div id="read-regression-table" class="section level3">
@@ -685,6 +732,42 @@ According to LLN:<br />
 </div>
 <div id="loglinear-model" class="section level3">
 <h3>Loglinear Model</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Dependent Var</th>
+<th>Independent Var</th>
+<th><span class="math inline">\(β\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>level-level</td>
+<td><span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(Δy = β Δx\)</span></td>
+</tr>
+<tr class="even">
+<td>level-log</td>
+<td><span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(\log x\)</span></td>
+<td><span class="math inline">\(Δy = \frac{β}{100}\% Δx\)</span></td>
+</tr>
+<tr class="odd">
+<td>log-level</td>
+<td><span class="math inline">\(\log y\)</span></td>
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(\% Δy = (100\cdot β)Δx\)</span></td>
+</tr>
+<tr class="even">
+<td>log-log</td>
+<td><span class="math inline">\(\log y\)</span></td>
+<td><span class="math inline">\(\log x\)</span></td>
+<td><span class="math inline">\(\% Δy = β\% Δx\)</span></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>Mock.Q1.1<br />
 Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
@@ -926,6 +1009,62 @@ When applying robust standard errors, the <strong>OLS point estimates</strong> (
 </div>
 <div id="time-series" class="section level2">
 <h2>Time Series</h2>
+<div id="types-of-process" class="section level3">
+<h3>Types of Process</h3>
+<ul>
+<li>White Noise: <span class="math inline">\(ε_t\)</span>
+<ul>
+<li>Zero mean, homoskedastic (<span class="math inline">\(σ^2\)</span>), no autocorrelation</li>
+</ul></li>
+<li>MA(1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span> (always stationary)
+<ul>
+<li><span class="math inline">\(E[Y_t] = μ\)</span></li>
+<li><span class="math inline">\(Var(Y_t) = (1 + α^2)σ^2\)</span></li>
+<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = \begin{cases} ασ^2 &amp; k=1\\ 0 &amp; k\geq 2\end{cases}\)</span></li>
+</ul></li>
+<li>AR(1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span>
+<ul>
+<li><span class="math inline">\(E[Y_t] = δ + θ E[Y_{t-1}] = \frac{δ}{1-θ} = μ\)</span> (when stationary)</li>
+<li><span class="math inline">\(Var(Y_t) = θ^2Var(Y_{t-1}) + Var(ε_t) = \frac{σ^2}{1-θ^2}\)</span> (when stationary)</li>
+<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = θ^k\frac{σ^2}{1-θ^2}\)</span> (when stationary)</li>
+<li>Let <span class="math inline">\(y_t \equiv Y_t - μ\)</span>, <span class="math inline">\(y_t = θy_{t-1} + ε_t\)</span></li>
+</ul></li>
+<li>MA(q): <span class="math inline">\(Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
+<li>AR(p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span>
+<ul>
+<li><span class="math inline">\(y_t = θ_1y_{t-1} -\cdots - θ_py_{t-p} + ε_t\)</span></li>
+</ul></li>
+<li>ARMA(p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
+</ul>
+</div>
+<div id="lag-operator" class="section level3">
+<h3>Lag Operator</h3>
+<ul>
+<li><span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …</li>
+<li>Characteristic equation: <span class="math inline">\(1-θz = 0\)</span></li>
+<li>Characteristic root: <span class="math inline">\(|z|=\left|\frac{1}{θ}\right|\)</span> <span class="math inline">\(\begin{cases}\leq 1 &amp; \text{explosive} \\ &gt; 1 &amp; \text{stationary}\end{cases}\)</span></li>
+<li>For AR(1):
+<ul>
+<li><span class="math inline">\(1-θL\)</span> is invertible if <span class="math inline">\(|θ|&lt;1\)</span>
+<span class="math display">\[\begin{aligned} y_t &amp;= θLy_t + ε_t \\ (1-θL) y_t &amp;= ε_t \end{aligned}\]</span><br />
+</li>
+</ul></li>
+<li>For AR(p):
+<ul>
+<li>Lag Polynomial: <span class="math inline">\(θ(L) = 1 - θ_1L - θ_2L^2 -\cdots - θ_pL^p\)</span>
+<span class="math display">\[\begin{aligned} y_t &amp;= θ_1Ly_t -\cdots - θ_p L^p y_t + ε_t \\ θ(L) y_t &amp;= ε_t \\ \end{aligned}\]</span> ~</li>
+</ul></li>
+</ul>
+</div>
+<div id="stationary" class="section level3">
+<h3>Stationary</h3>
+<ul>
+<li>Weakly (Covariance) Stationary
+<span class="math display">\[\begin{cases} E[Y_t] = μ &lt; \infty \\ Var(Y_t) = Var(Y_{t&#39;}) = γ_0 &lt; \infty \\ Cov(Y_t, Y_{t-k}) = γ_k\end{cases}\]</span><br />
+</li>
+<li>ACF (AutoCorrelation Function): <span class="math inline">\(ρ_k = \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} = \frac{γ_k}{γ_0}\)</span></li>
+<li>AR(1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-θL\)</span> is invertible <span class="math inline">\(\iff\)</span> characteristic root <span class="math inline">\(|z| &gt; 1\)</span></li>
+</ul>
 <blockquote>
 <p>Mock.Q2.1<br />
 Consider the following regression model with a lagged dependent variable only:<br />
@@ -957,10 +1096,7 @@ Characteristic equation:<br />
 Condition for <span class="math inline">\(ε_t\)</span> to be stationary:<br />
 <span class="math display">\[\begin{aligned} |z| &amp;&gt; 1 \\
 |ρ| &amp;&lt; 1\end{aligned}\]</span> ~
-<!-- $$\begin{cases} E[ε_t] = μ \\
-Var(ε_t) = Var(ε_{t'}) = Var(ε_{t-1}) \\
-Cov(ε_t, ε_{t'}) = γ_k\end{cases}$$  
-Therefore,  
+<!-- Therefore,  
 $$\begin{aligned} Var(ε_t) &= Var(ε_{t-1}) \\
 Var(ρ ε_{t-1} + v_t) &= Var(ε_{t-1}) \\
 ρ\cdot Var(ε_{t-1}) + Var(v_t) &= Var(ε_{t-1}) \\
@@ -994,8 +1130,7 @@ When <span class="math inline">\(ρ\to 1\)</span>, <span class="math inline">\(\
 <li>Yes, yet with efficiency loss if include <span class="math inline">\(t-3\)</span> term.<br />
 Rewrite the original model with lag operater:<br />
 <span class="math display">\[\begin{aligned} y_t &amp;= βL y_t + ε_t \\
-(1-βL) y_t &amp;= ε_t \\
-&amp;= \frac{1}{1-ρL} v_t\end{aligned}\]</span><br />
+(1-βL) y_t &amp;= ε_t \end{aligned}\]</span><br />
 Therefore, two lags will be sufficient.</li>
 </ol>
 <blockquote>
@@ -1059,6 +1194,7 @@ Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class
 </li>
 <li>Because the dependent variable (<span class="math inline">\(ε_t\)</span>) is lagged.</li>
 </ol>
+</div>
 </div>
 
     </div>
