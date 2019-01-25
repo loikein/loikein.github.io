@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">30 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -112,6 +112,7 @@
 <li><a href="#box-pierce-test-autocorrelation">Box-Pierce Test (Autocorrelation)</a></li>
 <li><a href="#sargan-test-give-overidentification">Sargan Test (GIVE Overidentification)</a></li>
 <li><a href="#durbin-wu-hausman-test-endogeneity">Durbin-Wu-Hausman Test (Endogeneity)</a></li>
+<li><a href="#hausman-test-fe-vs-re">Hausman Test (FE vs RE)</a></li>
 <li><a href="#read-regression-table">Read Regression Table</a></li>
 </ul></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
@@ -149,6 +150,11 @@
 <li><a href="#types-of-process">Types of Process</a></li>
 <li><a href="#lag-operator">Lag Operator</a></li>
 <li><a href="#stationary">Stationary</a></li>
+</ul></li>
+<li><a href="#panel-data">Panel Data</a><ul>
+<li><a href="#entity-fixed-effect">Entity Fixed Effect</a></li>
+<li><a href="#time-fixed-effect">Time Fixed Effect</a></li>
+<li><a href="#random-effect">Random Effect</a></li>
 </ul></li>
 </ul>
 </div>
@@ -347,6 +353,12 @@ For <span class="math inline">\(ε_t = ρε_{t-1} + v_t\)</span>:<br />
 <div id="durbin-wu-hausman-test-endogeneity" class="section level3">
 <h3>Durbin-Wu-Hausman Test (Endogeneity)</h3>
 <p>(textbook P154, slide 9-2 P15)</p>
+</div>
+<div id="hausman-test-fe-vs-re" class="section level3">
+<h3>Hausman Test (FE vs RE)</h3>
+<p>(textbook P394, slide 13 P36)</p>
+<p><span class="math display">\[ξ_H = \left(\frac{\hat{β}_{FE} - \hat{β}_{RE}}{\sqrt{Var(\hat{β}_{FE}) - Var(\hat{β}_{RE})}}\right)^2\]</span><br />
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(ξ_H ∼ χ^2_1\)</span> (<span class="math inline">\(\hat{β}_{RE}\)</span> is effecient)</p>
 </div>
 <div id="read-regression-table" class="section level3">
 <h3>Read Regression Table</h3>
@@ -1194,6 +1206,56 @@ Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class
 </li>
 <li>Because the dependent variable (<span class="math inline">\(ε_t\)</span>) is lagged.</li>
 </ol>
+</div>
+</div>
+<div id="panel-data" class="section level2">
+<h2>Panel Data</h2>
+<ul>
+<li><span class="math inline">\(y_{it} = α + β x_{it} + u_{it}\)</span></li>
+<li>Micro panel (large <span class="math inline">\(N\)</span>, small <span class="math inline">\(T\)</span>) &amp; Macro panel (small <span class="math inline">\(N\)</span>, large <span class="math inline">\(T\)</span>)</li>
+<li>Balanced panel: no missing observation (number <span class="math inline">\(=N\cdot T\)</span>)</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>True Model \ Method</th>
+<th>Random Effect</th>
+<th>Fixed Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random Effect</td>
+<td>consistent + efficient</td>
+<td>consistent</td>
+</tr>
+<tr class="even">
+<td>Fixed Effect</td>
+<td>inconsistent</td>
+<td>consistent + efficient</td>
+</tr>
+</tbody>
+</table>
+<div id="entity-fixed-effect" class="section level3">
+<h3>Entity Fixed Effect</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + \underbrace{μ_i}_{\text{Entity Fixed Effect}} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span></li>
+</ul>
+</div>
+<div id="time-fixed-effect" class="section level3">
+<h3>Time Fixed Effect</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + \underbrace{λ_t}_{\text{Time Fixed Effect}} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span></li>
+</ul>
+</div>
+<div id="random-effect" class="section level3">
+<h3>Random Effect</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + β x_{it} + ( u_{it} + \underbrace{μ_i}_{\text{Entity Random Effect}})\)</span></li>
+<li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span>, <span class="math inline">\(μ_i ∼ \mathcal{N}(0,σ_μ^2)\)</span></li>
+</ul>
 </div>
 </div>
 
