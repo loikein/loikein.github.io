@@ -76,9 +76,8 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference Reference Cheatsheet  Inline Code Executed  Display Code R Code Chunk R Code (Inline) Code from Other Languages Reference  Image Reference Plot   Words of Warning I use Typora to write my posts. It usually processes .Rmd file correctly, but it gets lost in a file as complicated as this one.
-Always check twice and preview the .html page.
-DO NOT put spaces right after and before the \(\LaTeX\) $ $ pair or the expression will not be rendered properly.</description>
+      <description>Words of Warning Rmd Reference Reference Cheatsheet  Inline Code Executed  Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Words of Warning I use Typora to write my posts. It usually processes .Rmd file correctly, but it gets lost in a file as complicated as this one.
+Always check twice and preview the .html page.</description>
     </item>
     
   </channel>
