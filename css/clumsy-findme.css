@@ -1,21 +1,21 @@
-.findme {
+.clumsy-findme {
 	margin: 1em 0 1em 0;
 }
 
-.findme *,
-.findme *:hover{
+.clumsy-findme *,
+.clumsy-findme *:hover{
 	border-bottom: none !important;
 	box-shadow: none !important;
 	text-decoration: none !important;
 	background: none !important;
 }
 
-.findme a{
-	font-size: 2em;
+.clumsy-findme a{
+	font-size: 2.5em;
 	color: var(--dark-theme);
 	margin: 0/*up*/ 0.3em/*right*/ 0.2em/*down*/ 0.3em /*left*/;
 }
 
-.findme a:hover {
+.clumsy-findme a:hover {
 	color: var(--theme);
 }
