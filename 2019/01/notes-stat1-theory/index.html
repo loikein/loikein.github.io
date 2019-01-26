@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">30 min read</span>
+    <span class="article-duration">32 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -154,7 +154,12 @@
 <li><a href="#panel-data">Panel Data</a><ul>
 <li><a href="#entity-fixed-effect">Entity Fixed Effect</a></li>
 <li><a href="#time-fixed-effect">Time Fixed Effect</a></li>
+<li><a href="#least-squares-dummy-variable-lsdv-estimator">Least Squares Dummy Variable (LSDV) Estimator</a></li>
+<li><a href="#within-estimator">Within Estimator</a></li>
+<li><a href="#first-difference-estimator">First Difference Estimator</a></li>
+<li><a href="#entity-and-time-fixed-effect-2-way">Entity and Time Fixed Effect (2-way)</a></li>
 <li><a href="#random-effect">Random Effect</a></li>
+<li><a href="#feasible-gls-egls-estimator">Feasible GLS (EGLS) Estimator</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1211,7 +1216,8 @@ Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class
 <div id="panel-data" class="section level2">
 <h2>Panel Data</h2>
 <ul>
-<li><span class="math inline">\(y_{it} = α + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(y_{it} = α + β x_{it} + u_{it}\)</span> (pooled model)</li>
+<li><span class="math inline">\(N\)</span> is the number of entities, <span class="math inline">\(T\)</span> is the number of periods, <span class="math inline">\(N\cdot T\)</span> is the number of total observations (if balanced)</li>
 <li>Micro panel (large <span class="math inline">\(N\)</span>, small <span class="math inline">\(T\)</span>) &amp; Macro panel (small <span class="math inline">\(N\)</span>, large <span class="math inline">\(T\)</span>)</li>
 <li>Balanced panel: no missing observation (number <span class="math inline">\(=N\cdot T\)</span>)</li>
 </ul>
@@ -1239,22 +1245,84 @@ Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class
 <div id="entity-fixed-effect" class="section level3">
 <h3>Entity Fixed Effect</h3>
 <ul>
-<li><span class="math inline">\(y_{it} = α + \underbrace{μ_i}_{\text{Entity Fixed Effect}} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(y_{it} = ( α + μ_i )+ β x_{it} + u_{it}\)</span></li>
+<li>Entity Fixed Effect: <span class="math inline">\(μ_i\)</span></li>
 <li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span></li>
 </ul>
 </div>
 <div id="time-fixed-effect" class="section level3">
 <h3>Time Fixed Effect</h3>
 <ul>
-<li><span class="math inline">\(y_{it} = α + \underbrace{λ_t}_{\text{Time Fixed Effect}} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(y_{it} = ( α + λ_t )+ β x_{it} + u_{it}\)</span></li>
+<li>Time Fixed Effect: <span class="math inline">\(λ_t\)</span></li>
 <li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span></li>
+</ul>
+</div>
+<div id="least-squares-dummy-variable-lsdv-estimator" class="section level3">
+<h3>Least Squares Dummy Variable (LSDV) Estimator</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + \sum_{j=2}^N μ_j\cdot D_{ij} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(j\)</span> is an index for dummy variables, <span class="math inline">\(D_{ij}\begin{cases}1 &amp; i=j \\ 0 &amp; i\neq j \end{cases}\)</span></li>
+<li>F-test for <span class="math inline">\(μ_1 = μ_2 = \dots = μ_N = 0\)</span> (in comparison with pooled model)</li>
+<li>Breusch-Pagan Test (?)</li>
+</ul>
+</div>
+<div id="within-estimator" class="section level3">
+<h3>Within Estimator</h3>
+<p>Let time-mean: <span class="math inline">\(\bar{y}_{i} =\frac{1}{T}\sum_{t=1}^T y_{it}\)</span>, <span class="math inline">\(\bar{x}_{i} =\frac{1}{T}\sum_{t=1}^T x_{it}\)</span>, and <span class="math inline">\(\bar{u}_{i} =\frac{1}{T}\sum_{t=1}^T u_{it}\)</span><br />
+Therefore, <span class="math inline">\(\bar{y}_{i} = ( α + μ_i )+ β \bar{x}_{i} + \bar{u}_{i}\)</span></p>
+<ul>
+<li><span class="math inline">\(y_{it} - \bar{y}_{i} = β (x_{it} -\bar{x}_{i}) + (u_{it} - \bar{u}_{i})\)</span></li>
+<li>OLS estimator: <span class="math inline">\(\hat{β}_{FE} = \frac{\sum_{i=1}^N \sum_{t=1}^T (x_{it} - \bar{x}_{i})(y_{it}-\bar{y}_{i})}{\sum_{i=1}^N \sum_{t=1}^T(x_{it}-\bar{x}_{i})^2}\)</span> (identical to LSDV Estimator)</li>
+<li><span class="math inline">\(\hat{u}_i = \bar{y}_{i} - \hat{β}\cdot\bar{x}_{i}\)</span></li>
+</ul>
+</div>
+<div id="first-difference-estimator" class="section level3">
+<h3>First Difference Estimator</h3>
+<ul>
+<li>Difference operator:<br />
+<span class="math display">\[\begin{aligned} Δ &amp;= 1 - L \\
+Δy_t &amp;= (1 - L)y_t \\
+&amp;= y_t - y_{t-1}\end{aligned}\]</span><br />
+</li>
+<li>Taking first difference of <span class="math inline">\(y_{it} = ( α + μ_i )+ β x_{it} + u_{it}\)</span><br />
+<span class="math display">\[\begin{aligned} Δy_{it} &amp;= Δ( α + μ_i ) + Δ(β x_{it}) + Δu_{it} \\
+&amp;= βΔx_{it} + Δu_{it} \\
+y_{it} - y_{i,t-1} &amp;= β(x_{it}, x_{i,t-1}) + (u_{it} - u_{i,t-1})\end{aligned}\]</span><br />
+</li>
+<li>OLS estimator:<br />
+<span class="math display">\[\hat{β}_{FD} = \frac{\sum_{i=1}^N \sum_{t=2}^T Δx_{it}Δy_{it}}{\sum_{i=1}^N \sum_{t=2}^T(Δx_{it})^2}\]</span><br />
+</li>
+<li>Large difference between <span class="math inline">\(\hat{β}_{FD}\)</span> and <span class="math inline">\(\hat{β}_{FE}\)</span> indicates misspecification</li>
+</ul>
+</div>
+<div id="entity-and-time-fixed-effect-2-way" class="section level3">
+<h3>Entity and Time Fixed Effect (2-way)</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + \sum_{j=2}^N μ_j\cdot D_{ij} + \sum_{k=2}^T λ_k\cdot D_{tk} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(j\)</span> is an index for entity dummy variables, <span class="math inline">\(D_{ij}\begin{cases}1 &amp; i=j \\ 0 &amp; i\neq j \end{cases}\)</span></li>
+<li><span class="math inline">\(k\)</span> is an index for time dummy variables, <span class="math inline">\(D_{tk}\begin{cases}1 &amp; t=k \\ 0 &amp; t\neq k \end{cases}\)</span></li>
 </ul>
 </div>
 <div id="random-effect" class="section level3">
 <h3>Random Effect</h3>
 <ul>
-<li><span class="math inline">\(y_{it} = α + β x_{it} + ( u_{it} + \underbrace{μ_i}_{\text{Entity Random Effect}})\)</span></li>
+<li><span class="math inline">\(y_{it} = α + β x_{it} + ( u_{it} + μ_i)\)</span></li>
+<li>Entity Random Effect: <span class="math inline">\(μ_i\)</span></li>
 <li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span>, <span class="math inline">\(μ_i ∼ \mathcal{N}(0,σ_μ^2)\)</span></li>
+</ul>
+</div>
+<div id="feasible-gls-egls-estimator" class="section level3">
+<h3>Feasible GLS (EGLS) Estimator</h3>
+<ul>
+<li>Let <span class="math inline">\(Ψ = \frac{σ_u^2}{T\cdot σ_μ^2 + σ_u^2}\)</span><br />
+</li>
+<li>Let <span class="math inline">\(θ = 1 - \sqrt{ψ} = 1 - \sqrt{\frac{σ_u^2}{σ_u^2 + T\cdot σ_μ^2}}\)</span>, <span class="math inline">\(θ\in [0,1]\)</span><br />
+</li>
+<li>Quasi-demeaning transformation:<br />
+<span class="math display">\[y_{it} - θ \bar{y}_{i}= α (1-θ) + β (x_{it} - θ\bar{x}_{i}) + (u_{it} + μ_i)\]</span><br />
+</li>
+<li>OLS estimator: <span class="math inline">\(\hat{β}_{RE}\)</span></li>
 </ul>
 </div>
 </div>
