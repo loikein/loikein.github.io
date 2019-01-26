@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">33 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -145,7 +145,12 @@
 <li><a href="#white-hetero-consistent-standard-error">White (Hetero-Consistent) Standard Error</a></li>
 <li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 </ul></li>
-<li><a href="#maximum-likelihood-model">Maximum Likelihood Model</a></li>
+<li><a href="#ml-maximum-likelihood-model">ML (Maximum Likelihood) Model</a><ul>
+<li><a href="#assumption">Assumption</a></li>
+<li><a href="#property-of-hat">Property of <span class="math inline">\(\hat{θ}\)</span></a></li>
+<li><a href="#asymptotic-covariance-matrix-v">Asymptotic Covariance Matrix <span class="math inline">\(V\)</span></a></li>
+</ul></li>
+<li><a href="#binary-regression">Binary Regression</a></li>
 <li><a href="#time-series">Time Series</a><ul>
 <li><a href="#types-of-process">Types of Process</a></li>
 <li><a href="#lag-operator">Lag Operator</a></li>
@@ -1021,8 +1026,61 @@ When applying robust standard errors, the <strong>OLS point estimates</strong> (
 <p>True.</p>
 </div>
 </div>
-<div id="maximum-likelihood-model" class="section level2">
-<h2>Maximum Likelihood Model</h2>
+<div id="ml-maximum-likelihood-model" class="section level2">
+<h2>ML (Maximum Likelihood) Model</h2>
+<ul>
+<li>Given <span class="math inline">\(X = (x_1, \dots, x_N)&#39;\)</span> and <span class="math inline">\(y = (y_1, \dots, y_N)&#39;\)</span>, and <span class="math inline">\(\dim (θ) = K\)</span></li>
+<li>Likelihood Distribution of observation<br />
+= Probability Mass Function (pmf, pdf for discrete observations):
+<span class="math display">\[L_i(θ) = f(y_i \ | \ x_i, θ)\]</span><br />
+</li>
+<li>Likelihood Function<br />
+= Joint Probability Mass Function:
+<span class="math display">\[L(θ) = f(y \ | \ X, θ) = \prod_{i=1}^N f(y_i \ | \ x_i, θ)\]</span><br />
+</li>
+<li>Log Likelihood Function: <span class="math display">\[\log L(θ) = \sum_{i=1}^N \log f(y_i \ | \ x_i, θ)\]</span><br />
+</li>
+<li>ML Estimation: <span class="math display">\[\max\log L(θ \ | \ y, X)\]</span><br />
+</li>
+<li>FOC<br />
+= Score Vector:
+<span class="math display">\[\begin{aligned} \frac{\partial\log L(θ \ | \ y, X)}{\partial θ} &amp;= \sum_{i=1}^N \frac{\partial\log f(y_i \ | \ x_i, θ)}{\partial θ} \\
+&amp;= \sum_{i=1}^N  s_i(θ) \\
+&amp;= 0 \ |_{θ = \hat{θ}}\end{aligned}\]</span><br />
+</li>
+<li>ML Estimator: <span class="math inline">\(\hat{θ}\)</span> (usually numerical)</li>
+</ul>
+<div id="assumption" class="section level3">
+<h3>Assumption</h3>
+</div>
+<div id="property-of-hat" class="section level3">
+<h3>Property of <span class="math inline">\(\hat{θ}\)</span></h3>
+<ul>
+<li>Consistent: <span class="math inline">\(\text{plim} \ \hat{θ} = θ\)</span></li>
+<li>Asymptotically Efficient: <span class="math inline">\(Var(\hat{θ})\)</span></li>
+<li>Asymptotically Normal: <span class="math inline">\(\sqrt{N}(\hat{θ} - θ) \to^a \mathcal{N}(0,V)\)</span></li>
+</ul>
+</div>
+<div id="asymptotic-covariance-matrix-v" class="section level3">
+<h3>Asymptotic Covariance Matrix <span class="math inline">\(V\)</span></h3>
+<ul>
+<li><span class="math inline">\(V = I(θ)^{-1}\)</span></li>
+<li>Information Matrix:
+<span class="math display">\[\begin{aligned} I(θ) &amp;\equiv \lim_{N\to\infty}\frac{1}{N} \sum_{i=1}^N I_i(θ) \\
+&amp;= \lim_{N\to\infty}\frac{1}{N}\sum_{i=1}^N -E\left[ \frac{\partial^2 \log f(y_i \ | \ x_i, θ)}{\partial θ \partial θ&#39;} \right] \\
+&amp;= \lim_{N\to\infty} -E\left[ \frac{1}{N}\cdot\frac{\partial^2 \log L(θ)}{\partial θ \partial θ&#39;} \right]\end{aligned}\]</span><br />
+</li>
+<li>When observations are iid, <span class="math inline">\(I(θ) = I_i(θ)\)</span></li>
+<li>Consistent (Hessian) Estimator of <span class="math inline">\(V\)</span>:
+<span class="math display">\[\begin{aligned} \hat{V}_H &amp;= \left( \frac{1}{N} \sum_{i=1}^N I_i(θ) \ \Bigg|_{θ = \hat{θ}}\right)^{-1} \\
+&amp;= \left(\frac{1}{N}\sum_{i=1}^N \frac{\partial^2 \log f(y_i \ | \ x_i, θ)}{\partial θ \partial θ&#39;} \ \Bigg|_{θ = \hat{θ}}\right)^{-1} \end{aligned}\]</span><br />
+</li>
+<li>Alternative: BHHH (Berndt–Hall–Hall–Hausman) (Gradient) Estimator: <span class="math inline">\(\hat{V}_G &gt; 0\)</span></li>
+</ul>
+</div>
+</div>
+<div id="binary-regression" class="section level2">
+<h2>Binary Regression</h2>
 </div>
 <div id="time-series" class="section level2">
 <h2>Time Series</h2>
