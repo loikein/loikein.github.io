@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">4 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">Notes on Finance</h1>
@@ -92,8 +92,10 @@
 <li><a href="#general-principles">General Principles</a><ul>
 <li><a href="#net-present-value-npv">Net Present Value (NPV)</a></li>
 <li><a href="#interest-rates">Interest Rates</a></li>
+<li><a href="#internal-rate-of-return-irr">Internal Rate of Return (IRR)</a></li>
 <li><a href="#tax">Tax</a></li>
-<li><a href="#timeline">Timeline</a></li>
+<li><a href="#opportunity-cost-of-capital">(Opportunity) Cost of Capital</a></li>
+<li><a href="#time-travel-for-money">Time Travel for Money</a></li>
 <li><a href="#arbitrage">Arbitrage</a></li>
 <li><a href="#law-of-one-price">Law of One Price</a></li>
 </ul></li>
@@ -102,11 +104,19 @@
 <li><a href="#annuity">Annuity</a></li>
 </ul></li>
 <li><a href="#bond">Bond</a><ul>
-<li><a href="#zero-coupon-bond">Zero Coupon Bond</a></li>
+<li><a href="#zero-coupon-bond">Zero-Coupon Bond</a></li>
+<li><a href="#coupon-bond">Coupon Bond</a></li>
+<li><a href="#bond-price">Bond Price</a></li>
+</ul></li>
+<li><a href="#decision-rules">Decision Rules</a><ul>
+<li><a href="#npv-rule">NPV Rule</a></li>
+<li><a href="#irr-rule">IRR Rule</a></li>
+<li><a href="#payback-investment-rule">Payback Investment Rule</a></li>
 </ul></li>
 </ul>
 </div>
 
+<p>textbook: <a href="http://93.174.95.27/book/index.php?md5=F2FF72C1BDECC2D4BC05044114A930EC">Corporate Finance</a></p>
 <div id="general-principles" class="section level2">
 <h2>General Principles</h2>
 <ul>
@@ -120,11 +130,7 @@
 <li>Interest Rate Factor: <span class="math inline">\((1+r_f)\)</span></li>
 <li>Discount Factor: <span class="math inline">\(\frac{1}{1+r}\)</span></li>
 <li>Present Value (PV) and Future Value (FV): <span class="math inline">\(PV \times (1+r_f) = FV\)</span></li>
-<li><p>Net Present Value (NPV): <span class="math display">\[\begin{aligned} NPV &amp;= PV(\text{benefits}) - PV(\text{costs}) \\ &amp;= PV(\text{all cash flows})\end{aligned}\]</span></p>
-<ul>
-<li>As long as <span class="math inline">\(NPV&gt;0\)</span>, the decision increases the value of the firm</li>
-<li>NPV Decision Rule: take the alternative with highest NPV</li>
-</ul></li>
+<li>Net Present Value (NPV): <span class="math display">\[\begin{aligned} NPV &amp;= PV(\text{benefits}) - PV(\text{costs}) \\ &amp;= PV(\text{all cash flows})\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="interest-rates" class="section level3">
@@ -138,14 +144,26 @@
 <li>Given APR, if interest is compounded <span class="math inline">\(k\)</span> times a year, actual interest: <span class="math display">\[1+EAR = \left(1+\frac{APR}{k}\right)^k\]</span> ~</li>
 </ul>
 </div>
+<div id="internal-rate-of-return-irr" class="section level3">
+<h3>Internal Rate of Return (IRR)</h3>
+<ul>
+<li>Given PV and cash flows, the interest rate s.t. <span class="math display">\[NPV = -\text{investment} + PV(\text{return}) = 0\]</span> ~</li>
+</ul>
+</div>
 <div id="tax" class="section level3">
 <h3>Tax</h3>
 <ul>
 <li>After Tax Interest Rate: <span class="math inline">\(r\cdot (1-τ)\)</span></li>
 </ul>
 </div>
-<div id="timeline" class="section level3">
-<h3>Timeline</h3>
+<div id="opportunity-cost-of-capital" class="section level3">
+<h3>(Opportunity) Cost of Capital</h3>
+<ul>
+<li>The best available expected return offered in the market on an investment</li>
+</ul>
+</div>
+<div id="time-travel-for-money" class="section level3">
+<h3>Time Travel for Money</h3>
 <ul>
 <li>Compounding: when moving a value forward in time, multiply by <span class="math inline">\((1 + r)\)</span>
 <ul>
@@ -183,7 +201,6 @@
 <li>PV of Cash Flow Stream: <span class="math display">\[\begin{aligned} PV &amp;= C_0 + \frac{C_1}{1 + r} + \frac{C_2}{(1 + r)^2} +\cdots + \frac{C_N}{(1 + r)^N}\\ &amp;= \sum_{n=0}^N \frac{C_n}{(1 + r)^n}\end{aligned}\]</span><br />
 </li>
 <li>FV of Cash Flow Stream: <span class="math inline">\(FV = PV\cdot (1+r)^n\)</span></li>
-<li>Internal Rate of Return (IRR): the interest rate s.t. <span class="math display">\[NPV = -\text{investment} + PV(\text{return}) = 0\]</span> ~</li>
 </ul>
 <div id="perpetuity" class="section level3">
 <h3>Perpetuity</h3>
@@ -214,18 +231,61 @@ If the account earns 10% per year, how much will Jane have saved at age 65?</p>
 <p><span class="math display">\[\begin{aligned} FV &amp;= \frac{C}{r}\cdot \left[(1+r)^N - 1\right] \\
 &amp;= \frac{10000}{10\%}\cdot \left[(1+10\%)^{30} - 1\right] \\
 &amp;= 1644940\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS.6-5.1<br />
+Bill Clinton reportedly was paid $10 million to write his book My Way. The book took three years to write.<br />
+In the time he spent writing, Clinton could have been paid to make speeches.<br />
+Given his popularity, assume that he could earn $8 million per year (paid at the end of the year) speaking instead of writing.<br />
+Assume his cost of capital is 10% per year.<br />
+What is the NPV of agreeing to write the book (ignoring any royalty payments)?</p>
+</blockquote>
+<p>NPV of the book:
+<span class="math display">\[\begin{aligned} NPV &amp;= PV(\text{income}) - PV(\text{cost}) \\
+&amp;= 10 - \frac{8}{10\%}\left(1-\frac{1}{(1+10\%)^3}\right) \\
+&amp;= -9.895 \end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS.6-5.2<br />
+Bill Clinton reportedly was paid $10 million to write his book My Way. The book took three years to write.<br />
+In the time he spent writing, Clinton could have been paid to make speeches.<br />
+Given his popularity, assume that he could earn $8 million per year (paid at the end of the year) speaking instead of writing.<br />
+Assume his cost of capital is 10% per year.<br />
+Assume that, once the book is finished, it is expected to generate royalties of $5 million in the first year (paid at the end of the year) and these royalties are expected to decrease at a rate of 30% per year in perpetuity.<br />
+What is the NPV of the book with the royalty payments?</p>
+</blockquote>
+<p>PV of royalty at <span class="math inline">\(t=3\)</span>:<br />
+<span class="math display">\[\begin{aligned} PV &amp;= \frac{C}{r-g} \\ &amp;= \frac{5}{10\% - (- 30\%)} \\ &amp;= 12.5\end{aligned}\]</span><br />
+PV of royalty at today:<br />
+<span class="math display">\[\frac{12.5}{(1+10\%)^3} = 9.391\]</span><br />
+NPV of the book with royalty:<br />
+<span class="math display">\[\begin{aligned} NPV &amp;= -9.895 + 9.391 \\
+&amp;= -0.504 \end{aligned}\]</span> ~</p>
 </div>
 </div>
 <div id="bond" class="section level2">
 <h2>Bond</h2>
-<!-- - Bond's Return: $r_f$ -->
 <ul>
+<li>Price: <span class="math inline">\(P\)</span></li>
 <li>Maturity Date: date of final repayment</li>
 <li>Term: time remaining before the next repayment</li>
 <li>Face Value (Principle): the amount repaid at maturity in addition to coupon (if not zero)</li>
 <li>Coupon: the amount paid at each term</li>
 <li>Coupon Rate: ratio of each coupon repayment (APR)</li>
 <li>Coupon Payment (CPN): <span class="math display">\[CPN = \frac{\text{Coupon Rate}\times\text{Face Value}}{\text{# of repayments per year}}\]</span> ~</li>
+<li>Yield (to Maturity) (YTM or <span class="math inline">\(y\)</span>): s.t. Price <span class="math inline">\(P = PV(\text{Face Value})\)</span></li>
+</ul>
+<!-- $$YTM = \frac{APR}{\text{# of repayments per year}}$$ ~  -->
+<div id="zero-coupon-bond" class="section level3">
+<h3>Zero-Coupon Bond</h3>
+<ul>
+<li>Pay no coupon, only face value
+<ul>
+<li>or: Pure Discount Bond (e.g. Treasury bill)</li>
+</ul></li>
+<li>YTM:
+<span class="math display">\[\begin{aligned} P &amp;= \frac{\text{Face Value}}{(1+YTM_n)^n} \\
+YTM_n &amp;= \left(\frac{\text{Face Value}}{P}\right)^{\frac{1}{n}}-1 \end{aligned}\]</span><br />
+</li>
+<li><span class="math inline">\(YTM_n = r_f\)</span></li>
 </ul>
 <blockquote>
 <p>textbook P72<br />
@@ -240,10 +300,72 @@ Given the 5% interest rate, we will owe the bank <span class="math inline">\(952
 We can earn $12.38 in cash today for each bond that we buy, without taking any risk or paying any of our own money in the future.</p>
 <p>Suppose the bond is trading for $960, we should <strong>(short) sell</strong> the bond, and invest $952.38 at the bank.<br />
 We then earn $7.62 in cash today, yet keep our future cash flows unchanged by replacing the $1000 we would have received from the bond with the $1000 we will receive from the bank.</p>
-<div id="zero-coupon-bond" class="section level3">
-<h3>Zero Coupon Bond</h3>
+</div>
+<div id="coupon-bond" class="section level3">
+<h3>Coupon Bond</h3>
 <ul>
-<li>or: Pure Discount Bond (e.g. Treasury bill)</li>
+<li><p>YTM:
+<span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM} + \frac{CPN}{(1+YTM)^2} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^N}\\
+&amp;= \frac{CPN}{YTM}\left(1-\frac{1}{(1+YTM)^N}\right) + \frac{\text{Face Value}}{(1+YTM)^N}\end{aligned}\]</span></p>
+<ul>
+<li>e.g. Treasury notes, Treasury bonds<br />
+<img src="/post-img/notes-finance--coupond-bond-timeline.png" width="430" /></li>
+</ul></li>
+</ul>
+</div>
+<div id="bond-price" class="section level3">
+<h3>Bond Price</h3>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Amount</th>
+<th>Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>above par (premium)</td>
+<td><span class="math inline">\(P &gt; FV\)</span></td>
+<td><span class="math inline">\(\text{Coupon Rate}&gt;YTM\)</span></td>
+</tr>
+<tr class="even">
+<td>at par</td>
+<td><span class="math inline">\(P=FV\)</span></td>
+<td><span class="math inline">\(\text{Coupon Rate}=YTM\)</span></td>
+</tr>
+<tr class="odd">
+<td>below par (discount)</td>
+<td><span class="math inline">\(P&lt;FV\)</span></td>
+<td><span class="math inline">\(\text{Coupon Rate}&lt;YTM\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="decision-rules" class="section level2">
+<h2>Decision Rules</h2>
+<div id="npv-rule" class="section level3">
+<h3>NPV Rule</h3>
+<ul>
+<li>Accept the project with the highest NPV</li>
+<li>As long as <span class="math inline">\(NPV&gt;0\)</span>, the project increases the value of the firm</li>
+</ul>
+</div>
+<div id="irr-rule" class="section level3">
+<h3>IRR Rule</h3>
+<ul>
+<li>Take any investment opportunity where <span class="math inline">\(IRR \geq r_f\)</span></li>
+<li>Turn down any opportunity where <span class="math inline">\(IRR &lt; r_f\)</span>
+<ul>
+<li>When projects differ in scale of investment, timing of cash flows, or riskiness, then the IRR cannot be meaningfully compared</li>
+</ul></li>
+</ul>
+</div>
+<div id="payback-investment-rule" class="section level3">
+<h3>Payback Investment Rule</h3>
+<ul>
+<li>Accept a project only if its cash flows pay back its initial investment within a prespecified period</li>
 </ul>
 </div>
 </div>
