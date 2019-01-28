@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Finance - loikein</title>
+<meta property="og:title" content="Notes on Finance - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/clumsy-findme.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Notes on Finance</h1>
+
+    
+    <span class="article-date">2019/01/28</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/finance'>finance</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#general-principles">General Principles</a><ul>
+<li><a href="#net-present-value-npv">Net Present Value (NPV)</a></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="#arbitrage">Arbitrage</a></li>
+<li><a href="#law-of-one-price">Law of One Price</a></li>
+</ul></li>
+<li><a href="#cash-flow-stream">Cash Flow Stream</a><ul>
+<li><a href="#perpetuity">Perpetuity</a></li>
+<li><a href="#annuity">Annuity</a></li>
+</ul></li>
+<li><a href="#security">Security</a><ul>
+<li><a href="#bond">Bond</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="general-principles" class="section level2">
+<h2>General Principles</h2>
+<ul>
+<li>Competitive Market: good can be bought and sold at the same price (<strong>Competitive Market Price</strong>)</li>
+<li>Valuation Principle: value of an asset to the firm or its investors is determined by its competitive market price</li>
+</ul>
+<div id="net-present-value-npv" class="section level3">
+<h3>Net Present Value (NPV)</h3>
+<ul>
+<li>Risk-Free Interest Rate: <span class="math inline">\(r_f\)</span></li>
+<li>Interest Rate Factor: <span class="math inline">\((1+r_f)\)</span></li>
+<li>Discount Factor: <span class="math inline">\(\frac{1}{1+r}\)</span></li>
+<li>Present Value (PV) and Future Value (FV): <span class="math inline">\(PV \times (1+r_f) = FV\)</span></li>
+<li><p>Net Present Value (NPV): <span class="math display">\[\begin{aligned} NPV &amp;= PV(\text{benefits}) - PV(\text{costs}) \\ &amp;= PV(\text{all cash flows})\end{aligned}\]</span></p>
+<ul>
+<li>As long as <span class="math inline">\(NPV&gt;0\)</span>, the decision increases the value of the firm</li>
+<li>NPV Decision Rule: take the alternative with highest NPV</li>
+</ul></li>
+</ul>
+</div>
+<div id="timeline" class="section level3">
+<h3>Timeline</h3>
+<ul>
+<li>Compounding: when moving a value forward in time, multiply by <span class="math inline">\((1 + r)\)</span>
+<ul>
+<li>Compound Interest: earning interest on interest</li>
+<li>Future Value of cash flow <span class="math inline">\(C\)</span> in <span class="math inline">\(n\)</span> years: <span class="math inline">\(FV_n = C\cdot (1 + r)^n\)</span></li>
+</ul></li>
+<li>Discounting: when moving a value back in time, divide by <span class="math inline">\((1 + r)\)</span>
+<ul>
+<li>Present Value of cash flow <span class="math inline">\(C\)</span> in <span class="math inline">\(n\)</span> years: <span class="math inline">\(PV_n = \frac{C}{(1 + r)^n}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="arbitrage" class="section level3">
+<h3>Arbitrage</h3>
+<ul>
+<li>Arbitrage Opportunity: when it is possible to make a profit without taking any risk or making any investment
+<ul>
+<li><span class="math inline">\(NPV&gt;0\)</span></li>
+</ul></li>
+<li>Normal Market: competitive market where no arbitrage opportunities exist</li>
+</ul>
+</div>
+<div id="law-of-one-price" class="section level3">
+<h3>Law of One Price</h3>
+<ul>
+<li>Equivalent investment opportunities</li>
+<li>Trade simultaneously</li>
+<li>In different competitive (normal) markets</li>
+</ul>
+</div>
+</div>
+<div id="cash-flow-stream" class="section level2">
+<h2>Cash Flow Stream</h2>
+<ul>
+<li>PV of Cash Flow Stream: <span class="math display">\[\begin{aligned} PV &amp;= C_0 + \frac{C_1}{1 + r} + \frac{C_2}{(1 + r)^2} +\cdots + \frac{C_N}{(1 + r)^N}\\ &amp;= \sum_{n=0}^N \frac{C_n}{(1 + r)^n}\end{aligned}\]</span><br />
+</li>
+<li>FV of Cash Flow Stream: <span class="math inline">\(FV = PV\cdot (1+r)^n\)</span></li>
+</ul>
+<div id="perpetuity" class="section level3">
+<h3>Perpetuity</h3>
+<ul>
+<li>Perpetuity: a bond that pays a stream of regular equal cash flows forever (e.g. consol)</li>
+<li>PV of Perpetuity: <span class="math display">\[\begin{aligned} PV &amp;= \sum_{n=1}^{\infty}\frac{C}{(1 + r)^n} \\ &amp;= \frac{C}{r}\end{aligned}\]</span><br />
+</li>
+<li>By depositing the amount <span class="math inline">\(\frac{C}{r}\)</span> today, we can withdraw interest of <span class="math inline">\(\frac{C}{r}\cdot r=C\)</span> each period</li>
+</ul>
+</div>
+<div id="annuity" class="section level3">
+<h3>Annuity</h3>
+<ul>
+<li>Annuity: a bond that pays a stream of regular equal cash flows for <span class="math inline">\(N\)</span> periods</li>
+<li>PV of Annuity: <span class="math display">\[\begin{aligned} PV &amp;= \sum_{n=1}^{N}\frac{C}{(1 + r)^n} \\ &amp;= C\cdot\frac{1}{r}\left( 1-\frac{1}{(1+r)^N}\right)\end{aligned}\]</span><br />
+</li>
+<li>FV of Annuity: <span class="math display">\[\begin{aligned} FV &amp;= PV\cdot (1+r)^N \\ &amp;= C\cdot\frac{1}{r}\left( 1-\frac{1}{(1+r)^N}\right)\cdot (1+r)^N \\ &amp;= \frac{C}{r}\cdot \left((1+r)^N - 1\right)\end{aligned}\]</span> ~</li>
+</ul>
+<blockquote>
+<p>Mock.Q1<br />
+Jane is 35 years old and she has decided it is time to plan seriously for her retirement.<br />
+At the end of each year until she is 65, she will save $10,000 in a retirement account.<br />
+If the account earns 10% per year, how much will Jane have saved at age 65?</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} FV &amp;= \frac{C}{r}\cdot \left((1+r)^N - 1\right) \\
+&amp;= \frac{10000}{10\%}\cdot \left((1+10\%)^{30} - 1\right) \\
+&amp;= 1644940\end{aligned}\]</span> ~</p>
+</div>
+</div>
+<div id="security" class="section level2">
+<h2>Security</h2>
+<div id="bond" class="section level3">
+<h3>Bond</h3>
+<ul>
+<li>Bond’s Return: <span class="math inline">\(r_f\)</span></li>
+</ul>
+<blockquote>
+<p>textbook P72<br />
+Consider a simple security that promises a one-time payment to its owner of $1000 in one year’s time.<br />
+Suppose there is no risk that the payment will not be made.<br />
+If the risk-free interest rate is 5%, what can we conclude about the price of this bond in a normal market?</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} PV(1000\text{ in one year}) &amp;= \frac{1000}{1+5\%} \\
+&amp;= 952.38\text{ today} \\ &amp;= \text{No Arbitrage Price of Bond}\end{aligned}\]</span><br />
+Suppose the bond traded for a price of $940, we can buy the bond for $940 and at the same time borrow $952.38 from the bank.<br />
+Given the 5% interest rate, we will owe the bank <span class="math inline">\(952.38 \times 1.05 = 1000\)</span> in one year.<br />
+We can earn $12.38 in cash today for each bond that we buy, without taking any risk or paying any of our own money in the future.</p>
+<p>Suppose the bond is trading for $960, we should <strong>(short) sell</strong> the bond, and invest $952.38 at the bank.<br />
+We then earn $7.62 in cash today, yet keep our future cash flows unchanged by replacing the $1000 we would have received from the bond with the $1000 we will receive from the bank.</p>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
