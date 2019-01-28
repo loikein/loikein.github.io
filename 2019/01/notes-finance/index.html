@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">9 min read</span>
     
 
     <h1 class="article-title">Notes on Finance</h1>
@@ -103,15 +103,18 @@
 <li><a href="#perpetuity">Perpetuity</a></li>
 <li><a href="#annuity">Annuity</a></li>
 </ul></li>
-<li><a href="#bond">Bond</a><ul>
-<li><a href="#zero-coupon-bond">Zero-Coupon Bond</a></li>
-<li><a href="#coupon-bond">Coupon Bond</a></li>
-<li><a href="#bond-price">Bond Price</a></li>
-</ul></li>
 <li><a href="#decision-rules">Decision Rules</a><ul>
 <li><a href="#npv-rule">NPV Rule</a></li>
 <li><a href="#irr-rule">IRR Rule</a></li>
-<li><a href="#payback-investment-rule">Payback Investment Rule</a></li>
+<li><a href="#payback-rule">Payback Rule</a></li>
+</ul></li>
+<li><a href="#bond">Bond</a><ul>
+<li><a href="#bond-price">Bond Price</a></li>
+<li><a href="#zero-coupon-bond">Zero-Coupon Bond</a></li>
+<li><a href="#coupon-bond">Coupon Bond</a></li>
+</ul></li>
+<li><a href="#stock">Stock</a><ul>
+<li><a href="#one-year">One Year</a></li>
 </ul></li>
 </ul>
 </div>
@@ -261,6 +264,32 @@ NPV of the book with royalty:<br />
 &amp;= -0.504 \end{aligned}\]</span> ~</p>
 </div>
 </div>
+<div id="decision-rules" class="section level2">
+<h2>Decision Rules</h2>
+<div id="npv-rule" class="section level3">
+<h3>NPV Rule</h3>
+<ul>
+<li>Accept the project with the highest NPV</li>
+<li>As long as <span class="math inline">\(NPV&gt;0\)</span>, the project increases the value of the firm</li>
+</ul>
+</div>
+<div id="irr-rule" class="section level3">
+<h3>IRR Rule</h3>
+<ul>
+<li>Take any investment opportunity where <span class="math inline">\(IRR \geq r_f\)</span></li>
+<li>Turn down any opportunity where <span class="math inline">\(IRR &lt; r_f\)</span>
+<ul>
+<li>When projects differ in scale of investment, timing of cash flows, or riskiness, then the IRR cannot be meaningfully compared</li>
+</ul></li>
+</ul>
+</div>
+<div id="payback-rule" class="section level3">
+<h3>Payback Rule</h3>
+<ul>
+<li>Accept a project only if its cash flows pay back its initial investment within a prespecified period</li>
+</ul>
+</div>
+</div>
 <div id="bond" class="section level2">
 <h2>Bond</h2>
 <ul>
@@ -274,6 +303,35 @@ NPV of the book with royalty:<br />
 <li>Yield (to Maturity) (YTM or <span class="math inline">\(y\)</span>): s.t. Price <span class="math inline">\(P = PV(\text{Face Value})\)</span></li>
 </ul>
 <!-- $$YTM = \frac{APR}{\text{# of repayments per year}}$$ ~  -->
+<div id="bond-price" class="section level3">
+<h3>Bond Price</h3>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Amount</th>
+<th>Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>above par (premium)</td>
+<td><span class="math inline">\(P &gt; FV\)</span></td>
+<td><span class="math inline">\(\text{Coupon Rate}&gt;YTM\)</span></td>
+</tr>
+<tr class="even">
+<td>at par</td>
+<td><span class="math inline">\(P=FV\)</span></td>
+<td><span class="math inline">\(\text{Coupon Rate}=YTM\)</span></td>
+</tr>
+<tr class="odd">
+<td>below par (discount)</td>
+<td><span class="math inline">\(P&lt;FV\)</span></td>
+<td><span class="math inline">\(\text{Coupon Rate}&lt;YTM\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="zero-coupon-bond" class="section level3">
 <h3>Zero-Coupon Bond</h3>
 <ul>
@@ -305,68 +363,131 @@ We then earn $7.62 in cash today, yet keep our future cash flows unchanged by re
 <h3>Coupon Bond</h3>
 <ul>
 <li><p>YTM:
-<span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM} + \frac{CPN}{(1+YTM)^2} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^N}\\
+<span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM} + \frac{CPN}{(1+YTM)^2} + \cdots + \frac{CPN+\text{Face Value}}{(1+YTM)^N}\\
+&amp;= \frac{CPN}{1+YTM} + \frac{CPN}{(1+YTM)^2} + \cdots + \frac{CPN}{(1+YTM)^N} + \frac{\text{Face Value}}{(1+YTM)^N}\\
 &amp;= \frac{CPN}{YTM}\left(1-\frac{1}{(1+YTM)^N}\right) + \frac{\text{Face Value}}{(1+YTM)^N}\end{aligned}\]</span></p>
 <ul>
 <li>e.g. Treasury notes, Treasury bonds<br />
 <img src="/post-img/notes-finance--coupond-bond-timeline.png" width="430" /></li>
 </ul></li>
 </ul>
-</div>
-<div id="bond-price" class="section level3">
-<h3>Bond Price</h3>
+<blockquote>
+<p>PS.8-11<br />
+Suppose that General Motors Acceptance Corporation issued a bond with 10 years until maturity, a face value of $1000, and a coupon rate of 7% (annual payments).<br />
+The yield to maturity on this bond when it was issued was 6%.<br />
+1. What was the price of this bond when it was issued?<br />
+2. Assuming the yield to maturity remains constant, what is the price of the bond immediately before it makes its first coupon payment?<br />
+3. Assuming the yield to maturity remains constant, what is the price of the bond immediately after it makes its first coupon payment?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Coupon Payment:<br />
+<span class="math display">\[\begin{aligned} CPN &amp;= \frac{\text{Coupon Rate}\times\text{Face Value}}{\text{# of repayments per year}} \\
+&amp;= \frac{7\%\times 1000}{1} \\ &amp;= 70\end{aligned}\]</span><br />
+Price of bond:<br />
+<span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM} + \frac{CPN}{(1+YTM)^2} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^N}\\
+&amp;= \frac{70}{6\%}\left(1-\frac{1}{(1+6\%)^{10}}\right) + \frac{1000}{(1+6\%)^{10}} \\
+&amp;= 1073.60\end{aligned}\]</span><br />
+</li>
+<li>Price before the first coupon payment:<br />
+<span class="math display">\[\begin{aligned} P &amp;= CPN + \frac{CPN}{1+YTM} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^9} \\
+&amp;= 70 + \frac{70}{1+6\%} + \cdots + \frac{70 + 1000}{(1+6\%)^9} \\
+&amp;= 1138.02\end{aligned}\]</span><br />
+</li>
+<li>Price before the first coupon payment:<br />
+<span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^9} \\
+&amp;= \frac{70}{1+6\%} + \cdots + \frac{70 + 1000}{(1+6\%)^9} \\
+&amp;= 1068.02\end{aligned}\]</span> ~</li>
+</ol>
+<blockquote>
+<p>PS.8-24<br />
+Assume there are four default-free bonds with the following prices and future cash flows:</p>
 <table>
 <thead>
 <tr class="header">
 <th></th>
-<th>Amount</th>
-<th>Ratio</th>
+<th></th>
+<th>Future -</th>
+<th>- Cash -</th>
+<th>- Flows</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>above par (premium)</td>
-<td><span class="math inline">\(P &gt; FV\)</span></td>
-<td><span class="math inline">\(\text{Coupon Rate}&gt;YTM\)</span></td>
+<td>Bond</td>
+<td>Price Today</td>
+<td>Year 1</td>
+<td>Year 2</td>
+<td>Year 3</td>
 </tr>
 <tr class="even">
-<td>at par</td>
-<td><span class="math inline">\(P=FV\)</span></td>
-<td><span class="math inline">\(\text{Coupon Rate}=YTM\)</span></td>
+<td>A</td>
+<td>934.58</td>
+<td>1,000</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="odd">
-<td>below par (discount)</td>
-<td><span class="math inline">\(P&lt;FV\)</span></td>
-<td><span class="math inline">\(\text{Coupon Rate}&lt;YTM\)</span></td>
+<td>B</td>
+<td>881.66</td>
+<td>0</td>
+<td>1,000</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>1,118.21</td>
+<td>100</td>
+<td>100</td>
+<td>1,100</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>839.62</td>
+<td>0</td>
+<td>0</td>
+<td>1,000</td>
 </tr>
 </tbody>
 </table>
+<p>Do these bonds present an arbitrage opportunity?<br />
+If so, how would you take advantage of this opportunity? If not, why not?</p>
+</blockquote>
+<p>Bond A:<br />
+<span class="math display">\[\begin{aligned} 934.58 &amp;= \frac{1000}{1+YTM_1} \\
+YTM_1 = 7.0\%\end{aligned}\]</span><br />
+Bond B:<br />
+<span class="math display">\[\begin{aligned} 881.66 &amp;= \frac{1000}{(1+YTM_2)^2} \\
+YTM_2 = 6.5\%\end{aligned}\]</span><br />
+Bond D:<br />
+<span class="math display">\[\begin{aligned} 839.62 &amp;= \frac{1000}{(1+YTM_3)^3} \\
+YTM_3 = 6.0\%\end{aligned}\]</span><br />
+If YTM’s are consistent, price for bond C should be:<br />
+<span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM_1} + \frac{CPN}{(1+YTM_2)^2} + \frac{CPN}{(1+YTM_3)^3} \\
+&amp;= \frac{100}{1+7.0\%} + \frac{100}{(1+6.5\%)^2} + \frac{1100}{(1+6.0\%)^3} \\
+&amp;= 1105.2 &lt; 1,118.21\end{aligned}\]</span><br />
+Therefore, there is an arbitrage opportunity.<br />
+Since bond C is overpriced, one can short sell bond C and buy bond A, B, D at the same time.</p>
 </div>
 </div>
-<div id="decision-rules" class="section level2">
-<h2>Decision Rules</h2>
-<div id="npv-rule" class="section level3">
-<h3>NPV Rule</h3>
+<div id="stock" class="section level2">
+<h2>Stock</h2>
+<div id="one-year" class="section level3">
+<h3>One Year</h3>
 <ul>
-<li>Accept the project with the highest NPV</li>
-<li>As long as <span class="math inline">\(NPV&gt;0\)</span>, the project increases the value of the firm</li>
+<li>Equity Cost of Capital: <span class="math inline">\(r_E\)</span></li>
+<li>Stock Price today and future: <span class="math display">\[P_0 = \frac{Div_1 + P_1}{1+r_E}\]</span><br />
+</li>
+<li>Total Return (Rate): <span class="math display">\[\begin{aligned} r_E &amp;= \frac{Div_1 + P_1}{P_0} - 1 \\ &amp;= \underbrace{\frac{Div_1}{P_0}}_{\text{Divident Yield}}+\underbrace{\frac{P_1}{P_0}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
+</li>
+<li>The stock’s total return should equal to the expected return of other investments available in the market with equivalent risk</li>
 </ul>
-</div>
-<div id="irr-rule" class="section level3">
-<h3>IRR Rule</h3>
-<ul>
-<li>Take any investment opportunity where <span class="math inline">\(IRR \geq r_f\)</span></li>
-<li>Turn down any opportunity where <span class="math inline">\(IRR &lt; r_f\)</span>
-<ul>
-<li>When projects differ in scale of investment, timing of cash flows, or riskiness, then the IRR cannot be meaningfully compared</li>
-</ul></li>
-</ul>
-</div>
-<div id="payback-investment-rule" class="section level3">
-<h3>Payback Investment Rule</h3>
-<ul>
-<li>Accept a project only if its cash flows pay back its initial investment within a prespecified period</li>
-</ul>
+<blockquote>
+<p>PS.9-2<br />
+Anle Corporation has a current price of $20, is expected to pay a dividend of $1 in one year, and its expected price right after paying that dividend is $22.<br />
+1. What is Anle’s expected dividend yield?<br />
+2. What is Anle’s expected capital gain rate?<br />
+3. What is Anle’s equity cost of capital?</p>
+</blockquote>
 </div>
 </div>
 
