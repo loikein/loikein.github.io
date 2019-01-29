@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.52" />
 
 
-<title>Notes on Finance - loikein</title>
-<meta property="og:title" content="Notes on Finance - loikein">
+<title>(A Very Rough) Notes on Finance - loikein</title>
+<meta property="og:title" content="(A Very Rough) Notes on Finance - loikein">
 
 
 
@@ -60,10 +60,10 @@
 
   <article class="article">
     
-    <span class="article-duration">11 min read</span>
+    <span class="article-duration">13 min read</span>
     
 
-    <h1 class="article-title">Notes on Finance</h1>
+    <h1 class="article-title">(A Very Rough) Notes on Finance</h1>
 
     
     <span class="article-date">2019/01/28</span>
@@ -118,10 +118,15 @@
 <li><a href="#total-payout-model">Total Payout Model</a></li>
 <li><a href="#discounted-fcf-free-cash-flow-model">Discounted FCF (Free Cash Flow) Model</a></li>
 </ul></li>
+<li><a href="#capm-capital-asset-pricing-model">CAPM (Capital Asset Pricing Model)</a><ul>
+<li><a href="#risk-and-return">Risk and Return</a></li>
+<li><a href="#risk-measurement">Risk Measurement</a></li>
+</ul></li>
 </ul>
 </div>
 
 <p>textbook: <a href="http://93.174.95.27/book/index.php?md5=F2FF72C1BDECC2D4BC05044114A930EC">Corporate Finance</a></p>
+<p>Warning: Finance is not among my favourite subjects</p>
 <div id="general-principles" class="section level2">
 <h2>General Principles</h2>
 <ul>
@@ -574,12 +579,12 @@ Since expected return of new project is <span class="math inline">\(15\% &gt; 12
 </li>
 <li>Current Value of Firm: <span class="math display">\[V_0 = PV(\text{future FCF})\]</span><br />
 </li>
+<li>Future (Terminal) Value of Firm: <span class="math display">\[\begin{aligned} V_N &amp;= \frac{FCF_{N+1}}{r_{WACC} - g_{FCF}} \\ &amp;= \frac{FCF_N\cdot (1+g_{FCF})}{r_{WACC} - g_{FCF}} \end{aligned}\]</span><br />
+</li>
 <li>Stock Price: <span class="math display">\[P_0 = \frac{V_0 + \text{cash}_0 - \text{debt}_0}{\text{# of shares}}\]</span><br />
 </li>
 <li>with WACC (Weighted Average Cost of Capital):
-<span class="math display">\[\begin{aligned} V_0 &amp;= PV(\text{future FCF}) \\
-&amp;= \frac{FCF_1}{1+r_{WACC}} + \frac{FCF_2}{(1+r_{WACC})^2} +\cdots + \frac{FCF_N}{(1+r_{WACC})^N}+ \frac{V_N}{(1+r_{WACC})^N} \\
-&amp;= \sum_{n=1}^N \frac{FCF_n}{(1+r_{WACC})^n} + \underbrace{\frac{1+g_{FCF}}{r_{WACC} - g_{FCF}}\cdot FCF_N}_{V_N}\end{aligned}\]</span> ~</li>
+<span class="math display">\[V_0 = \frac{FCF_1}{1+r_{WACC}} + \frac{FCF_2}{(1+r_{WACC})^2} +\cdots + \frac{FCF_N}{(1+r_{WACC})^N}+ \frac{V_N}{(1+r_{WACC})^N}\]</span> ~</li>
 </ul>
 <blockquote>
 <p>PS.9-19<br />
@@ -594,6 +599,52 @@ Estimate the value of IDX per share using a discounted FCF approach and the foll
 - Future FCF growth rate beyond 2010: 5%<br />
 - Weighted-average cost of capital: 9.4%</p>
 </blockquote>
+<p>Expected value of firm in 2009:<br />
+<span class="math display">\[\begin{aligned} V_{2009} &amp;= \frac{FCF_{2010}}{r_{WACC} - g_{FCF}} \\
+&amp;= \frac{50}{9.4\% - 5\%} \\
+&amp;= 1136.36\end{aligned}\]</span><br />
+Expected value of firm in 2008:<br />
+<span class="math display">\[\begin{aligned} V_{2008} &amp;= \frac{FCF_{2009}}{(1+r_{WACC})^1}+ \frac{V_{2009}}{(1+r_{WACC})^1} \\
+&amp;= \frac{45}{1+9.4\%}+ \frac{1136.36}{1+9.4\%} \\
+&amp;= 1079.85\end{aligned}\]</span><br />
+Expected stock price in 2008:<br />
+<span class="math display">\[\begin{aligned} P_0 &amp;= \frac{V_0 + \text{cash}_0 - \text{debt}_0}{\text{# of shares}} \\
+&amp;= \frac{1079.85 + 110 - 30}{50} \\
+&amp;= 23.2\end{aligned}\]</span> ~</p>
+</div>
+</div>
+<div id="capm-capital-asset-pricing-model" class="section level2">
+<h2>CAPM (Capital Asset Pricing Model)</h2>
+<div id="risk-and-return" class="section level3">
+<h3>Risk and Return</h3>
+<ul>
+<li>Expected Return: <span class="math inline">\(E[R] = \sum Pr(R) \cdot R\)</span></li>
+<li>Variance: <span class="math display">\[\begin{aligned} Var(R) &amp;= E\left[\big(R - E[R]\big)^2\right] \\ &amp;= \sum Pr(R) \cdot \big(R - E[R]\big)^2\end{aligned}\]</span><br />
+</li>
+<li>Standard Deviation: <span class="math inline">\(SD(R) = \sqrt{Var(R)}\)</span></li>
+<li>Realized Return (remember <a href="#dividend-discount-model">Equity Cost of Capital</a>):
+<span class="math display">\[\begin{aligned} R_{t+1} &amp;= \frac{Div_{t+1} + P_{t+1}}{P_t} - 1 \\ &amp;= \underbrace{\frac{Div_{t+1}}{P_t}}_{\text{Divident Yield}}+\underbrace{\frac{P_{t+1}-P_t}{P_t}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
+</li>
+<li>Realized Annual Return: <span class="math display">\[1+R_{year} = (1+R_{Q1})(1+R_{Q2})(1+R_{Q3})(1+R_{Q4})\]</span><br />
+</li>
+<li>Average Annual Return: <span class="math display">\[\begin{aligned} \bar{R} &amp;= \frac{1}{T}(R_1+R_2+\cdots +R_T) \\ &amp;= \frac{1}{T}\sum_{t=1}^T R_t\end{aligned}\]</span><br />
+</li>
+<li>Estimated Variance: <span class="math display">\[Var(R) = \frac{1}{T-1}\sum_{t=1}^T (R_t - \bar{R})^2\]</span><br />
+</li>
+<li>Standard Error: standard deviation of the average return<br />
+<span class="math display">\[SE = \frac{SD}{\sqrt{\text{# of observations}}}\]</span> ~</li>
+</ul>
+<blockquote>
+<p>PS.10-14<br />
+How does the relationship between the average return and the historical volatility of individual stocks differ<br />
+from the relationship between the average return and the historical volatility of large, well-diversified portfolios?</p>
+</blockquote>
+<p>For large portfolios, higher returns is often associated with higher volatilities.<br />
+For stocks, no clear relation exists.<br />
+<img src="/post-img/notes-finance--PS.10-14.png" width="472" /></p>
+</div>
+<div id="risk-measurement" class="section level3">
+<h3>Risk Measurement</h3>
 </div>
 </div>
 
