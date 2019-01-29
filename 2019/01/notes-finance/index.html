@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">28 min read</span>
     
 
     <h1 class="article-title">Notes on Finance</h1>
@@ -137,6 +137,12 @@
 <li><a href="#financial-distress">Financial Distress</a><ul>
 <li><a href="#trade-off-theory">Trade-Off Theory</a></li>
 </ul></li>
+<li><a href="#stock-payout">Stock Payout</a><ul>
+<li><a href="#dividend">Dividend</a></li>
+<li><a href="#share-repurchase">Share Repurchase</a></li>
+<li><a href="#tax-and-dividend">Tax and Dividend</a></li>
+</ul></li>
+<li><a href="#options">Options</a></li>
 </ul>
 </div>
 
@@ -497,10 +503,10 @@ Since bond C is overpriced, one can short sell bond C and buy bond A, B, D at th
 <h3>Dividend-Discount Model</h3>
 <ul>
 <li>Stock’s total return = expected return of other investments with equivalent risk</li>
-<li>Divident by the end of the <span class="math inline">\(n\)</span>-th year: <span class="math inline">\(Div_n\)</span></li>
+<li>Dividend by the end of the <span class="math inline">\(n\)</span>-th year: <span class="math inline">\(Div_n\)</span></li>
 <li>Stock Price in one year: <span class="math display">\[P_0 = \frac{Div_1 + P_1}{1+r_E}\]</span><br />
 </li>
-<li>Equity Cost of Capital = Total Return (Rate): <span class="math display">\[\begin{aligned} r_E &amp;= \frac{Div_1 + P_1}{P_0} - 1 \\ &amp;= \underbrace{\frac{Div_1}{P_0}}_{\text{Divident Yield}}+\underbrace{\frac{P_1-P_0}{P_0}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
+<li>Equity Cost of Capital = Total Return (Rate): <span class="math display">\[\begin{aligned} r_E &amp;= \frac{Div_1 + P_1}{P_0} - 1 \\ &amp;= \underbrace{\frac{Div_1}{P_0}}_{\text{Dividend Yield}}+\underbrace{\frac{P_1-P_0}{P_0}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
 </li>
 <li>Stock Price in two years:
 <span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1 + P_1}{1+r_E} \\
@@ -511,15 +517,15 @@ Since bond C is overpriced, one can short sell bond C and buy bond A, B, D at th
 <span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1}{P_0} + \frac{Div_2}{(1+r_E)^2} +\cdots + \frac{Div_N}{(1+r_E)^N}+ \frac{P_N}{(1+r_E)^N} \\
 (N\to\infty) \ &amp;= \sum_{n=1}^{\infty} \frac{Div_n}{(1+r_E)^n}\end{aligned}\]</span><br />
 </li>
-<li>Constant Divident Growth:
+<li>Constant Dividend Growth:
 <span class="math display">\[\begin{aligned} P_0 &amp;=\frac{Div_1}{r_E-g} \\
 r_E &amp;= \frac{Div_1}{P_0} - g\end{aligned}\]</span><br />
 </li>
-<li>Stock Price in <span class="math inline">\(N\)</span> years with Constant Divident Growth:
+<li>Stock Price in <span class="math inline">\(N\)</span> years with Constant Dividend Growth:
 <span class="math display">\[P_0 = \frac{Div_1}{1+r_E} + \frac{Div_2}{(1+r_E)^2} +\cdots + \frac{Div_N}{(1+r_E)^N}+ \frac{1}{(1+r_E)^N}\cdot\underbrace{\frac{Div_{N+1}}{r_E-g}}_{P_N}\]</span><br />
 </li>
-<li>Divident Payout Rate:
-<span class="math display">\[Div_t = \frac{\text{earnings}}{\text{# of shares}\times\text{Divident Payout Rate}_t}\]</span><br />
+<li>Dividend Payout Rate:
+<span class="math display">\[Div_t = \frac{\text{earnings}}{\text{# of shares}\times\text{Dividend Payout Rate}_t}\]</span><br />
 </li>
 <li>Earnings and Growth Rate:
 <span class="math display">\[\begin{aligned} \text{change in earnings} &amp;= \text{new investment}\times\text{return} \\
@@ -580,7 +586,7 @@ Since expected return of new project is <span class="math inline">\(15\% &gt; 12
 <div id="total-payout-model" class="section level3">
 <h3>Total Payout Model</h3>
 <ul>
-<li>Share price: <span class="math inline">\(P_0 = \frac{FV(\text{future dividents and repurchase})}{\text{# of shares}}\)</span></li>
+<li>Share price: <span class="math inline">\(P_0 = \frac{FV(\text{future dividends and repurchase})}{\text{# of shares}}\)</span></li>
 </ul>
 </div>
 <div id="discounted-fcf-free-cash-flow-model" class="section level3">
@@ -648,7 +654,7 @@ Expected stock price in 2008:<br />
 </li>
 <li>Standard Deviation: <span class="math inline">\(SD(R) = \sqrt{Var(R)}\)</span></li>
 <li>Realized Return (remember <a href="#dividend-discount-model">Equity Cost of Capital</a>):
-<span class="math display">\[\begin{aligned} R_{t+1} &amp;= \frac{Div_{t+1} + P_{t+1}}{P_t} - 1 \\ &amp;= \underbrace{\frac{Div_{t+1}}{P_t}}_{\text{Divident Yield}}+\underbrace{\frac{P_{t+1}-P_t}{P_t}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} R_{t+1} &amp;= \frac{Div_{t+1} + P_{t+1}}{P_t} - 1 \\ &amp;= \underbrace{\frac{Div_{t+1}}{P_t}}_{\text{Dividend Yield}}+\underbrace{\frac{P_{t+1}-P_t}{P_t}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
 </li>
 <li>Realized Annual Return: <span class="math display">\[1+R_{year} = (1+R_{Q1})(1+R_{Q2})(1+R_{Q3})(1+R_{Q4})\]</span><br />
 </li>
@@ -998,6 +1004,34 @@ Value of the firm:
 <span class="math display">\[\begin{aligned}V^L &amp;= \frac{FCF_{n+1}}{WACC - g} \\ &amp;= \frac{8}{10.18\% - 3\%} \\ &amp;= 111.42\end{aligned}\]</span><br />
 Tax shield:
 <span class="math display">\[V^L - V^U = 111.42 - 100 = 11.42\]</span> ~</p>
+<blockquote>
+<p>Mock.II.Q2<br />
+You are a consultant who was hired to evaluate a new product line for Markum Enterprises.<br />
+The upfront investment required to launch the product line is $10 million.<br />
+The product will generate free cash flow of $750,000 the first year, and this free cash flow is expected to continuously grow at a rate of 4% per year thereafter.<br />
+Markum has an equity cost of capital of 11.3%, a debt cost of capital of 5%, and a tax rate of 35%.<br />
+Markum maintains a debt-equity ratio of 0.40.<br />
+1. What is the NPV of the new product line (including any tax shields from leverage)?<br />
+2. How much debt will Markum initially take on as a result of launching this product line?<br />
+3. How much of the product line’s value is attributable to the present value of interest tax shields?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>WACC:<br />
+<span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D(1-τ)\\
+&amp;= \frac{1}{1+0.4}\times 11.3\% + \frac{0.4}{1+0.4}\times 5\%\times (1-35\%) \\
+&amp;= 9\%\end{aligned}\]</span><br />
+PV of earnings: <span class="math inline">\(\frac{C}{r-g} = \frac{0.75}{9\%-4\%} = 15\)</span><br />
+NPV: <span class="math inline">\(15 - 10 = 5\)</span><br />
+</li>
+<li><span class="math inline">\(15 \times\frac{0.4}{1+0.4} = 4.28\)</span><br />
+</li>
+<li>Pre-Tax WACC:
+<span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D\\
+&amp;= \frac{1}{1+0.4}\times 11.3\% + \frac{0.4}{1+0.4}\times 5\% \\
+&amp;= 9.5\%\end{aligned}\]</span><br />
+Pre-Tax PV of earnings: <span class="math inline">\(\frac{C}{r-g} = \frac{0.75}{9.5\%-4\%} = 13.64\)</span><br />
+Interest tax shield: <span class="math inline">\(15-13.64 = 1.36\)</span></li>
+</ol>
 </div>
 <div id="personal-tax" class="section level3">
 <h3>Personal Tax</h3>
@@ -1040,6 +1074,11 @@ Therefore, debt is cheaper.<br />
 <ul>
 <li><span class="math inline">\(V^L = V^U +PV(\text{interest tax shield}) - PV(\text{distress cost})\)</span></li>
 <li>Optimal Leverage</li>
+<li>Management Entrenchment Theory</li>
+<li>Free Cash Flow Hypothesis</li>
+<li>Credibility Principle &amp; Signaling Theory of Debt</li>
+<li>Adverse Selection &amp; Lemons Principle</li>
+<li>Pecking Order Hypothesis</li>
 </ul>
 <blockquote>
 <p>PS.16-7<br />
@@ -1049,9 +1088,22 @@ Both jobs are equivalent. Suppose that firm A’s contract is certain, but that 
 In that event, it will cancel your contract and pay you the lowest amount possible for you to not quit.<br />
 If you did quit, you expect you could find a new job paying $85,000 per year, but you would be unemployed for 3 months while you search for it.<br />
 1. Say you took the job at firm B. What is the least firm B can pay you next year in order to match what you would earn if you quit?<br />
-2. Given your answer to part (b), and assuming your cost of capital is 5%, which offer pays you a higher present value of your expected wage?<br />
+2. Given your answer to (1), and assuming your cost of capital is 5%, which offer pays you a higher present value of your expected wage?<br />
 3. Based on this example, discuss one reason why firms with a higher risk of bankruptcy may need to offer higher wages to attract employees.</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(85000\times\left(1-\frac{3}{4}\right) = 63750\)</span><br />
+</li>
+<li>Offer A:<br />
+<span class="math display">\[85000+\frac{85000}{1+5\%} = 165952\]</span><br />
+Offer B:<br />
+<span class="math display">\[\begin{aligned} &amp;90000 + 50\%\times \frac{90000}{1+5\%} + 50\%\times \frac{63750}{1+5\%} \\
+= \ &amp;90000 + 50\%\times 85714 + 50\%\times 60714 \\
+= \ &amp; 163214\end{aligned}\]</span><br />
+Therefore, offer A pays higher.<br />
+</li>
+<li>Because the risk of bankruptcy will decrease the expected wage employees can receive.</li>
+</ol>
 <blockquote>
 <p>PS.16-20<br />
 Zymase is a biotechnology start-up firm.<br />
@@ -1103,22 +1155,99 @@ Which project has the highest expected payoff for equity holders?<br />
 <li>Suppose Zymase has debt of $110 million due at the time of the project’s payoff.<br />
 Which project has the highest expected payoff for equity holders?<br />
 </li>
-<li>If management chooses the strategy that maximizes the payoff to equity holders, what is the expected agency cost to the firm from having $40 million in debt due?<br />
+<li>If management chooses the strategy that maximizes the payoff to equity holders,<br />
+what is the expected agency cost to the firm from having $40 million in debt due?<br />
 What is the expected agency cost to the firm from having $110 million in debt due?</li>
 </ol>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Project A: <span class="math inline">\(75\)</span><br />
+Project B: <span class="math inline">\(50\%\times 140 + 50\%\times 0 = 70\)</span><br />
+Project C: <span class="math inline">\(10\%\times 300 + 90\%\times 40 = 66\)</span><br />
+Therefore, project A has the highest expected payoff.<br />
+</li>
+<li>Project A: <span class="math inline">\(75 - 40 = 35\)</span><br />
+Project B: <span class="math inline">\(50\%\times (140- 40) + 50\%\times 0 = 50\)</span><br />
+Project C: <span class="math inline">\(10\%\times (300-40) + 90\%\times (40-0) = 26\)</span><br />
+Therefore, project B has the highest expected payoff.<br />
+</li>
+<li>Project A: <span class="math inline">\(0\)</span><br />
+Project B: <span class="math inline">\(50\%\times (140- 110) + 50\%\times 0 = 15\)</span><br />
+Project C: <span class="math inline">\(10\%\times (300-110) + 90\%\times (40-0) = 19\)</span><br />
+Therefore, project C has the highest expected payoff.<br />
+</li>
+<li>With $40 million debt, chooses B, agency cost: <span class="math inline">\(75-70=5\)</span><br />
+With $110 million debt, chooses C, agency cost: <span class="math inline">\(75-66=9\)</span></li>
+</ol>
 <blockquote>
 <p>PS.16-30<br />
 According to the managerial entrenchment theory, managers choose capital structures so as to preserve their control of the firm.<br />
 On the one hand, debt is costly for managers because they risk losing control in the event of default.<br />
-On the other hand, if they do not take advantage of the tax shield provided by debt, they risk losing control through a hostile takeover.
+On the other hand, if they do not take advantage of the tax shield provided by debt, they risk losing control through a hostile takeover.<br />
 Suppose a firm expects to generate free cash flows of $90 million per year, and the discount rate for these cash flows is 10%.<br />
 The firm pays a tax rate of 40%.<br />
 A raider is poised to take over the firm and finance it with $750 million in permanent debt.<br />
 The raider will generate the same free cash flows, and the takeover attempt will be successful if the raider can offer a premium of 20% over the current value of the firm.<br />
 According to the managerial entrenchment hypothesis, what level of permanent debt will the firm choose?</p>
 </blockquote>
+<p>?</p>
 </div>
+</div>
+<div id="stock-payout" class="section level2">
+<h2>Stock Payout</h2>
+<div id="dividend" class="section level3">
+<h3>Dividend</h3>
+<ul>
+<li>Declaration Date: stock price increases</li>
+<li>Ex-Dividend Date: deadline for receiving the dividend, stock price falls</li>
+<li>Record Date</li>
+<li>Payable (Distribution) Date</li>
+<li>Split = Stock Dividend: increase # of shares</li>
+<li>Homemade dividend</li>
+</ul>
+<blockquote>
+<p>PS.17-21<br />
+Clovix Corporation has $50 million in cash, 10 million shares outstanding, and a current share price of $30.<br />
+Clovix is deciding whether to use the $50 million to pay an immediate special dividend of $5 per share,<br />
+or to retain and invest it at the risk-free rate of 10% and use the $5 million in interest earned to increase its regular annual dividend of $0.50 per share.<br />
+Assume perfect capital markets.<br />
+1. Suppose Clovix pays the special dividend.<br />
+How can a shareholder who would prefer an increase in the regular dividend create it on her own?<br />
+2. Suppose Clovix increases its regular dividend.<br />
+How can a shareholder who would prefer the special dividend create it on her own?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Invest the $5 dividend, and earn <span class="math inline">\(5\times 10\% = 0.5\)</span> per year<br />
+</li>
+<li>Borrow $5, and pay the loan with increased dividend</li>
+</ol>
+<blockquote>
+<p>Mock.I.Q5<br />
+Suppose the stock of Host Hotels &amp; Resorts is currently trading for $20 per share.<br />
+If Host issued a 20% stock dividend, what will its new share price be? Assume no taxes.</p>
+</blockquote>
+<p>For each 100 shares, the number of shares increases to <span class="math inline">\(100\times (1+20\%) = 120\)</span>, but total value stays the same.<br />
+New share price: <span class="math inline">\(20\times 100 \div 120 = 16.67\)</span></p>
+</div>
+<div id="share-repurchase" class="section level3">
+<h3>Share Repurchase</h3>
+<ul>
+<li>Open Market Repurchase</li>
+<li>Tender Offer</li>
+<li>Targeted Repurchase</li>
+</ul>
+<blockquote>
+<p>PS.17-29<br />
+Why is an announcement of a share repurchase considered a positive signal?</p>
+</blockquote>
+<p>It is a credible signals that the management believes the stock is undervalued.</p>
+</div>
+<div id="tax-and-dividend" class="section level3">
+<h3>Tax and Dividend</h3>
+</div>
+</div>
+<div id="options" class="section level2">
+<h2>Options</h2>
 </div>
 
     </div>
