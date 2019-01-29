@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">11 min read</span>
     
 
     <h1 class="article-title">Notes on Finance</h1>
@@ -114,7 +114,9 @@
 <li><a href="#coupon-bond">Coupon Bond</a></li>
 </ul></li>
 <li><a href="#stock">Stock</a><ul>
-<li><a href="#one-year">One Year</a></li>
+<li><a href="#dividend-discount-model">Dividend-Discount Model</a></li>
+<li><a href="#total-payout-model">Total Payout Model</a></li>
+<li><a href="#discounted-fcf-free-cash-flow-model">Discounted FCF (Free Cash Flow) Model</a></li>
 </ul></li>
 </ul>
 </div>
@@ -471,15 +473,39 @@ Since bond C is overpriced, one can short sell bond C and buy bond A, B, D at th
 </div>
 <div id="stock" class="section level2">
 <h2>Stock</h2>
-<div id="one-year" class="section level3">
-<h3>One Year</h3>
+<div id="dividend-discount-model" class="section level3">
+<h3>Dividend-Discount Model</h3>
 <ul>
-<li>Equity Cost of Capital: <span class="math inline">\(r_E\)</span></li>
-<li>Stock Price today and future: <span class="math display">\[P_0 = \frac{Div_1 + P_1}{1+r_E}\]</span><br />
+<li>Stock’s total return = expected return of other investments with equivalent risk</li>
+<li>Divident by the end of the <span class="math inline">\(n\)</span>-th year: <span class="math inline">\(Div_n\)</span></li>
+<li>Stock Price in one year: <span class="math display">\[P_0 = \frac{Div_1 + P_1}{1+r_E}\]</span><br />
 </li>
-<li>Total Return (Rate): <span class="math display">\[\begin{aligned} r_E &amp;= \frac{Div_1 + P_1}{P_0} - 1 \\ &amp;= \underbrace{\frac{Div_1}{P_0}}_{\text{Divident Yield}}+\underbrace{\frac{P_1}{P_0}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
+<li>Equity Cost of Capital = Total Return (Rate): <span class="math display">\[\begin{aligned} r_E &amp;= \frac{Div_1 + P_1}{P_0} - 1 \\ &amp;= \underbrace{\frac{Div_1}{P_0}}_{\text{Divident Yield}}+\underbrace{\frac{P_1-P_0}{P_0}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
 </li>
-<li>The stock’s total return should equal to the expected return of other investments available in the market with equivalent risk</li>
+<li>Stock Price in two years:
+<span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1 + P_1}{1+r_E} \\
+&amp;= \frac{Div_1}{P_0} + \frac{1}{1+r_E}\cdot\underbrace{\frac{Div_2+P_2}{1+r_E}}_{P_1} \\
+&amp;= \frac{Div_1}{P_0} + \frac{Div_2+P_2}{(1+r_E)^2}\end{aligned}\]</span><br />
+</li>
+<li>Stock Price in <span class="math inline">\(N\)</span> years:
+<span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1}{P_0} + \frac{Div_2}{(1+r_E)^2} +\cdots + \frac{Div_N}{(1+r_E)^N}+ \frac{P_N}{(1+r_E)^N} \\
+(N\to\infty) \ &amp;= \sum_{n=1}^{\infty} \frac{Div_n}{(1+r_E)^n}\end{aligned}\]</span><br />
+</li>
+<li>Constant Divident Growth:
+<span class="math display">\[\begin{aligned} P_0 &amp;=\frac{Div_1}{r_E-g} \\
+r_E &amp;= \frac{Div_1}{P_0} - g\end{aligned}\]</span><br />
+</li>
+<li>Stock Price in <span class="math inline">\(N\)</span> years with Constant Divident Growth:
+<span class="math display">\[P_0 = \frac{Div_1}{1+r_E} + \frac{Div_2}{(1+r_E)^2} +\cdots + \frac{Div_N}{(1+r_E)^N}+ \frac{1}{(1+r_E)^N}\cdot\underbrace{\frac{Div_{N+1}}{r_E-g}}_{P_N}\]</span><br />
+</li>
+<li>Divident Payout Rate:
+<span class="math display">\[Div_t = \frac{\text{earnings}}{\text{# of shares}\times\text{Divident Payout Rate}_t}\]</span><br />
+</li>
+<li>Earnings and Growth Rate:
+<span class="math display">\[\begin{aligned} \text{change in earnings} &amp;= \text{new investment}\times\text{return} \\
+&amp;= \text{earnings}\times\text{retention rate}\times\text{return} \\
+g &amp;= \frac{\text{change in earnings}}{\text{earnings}} \\
+&amp;= \text{retention rate}\times\text{return}\end{aligned}\]</span> ~</li>
 </ul>
 <blockquote>
 <p>PS.9-2<br />
@@ -487,6 +513,86 @@ Anle Corporation has a current price of $20, is expected to pay a dividend of $1
 1. What is Anle’s expected dividend yield?<br />
 2. What is Anle’s expected capital gain rate?<br />
 3. What is Anle’s equity cost of capital?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Expected dividend yield:
+<span class="math display">\[\begin{aligned} \frac{Div_1}{P_0} &amp;= \frac{1}{20} \\ &amp;= 5\%\end{aligned}\]</span><br />
+</li>
+<li>Expected capital gain rate:
+<span class="math display">\[\begin{aligned} \frac{P_1-P_0}{P_0} &amp;= \frac{22-20}{20} \\ &amp;= 10\%\end{aligned}\]</span><br />
+</li>
+<li>Equity cost of capital:
+<span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1 + P_1}{1+r_E} \\
+20 &amp;= \frac{1 + 22}{1+r_E} \\
+r_E &amp;= 15\%\end{aligned}\]</span> ~</li>
+</ol>
+<blockquote>
+<p>PS.9-9<br />
+DFB, Inc., expects earnings this year of $5 per share, and it plans to pay a $3 dividend to shareholders.<br />
+DFB will retain $2 per share of its earnings to reinvest in new projects with an expected return of 15% per year.<br />
+Suppose DFB will maintain the same dividend payout rate, retention rate, and return on new investments in the future and will not change its number of outstanding shares.<br />
+1. What growth rate of earnings would you forecast for DFB?<br />
+2. If DFB’s equity cost of capital is 12%, what price would you estimate for DFB stock?<br />
+3. Suppose DFB instead paid a dividend of $4 per share this year and retained only $1 per share in earnings.<br />
+If DFB maintains this higher payout rate in the future, what stock price would you estimate now?<br />
+Should DFB raise its dividend?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Expected growth rate of earnings:
+<span class="math display">\[\begin{aligned} g &amp;= \text{retention rate}\times\text{return} \\
+&amp;= \frac{2}{5}\cdot 15\% \\
+&amp;= 6\%\end{aligned}\]</span><br />
+</li>
+<li>Expected price of stock:
+<span class="math display">\[\begin{aligned} P_0 &amp;=\frac{Div_1}{r_E-g} \\
+&amp;= \frac{3}{12\% - 6\%} \\ &amp;= 50\end{aligned}\]</span><br />
+</li>
+<li>Expected growth rate of earnings:
+<span class="math display">\[\begin{aligned} g &amp;= \text{retention rate}\times\text{return} \\
+&amp;= \frac{1}{5}\cdot 15\% \\
+&amp;= 3\%\end{aligned}\]</span><br />
+Expected price of stock:
+<span class="math display">\[\begin{aligned} P_0 &amp;=\frac{Div_1}{r_E-g} \\
+&amp;= \frac{4}{12\% - 3\%} \\ &amp;= 44\end{aligned}\]</span><br />
+Since expected return of new project is <span class="math inline">\(15\% &gt; 12\%\)</span> (equity cost of capital), DFB should not raise its dividend.</li>
+</ol>
+</div>
+<div id="total-payout-model" class="section level3">
+<h3>Total Payout Model</h3>
+<ul>
+<li>Share price: <span class="math inline">\(P_0 = \frac{FV(\text{future dividents and repurchase})}{\text{# of shares}}\)</span></li>
+</ul>
+</div>
+<div id="discounted-fcf-free-cash-flow-model" class="section level3">
+<h3>Discounted FCF (Free Cash Flow) Model</h3>
+<ul>
+<li>Value of Firm:
+<span class="math display">\[\text{firm value} = \text{market value of equity} + \text{debt} - \text{cash}\]</span><br />
+</li>
+<li>Free Cash Flow:
+<span class="math display">\[FCF = \underbrace{\text{pre-text earnings}}_{\text{EBIT}}\cdot (1-τ) - \text{net investment} - (\underbrace{\text{assets} - \text{liability}}_{\text{net working capital}})\]</span><br />
+</li>
+<li>Current Value of Firm: <span class="math display">\[V_0 = PV(\text{future FCF})\]</span><br />
+</li>
+<li>Stock Price: <span class="math display">\[P_0 = \frac{V_0 + \text{cash}_0 - \text{debt}_0}{\text{# of shares}}\]</span><br />
+</li>
+<li>with WACC (Weighted Average Cost of Capital):
+<span class="math display">\[\begin{aligned} V_0 &amp;= PV(\text{future FCF}) \\
+&amp;= \frac{FCF_1}{1+r_{WACC}} + \frac{FCF_2}{(1+r_{WACC})^2} +\cdots + \frac{FCF_N}{(1+r_{WACC})^N}+ \frac{V_N}{(1+r_{WACC})^N} \\
+&amp;= \sum_{n=1}^N \frac{FCF_n}{(1+r_{WACC})^n} + \underbrace{\frac{1+g_{FCF}}{r_{WACC} - g_{FCF}}\cdot FCF_N}_{V_N}\end{aligned}\]</span> ~</li>
+</ul>
+<blockquote>
+<p>PS.9-19<br />
+IDX Technologies is a privately held developer of advanced security systems based in Chicago.<br />
+As part of your business development strategy, in late 2008 you initiate discussions with IDX’s founder about the possibility of acquiring the business at the end of 2008.<br />
+Estimate the value of IDX per share using a discounted FCF approach and the following data:<br />
+- Debt: $30 million<br />
+- Excess cash: $110 million<br />
+- Shares outstanding: 50 million<br />
+- Expected FCF in 2009: $45 million<br />
+- Expected FCF in 2010: $50 million<br />
+- Future FCF growth rate beyond 2010: 5%<br />
+- Weighted-average cost of capital: 9.4%</p>
 </blockquote>
 </div>
 </div>
