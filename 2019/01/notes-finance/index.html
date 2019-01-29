@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">15 min read</span>
     
 
     <h1 class="article-title">Notes on Finance</h1>
@@ -120,7 +120,8 @@
 </ul></li>
 <li><a href="#capm-capital-asset-pricing-model">CAPM (Capital Asset Pricing Model)</a><ul>
 <li><a href="#risk-and-return">Risk and Return</a></li>
-<li><a href="#risk-measurement">Risk Measurement</a></li>
+<li><a href="#risk-measurement-and-">Risk Measurement and <span class="math inline">\(β\)</span></a></li>
+<li><a href="#portfolio">Portfolio</a></li>
 </ul></li>
 </ul>
 </div>
@@ -619,6 +620,7 @@ Expected stock price in 2008:<br />
 <h3>Risk and Return</h3>
 <ul>
 <li>Expected Return: <span class="math inline">\(E[R] = \sum Pr(R) \cdot R\)</span></li>
+<li>Excess Return: <span class="math inline">\(E[R] - r_f\)</span></li>
 <li>Variance: <span class="math display">\[\begin{aligned} Var(R) &amp;= E\left[\big(R - E[R]\big)^2\right] \\ &amp;= \sum Pr(R) \cdot \big(R - E[R]\big)^2\end{aligned}\]</span><br />
 </li>
 <li>Standard Deviation: <span class="math inline">\(SD(R) = \sqrt{Var(R)}\)</span></li>
@@ -627,12 +629,20 @@ Expected stock price in 2008:<br />
 </li>
 <li>Realized Annual Return: <span class="math display">\[1+R_{year} = (1+R_{Q1})(1+R_{Q2})(1+R_{Q3})(1+R_{Q4})\]</span><br />
 </li>
-<li>Average Annual Return: <span class="math display">\[\begin{aligned} \bar{R} &amp;= \frac{1}{T}(R_1+R_2+\cdots +R_T) \\ &amp;= \frac{1}{T}\sum_{t=1}^T R_t\end{aligned}\]</span><br />
+<li>Average / Historical Annual Return: <span class="math display">\[\begin{aligned} \bar{R} &amp;= \frac{1}{T}(R_1+R_2+\cdots +R_T) \\ &amp;= \frac{1}{T}\sum_{t=1}^T R_t\end{aligned}\]</span><br />
 </li>
 <li>Estimated Variance: <span class="math display">\[Var(R) = \frac{1}{T-1}\sum_{t=1}^T (R_t - \bar{R})^2\]</span><br />
 </li>
 <li>Standard Error: standard deviation of the average return<br />
-<span class="math display">\[SE = \frac{SD}{\sqrt{\text{# of observations}}}\]</span> ~</li>
+<span class="math display">\[SE = \frac{SD}{\sqrt{\text{# of observations}}}\]</span><br />
+</li>
+<li>Covariance between two stocks:
+<span class="math display">\[Cov(R_i,R_j) = E\left[\big(R_i - E[R_i]\big)\big(R_j - E[R_j]\big)\right]\]</span><br />
+</li>
+<li>Estimated Covariance:
+<span class="math display">\[Cov(R_i,R_j) = \frac{1}{T-1}\sum_{t=1}^T (R_{i,t} - \bar{R}_i)(R_{j,t} - \bar{R}_j)\]</span><br />
+</li>
+<li>Correlation: <span class="math display">\[Corr(R_i,R_j) = \frac{Cov(R_i,R_j)}{SD(R_i)\cdot SD(R_j)} \in [-1,1]\]</span> ~</li>
 </ul>
 <blockquote>
 <p>PS.10-14<br />
@@ -643,8 +653,124 @@ from the relationship between the average return and the historical volatility o
 For stocks, no clear relation exists.<br />
 <img src="/post-img/notes-finance--PS.10-14.png" width="472" /></p>
 </div>
-<div id="risk-measurement" class="section level3">
-<h3>Risk Measurement</h3>
+<div id="risk-measurement-and-" class="section level3">
+<h3>Risk Measurement and <span class="math inline">\(β\)</span></h3>
+<ul>
+<li>Market Portfolio <span class="math inline">\(\subset\)</span> Efficient Portfolios: cannot be further diversified</li>
+<li><span class="math inline">\(β\)</span> of Sequrity: expected % change in its return given a 1% change in the return of the market portfolio
+<span class="math display">\[β = \frac{Δ\%\text{ stock price}}{Δ\%\text{ market price}}\]</span><br />
+</li>
+<li>Market Risk Premium (ratio): the risk premium investors earn by holding market risk
+<span class="math display">\[\text{Market Risk Premium} = E[R_{market}] - r_f\]</span><br />
+</li>
+<li>Estimated Cost of Capital of an Investment = CAPM:
+<span class="math display">\[\begin{aligned} r_I &amp;= r_f + β_I \cdot \text{Market Risk Premium} \\
+&amp;= r_f + β_I \cdot \left(E[R_{market}] - r_f \right)\end{aligned}\]</span> ~</li>
+</ul>
+<blockquote>
+<p>PS.10-23<br />
+Explain why the risk premium of a stock does not depend on its diversifiable risk.</p>
+</blockquote>
+<p>By diversifying, diversifiable risk can be costlessly removed from a portfolio.</p>
+<blockquote>
+<p>PS.10-31<br />
+Suppose the market portfolio is equally likely to increase by 30% or decrease by 10%.<br />
+1. Calculate the beta of a firm that goes up on average by 43% when the market goes up and goes down by 17% when the market goes down.<br />
+2. Calculate the beta of a firm that goes up on average by 18% when the market goes down and goes down by 22% when the market goes up.<br />
+3. Calculate the beta of a firm that is expected to go up by 4% independently of the market.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Beta:
+<span class="math display">\[\begin{aligned} β &amp;= \frac{43\% - (- 17\%)}{30\% -(- 10\%)} \\ &amp;= 1.5\end{aligned}\]</span><br />
+</li>
+<li>Beta:
+<span class="math display">\[\begin{aligned} β &amp;= \frac{-18\% - 22\%}{30\% -(- 10\%)} \\ &amp;= -1\end{aligned}\]</span><br />
+</li>
+<li>Beta:
+<span class="math display">\[\begin{aligned} β &amp;= 0\end{aligned}\]</span> ~</li>
+</ol>
+<blockquote>
+<p>PS.10-36<br />
+State whether each of the following is inconsistent with an efficient capital market, the CAPM, or both:<br />
+1. A security with only diversifiable risk has an expected return that exceeds the risk-free interest rate.<br />
+2. A security with a beta of 1 had a return last year of 15% when the market had a return of 9%.<br />
+3. Small stocks with a beta of 1.5 tend to have higher returns on average than large stocks with a beta of 1.5.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(only diversifiable risk: should not have excess return)
+Inconsistent with both</li>
+<li>(beta of 1: completely synchronise)
+Consistent with both</li>
+<li>(small stocks have higher returns than large stocks)
+Inconsistent with CAPM but consistent with efficient capital market</li>
+</ol>
+</div>
+<div id="portfolio" class="section level3">
+<h3>Portfolio</h3>
+<ul>
+<li>(Weighted) Return on Portfolio:
+<span class="math display">\[\begin{aligned} R_P &amp;= x_1R_1 + x_2R_2 + \cdots + x_nR_n \\ &amp;= \sum x_iR_i\end{aligned}\]</span><br />
+</li>
+<li>Expected Return of Portfolio:
+<span class="math display">\[E[R_P] = \sum x_i \cdot E[R_i]\]</span><br />
+</li>
+<li>Variance of Portfolio:
+<span class="math display">\[Var(R_P) = \sum_i \sum_j x_i\cdot x_j\cdot Cov(R_i,R_j)\]</span><br />
+</li>
+<li>Variance of equally weighted portfolio:
+<span class="math display">\[Var(R_P) = \frac{1}{n}(\text{average variance}) + \left(1-\frac{1}{n}\right)(\text{average covariance})\]</span><br />
+</li>
+<li>Standard Deviation of Portfolio:
+<span class="math display">\[\begin{aligned} SD(R_P) &amp;= \sum_i x_i \cdot SD(R_i) \cdot Corr(R_i,R_P) \\
+&amp;&lt; \sum_i x_i \cdot SD(R_i)\end{aligned}\]</span><br />
+</li>
+<li>Efficient Frontier</li>
+<li>Sharpe Ratio: choose the highest
+<span class="math display">\[\begin{aligned} \text{Sharpe Ratio} &amp;= \frac{\text{excess return}}{\text{volatility}} \\
+&amp;= \frac{R_P - r_f}{SD(R_P)}\end{aligned}\]</span><br />
+</li>
+<li></li>
+</ul>
+<blockquote>
+<p>PS.11-35<br />
+Assume the risk-free rate is 4%.<br />
+You are a financial advisor, and must choose one of the funds below to recommend to each of your clients.<br />
+Whichever fund you recommend, your clients will then combine it with risk-free borrowing and lending depending on their desired level of risk.<br />
+Which fund would you recommend without knowing your client’s risk preference?</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Expected Return</th>
+<th>Volatility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fund A</td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+<tr class="even">
+<td>Fund B</td>
+<td>15%</td>
+<td>22%</td>
+</tr>
+<tr class="odd">
+<td>Fund C</td>
+<td>6%</td>
+<td>2%</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Sharpe ratio of fund A:
+<span class="math display">\[\frac{R_A - r_f}{SD(R_A)} = \frac{10\% - 4\%}{10\%} = 0.6\]</span><br />
+Sharpe ratio of fund B:
+<span class="math display">\[\frac{R_B - r_f}{SD(R_B)} = \frac{15\% - 4\%}{22\%} = 0.5\]</span><br />
+Sharpe ratio of fund C:
+<span class="math display">\[\frac{R_C - r_f}{SD(R_C)} = \frac{6\% - 4\%}{2\%} = 1\]</span><br />
+Therefore, should choose fund C regardless of clients’ risk preferences.</p>
 </div>
 </div>
 
