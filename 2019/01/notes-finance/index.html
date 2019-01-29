@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">15 min read</span>
+    <span class="article-duration">25 min read</span>
     
 
     <h1 class="article-title">Notes on Finance</h1>
@@ -119,9 +119,23 @@
 <li><a href="#discounted-fcf-free-cash-flow-model">Discounted FCF (Free Cash Flow) Model</a></li>
 </ul></li>
 <li><a href="#capm-capital-asset-pricing-model">CAPM (Capital Asset Pricing Model)</a><ul>
+<li><a href="#capm-assumptions">CAPM Assumptions</a></li>
 <li><a href="#risk-and-return">Risk and Return</a></li>
 <li><a href="#risk-measurement-and-">Risk Measurement and <span class="math inline">\(β\)</span></a></li>
 <li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#combined-portfolio">Combined Portfolio</a></li>
+</ul></li>
+<li><a href="#capital-structure">Capital Structure</a><ul>
+<li><a href="#perfect-capital-market-assumptions">Perfect Capital Market Assumptions</a></li>
+<li><a href="#finance-a-firm">Finance A Firm</a></li>
+<li><a href="#leverage-and-risk">Leverage and Risk</a></li>
+</ul></li>
+<li><a href="#debt-and-tax">Debt and Tax</a><ul>
+<li><a href="#interest-tax-shield">Interest Tax Shield</a></li>
+<li><a href="#personal-tax">Personal Tax</a></li>
+</ul></li>
+<li><a href="#financial-distress">Financial Distress</a><ul>
+<li><a href="#trade-off-theory">Trade-Off Theory</a></li>
 </ul></li>
 </ul>
 </div>
@@ -234,7 +248,7 @@
 <li>PV of Growing Annuity with growth rate <span class="math inline">\(g\)</span>: <span class="math inline">\(PV = \frac{C}{r-g}\left( 1-\frac{1+g}{(1+r)^N}\right)\)</span></li>
 </ul>
 <blockquote>
-<p>Mock.Q1<br />
+<p>Mock.I.Q1<br />
 Jane is 35 years old and she has decided it is time to plan seriously for her retirement.<br />
 At the end of each year until she is 65, she will save $10,000 in a retirement account.<br />
 If the account earns 10% per year, how much will Jane have saved at age 65?</p>
@@ -616,6 +630,15 @@ Expected stock price in 2008:<br />
 </div>
 <div id="capm-capital-asset-pricing-model" class="section level2">
 <h2>CAPM (Capital Asset Pricing Model)</h2>
+<div id="capm-assumptions" class="section level3">
+<h3>CAPM Assumptions</h3>
+<ul>
+<li>Buy and sell all securities without taxes or transactions costs</li>
+<li>Borrow and lend at the risk-free interest rate</li>
+<li>Hold only (efficient) portfolios that yield the maximum expected return for volatility</li>
+<li>Homogeneous expectations</li>
+</ul>
+</div>
 <div id="risk-and-return" class="section level3">
 <h3>Risk and Return</h3>
 <ul>
@@ -657,13 +680,13 @@ For stocks, no clear relation exists.<br />
 <h3>Risk Measurement and <span class="math inline">\(β\)</span></h3>
 <ul>
 <li>Market Portfolio <span class="math inline">\(\subset\)</span> Efficient Portfolios: cannot be further diversified</li>
-<li><span class="math inline">\(β\)</span> of Sequrity: expected % change in its return given a 1% change in the return of the market portfolio
-<span class="math display">\[β = \frac{Δ\%\text{ stock price}}{Δ\%\text{ market price}}\]</span><br />
+<li><span class="math inline">\(β\)</span> of Stock: expected % change in its return given a 1% change in the return of the market portfolio
+<span class="math display">\[β_i = \frac{Cov(R_i,R_{market})}{Var(R_{market})}\]</span><br />
 </li>
 <li>Market Risk Premium (ratio): the risk premium investors earn by holding market risk
 <span class="math display">\[\text{Market Risk Premium} = E[R_{market}] - r_f\]</span><br />
 </li>
-<li>Estimated Cost of Capital of an Investment = CAPM:
+<li>CAPM Cost of Capital (of Investment) = SML (Security Market Line):
 <span class="math display">\[\begin{aligned} r_I &amp;= r_f + β_I \cdot \text{Market Risk Premium} \\
 &amp;= r_f + β_I \cdot \left(E[R_{market}] - r_f \right)\end{aligned}\]</span> ~</li>
 </ul>
@@ -681,13 +704,13 @@ Suppose the market portfolio is equally likely to increase by 30% or decrease by
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Beta:
-<span class="math display">\[\begin{aligned} β &amp;= \frac{43\% - (- 17\%)}{30\% -(- 10\%)} \\ &amp;= 1.5\end{aligned}\]</span><br />
+<span class="math display">\[β = \frac{43\% - (- 17\%)}{30\% -(- 10\%)} = 1.5\]</span><br />
 </li>
 <li>Beta:
-<span class="math display">\[\begin{aligned} β &amp;= \frac{-18\% - 22\%}{30\% -(- 10\%)} \\ &amp;= -1\end{aligned}\]</span><br />
+<span class="math display">\[β = \frac{-18\% - 22\%}{30\% -(- 10\%)} = -1\]</span><br />
 </li>
 <li>Beta:
-<span class="math display">\[\begin{aligned} β &amp;= 0\end{aligned}\]</span> ~</li>
+<span class="math display">\[β = 0\]</span> ~</li>
 </ol>
 <blockquote>
 <p>PS.10-36<br />
@@ -724,12 +747,13 @@ Inconsistent with CAPM but consistent with efficient capital market</li>
 <span class="math display">\[\begin{aligned} SD(R_P) &amp;= \sum_i x_i \cdot SD(R_i) \cdot Corr(R_i,R_P) \\
 &amp;&lt; \sum_i x_i \cdot SD(R_i)\end{aligned}\]</span><br />
 </li>
+<li><span class="math inline">\(β\)</span> of Portfolio:
+<span class="math display">\[\begin{aligned} β_P &amp;= \frac{Cov(R_P,R_{market})}{Var(R_{market})}\\ &amp;= \sum_i x_i\cdot\frac{Cov(R_i,R_{market})}{Var(R_{market})} \\ &amp;= \sum_i x_i β_i\end{aligned}\]</span><br />
+</li>
 <li>Efficient Frontier</li>
 <li>Sharpe Ratio: choose the highest
 <span class="math display">\[\begin{aligned} \text{Sharpe Ratio} &amp;= \frac{\text{excess return}}{\text{volatility}} \\
-&amp;= \frac{R_P - r_f}{SD(R_P)}\end{aligned}\]</span><br />
-</li>
-<li></li>
+&amp;= \frac{R_P - r_f}{SD(R_P)}\end{aligned}\]</span> ~</li>
 </ul>
 <blockquote>
 <p>PS.11-35<br />
@@ -771,6 +795,329 @@ Sharpe ratio of fund B:
 Sharpe ratio of fund C:
 <span class="math display">\[\frac{R_C - r_f}{SD(R_C)} = \frac{6\% - 4\%}{2\%} = 1\]</span><br />
 Therefore, should choose fund C regardless of clients’ risk preferences.</p>
+</div>
+<div id="combined-portfolio" class="section level3">
+<h3>Combined Portfolio</h3>
+<ul>
+<li>Stock (<span class="math inline">\(x\)</span>) + Risk-Free Security (<span class="math inline">\(1-x\)</span>)</li>
+<li>Expected Return:
+<span class="math display">\[\begin{aligned} E[R_{x,P}] &amp;= (1-x)r_f + x\cdot E[R_P] \\
+&amp;= r_f + x\cdot\underbrace{(E[R_P] - r_f)}_{\text{risk premium}}\end{aligned}\]</span><br />
+</li>
+<li>SD: <span class="math inline">\(SD(R_{x,P}) = x\cdot SD(R_P)\)</span></li>
+<li>Levered Portfolio: <span class="math inline">\(x&gt;100\%\)</span></li>
+<li>Efficient Frontier</li>
+</ul>
+<blockquote>
+<p>PS.11-44<br />
+Your investment portfolio consists of $15,000 invested in only one stock—Microsoft.<br />
+Suppose the risk-free rate is 5%, Microsoft stock has an expected return of 12% and a volatility of 40%,<br />
+and the market portfolio has an expected return of 10% and a volatility of 18%.<br />
+Under the CAPM assumptions,
+1. What alternative investment has the lowest possible volatility while having the same expected return as Microsoft?<br />
+What is the volatility of this investment?
+2. What investment has the highest possible expected return while having the same volatility as Microsoft?<br />
+What is the expected return of this investment?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let the expected return be<br />
+<span class="math display">\[\begin{aligned} E[R_{MS}] &amp;= r_f + x\cdot (E[R_{market}] - r_f) \\
+12 \% &amp;= 5\% + x\cdot (10\% - 5\%) \\
+x &amp;= 140\%\end{aligned}\]</span><br />
+Therefore, same expected return can be achieved by borrowing <span class="math inline">\(15000\times 40\% = 6000\)</span> and investing <span class="math inline">\(21000\)</span> into market portfolio.<br />
+Volatility:<br />
+<span class="math display">\[\begin{aligned} SD(R_{x,market}) &amp;= x\cdot SD(R_{market}) \\
+&amp;= 140\% \times 18\% \\ &amp;= 25.2\% \end{aligned}\]</span><br />
+</li>
+<li>Let the volatility be<br />
+<span class="math display">\[\begin{aligned} SD(R_{MS}) &amp;= x\cdot SD(R_{market}) \\
+40\% &amp;= x\cdot 18\% \\
+x &amp;= 222\%\end{aligned}\]</span><br />
+Therefore, same volatility can be achieved by borrowing <span class="math inline">\(15000\times 122\% = 18300\)</span> and investing <span class="math inline">\(33300\)</span> into market portfolio.<br />
+Expected return:<br />
+<span class="math display">\[\begin{aligned} E[R_{x,market}] &amp;= r_f + x\cdot (E[R_{market}] - r_f) \\
+&amp;= 5\% + 222\%\cdot (10\% - 5\%) \\ &amp;= 16.1\%\end{aligned}\]</span> ~</li>
+</ol>
+</div>
+</div>
+<div id="capital-structure" class="section level2">
+<h2>Capital Structure</h2>
+<div id="perfect-capital-market-assumptions" class="section level3">
+<h3>Perfect Capital Market Assumptions</h3>
+<ul>
+<li>no bankruptcy / financial distress costs</li>
+<li>no tax / transaction costs</li>
+<li>corporate investment decisions not influenced by financing choices</li>
+<li>information available to all investors</li>
+<li>equal access to all security markets</li>
+<li>Modigliani-Miller’s Irrelevance Theorem (MM)
+<ul>
+<li>in perfect capital markets, total value of a firm does not depend on capital structure</li>
+<li>cost of capital of levered equity increases with the firm’s market value debt-equity ratio</li>
+</ul></li>
+</ul>
+</div>
+<div id="finance-a-firm" class="section level3">
+<h3>Finance A Firm</h3>
+<ul>
+<li>Unlevered Equity: finance with equity (stock) alone</li>
+<li>Levered Equity: finance with equity (stock) and debt (bond)
+<ul>
+<li>Debt holders get paid before euity holders</li>
+<li>Leverage increases the risk of equity</li>
+</ul></li>
+<li>Homemade Leverage: investors borrow / lend + invest to adjust the leverage</li>
+</ul>
+<blockquote>
+<p>PS.14-3<br />
+Acort Industries owns assets that will have an 80% probability of having a market value of $50 million in one year.<br />
+There is a 20% chance that the assets will be worth only $20 million.<br />
+The current risk-free rate is 5%, and Acort’s assets have a cost of capital of 10%.<br />
+1. If Acort is unlevered, what is the current market value of its equity?<br />
+2. Suppose instead that Acort has debt with a face value of $20 million due in one year.<br />
+According to MM, what is the value of Acort’s equity in this case?<br />
+3. What is the expected return of Acort’s equity without leverage? What is the expected return of Acort’s equity with leverage?<br />
+4. What is the lowest possible realized return of Acort’s equity with and without leverage?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Current value of equity:<br />
+<span class="math display">\[\begin{aligned} PV &amp;= \frac{FV}{1+r} \\ &amp;= \frac{80\%\times 50 + 20\%\times 20}{1+10\%} \\ &amp;= 40\end{aligned}\]</span><br />
+</li>
+<li>Current value of debt:<br />
+<span class="math display">\[\begin{aligned} PV &amp;= \frac{FV}{1+r_f} \\ &amp;= \frac{20}{1+5\%} \\ &amp;= 19.05\end{aligned}\]</span><br />
+Current value of equity:
+<span class="math display">\[40 - 19.05 = 20.95\]</span><br />
+</li>
+<li>Expected return w/o leverage: <span class="math inline">\(\frac{44}{40} - 100\% = 10\%\)</span><br />
+Expected return with leverage: <span class="math inline">\(\frac{44-20}{20.95} - 100\% = 14.55\%\)</span><br />
+</li>
+<li>Lowest possible realized return w/o leverage: <span class="math inline">\(\frac{20}{40} - 100\% = -50\%\)</span><br />
+Lowest possible realized return with leverage: <span class="math inline">\(\frac{20-20}{20.95} - 100\% = -100\%\)</span></li>
+</ol>
+</div>
+<div id="leverage-and-risk" class="section level3">
+<h3>Leverage and Risk</h3>
+<ul>
+<li><span class="math inline">\(E + D = U = A\)</span>
+<ul>
+<li><span class="math inline">\(E\)</span>: equity</li>
+<li><span class="math inline">\(D\)</span>: debt</li>
+<li><span class="math inline">\(U\)</span>: unlevered equity</li>
+<li><span class="math inline">\(A\)</span>: assets</li>
+<li>Debt-to-Value Ratio: <span class="math inline">\(\frac{D}{E+D}\)</span></li>
+</ul></li>
+<li>Cost of Capital (unlevered) = Pre-Tax WACC: <span class="math display">\[r_U = \frac{E}{E+D}r_E + \frac{D}{E+D}r_D\]</span><br />
+</li>
+<li>Cost of Capital (levered): <span class="math display">\[r_E = r_U + \frac{D}{E}(r_U - r_D)\]</span><br />
+</li>
+<li>Unlevered <span class="math inline">\(β\)</span>: <span class="math display">\[\begin{aligned} β_U &amp;= \frac{E}{E+D}β_E + \frac{D}{E+D}β_D \\ β_E &amp;= β_U + \frac{D}{E}(β_U - β_D)\end{aligned}\]</span><br />
+</li>
+<li>Levered <span class="math inline">\(β\)</span>:</li>
+</ul>
+<blockquote>
+<p>PS.14-10<br />
+Explain what is wrong with the following argument:<br />
+“If a firm issues debt that is risk free, because there is no possibility of default, the risk of the firm’s equity does not change.<br />
+Therefore, risk-free debt allows the firm to get the benefit of a low cost of capital of debt without raising its cost of capital of equity.”</p>
+</blockquote>
+<p>Any leverage raises the equity cost of capital.<br />
+Since risk-free leverage does not share any risk from the firm, it raises it the cost of capital the most.</p>
+<blockquote>
+<p>Mock.I.Q3<br />
+Assume that capital markets are perfect.<br />
+You have the following information concerning the equity and debt betas, as well as the debt to equity ratio in your firm:<br />
+equity beta = <span class="math inline">\(1.15\)</span>; debt beta = <span class="math inline">\(0\)</span>; debt-to-equity Ratio = <span class="math inline">\(0.25\)</span>.<br />
+What is the unlevered beta of your firm?</p>
+</blockquote>
+<p>Unlevered beta:
+<span class="math display">\[\begin{aligned} β_U &amp;= \frac{E}{E+D}β_E + \frac{D}{E+D}β_D \\
+&amp;= \frac{4}{1+4}\times 1.15 + \frac{1}{1+4}\times 0 \\
+&amp;= 0.92\end{aligned}\]</span> ~</p>
+</div>
+</div>
+<div id="debt-and-tax" class="section level2">
+<h2>Debt and Tax</h2>
+<div id="interest-tax-shield" class="section level3">
+<h3>Interest Tax Shield</h3>
+<ul>
+<li>tax savings from debt</li>
+<li><span class="math inline">\(\text{interest tax shield} = \text{tax rate}\times\text{interest payments}\)</span></li>
+<li>with interest tax shield, total value of the levered firm exceeds the value of the firm without leverage
+<ul>
+<li><span class="math inline">\(\text{interest tax shield} = V^L - V^U\)</span></li>
+</ul></li>
+<li>PV of interest tax shield (constant tax rate + permanent debt):
+<span class="math display">\[\begin{aligned} PV(\text{interest tax shield}) &amp;=\frac{τ\cdot (r_f\cdot D)}{r_f} \\ &amp;= τ\cdot D\end{aligned}\]</span><br />
+</li>
+<li>WACC with interest tax shield:
+<span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D(1-τ) \\ &amp;= \underbrace{\frac{E}{E+D}r_E + \frac{D}{E+D}r_D}_{\text{Pre-Tax WACC}} - \underbrace{\frac{D}{E+D}r_D\cdot τ}_{\text{interest tax shield}}\end{aligned}\]</span><br />
+<img src="/post-img/notes-finance--interest-tax-shield.png" width="450" /></li>
+</ul>
+<blockquote>
+<p>PS.15-9<br />
+Safeco Inc. has no debt, and maintains a policy of holding $10 million in excess cash reserves, invested in risk-free Treasury securities.<br />
+If Safeco pays a corporate tax rate of 35%, what is the cost of permanently maintaining this $10 million reserve?<br />
+Hint: what is the present value of the additional taxes that Safeco will pay?</p>
+</blockquote>
+<p>PV of additional tax: <span class="math inline">\(-10 \times 35\% = -3.5\)</span></p>
+<blockquote>
+<p>PS.15-11<br />
+Rumolt Motors has 30 million shares outstanding with a price of $15 per share.<br />
+In addition, Rumolt has issued bonds with a total current market value of $150 million.<br />
+Suppose Rumolt’s equity cost of capital is 10%, and its debt cost of capital is 5%.<br />
+1. What is Rumolt’s pretax weighted average cost of capital?<br />
+2. If Rumolt’s corporate tax rate is 35%, what is its after-tax weighted average cost of capital?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Total value of the firm: <span class="math inline">\(30\times 15+150 = 600\)</span><br />
+Pretax weighted average cost of capital:<br />
+<span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D \\
+&amp;= \frac{30\times 15}{600}\times 10\% + \frac{150}{600}\times 5\% \\
+&amp;= 8.75\% \end{aligned}\]</span><br />
+</li>
+<li>After-tax weighted average cost of capital:<br />
+<span class="math display">\[\begin{aligned} r_{WACC} &amp;= 8.75\% - \frac{D}{E+D}r_D\cdot τ \\
+&amp;= 8.75\% - \frac{150}{600}\times 5\%\times 35\% \\ &amp;= 8.3125\%\end{aligned}\]</span> ~</li>
+</ol>
+<blockquote>
+<p>Mock.I.Q4<br />
+Assume that corporate taxation is the only imperfection in capital markets.<br />
+Flagstaff Enterprises expects to have free cash flow in the coming year of $8 million, and this free cash flow is expected to grow at a rate of 3% per year thereafter.<br />
+Flagstaff has an equity cost of capital of 13%, a debt cost of capital of 7%, and it is in the 35% corporate tax bracket.<br />
+If Flagstaff currently maintains a 0.5 debt to equity ratio, what is then the value of Flagstaff’s interest tax shield?</p>
+</blockquote>
+<p>Pre-tax WACC:<br />
+<span class="math display">\[\begin{aligned} WACC &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D \\
+&amp;= \frac{2}{1+2}13\% + \frac{1}{1+2}7\% \\
+&amp;= 11\%\end{aligned}\]</span><br />
+Value of the firm:
+<span class="math display">\[\begin{aligned}V^U &amp;= \frac{FCF_{n+1}}{WACC - g} \\ &amp;= \frac{8}{11\% - 3\%} \\ &amp;= 100 \end{aligned}\]</span><br />
+After-tax WACC:<br />
+<span class="math display">\[\begin{aligned} WACC &amp;= 11\% - \frac{D}{E+D}r_D\cdot τ \\ &amp;= 11\% - \frac{1}{1+2}7\%\times 35\% \\ &amp;= 11\% - 0.816\% \\ &amp;= 10.18\%\end{aligned}\]</span><br />
+Value of the firm:
+<span class="math display">\[\begin{aligned}V^L &amp;= \frac{FCF_{n+1}}{WACC - g} \\ &amp;= \frac{8}{10.18\% - 3\%} \\ &amp;= 111.42\end{aligned}\]</span><br />
+Tax shield:
+<span class="math display">\[V^L - V^U = 111.42 - 100 = 11.42\]</span> ~</p>
+</div>
+<div id="personal-tax" class="section level3">
+<h3>Personal Tax</h3>
+<ul>
+<li>Debt holder: tax on interest income <span class="math display">\[(1-τ_i)\]</span><br />
+</li>
+<li>Equity holder: (corporate tax) + tax on equity income <span class="math display">\[(1-τ_c)(1-τ_e)\]</span><br />
+</li>
+<li>Effective Tax Advantage of Debt: <span class="math display">\[\begin{aligned} τ^* &amp;= \frac{(1-τ_i)-(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;= 1-\frac{(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;\leq τ_c\end{aligned}\]</span><br />
+<img src="/post-img/notes-finance--personal-tax.png" width="442" /></li>
+</ul>
+<blockquote>
+<p>PS.15-23<br />
+Garnet Corporation is considering issuing risk-free debt or risk-free preferred stock.<br />
+The tax rate on interest income is 35%, and the tax rate on dividends or capital gains from preferred stock is 15%.<br />
+However, the dividends on preferred stock are not deductible for corporate tax purposes, and the corporate tax rate is 40%.<br />
+1. If the risk-free interest rate for debt is 6%, what is the cost of capital for risk-free preferred stock?<br />
+2. What is the after-tax debt cost of capital for the firm? Which security is cheaper for the firm?<br />
+3. Show that the after-tax debt cost of capital is equal to the preferred stock cost of capital multiplied by <span class="math inline">\((1 − τ^*)\)</span>.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(τ_i = 35\%\)</span>, <span class="math inline">\(τ_c = 40\%\)</span>, <span class="math inline">\(τ_e = 15\%\)</span><br />
+Return for risk-free debt: <span class="math inline">\(6\%\cdot(1-τ_i) = 6\% \times (1-35\%) = 3.9\%\)</span><br />
+Set the return for preferred stock at <span class="math inline">\(3.9\%\)</span>, cost of capital for risk-free preferred stock:<br />
+<span class="math display">\[\frac{3.9\%}{1-τ_e} = \frac{3.9\%}{1-15\%} = 4.59\%\]</span><br />
+</li>
+<li>After-tax debt cost of capital:<br />
+<span class="math display">\[\begin{aligned} 6\% \times (1-τ_c) &amp;= 6\% \times (1-40\%) \\ &amp;= 3.6\% \\ &amp;&lt; 4.59\% \end{aligned}\]</span><br />
+Therefore, debt is cheaper.<br />
+</li>
+<li><span class="math display">\[\begin{aligned} τ^* &amp;= 1-\frac{(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;= 1-\frac{(1-40\%)(1-15\%)}{(1-35\%)} \\ &amp;= 21.54\%\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} 4.59\%\times (1 − τ^*) &amp;= 4.59\%\times (1-21.54\%) \\ &amp;= 3.6\%\end{aligned}\]</span> ~</li>
+</ol>
+</div>
+</div>
+<div id="financial-distress" class="section level2">
+<h2>Financial Distress</h2>
+<div id="trade-off-theory" class="section level3">
+<h3>Trade-Off Theory</h3>
+<ul>
+<li><span class="math inline">\(V^L = V^U +PV(\text{interest tax shield}) - PV(\text{distress cost})\)</span></li>
+<li>Optimal Leverage</li>
+</ul>
+<blockquote>
+<p>PS.16-7<br />
+You have received two job offers.<br />
+Firm A offers to pay you $85,000 per year for two years. Firm B offers to pay you $90,000 for two years.<br />
+Both jobs are equivalent. Suppose that firm A’s contract is certain, but that firm B has a 50% chance of going bankrupt at the end of the year.<br />
+In that event, it will cancel your contract and pay you the lowest amount possible for you to not quit.<br />
+If you did quit, you expect you could find a new job paying $85,000 per year, but you would be unemployed for 3 months while you search for it.<br />
+1. Say you took the job at firm B. What is the least firm B can pay you next year in order to match what you would earn if you quit?<br />
+2. Given your answer to part (b), and assuming your cost of capital is 5%, which offer pays you a higher present value of your expected wage?<br />
+3. Based on this example, discuss one reason why firms with a higher risk of bankruptcy may need to offer higher wages to attract employees.</p>
+</blockquote>
+<blockquote>
+<p>PS.16-20<br />
+Zymase is a biotechnology start-up firm.<br />
+Researchers at Zymase must choose one of three different research strategies.<br />
+The payoffs (after-tax) and their likelihood for each strategy are shown below.<br />
+The risk of each project is diversifiable.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Strategy</th>
+<th>Probability</th>
+<th>Payoff (million)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>100%</td>
+<td>75</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>50%</td>
+<td>140</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>50%</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>10%</td>
+<td>300</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>90%</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Which project has the highest expected payoff?<br />
+</li>
+<li>Suppose Zymase has debt of $40 million due at the time of the project’s payoff.<br />
+Which project has the highest expected payoff for equity holders?<br />
+</li>
+<li>Suppose Zymase has debt of $110 million due at the time of the project’s payoff.<br />
+Which project has the highest expected payoff for equity holders?<br />
+</li>
+<li>If management chooses the strategy that maximizes the payoff to equity holders, what is the expected agency cost to the firm from having $40 million in debt due?<br />
+What is the expected agency cost to the firm from having $110 million in debt due?</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>PS.16-30<br />
+According to the managerial entrenchment theory, managers choose capital structures so as to preserve their control of the firm.<br />
+On the one hand, debt is costly for managers because they risk losing control in the event of default.<br />
+On the other hand, if they do not take advantage of the tax shield provided by debt, they risk losing control through a hostile takeover.
+Suppose a firm expects to generate free cash flows of $90 million per year, and the discount rate for these cash flows is 10%.<br />
+The firm pays a tax rate of 40%.<br />
+A raider is poised to take over the firm and finance it with $750 million in permanent debt.<br />
+The raider will generate the same free cash flows, and the takeover attempt will be successful if the raider can offer a premium of 20% over the current value of the firm.<br />
+According to the managerial entrenchment hypothesis, what level of permanent debt will the firm choose?</p>
+</blockquote>
 </div>
 </div>
 
