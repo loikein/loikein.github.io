@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">31 min read</span>
+    <span class="article-duration">34 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -861,6 +861,23 @@ Take <span class="math inline">\(y_1&lt;y_2\)</span><br />
 <span class="math inline">\(\implies h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 <span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span></p>
+<blockquote>
+<p>PS10.Q6<br />
+Let <span class="math inline">\(f: \mathbb{R}^2 \to \mathbb{R}\)</span> be bounded<br />
+Let <span class="math inline">\(f(x,y)\)</span> be increasing in <span class="math inline">\(y\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>,<br />
+Show that <span class="math inline">\(V(y) \equiv \sup_{x\in \mathbb{R}} f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span></p>
+</blockquote>
+<p>Take <span class="math inline">\(y_1 &lt; y_2\in \mathbb{R}\)</span><br />
+FSOC assume <span class="math inline">\(V(y_1) &gt; V(y_2)\)</span><br />
+Let <span class="math inline">\(ε = V(y_1) - V(y_2) &gt; 0\)</span>,<br />
+<span class="math display">\[\begin{aligned} V(y_1) &amp;= V(y_2) + ε\\
+\sup f(x,y_1) = V(y_1) &amp;= V(y_2) + ε\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> exists some <span class="math inline">\(x^* \in \mathbb{R}\)</span> s.t.<br />
+<span class="math display">\[f(x^*,y_1) &gt; V(y_1) - ε = V(y_2)\]</span>
+Since <span class="math inline">\(f(x^*,y)\)</span> is increasing in <span class="math inline">\(y\)</span>,<br />
+<span class="math inline">\(\implies f(x^*,y_2) \geq f(x^*,y_1) &gt; V(y_2)\)</span><br />
+Contradicts that <span class="math inline">\(V(y_2) = \sup f(x,y^2)\)</span><br />
+<span class="math inline">\(\implies V(y_1) \leq V(y_2)\)</span></p>
 </div>
 <div id="maximum" class="section level3">
 <h3>Maximum</h3>
@@ -904,6 +921,27 @@ FOC: <span class="math inline">\(f&#39;(x) = αx^{α-1}-1 - 2x\)</span><br />
 SOC: <span class="math inline">\(f&#39;&#39;(x) = α(α-1)x^{α-2} -2 &lt; 0\)</span><br />
 <span class="math inline">\(\implies f\)</span> is strictly concave in <span class="math inline">\(\mathbb{R}_+\)</span><br />
 <span class="math inline">\(\implies f\)</span> has a unique maximum in <span class="math inline">\([0, 1]\)</span></p>
+<blockquote>
+<p>PS10.Q3<br />
+Let <span class="math inline">\(A \subset \mathbb{R}^2\)</span> non-empty,<br />
+let <span class="math inline">\(A_1 \equiv \{ x \ | \ (x,y)\in A, y\in \mathbb{R} \}\)</span>,<br />
+and let <span class="math inline">\(A(x) \equiv \{ y \ | \ (x,y)\in A\}\)</span> for all <span class="math inline">\(x\in A_1\)</span><br />
+Assume <span class="math inline">\(\max_{(x,y)\in A}f(x,y)\)</span> exists, prove that <span class="math inline">\(\max_{(x,y)\in A}f(x,y)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)\)</span></p>
+</blockquote>
+<p>FSOC assume <span class="math inline">\(\max_{(x,y)\in A}f(x,y)\neq\max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)\)</span><br />
+Let <span class="math inline">\((x^*,y^*) \in\text{argmax}_{(x,y)\in A}f(x,y)\)</span>, <span class="math inline">\(y^* \in A(x^*)\)</span><br />
+Let <span class="math inline">\(\hat{x} \in \text{argmax}_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)\)</span></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\max_{(x,y)\in A}f(x,y) &gt; \max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)\)</span><br />
+<span class="math inline">\(\implies f(x^*, y^*) &gt; \sup_{y\in A(x)} f(x,y)\)</span> for all <span class="math inline">\(x\in A_1\)</span><br />
+<span class="math inline">\(\implies f(x^*, y^*) &gt; \sup_{y\in A(x^*)} f(x^*,y)\)</span>, contradiction<br />
+</li>
+<li><span class="math inline">\(\max_{(x,y)\in A}f(x,y) &lt; \max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)\)</span><br />
+<span class="math inline">\(\implies f(x^*, y^*) &lt; \sup_{y\in A(\hat{x})} f(\hat{x},y)\)</span><br />
+But <span class="math inline">\(f(x^*, y^*) \geq f(x,y)\)</span> for all <span class="math inline">\((x,y)\in A\)</span>, and <span class="math inline">\((\hat{x}, y)\in A\)</span><br />
+<span class="math inline">\(\implies f(x^*, y^*) \geq f(\hat{x},y)\)</span> for all <span class="math inline">\((\hat{x},y)\)</span><br />
+<span class="math inline">\(\implies f(x^*, y^*)\)</span> is an upper bound of <span class="math inline">\(f(\hat{x},y)\)</span>, contradiction</li>
+</ol>
 </div>
 <div id="maximizer-argmax" class="section level3">
 <h3>Maximizer &amp; Argmax</h3>
@@ -929,6 +967,55 @@ Contradiction.</p>
 Let <span class="math inline">\(f: A \to \mathbb{R}\)</span> be concave and <span class="math inline">\(A\)</span> convex<br />
 Prove that <span class="math inline">\(\text{argmax}_{x\in A} f(x)\)</span> is a convex set</p>
 </blockquote>
+<p>Take <span class="math inline">\(x_1,x_2 \in \text{argmax}_{x\in A} f(x)\)</span><br />
+<span class="math inline">\(\implies f(x_1), f(x_2)\geq f(x)\)</span> for all <span class="math inline">\(x\in A\)</span><br />
+Let <span class="math inline">\(x_3 = λx_1 + (1-λ)x_2\)</span>, since <span class="math inline">\(f\)</span> is concave,<br />
+<span class="math display">\[\begin{aligned} f(x_3) &amp;\geq λf(x_1) + (1-λ)f(x_2) \\
+&amp;\geq λf(x) + (1-λ)f(x) \\
+&amp;=f(x)\end{aligned}\]</span>
+<span class="math inline">\(\implies x_3 \in \text{argmax}_{x\in A} f(x)\)</span><br />
+<span class="math inline">\(\implies \text{argmax}_{x\in A} f(x)\)</span> is convex</p>
+<blockquote>
+<p>PS10.Q7<br />
+Let <span class="math inline">\(f,g: \mathbb{R}^n \to \mathbb{R}\)</span>, <span class="math inline">\(A = \{ x \in \mathbb{R}^n | g(x) = 0\}\)</span><br />
+Assume exists some <span class="math inline">\(x^* \in A\)</span> s.t. <span class="math inline">\(x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)\)</span><br />
+Prove that <span class="math inline">\(x^* \in \text{argmax} _{x\in A} f(x)\)</span></p>
+</blockquote>
+<p>Since <span class="math inline">\(x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)\)</span><br />
+<span class="math display">\[\begin{aligned} f(x^*) + g(x^*) &amp;\geq f(x) + g(x) &amp;&amp; \text{for all }x\\
+f(x^*) + g(x^*) &amp;\geq f(x) + g(x) &amp;&amp; \text{for all }x\in A \\
+f(x^*) &amp;\geq f(x) &amp;&amp; \text{for all }x\in A\end{aligned}\]</span>
+<span class="math inline">\(\implies x^* \in \text{argmax} _{x\in A} f(x)\)</span></p>
+<blockquote>
+<p>PS10.Q5<br />
+Prove that if <span class="math inline">\(x^* \in \text{argmax}_{x\in \mathbb{R}}\big(f(x) + g(x)\big)\)</span> is s.t. <span class="math inline">\(g(x^*) = 0\)</span>,<br />
+1. <span class="math inline">\(\max_{x\in \mathbb{R}} \big(f(x) + g(x)\big)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\max_{x\in \{ x&#39;|g(x&#39;)=0\}} f(x)\)</span><br />
+2. <span class="math inline">\(\max_{x\in \mathbb{R}} \big(f(x) + g(x)\big)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\max_{x\in \{ x&#39;|g(x&#39;)\geq 0\}} f(x)\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(A = \{ x&#39;|g(x&#39;)\geq 0\}\)</span>, <span class="math inline">\(B = \{ x&#39;|g(x&#39;)=0\}\)</span>, <span class="math inline">\(B\subset A\)</span><br />
+Let <span class="math inline">\(\hat{x}\in \text{argmax}_{x\in A} f(x)\)</span><br />
+FSOC assume <span class="math inline">\(\max_{x\in \mathbb{R}} (f(x) + g(x))\neq\max_{x\in A} f(x)\)</span><br />
+2.1.
+<span class="math display">\[\begin{aligned} \max_{x\in \mathbb{R}} (f(x) + g(x)) &amp;&lt; \max_{x\in A} f(x) \\
+f(x^*) + g(x^*)&amp;&lt; f(\hat{x}) \\
+f(x^*) &amp;&lt; f(\hat{x}) \end{aligned}\]</span>
+Since <span class="math inline">\(g(x^*) = 0\)</span>, <span class="math inline">\(g(\hat{x})\geq 0\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(f(x^*)+ g(x^*) &lt; f(\hat{x}) + g(\hat{x})\)</span>
+Contradicts that <span class="math inline">\(x^*\in \text{argmax} \big(f(x) + g(x)\big)\)</span><br />
+2.2.
+<span class="math display">\[\begin{aligned} \max_{x\in \mathbb{R}} (f(x) + g(x)) &amp;&gt; \max_{x\in A} f(x) \\
+f(x^*) + g(x^*)&amp;&gt; f(\hat{x}) \\
+f(x^*) &amp;&gt; f(\hat{x}) \end{aligned}\]</span>
+Contradicts that <span class="math inline">\(\hat{x}\in \text{argmax}_{x\in A} f(x)\)</span><br />
+1.<br />
+Since <span class="math inline">\(B\subset A\)</span>,
+<span class="math display">\[\begin{aligned} \max_{x\in B} f(x) &amp;\leq \max_{x\in A} f(x) \\
+&amp;\leq \max_{x\in \mathbb{R}} \big(f(x) + g(x)\big)\end{aligned}\]</span>
+Let <span class="math inline">\(\hat{x}\in \text{argmax}_{x\in B} f(x)\)</span><br />
+FSOC assume <span class="math inline">\(\max_{x\in \mathbb{R}} \big(f(x) + g(x)\big) &gt; \max_{x\in B} f(x)\)</span><br />
+<span class="math display">\[\begin{aligned} f(x^*) + g(x^*)&amp;&gt; f(\hat{x}) \\
+f(x^*) &amp;&gt; f(\hat{x}) \end{aligned}\]</span>
+Contradicts that <span class="math inline">\(\hat{x}\in \text{argmax}_{x\in B} f(x)\)</span></p>
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
