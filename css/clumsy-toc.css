@@ -144,3 +144,9 @@
 		display: none;
 	}
 }
+
+@media print {
+	#TOC {
+		display: none;
+	}
+}
