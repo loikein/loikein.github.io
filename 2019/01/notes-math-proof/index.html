@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">30 min read</span>
+    <span class="article-duration">31 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -121,6 +121,7 @@
 <li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
 <li><a href="#supremum-infimum">Supremum / Infimum</a></li>
 <li><a href="#maximum">Maximum</a></li>
+<li><a href="#maximizer-argmax">Maximizer &amp; Argmax</a></li>
 <li><a href="#concave-convex">Concave &amp; Convex</a></li>
 <li><a href="#epigraph">Epigraph</a></li>
 </ul></li>
@@ -142,15 +143,9 @@
 <li>:) means “we want to show”</li>
 <li>FSOC means “for the sake of controdiction”</li>
 <li><p>s.t. means “such that”</p></li>
-<li>[x] PS1</li>
-<li>[x] PS2</li>
-<li>[x] PS3</li>
-<li>[x] PS4</li>
-<li>[x] PS5</li>
-<li>[x] PS6</li>
-<li>[x] PS7</li>
-<li>[x] PS8</li>
-<li><p>[ ] PS9</p></li>
+<li>[x] PS9</li>
+<li>[ ] PS10</li>
+<li><p>[ ] PS11</p></li>
 </ul>
 <div id="logic" class="section level2">
 <h2>Logic</h2>
@@ -309,7 +304,7 @@ Prove the Cauchy-Schwarz inequality for <span class="math inline">\(\mathbb{R}^2
 <p>Let <span class="math inline">\(u = (u_1, u_2), v = (v_1, v_2)\)</span><br />
 <span class="math inline">\(\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\)</span>, <span class="math inline">\(| u\cdot v | = | u_1 v_1 + u_2 v_2 |\)</span><br />
 Assume Cauchy-Schwarz inequality: <span class="math inline">\(| u\cdot v | \leq \|u\| \cdot \|v\|\)</span> is true<br />
-<span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\\ u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2)\\ 0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\\ u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2)\\ 0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span>
 Since the last line is obviously true, all previous statements are true</p>
 </div>
 </div>
@@ -390,14 +385,13 @@ Show that <span class="math inline">\([a,b] \subset \mathbb{R}\)</span> is close
 Take arbitrary <span class="math inline">\(x \in A\)</span><br />
 1. If <span class="math inline">\(x &lt; a\)</span><br />
 Let <span class="math inline">\(ε \equiv \frac{a-x}{2} &gt;0\)</span><br />
-<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&lt; x+ε \\ &amp;= \frac{x}{2} + \frac{a}{2} \\ &amp;&lt; a \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&lt; x+ε \\ &amp;= \frac{x}{2} + \frac{a}{2} \\ &amp;&lt; a \end{aligned}\]</span>
 <span class="math inline">\(\implies B_ε(x) \subset A^c\)</span><br />
 2. If <span class="math inline">\(x &gt; b\)</span><br />
 Let <span class="math inline">\(ε \equiv \frac{x-b}{2} &gt;0\)</span><br />
-<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&gt; x+ε \\ &amp;= \frac{x}{2} + \frac{b}{2} \\ &amp;&gt; b \end{aligned}\]</span><br />
-<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span><br />
-~<br />
-<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span> for all <span class="math inline">\(x\in A^c\)</span> and some <span class="math inline">\(ε &gt; 0\)</span><br />
+<span class="math display">\[\begin{aligned} \implies \forall y \in B_ε(x), \  y &amp;&gt; x+ε \\ &amp;= \frac{x}{2} + \frac{b}{2} \\ &amp;&gt; b \end{aligned}\]</span>
+<span class="math inline">\(\implies B_ε(x) \subset A^c\)</span></p>
+<p><span class="math inline">\(\implies B_ε(x) \subset A^c\)</span> for all <span class="math inline">\(x\in A^c\)</span> and some <span class="math inline">\(ε &gt; 0\)</span><br />
 <span class="math inline">\(\implies A^C\)</span> is open, <span class="math inline">\(A\)</span> is closed</p>
 <blockquote>
 <p>PS4.Q1<br />
@@ -428,7 +422,7 @@ Prove that <span class="math inline">\(\bar{A}\)</span> is closed</p>
 FSOC assume <span class="math inline">\(\bar{A}\)</span> is open<br />
 <span class="math inline">\(\implies \exists y \in B_{ε/2} (x)\)</span> and <span class="math inline">\(y\in \bar{A}\)</span><br />
 <span class="math inline">\(\implies \exists z \in A\)</span> s.t. <span class="math inline">\(z \in B_{ε/2} (y)\)</span><br />
-<span class="math display">\[\begin{aligned} \implies  d(x,z) &amp;\leq d(x,y) + d(y,z)\\ &amp;&lt;\frac{ε}{2}+\frac{ε}{2} \\ &amp;=ε \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} \implies  d(x,z) &amp;\leq d(x,y) + d(y,z)\\ &amp;&lt;\frac{ε}{2}+\frac{ε}{2} \\ &amp;=ε \end{aligned}\]</span>
 <span class="math inline">\(\implies B_{ε} (x) \cap A \neq \emptyset\)</span><br />
 Contradicts to <span class="math inline">\(B_ε(x) \cap A = \emptyset\)</span></p>
 <blockquote>
@@ -472,7 +466,7 @@ Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span></p>
 </blockquote>
 <p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, take <span class="math inline">\(λ\in (0,1)\)</span><br />
 <span class="math inline">\(\implies y= λx_1 + (1-λ)x_2\)</span> is a convex combination<br />
-<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\  &amp;= \| λx_1 + (1-λ)x_2 - x \| \\ &amp;= \| λx_1 + x_2 - λx_2 - x \| \\ &amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\ &amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\ &amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\ &amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\ &amp;&lt; λε + (1-λ) ε \\ &amp;= ε \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\  &amp;= \| λx_1 + (1-λ)x_2 - x \| \\ &amp;= \| λx_1 + x_2 - λx_2 - x \| \\ &amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\ &amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\ &amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\ &amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\ &amp;&lt; λε + (1-λ) ε \\ &amp;= ε \end{aligned}\]</span>
 <span class="math inline">\(\implies y \in B_ε(x)\)</span><br />
 <span class="math inline">\(\implies B_ε(x)\)</span> is convex</p>
 <blockquote>
@@ -483,7 +477,7 @@ Prove that <span class="math inline">\(C\)</span> is convex</p>
 </blockquote>
 <p>Take some <span class="math inline">\(x_1, x_2 \in A\)</span> and <span class="math inline">\(y_1,y_2 \in B\)</span><br />
 Take <span class="math inline">\(z_1, z_2 \in C\)</span> s.t. <span class="math inline">\(z_1 = x_1+ y_1\)</span>, <span class="math inline">\(z_2 = x_2+ y_2\)</span><br />
-Let <span class="math display">\[\begin{aligned} z_3 &amp;\equiv λz_1 + (1-λ)z_2 \\ &amp;= λ(x_1+y_1) + (1-λ)(x_2+y_2) \\ &amp;= λx_1+(1-λ)x_2 + λy_1 + (1-λ)y_2 \end{aligned}\]</span><br />
+Let <span class="math display">\[\begin{aligned} z_3 &amp;\equiv λz_1 + (1-λ)z_2 \\ &amp;= λ(x_1+y_1) + (1-λ)(x_2+y_2) \\ &amp;= λx_1+(1-λ)x_2 + λy_1 + (1-λ)y_2 \end{aligned}\]</span>
 Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are convex<br />
 <span class="math inline">\(\implies λx_1+(1-λ)x_2 \in A\)</span> and <span class="math inline">\(λy_1+(1-λ)y_2 \in B\)</span><br />
 <span class="math inline">\(\implies z_3 \in C\)</span><br />
@@ -538,7 +532,7 @@ Take arbitrary <span class="math inline">\(ε &gt; 0\)</span><br />
 Take <span class="math inline">\(N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(N&gt; \frac{1}{ε}\)</span><br />
 <span class="math inline">\(\implies ε&gt; \frac{1}{N}\)</span><br />
 Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(\frac{n}{N}\leq x - ε\)</span> and <span class="math inline">\(x-ε&lt; \frac{n+1}{N}\)</span><br />
-<span class="math display">\[\begin{aligned} \implies x-ε &lt; \frac{n+1}{N} &amp;\leq x-ε + \frac{1}{N} \\ &amp;&lt; x-ε+ε \\&amp;=x\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} \implies x-ε &lt; \frac{n+1}{N} &amp;\leq x-ε + \frac{1}{N} \\ &amp;&lt; x-ε+ε \\&amp;=x\end{aligned}\]</span>
 <span class="math inline">\(\implies \frac{n+1}{N} \in B_ε(x)\)</span><br />
 <span class="math inline">\(\frac{n+1}{N} \in \mathbb{Q} \implies B_ε(x) \cap \mathbb{Q} \neq \emptyset\)</span></p>
 </div>
@@ -606,7 +600,7 @@ Since <span class="math inline">\(x\in [1,\infty) \implies \frac{1}{x}&gt;0\)</s
 <span class="math display">\[\begin{aligned} \left| x + \frac{1}{x} - y - \frac{1}{y} \right| &amp;= \left| x - y + \frac{y-x}{xy}\right| \\
 &amp;= \left|(x-y) \left(1 - \frac{1}{xy}\right)\right| \\
 &amp;= |x-y| \cdot \left|1 - \frac{1}{xy}\right| \\
-&amp;&lt; |x-y|\end{aligned}\]</span> ~</li>
+&amp;&lt; |x-y|\end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="injection-surjection" class="section level3">
@@ -648,7 +642,7 @@ Since <span class="math inline">\(f\)</span> is continuous<br />
 Since <span class="math inline">\(g\)</span> is continuous<br />
 <span class="math inline">\(\implies\)</span> for <span class="math inline">\(x&#39;\in B_{δ_g}(x)\)</span>, <span class="math inline">\(g(x&#39;) \in B_{δ_f}(g(x))\)</span> for some <span class="math inline">\(δ_g&gt;0\)</span><br />
 <span class="math inline">\(\implies\)</span> <span class="math display">\[\begin{aligned} f\big(g(x&#39;)\big) &amp;\in B_ε\left(f\big(g(x)\big)\right) \\
-h(x&#39;) &amp;\in B_ε\big(h(x)\big)\end{aligned}\]</span><br />
+h(x&#39;) &amp;\in B_ε\big(h(x)\big)\end{aligned}\]</span>
 <span class="math inline">\(\implies h\)</span> is continuous</p>
 <p>2nd approach:<br />
 Take arbitrary open set <span class="math inline">\(B\subset \mathbb{R}\)</span><br />
@@ -667,17 +661,17 @@ Prove that <span class="math inline">\(f(x) \equiv \inf \{ d(x,y) | y \in A \}\)
 Fix arbitrary <span class="math inline">\(δ &gt; 0\)</span>, take <span class="math inline">\(x&#39; \in B_δ(x)\)</span><br />
 <span class="math inline">\(\implies\)</span> for all <span class="math inline">\(y \in A\)</span>,<br />
 <span class="math display">\[\begin{aligned}  d(x&#39;,y) &amp;\leq d(x,y) + d(x,x&#39;) \\
-&amp; &lt; d(x,y) + δ \end{aligned}\]</span><br />
+&amp; &lt; d(x,y) + δ \end{aligned}\]</span>
 Take infimum of both sides<br />
-<span class="math display">\[f(x&#39;) \leq f(x) + δ\]</span><br />
+<span class="math display">\[f(x&#39;) \leq f(x) + δ\]</span>
 Similarly,<br />
 <span class="math display">\[\begin{aligned} d(x,y) &amp;\leq d(x&#39;,y) + d(x,x&#39;) \\
-&amp;&lt; d(x&#39;,y) + δ \end{aligned}\]</span><br />
+&amp;&lt; d(x&#39;,y) + δ \end{aligned}\]</span>
 Take infimum of both sides<br />
-<span class="math display">\[f(x) \leq f(x&#39;) + δ\]</span><br />
+<span class="math display">\[f(x) \leq f(x&#39;) + δ\]</span>
 <span class="math inline">\(\implies\)</span><br />
 <span class="math display">\[\begin{aligned} f(x&#39;) &amp;\in \big[f(x) - δ, f(x) + δ\big] \\
-&amp;\subset B_2δ\big( f(x) \big)\end{aligned}\]</span><br />
+&amp;\subset B_2δ\big( f(x) \big)\end{aligned}\]</span>
 Take <span class="math inline">\(ε \equiv 2δ\)</span><br />
 <span class="math inline">\(\implies\)</span> if <span class="math inline">\(x&#39; \in B_δ(x)\)</span>, then <span class="math inline">\(f(x&#39;) \in B_ε\big( f(x) \big)\)</span><br />
 <span class="math inline">\(\implies f\)</span> is continuous</p>
@@ -743,7 +737,7 @@ Take <span class="math inline">\(λ\in(0,1)\)</span> s.t. <span class="math inli
 Since <span class="math inline">\(f\)</span> is convex<br />
 <span class="math display">\[\begin{aligned} y &amp;= f(y) \\
 &amp;\leq λ\cdot f(x)+(1-λ)\cdot f(1) \\
-&amp;&lt; λ\cdot x+(1-λ)\cdot 1\end{aligned}\]</span><br />
+&amp;&lt; λ\cdot x+(1-λ)\cdot 1\end{aligned}\]</span>
 Contradiction</p>
 <blockquote>
 <p>PS9.Q7<br />
@@ -783,7 +777,7 @@ And exists <span class="math inline">\(λ\)</span> s.t. <span class="math inline
 <span class="math display">\[\begin{aligned} -λ \leq \frac{f(y)-f(x)}{y-x} &amp;\leq λ \\
 \frac{\big|f(y)-f(x)\big|}{|y-x|} &amp;\leq λ \\
 \frac{d\big(f(y),f(x)\big)}{d(x,y)} &amp;\leq λ \\
-d\big(f(y),f(x)\big) &amp;\leq λ \cdot d(x,y)\end{aligned}\]</span> ~</p>
+d\big(f(y),f(x)\big) &amp;\leq λ \cdot d(x,y)\end{aligned}\]</span></p>
 <blockquote>
 <p>PS9.Q3<br />
 Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})\)</span> is a contraction,<br />
@@ -792,11 +786,11 @@ then <span class="math inline">\(f&#39;(x)\in [-λ,λ]\)</span> for all <span cl
 <p>Take arbitrary <span class="math inline">\(x\in \mathbb{R}\)</span>, consider a strictly increasing sequence <span class="math inline">\(\{x_n\}_n \to x\)</span><br />
 Since <span class="math inline">\(f\)</span> is contraction,<br />
 <span class="math display">\[\begin{aligned} d\big(f(x),f(x_n)\big) &amp;\leq λd(x,x_n) \\
-\frac{ d\big(f(x),f(x_n)\big)} {d(x,x_n)} &amp;\leq λ \end{aligned}\]</span><br />
+\frac{ d\big(f(x),f(x_n)\big)} {d(x,x_n)} &amp;\leq λ \end{aligned}\]</span>
 Take limit of botht sides<br />
 <span class="math display">\[\begin{aligned} \lim_{n\to\infty}\frac{d\big(f(x),f(x_n)\big)}{d(x,x_n)} &amp;\leq \lim_{n\to\infty} λ \\
 \lim_{n\to\infty}\frac{f(x)-f(x_n)}{x-x_n} &amp;\leq λ \\
-|f&#39;(x)| &amp;\leq λ\end{aligned}\]</span><br />
+|f&#39;(x)| &amp;\leq λ\end{aligned}\]</span>
 <span class="math inline">\(\implies f&#39;(x)\in [-λ,λ]\)</span></p>
 </div>
 <div id="limit-differenciation" class="section level3">
@@ -813,7 +807,7 @@ Prove <span class="math inline">\(\lim_{x\to 0} \frac{e^x - \left(1+x + \frac{x^
 &amp;= \lim_{x\to 0} \frac{(e^x - 1 - x)&#39;}{(3x^2)&#39;} \\
 &amp;= \lim_{x\to 0} \frac{e^x - 1}{6x} \\
 &amp;= \lim_{x\to 0} \frac{(e^x - 1)&#39;}{(6x)&#39;} \\
-&amp;= \lim_{x\to 0} \frac{e^x}{6} \\ &amp;= \frac{1}{6}\end{aligned}\]</span> ~</p>
+&amp;= \lim_{x\to 0} \frac{e^x}{6} \\ &amp;= \frac{1}{6}\end{aligned}\]</span></p>
 <blockquote>
 <p>PS6.Q3<br />
 Prove that if <span class="math inline">\(f, g \in C^1(\mathbb{R},\mathbb{R})\)</span>, <span class="math inline">\(\lim_{x\to 0} \frac{f(x)-g(x)}{x} = 0\)</span>,<br />
@@ -822,12 +816,12 @@ then <span class="math inline">\(f(0)=g(0)\)</span> and <span class="math inline
 <p><span class="math display">\[\begin{aligned} \lim_{x\to 0} \frac{f(x)-g(x)}{x} &amp;= 0 \\
 \lim_{x\to 0} f(x) - g(x) &amp;= 0 \\
 f(0) - g(0) &amp;= 0 \\
-f(0) &amp;= g(0)\end{aligned}\]</span><br />
+f(0) &amp;= g(0)\end{aligned}\]</span>
 And<br />
 <span class="math display">\[\begin{aligned} \lim_{x\to 0} f(x) - g(x) &amp;= 0 \\
 \lim_{x\to 0} f&#39;(x) - g&#39;(x) &amp;= 0 \\
 f&#39;(0) - g&#39;(0) &amp;= 0 \\
-f&#39;(0) &amp;= g&#39;(0)\end{aligned}\]</span> ~</p>
+f&#39;(0) &amp;= g&#39;(0)\end{aligned}\]</span></p>
 <blockquote>
 <p>PS6.Q7<br />
 Let <span class="math inline">\(f, g \in \mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span>, <span class="math inline">\(f\)</span> is strictly increasing<br />
@@ -840,7 +834,7 @@ Since <span class="math inline">\(f(x)\)</span> is strictly increasing<br />
 <span class="math display">\[\begin{aligned} \frac{d}{dx} g\big( f(x) \big) &amp;= \lim_{x_n\to x} \frac{g\big(f(x)\big) - g\big(f(x_n)\big)}{x-x_n} \\
 &amp;= \lim_{x_n\to x} \frac{g\big(f(x)\big) - g\big(f(x_n)\big)}{f(x) - f(x_n)} \cdot \frac{f(x) - f(x_n)}{x-x_n} \\
 &amp;= \lim_{f(x_n)\to f(x)} \frac{g\big(f(x)\big) - g\big(f(x_n)\big)}{f(x) - f(x_n)} \cdot \lim_{x_n\to x} \frac{f(x) - f(x_n)}{x-x_n} \\
-&amp;= g&#39;\big(f(x)\big)\cdot f&#39;(x)\end{aligned}\]</span> ~</p>
+&amp;= g&#39;\big(f(x)\big)\cdot f&#39;(x)\end{aligned}\]</span></p>
 </div>
 <div id="supremum-infimum" class="section level3">
 <h3>Supremum / Infimum</h3>
@@ -872,7 +866,6 @@ Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <s
 <h3>Maximum</h3>
 <ul>
 <li>Maximum of function <span class="math inline">\(f: A \to \mathbb{R}\)</span> is <span class="math inline">\(\max_x f(x)\)</span> <span class="math inline">\(\equiv\)</span> <span class="math inline">\(\max \{f(x)|x\in A\}\)</span> <span class="math inline">\(\equiv\)</span> <span class="math inline">\(\max \big( f(A)\big)\)</span></li>
-<li>Argument of maximum is <span class="math inline">\(\text{argmax}_x f(x)\)</span> <span class="math inline">\(\equiv\)</span> <span class="math inline">\(\{ x| f(x) = \max \big( f(A)\big) \} \subset A\)</span></li>
 </ul>
 <blockquote>
 <p>PS8.Q5<br />
@@ -908,11 +901,34 @@ Since <span class="math inline">\(x^α &lt; x + x^2\)</span> for all <span class
 <span class="math inline">\(\implies f(1) &gt; f(x)\)</span> for all <span class="math inline">\(x&gt;1\)</span><br />
 <span class="math inline">\(\implies f\)</span> has maximum in <span class="math inline">\([0,1]\)</span><br />
 FOC: <span class="math inline">\(f&#39;(x) = αx^{α-1}-1 - 2x\)</span><br />
-SOC: <span class="math inline">\(f&#39;&#39;(x) = α(α-1)x^{α-2} -2 &lt; 0\)</span> (wrong!
-<a href="https://www.wolframalpha.com/input/?i=x%5Ea+-+x+-+x%5E2,+0%3Ca%3C1&amp;assumption=%7B%22C%22,+%220%22%7D+-%3E+%7B%22NumberMath%22%7D">f</a>
-<a href="https://www.wolframalpha.com/input/?i=a*(1-a)*x%5E(a-2)-2,+0%3Ca%3C1&amp;assumption=%7B%22C%22,+%220%22%7D+-%3E+%7B%22NumberMath%22%7D">SOC</a> )<br />
+SOC: <span class="math inline">\(f&#39;&#39;(x) = α(α-1)x^{α-2} -2 &lt; 0\)</span><br />
 <span class="math inline">\(\implies f\)</span> is strictly concave in <span class="math inline">\(\mathbb{R}_+\)</span><br />
 <span class="math inline">\(\implies f\)</span> has a unique maximum in <span class="math inline">\([0, 1]\)</span></p>
+</div>
+<div id="maximizer-argmax" class="section level3">
+<h3>Maximizer &amp; Argmax</h3>
+<ul>
+<li>Argument of maximum is <span class="math inline">\(\text{argmax}_x f(x)\)</span> <span class="math inline">\(\equiv\)</span> <span class="math inline">\(\{ x| f(x) = \max \big( f(A)\big) \} \subset A\)</span></li>
+</ul>
+<blockquote>
+<p>PS10.Q1<br />
+Let <span class="math inline">\(f: A \to \mathbb{R}\)</span> be concave and let <span class="math inline">\(A \subset \mathbb{R}^n\)</span> be convex<br />
+Prove that if <span class="math inline">\(x^*\)</span> is a local maximizer of <span class="math inline">\(f\)</span>, than it is a global maximizer of <span class="math inline">\(f\)</span></p>
+</blockquote>
+<p>Since <span class="math inline">\(x^*\)</span> is a local maximizer,<br />
+<span class="math inline">\(\implies f(x^*)\geq f(x)\)</span> for all <span class="math inline">\(x\in A\cap B_ε(x^*)\)</span><br />
+FSOC suppose exists <span class="math inline">\(x&#39; \in A\)</span> s.t. <span class="math inline">\(f(x&#39;) &gt; f(x^*)\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(x^ε = λx^* + (1-λ)x&#39;\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} f(x^ε) &amp;\geq λf(x^*) + (1-λ)f(x&#39;) \\
+f(x^*)\geq f(x^ε) &amp;\geq λf(x^*) + (1-λ)f(x&#39;) \\
+(1-λ)f(x^*) &amp;\geq  (1-λ)f(x&#39;) \\
+f(x^*) &amp;\geq  f(x&#39;)\end{aligned}\]</span>
+Contradiction.</p>
+<blockquote>
+<p>PS10.Q2<br />
+Let <span class="math inline">\(f: A \to \mathbb{R}\)</span> be concave and <span class="math inline">\(A\)</span> convex<br />
+Prove that <span class="math inline">\(\text{argmax}_{x\in A} f(x)\)</span> is a convex set</p>
+</blockquote>
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
@@ -931,7 +947,7 @@ Prove that <span class="math inline">\(f+g\)</span> is concex.</p>
 <p>Let <span class="math inline">\(h\equiv f+g\)</span>, take arbitrary <span class="math inline">\(x_1,x_2 \in \mathbb{R}\)</span><br />
 <span class="math display">\[\begin{aligned} h\big(λx_1+ (1-λ)x_2\big) &amp;= f\big(λx_1+ (1-λ)x_2\big) + g\big(λx_1+ (1-λ)x_2\big) \\
 &amp;\leq λf(x_1) + (1-λ)f(x_2) + λg(x_1) + (1-λ)g(x_2) \\
-&amp;= λh(x_1) + (1-λ)h(x_2)\end{aligned}\]</span> ~</p>
+&amp;= λh(x_1) + (1-λ)h(x_2)\end{aligned}\]</span></p>
 <blockquote>
 <p>PS7.Q7<br />
 Prove that if <span class="math inline">\(f:\mathbb{R}\to \mathbb{R}\)</span> is strictly convex,<br />
@@ -942,7 +958,7 @@ then <span class="math inline">\(f(x) = 0\)</span> has at most two solutions</p>
 Let <span class="math inline">\(λ = \frac{z-y}{z-x} \implies y = λx + (1-λ)z\)</span><br />
 Since <span class="math inline">\(f\)</span> is strictly convex,<br />
 <span class="math display">\[\begin{aligned} f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
-0 &amp;&lt; 0 + 0\end{aligned}\]</span><br />
+0 &amp;&lt; 0 + 0\end{aligned}\]</span>
 Contradiction.</p>
 <blockquote>
 <p>PS7.Q1<br />
@@ -953,20 +969,20 @@ Prove that <span class="math inline">\(\frac{f(y)-f(x)}{y-x}&gt;\frac{f(z)-f(x)}
 <span class="math display">\[\begin{aligned} y-x &amp;= (1-λ)(z-x) \\
 1-λ &amp;= \frac{y-x}{z-x} \\
 λ &amp;=\frac{y-z}{x-z} \\
-&amp;=\frac{z-y}{z-x} \end{aligned}\]</span><br />
+&amp;=\frac{z-y}{z-x} \end{aligned}\]</span>
 Since <span class="math inline">\(f\)</span> is strictly concave,<br />
 <span class="math display">\[\begin{aligned} f(y) &amp;= f(λx + (1-λ)z) \\
 &amp;&gt; λf(x) + (1-λ)f(z) \\
 f(y) - f(x) &amp;&gt; λf(x) - f(x) + (1-λ) f(z) \\
 &amp;&gt; (1-λ) \big( f(z) - f(x)\big) \\
 &amp;&gt; \frac{y-x}{z-x} \big(f(z) -f(x)\big) \\
-\frac{f(y)-f(x)}{y-x} &amp;&gt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span><br />
+\frac{f(y)-f(x)}{y-x} &amp;&gt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span>
 Similarly,<br />
 <span class="math display">\[\begin{aligned} f(y)-f(z) &amp;&gt; λf(x) + (1-λ) f(z) - f(z) \\
 &amp;&gt; λ \big(f(x) - f(z)\big) \\
 f(z) -f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
 f(z) - f(y) &amp;&lt; \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
-\frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span> ~</p>
+\frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span></p>
 <blockquote>
 <p>PS7.Q3<br />
 Prove that if <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> is convex,<br />
@@ -980,7 +996,7 @@ Since <span class="math inline">\(f\)</span> is convex,<br />
 f(y_1) -f(x) &amp;\leq λf(x) -f(x) + (1-λ) f(y_2) \\
 &amp;\leq (1-λ) (f(y_2) - f(x)) \\
 &amp;\leq \frac{y_1-x}{y_2-x} \big(f(y_2) - f(x)\big) \\
-\frac{f(y_1)-f(x)}{y_1-x} &amp;\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}\]</span> ~</p>
+\frac{f(y_1)-f(x)}{y_1-x} &amp;\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}\]</span></p>
 <blockquote>
 <p>PS7.Q4<br />
 Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span> is concave,<br />
@@ -993,9 +1009,9 @@ then <span class="math inline">\(f(x)\leq f(x_0) + f&#39;(x_0)(x-x_0)\)</span> f
 Take some <span class="math inline">\(y &lt; x_0\)</span> and <span class="math inline">\(λ \in (0,1)\)</span>, s.t. <span class="math inline">\(x_0 = λx + (1-λ) y\)</span><br />
 <span class="math inline">\(\implies λ = \frac{x_0-y}{x-y}\)</span><br />
 Since <span class="math inline">\(f\)</span> is concave,<br />
-<span class="math display">\[\begin{aligned} f(x_0) &amp;\geq λf(x) + (1-λ)f(y) \\ f(x_0) - f(y) &amp;\geq λ\big( f(x) - f(y)\big) \\ &amp;\geq \frac{x_0-y}{x-y}\big( f(x) - f(y)\big) \\ \frac{f(x_0) - f(y)}{x_0-y} &amp;\geq \frac{ f(x) - f(y)}{x-y}\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} f(x_0) &amp;\geq λf(x) + (1-λ)f(y) \\ f(x_0) - f(y) &amp;\geq λ\big( f(x) - f(y)\big) \\ &amp;\geq \frac{x_0-y}{x-y}\big( f(x) - f(y)\big) \\ \frac{f(x_0) - f(y)}{x_0-y} &amp;\geq \frac{ f(x) - f(y)}{x-y}\end{aligned}\]</span>
 Take limit of both sides<br />
-<span class="math display">\[\begin{aligned} \lim_{y\to x_0}\frac{f(x_0) - f(y)}{x_0-y} &amp;\geq \lim_{y\to x_0}\frac{ f(x) - f(y)}{x-y} \\ f&#39;(x_0) &amp;\geq \frac{f(x)-f(x_0)}{x-x_0} \\ f(x) &amp;\leq f(x_0) + f&#39;(x_0)(x-x_0)\end{aligned}\]</span> ~</li>
+<span class="math display">\[\begin{aligned} \lim_{y\to x_0}\frac{f(x_0) - f(y)}{x_0-y} &amp;\geq \lim_{y\to x_0}\frac{ f(x) - f(y)}{x-y} \\ f&#39;(x_0) &amp;\geq \frac{f(x)-f(x_0)}{x-x_0} \\ f(x) &amp;\leq f(x_0) + f&#39;(x_0)(x-x_0)\end{aligned}\]</span></li>
 </ol>
 <blockquote>
 <p>PS7.Q5<br />
@@ -1011,13 +1027,12 @@ then <span class="math inline">\(f\big(λx + (1-λ)y\big) \geq λf(x) + (1-λ)f(
 Take <span class="math inline">\(z = λx + (1-λ)y \implies x = \frac{1}{λ}z + \left(1-\frac{1}{λ}\right) y\)</span><br />
 Let <span class="math inline">\(λ_1 = \frac{1}{λ} \in [0,1] \implies x = λ_1 z + (1-λ_1) y\)</span><br />
 Since <span class="math inline">\(f\)</span> is convex,<br />
-<span class="math display">\[\begin{aligned} f(x) &amp;\leq λ_1 f(z) + (1-λ_1) f(y) \\ &amp;\leq \frac{1}{λ} f(z) + \left(1-\frac{1}{λ}\right) f(y) \\ λf(x) &amp;\leq f(z) + (λ-1) f(y) \\ f(z) &amp;\geq λf(x) +(1-λ)f(y) \\ f\big(λx + (1-λ)y\big) &amp;\geq λf(x) + (1-λ)f(y)\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} f(x) &amp;\leq λ_1 f(z) + (1-λ_1) f(y) \\ &amp;\leq \frac{1}{λ} f(z) + \left(1-\frac{1}{λ}\right) f(y) \\ λf(x) &amp;\leq f(z) + (λ-1) f(y) \\ f(z) &amp;\geq λf(x) +(1-λ)f(y) \\ f\big(λx + (1-λ)y\big) &amp;\geq λf(x) + (1-λ)f(y)\end{aligned}\]</span></li>
 <li>When <span class="math inline">\(λ &lt; 0\)</span><br />
 Take <span class="math inline">\(z = λx + (1-λ)y \implies y = \frac{1}{1-λ}z - \frac{λ}{1-λ}x\)</span><br />
 Let <span class="math inline">\(λ_2 = \frac{1}{1-λ} \in [0,1] \implies y = λ_2 z + (1-λ_2) x\)</span><br />
 Since <span class="math inline">\(f\)</span> is convex,<br />
-<span class="math display">\[\begin{aligned} f(y) &amp;\leq λ_2 f(z) + (1-λ_2) f(x) \\ f(y) &amp;\leq \frac{1}{1-λ} f(z) + \left(1-\frac{1}{1-λ}\right) f(x) \\ (1-λ) f(y) &amp;\leq f(z) + (1 - 1 + λ) f(x) \\ f(z) &amp;\geq (1-λ) f(y) + λf(x) \\ f(λx + (1-λ)y) &amp;\geq λf(x) + (1-λ)f(y) \end{aligned}\]</span> ~</li>
+<span class="math display">\[\begin{aligned} f(y) &amp;\leq λ_2 f(z) + (1-λ_2) f(x) \\ f(y) &amp;\leq \frac{1}{1-λ} f(z) + \left(1-\frac{1}{1-λ}\right) f(x) \\ (1-λ) f(y) &amp;\leq f(z) + (1 - 1 + λ) f(x) \\ f(z) &amp;\geq (1-λ) f(y) + λf(x) \\ f(λx + (1-λ)y) &amp;\geq λf(x) + (1-λ)f(y) \end{aligned}\]</span></li>
 </ol></li>
 </ol>
 <blockquote>
@@ -1029,15 +1044,15 @@ Prove its inverse is convex</p>
 Since <span class="math inline">\(f\)</span> is bijection,<br />
 <span class="math inline">\(x_1 = f^{-1}(y_1) = h(y_1)\)</span> and <span class="math inline">\(x_2 f^{-1}(y_2) = h(y_2)\)</span><br />
 <span class="math display">\[\begin{aligned} f\big(λx-1 + (1-λ)x_2\big) &amp;\geq λf(x_1) + (1-λ)f(x_2) \\
-&amp;= λy_1 + (1-λ)y_2\end{aligned}\]</span><br />
+&amp;= λy_1 + (1-λ)y_2\end{aligned}\]</span>
 Since <span class="math inline">\(f\)</span> is strictly increasing, assume <span class="math inline">\(x_1 &lt; x_2\)</span>,<br />
 <span class="math display">\[\begin{matrix} f(x_1) &lt; f(x_2) &amp; x_1 &lt; x_2 \\
-y_1 &lt; y_2 &amp; h(y_1) &lt; h(y_2)\end{matrix}\]</span><br />
+y_1 &lt; y_2 &amp; h(y_1) &lt; h(y_2)\end{matrix}\]</span>
 <span class="math inline">\(\implies h\)</span> is strictly increasing<br />
 <span class="math display">\[\begin{aligned} λy_1 + (1-λ)y_2  &amp;\leq f\big(λx-1 + (1-λ)x_2\big) \\
 h\big( λy_1 + (1-λ)y_2 \big) &amp;\leq h\Big( f\big(λx_1 + (1-λ)x_2 \big) \Big) \\
 &amp;\leq λx_1 + (1-λ)x_2\\ 
-&amp;\leq λh(y_1) + (1-λ)h(y_2)\end{aligned}\]</span><br />
+&amp;\leq λh(y_1) + (1-λ)h(y_2)\end{aligned}\]</span>
 <span class="math inline">\(\implies h\)</span> is convex</p>
 <blockquote>
 <p>PS9.Q4<br />
@@ -1074,7 +1089,7 @@ Take <span class="math inline">\(λ \in[0,1]\)</span>, let <span class="math inl
 Since <span class="math inline">\(f\)</span> is convex,<br />
 <span class="math display">\[\begin{aligned} f(x_3) &amp;\leq λf(x_1) + (1-λ)f(x_2) \\
 &amp;\leq λ y_1 + (1-λ) y_2 \\
-&amp;= y_3\end{aligned}\]</span><br />
+&amp;= y_3\end{aligned}\]</span>
 <span class="math inline">\(\implies y_3 \geq f(x_3)\)</span><br />
 <span class="math inline">\(\implies (x_3,y_3) \in E\)</span><br />
 <span class="math inline">\(\implies E\)</span> is convex.</p>
@@ -1089,7 +1104,7 @@ Let <span class="math inline">\(h \equiv \max\{f,g\}\)</span><br />
 Epigraph of <span class="math inline">\(h\)</span>:<br />
 <span class="math display">\[\begin{aligned} E_h &amp;\equiv \{(x,y)| y\geq h(x)\} \\
 &amp;= \{(x,y)| y\geq f(x) \land y\geq g(x)\} \\
-&amp;=  E_f \cap E_g \end{aligned}\]</span><br />
+&amp;=  E_f \cap E_g \end{aligned}\]</span>
 Take <span class="math inline">\(x,y\in E_f \cap E_g\)</span><br />
 <span class="math inline">\(\implies λx+(1-λ)y \in E_f\)</span> and <span class="math inline">\(λx+(1-λ)y \in E_g\)</span><br />
 <span class="math inline">\(\implies λx+(1-λ)y \in E_f \cap E_g\)</span><br />
@@ -1106,12 +1121,11 @@ Take <span class="math inline">\(x,y\in E_f \cap E_g\)</span><br />
 Prove that <span class="math inline">\(\mathbb{Z}\)</span> is countable by explicitly finding a bijection between <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{N}\)</span></p>
 </blockquote>
 <p>Define <span class="math inline">\(f: \mathbb{Z} \to \mathbb{N}\)</span> as<br />
-<span class="math display">\[f(x) \equiv \begin{cases} 2x &amp; \text{if } x&gt;0 \\ -2x+1 &amp; \text{if } x\leq 0 \end{cases}\]</span><br />
+<span class="math display">\[f(x) \equiv \begin{cases} 2x &amp; \text{if } x&gt;0 \\ -2x+1 &amp; \text{if } x\leq 0 \end{cases}\]</span>
 1. Injective<br />
 2. Surjective<br />
 3. Find <span class="math inline">\(f^{-1}\)</span><br />
-<span class="math display">\[f^{-1}(y) \equiv \begin{cases} \frac{y}{2} &amp; \text{if y is even}\\ -\frac{y-1}{2} &amp; \text{if y is odd or } 0 \end{cases}\]</span><br />
-~</p>
+<span class="math display">\[f^{-1}(y) \equiv \begin{cases} \frac{y}{2} &amp; \text{if y is even}\\ -\frac{y-1}{2} &amp; \text{if y is odd or } 0 \end{cases}\]</span></p>
 </div>
 <div id="finite-countable" class="section level3">
 <h3>Finite &amp; Countable</h3>
@@ -1160,7 +1174,7 @@ Let <span class="math inline">\(ε \equiv \frac{y^*-x^*}{2}\)</span><br />
 ~~~~~~~~~~~~~~<span class="math inline">\(| y_n - y^*| &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_y\)</span><br />
 Let <span class="math inline">\(N\equiv \max \{ N_x, N_y \}\)</span><br />
 <span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
-<span class="math display">\[\begin{aligned}x_n - y_n &amp;= x_n - x^* + x^* - y^* + y^* - y_n \\ &amp;\leq | x_n - x^*| + x^* - y^* + | y_n - y^*| \\ &amp;&lt; x^* - y^* + 2ε \\ &amp;=0 \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned}x_n - y_n &amp;= x_n - x^* + x^* - y^* + y^* - y_n \\ &amp;\leq | x_n - x^*| + x^* - y^* + | y_n - y^*| \\ &amp;&lt; x^* - y^* + 2ε \\ &amp;=0 \end{aligned}\]</span>
 <span class="math inline">\(\implies x_n &lt; y_n\)</span> contradiction</p>
 <blockquote>
 <p>PS5.Q7.1<br />
@@ -1172,10 +1186,9 @@ Prove <span class="math inline">\((x_n + y_n)_n \to x^* + y^*\)</span></p>
 Exist <span class="math inline">\(N_{1(ε)}, N_{2(ε)} \in \mathbb{N}\)</span> s.t.<span class="math inline">\(| x_n - x^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{1(ε)}\)</span>, and <span class="math inline">\(| y_n - y^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{2(ε)}\)</span><br />
 Let <span class="math inline">\(N \equiv \max\{N_{1(ε)}, N_{2(ε)} \}\)</span><br />
 <span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
-<span class="math display">\[\begin{aligned} |(x_n + y_n) - (x^* + y^*)| &amp;=|x_n - x^* + y_n - y^*| \\ &amp;\leq |x_n - x^*|+|y_n - y^*| \\ &amp;&lt; 2ε \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} |(x_n + y_n) - (x^* + y^*)| &amp;=|x_n - x^* + y_n - y^*| \\ &amp;\leq |x_n - x^*|+|y_n - y^*| \\ &amp;&lt; 2ε \end{aligned}\]</span>
 Let <span class="math inline">\(ε&#39; \equiv 2ε\)</span>,<br />
-<span class="math display">\[|(x_n + y_n) - (x^* + y^*)| &lt; ε&#39;\]</span><br />
-~</li>
+<span class="math display">\[|(x_n + y_n) - (x^* + y^*)| &lt; ε&#39;\]</span></li>
 </ol>
 <blockquote>
 <p>PS5.Q7.2<br />
@@ -1187,10 +1200,9 @@ Prove <span class="math inline">\((x_n y_n)_n \to x^*y^*\)</span></p>
 Exist <span class="math inline">\(N_{1(ε)}, N_{2(ε)} \in \mathbb{N}\)</span> s.t.<span class="math inline">\(| x_n - x^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{1(ε)}\)</span>, and <span class="math inline">\(| y_n - y^* | &lt; ε\)</span> for all <span class="math inline">\(n &gt; N_{2(ε)}\)</span><br />
 Let <span class="math inline">\(N \equiv \max\{N_{1(ε)}, N_{2(ε)} \}\)</span><br />
 <span class="math inline">\(\implies \forall n&gt;N\)</span>,<br />
-<span class="math display">\[\begin{aligned} | x_n y_n - x^* y^* | &amp;= | x_n y_n - x_n y^* + x_n y^* - x^* y^*| \\ &amp;= | x_n ( y_n - y^*) + y^* (x_n - x^*) | \\ &amp;\leq |x^n| |y_n - y^*| + | y^*| |x_n - x^*| \\ &amp;&lt; (|x_n| + |y^*|) \cdot ε \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} | x_n y_n - x^* y^* | &amp;= | x_n y_n - x_n y^* + x_n y^* - x^* y^*| \\ &amp;= | x_n ( y_n - y^*) + y^* (x_n - x^*) | \\ &amp;\leq |x^n| |y_n - y^*| + | y^*| |x_n - x^*| \\ &amp;&lt; (|x_n| + |y^*|) \cdot ε \end{aligned}\]</span>
 Let <span class="math inline">\(M \equiv \sup\{ |x_n|, n \in \mathbb{N} \}\)</span><br />
-<span class="math display">\[\begin{aligned} | x_n y_n - x^* y^* | &amp;&lt; (|x_n| + |y^*|) \cdot ε \\ &amp;\leq (M + |y^*|) \cdot ε \end{aligned}\]</span><br />
-~</li>
+<span class="math display">\[\begin{aligned} | x_n y_n - x^* y^* | &amp;&lt; (|x_n| + |y^*|) \cdot ε \\ &amp;\leq (M + |y^*|) \cdot ε \end{aligned}\]</span></li>
 </ol>
 <blockquote>
 <p>PS5.Q7.3<br />
@@ -1200,13 +1212,12 @@ If <span class="math inline">\(x_n, x^* \neq 0\)</span>, then <span class="math 
 <ol start="3" style="list-style-type: decimal">
 <li>Fix some <span class="math inline">\(ε &gt; 0\)</span><br />
 Exists <span class="math inline">\(N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(| x_n - x^*| &lt; ε\)</span> for all <span class="math inline">\(n&gt;N\)</span><br />
-<span class="math display">\[\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &amp;= \left| \frac{x^* - x_n}{x^*x_n} \right| \\ &amp;= | x^* - x_n | \cdot \frac{1}{|x^*|\cdot |x_n|} \\ &amp;&lt; ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &amp;= \left| \frac{x^* - x_n}{x^*x_n} \right| \\ &amp;= | x^* - x_n | \cdot \frac{1}{|x^*|\cdot |x_n|} \\ &amp;&lt; ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \end{aligned}\]</span>
 Let <span class="math inline">\(M \equiv \sup\left\{ \frac{1}{|x_n|}, n \in \mathbb{N} \right\}\)</span><br />
 Since <span class="math inline">\(x_n, x^* \neq 0 \implies M\)</span> is well-defined<br />
-<span class="math display">\[\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &amp;&lt; ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \\ &amp;\leq ε\cdot\frac{M}{|x^*|}\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &amp;&lt; ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \\ &amp;\leq ε\cdot\frac{M}{|x^*|}\end{aligned}\]</span>
 Let <span class="math inline">\(ε&#39; \equiv ε\cdot\frac{M}{|x^*|}\)</span>,<br />
-<span class="math display">\[\left| \frac{1}{x_n} - \frac{1}{x^*} \right| &lt; ε&#39;\]</span><br />
-~</li>
+<span class="math display">\[\left| \frac{1}{x_n} - \frac{1}{x^*} \right| &lt; ε&#39;\]</span></li>
 </ol>
 </div>
 <div id="limit-cluster-point" class="section level3">
@@ -1301,7 +1312,7 @@ Since <span class="math inline">\(x \in B^C \implies B_r(x)\not\subset A\)</span
 Take a strictly decreasing sequence <span class="math inline">\((ε_n)_n \to 0\)</span>, s.t. <span class="math inline">\(\exists x_n \in B_{ε_n}(x) \cap B\)</span> for each <span class="math inline">\(ε_n\)</span><br />
 <span class="math inline">\(\implies (x_n)_n \to x\)</span>, <span class="math inline">\(d(x_n,x)\to 0\)</span><br />
 Take sufficiently large <span class="math inline">\(N\)</span> s.t.<br />
-<span class="math display">\[\begin{aligned} d(x_N,x) &amp;&lt; r-d(x,x&#39;) \\ \implies d(x_N,x&#39;) &amp;\leq d(x_N,x) + d(x, x&#39;) \ \text{triangle ineq.}\\ &amp;&lt; r-d(x,x&#39;) + d(x,x&#39;) \\ &amp;=r \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} d(x_N,x) &amp;&lt; r-d(x,x&#39;) \\ \implies d(x_N,x&#39;) &amp;\leq d(x_N,x) + d(x, x&#39;) \ \text{triangle ineq.}\\ &amp;&lt; r-d(x,x&#39;) + d(x,x&#39;) \\ &amp;=r \end{aligned}\]</span>
 <span class="math inline">\(\implies x&#39; \in B_r(x_N)\)</span><br />
 But by construction <span class="math inline">\(x_N \in B \implies B_r(x_N) \subset A\)</span>, contradiction</li>
 </ol>
