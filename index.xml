@@ -6,10 +6,28 @@
     <description>Recent content on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Mathematics - Optimization</title>
+      <link>/2019/01/notes-math-optimization/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/notes-math-optimization/</guid>
+      <description>Lagrange Kuhn-Tucker Dual Problem   Lagrange  PS11.Q1
+Solve \(\max_{(x,y)\in \mathbb{R}^2} x+y\) s.t. \(x^2+y^2=2\)
+  PS11.Q4
+Solve \(\max_{x,y} xy\) s.t. \(5x+2y=20\)
+  Kuhn-Tucker  PS11.Q2
+Solve \(\max_{(x,y)\in \mathbb{R}^2} -(x_1-4)^2 - (x_2-4)^2\) s.t. \(\begin{cases} x_1+x_2\leq 4 \\ 3x_1+x_2\leq 9\end{cases}\)
+  PS11.Q3
+Solve \(\max_{(x,y)\in \mathbb{R}^2} x_1^2 + x_2^2\) s.t. \(\begin{cases} x_1 \geq 0 \\ x_2\geq 0 \\ 3x_1+x_2\leq 9\end{cases}\)
+  PS11.Q5
+Solve \(\max_{x,y} xy\) s.t. \(\begin{cases} 5x+2y\leq 20 \\ x\geq 0\end{cases}\)</description>
+    </item>
     
     <item>
       <title>Notes on Finance</title>

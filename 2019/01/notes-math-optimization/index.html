@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.52" />
+
+
+<title>Notes on Mathematics - Optimization - loikein</title>
+<meta property="og:title" content="Notes on Mathematics - Optimization - loikein">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/clumsy-findme.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Notes on Mathematics - Optimization</h1>
+
+    
+    <span class="article-date">2019/01/30</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/maths'>maths</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#lagrange">Lagrange</a></li>
+<li><a href="#kuhn-tucker">Kuhn-Tucker</a></li>
+<li><a href="#dual-problem">Dual Problem</a></li>
+</ul>
+</div>
+
+<div id="lagrange" class="section level2">
+<h2>Lagrange</h2>
+<blockquote>
+<p>PS11.Q1<br />
+Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} x+y\)</span>   s.t. <span class="math inline">\(x^2+y^2=2\)</span></p>
+</blockquote>
+<blockquote>
+<p>PS11.Q4<br />
+Solve <span class="math inline">\(\max_{x,y} xy\)</span>   s.t. <span class="math inline">\(5x+2y=20\)</span></p>
+</blockquote>
+</div>
+<div id="kuhn-tucker" class="section level2">
+<h2>Kuhn-Tucker</h2>
+<blockquote>
+<p>PS11.Q2<br />
+Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} -(x_1-4)^2 - (x_2-4)^2\)</span>   s.t. <span class="math inline">\(\begin{cases} x_1+x_2\leq 4 \\ 3x_1+x_2\leq 9\end{cases}\)</span></p>
+</blockquote>
+<blockquote>
+<p>PS11.Q3<br />
+Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} x_1^2 + x_2^2\)</span>   s.t. <span class="math inline">\(\begin{cases} x_1 \geq 0 \\ x_2\geq 0 \\ 3x_1+x_2\leq 9\end{cases}\)</span></p>
+</blockquote>
+<blockquote>
+<p>PS11.Q5<br />
+Solve <span class="math inline">\(\max_{x,y} xy\)</span>   s.t. <span class="math inline">\(\begin{cases} 5x+2y\leq 20 \\ x\geq 0\end{cases}\)</span></p>
+</blockquote>
+</div>
+<div id="dual-problem" class="section level2">
+<h2>Dual Problem</h2>
+<blockquote>
+<p>PS11.Q6<br />
+Let <span class="math inline">\(a\)</span> be a strictly positive real number.<br />
+Consider the following (primal) linear programming problem:<br />
+<span class="math inline">\(\max 2x_1+4x_2\)</span>   s.t. <span class="math inline">\(\begin{cases} 3x_1 + 5x_2 \leq a \\ x_1\geq 0 \\ x_2\geq 0\end{cases}\)</span><br />
+1. Write its associated dual problem in terms of <span class="math inline">\(y_1\)</span><br />
+2. Obtain the solution of the dual problem. Which constraints bind?<br />
+3. Show explicitly that if <span class="math inline">\((x_1,x_2)\)</span> and <span class="math inline">\(y_1\)</span> are feasible in the primal and dual problems, respectively, then <span class="math inline">\(2x_1+ 4x_2 \leq ay_1\)</span><br />
+4. Use the equilibrium theorem to find the solution of the primal problem</p>
+</blockquote>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
