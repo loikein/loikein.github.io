@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">3 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Optimization</h1>
@@ -87,29 +87,81 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#lagrange">Lagrange</a></li>
-<li><a href="#kuhn-tucker">Kuhn-Tucker</a></li>
+<li><a href="#lagrange-method">Lagrange Method</a></li>
+<li><a href="#kuhn-tucker-method">Kuhn-Tucker Method</a></li>
 <li><a href="#dual-problem">Dual Problem</a></li>
 </ul>
 </div>
 
-<div id="lagrange" class="section level2">
-<h2>Lagrange</h2>
+<div id="lagrange-method" class="section level2">
+<h2>Lagrange Method</h2>
 <blockquote>
 <p>PS11.Q1<br />
 Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} x+y\)</span>   s.t. <span class="math inline">\(x^2+y^2=2\)</span></p>
 </blockquote>
+<p>Lagrangian:
+<span class="math display">\[\mathcal{L}(x,y,λ) = x+y+λ(x^2+y^2-2)\]</span>
+FOC
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = 1 + 2λx = 0 &amp;&amp; x &amp;= -\frac{1}{2λ} \\
+\frac{\partial\mathcal{L}}{\partial y} = 1 + 2λy = 0 &amp;&amp; y &amp;= -\frac{1}{2λ} \\
+x^2+y^2=2 &amp;&amp; \frac{1}{4λ^2} &amp;= 1 \implies λ = \pm \frac{1}{2}\end{aligned}\]</span>
+1. When <span class="math inline">\(λ = \frac{1}{2}\)</span><br />
+<span class="math display">\[\begin{aligned} x &amp;= -1 \\ y &amp;= -1 \\ x+y &amp;= -2\end{aligned}\]</span>
+2. When <span class="math inline">\(λ = -\frac{1}{2}\)</span><br />
+<span class="math display">\[\begin{aligned} x &amp;= 1 \\ y &amp;= 1 \\ x+y &amp;= 2\end{aligned}\]</span>
+Therefore, <span class="math inline">\(\max x+y = 2\)</span></p>
 <blockquote>
 <p>PS11.Q4<br />
 Solve <span class="math inline">\(\max_{x,y} xy\)</span>   s.t. <span class="math inline">\(5x+2y=20\)</span></p>
 </blockquote>
+<p>Lagrangian:
+<span class="math display">\[\mathcal{L}(x,y, λ) = xy + λ(5x+2y-20)\]</span>
+FOC
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = y + 5λ = 0 &amp;&amp; y = -5λ \\
+\frac{\partial\mathcal{L}}{\partial y} = x + 2λ = 0 &amp;&amp; x = -2 λ \\
+5x+2y-20 = 0 &amp;&amp; \end{aligned}\]</span>
+Solve
+<span class="math display">\[\begin{aligned} λ &amp;= -1 \\ x &amp;= 2 \\ y &amp;= 5\end{aligned}\]</span>
+Therefore, <span class="math inline">\(\max xy = 10\)</span></p>
 </div>
-<div id="kuhn-tucker" class="section level2">
-<h2>Kuhn-Tucker</h2>
+<div id="kuhn-tucker-method" class="section level2">
+<h2>Kuhn-Tucker Method</h2>
 <blockquote>
 <p>PS11.Q2<br />
 Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} -(x_1-4)^2 - (x_2-4)^2\)</span>   s.t. <span class="math inline">\(\begin{cases} x_1+x_2\leq 4 \\ 3x_1+x_2\leq 9\end{cases}\)</span></p>
 </blockquote>
+<p>Kuhn-Tucker conditions:
+<span class="math display">\[\begin{aligned} x_1+x_2\leq 4 &amp;\implies λ_1(4 - x_1 - x_2) \geq 0 \\
+3x_1+x_2\leq 9 &amp;\implies λ_2(9 - 3x_1 - x_2) \geq 0\end{aligned}\]</span>
+Lagrangian:
+<span class="math display">\[\begin{aligned} \mathcal{L}(x_1,x_2,λ_1, λ_2) = &amp;-(x_1-4)^2 - (x_2-4)^2 \\ &amp;+ λ_1(4 - x_1 - x_2) + λ_2(9 - 3x_1 - x_2) \end{aligned}\]</span>
+FOC
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x_1} = -2(x_1-4) - λ_1 - 3λ_2 &amp;= 0 \\
+\frac{\partial\mathcal{L}}{\partial x_2} = -2(x_2-4) - λ_1 - λ_2 &amp;= 0 \\
+λ_1(4 - x_1 - x_2) &amp;= 0 \\
+λ_2(9 - 3x_1 - x_2) &amp;= 0\end{aligned}\]</span></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(λ_1 = 0\)</span> and <span class="math inline">\(λ_2 = 0\)</span>
+<span class="math display">\[\begin{cases} -2(x_1-4) =0 \\ -2(x_2-4) =0\end{cases}\]</span>
+<span class="math inline">\(\implies x_1 = x_2 = 4\)</span><br />
+<span class="math inline">\(\implies x_1+x_2 \not\leq 4\)</span> (omitted)<br />
+</li>
+<li><span class="math inline">\(λ_1 &gt; 0\)</span> and <span class="math inline">\(λ_2 = 0\)</span>
+<span class="math display">\[\begin{cases} x_1+x_2 = 4 \\ -2(x_1-4) - λ_1 = 0 \\ -2(x_2-4) - λ_1 = 0\end{cases}\]</span>
+<span class="math inline">\(\implies \begin{cases} x_1 = x_2 = 2 \\ λ_1 = 4 &gt; 0\\ \end{cases}\)</span><br />
+<span class="math inline">\(\implies \begin{cases} x_1+x_2 = 4\leq 4 \\ 3x_1+x_2 = 8 \leq 9\\ \end{cases}\)</span><br />
+All constraints are satisfied, <span class="math inline">\(-(x_1-4)^2 - (x_2-4)^2 = -8\)</span><br />
+</li>
+<li><span class="math inline">\(λ_1 = 0\)</span> and <span class="math inline">\(λ_2 &gt; 0\)</span>
+<span class="math display">\[\begin{cases} 9 - 3x_1 - x_2 = 0 \\ -2(x_1-4) - 3λ_2 = 0 \\ -2(x_2-4)- λ_2 = 0\end{cases}\]</span>
+<span class="math inline">\(\implies \begin{cases} x_1 = -\frac{3λ_2}{2} + 4 \\ x_2 = -\frac{λ_2}{2} + 4 \\ λ_2 = \frac{7}{5} &gt; 0\end{cases}\)</span><br />
+<span class="math inline">\(\implies x_1+x_2 \not\leq 4\)</span> (omitted)<br />
+</li>
+<li><span class="math inline">\(λ_1 &gt; 0\)</span> and <span class="math inline">\(λ_2 &gt; 0\)</span>
+<span class="math display">\[\begin{cases} x_1+x_2 = 4\\ 3x_1+x_2= 9 \\ -2(x_1-4) - λ_1 - 3λ_2 = 0 \\ -2(x_2-4) - λ_1 - λ_2 = 0\end{cases}\]</span>
+<span class="math inline">\(\implies \begin{cases} x_1 = \frac{5}{2} \\ x_2 = \frac{3}{2} \\ λ_1 = 6 &gt; 0 \\ λ_2 = -1 &lt; 0\end{cases}\)</span> (omitted)</li>
+</ol>
+<p>Therefore, <span class="math inline">\(\max -(x_1-4)^2 - (x_2-4)^2 = -8\)</span></p>
 <blockquote>
 <p>PS11.Q3<br />
 Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} x_1^2 + x_2^2\)</span>   s.t. <span class="math inline">\(\begin{cases} x_1 \geq 0 \\ x_2\geq 0 \\ 3x_1+x_2\leq 9\end{cases}\)</span></p>
@@ -121,6 +173,15 @@ Solve <span class="math inline">\(\max_{x,y} xy\)</span>   s.t. <span class="m
 </div>
 <div id="dual-problem" class="section level2">
 <h2>Dual Problem</h2>
+<ul>
+<li>Primal Problem:
+<span class="math display">\[\begin{aligned} \max_{x\in\mathcal{A}} c^Tx &amp;&amp; \mathcal{A} = \{x\in \mathbb{R}^n \ | \ Ax \leq b, x\geq 0\} \end{aligned}\]</span></li>
+<li>Dual Problem:
+<span class="math display">\[\begin{aligned} \min_{y\in\mathcal{B}} b^Ty &amp;&amp; \mathcal{B} = \{y\in \mathbb{R}^m \ | \ A^Ty \geq c, y\geq 0\} \end{aligned}\]</span></li>
+<li>Weak Duality: <span class="math inline">\(x\)</span> is feasible <span class="math inline">\(\implies c^T x\leq b^T y\)</span> for any feasible <span class="math inline">\(y\)</span><br />
+</li>
+<li>Strong Duality: <span class="math inline">\(x^*\)</span> is optimal <span class="math inline">\(\implies y^*\)</span> is optimal, <span class="math inline">\(c^Tx^*=b^Ty^*\)</span></li>
+</ul>
 <blockquote>
 <p>PS11.Q6<br />
 Let <span class="math inline">\(a\)</span> be a strictly positive real number.<br />
