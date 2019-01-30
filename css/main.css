@@ -48,6 +48,8 @@ a {
 table {
 	margin: auto;
 	min-width: 80%;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
 }
 
 table, table tr th, table tr td{

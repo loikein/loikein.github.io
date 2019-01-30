@@ -60,7 +60,7 @@
 
   <article class="article">
     
-    <span class="article-duration">28 min read</span>
+    <span class="article-duration">32 min read</span>
     
 
     <h1 class="article-title">Notes on Finance</h1>
@@ -142,7 +142,11 @@
 <li><a href="#share-repurchase">Share Repurchase</a></li>
 <li><a href="#tax-and-dividend">Tax and Dividend</a></li>
 </ul></li>
-<li><a href="#options">Options</a></li>
+<li><a href="#options">Options</a><ul>
+<li><a href="#put-call-parity">Put-Call Parity</a></li>
+<li><a href="#early-exercise-american">Early Exercise (American)</a></li>
+<li><a href="#binomial-option-pricing-model">Binomial Option Pricing Model</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -1248,6 +1252,249 @@ Why is an announcement of a share repurchase considered a positive signal?</p>
 </div>
 <div id="options" class="section level2">
 <h2>Options</h2>
+<ul>
+<li>Call Option: buy an asset</li>
+<li>Put Option: sell an asset</li>
+<li>American Option: can exercise on any date before (including) the expiration date</li>
+<li>European Option: can exercise only on the expiration date</li>
+<li>Buyer = Holder = Long Position = has the option to exercise</li>
+<li>Seller = Writer = Short Position = has the obligation to fulfill</li>
+<li>Price of option is always positive
+<ul>
+<li>Long investor can only receive money at expiration</li>
+<li>Short investor can only pay money</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Stock Price &amp; Option Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>in the money</td>
+<td>Stock Price &gt; Option Price</td>
+</tr>
+<tr class="even">
+<td>at the money</td>
+<td>Stock Price = Option Price</td>
+</tr>
+<tr class="odd">
+<td>out of the money</td>
+<td>Stock Price &lt; Option Price</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>PS.20-18, Mock.I.Q2<br />
+You happen to be checking the newspaper and notice an arbitrage opportunity.<br />
+The current stock price of Intrawest is $20 per share and the one-year risk-free interest rate is 8%.<br />
+A one year put on Intrawest with a strike price of $18 sells for $3.33, while the identical call sells for $7.<br />
+Explain what you must do to exploit this arbitrage opportunity. Provide calculations.</p>
+</blockquote>
+<div id="put-call-parity" class="section level3">
+<h3>Put-Call Parity</h3>
+<ul>
+<li>Option Portfolio Insurance
+<ul>
+<li>hold stock + buy put option</li>
+<li>hold bond + buy call option</li>
+</ul></li>
+<li>Strike Price <span class="math inline">\(K\)</span>: the price we want to insure that the stock will not drop below</li>
+<li>Call Price <span class="math inline">\(C\)</span></li>
+<li>Put Price <span class="math inline">\(P\)</span></li>
+<li>Stock Price <span class="math inline">\(S\)</span></li>
+<li>Intrinsic Value: <span class="math inline">\(S-K\)</span></li>
+<li>Put-Call Parity gives:
+<span class="math display">\[\begin{aligned} \underbrace{S + P}_{\text{stock &amp; put}} &amp;= \underbrace{PV(K) + PV(Div) + C}_{\text{bond &amp; call}} \\ \underbrace{C}_{\text{European call}} &amp;= P + S - PV(K) - PV(Div)\end{aligned}\]</span> ~</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Call Value (buy an asset)</th>
+<th>Put Value (sell an asset)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Long at Expiration (buyer, holder)</td>
+<td><span class="math inline">\(C = \max(S-K, \ 0)\)</span></td>
+<td><span class="math inline">\(P = \max(K-S, \ 0)\)</span></td>
+</tr>
+<tr class="even">
+<td>Short (seller, writer)</td>
+<td><span class="math inline">\(- \max(S-K, \ 0)\)</span></td>
+<td><span class="math inline">\(-\max(K-S, \ 0)\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="early-exercise-american" class="section level3">
+<h3>Early Exercise (American)</h3>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="45%" />
+<col width="45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Call</th>
+<th>Put</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>non-dividend</td>
+<td><span class="math inline">\(C = S-K + \underbrace{dis(K) + P}_{\text{time value}&gt;0}\)</span></td>
+<td><span class="math inline">\(P = K-S + \underbrace{C-dis(K)}_{\text{time value}\lessgtr 0}\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(no)</td>
+<td>(maybe)</td>
+</tr>
+<tr class="odd">
+<td>dividend</td>
+<td><span class="math inline">\(C = S-K + \underbrace{dis(K) + P - PV(Div)}_{\text{time value}\lessgtr 0}\)</span></td>
+<td><span class="math inline">\(P = K-S + \underbrace{C-dis(K) + PV(Div)}_{\text{time value}&gt; 0}\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(maybe)</td>
+<td>(usually no)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>PS.20-23<br />
+Explain why an American call option on a non-dividend-paying stock always has the same price as its European counterpart.</p>
+</blockquote>
+<p>Since exercising early is worthless, the American option provides no more benefits than its European counterpart.</p>
+</div>
+<div id="binomial-option-pricing-model" class="section level3">
+<h3>Binomial Option Pricing Model</h3>
+<ul>
+<li><h1 id="of-stock-">of stock: <span class="math inline">\(Δ\)</span></h1></li>
+<li>Position in the bond: <span class="math inline">\(B\)</span>
+<span class="math display">\[\begin{aligned} C_u &amp;= S_u\cdot Δ + (1+r_f)\cdot B \\ C_d &amp;= S_d\cdot Δ + (1+r_f)\cdot B \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} Δ &amp;= \frac{C_u - C_d}{S_u - S_d} \\ B &amp;= \frac{C_d - S_d\cdot Δ}{1+r_f}\end{aligned}\]</span><br />
+</li>
+<li>Call Price: <span class="math inline">\(C = S\cdot Δ + B\)</span></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>0</th>
+<th>1</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Stock</td>
+<td>Bond</td>
+<td>Call</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(S\)</span></td>
+<td><span class="math inline">\(S_u\)</span></td>
+<td></td>
+<td><span class="math inline">\(C_u\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(S_d\)</span></td>
+<td></td>
+<td><span class="math inline">\(C_d\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>PS.21-3<br />
+The current price of Natasha Corporation stock is $6.<br />
+In each of the next two years, this stock price can either go up by $2.50 or go down by $2.<br />
+The stock pays no dividends.<br />
+The one-year risk-free interest rate is 3% and will remain constant.<br />
+Using the Binomial Model, calculate the price of a two-year call option on Natasha stock with a strike price of $7.</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>Stock</td>
+<td>Stock</td>
+<td>Call</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>8.5</td>
+<td>11</td>
+<td><span class="math inline">\(\max (11-7,0) = 4\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>6.5</td>
+<td><span class="math inline">\(\max (6.5-7,0) = 0\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4</td>
+<td>6.5</td>
+<td><span class="math inline">\(\max (6.5-7,0) = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>2</td>
+<td><span class="math inline">\(\max (2-7,0) = 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Up state:<br />
+<span class="math display">\[\begin{aligned} Δ &amp;= \frac{C_u - C_d}{S_u - S_d} \\
+&amp;= \frac{4 - 0}{11 - 6.5} \\ &amp;= 0.889\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} B &amp;= \frac{C_d - S_d\cdot Δ}{1+r_f} \\
+&amp;= \frac{0 - 6.5\cdot 0.889}{1+3\%} \\ &amp;= −5.61\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} C &amp;= S\cdot Δ + B \\
+&amp;= 8.5\cdot 0.889 − 5.61 \\ &amp;= 1.95\end{aligned}\]</span><br />
+Down state: 0<br />
+Whole portfolio:<br />
+<span class="math display">\[\begin{aligned} Δ &amp;= \frac{C_u - C_d}{S_u - S_d} \\
+&amp;= \frac{1.95 - 0}{8.5 - 4} \\ &amp;= 0.433\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} B &amp;= \frac{C_d - S_d\cdot Δ}{1+r_f} \\
+&amp;= \frac{0 - 4\cdot 0.433}{1+3\%} \\ &amp;= −1.68\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} C &amp;= S\cdot Δ + B \\
+&amp;= 6\cdot 0.433 − 1.68 \\ &amp;= 0.92\end{aligned}\]</span> ~</p>
+<blockquote>
+<p>PS.21-9<br />
+Hema Corp. is an all equity firm with a current market value of $1000 million (i.e., $1 billion), and will be worth $900 million or $1400 million in one year.<br />
+The risk-free interest rate is 5%. Suppose Hema Corp. issues zero-coupon, one-year debt with a face value of $1050 million, and uses the proceeds to pay a special dividend to shareholders.<br />
+Assuming perfect capital markets, use the binomial model to answer the following:<br />
+1. What are the payoffs of the firm’s debt in one year?<br />
+2. What is the value today of the debt today?<br />
+3. What is the yield on the debt?<br />
+4. Using Modigliani-Miller, what is the value of Hema’s equity before the dividend is paid?<br />
+What is the value of equity just after the dividend is paid?<br />
+5. Show that the ex-dividend value of Hema’s equity is consistent with the binomial model.<br />
+What is the Δ of the equity, when viewed as a call option on the firm’s assets?</p>
+</blockquote>
+</div>
 </div>
 
     </div>
