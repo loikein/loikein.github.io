@@ -21,6 +21,18 @@
     </item>
     
     <item>
+      <title>Notes on Mathematics - Optimization</title>
+      <link>/2019/01/notes-math-optimization/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/notes-math-optimization/</guid>
+      <description>Lagrange Method Kuhn-Tucker Method Dual Problem   Lagrange Method  PS11.Q1
+Solve \(\max_{(x,y)\in \mathbb{R}^2} x+y\) s.t. \(x^2+y^2=2\)
+ Lagrangian: \[\mathcal{L}(x,y,λ) = x+y+λ(x^2+y^2-2)\] FOC \[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = 1 + 2λx = 0 &amp;amp;&amp;amp; x &amp;amp;= -\frac{1}{2λ} \\ \frac{\partial\mathcal{L}}{\partial y} = 1 + 2λy = 0 &amp;amp;&amp;amp; y &amp;amp;= -\frac{1}{2λ} \\ x^2+y^2=2 &amp;amp;&amp;amp; \frac{1}{4λ^2} &amp;amp;= 1 \implies λ = \pm \frac{1}{2}\end{aligned}\] 1. When \(λ = \frac{1}{2}\)
+\[\begin{aligned} x &amp;amp;= -1 \\ y &amp;amp;= -1 \\ x+y &amp;amp;= -2\end{aligned}\] 2.</description>
+    </item>
+    
+    <item>
       <title>Notes on Mathematical Proofs</title>
       <link>/2019/01/notes-math-proof/</link>
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
