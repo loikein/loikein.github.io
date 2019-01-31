@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">5 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Optimization</h1>
@@ -183,6 +183,8 @@ Solve <span class="math inline">\(\max_{x,y} xy\)</span>   s.t. <span class="m
 <li>Weak Duality: <span class="math inline">\(x\)</span> is feasible <span class="math inline">\(\implies c^T x\leq b^T y\)</span> for any feasible <span class="math inline">\(y\)</span><br />
 </li>
 <li>Strong Duality: <span class="math inline">\(x^*\)</span> is optimal <span class="math inline">\(\implies y^*\)</span> is optimal, <span class="math inline">\(c^Tx^*=b^Ty^*\)</span></li>
+<li>Equilibrium Theorem: feasible <span class="math inline">\(x^*\)</span> and <span class="math inline">\(y^*\)</span> are optimal<br />
+<span class="math inline">\(\iff\)</span> <span class="math inline">\(\begin{cases} y_i^* \cdot(b_i - \sum_j^n a_{ij}x_j^*)= 0 &amp;&amp; \text{for all }i \\ x_j^* \cdot ( \sum_i^m a_{ij}y_i^* - c_j) = 0 &amp;&amp; \text{for all }j \end{cases}\)</span></li>
 </ul>
 <blockquote>
 <p>PS11.Q6<br />
@@ -194,6 +196,43 @@ Consider the following (primal) linear programming problem:<br />
 3. Show explicitly that if <span class="math inline">\((x_1,x_2)\)</span> and <span class="math inline">\(y_1\)</span> are feasible in the primal and dual problems, respectively, then <span class="math inline">\(2x_1+ 4x_2 \leq ay_1\)</span><br />
 4. Use the equilibrium theorem to find the solution of the primal problem</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Rewrite the primal problem:<br />
+<span class="math display">\[\max \begin{pmatrix} 2 \\ 4 \end{pmatrix}^T \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\]</span>
+s.t.<br />
+<span class="math display">\[\begin{cases} \begin{pmatrix} 3 &amp;&amp; 5 \end{pmatrix} \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \leq a \\
+\phantom{1234567890}\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \geq \begin{pmatrix} 0 \\ 0 \end{pmatrix}\end{cases}\]</span>
+The dual problem:<br />
+<span class="math display">\[\min a \cdot y_1\]</span>
+s.t.<br />
+<span class="math display">\[\begin{cases} \begin{pmatrix} 3 \\ 5 \end{pmatrix} \cdot y_1 \geq \begin{pmatrix} 2 \\ 4 \end{pmatrix} \\
+\phantom{123456} y_1\geq 0 \end{cases}\]</span></li>
+<li>The constraints:<br />
+<span class="math display">\[\begin{cases} 3y_1 \geq 2 \\ 5y_1\geq 4 \\ \phantom{1} y_1\geq 0 \end{cases}\]</span>
+Solve:<br />
+<span class="math display">\[\begin{aligned}y_1 &amp;= \frac{4}{5} \\ a \cdot y_1 &amp;= a\cdot \frac{4}{5}\end{aligned}\]</span>
+The binding constraint is <span class="math inline">\(5y_1\geq 4\)</span><br />
+</li>
+<li>Since <span class="math inline">\(x_1,x_2,y_1\)</span> is feasible,<br />
+<span class="math display">\[\begin{aligned} Ax &amp;\leq b \\
+y^TAx &amp;\leq y^T b\end{aligned}\]</span>
+and<br />
+<span class="math display">\[\begin{aligned} A^Ty &amp;\geq c \\
+y^T A &amp;\geq c^T \\
+y^T A x &amp;\geq c^T x\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned} c^T x &amp;\leq y^T A x \leq y^T b \\
+c^T x &amp;\leq y^T b \\
+\begin{pmatrix} 2 \\ 4 \end{pmatrix}^T \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} &amp;\leq y_1\cdot a \\
+2x_1+ 4x_2 &amp;\leq ay_1\end{aligned}\]</span></li>
+<li>Since the first constraint of the dual problem, <span class="math inline">\(3y_1 \geq 2\)</span> is not binding<br />
+<span class="math inline">\(\implies x_1 = 0\)</span><br />
+Since <span class="math inline">\(y_1 = \frac{4}{5} &gt; 0\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(\begin{pmatrix} 3 &amp;&amp; 5 \end{pmatrix} \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \leq a\)</span> is binding<br />
+<span class="math inline">\(\implies 3x_1 + 5x_2 = a\)</span><br />
+<span class="math inline">\(\implies x_2 = \frac{a}{5}\)</span><br />
+<span class="math inline">\(\implies \max 2x_1+4x_2 = \frac{4a}{5}\)</span></li>
+</ol>
 </div>
 
     </div>
