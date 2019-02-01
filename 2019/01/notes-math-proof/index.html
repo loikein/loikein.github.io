@@ -679,8 +679,8 @@ Take <span class="math inline">\(ε \equiv 2δ\)</span><br />
 <div id="value-theorems" class="section level3">
 <h3>Value Theorems</h3>
 <ul>
-<li>Mean value theorem: if <span class="math inline">\(f \in \mathcal{C}^0[a,b]\)</span> and <span class="math inline">\(f \in \mathcal{C}^1(a,b)\)</span>, then exists some <span class="math inline">\(c \in (a, b)\)</span> s.t. <span class="math inline">\(f&#39;(c) = \frac{f(b) - f(a)}{b - a}\)</span></li>
-<li>Intermediate value theorem</li>
+<li>Mean value theorem: if <span class="math inline">\(f \in \mathcal{C}^0\big([a,b],\mathbb{R}\big)\)</span> and <span class="math inline">\(f \in \mathcal{C}^1\big((a,b),\mathbb{R}\big)\)</span>, then exists some <span class="math inline">\(c \in (a, b)\)</span> s.t. <span class="math inline">\(f&#39;(c) = \frac{f(b) - f(a)}{b - a}\)</span></li>
+<li>Intermediate value theorem: if <span class="math inline">\(f\in\mathcal{C}^0(A,\mathbb{R})\)</span>, <span class="math inline">\(A\)</span> is connected, then exists some <span class="math inline">\(c \in (a,b)\)</span> s.t. <span class="math inline">\(f(c) = y\)</span> for any <span class="math inline">\(a,b \in A\)</span>, for any <span class="math inline">\(y \in \big(f(a),f(b)\big)\)</span></li>
 <li>Extreme value theorem: if <span class="math inline">\(A\)</span> is compact, <span class="math inline">\(f: A\to \mathbb{R}\)</span> is continuous, then exists some <span class="math inline">\(x \in A\)</span> s.t. <span class="math inline">\(f(x) = \max \big( f(A) \big)\)</span></li>
 <li>Brouwer’s fixed point: if <span class="math inline">\(A\)</span> is compact and convex, <span class="math inline">\(f: A\to A\)</span> is continuous, then <span class="math inline">\(f\)</span> has a fixed point</li>
 <li>Kakutani’s fixed point</li>
@@ -765,7 +765,7 @@ Let <span class="math inline">\(ε = δ\)</span><br />
 <p>PS9.Q2<br />
 Let <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})\)</span><br />
 Assume exists <span class="math inline">\(λ\in(0,1)\)</span> s.t. <span class="math inline">\(f&#39;(x)\in [-λ,λ]\)</span> for all <span class="math inline">\(x\)</span><br />
-Prove that <span class="math inline">\(f\)</span> is contraction
+Prove that <span class="math inline">\(f\)</span> is contraction<br />
 Hint: Use the mean value theorem</p>
 </blockquote>
 <p>Take arbitrary <span class="math inline">\(x, y\)</span><br />
@@ -1024,7 +1024,10 @@ Contradicts that <span class="math inline">\(\hat{x}\in \text{argmax}_{x\in B} f
 </li>
 <li>Function <span class="math inline">\(f\)</span> is strictly concave if <span class="math inline">\(f\big[ λx_1 + (1-λ)x_2\big] &gt; λf(x_1) + (1-λ) f(x_2)\)</span> for all <span class="math inline">\(x_1 \neq x_2\)</span>, <span class="math inline">\(λ\in(0,1)\)</span><br />
 </li>
-<li>Function <span class="math inline">\(f\)</span> is (strictly) convex if <span class="math inline">\(-f\)</span> is (strictly) concave.</li>
+<li>Function <span class="math inline">\(f\)</span> is (strictly) convex if <span class="math inline">\(-f\)</span> is (strictly) concave<br />
+</li>
+<li>Function <span class="math inline">\(f\)</span> is quasi-concave if <span class="math inline">\(f\big[ λx_1 + (1-λ)x_2\big]\geq\min \big[ f(x_1),f(x_2) \big]\)</span></li>
+<li>Function <span class="math inline">\(f\)</span> is quasi-convex if <span class="math inline">\(f\big[ λx_1 + (1-λ)x_2\big]\leq\max \big[ f(x_1),f(x_2) \big]\)</span></li>
 </ul>
 <blockquote>
 <p>PS6.Q5<br />
