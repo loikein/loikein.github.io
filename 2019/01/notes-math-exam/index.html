@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">15 min read</span>
+    <span class="article-duration">16 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -135,9 +135,10 @@
 <p>Words of warning:</p>
 <ul>
 <li>This post will only exist during 1st ~ 2nd exam term.<br />
-It will be merged into <a href="https://loikein.github.io/2019/01/notes-math-proof/">Notes on Mathematical Proofs</a> afterwards.<br />
+Afterwards, it will be restructured and merged into <a href="https://loikein.github.io/2019/01/notes-math-proof/">Notes on Mathematical Proofs</a>.<br />
 </li>
-<li>Sometimes I take approaches different from the solutions.<br />
+<li>Sometimes I take approaches different from the solutions, or use different notations for clarity.<br />
+Buy it or not.<br />
 I am only responsible for my own grades.</li>
 </ul>
 <p>~</p>
@@ -605,6 +606,36 @@ Prove that if <span class="math inline">\(f:[a,b]\to \mathbb{R}\)</span> is cont
 then there exists <span class="math inline">\(c\in (a, b)\)</span> s.t. <span class="math inline">\(f(c) = 0\)</span><br />
 DO NOT use the intermediate value theorem</p>
 </blockquote>
+<p>Note: The solution uses infimum, but it helps for me to also think of supremum.<br />
+Reference:<br />
+<a href="https://brilliant.org/wiki/intermediate-value-theorem/#proofs-of-the-intermediate-value-theorem">Brilliant Math &amp; Science Wiki</a><br />
+<a href="https://math.stackexchange.com/questions/1092358/proof-of-the-intermediate-value-theorem">Mathematics Stack Exchange</a></p>
+<p>Since <span class="math inline">\(f\)</span> is continuous,<br />
+<span class="math inline">\(\implies\)</span> for <span class="math inline">\(ε = -f(a) &gt; 0\)</span>, exists <span class="math inline">\(δ&gt;0\)</span> s.t. for all <span class="math inline">\(x\in B_δ(a)\)</span>,<br />
+<span class="math display">\[\begin{aligned} f(x) &amp;\in B_ε\big(f(a)\big) \\
+\big|f(x) - f(a)\big| &amp;&lt; ε \end{aligned}\]</span>
+Consider set <span class="math inline">\(S = \{ x\in[a,b] \ | \ f(x) &lt; 0\}\)</span>, <span class="math inline">\(a\in S\)</span><br />
+Since <span class="math inline">\(S\)</span> is non-empty and bounded, <span class="math inline">\(S\)</span> has least upper bound <span class="math inline">\(x_0\)</span></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f(x_0) &gt; 0\)</span><br />
+<span class="math inline">\(\implies\)</span> for <span class="math inline">\(ε = f(x_0)&gt;0\)</span>, exists exists <span class="math inline">\(δ&gt;0\)</span> s.t. for all <span class="math inline">\(x\in B_δ(x_0)\)</span>,<br />
+<span class="math display">\[\begin{aligned} f(x) &amp;\in B_ε\big(f(x_0)\big) \\
+\big|f(x) - f(x_0)\big| &amp;&lt; ε \\
+f(x) &gt; 0\end{aligned}\]</span>
+<span class="math inline">\(\implies x\not\in S\)</span> for all <span class="math inline">\(x\in B_δ(x_0)\)</span><br />
+<span class="math inline">\(\implies (x_0-δ)\)</span> is an upper bound of <span class="math inline">\(S\)</span><br />
+Contradicts that <span class="math inline">\(x_0\)</span> is the least upper bound<br />
+</li>
+<li><span class="math inline">\(f(x_0) &lt; 0\)</span><br />
+<span class="math inline">\(\implies\)</span> for <span class="math inline">\(ε = -f(x_0)&gt;0\)</span>, exists exists <span class="math inline">\(δ&gt;0\)</span> s.t. for all <span class="math inline">\(x\in B_δ(x_0)\)</span>,<br />
+<span class="math display">\[\begin{aligned} f(x) &amp;\in B_ε\big(f(x_0)\big) \\
+\big|f(x) - f(x_0)\big| &amp;&lt; ε \\
+f(x) &lt; 0\end{aligned}\]</span>
+<span class="math inline">\(\implies x\in S\)</span> for all <span class="math inline">\(x\in B_δ(x_0)\)</span><br />
+Contradicts that <span class="math inline">\(x_0\)</span> is an upper bound<br />
+</li>
+<li>Therefore <span class="math inline">\(f(x_0) = 0\)</span></li>
+</ol>
 </div>
 <div id="contraction" class="section level3">
 <h3>Contraction</h3>
