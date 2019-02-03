@@ -333,15 +333,15 @@ Let <span class="math inline">\(\{ A_i \}_{i \in Ι}\)</span> be any arbitrary c
 Prove that <span class="math inline">\(\big( \cup_{i\in Ι} A_i \big)^c = \cap _{i\in Ι} A_i^c\)</span></p>
 </blockquote>
 <blockquote>
-<p>PS1.Q4<br />
+<p>PS1.Q4, 2016.F1.Q1<br />
 Let <span class="math inline">\(A, B \subset U\)</span> be two sets<br />
 Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></p>
 </blockquote>
 <p>Let <span class="math inline">\(x\in (A\backslash B)^c\)</span><br />
-<span class="math inline">\(\iff x \notin A \backslash B\)</span><br />
-<span class="math inline">\(\iff \lnot \{ x \in A \land x\notin B\}\)</span><br />
-<span class="math inline">\(\iff \{ x \notin A \lor x\in B\}\)</span><br />
-<span class="math inline">\(\iff \{ x \in A^c \lor x\in B\}\)</span><br />
+<span class="math inline">\(\iff \lnot (x \in A \backslash B)\)</span><br />
+<span class="math inline">\(\iff \lnot (x \in A \land x\notin B)\)</span><br />
+<span class="math inline">\(\iff (x \notin A) \lor (x\in B)\)</span><br />
+<span class="math inline">\(\iff (x \in A^c) \lor (x\in B)\)</span><br />
 <span class="math inline">\(\iff x \in A^c \cup B\)</span><br />
 <span class="math inline">\(\implies (A\backslash B)^c = A^c \cup B\)</span></p>
 <blockquote>
@@ -646,7 +646,7 @@ Is it surjective?</p>
 <ul>
 <li>Function <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(x \iff \exists δ&gt;0\)</span> s.t. <span class="math inline">\(f\big( B_δ(x)\big) \subset B_ε\big(f(x)\big)\)</span> for all <span class="math inline">\(ε\)</span>.<br />
 </li>
-<li>Function <span class="math inline">\(f: U \to U&#39;\)</span> is continous at <span class="math inline">\(x \in U\)</span> <span class="math inline">\(\Longleftarrow\)</span> <span class="math inline">\(\big( f(x_n)\big)_n \to x\)</span> for all <span class="math inline">\((x_n)_n \in U \to x\)</span>.<br />
+<li>Function <span class="math inline">\(f: U \to U&#39;\)</span> is continous at <span class="math inline">\(x \in U\)</span> <span class="math inline">\(\Longleftarrow\)</span> <span class="math inline">\(\big( f(x_n)\big)_n \to f(x)\)</span> for all <span class="math inline">\((x_n)_n \in U \to x\)</span>.<br />
 </li>
 <li>Function <span class="math inline">\(f: U \to U&#39;\)</span> is continuous <span class="math inline">\(\iff\)</span> for open set <span class="math inline">\(A \in U&#39;\)</span>, its inverse image <span class="math inline">\(f^{-1}(A)\)</span> is open.<br />
 </li>
