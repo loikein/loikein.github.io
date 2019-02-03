@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">12 min read</span>
+    <span class="article-duration">15 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -168,6 +168,13 @@ I am only responsible for my own grades.</li>
 -->
 <div id="relation" class="section level2">
 <h2>Relation</h2>
+<p>Steps:</p>
+<ol style="list-style-type: decimal">
+<li>Reflective</li>
+<li>Transitive</li>
+<li>Anti-Symmetry</li>
+<li>Complete (only for complete order)</li>
+</ol>
 <blockquote>
 <p>2014.F1.Q2<br />
 Let <span class="math inline">\(R\)</span> be a relation on some set <span class="math inline">\(U\)</span><br />
@@ -244,6 +251,18 @@ Take <span class="math inline">\(A, B\in 2^U\)</span> s.t. <span class="math inl
 <h2>Space</h2>
 <div id="distance" class="section level3">
 <h3>Distance</h3>
+<p>Steps:</p>
+<ol style="list-style-type: decimal">
+<li>Non-negative<br />
+</li>
+<li>Identity of Indiscernibles<br />
+(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+</li>
+<li>Symmetric<br />
+</li>
+<li>Triangle Inequality</li>
+</ol>
 <blockquote>
 <p>2014.F1.Q4<br />
 Let <span class="math inline">\(f: U\to R\)</span> be injective<br />
@@ -254,6 +273,9 @@ Show that <span class="math inline">\(d\)</span> is a distance</p>
 <li>Non-negative (trivial)<br />
 </li>
 <li>Identity of Indiscernibles<br />
+(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+<span class="math display">\[\begin{aligned} d(x,x) &amp;= |f(x) - f(x)| \\ &amp;= 0\end{aligned}\]</span>
+(<span class="math inline">\(\Longleftarrow\)</span>)<br />
 Assume <span class="math inline">\(d(x, y) = 0\)</span><br />
 <span class="math display">\[\begin{aligned} |f(x) - f(y)| &amp;= 0 \\
 f(x) - f(y) &amp;= 0 \\
@@ -284,9 +306,14 @@ Since <span class="math inline">\(f\)</span> is strictly increasing, for all <sp
 f\big(|x − y|\big)&amp;\geq f(0) \\
 d(x,y)&amp;\geq 0\end{aligned}\]</span></li>
 <li>Identity of Indiscernibles<br />
+(<span class="math inline">\(\Longrightarrow\)</span>)<br />
 For any <span class="math inline">\(x\in \mathbb{R}\)</span>,<br />
 <span class="math display">\[\begin{aligned} d(x,x) &amp;= f\big(|x − x|\big) \\
-&amp;= f(0) = 0\end{aligned}\]</span></li>
+&amp;= f(0) = 0\end{aligned}\]</span>
+(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Assume <span class="math inline">\(d(x, y) = 0\)</span>, since <span class="math inline">\(f\)</span> is strictly increasing,<br />
+<span class="math display">\[\begin{aligned}f\big(|x − y|\big) &amp;= 0 \\
+&amp;= f(0) \\ x = y\end{aligned}\]</span></li>
 <li>Symmetric<br />
 For all <span class="math inline">\(x, y\in \mathbb{R}\)</span>,<br />
 <span class="math display">\[\begin{aligned} d(x,y) &amp;= f\big(|x − y|\big) \\
@@ -313,6 +340,72 @@ Since <span class="math inline">\(f\)</span> is strictly increasing,<br />
 Since <span class="math inline">\(f\)</span> is increasing,<br />
 <span class="math display">\[\begin{aligned} f(|z-y|) &amp;\geq f(|z-x|) \\ d(z,y) &amp;\geq d(z,x) \\ d(z,y) + d(y,x) &amp;&gt; d(z,x)\end{aligned}\]</span></li>
 </ol></li>
+</ol>
+<blockquote>
+<p>2016.F1.Q5<br />
+Define <span class="math inline">\(d: \mathbb{R}^2\times\mathbb{R}^2\to\mathbb{R}\)</span> as <span class="math inline">\(d\big((x_1,y_1),(x_2,y_2)\big) = |x_1 −x_2|+|y_1 −y_2|\)</span><br />
+Prove that <span class="math inline">\(d\)</span> is a distance</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative (trivial)<br />
+</li>
+<li>Identity of Indiscernibles<br />
+(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+<span class="math display">\[\begin{aligned} d\big((x_1,y_1),(x_1,y_1)\big) &amp;= |x_1 −x_1|+|y_1 −y_1| \\
+&amp;= 0 + 0 = 0\end{aligned}\]</span>
+(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Assume <span class="math inline">\(d\big((x_1,y_1),(x_2,y_2)\big) = 0\)</span>,<br />
+<span class="math display">\[\begin{aligned} |x_1 −x_2|+|y_1 −y_2| &amp;= 0 \\
+x_1 &amp;= x_2 \\ y_1 &amp;= y_2\end{aligned}\]</span></li>
+<li>Symmetric<br />
+For all <span class="math inline">\((x_1,y_1),(x_2,y_2)\)</span>,
+<span class="math display">\[\begin{aligned} d\big((x_1,y_1),(x_2,y_2)\big) &amp;= |x_1 −x_2|+|y_1 −y_2| \\
+&amp;= |x_2 −x_1|+|y_2 −y_1| \\
+&amp;= d\big((x_2,y_2),(x_1,y_1)\big)\end{aligned}\]</span></li>
+<li>Triangle Inequality<br />
+<span class="math display">\[\begin{aligned} &amp;\phantom{123} d\big((x_1,y_1),(x_2,y_2)\big) + d\big((x_2,y_2),(x_3,y_3)\big) \\
+&amp;= |x_1 −x_2| + |y_1 −y_2| + |x_2 −x_3| + |y_2 −y_3| \\
+&amp;= |x_1 −x_2| + |x_2 −x_3| + |y_1 −y_2| + |y_2 −y_3| \\
+&amp;\geq |x_1 −x_2+x_2 −x_3| + |y_1 −y_2+y_2 −y_3| \\
+&amp;= |x_1 −x_3| + |y_1 − y_3| \\
+&amp;= d\big((x_1,y_1),(x_3,y_3)\big)\end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>2016.F1.Q8, PS8.Q7<br />
+Let <span class="math inline">\(C_B\)</span> be the space of bounded and continuous functions from compact <span class="math inline">\(A\subset \mathbb{R}^n\)</span> to <span class="math inline">\(\mathbb{R}\)</span><br />
+Define <span class="math inline">\(d: C_B\times C_B \to \mathbb{R}\)</span> as <span class="math inline">\(d(f,g)\equiv \max_{x\in A} |f(x) - g(x)|\)</span><br />
+Assume that <span class="math inline">\(\max_{x\in A} |f(x) - g(x)|\)</span> exists for all <span class="math inline">\(f,g\in C_B\)</span><br />
+Show that <span class="math inline">\(d\)</span> is a distance on <span class="math inline">\(C_B\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative (trivial)<br />
+</li>
+<li>Identity of Indiscernibles<br />
+(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+<span class="math display">\[\begin{aligned} d(f,f) &amp;= \max_{x\in A} |f(x) - f(x)| \\
+&amp;= \max_{x\in A} 0 = 0\end{aligned}\]</span>
+(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Assume <span class="math inline">\(d(f,g) = 0\)</span> for some <span class="math inline">\(f,g\in C_B\)</span><br />
+<span class="math display">\[\begin{aligned} \max_{x\in A} |f(x) - g(x)| &amp;= 0 \\
+|f(x) - g(x)| &amp;= 0 \\
+f(x) - g(x) &amp;= 0 \text{ for all }x\end{aligned}\]</span></li>
+<li>Symmetric<br />
+Take arbitrary <span class="math inline">\(f,g\in C_B\)</span><br />
+<span class="math display">\[\begin{aligned} d(f,g)&amp;= \max_{x\in A} |f(x) - g(x)| \\
+&amp;= \max_{x\in A} |g(x) - f(x)| \\
+&amp;= d(g,f)\end{aligned}\]</span></li>
+<li>Triangle Inequality<br />
+Take arbitrary <span class="math inline">\(f,g,h\in C_B\)</span><br />
+Let <span class="math inline">\(x_1,x_2,x_3\in A\)</span> be s.t.
+<span class="math display">\[\begin{cases} d(f,g) = |f(x_1) - g(x_1)| \\
+d(g,h) = |g(x_2) - h(x_2)| \\
+d(f,h) = |f(x_3) - h(x_3)|\end{cases}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} d(f,g)+d(g,h) &amp;= |f(x_1) - g(x_1)| + |g(x_2) - h(x_2)| \\
+&amp;\geq |f(x_3) - g(x_3)| + |g(x_3) - h(x_3)| \\
+&amp;\geq |f(x_3) - g(x_3) + g(x_3) - h(x_3)| \\
+&amp;= |f(x_3) - h(x_3)| \\
+&amp;= d(f,h)\end{aligned}\]</span></li>
 </ol>
 <!-- ### Cauchy-Schwarz Inequality -->
 </div>
@@ -506,6 +599,12 @@ Contradiction.<br />
 Therefore, <span class="math inline">\(f(x_3) = x_3\)</span><br />
 <span class="math inline">\(\implies λx_1 + (1-λ)x_2\)</span> is a fixed point</li>
 </ol>
+<blockquote>
+<p>2016.F1.Q9<br />
+Prove that if <span class="math inline">\(f:[a,b]\to \mathbb{R}\)</span> is continuous for some <span class="math inline">\(a&lt;b\)</span> and <span class="math inline">\(f(a)&lt;0&lt;f(b)\)</span><br />
+then there exists <span class="math inline">\(c\in (a, b)\)</span> s.t. <span class="math inline">\(f(c) = 0\)</span><br />
+DO NOT use the intermediate value theorem</p>
+</blockquote>
 </div>
 <div id="contraction" class="section level3">
 <h3>Contraction</h3>
@@ -522,6 +621,21 @@ Show that <span class="math inline">\(h\equiv f\circ g\)</span> is a contraction
 Since <span class="math inline">\(λ_f,λ_g\in [0,1)\)</span>,<br />
 <span class="math inline">\(\implies λ_f\cdot λ_g \in [0,1)\)</span><br />
 <span class="math inline">\(\implies h\)</span> is a contraction</p>
+<blockquote>
+<p>2016.F1.Q4, PS9.Q3<br />
+Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})\)</span> is a contraction, <span class="math inline">\(λ\in(0,1)\)</span><br />
+then <span class="math inline">\(f&#39;(x)\in [-λ,λ]\)</span> for all <span class="math inline">\(x\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in \mathbb{R}\)</span>, consider a strictly increasing sequence <span class="math inline">\(\{x_n\}_n \to x\)</span><br />
+Since <span class="math inline">\(f\)</span> is contraction,<br />
+<span class="math display">\[\begin{aligned} d\big(f(x),f(x_n)\big) &amp;\leq λd(x,x_n) \\
+\frac{ d\big(f(x),f(x_n)\big)} {d(x,x_n)} &amp;\leq λ \end{aligned}\]</span>
+Take limit of botht sides<br />
+<span class="math display">\[\begin{aligned} \lim_{n\to\infty}\frac{d\big(f(x),f(x_n)\big)}{d(x,x_n)} &amp;\leq \lim_{n\to\infty} λ \\
+\lim_{n\to\infty}\frac{\big|f(x)-f(x_n)\big|}{|x-x_n|} &amp;\leq λ \\
+\lim_{n\to\infty}\left|\frac{f(x)-f(x_n)}{x-x_n}\right| &amp;\leq λ \\
+|f&#39;(x)| &amp;\leq λ\end{aligned}\]</span>
+<span class="math inline">\(\implies f&#39;(x)\in [-λ,λ]\)</span></p>
 </div>
 <div id="limit-differenciation" class="section level3">
 <h3>Limit &amp; Differenciation</h3>
@@ -574,6 +688,37 @@ Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <s
 </div>
 <div id="maximizer-argmax" class="section level3">
 <h3>Maximizer &amp; Argmax</h3>
+<blockquote>
+<p>2016.F1.Q6<br />
+Assume <span class="math inline">\(f: A\to \mathbb{R}\)</span> is continuous, and <span class="math inline">\(A\subset \mathbb{R}^m\)</span> is compact<br />
+Prove that <span class="math inline">\(\text{argmax}_{x\in A} f(x)\)</span> is a closed set</p>
+</blockquote>
+<p>Denote <span class="math inline">\(M = \text{argmax}_{x\in A} f(x)\)</span>, <span class="math inline">\(y^* = \max_{x\in A} f(x)\)</span><br />
+<span class="math inline">\(M\)</span> is closed <span class="math inline">\(\iff M^C\)</span> is open<br />
+FSOC assume <span class="math inline">\(M^C\)</span> is not open<br />
+<span class="math inline">\(\implies\)</span> for some <span class="math inline">\(x\in M^C\)</span>, <span class="math inline">\(B_ε(x)\not\subset M^C\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\cap M\neq\emptyset\)</span><br />
+Take a strictly decreasing sequence <span class="math inline">\((ε_n)_n\to 0\)</span><br />
+Let <span class="math inline">\(x_n\in B_{ε_n}(x)\cap M\)</span> for every <span class="math inline">\(n\)</span><br />
+<span class="math inline">\(\implies (x_n)_n\to x\)</span><br />
+<span class="math inline">\(x_n\in M \implies f(x_n) = y^*\)</span><br />
+Since <span class="math inline">\(f\)</span> is continuous, <span class="math inline">\(f(x_n) \to f(x) = y^*\)</span><br />
+<span class="math inline">\(\implies x\in M\)</span>, contradiction</p>
+<blockquote>
+<p>2016.F1.Q7<br />
+Let <span class="math inline">\(f:[0,1]^2\to \mathbb{R}\)</span> continuous and convex<br />
+Let <span class="math inline">\(V(y)\equiv \min_{x\in [0,1]} f(x,y)\)</span> for all <span class="math inline">\(y\in [0,1]\)</span><br />
+Assume that <span class="math inline">\(\min_{x\in [0,1]} f(x,y)\)</span> exists for all <span class="math inline">\(y\)</span><br />
+Show that <span class="math inline">\(V\)</span> is convex</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(y_1, y_2\in [0,1]\)</span><br />
+Take <span class="math inline">\(x_1\in \text{argmin}_{x\in [0,1]} f(x,y_1)\)</span> and <span class="math inline">\(x_2\in \text{argmin}_{x\in [0,1]} f(x,y_2)\)</span><br />
+<span class="math inline">\(\implies f(x_1,y_1) = V(y_1)\)</span>, and <span class="math inline">\(f(x_2,y_2) = V(y_2)\)</span><br />
+Take <span class="math inline">\(λ\in (0,1)\)</span><br />
+<span class="math display">\[\begin{aligned} V\big(λy_1 + (1-λ)y_2\big) &amp;= \min_{x\in [0,1]} f\big(x, λy_1 + (1-λ)y_2\big) \\
+&amp;\leq f\Big(λx_1 + (1-λ)x_2, λy_1 + (1-λ)y_2\Big) \\
+&amp;\leq λf(x_1,y_1) + (1-λ)f(x_2,y_2) \\
+&amp;= λV(y_1) + (1-λ)V(y_2) \end{aligned}\]</span></p>
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>

@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">34 min read</span>
+    <span class="article-duration">35 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -104,7 +104,7 @@
 <li><a href="#cauchy-schwarz-inequality">Cauchy-Schwarz Inequality</a></li>
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
-<li><a href="#proof-by-logic-twice-if-unlucky">Proof by Logic (twice if unlucky)</a></li>
+<li><a href="#proof-by-deduction">Proof by Deduction</a></li>
 <li><a href="#proof-by-b_">Proof by <span class="math inline">\(B_ε\)</span></a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
@@ -304,11 +304,41 @@ Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance 
 :) <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
 </ol>
 <blockquote>
-<p>PS8.Q7<br />
+<p>PS8.Q7, 2016.F1.Q8<br />
 Let <span class="math inline">\(C_B\)</span> be the space of bounded and continuous functions from compact <span class="math inline">\(A\subset \mathbb{R}^n\)</span> to <span class="math inline">\(\mathbb{R}\)</span><br />
 Define <span class="math inline">\(d: C_B\times C_B \to \mathbb{R}\)</span> as <span class="math inline">\(d(f,g)\equiv \max _{x\in A} |f(x) - g(x)|\)</span><br />
 Show that <span class="math inline">\(d\)</span> is a distance on <span class="math inline">\(C_B\)</span></p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative (trivial)<br />
+</li>
+<li>Identity of Indiscernibles<br />
+(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+<span class="math display">\[\begin{aligned} d(f,f) &amp;= \max_{x\in A} |f(x) - f(x)| \\
+&amp;= \max_{x\in A} 0 = 0\end{aligned}\]</span>
+(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Assume <span class="math inline">\(d(f,g) = 0\)</span> for some <span class="math inline">\(f,g\in C_B\)</span><br />
+<span class="math display">\[\begin{aligned} \max_{x\in A} |f(x) - g(x)| &amp;= 0 \\
+|f(x) - g(x)| &amp;= 0 \\
+f(x) - g(x) &amp;= 0 \text{ for all }x\end{aligned}\]</span></li>
+<li>Symmetric<br />
+Take arbitrary <span class="math inline">\(f,g\in C_B\)</span><br />
+<span class="math display">\[\begin{aligned} d(f,g)&amp;= \max_{x\in A} |f(x) - g(x)| \\
+&amp;= \max_{x\in A} |g(x) - f(x)| \\
+&amp;= d(g,f)\end{aligned}\]</span></li>
+<li>Triangle Inequality<br />
+Take arbitrary <span class="math inline">\(f,g,h\in C_B\)</span><br />
+Let <span class="math inline">\(x_1,x_2,x_3\in A\)</span> be s.t.
+<span class="math display">\[\begin{cases} d(f,g) = |f(x_1) - g(x_1)| \\
+d(g,h) = |g(x_2) - h(x_2)| \\
+d(f,h) = |f(x_3) - h(x_3)|\end{cases}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} d(f,g)+d(g,h) &amp;= |f(x_1) - g(x_1)| + |g(x_2) - h(x_2)| \\
+&amp;\geq |f(x_3) - g(x_3)| + |g(x_3) - h(x_3)| \\
+&amp;\geq |f(x_3) - g(x_3) + g(x_3) - h(x_3)| \\
+&amp;= |f(x_3) - h(x_3)| \\
+&amp;= d(f,h)\end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="cauchy-schwarz-inequality" class="section level3">
 <h3>Cauchy-Schwarz Inequality</h3>
@@ -325,8 +355,8 @@ Since the last line is obviously true, all previous statements are true</p>
 </div>
 <div id="set-collection-operation" class="section level2">
 <h2>Set Collection &amp; Operation</h2>
-<div id="proof-by-logic-twice-if-unlucky" class="section level3">
-<h3>Proof by Logic (twice if unlucky)</h3>
+<div id="proof-by-deduction" class="section level3">
+<h3>Proof by Deduction</h3>
 <blockquote>
 <p>PS1.Q3<br />
 Let <span class="math inline">\(\{ A_i \}_{i \in Ι}\)</span> be any arbitrary collection of sets<br />
@@ -801,9 +831,9 @@ And exists <span class="math inline">\(λ\)</span> s.t. <span class="math inline
 \frac{d\big(f(y),f(x)\big)}{d(x,y)} &amp;\leq λ \\
 d\big(f(y),f(x)\big) &amp;\leq λ \cdot d(x,y)\end{aligned}\]</span></p>
 <blockquote>
-<p>PS9.Q3<br />
-Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})\)</span> is a contraction,<br />
-then <span class="math inline">\(f&#39;(x)\in [-λ,λ]\)</span> for all <span class="math inline">\(x\)</span>, <span class="math inline">\(λ\in(0,1)\)</span></p>
+<p>PS9.Q3, 2016.F1.Q4<br />
+Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})\)</span> is a contraction, <span class="math inline">\(λ\in(0,1)\)</span><br />
+then <span class="math inline">\(f&#39;(x)\in [-λ,λ]\)</span> for all <span class="math inline">\(x\)</span></p>
 </blockquote>
 <p>Take arbitrary <span class="math inline">\(x\in \mathbb{R}\)</span>, consider a strictly increasing sequence <span class="math inline">\(\{x_n\}_n \to x\)</span><br />
 Since <span class="math inline">\(f\)</span> is contraction,<br />
@@ -811,7 +841,8 @@ Since <span class="math inline">\(f\)</span> is contraction,<br />
 \frac{ d\big(f(x),f(x_n)\big)} {d(x,x_n)} &amp;\leq λ \end{aligned}\]</span>
 Take limit of botht sides<br />
 <span class="math display">\[\begin{aligned} \lim_{n\to\infty}\frac{d\big(f(x),f(x_n)\big)}{d(x,x_n)} &amp;\leq \lim_{n\to\infty} λ \\
-\lim_{n\to\infty}\frac{f(x)-f(x_n)}{x-x_n} &amp;\leq λ \\
+\lim_{n\to\infty}\frac{\big|f(x)-f(x_n)\big|}{|x-x_n|} &amp;\leq λ \\
+\lim_{n\to\infty}\left|\frac{f(x)-f(x_n)}{x-x_n}\right| &amp;\leq λ \\
 |f&#39;(x)| &amp;\leq λ\end{aligned}\]</span>
 <span class="math inline">\(\implies f&#39;(x)\in [-λ,λ]\)</span></p>
 </div>
