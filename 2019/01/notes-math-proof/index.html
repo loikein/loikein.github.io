@@ -96,8 +96,8 @@
 <li><a href="#direct-proof">Direct proof</a></li>
 </ul></li>
 <li><a href="#relation">Relation</a><ul>
+<li><a href="#order">Order</a></li>
 <li><a href="#complete-order">Complete Order</a></li>
-<li><a href="#partial-order">Partial Order</a></li>
 </ul></li>
 <li><a href="#space">Space</a><ul>
 <li><a href="#distance">Distance</a></li>
@@ -223,6 +223,37 @@ Prove that if <span class="math inline">\(p \implies q\)</span> and <span class=
 </div>
 <div id="relation" class="section level2">
 <h2>Relation</h2>
+<div id="order" class="section level3">
+<h3>Order</h3>
+<blockquote>
+<p>PS1.Q6, 2015.F1.Q2<br />
+Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two (partial) orders in some space <span class="math inline">\(U\)</span><br />
+Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
+Prove that <span class="math inline">\(R_3\)</span> is a (partial) order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+Since <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are orders, <span class="math inline">\(xR_1 x\)</span> and <span class="math inline">\(xR_2 x\)</span> hold<br />
+<span class="math inline">\(\implies xR_3x\)</span><br />
+</li>
+<li>Transitive<br />
+Since <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are orders,<br />
+<span class="math inline">\(xR_1 y\land yR_1 z\implies xR_1 z\)</span><br />
+<span class="math inline">\(xR_2 y\land yR_2 z\implies xR_2 z\)</span><br />
+Therefore,<br />
+<span class="math inline">\(xR_3 y\land yR_3 z\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(xR_1 y\land yR_1z\)</span> and <span class="math inline">\(xR_2 y\land yR_2 z\)</span><br />
+<span class="math inline">\(\implies xR_1 z \land xR_2 z\)</span><br />
+<span class="math inline">\(\implies xR_3 z\)</span><br />
+</li>
+<li>Anti-Symmetry<br />
+Since <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are orders,<br />
+<span class="math inline">\(xR_1 y\land yR_1 x\iff x=y\)</span><br />
+<span class="math inline">\(xR_2 y\land yR_2 x\iff x=y\)</span><br />
+Therefore,<br />
+<span class="math inline">\(xR_3 y\land yR_3 x\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(xR_1 x\land yR_1 x\)</span> and <span class="math inline">\(xR_2 y\land yR_2 x\)</span><br />
+<span class="math inline">\(\iff x=y\)</span></li>
+</ol>
+</div>
 <div id="complete-order" class="section level3">
 <h3>Complete Order</h3>
 <blockquote>
@@ -241,22 +272,6 @@ Prove that <span class="math inline">\(R\)</span> is a complete order</p>
 </li>
 <li>Complete<br />
 :) <span class="math inline">\((x_1,y_1) R (x_2, y_2) \lor (x_2,y_2) R (x_1, y_1) \forall x, y\)</span></li>
-</ol>
-</div>
-<div id="partial-order" class="section level3">
-<h3>Partial Order</h3>
-<blockquote>
-<p>PS1.Q6<br />
-Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two partial orders in some space <span class="math inline">\(U\)</span><br />
-Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
-Prove that <span class="math inline">\(R_3\)</span> is a partial order</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Reflective<br />
-</li>
-<li>Transitive<br />
-</li>
-<li>Anti-Symmetry</li>
 </ol>
 </div>
 </div>

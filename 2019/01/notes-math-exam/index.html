@@ -96,7 +96,7 @@
 <li><a href="#distance">Distance</a></li>
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
-<li><a href="#proof-by-deduction-twice">Proof by Deduction (twice)</a></li>
+<li><a href="#proof-by-deduction">Proof by Deduction</a></li>
 <li><a href="#proof-by-b_">Proof by <span class="math inline">\(B_ε\)</span></a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
@@ -139,7 +139,7 @@
 It will be merged into <a href="https://loikein.github.io/2019/01/notes-math-proof/">Notes on Mathematical Proofs</a> afterwards.<br />
 </li>
 <li>Sometimes I take approaches different from the solutions.<br />
-Don’t buy me if you don’t want to take full responsibilities.</li>
+I am only responsible for my own grades.</li>
 </ul>
 <p>~</p>
 <ul>
@@ -185,6 +185,34 @@ Also, since <span class="math inline">\(f(x)\leq g(x)\)</span> for all <span cla
 <span class="math inline">\(\implies f(x)\geq g(y)\geq f(y)\geq g(z)\)</span><br />
 <span class="math inline">\(\implies f(x)\geq g(z)\)</span><br />
 <span class="math inline">\(\implies xRz\)</span></p>
+<blockquote>
+<p>2015.F1.Q2, PS1.Q6<br />
+Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two (partial) orders in some space <span class="math inline">\(U\)</span><br />
+Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
+Prove that <span class="math inline">\(R_3\)</span> is a (partial) order</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Reflective<br />
+Since <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are orders, <span class="math inline">\(xR_1 x\)</span> and <span class="math inline">\(xR_2 x\)</span> hold<br />
+<span class="math inline">\(\implies xR_3x\)</span><br />
+</li>
+<li>Transitive<br />
+Since <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are orders,<br />
+<span class="math inline">\(xR_1 y\land yR_1 z\implies xR_1 z\)</span><br />
+<span class="math inline">\(xR_2 y\land yR_2 z\implies xR_2 z\)</span><br />
+Therefore,<br />
+<span class="math inline">\(xR_3 y\land yR_3 z\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(xR_1 y\land yR_1z\)</span> and <span class="math inline">\(xR_2 y\land yR_2 z\)</span><br />
+<span class="math inline">\(\implies xR_1 z \land xR_2 z\)</span><br />
+<span class="math inline">\(\implies xR_3 z\)</span><br />
+</li>
+<li>Anti-Symmetry<br />
+Since <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> are orders,<br />
+<span class="math inline">\(xR_1 y\land yR_1 x\iff x=y\)</span><br />
+<span class="math inline">\(xR_2 y\land yR_2 x\iff x=y\)</span><br />
+Therefore,<br />
+<span class="math inline">\(xR_3 y\land yR_3 x\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(xR_1 x\land yR_1 x\)</span> and <span class="math inline">\(xR_2 y\land yR_2 x\)</span><br />
+<span class="math inline">\(\iff x=y\)</span></li>
+</ol>
 <!-- ### Complete Order
 
 ### Partial Order -->
@@ -226,8 +254,8 @@ For any <span class="math inline">\(x,y,z\in U\)</span>,<br />
 </div>
 <div id="set-collection-operation" class="section level2">
 <h2>Set Collection &amp; Operation</h2>
-<div id="proof-by-deduction-twice" class="section level3">
-<h3>Proof by Deduction (twice)</h3>
+<div id="proof-by-deduction" class="section level3">
+<h3>Proof by Deduction</h3>
 <blockquote>
 <p>2014.F1.Q1<br />
 Let <span class="math inline">\(\{A_n \ | \ n\in N\}\)</span> be a collection of sets, and <span class="math inline">\(B\)</span> a set, all in some universe <span class="math inline">\(U\)</span><br />
@@ -251,6 +279,17 @@ Take <span class="math inline">\(x\in \cup_{n=1}^{\infty}\big( B \cap A_n\big)\)
 </div>
 <div id="proof-by-b_" class="section level3">
 <h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
+<blockquote>
+<p>2015.F1.Q1<br />
+Fix <span class="math inline">\(x_0\in \mathbb{R}^n\)</span><br />
+Show that <span class="math inline">\(\{x_0\} =\cap_{ε\in \mathbb{R}_{++}} B_ε(x_0)\)</span> for each <span class="math inline">\(ε&gt;0\)</span><br />
+where, <span class="math inline">\(B_ε(x_0)\)</span> is the open ball of radius <span class="math inline">\(ε\)</span> centered at <span class="math inline">\(x_0\)</span></p>
+</blockquote>
+<p>Since <span class="math inline">\(x_0 \in B_ε(x_0)\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+<span class="math inline">\(\implies x_0\in \cap_{ε\in \mathbb{R}_{++}} B_ε(x_0)\)</span><br />
+FSOC assume exists <span class="math inline">\(x&#39;\neq x_0\)</span>, <span class="math inline">\(x&#39;\in \cap_{ε\in \mathbb{R}_{++}} B_ε(x_0)\)</span><br />
+<span class="math inline">\(\implies x&#39;\in B_ε(x_0)\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
+<span class="math inline">\(\implies x&#39;\in B_{d(x_0,x&#39;)}(x_0)\)</span>, contradiction</p>
 </div>
 </div>
 <div id="set" class="section level2">
