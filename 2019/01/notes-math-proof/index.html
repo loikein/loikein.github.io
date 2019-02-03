@@ -849,7 +849,7 @@ Show that <span class="math inline">\(\sup_{x\in A} \big( f(x) +g(x) \big) \leq 
 Since supremum is the least upper bound<br />
 <span class="math inline">\(\implies\bar{h} \leq \bar{f} + \bar{g}\)</span></p>
 <blockquote>
-<p>PS4.Q7<br />
+<p>PS4.Q7, 2014.F1.Q8<br />
 Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be a bounded function and <span class="math inline">\(h(y) \equiv \sup_{x\geq y} \big( f(x) \big)\)</span><br />
 Show that <span class="math inline">\(h\)</span> is decreasing</p>
 </blockquote>
@@ -1039,16 +1039,17 @@ Prove that <span class="math inline">\(f+g\)</span> is concex.</p>
 &amp;\leq λf(x_1) + (1-λ)f(x_2) + λg(x_1) + (1-λ)g(x_2) \\
 &amp;= λh(x_1) + (1-λ)h(x_2)\end{aligned}\]</span></p>
 <blockquote>
-<p>PS7.Q7<br />
+<p>PS7.Q7, 2014.F1.Q5<br />
 Prove that if <span class="math inline">\(f:\mathbb{R}\to \mathbb{R}\)</span> is strictly convex,<br />
 then <span class="math inline">\(f(x) = 0\)</span> has at most two solutions</p>
 </blockquote>
 <p>FSOC assume <span class="math inline">\(f(x) = 0\)</span> has more than two solutions<br />
 <span class="math inline">\(\implies\)</span> Exist <span class="math inline">\(x&lt;y&lt;z\in\mathbb{R}\)</span> s.t. <span class="math inline">\(f(x) = f(y) = f(z) = 0\)</span><br />
-Let <span class="math inline">\(λ = \frac{z-y}{z-x} \implies y = λx + (1-λ)z\)</span><br />
+Let <span class="math inline">\(λ = \frac{z-y}{z-x}\)</span>, <span class="math inline">\(y = λx + (1-λ)z\)</span><br />
 Since <span class="math inline">\(f\)</span> is strictly convex,<br />
-<span class="math display">\[\begin{aligned} f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
-0 &amp;&lt; 0 + 0\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} f\big(λx + (1-λ)z\big) &amp;&lt; λf(x) + (1-λ)f(z) \\
+f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
+0 &amp;&lt; 0+0\end{aligned}\]</span>
 Contradiction.</p>
 <blockquote>
 <p>PS7.Q1<br />
@@ -1074,19 +1075,20 @@ f(z) -f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
 f(z) - f(y) &amp;&lt; \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
 \frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span></p>
 <blockquote>
-<p>PS7.Q3<br />
+<p>PS7.Q3, 2014.F1.Q6<br />
 Prove that if <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> is convex,<br />
 then <span class="math inline">\(\frac{f(y)-f(x)}{y-x}\)</span> is increasing for all <span class="math inline">\(y &gt; x\)</span></p>
 </blockquote>
-<p>Take <span class="math inline">\(x&lt; y_1\leq y_2\)</span><br />
-Take <span class="math inline">\(λ \in [0,1]\)</span> s.t. <span class="math inline">\(y_1 = λx + (1-λ)y_2\)</span><br />
-<span class="math inline">\(\implies λ = \frac{y_2-y_1}{y_2-x}\)</span> and <span class="math inline">\(1- λ = \frac{y_1-x}{y_2-x}\)</span><br />
-Since <span class="math inline">\(f\)</span> is convex,<br />
-<span class="math display">\[\begin{aligned} f(y_1) &amp;\leq λf(x) + (1-λ) f(y_2)  \\
-f(y_1) -f(x) &amp;\leq λf(x) -f(x) + (1-λ) f(y_2) \\
-&amp;\leq (1-λ) (f(y_2) - f(x)) \\
-&amp;\leq \frac{y_1-x}{y_2-x} \big(f(y_2) - f(x)\big) \\
-\frac{f(y_1)-f(x)}{y_1-x} &amp;\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}\]</span></p>
+<p>Take <span class="math inline">\(x &lt; y_1 \leq y_2\)</span><br />
+Take <span class="math inline">\(λ\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} y_1 &amp;= λx + (1-λ)y_2 \\
+1-λ &amp;= \frac{y_1 - x}{y_2 - x} \\ λ &amp;= \frac{y_2-y_1}{y_2 - x}\end{aligned}\]</span>
+Since <span class="math inline">\(f\)</span> is convex,
+<span class="math display">\[\begin{aligned} f(y_1) &amp;\leq λf(x) + (1-λ)f(y_2) \\
+f(y_1) - f(x) &amp;\leq λf(x) -f(x) + (1-λ) f(y_2) \\
+&amp;= -(1-λ) f(x) + (1-λ) f(y_2) \\
+&amp;= \frac{y_1 - x}{y_2 - x}\cdot \big(f(y_2) - f(x)\big) \\
+\frac{f(y_1)-f(x)}{y_1 - x} &amp;\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}\]</span></p>
 <blockquote>
 <p>PS7.Q4<br />
 Prove that if <span class="math inline">\(f\in \mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span> is concave,<br />

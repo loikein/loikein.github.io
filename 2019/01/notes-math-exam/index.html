@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -91,20 +91,12 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#logic">Logic</a><ul>
-<li><a href="#truth-table">Truth table</a></li>
-<li><a href="#direct-proof">Direct proof</a></li>
-</ul></li>
-<li><a href="#relation">Relation</a><ul>
-<li><a href="#complete-order">Complete Order</a></li>
-<li><a href="#partial-order">Partial Order</a></li>
-</ul></li>
+<li><a href="#relation">Relation</a></li>
 <li><a href="#space">Space</a><ul>
 <li><a href="#distance">Distance</a></li>
-<li><a href="#cauchy-schwarz-inequality">Cauchy-Schwarz Inequality</a></li>
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
-<li><a href="#proof-by-logic-twice-if-unlucky">Proof by Logic (twice if unlucky)</a></li>
+<li><a href="#proof-by-deduction-twice">Proof by Deduction (twice)</a></li>
 <li><a href="#proof-by-b_">Proof by <span class="math inline">\(B_ε\)</span></a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
@@ -141,11 +133,23 @@
 </div>
 
 <p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
+<p>Words of warning:</p>
+<ul>
+<li>This post will only exist during 1st ~ 2nd exam term.<br />
+It will be merged into <a href="https://loikein.github.io/2019/01/notes-math-proof/">Notes on Mathematical Proofs</a> afterwards.<br />
+</li>
+<li>Sometimes I take approaches different from the solutions.<br />
+Don’t buy me if you don’t want to take full responsibilities.</li>
+</ul>
+<p>~</p>
 <ul>
 <li>:) means “we want to show”</li>
 <li>FSOC means “for the sake of controdiction”</li>
-<li><p>s.t. means “such that”</p></li>
-<li>[] 2014-1</li>
+<li>s.t. means “such that”</li>
+</ul>
+<p>~</p>
+<ul>
+<li>[x] 2014-1</li>
 <li>[] 2014-2</li>
 <li>[] 2015-1</li>
 <li>[] 2015-2</li>
@@ -154,39 +158,96 @@
 <li>[] 2017-1</li>
 <li>[] 2017-2</li>
 <li>[] 2018-1</li>
-<li><p>[] 2018-2</p></li>
+<li>[] 2018-2</li>
 </ul>
-<div id="logic" class="section level2">
-<h2>Logic</h2>
-<div id="truth-table" class="section level3">
-<h3>Truth table</h3>
-</div>
-<div id="direct-proof" class="section level3">
-<h3>Direct proof</h3>
-</div>
-</div>
+<!--
+## Logic
+
+### Truth table
+
+### Direct proof
+-->
 <div id="relation" class="section level2">
 <h2>Relation</h2>
-<div id="complete-order" class="section level3">
-<h3>Complete Order</h3>
-</div>
-<div id="partial-order" class="section level3">
-<h3>Partial Order</h3>
-</div>
+<blockquote>
+<p>2014.F1.Q2<br />
+Let <span class="math inline">\(R\)</span> be a relation on some set <span class="math inline">\(U\)</span><br />
+Assume that there exist two functions <span class="math inline">\(f,g: U\to \mathbb{R}\)</span><br />
+For all <span class="math inline">\(x,y\in U\)</span>, <span class="math inline">\(xRy\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(f(x)\geq g(y)\)</span><br />
+For all <span class="math inline">\(x\in U\)</span>, <span class="math inline">\(f(x)\leq g(x)\)</span><br />
+Show that R is transitive</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x,y,z\in U\)</span>, assume <span class="math inline">\(xRy\)</span> and <span class="math inline">\(yRz\)</span><br />
+<span class="math inline">\(xRy\implies f(x)\geq g(y)\)</span><br />
+<span class="math inline">\(yRz\implies f(y)\geq g(z)\)</span><br />
+Also, since <span class="math inline">\(f(x)\leq g(x)\)</span> for all <span class="math inline">\(x\)</span><br />
+<span class="math inline">\(\implies g(y)\geq f(y)\)</span><br />
+<span class="math inline">\(\implies f(x)\geq g(y)\geq f(y)\geq g(z)\)</span><br />
+<span class="math inline">\(\implies f(x)\geq g(z)\)</span><br />
+<span class="math inline">\(\implies xRz\)</span></p>
+<!-- ### Complete Order
+
+### Partial Order -->
 </div>
 <div id="space" class="section level2">
 <h2>Space</h2>
 <div id="distance" class="section level3">
 <h3>Distance</h3>
-</div>
-<div id="cauchy-schwarz-inequality" class="section level3">
-<h3>Cauchy-Schwarz Inequality</h3>
+<blockquote>
+<p>2014.F1.Q4<br />
+Let <span class="math inline">\(f: U\to R\)</span> be injective<br />
+Define <span class="math inline">\(d(x, y)\equiv \big|f(x) - f(y)\big|\)</span> for all <span class="math inline">\(x, y\in U\)</span><br />
+Show that <span class="math inline">\(d\)</span> is a distance</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative (trivial)<br />
+</li>
+<li>Identity of Indiscernibles<br />
+Assume <span class="math inline">\(d(x, y) = 0\)</span><br />
+<span class="math display">\[\begin{aligned} |f(x) - f(y)| &amp;= 0 \\
+f(x) - f(y) &amp;= 0 \\
+f(x) &amp;= f(y)\end{aligned}\]</span>
+Since <span class="math inline">\(f\)</span> is injective,<br />
+<span class="math inline">\(f(x) = f(y) \implies x=y\)</span></li>
+<li>Symmetric<br />
+For any <span class="math inline">\(x,y\in U\)</span>,<br />
+<span class="math display">\[\begin{aligned} d(x, y) &amp;= \big|f(x) - f(y)\big|\\
+&amp;= \big|f(y) - f(x)\big| \\
+&amp;= d(y,x)\end{aligned}\]</span></li>
+<li>Triangle Inequality<br />
+For any <span class="math inline">\(x,y,z\in U\)</span>,<br />
+<span class="math display">\[\begin{aligned} d(x,z) &amp;= \big|f(x) - f(z)\big| \\
+&amp;= \big|f(x) - f(y) + f(y) - f(z)\big| \\
+&amp;\leq \big|f(x) - f(y)\big| + \big|f(y) - f(z)\big| \\
+&amp;= d(x,y) + d(y,z)\end{aligned}\]</span></li>
+</ol>
+<!-- ### Cauchy-Schwarz Inequality -->
 </div>
 </div>
 <div id="set-collection-operation" class="section level2">
 <h2>Set Collection &amp; Operation</h2>
-<div id="proof-by-logic-twice-if-unlucky" class="section level3">
-<h3>Proof by Logic (twice if unlucky)</h3>
+<div id="proof-by-deduction-twice" class="section level3">
+<h3>Proof by Deduction (twice)</h3>
+<blockquote>
+<p>2014.F1.Q1<br />
+Let <span class="math inline">\(\{A_n \ | \ n\in N\}\)</span> be a collection of sets, and <span class="math inline">\(B\)</span> a set, all in some universe <span class="math inline">\(U\)</span><br />
+Show that <span class="math inline">\(B\cap \big( \cup_{n=1}^{\infty} A_n\big)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\cup_{n=1}^{\infty}\big( B \cap A_n\big)\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\subset\)</span>)<br />
+Take <span class="math inline">\(x\in B\cap \big( \cup_{n=1}^{\infty} A_n\big)\)</span><br />
+<span class="math inline">\(\implies x\in B\)</span> and <span class="math inline">\(x\in \cup_{n=1}^{\infty} A_n\)</span><br />
+<span class="math inline">\(\implies x\in A_{n_0}\)</span> for some <span class="math inline">\(n_0\)</span><br />
+<span class="math inline">\(\implies x\in B\cap A_{n_0}\)</span><br />
+<span class="math inline">\(\implies x\in \cup_{n=1}^{\infty}\big( B \cap A_n\big)\)</span><br />
+</li>
+<li>(<span class="math inline">\(\supset\)</span>)<br />
+Take <span class="math inline">\(x\in \cup_{n=1}^{\infty}\big( B \cap A_n\big)\)</span><br />
+<span class="math inline">\(\implies\)</span> exists some <span class="math inline">\(n_0\)</span> s.t. <span class="math inline">\(x\in B\cap A_{n_0}\)</span><br />
+<span class="math inline">\(\implies x\in B\)</span> and <span class="math inline">\(x\in B\cap A_{n_0}\)</span><br />
+<span class="math inline">\(\implies x\in B\)</span> and <span class="math inline">\(x\in \cup_{n=1}^{\infty} A_n\)</span><br />
+<span class="math inline">\(\implies x\in B\cap \big( \cup_{n=1}^{\infty} A_n\big)\)</span></li>
+</ol>
 </div>
 <div id="proof-by-b_" class="section level3">
 <h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
@@ -196,12 +257,39 @@
 <h2>Set</h2>
 <div id="close-open" class="section level3">
 <h3>Close / Open</h3>
+<blockquote>
+<p>2014.F1.Q3<br />
+Let <span class="math inline">\(\langle U,d\rangle\)</span> be a metric space, <span class="math inline">\(x^* \in U\)</span> an element, <span class="math inline">\(r &gt; 0\)</span> a real number<br />
+Prove that <span class="math inline">\(B_r(x^*) =\{x\in U \ | \ d(x,x^*) &lt; r\}\)</span> is an open set</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in B_r(x^*)\)</span>, let <span class="math inline">\(ε = r - d(x,x^*)\)</span><br />
+For any <span class="math inline">\(x&#39; \in B_ε(x)\)</span>,<br />
+<span class="math display">\[\begin{aligned} d(x&#39;,x^*)&amp;\leq d(x,x^*) + d(x&#39;,x) \\
+&amp;&lt; d(x,x^*) + ε \\
+&amp;= d(x,x^*) + r - d(x,x^*) \\ &amp;= r\end{aligned}\]</span>
+<span class="math inline">\(\implies x&#39;\in B_r(x^*)\)</span><br />
+<span class="math inline">\(\implies B_r(x^*)\)</span> is open</p>
 </div>
 <div id="closure-interior-boundary" class="section level3">
 <h3>Closure &amp; Interior &amp; Boundary</h3>
 </div>
 <div id="convex" class="section level3">
 <h3>Convex</h3>
+<blockquote>
+<p>2014.F1.Q9<br />
+Let <span class="math inline">\(A\subset \mathbb{R}^n\)</span> be a set<br />
+Prove that there exists a set <span class="math inline">\(B\subset \mathbb{R}^n\)</span> s.t. <span class="math inline">\(B\)</span> is convex, <span class="math inline">\(A\subset B\)</span><br />
+and <span class="math inline">\(B\subset B&#39;\)</span> for all convex sets <span class="math inline">\(B&#39;\subset \mathbb{R}^n\)</span> such that <span class="math inline">\(A\subset B&#39;\)</span></p>
+</blockquote>
+<p>Define <span class="math inline">\(B\equiv \{ x \ | \ x = λa + (1-λ)b\}\)</span> for all <span class="math inline">\(a,b\in A\)</span> and <span class="math inline">\(λ\in[0,1]\)</span><br />
+<span class="math inline">\(B\)</span> is convex by construction<br />
+Since <span class="math inline">\(\begin{cases} x=a &amp; \text{when } λ=1 \\ x=b &amp; \text{when } λ=0\end{cases}\)</span>,<br />
+<span class="math inline">\(\implies A\subset B\)</span><br />
+FSOC assume for some convex set <span class="math inline">\(B&#39;\)</span> s.t. <span class="math inline">\(A\subset B&#39;\)</span>, <span class="math inline">\(B\not\subset B&#39;\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(a,b\in A\)</span> and <span class="math inline">\(λ\)</span> s.t.<br />
+<span class="math display">\[\begin{cases} λa + (1-λ)b &amp;\in B&#39; \\
+λa + (1-λ)b &amp;\not\in B\end{cases}\]</span>
+Contradiction.</p>
 </div>
 <div id="maximum-supremum" class="section level3">
 <h3>Maximum &amp; Supremum</h3>
@@ -226,12 +314,51 @@
 </div>
 <div id="contraction" class="section level3">
 <h3>Contraction</h3>
+<blockquote>
+<p>2014.F1.Q7<br />
+Assume that <span class="math inline">\(f, g: \mathbb{R}\to \mathbb{R}\)</span> are contractions with <span class="math inline">\(λ_f\)</span> and <span class="math inline">\(λ_g\)</span><br />
+Show that <span class="math inline">\(h\equiv f\circ g\)</span> is a contraction</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x,x&#39;\in \mathbb{R}\)</span><br />
+<span class="math display">\[\begin{aligned} d\big(h(x), h(x&#39;)\big) &amp;= d\Big(f\big(g(x)\big), f\big(g(x&#39;)\big)\Big) \\
+&amp;\leq λ_f\cdot d\big( g(x), g(x&#39;)\big) \\
+&amp;\leq λ_f\cdot \big(λ_g \cdot d(x,x&#39;)\big) \\
+&amp;= (λ_f\cdot λ_g) \cdot d(x,x&#39;)\end{aligned}\]</span>
+Since <span class="math inline">\(λ_f,λ_g\in [0,1)\)</span>,<br />
+<span class="math inline">\(\implies λ_f\cdot λ_g \in [0,1)\)</span><br />
+<span class="math inline">\(\implies h\)</span> is a contraction</p>
 </div>
 <div id="limit-differenciation" class="section level3">
 <h3>Limit &amp; Differenciation</h3>
 </div>
 <div id="supremum-infimum" class="section level3">
 <h3>Supremum / Infimum</h3>
+<blockquote>
+<p>2014.F1.Q8, PS4.Q7<br />
+Let <span class="math inline">\(f:\mathbb{R}^2 \to \mathbb{R}\)</span> be bounded<br />
+Assume for all <span class="math inline">\(x\in \mathbb{R}\)</span>, <span class="math inline">\(f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span><br />
+Show that <span class="math inline">\(V(y)\equiv\sup_{x\in\mathbb{R}} f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span></p>
+</blockquote>
+<p><span class="math inline">\(f\)</span> is bounded <span class="math inline">\(\implies \{ f(x) | x\geq y \}\)</span> is bounded<br />
+<span class="math inline">\(\implies V(y)\)</span> is well-defined<br />
+Take arbitrary <span class="math inline">\(y_1\leq y_2 \in \mathbb{R}\)</span><br />
+Since <span class="math inline">\(f\)</span> is increasing in <span class="math inline">\(y\)</span>,<br />
+<span class="math inline">\(\implies f(x,y_1)\leq f(x,y_2)\)</span> for all <span class="math inline">\(x\)</span><br />
+<span class="math inline">\(V(y_2) = \sup_{x\in\mathbb{R}} f(x,y_2)\)</span><br />
+<span class="math inline">\(\implies V(y_2)\)</span> is the least upper bound of <span class="math inline">\(f(x,y_2)\)</span><br />
+<span class="math inline">\(\implies V(y_2)\)</span> is an upper bound of <span class="math inline">\(f(x,y_1)\)</span><br />
+And <span class="math inline">\(V(y_1) = \sup_{x\in\mathbb{R}} f(x,y_1)\)</span><br />
+<span class="math inline">\(\implies V(y_1)\)</span> is the least upper bound of <span class="math inline">\(f(x,y_1)\)</span><br />
+<span class="math inline">\(\implies V(y_1)\leq V(y_2)\)</span></p>
+<!-- Take arbitrary $y_1\leq y_2 \in \mathbb{R}$  
+Since $f$ is increasing in $y$,  
+$\implies f(x,y_1)\leq f(x,y_2)$ for all $x$  
+FSOC assume $V(y_1)>V(y_2)$, let $ε = V(y_1) - V(y_2)> 0$  
+$\implies$ exists $x^*$ s.t. 
+$$\begin{aligned} f(x^*,y_1) &> V(y_1) - ε \\
+&= V(y_2) \\
+&\geq f(x^*,y_2)\end{aligned}$$ 
+Contradiction.  -->
 </div>
 <div id="maximum" class="section level3">
 <h3>Maximum</h3>
@@ -241,6 +368,35 @@
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
+<blockquote>
+<p>2014.F1.Q5, PS7.Q7<br />
+Let <span class="math inline">\(f: \mathbb{R}\to\mathbb{R}\)</span> be strictly convex<br />
+Prove that <span class="math inline">\(f\)</span> has at most 2 zeros<br />
+(that is, set <span class="math inline">\(A\equiv\{x \in\mathbb{R} \ | \ f(x) = 0\}\)</span> contains at most 2 elements</p>
+</blockquote>
+<p>FSOC assume <span class="math inline">\(f(x) = 0\)</span> has more than two solutions<br />
+<span class="math inline">\(\implies\)</span> Exist <span class="math inline">\(x&lt;y&lt;z\in\mathbb{R}\)</span> s.t. <span class="math inline">\(f(x) = f(y) = f(z) = 0\)</span><br />
+Let <span class="math inline">\(λ = \frac{z-y}{z-x}\)</span>, <span class="math inline">\(y = λx + (1-λ)z\)</span><br />
+Since <span class="math inline">\(f\)</span> is strictly convex,<br />
+<span class="math display">\[\begin{aligned} f\big(λx + (1-λ)z\big) &amp;&lt; λf(x) + (1-λ)f(z) \\
+f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
+0 &amp;&lt; 0+0\end{aligned}\]</span>
+Contradiction.</p>
+<blockquote>
+<p>2014.F1.Q6, PS7.Q3<br />
+Prove that if <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> is convex,<br />
+then <span class="math inline">\(\frac{f(y)-f(x)}{y-x}\)</span> is increasing for all <span class="math inline">\(y &gt; x\)</span></p>
+</blockquote>
+<p>Take <span class="math inline">\(x &lt; y_1 \leq y_2\)</span><br />
+Take <span class="math inline">\(λ\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} y_1 &amp;= λx + (1-λ)y_2 \\
+1-λ &amp;= \frac{y_1 - x}{y_2 - x} \\ λ &amp;= \frac{y_2-y_1}{y_2 - x}\end{aligned}\]</span>
+Since <span class="math inline">\(f\)</span> is convex,
+<span class="math display">\[\begin{aligned} f(y_1) &amp;\leq λf(x) + (1-λ)f(y_2) \\
+f(y_1) - f(x) &amp;\leq λf(x) -f(x) + (1-λ) f(y_2) \\
+&amp;= -(1-λ) f(x) + (1-λ) f(y_2) \\
+&amp;= \frac{y_1 - x}{y_2 - x}\cdot \big(f(y_2) - f(x)\big) \\
+\frac{f(y_1)-f(x)}{y_1 - x} &amp;\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}\]</span></p>
 </div>
 <div id="epigraph" class="section level3">
 <h3>Epigraph</h3>
