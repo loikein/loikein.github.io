@@ -475,17 +475,24 @@ Since <span class="math inline">\(x\notin B \implies x \in B^C\)</span><br />
 <div id="convex" class="section level3">
 <h3>Convex</h3>
 <blockquote>
-<p>PS3.Q5<br />
+<p>PS3.Q5, 2015.F1.Q4<br />
 Fix <span class="math inline">\(x\in \mathbb{R}^n\)</span> and <span class="math inline">\(ε &gt;0\)</span>, prove that <span class="math inline">\(B_ε(x)\)</span> is convex<br />
-Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span></p>
+Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span> is a norm</p>
 </blockquote>
-<p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, take <span class="math inline">\(λ\in (0,1)\)</span><br />
-<span class="math inline">\(\implies y= λx_1 + (1-λ)x_2\)</span> is a convex combination<br />
-<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\  &amp;= \| λx_1 + (1-λ)x_2 - x \| \\ &amp;= \| λx_1 + x_2 - λx_2 - x \| \\ &amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\ &amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\ &amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\ &amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\ &amp;&lt; λε + (1-λ) ε \\ &amp;= ε \end{aligned}\]</span>
+<p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, <span class="math inline">\(λ\in (0,1)\)</span><br />
+<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\
+&amp;= \| λx_1 + (1-λ)x_2 - x \| \\
+&amp;= \| λx_1 + x_2 - λx_2 - x \| \\
+&amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\
+&amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\
+&amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\
+&amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\
+&amp;&lt; λε + (1-λ) ε \\
+&amp;= ε \end{aligned}\]</span>
 <span class="math inline">\(\implies y \in B_ε(x)\)</span><br />
 <span class="math inline">\(\implies B_ε(x)\)</span> is convex</p>
 <blockquote>
-<p>PS4.Q6<br />
+<p>PS4.Q6, 2015.F1.Q8<br />
 Let <span class="math inline">\(A, B \in \mathbb{R}^n\)</span> be two convex sets<br />
 Let <span class="math inline">\(C \equiv \{ z\in \mathbb{R} | z=x+y, \ x\in A, \ y\in B \}\)</span><br />
 Prove that <span class="math inline">\(C\)</span> is convex</p>
@@ -864,15 +871,15 @@ Show that <span class="math inline">\(\sup_{x\in A} \big( f(x) +g(x) \big) \leq 
 Since supremum is the least upper bound<br />
 <span class="math inline">\(\implies\bar{h} \leq \bar{f} + \bar{g}\)</span></p>
 <blockquote>
-<p>PS4.Q7, 2014.F1.Q8<br />
+<p>PS4.Q7, 2015.F1.Q3<br />
 Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be a bounded function and <span class="math inline">\(h(y) \equiv \sup_{x\geq y} \big( f(x) \big)\)</span><br />
 Show that <span class="math inline">\(h\)</span> is decreasing</p>
 </blockquote>
 <p><span class="math inline">\(f\)</span> is bounded <span class="math inline">\(\implies \{ f(x) | x\geq y \}\)</span> is bounded<br />
 <span class="math inline">\(\implies h(\cdot)\)</span> is well-defined<br />
-Take <span class="math inline">\(y_1&lt;y_2\)</span><br />
+Take <span class="math inline">\(y_1\leq y_2\)</span><br />
 <span class="math inline">\(\implies \{ f(x)| x\geq y_2\} \subset \{ f(x)| x\geq y_1\}\)</span><br />
-<span class="math inline">\(h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_1\}\)</span><br />
+Since <span class="math inline">\(h(y_1) = \sup_{x\geq y_1} \big( f(x) \big)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_1\}\)</span><br />
 <span class="math inline">\(\implies h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 <span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span></p>
@@ -1060,34 +1067,37 @@ then <span class="math inline">\(f(x) = 0\)</span> has at most two solutions</p>
 </blockquote>
 <p>FSOC assume <span class="math inline">\(f(x) = 0\)</span> has more than two solutions<br />
 <span class="math inline">\(\implies\)</span> Exist <span class="math inline">\(x&lt;y&lt;z\in\mathbb{R}\)</span> s.t. <span class="math inline">\(f(x) = f(y) = f(z) = 0\)</span><br />
-Let <span class="math inline">\(λ = \frac{z-y}{z-x}\)</span>, <span class="math inline">\(y = λx + (1-λ)z\)</span><br />
+Take <span class="math inline">\(λ\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} y &amp;= λx + (1-λ)z \\
+λ &amp;= \frac{z-y}{z-x}\end{aligned}\]</span>
 Since <span class="math inline">\(f\)</span> is strictly convex,<br />
 <span class="math display">\[\begin{aligned} f\big(λx + (1-λ)z\big) &amp;&lt; λf(x) + (1-λ)f(z) \\
 f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
 0 &amp;&lt; 0+0\end{aligned}\]</span>
 Contradiction.</p>
 <blockquote>
-<p>PS7.Q1<br />
+<p>PS7.Q1, 2015.F1.Q5<br />
 Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be strictly concave, <span class="math inline">\(x&lt;y&lt;z\in \mathbb{R}\)</span><br />
 Prove that <span class="math inline">\(\frac{f(y)-f(x)}{y-x}&gt;\frac{f(z)-f(x)}{z-x}&gt;\frac{f(z)-f(y)}{z-y}\)</span></p>
 </blockquote>
-<p>Rewrite <span class="math inline">\(y \equiv λ x+(1-λ)z\)</span> for some <span class="math inline">\(λ\)</span><br />
-<span class="math display">\[\begin{aligned} y-x &amp;= (1-λ)(z-x) \\
+<p>Take <span class="math inline">\(λ\)</span> s.t.
+<span class="math display">\[\begin{aligned} y &amp;= λ x+(1-λ)z \\
+y -x &amp;= -(1-λ)x + (1-λ)z \\
+&amp;= (1-λ)(z-x) \\
 1-λ &amp;= \frac{y-x}{z-x} \\
-λ &amp;=\frac{y-z}{x-z} \\
-&amp;=\frac{z-y}{z-x} \end{aligned}\]</span>
+λ &amp;= \frac{z-y}{z-x}\end{aligned}\]</span>
 Since <span class="math inline">\(f\)</span> is strictly concave,<br />
-<span class="math display">\[\begin{aligned} f(y) &amp;= f(λx + (1-λ)z) \\
-&amp;&gt; λf(x) + (1-λ)f(z) \\
+<span class="math display">\[\begin{aligned} f(y) &amp;&gt; λf(x) + (1-λ)f(z) \\
 f(y) - f(x) &amp;&gt; λf(x) - f(x) + (1-λ) f(z) \\
-&amp;&gt; (1-λ) \big( f(z) - f(x)\big) \\
-&amp;&gt; \frac{y-x}{z-x} \big(f(z) -f(x)\big) \\
+&amp;= (1-λ) \big( f(z) - f(x)\big) \\
+&amp;= \frac{y-x}{z-x} \big(f(z) -f(x)\big) \\
 \frac{f(y)-f(x)}{y-x} &amp;&gt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span>
 Similarly,<br />
-<span class="math display">\[\begin{aligned} f(y)-f(z) &amp;&gt; λf(x) + (1-λ) f(z) - f(z) \\
-&amp;&gt; λ \big(f(x) - f(z)\big) \\
-f(z) -f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
-f(z) - f(y) &amp;&lt; \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
+<span class="math display">\[\begin{aligned} f(y) &amp;&gt; λf(x) + (1-λ)f(z) \\
+f(y)-f(z) &amp;&gt; λf(x) + (1-λ) f(z) - f(z) \\
+&amp;= λ \big(f(x) - f(z)\big) \\
+f(z) - f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
+&amp;= \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
 \frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span></p>
 <blockquote>
 <p>PS7.Q3, 2014.F1.Q6<br />

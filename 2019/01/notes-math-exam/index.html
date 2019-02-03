@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">11 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -107,8 +107,7 @@
 <li><a href="#dense">Dense</a></li>
 </ul></li>
 <li><a href="#function">Function</a><ul>
-<li><a href="#range-image">Range / Image</a></li>
-<li><a href="#injection-surjection">Injection &amp; Surjection</a></li>
+<li><a href="#increasing-decreasing">Increasing / Decreasing</a></li>
 <li><a href="#continuous">Continuous</a></li>
 <li><a href="#value-theorems">Value Theorems</a></li>
 <li><a href="#contraction">Contraction</a></li>
@@ -151,7 +150,7 @@ I am only responsible for my own grades.</li>
 <ul>
 <li>[x] 2014-1</li>
 <li>[] 2014-2</li>
-<li>[] 2015-1</li>
+<li>[x] 2015-1</li>
 <li>[] 2015-2</li>
 <li>[] 2016-1</li>
 <li>[] 2016-2</li>
@@ -213,9 +212,6 @@ Therefore,<br />
 <span class="math inline">\(xR_3 y\land yR_3 x\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(xR_1 x\land yR_1 x\)</span> and <span class="math inline">\(xR_2 y\land yR_2 x\)</span><br />
 <span class="math inline">\(\iff x=y\)</span></li>
 </ol>
-<!-- ### Complete Order
-
-### Partial Order -->
 </div>
 <div id="space" class="section level2">
 <h2>Space</h2>
@@ -248,6 +244,48 @@ For any <span class="math inline">\(x,y,z\in U\)</span>,<br />
 &amp;= \big|f(x) - f(y) + f(y) - f(z)\big| \\
 &amp;\leq \big|f(x) - f(y)\big| + \big|f(y) - f(z)\big| \\
 &amp;= d(x,y) + d(y,z)\end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>2015.F1.Q9<br />
+Let <span class="math inline">\(f: \mathbb{R}_+ \to \mathbb{R}\)</span> be concave, strictly increasing, and <span class="math inline">\(f(0) = 0\)</span><br />
+Prove that <span class="math inline">\(d(x, y) \equiv f\big(|x − y|\big)\)</span> for all <span class="math inline">\(x, y\in \mathbb{R}\)</span> is a distance</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative<br />
+Since <span class="math inline">\(f\)</span> is strictly increasing, for all <span class="math inline">\(x, y\in \mathbb{R}\)</span>,<br />
+<span class="math display">\[\begin{aligned} |x − y|&amp;\geq 0 \\
+f\big(|x − y|\big)&amp;\geq f(0) \\
+d(x,y)&amp;\geq 0\end{aligned}\]</span></li>
+<li>Identity of Indiscernibles<br />
+For any <span class="math inline">\(x\in \mathbb{R}\)</span>,<br />
+<span class="math display">\[\begin{aligned} d(x,x) &amp;= f\big(|x − x|\big) \\
+&amp;= f(0) = 0\end{aligned}\]</span></li>
+<li>Symmetric<br />
+For all <span class="math inline">\(x, y\in \mathbb{R}\)</span>,<br />
+<span class="math display">\[\begin{aligned} d(x,y) &amp;= f\big(|x − y|\big) \\
+&amp;= f\big(|y − x|\big) \\
+&amp;= d(y,x)\end{aligned}\]</span></li>
+<li>Triangle Inequality<br />
+For arbitrary <span class="math inline">\(x\leq y\in \mathbb{R}\)</span>, consider any <span class="math inline">\(z\in \mathbb{R}\)</span>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x\leq z\leq y\)</span><br />
+Take <span class="math inline">\(λ\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} z &amp;=  λx + (1-λ)y \\ 1-λ &amp;= \frac{z-x}{y-x} \\ λ &amp;= \frac{y-z}{y-x}\end{aligned}\]</span>
+Therefore, <span class="math inline">\(y-z = λ(y-x) + (1-λ) \cdot 0\)</span><br />
+Since <span class="math inline">\(f\)</span> is concave,<br />
+<span class="math display">\[\begin{aligned} d(y,z) &amp;= f(|y-z|)\\ &amp;= f(y-z)\\ &amp;\geq λf(y-x) + (1-λ)f(0)\\ &amp;= λf(y-x)\end{aligned}\]</span>
+Similarly, <span class="math inline">\(z-x = (1-λ)(y-x) + λ \cdot 0\)</span><br />
+<span class="math display">\[\begin{aligned} d(z,x) &amp;= f(|z-x|)\\ &amp;= f(z-x)\\ &amp;\geq (1-λ)f(y-x) + λf(0)\\ &amp;= (1-λ)f(y-x)\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} d(y,z) + d(z,x) &amp;\geq λf(y-x) + (1-λ)f(y-x)\\ &amp;=f(y-x) = f(|y-x|)\\ &amp;= d(y,x)\end{aligned}\]</span></li>
+<li><span class="math inline">\(z &lt; x\leq y\)</span><br />
+<span class="math inline">\(\implies |y-z| &gt; |x-z|\)</span><br />
+Since <span class="math inline">\(f\)</span> is strictly increasing,<br />
+<span class="math display">\[\begin{aligned} f(|y-z|) &amp;&gt; f(|x-z|) \\ d(y,z) &amp;&gt; d(x,z) \\ d(y,z) + d(y,x) &amp;&gt; d(x,z)\end{aligned}\]</span></li>
+<li><span class="math inline">\(x\leq y &lt; z\)</span><br />
+<span class="math inline">\(\implies |z-y| \geq |z-x|\)</span><br />
+Since <span class="math inline">\(f\)</span> is increasing,<br />
+<span class="math display">\[\begin{aligned} f(|z-y|) &amp;\geq f(|z-x|) \\ d(z,y) &amp;\geq d(z,x) \\ d(z,y) + d(y,x) &amp;&gt; d(z,x)\end{aligned}\]</span></li>
+</ol></li>
 </ol>
 <!-- ### Cauchy-Schwarz Inequality -->
 </div>
@@ -315,6 +353,19 @@ For any <span class="math inline">\(x&#39; \in B_ε(x)\)</span>,<br />
 <div id="convex" class="section level3">
 <h3>Convex</h3>
 <blockquote>
+<p>2015.F1.Q8, PS4.Q6<br />
+Let <span class="math inline">\(A, B \in \mathbb{R}^n\)</span> be two convex sets<br />
+Let <span class="math inline">\(C \equiv \{ z\in \mathbb{R} | z=x+y, \ x\in A, \ y\in B \}\)</span><br />
+Prove that <span class="math inline">\(C\)</span> is convex</p>
+</blockquote>
+<p>Take some <span class="math inline">\(x_1, x_2 \in A\)</span> and <span class="math inline">\(y_1,y_2 \in B\)</span><br />
+Take <span class="math inline">\(z_1, z_2 \in C\)</span> s.t. <span class="math inline">\(z_1 = x_1+ y_1\)</span>, <span class="math inline">\(z_2 = x_2+ y_2\)</span><br />
+Let <span class="math display">\[\begin{aligned} z_3 &amp;\equiv λz_1 + (1-λ)z_2 \\ &amp;= λ(x_1+y_1) + (1-λ)(x_2+y_2) \\ &amp;= λx_1+(1-λ)x_2 + λy_1 + (1-λ)y_2 \end{aligned}\]</span>
+Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are convex<br />
+<span class="math inline">\(\implies λx_1+(1-λ)x_2 \in A\)</span> and <span class="math inline">\(λy_1+(1-λ)y_2 \in B\)</span><br />
+<span class="math inline">\(\implies z_3 \in C\)</span><br />
+<span class="math inline">\(\implies C\)</span> is convex</p>
+<blockquote>
 <p>2014.F1.Q9<br />
 Let <span class="math inline">\(A\subset \mathbb{R}^n\)</span> be a set<br />
 Prove that there exists a set <span class="math inline">\(B\subset \mathbb{R}^n\)</span> s.t. <span class="math inline">\(B\)</span> is convex, <span class="math inline">\(A\subset B\)</span><br />
@@ -329,6 +380,23 @@ FSOC assume for some convex set <span class="math inline">\(B&#39;\)</span> s.t.
 <span class="math display">\[\begin{cases} λa + (1-λ)b &amp;\in B&#39; \\
 λa + (1-λ)b &amp;\not\in B\end{cases}\]</span>
 Contradiction.</p>
+<blockquote>
+<p>PS3.Q5, 2015.F1.Q4<br />
+Fix <span class="math inline">\(x\in \mathbb{R}^n\)</span> and <span class="math inline">\(ε &gt;0\)</span>, prove that <span class="math inline">\(B_ε(x)\)</span> is convex<br />
+Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span> is a norm</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x_1, x_2 \in B_ε(x)\)</span>, <span class="math inline">\(λ\in (0,1)\)</span><br />
+<span class="math display">\[\begin{aligned} d(y,x) &amp;= d \big((λx_1+(1-λ)x_2),x\big) \\
+&amp;= \| λx_1 + (1-λ)x_2 - x \| \\
+&amp;= \| λx_1 + x_2 - λx_2 - x \| \\
+&amp;= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\
+&amp;\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\
+&amp;= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\
+&amp;= λ d( x_1,x) + (1-λ) d( x_2,x ) \\
+&amp;&lt; λε + (1-λ) ε \\
+&amp;= ε \end{aligned}\]</span>
+<span class="math inline">\(\implies y \in B_ε(x)\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\)</span> is convex</p>
 </div>
 <div id="maximum-supremum" class="section level3">
 <h3>Maximum &amp; Supremum</h3>
@@ -339,17 +407,66 @@ Contradiction.</p>
 </div>
 <div id="function" class="section level2">
 <h2>Function</h2>
-<div id="range-image" class="section level3">
-<h3>Range / Image</h3>
-</div>
-<div id="injection-surjection" class="section level3">
-<h3>Injection &amp; Surjection</h3>
+<!-- ### Range / Image
+
+### Injection & Surjection -->
+<div id="increasing-decreasing" class="section level3">
+<h3>Increasing / Decreasing</h3>
+<blockquote>
+<p>2015.F1. Q7<br />
+Let <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span><br />
+Show that <span class="math inline">\(f\)</span> is increasing <span class="math inline">\(\iff f&#39;(x)\geq 0\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span><br />
+Hint: use the mean value theorem</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+FSOC assume <span class="math inline">\(f&#39;(x)&lt; 0\)</span> for some <span class="math inline">\(x\)</span><br />
+By mean value theorem, exists <span class="math inline">\(x_1\leq x_2\)</span> s.t. <span class="math inline">\(x\in (x_1,x_2)\)</span>,<br />
+<span class="math display">\[\begin{aligned} f&#39;(x) = \frac{f(x_2) - f(x_1)}{x_2 - x_1} &amp;&lt; 0 \\
+f(x_2) - f(x_1) &amp;&lt; 0\end{aligned}\]</span>
+Contradicts that <span class="math inline">\(f\)</span> is increasing<br />
+</li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+FSOC assume <span class="math inline">\(f\)</span> is not increasing<br />
+Take arbitrary <span class="math inline">\(x_1\leq x_2\in\mathbb{R}\)</span><br />
+By mean value theorem, exists <span class="math inline">\(x&#39;\in (x_1,x_2)\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} f&#39;(x) = \frac{f(x_2) - f(x_1)}{x_2 - x_1} &amp;\geq 0\\
+f(x_2) - f(x_1) &amp;\geq 0\end{aligned}\]</span>
+Contradicts that <span class="math inline">\(f\)</span> is not increasing</li>
+</ol>
 </div>
 <div id="continuous" class="section level3">
 <h3>Continuous</h3>
 </div>
 <div id="value-theorems" class="section level3">
 <h3>Value Theorems</h3>
+<blockquote>
+<p>2015.F1.Q6<br />
+Let <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span> be s.t. <span class="math inline">\(f&#39;(x)\leq 1\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span><br />
+Prove that the set of fixed points of <span class="math inline">\(f\)</span> is convex<br />
+Hint: use the mean value theorem</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>The set is empty or singleton (trivial)<br />
+</li>
+<li>The set contains more than 1 element<br />
+Assume <span class="math inline">\(x_1,x_2\)</span> are fixed points of <span class="math inline">\(f\)</span><br />
+Let <span class="math inline">\(x_3 = λx_1 + (1-λ)x_2\)</span><br />
+FSOC assume <span class="math inline">\(f(x_3)&lt; x_3\)</span><br />
+By mean value theorem, exists <span class="math inline">\(x&#39;\in (x_3,x_2)\)</span> s.t.
+<span class="math display">\[\begin{aligned} f&#39;(x&#39;) &amp;= \frac{f(x_2) - f(x_3)}{x_2 - x_3} \\
+&amp;= \frac{x_2 - f(x_3)}{x_2 - x_3} \\
+&amp;= 1 + \frac{x_3 - f(x_3)}{x_2 - x_3} &gt; 1\end{aligned}\]</span>
+Contradiction.<br />
+FSOC assume <span class="math inline">\(f(x_3) &gt; x_3\)</span><br />
+By mean value theorem, exists <span class="math inline">\(x&#39;\in (x_1,x_3)\)</span> s.t.
+<span class="math display">\[\begin{aligned} f&#39;(x&#39;) &amp;= \frac{f(x_3) - f(x_1)}{x_3 - x_1} \\
+&amp;= \frac{f(x_3) - x_1}{x_3 - x_1} \\
+&amp;= 1 + \frac{f(x_3) - x_3}{x_3 - x_1} &gt; 1\end{aligned}\]</span>
+Contradiction.<br />
+Therefore, <span class="math inline">\(f(x_3) = x_3\)</span><br />
+<span class="math inline">\(\implies λx_1 + (1-λ)x_2\)</span> is a fixed point</li>
+</ol>
 </div>
 <div id="contraction" class="section level3">
 <h3>Contraction</h3>
@@ -373,7 +490,7 @@ Since <span class="math inline">\(λ_f,λ_g\in [0,1)\)</span>,<br />
 <div id="supremum-infimum" class="section level3">
 <h3>Supremum / Infimum</h3>
 <blockquote>
-<p>2014.F1.Q8, PS4.Q7<br />
+<p>2014.F1.Q8,
 Let <span class="math inline">\(f:\mathbb{R}^2 \to \mathbb{R}\)</span> be bounded<br />
 Assume for all <span class="math inline">\(x\in \mathbb{R}\)</span>, <span class="math inline">\(f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span><br />
 Show that <span class="math inline">\(V(y)\equiv\sup_{x\in\mathbb{R}} f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span></p>
@@ -389,7 +506,8 @@ Since <span class="math inline">\(f\)</span> is increasing in <span class="math 
 And <span class="math inline">\(V(y_1) = \sup_{x\in\mathbb{R}} f(x,y_1)\)</span><br />
 <span class="math inline">\(\implies V(y_1)\)</span> is the least upper bound of <span class="math inline">\(f(x,y_1)\)</span><br />
 <span class="math inline">\(\implies V(y_1)\leq V(y_2)\)</span></p>
-<!-- Take arbitrary $y_1\leq y_2 \in \mathbb{R}$  
+<!-- Solution:  
+Take arbitrary $y_1\leq y_2 \in \mathbb{R}$  
 Since $f$ is increasing in $y$,  
 $\implies f(x,y_1)\leq f(x,y_2)$ for all $x$  
 FSOC assume $V(y_1)>V(y_2)$, let $ε = V(y_1) - V(y_2)> 0$  
@@ -398,6 +516,19 @@ $$\begin{aligned} f(x^*,y_1) &> V(y_1) - ε \\
 &= V(y_2) \\
 &\geq f(x^*,y_2)\end{aligned}$$ 
 Contradiction.  -->
+<blockquote>
+<p>2015.F1.Q3, PS4.Q7<br />
+Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be a bounded function and <span class="math inline">\(h(y) \equiv \sup_{x\geq y} \big( f(x) \big)\)</span><br />
+Show that <span class="math inline">\(h\)</span> is decreasing</p>
+</blockquote>
+<p><span class="math inline">\(f\)</span> is bounded <span class="math inline">\(\implies \{ f(x) | x\geq y \}\)</span> is bounded<br />
+<span class="math inline">\(\implies h(\cdot)\)</span> is well-defined<br />
+Take <span class="math inline">\(y_1\leq y_2\)</span><br />
+<span class="math inline">\(\implies \{ f(x)| x\geq y_2\} \subset \{ f(x)| x\geq y_1\}\)</span><br />
+Since <span class="math inline">\(h(y_1) = \sup_{x\geq y_1} \big( f(x) \big)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_1\}\)</span><br />
+<span class="math inline">\(\implies h(y_1)\)</span> is an upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
+Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
+<span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span></p>
 </div>
 <div id="maximum" class="section level3">
 <h3>Maximum</h3>
@@ -415,7 +546,9 @@ Prove that <span class="math inline">\(f\)</span> has at most 2 zeros<br />
 </blockquote>
 <p>FSOC assume <span class="math inline">\(f(x) = 0\)</span> has more than two solutions<br />
 <span class="math inline">\(\implies\)</span> Exist <span class="math inline">\(x&lt;y&lt;z\in\mathbb{R}\)</span> s.t. <span class="math inline">\(f(x) = f(y) = f(z) = 0\)</span><br />
-Let <span class="math inline">\(λ = \frac{z-y}{z-x}\)</span>, <span class="math inline">\(y = λx + (1-λ)z\)</span><br />
+Take <span class="math inline">\(λ\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} y &amp;= λx + (1-λ)z \\
+λ &amp;= \frac{z-y}{z-x}\end{aligned}\]</span>
 Since <span class="math inline">\(f\)</span> is strictly convex,<br />
 <span class="math display">\[\begin{aligned} f\big(λx + (1-λ)z\big) &amp;&lt; λf(x) + (1-λ)f(z) \\
 f(y) &amp;&lt; λf(x) + (1-λ)f(z) \\
@@ -436,6 +569,30 @@ f(y_1) - f(x) &amp;\leq λf(x) -f(x) + (1-λ) f(y_2) \\
 &amp;= -(1-λ) f(x) + (1-λ) f(y_2) \\
 &amp;= \frac{y_1 - x}{y_2 - x}\cdot \big(f(y_2) - f(x)\big) \\
 \frac{f(y_1)-f(x)}{y_1 - x} &amp;\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}\]</span></p>
+<blockquote>
+<p>2015.F1.Q5, PS7.Q1<br />
+Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be strictly concave, <span class="math inline">\(x&lt;y&lt;z\in \mathbb{R}\)</span><br />
+Prove that <span class="math inline">\(\frac{f(y)-f(x)}{y-x}&gt;\frac{f(z)-f(x)}{z-x}&gt;\frac{f(z)-f(y)}{z-y}\)</span></p>
+</blockquote>
+<p>Take <span class="math inline">\(λ\)</span> s.t.
+<span class="math display">\[\begin{aligned} y &amp;= λ x+(1-λ)z \\
+y -x &amp;= -(1-λ)x + (1-λ)z \\
+&amp;= (1-λ)(z-x) \\
+1-λ &amp;= \frac{y-x}{z-x} \\
+λ &amp;= \frac{z-y}{z-x}\end{aligned}\]</span>
+Since <span class="math inline">\(f\)</span> is strictly concave,<br />
+<span class="math display">\[\begin{aligned} f(y) &amp;&gt; λf(x) + (1-λ)f(z) \\
+f(y) - f(x) &amp;&gt; λf(x) - f(x) + (1-λ) f(z) \\
+&amp;= (1-λ) \big( f(z) - f(x)\big) \\
+&amp;= \frac{y-x}{z-x} \big(f(z) -f(x)\big) \\
+\frac{f(y)-f(x)}{y-x} &amp;&gt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span>
+Similarly,<br />
+<span class="math display">\[\begin{aligned} f(y) &amp;&gt; λf(x) + (1-λ)f(z) \\
+f(y)-f(z) &amp;&gt; λf(x) + (1-λ) f(z) - f(z) \\
+&amp;= λ \big(f(x) - f(z)\big) \\
+f(z) - f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
+&amp;= \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
+\frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span></p>
 </div>
 <div id="epigraph" class="section level3">
 <h3>Epigraph</h3>
