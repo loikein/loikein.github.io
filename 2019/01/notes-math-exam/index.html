@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">19 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -97,7 +97,7 @@
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
 <li><a href="#proof-by-deduction">Proof by Deduction</a></li>
-<li><a href="#proof-by-b_">Proof by <span class="math inline">\(B_ε\)</span></a></li>
+<li><a href="#inclusion-of-b_">Inclusion of <span class="math inline">\(B_ε\)</span></a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
 <li><a href="#close-open">Close / Open</a></li>
@@ -193,7 +193,7 @@ Also, since <span class="math inline">\(f(x)\leq g(x)\)</span> for all <span cla
 <span class="math inline">\(\implies f(x)\geq g(z)\)</span><br />
 <span class="math inline">\(\implies xRz\)</span></p>
 <blockquote>
-<p>2015.F1.Q2, PS1.Q6<br />
+<p>2015.F1.Q2, 2017.F1.Q1 PS1.Q6<br />
 Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two (partial) orders in some space <span class="math inline">\(U\)</span><br />
 Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
 Prove that <span class="math inline">\(R_3\)</span> is a (partial) order</p>
@@ -448,8 +448,8 @@ Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></
 <span class="math inline">\(\iff x \in A^c \cup B\)</span><br />
 <span class="math inline">\(\implies (A\backslash B)^c = A^c \cup B\)</span></p>
 </div>
-<div id="proof-by-b_" class="section level3">
-<h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
+<div id="inclusion-of-b_" class="section level3">
+<h3>Inclusion of <span class="math inline">\(B_ε\)</span></h3>
 <blockquote>
 <p>2015.F1.Q1<br />
 Fix <span class="math inline">\(x_0\in \mathbb{R}^n\)</span><br />
@@ -461,6 +461,28 @@ where, <span class="math inline">\(B_ε(x_0)\)</span> is the open ball of radius
 FSOC assume exists <span class="math inline">\(x&#39;\neq x_0\)</span>, <span class="math inline">\(x&#39;\in \cap_{ε\in \mathbb{R}_{++}} B_ε(x_0)\)</span><br />
 <span class="math inline">\(\implies x&#39;\in B_ε(x_0)\)</span> for all <span class="math inline">\(ε&gt;0\)</span><br />
 <span class="math inline">\(\implies x&#39;\in B_{d(x_0,x&#39;)}(x_0)\)</span>, contradiction</p>
+<blockquote>
+<p>2017.F1.Q7<br />
+Let <span class="math inline">\(\{A_n \ | \ n = 1,\dots,N\}\)</span> be a finite collection of sets in metric space <span class="math inline">\(\langle U, d\rangle\)</span><br />
+Prove that <span class="math inline">\(\text{int}\big(\cap_{n=1}^N A_n \big) = \cap_{n=1}^N \big(\text{int}(A_n)\big)\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\subset\)</span>)<br />
+Take arbitrary <span class="math inline">\(x\in \text{int}\big(\cap_{n=1}^N A_n \big)\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(ε&gt;0\)</span> s.t. <span class="math inline">\(B_ε(x)\in \cap_{n=1}^N A_n\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\in A_n\)</span> for all <span class="math inline">\(n\in[1,N]\)</span><br />
+<span class="math inline">\(\implies x\in \text{int}(A_n)\)</span> for all <span class="math inline">\(n\)</span><br />
+<span class="math inline">\(\implies x\in\cap_{n=1}^N \big(\text{int}(A_n)\big)\)</span><br />
+</li>
+<li>(<span class="math inline">\(\supset\)</span>)<br />
+Take arbitrary <span class="math inline">\(x\in\cap_{n=1}^N \big(\text{int}(A_n)\big)\)</span><br />
+<span class="math inline">\(\implies x\in \text{int}(A_n)\)</span> for all <span class="math inline">\(n\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(ε(n)&gt;0\)</span> for each <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(B_{ε(n)}(x)\in A_n\)</span><br />
+Take <span class="math inline">\(ε = \min\big[ε(1),ε(2),\dots,ε(N)\big]\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\in A_n\)</span> for all <span class="math inline">\(n\)</span><br />
+<span class="math inline">\(\implies B_ε(x)\in \cap_{n=1}^N A_n\)</span><br />
+<span class="math inline">\(\implies x\in \text{int}\big(\cap_{n=1}^N A_n \big)\)</span></li>
+</ol>
 </div>
 </div>
 <div id="set" class="section level2">
@@ -488,7 +510,7 @@ For any <span class="math inline">\(x&#39; \in B_ε(x)\)</span>,<br />
 <blockquote>
 <p>2015.F1.Q8, PS4.Q6<br />
 Let <span class="math inline">\(A, B \in \mathbb{R}^n\)</span> be two convex sets<br />
-Let <span class="math inline">\(C \equiv \{ z\in \mathbb{R} | z=x+y, \ x\in A, \ y\in B \}\)</span><br />
+Let <span class="math inline">\(C \equiv \{ z\in \mathbb{R} | z=x+y, x\in A, y\in B \}\)</span><br />
 Prove that <span class="math inline">\(C\)</span> is convex</p>
 </blockquote>
 <p>Take some <span class="math inline">\(x_1, x_2 \in A\)</span> and <span class="math inline">\(y_1,y_2 \in B\)</span><br />
@@ -498,6 +520,27 @@ Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)
 <span class="math inline">\(\implies λx_1+(1-λ)x_2 \in A\)</span> and <span class="math inline">\(λy_1+(1-λ)y_2 \in B\)</span><br />
 <span class="math inline">\(\implies z_3 \in C\)</span><br />
 <span class="math inline">\(\implies C\)</span> is convex</p>
+<blockquote>
+<p>2017.F1.Q9<br />
+Let <span class="math inline">\(A\)</span> be a convex set in <span class="math inline">\(\mathbb{R}^n\)</span><br />
+Define <span class="math inline">\(C \equiv \{ z\in \mathbb{R} \ | \ z=λx, x\in A, λ\in [0,1]] \}\)</span><br />
+Prove that <span class="math inline">\(C\)</span> is convex</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(z_1,z_2\in C\)</span><br />
+<span class="math inline">\(\implies z_1 = λ_1x_1, x_1\in A\)</span>, and <span class="math inline">\(z_2 = λ_2x_2, x_2\in A\)</span><br />
+Take arbitrary <span class="math inline">\(λ\in[0,1]\)</span><br />
+<span class="math display">\[\begin{aligned} z_3 &amp;= λz_1 + (1-λ)z_2 \\
+&amp;= λ(λ_1x_1) + (1-λ)(λ_2x_2)\end{aligned}\]</span>
+Note that <span class="math inline">\(0\in C\)</span><br />
+<span class="math inline">\(\implies z_3\in C\)</span> when <span class="math inline">\(λ\cdot λ_1 = (1-λ)λ_2 = 0\)</span><br />
+When <span class="math inline">\(λ\cdot λ_1 + (1-λ)λ_2 &gt; 0\)</span><br />
+Take <span class="math inline">\(λ&#39;\in[0,1]\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned} z_3 &amp;= \big(λ\cdot λ_1 + (1-λ)λ_2\big)\big( λ&#39; z_1 + (1-λ&#39;)z_2\big) \\
+λ&#39; &amp;= \frac{λ\cdot λ_1}{λ\cdot λ_1 + (1-λ)λ_2}\end{aligned}\]</span>
+Since <span class="math inline">\(A\)</span> is convex<br />
+<span class="math inline">\(\implies \big( λ&#39; z_1 + (1-λ&#39;)z_2\big)\in A\)</span><br />
+Since <span class="math inline">\(λ\cdot λ_1 + (1-λ)λ_2\in [0,1]\)</span><br />
+<span class="math inline">\(\implies z_3\in C\)</span></p>
 <blockquote>
 <p>2014.F1.Q9<br />
 Let <span class="math inline">\(A\subset \mathbb{R}^n\)</span> be a set<br />
@@ -546,7 +589,7 @@ Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span> is a norm</
 <div id="increasing-decreasing" class="section level3">
 <h3>Increasing / Decreasing</h3>
 <blockquote>
-<p>2015.F1. Q7<br />
+<p>2015.F1.Q7<br />
 Let <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span><br />
 Show that <span class="math inline">\(f\)</span> is increasing <span class="math inline">\(\iff f&#39;(x)\geq 0\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span><br />
 Hint: use the mean value theorem</p>
@@ -567,6 +610,19 @@ By mean value theorem, exists <span class="math inline">\(x&#39;\in (x_1,x_2)\)<
 f(x_2) - f(x_1) &amp;\geq 0\end{aligned}\]</span>
 Contradicts that <span class="math inline">\(f\)</span> is not increasing</li>
 </ol>
+<blockquote>
+<p>2017.F1.Q8<br />
+Let <span class="math inline">\(\{f_i \ | \ i\in\mathcal{I}\}\)</span> be an arbitrary collection of increasing functions: <span class="math inline">\([0,1]\to [0,1]\)</span><br />
+For each <span class="math inline">\(x\in [0,1]\)</span>, define <span class="math inline">\(f(x)\equiv\sup_{i\in\mathcal{I}} f_i(x)\)</span><br />
+Prove that <span class="math inline">\(f\)</span> is increasing</p>
+</blockquote>
+<p>Take <span class="math inline">\(a\leq b\in [0,1]\)</span>, <span class="math inline">\(f(a) = \sup_{i\in\mathcal{I}} f_i(a)\)</span>, <span class="math inline">\(f(b) = \sup_{i\in\mathcal{I}} f_i(b)\)</span><br />
+Since <span class="math inline">\(f_i\)</span> is increasing for all <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(\implies f_i(a)\leq f_i(b)\)</span> for all <span class="math inline">\(i\)</span><br />
+FSOC assume <span class="math inline">\(f(a) = f_j(a)\)</span>, <span class="math inline">\(f(b) = f_k(b)\)</span>, <span class="math inline">\(f(a)&gt;f(b)\)</span><br />
+<span class="math inline">\(\implies f_j(a) &gt; f_k(b)\)</span><br />
+But <span class="math inline">\(f_j(b) \geq f_j(a) &gt; f_k(b)\)</span>, contradicts that <span class="math inline">\(f_k(b)\)</span> is supremum<br />
+<span class="math inline">\(\implies f(a)\leq f(b)\)</span></p>
 </div>
 <div id="continuous" class="section level3">
 <h3>Continuous</h3>
@@ -750,6 +806,17 @@ Take <span class="math inline">\(λ\in (0,1)\)</span><br />
 &amp;\leq f\Big(λx_1 + (1-λ)x_2, λy_1 + (1-λ)y_2\Big) \\
 &amp;\leq λf(x_1,y_1) + (1-λ)f(x_2,y_2) \\
 &amp;= λV(y_1) + (1-λ)V(y_2) \end{aligned}\]</span></p>
+<blockquote>
+<p>2017.F1.Q6, PS10.Q7<br />
+Let <span class="math inline">\(f,g: \mathbb{R}^n \to \mathbb{R}\)</span>, <span class="math inline">\(A = \{ x \in \mathbb{R}^n | g(x) = 0\}\)</span><br />
+Assume exists some <span class="math inline">\(x^* \in A\)</span> s.t. <span class="math inline">\(x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)\)</span><br />
+Prove that <span class="math inline">\(x^* \in \text{argmax} _{x\in A} f(x)\)</span></p>
+</blockquote>
+<p>Since <span class="math inline">\(x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)\)</span><br />
+<span class="math display">\[\begin{aligned} f(x^*) + g(x^*) &amp;\geq f(x) + g(x) &amp;&amp; \text{for all }x\\
+f(x^*) + g(x^*) &amp;\geq f(x) + g(x) &amp;&amp; \text{for all }x\in A \\
+f(x^*) &amp;\geq f(x) &amp;&amp; \text{for all }x\in A\end{aligned}\]</span>
+<span class="math inline">\(\implies x^* \in \text{argmax} _{x\in A} f(x)\)</span></p>
 </div>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
@@ -808,6 +875,21 @@ f(y)-f(z) &amp;&gt; λf(x) + (1-λ) f(z) - f(z) \\
 f(z) - f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
 &amp;= \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
 \frac{f(z)-f(y)}{z-y} &amp;&lt; \frac{f(z)-f(x)}{z-x}\end{aligned}\]</span></p>
+<blockquote>
+<p>2017.F1.Q3<br />
+Prove that if <span class="math inline">\(f,g: \mathbb{R}\to\mathbb{R}\)</span> are increasing and quasi-convex,<br />
+then <span class="math inline">\(g\circ f\)</span> is quasi-convex<br />
+Function <span class="math inline">\(f\)</span> is quasi-convex if <span class="math inline">\(f\big[ λx_1 + (1-λ)x_2\big]\leq\max \big[ f(x_1),f(x_2) \big]\)</span> for <span class="math inline">\(λ\in [0,1]\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x_1, x_2\in\mathbb{R}\)</span>,<br />
+Denote <span class="math inline">\(f(x_1) = y_1\)</span>, <span class="math inline">\(f(x_2) = y_2\)</span><br />
+<span class="math display">\[\begin{aligned} f\big(λx_1 + (1-λ)x_2\big) &amp;\leq \max[a,b] \\
+g\Big( f\big(λx_1 + (1-λ)x_2\big)\Big) &amp;\leq g\big( \max[a,b]\big) \\
+g\circ f \big(λx_1 + (1-λ)x_2\big) &amp;\leq g\big( \max[a,b]\big)\end{aligned}\]</span>
+Since <span class="math inline">\(g\)</span> is increasing,<br />
+<span class="math display">\[\begin{aligned} g\circ f \big(λx_1 + (1-λ)x_2\big) &amp;\leq g\big( \max[a,b]\big) \\
+&amp;= \max\big[ g(a),g(b) \big] \\
+&amp;= \max\big[ g\circ f(a),g\circ f(b) \big]\end{aligned}\]</span></p>
 </div>
 <div id="epigraph" class="section level3">
 <h3>Epigraph</h3>
@@ -830,7 +912,7 @@ f(z) - f(y) &amp;&lt; λ\big(f(z)- f(x)\big) \\
 <div id="convergent" class="section level3">
 <h3>Convergent</h3>
 <blockquote>
-<p>2016.F1.Q3<br />
+<p>2016.F1.Q3, 2017.F1.Q2<br />
 Let <span class="math inline">\(f: \mathbb{R}^m \to \mathbb{R}^m\)</span> be a continuous function<br />
 Fix <span class="math inline">\(x_1\in\mathbb{R}^m\)</span> and let <span class="math inline">\((x_n)_n\)</span> be the sequence generated by <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\in \mathbb{N}\)</span><br />
 Prove that if <span class="math inline">\(x_n \to x^*\)</span> for some <span class="math inline">\(x^*\in\mathbb{R}^m\)</span>,<br />
@@ -841,6 +923,20 @@ then <span class="math inline">\(x^*\)</span> is a steady state of the recurrenc
 <span class="math inline">\(\implies \big(f(x_n)\big)_n \to x^*\)</span><br />
 Since <span class="math inline">\(f\)</span> is continuous, <span class="math inline">\(\big(f(x_n)\big)_n\to f(x^*)\)</span><br />
 <span class="math inline">\(\implies f(x^*) = x^*\)</span></p>
+<blockquote>
+<p>2017.F1.Q4<br />
+Let <span class="math inline">\((x_n)_n\)</span> be a convergent sequence in <span class="math inline">\(\mathbb{R}\)</span><br />
+Define <span class="math inline">\(y_n \equiv x_{n+1} − x_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span><br />
+Show that <span class="math inline">\((y_n)_n\)</span> is convergent</p>
+</blockquote>
+<p>Let <span class="math inline">\((x_n)_n\to x\in\mathbb{R}\)</span><br />
+<span class="math inline">\(\implies d(x_n, x^*)&lt;ε\)</span> for all <span class="math inline">\(n&gt;N(ε)\)</span><br />
+<span class="math inline">\(\implies d(x_n, x^*)&lt;\frac{ε}{2}\)</span> for all <span class="math inline">\(n&gt;N(\frac{ε}{2})\)</span><br />
+<span class="math inline">\(\implies\)</span> for all <span class="math inline">\(n&gt;N(\frac{ε}{2})\)</span>,<br />
+<span class="math display">\[\begin{aligned} d(x_{n+1},x_n) &amp;\leq d(x_n, x^*) + d(x_{n+1}, x^*) \\
+&amp;&lt; \frac{ε}{2} + \frac{ε}{2} \\
+&amp;= ε\end{aligned}\]</span>
+<span class="math inline">\(\implies (x_{n+1})_n \to x_n\)</span> for all <span class="math inline">\(n&gt;N(\frac{ε}{2})\)</span></p>
 </div>
 <div id="limit-cluster-point" class="section level3">
 <h3>Limit &amp; Cluster Point</h3>
@@ -848,6 +944,22 @@ Since <span class="math inline">\(f\)</span> is continuous, <span class="math in
 </div>
 <div id="set-times-sequence" class="section level2">
 <h2>Set <span class="math inline">\(\times\)</span> Sequence</h2>
+<blockquote>
+<p>2017.F1.Q5<br />
+Let <span class="math inline">\(A,B \subset \mathbb{R}^n\)</span> be two compact and non-empty sets, <span class="math inline">\(A\cap B =\emptyset\)</span><br />
+Prove that <span class="math inline">\(\inf\{d(x, y) \ | \ x\in A, y\in B\} &gt; 0\)</span><br />
+Hint: you can use that <span class="math inline">\(d: \mathbb{R}^n\times\mathbb{R}^n\to\mathbb{R}_+\)</span> is continuous</p>
+</blockquote>
+<p>Reference: <a href="https://math.stackexchange.com/a/109199/380826">Mathematics Stack Exchange</a></p>
+<p>Since distance is non-negative,<br />
+FSOC assume <span class="math inline">\(\inf\{d(x, y) \ | \ x\in A, y\in B\} = 0\)</span><br />
+<span class="math inline">\(\implies\)</span> there exist sequences <span class="math inline">\((x_n)_n\in A\)</span> and <span class="math inline">\((y_n)_n\in B\)</span> s.t. <span class="math inline">\(d(x_n,y_n)&lt;\frac{1}{n}\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span><br />
+Since <span class="math inline">\(A,B\)</span> are compact,<br />
+<span class="math inline">\(\implies (x_n)_n\)</span> has a subsequence s.t. <span class="math inline">\((x_{k(n)})_n\to\)</span> some <span class="math inline">\(x^*\in A\)</span><br />
+<span class="math inline">\(\implies (y_{k(n)})_n\)</span> has a subsequence s.t. <span class="math inline">\((y_{j(k(n))})_n\to\)</span> some <span class="math inline">\(y^*\in B\)</span><br />
+Since <span class="math inline">\(d\)</span> is continuous,<br />
+<span class="math display">\[\begin{aligned} \lim_{n\to\infty} d\left( x_{k(n)}, y_{j(k(n))}\right) &amp;= d(x^*,y^*) \\ &amp;= 0\end{aligned}\]</span>
+<span class="math inline">\(\implies x^* = y^* = A\cap B\)</span>, contradiction</p>
 </div>
 
     </div>

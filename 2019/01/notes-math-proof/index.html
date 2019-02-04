@@ -105,7 +105,7 @@
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
 <li><a href="#proof-by-deduction">Proof by Deduction</a></li>
-<li><a href="#proof-by-b_">Proof by <span class="math inline">\(B_ε\)</span></a></li>
+<li><a href="#inclusion-of-b_">Inclusion of <span class="math inline">\(B_ε\)</span></a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
 <li><a href="#close-open">Close / Open</a></li>
@@ -226,7 +226,7 @@ Prove that if <span class="math inline">\(p \implies q\)</span> and <span class=
 <div id="order" class="section level3">
 <h3>Order</h3>
 <blockquote>
-<p>PS1.Q6, 2015.F1.Q2<br />
+<p>PS1.Q6, 2015.F1.Q2, 2017.F1.Q1<br />
 Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two (partial) orders in some space <span class="math inline">\(U\)</span><br />
 Let <span class="math inline">\(R_3\)</span> be the relation defined by <span class="math inline">\(\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U\)</span><br />
 Prove that <span class="math inline">\(R_3\)</span> is a (partial) order</p>
@@ -395,8 +395,8 @@ Prove <span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) = \cap 
 <span class="math inline">\(\implies x \inf^{-1}\big( \cap B_i \big)\)</span></li>
 </ol>
 </div>
-<div id="proof-by-b_" class="section level3">
-<h3>Proof by <span class="math inline">\(B_ε\)</span></h3>
+<div id="inclusion-of-b_" class="section level3">
+<h3>Inclusion of <span class="math inline">\(B_ε\)</span></h3>
 <blockquote>
 <p>PS2.Q8, PS3.Q8<br />
 1. Show that the intersection of a finite collection of open sets is open<br />
@@ -1029,7 +1029,7 @@ Let <span class="math inline">\(x_3 = λx_1 + (1-λ)x_2\)</span>, since <span cl
 <span class="math inline">\(\implies x_3 \in \text{argmax}_{x\in A} f(x)\)</span><br />
 <span class="math inline">\(\implies \text{argmax}_{x\in A} f(x)\)</span> is convex</p>
 <blockquote>
-<p>PS10.Q7<br />
+<p>PS10.Q7, 2017.F1.Q6<br />
 Let <span class="math inline">\(f,g: \mathbb{R}^n \to \mathbb{R}\)</span>, <span class="math inline">\(A = \{ x \in \mathbb{R}^n | g(x) = 0\}\)</span><br />
 Assume exists some <span class="math inline">\(x^* \in A\)</span> s.t. <span class="math inline">\(x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)\)</span><br />
 Prove that <span class="math inline">\(x^* \in \text{argmax} _{x\in A} f(x)\)</span></p>
@@ -1374,6 +1374,7 @@ Let <span class="math inline">\(ε&#39; \equiv ε\cdot\frac{M}{|x^*|}\)</span>,<
 <li>Limit of sequence <span class="math inline">\((x_n)_n\)</span>, denoted by <span class="math inline">\(x \equiv \lim_{n\to\infty} x_n\)</span> if <span class="math inline">\((x_n)_n \to x\)</span></li>
 <li><span class="math inline">\(x\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n\)</span> if <span class="math inline">\(\exists N&#39;&gt;N\)</span> s.t. <span class="math inline">\(d(x_{N&#39;}, x )&lt;ε\)</span> for all <span class="math inline">\(ε&gt;0\)</span> and <span class="math inline">\(N \in \mathbb{N}\)</span></li>
 <li><span class="math inline">\(x\)</span> is a cluster point of sequence <span class="math inline">\((x_n)_n \iff x\)</span> is the limit of some subsequence of <span class="math inline">\((x_n)_n\)</span></li>
+<li>Bolzano-Weierstrass Theorem: any bounded sequence in <span class="math inline">\(\mathbb{R}\)</span> has at least one cluster point</li>
 </ul>
 <blockquote>
 <p>PS4.Q3<br />
@@ -1416,6 +1417,7 @@ Contradicts to <span class="math inline">\(x\)</span> is the limit of <span clas
 <li><span class="math inline">\(x\)</span> is is the limit of some sequence in <span class="math inline">\(A \iff x \in \bar{A}\)</span> (closure of <span class="math inline">\(A\)</span>)</li>
 <li><span class="math inline">\(x\)</span> is is a limit point of <span class="math inline">\(A \iff x\)</span> is the limit of some sequence in <span class="math inline">\(A\backslash \{x\}\)</span></li>
 <li><span class="math inline">\(A\)</span> is closed <span class="math inline">\(\iff A\)</span> contains all its limit points</li>
+<li><span class="math inline">\(A\)</span> is compact <span class="math inline">\(\iff\)</span> every sequence in <span class="math inline">\(A\)</span> has a subsequence that convergent to a point in <span class="math inline">\(A\)</span></li>
 </ul>
 <blockquote>
 <p>PS5.Q5<br />
