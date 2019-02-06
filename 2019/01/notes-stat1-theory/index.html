@@ -116,6 +116,10 @@
 <li><a href="#loglinear-model">Loglinear Model</a></li>
 <li><a href="#elasticity">Elasticity</a></li>
 </ul></li>
+<li><a href="#gls-generalized-least-squares-estimator">GLS (Generalized Least Squares) Estimator</a><ul>
+<li><a href="#gls-transformation">GLS Transformation</a></li>
+<li><a href="#egls-feasible-estimated-gls-estimator">EGLS (Feasible Estimated GLS) Estimator</a></li>
+</ul></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
 <li><a href="#derive-iv">Derive IV</a></li>
 <li><a href="#iv-estimator-hat_iv">IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></a></li>
@@ -140,7 +144,10 @@
 <li><a href="#types-of-process">Types of Process</a></li>
 <li><a href="#lag-operator">Lag Operator</a></li>
 <li><a href="#stationary">Stationary</a></li>
+<li><a href="#integration">Integration</a></li>
 <li><a href="#deterministic-linear-trend">Deterministic (Linear) Trend</a></li>
+<li><a href="#ols-estimation">OLS Estimation</a></li>
+<li><a href="#model-selection">Model Selection</a></li>
 </ul></li>
 <li><a href="#panel-data">Panel Data</a><ul>
 <li><a href="#entity-fixed-effect">Entity Fixed Effect</a></li>
@@ -669,6 +676,19 @@ qnorm( 0.95 )
 <p>Therefore, <span class="math inline">\(H_0\)</span> is rejected at <span class="math inline">\(10 \%\)</span> level, but not rejected at <span class="math inline">\(5 \%\)</span> level.</p>
 </div>
 </div>
+<div id="gls-generalized-least-squares-estimator" class="section level2">
+<h2>GLS (Generalized Least Squares) Estimator</h2>
+<ul>
+<li>(textbook P99, slide 6 P12)</li>
+<li>BLUE</li>
+</ul>
+<div id="gls-transformation" class="section level3">
+<h3>GLS Transformation</h3>
+</div>
+<div id="egls-feasible-estimated-gls-estimator" class="section level3">
+<h3>EGLS (Feasible Estimated GLS) Estimator</h3>
+</div>
+</div>
 <div id="iv-instrument-variable" class="section level2">
 <h2>IV (Instrument Variable)</h2>
 <div id="derive-iv" class="section level3">
@@ -898,25 +918,28 @@ Otherwise, <span class="math inline">\(\frac{\ln L_1}{\ln L_0}\to 0\)</span>, <s
 <ul>
 <li>Zero mean, homoskedastic (<span class="math inline">\(σ^2\)</span>), no autocorrelation</li>
 </ul></li>
-<li>MA(1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span> (always stationary)
+<li>MA (1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span> (always stationary)
 <ul>
 <li><span class="math inline">\(E[Y_t] = μ\)</span></li>
 <li><span class="math inline">\(Var(Y_t) = (1 + α^2)σ^2\)</span></li>
 <li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = \begin{cases} ασ^2 &amp; k=1\\ 0 &amp; k\geq 2\end{cases}\)</span></li>
 </ul></li>
-<li>AR(1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span>
+<li>AR (1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span>
 <ul>
 <li><span class="math inline">\(E[Y_t] = δ + θ E[Y_{t-1}] = \frac{δ}{1-θ} = μ\)</span> (when stationary)</li>
 <li><span class="math inline">\(Var(Y_t) = θ^2Var(Y_{t-1}) + Var(ε_t) = \frac{σ^2}{1-θ^2}\)</span> (when stationary)</li>
 <li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = θ^k\frac{σ^2}{1-θ^2}\)</span> (when stationary)</li>
 <li>Let <span class="math inline">\(y_t \equiv Y_t - μ\)</span>, <span class="math inline">\(y_t = θy_{t-1} + ε_t\)</span></li>
 </ul></li>
-<li>MA(q): <span class="math inline">\(Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
-<li>AR(p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span>
+<li>MA (q): <span class="math inline">\(Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span>
+<ul>
+<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+</ul></li>
+<li>AR (p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span>
 <ul>
 <li><span class="math inline">\(y_t = θ_1y_{t-1} -\cdots - θ_py_{t-p} + ε_t\)</span></li>
 </ul></li>
-<li>ARMA(p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
+<li>ARMA (p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
 </ul>
 </div>
 <div id="lag-operator" class="section level3">
@@ -925,12 +948,12 @@ Otherwise, <span class="math inline">\(\frac{\ln L_1}{\ln L_0}\to 0\)</span>, <s
 <li><span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …</li>
 <li>Characteristic equation: <span class="math inline">\(1-θz = 0\)</span></li>
 <li>Characteristic root: <span class="math inline">\(|z|=\left|\frac{1}{θ}\right|\)</span>, <span class="math inline">\(|θ| \begin{cases}&gt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &lt;1 &amp; \text{stationary}\end{cases}\)</span></li>
-<li>For AR(1):
+<li>For AR (1):
 <ul>
 <li><span class="math inline">\(1-θL\)</span> is invertible if <span class="math inline">\(|θ|&lt;1\)</span>
 <span class="math display">\[\begin{aligned} y_t &amp;= θLy_t + ε_t \\ (1-θL) y_t &amp;= ε_t \end{aligned}\]</span></li>
 </ul></li>
-<li>For AR(p):
+<li>For AR (p):
 <ul>
 <li>Lag Polynomial: <span class="math display">\[\begin{aligned} θ(L) &amp;= 1 - θ_1L - θ_2L^2 -\cdots - θ_pL^p \\ y_t &amp;= θ_1Ly_t -\cdots - θ_p L^p y_t + ε_t \\ θ(L) y_t &amp;= ε_t \\ \end{aligned}\]</span></li>
 </ul></li>
@@ -941,8 +964,15 @@ Otherwise, <span class="math inline">\(\frac{\ln L_1}{\ln L_0}\to 0\)</span>, <s
 <ul>
 <li>Weakly (Covariance) Stationary
 <span class="math display">\[\begin{cases} E[Y_t] = μ &lt; \infty \\ Var(Y_t) = Var(Y_{t&#39;}) = γ_0 &lt; \infty \\ Cov(Y_t, Y_{t-k}) = γ_k\end{cases}\]</span></li>
-<li>ACF (AutoCorrelation Function): <span class="math inline">\(ρ_k = \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} = \frac{γ_k}{γ_0}\)</span></li>
-<li>AR(1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-θL\)</span> is invertible <span class="math inline">\(\iff\)</span> characteristic root <span class="math inline">\(|z| &gt; 1\)</span></li>
+<li>ACF (AutoCorrelation Function) (textbook P316)
+<span class="math display">\[ρ_k = \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} = \frac{γ_k}{γ_0}\]</span>
+<ul>
+<li>For MA (q) <span class="math inline">\(ρ_k = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+<li>For AR (1): <span class="math inline">\(ρ_k = θ^k\to 0\)</span> exponentially</li>
+<li>Sample ACF: <span class="math display">\[\hat{ρ}_k = \frac{\frac{1}{T-k}\sum^T_{t=k+1}(Y_t-\bar{Y})(Y_{t=k}-\bar{Y})}{\frac{1}{T}\sum^T_{t=1}(Y_t-\bar{Y})^2}\]</span></li>
+<li><span class="math inline">\(\sqrt{T}(\hat{ρ}_k-ρ_k)\to\mathcal{N}(0,\exists v_k)\)</span></li>
+</ul></li>
+<li>AR (1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-θL\)</span> is invertible <span class="math inline">\(\iff\)</span> characteristic root <span class="math inline">\(|z| &gt; 1\)</span></li>
 </ul>
 <blockquote>
 <p>Mock.Q2.1<br />
@@ -962,7 +992,7 @@ Suppose that the error term <span class="math inline">\(ε_t\)</span> follows th
 3. For which values of <span class="math inline">\(ρ\)</span> is <span class="math inline">\(ε_t\)</span> stationary? Derive! (Maximal 5 lines).</p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>AR(1)<br />
+<li>AR (1)<br />
 </li>
 <li><span class="math inline">\(ACF = ρ\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(ρ &gt; 0\)</span><br />
 </li>
@@ -1072,6 +1102,9 @@ Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class
 <li>Because the dependent variable (<span class="math inline">\(ε_t\)</span>) is lagged.</li>
 </ol>
 </div>
+<div id="integration" class="section level3">
+<h3>Integration</h3>
+</div>
 <div id="deterministic-linear-trend" class="section level3">
 <h3>Deterministic (Linear) Trend</h3>
 <ul>
@@ -1084,6 +1117,36 @@ Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class
 </li>
 <li>include <span class="math inline">\(t\)</span> as additional variable in regression</li>
 </ul></li>
+</ul>
+<!-- ### Spurious Regression / Cointegration
+
+(textbook P352, slide 12 P28)
+-->
+</div>
+<div id="ols-estimation" class="section level3">
+<h3>OLS Estimation</h3>
+<ul>
+<li>For AR (p)
+<ul>
+<li>Consistency: <span class="math inline">\(E[Y_{t-j}ε_t] = 0\)</span> for all <span class="math inline">\(j = 1,2,3,\dots,p\)</span><br />
+</li>
+<li>Small sample bias caused ((A2) violated)</li>
+</ul></li>
+<li>For MA (1) with invertible lag polynomial
+<ul>
+<li>tbe</li>
+</ul></li>
+</ul>
+<!-- ### ML Estimation
+
+tbe -->
+</div>
+<div id="model-selection" class="section level3">
+<h3>Model Selection</h3>
+<ul>
+<li>Residual analysis (Ljung–Box test)</li>
+<li>AIC &amp; BIC</li>
+<li>Overfitting: to test ARMA (p,q), estimate ARMA (p+1,q) and ARMA (p,q+1)</li>
 </ul>
 </div>
 </div>

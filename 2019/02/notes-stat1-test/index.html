@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Hugo 0.53" />
 
-<title>Notes on Econometrics - Tests Part - loikein</title>
-<meta property="og:title" content="Notes on Econometrics - Tests Part - loikein">
+<title>Notes on Econometrics - Tests and Statistics - loikein</title>
+<meta property="og:title" content="Notes on Econometrics - Tests and Statistics - loikein">
 
 
   
@@ -64,10 +64,10 @@
 
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">9 min read</span>
     
 
-    <h1 class="article-title">Notes on Econometrics - Tests Part</h1>
+    <h1 class="article-title">Notes on Econometrics - Tests and Statistics</h1>
 
     
     <span class="article-date">2019/02/05</span>
@@ -98,8 +98,14 @@
 <li><a href="#r2"><span class="math inline">\(R^2\)</span></a></li>
 <li><a href="#t-test">t-test</a></li>
 <li><a href="#f-test-joint-test">F-test (Joint Test)</a></li>
-<li><a href="#wald-test">Wald Test</a></li>
-<li><a href="#bic-aic-nested-model">BIC &amp; AIC (Nested Model)</a></li>
+<li><a href="#wald-test">Wald Test</a><ul>
+<li><a href="#wald-statistic">Wald statistic</a></li>
+<li><a href="#f-statistic">F-statistic</a></li>
+</ul></li>
+<li><a href="#bic-aic">BIC &amp; AIC</a><ul>
+<li><a href="#nested-model">Nested Model</a></li>
+<li><a href="#time-series">Time Series</a></li>
+</ul></li>
 <li><a href="#j-test-non-nested-model">J Test (Non-Nested Model)</a></li>
 <li><a href="#pe-test-linear-vs-log">PE Test (Linear vs Log)</a></li>
 <li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
@@ -110,9 +116,13 @@
 <li><a href="#box-pierce-test-autocorrelation">Box-Pierce Test (Autocorrelation)</a></li>
 <li><a href="#sargan-test-give-overidentification">Sargan Test (GIVE Overidentification)</a></li>
 <li><a href="#durbin-wu-hausman-test-endogeneity">Durbin-Wu-Hausman Test (Endogeneity)</a></li>
-<li><a href="#dickey-fuller-test-unit-root">Dickey-Fuller Test (Unit Root)</a></li>
-<li><a href="#dickey-fuller-test-with-trend">Dickey-Fuller Test with Trend</a></li>
+<li><a href="#df-dickey-fuller-test">DF (Dickey-Fuller) Test</a><ul>
+<li><a href="#unit-root">Unit Root</a></li>
+<li><a href="#deterministic-trend">Deterministic Trend</a></li>
 <li><a href="#adf-augmented-dickey-fuller-test">ADF (Augmented Dickey-Fuller) Test</a></li>
+<li><a href="#spurious-regression-vs-cointegration">Spurious Regression vs Cointegration</a></li>
+</ul></li>
+<li><a href="#ljungbox-portmanteau-test-residual-analysis">Ljung–Box (Portmanteau) Test (Residual Analysis)</a></li>
 <li><a href="#hausman-test-fe-vs-re">Hausman Test (FE vs RE)</a></li>
 <li><a href="#read-regression-table">Read Regression Table</a></li>
 </ul>
@@ -175,18 +185,18 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 </div>
 <div id="wald-test" class="section level2">
 <h2>Wald Test</h2>
-<p>(textbook P29, P103, slide 3 P17)</p>
-<ul>
-<li><p>Wald statistic:
-<span class="math display">\[ξ = \frac{1}{σ^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
+<p>(textbook P29, P103, slide 3 P17)<br />
+Always two-sided</p>
+<div id="wald-statistic" class="section level3">
+<h3>Wald statistic</h3>
+<p><span class="math display">\[ξ = \frac{1}{σ^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
 <span class="math inline">\(H_0: ξ ∼ Χ^2_J\)</span><br />
-<span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q = 0\)</span>.</p></li>
-<li>F-statistic:<br />
-<span class="math display">\[F = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
-<span class="math inline">\(H_0: F ∼ F^J_{N-K}\)</span><br />
-</li>
-<li><p>Note: Wald statistic and F-statistic are always two-sided</p></li>
-</ul>
+<span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q = 0\)</span>.</p>
+</div>
+<div id="f-statistic" class="section level3">
+<h3>F-statistic</h3>
+<p><span class="math display">\[F = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
+<span class="math inline">\(H_0: F ∼ F^J_{N-K}\)</span></p>
 <blockquote>
 <p>PS3.Q1.2<br />
 For model <span class="math inline">\(\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\)</span>, consider the regression output:<br />
@@ -221,13 +231,24 @@ result_1 * t(result_2) * result_3^(-1) * result_2
 ## [1] 4.084746</code></pre>
 <p>Therefore, <span class="math inline">\(H_0\)</span> is not rejected.</p>
 </div>
-<div id="bic-aic-nested-model" class="section level2">
-<h2>BIC &amp; AIC (Nested Model)</h2>
+</div>
+<div id="bic-aic" class="section level2">
+<h2>BIC &amp; AIC</h2>
+<div id="nested-model" class="section level3">
+<h3>Nested Model</h3>
 <p>(textbook P69, slide 5 P10)<br />
 BIC is asymptotically consistent:
-<span class="math display">\[\min \ I(K) = \log\left(\frac{e&#39;e}{N}\right) + \frac{K\cdot\log(N)}{N}\]</span>
+<span class="math display">\[\min \ I(K) = \log\left(\frac{e&#39;e}{N}\right) + \log N\cdot\frac{K}{N}\]</span>
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(e\)</span> is vector of residual.<br />
-If replace <span class="math inline">\(\log(N)\)</span> with <span class="math inline">\(2\)</span>, becomes AIC (inconsistent for large sample)</p>
+If replace <span class="math inline">\(\log N\)</span> with <span class="math inline">\(2\)</span>, becomes AIC (inconsistent for large sample)</p>
+</div>
+<div id="time-series" class="section level3">
+<h3>Time Series</h3>
+<p>(textbook P320, slide 12 P25)<br />
+<span class="math display">\[\min \ BIC = \log \hat{σ}^2 + \log T \cdot\frac{p+q+1}{T}\]</span>
+<span class="math inline">\(p,q\)</span> are the orders of ARMA model, and <span class="math inline">\(T\)</span> is the number of periods<br />
+If replace <span class="math inline">\(\log T\)</span> with <span class="math inline">\(2\)</span>, becomes AIC (tend to overparameterize)</p>
+</div>
 </div>
 <div id="j-test-non-nested-model" class="section level2">
 <h2>J Test (Non-Nested Model)</h2>
@@ -323,38 +344,61 @@ For <span class="math inline">\(ε_t = ρε_{t-1} + v_t\)</span>:<br />
 <h2>Durbin-Wu-Hausman Test (Endogeneity)</h2>
 <p>(textbook P154, slide 9-2 P15)</p>
 </div>
-<div id="dickey-fuller-test-unit-root" class="section level2">
-<h2>Dickey-Fuller Test (Unit Root)</h2>
+<div id="df-dickey-fuller-test" class="section level2">
+<h2>DF (Dickey-Fuller) Test</h2>
+<p>Almost each version has different critical values<br />
+DF test and ADF test on the same parameter share the same critical values</p>
+<div id="unit-root" class="section level3">
+<h3>Unit Root</h3>
 <p>(textbook P302, slide 12 P20)<br />
 (one-sided)<br />
-For AR(1): <span class="math inline">\(Y_t = δ + θY_{t-1} + ε_t\)</span><br />
+For AR (1): <span class="math inline">\(Y_t = δ + θY_{t-1} + ε_t\)</span><br />
 Or <span class="math inline">\(ΔY_t = δ + \underbrace{(θ-1)}_{π}Y_{t-1} + ε_t\)</span>
 <span class="math display">\[DF = \frac{\hat{θ}-1}{se(\hat{θ})}\]</span>
 <span class="math inline">\(H_0\)</span>: <span class="math inline">\(θ = 1\)</span> or <span class="math inline">\(π = 0\)</span> (does not follow standard t-distribution, needs smaller critical values)<br />
 <span class="math inline">\(H_1\)</span>: <span class="math inline">\(θ &lt; 1\)</span> or <span class="math inline">\(π &lt; 0\)</span></p>
 </div>
-<div id="dickey-fuller-test-with-trend" class="section level2">
-<h2>Dickey-Fuller Test with Trend</h2>
+<div id="deterministic-trend" class="section level3">
+<h3>Deterministic Trend</h3>
 <p>(textbook P303, slide 12 P21)<br />
-For AR(1): <span class="math inline">\(ΔY_t = δ + \underbrace{(θ-1)}_{π}Y_{t-1} + γ\cdot t + ε_t\)</span><br />
+For AR (1): <span class="math inline">\(ΔY_t = δ + \underbrace{(θ-1)}_{π}Y_{t-1} + γ\cdot t + ε_t\)</span><br />
 against random walk: <span class="math inline">\(ΔY_t = δ + ε_t\)</span><br />
 <span class="math display">\[DF_τ = \frac{\hat{θ}-1}{se(\hat{θ})}\]</span>
 <span class="math inline">\(H_0\)</span>: <span class="math inline">\(γ = 0\)</span> (assume satisfied) and <span class="math inline">\(θ-1 = 0\implies θ = 1\)</span> or <span class="math inline">\(π = 0\)</span><br />
 <span class="math inline">\(H_1\)</span>: <span class="math inline">\(θ &lt; 1\)</span> or <span class="math inline">\(π &lt; 0\)</span>, include nothing about <span class="math inline">\(γ\)</span></p>
 </div>
-<div id="adf-augmented-dickey-fuller-test" class="section level2">
-<h2>ADF (Augmented Dickey-Fuller) Test</h2>
+<div id="adf-augmented-dickey-fuller-test" class="section level3">
+<h3>ADF (Augmented Dickey-Fuller) Test</h3>
 <p>(textbook P304, slide 12 P23)<br />
-For AR(p): <span class="math inline">\(ΔY_t = δ + \underbrace{(θ_1 + Θ_2 + \dots + θ_p -1)}_{π}Y_{t-1} + \sum_{i=1}^{p-1} c_i\cdot ΔY_{t-i} (+ γ\cdot t) + ε_t\)</span><br />
+For AR (p): <span class="math inline">\(ΔY_t = δ + \underbrace{(θ_1 + Θ_2 + \dots + θ_p -1)}_{π}Y_{t-1} + \sum_{i=1}^{p-1} c_i\cdot ΔY_{t-i} (+ γ\cdot t) + ε_t\)</span><br />
 where <span class="math inline">\(c_1,\cdots,c_{p-1}\)</span> are constants,<br />
 <span class="math display">\[DF_{(τ)} = \frac{\hat{π}}{se(\hat{π})}\]</span>
 <span class="math inline">\(H_0\)</span>: <span class="math inline">\(π = 0\)</span><br />
 <span class="math inline">\(H_1\)</span>: <span class="math inline">\(π &lt; 0\)</span></p>
 </div>
+<div id="spurious-regression-vs-cointegration" class="section level3">
+<h3>Spurious Regression vs Cointegration</h3>
+<p>(textbook P354, slide 12 P33)<br />
+For <span class="math inline">\(Y_t = α + βX_t + ε_t\)</span>,<br />
+<span class="math display">\[\begin{aligned} \text{Auxiliary regression: } Δe_t = γ_0 + γ_1e_{t-1}+u_t \\
+\text{Test statistic: } DF = \frac{\hat{γ}_1}{se(\hat{γ}_1)}\end{aligned}\]</span>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(γ_1 = 1\)</span> (unit root)<br />
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(γ_1 &lt; 1\)</span></p>
+<p>Use ADF if <span class="math inline">\(e_t\)</span> does not seem to follow AR (1).</p>
+</div>
+</div>
+<div id="ljungbox-portmanteau-test-residual-analysis" class="section level2">
+<h2>Ljung–Box (Portmanteau) Test (Residual Analysis)</h2>
+<p>(textbook P319, slide 12 P26)<br />
+For ARMA (p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span><br />
+<span class="math display">\[Q_K = T(T+2)\sum_{k=1}^K \frac{1}{T-k}r_k^2 ∼ χ^2_{(K-p-q)}\]</span>
+<span class="math inline">\(H_0\)</span>: residuals are white noise<br />
+<span class="math inline">\(T\)</span> is the number of periods, <span class="math inline">\(K &gt; p+q\)</span> is some number chosen by the researcher, and <span class="math inline">\(r_k^2\)</span> is the autocorrelation coefficients of residuals</p>
+</div>
 <div id="hausman-test-fe-vs-re" class="section level2">
 <h2>Hausman Test (FE vs RE)</h2>
-<p>(textbook P394, slide 13 P36)</p>
-<p><span class="math display">\[ξ_H = \left(\frac{\hat{β}_{FE} - \hat{β}_{RE}}{\sqrt{Var(\hat{β}_{FE}) - Var(\hat{β}_{RE})}}\right)^2\]</span>
+<p>(textbook P394, slide 13 P36)<br />
+<span class="math display">\[ξ_H = \left(\frac{\hat{β}_{FE} - \hat{β}_{RE}}{\sqrt{Var(\hat{β}_{FE}) - Var(\hat{β}_{RE})}}\right)^2\]</span>
 <span class="math inline">\(H_0\)</span>: <span class="math inline">\(ξ_H ∼ χ^2_1\)</span> (<span class="math inline">\(\hat{β}_{RE}\)</span> is effecient)</p>
 </div>
 <div id="read-regression-table" class="section level2">
