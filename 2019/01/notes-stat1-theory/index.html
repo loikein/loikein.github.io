@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">30 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -144,7 +144,7 @@
 <li><a href="#types-of-process">Types of Process</a></li>
 <li><a href="#lag-operator">Lag Operator</a></li>
 <li><a href="#stationary">Stationary</a></li>
-<li><a href="#integration">Integration</a></li>
+<li><a href="#difference-operator-integration">Difference Operator &amp; Integration</a></li>
 <li><a href="#deterministic-linear-trend">Deterministic (Linear) Trend</a></li>
 <li><a href="#ols-estimation">OLS Estimation</a></li>
 <li><a href="#model-selection">Model Selection</a></li>
@@ -684,6 +684,18 @@ qnorm( 0.95 )
 </ul>
 <div id="gls-transformation" class="section level3">
 <h3>GLS Transformation</h3>
+<ul>
+<li>Model: <span class="math inline">\(y_i = x_i&#39;β + ε_i\)</span>
+<ul>
+<li>(A1) ~ (A4): <span class="math inline">\(\begin{cases} E[ε|X] = E[ε] = 0 \\ Var(ε|X) = Var(ε) = σ^2I\end{cases}\)</span><br />
+</li>
+</ul></li>
+<li>Violation of (A4) gives error covariance matrix: <span class="math inline">\(Var(ε) = σ^2Ψ\)</span> (assume known)
+<ul>
+<li>Variance of OLS estimator: <span class="math display">\[\begin{aligned} Var(b|X) &amp;= Var\big( (X&#39;X)^{-1}X&#39;ε\big) \\ &amp;= (X&#39;X)^{-1}X&#39;\cdot Var(ε) \cdot X(X&#39;X)^{-1} \\ &amp;= σ^2 (X&#39;X)^{-1}\underbrace{ΨX(X&#39;X)^{-1}}_{\text{biased &amp; inefficient}}\end{aligned}\]</span></li>
+</ul></li>
+<li></li>
+</ul>
 </div>
 <div id="egls-feasible-estimated-gls-estimator" class="section level3">
 <h3>EGLS (Feasible Estimated GLS) Estimator</h3>
@@ -734,7 +746,7 @@ What happens in the limiting case when this correlation approaches zero?</p>
 &amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε \\
 &amp;= β + (Z&#39;X)^{-1}Z&#39;ε\end{aligned}\]</span>
 Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span>:<br />
-<span class="math display">\[\begin{aligned}V(\hat{β}_{IV}) &amp;= E\left[ (\hat{β}_{IV} - β)^2 \right] \\
+<span class="math display">\[\begin{aligned}Var(\hat{β}_{IV}) &amp;= E\left[ (\hat{β}_{IV} - β)^2 \right] \\
 &amp;= E \left[ \left( (Z&#39;X)^{-1}Z&#39;ε \right)^2 \right] \\
 &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
 </div>
@@ -756,7 +768,7 @@ Derive the GIVE.<br />
 <li><p>First stage regression: <span class="math inline">\(X = Zγ + v\)</span><br />
 According to OLS, <span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}Z&#39;X\)</span><br />
 Fitted values:<br />
-<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \cdot\hat{γ} \\&amp;= Z(Z&#39;Z)^{-1}ZX \\ &amp;= P_Z X\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \cdot\hat{γ} \\&amp;= Z(Z&#39;Z)^{-1}Z&#39;X \\ &amp;= P_Z X\end{aligned}\]</span>
 <span class="math inline">\(P_Z\)</span> is symmetric:<br />
 <span class="math display">\[\begin{aligned} P_Z&#39; &amp;= \left[Z(Z&#39;Z)^{-1}Z&#39; \right]&#39; \\ &amp;= Z(Z&#39;Z)^{-1}Z&#39; \\ &amp;= P_Z\end{aligned}\]</span>
 <span class="math inline">\(P_Z\)</span> is idopotent:<br />
@@ -772,11 +784,12 @@ Therefore<br />
 <span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\
 &amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\
 &amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z&#39; y \end{aligned}\]</span></p></li>
-<li><p>Variance: (needs check)<br />
-<span class="math display">\[\begin{aligned}V(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\
+<li><p>Variance: (checked)
+<span class="math display">\[\begin{aligned}Var(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\
 &amp;= σ^2 (X&#39;P_Z X)^{-1} \\
 &amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z&#39; X)^{-1} \\
-&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p></li>
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span>
+Note that this is the exact same variance matrix as in PS5.Q2</p></li>
 </ol>
 </div>
 </div>
@@ -1102,8 +1115,25 @@ Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class
 <li>Because the dependent variable (<span class="math inline">\(ε_t\)</span>) is lagged.</li>
 </ol>
 </div>
-<div id="integration" class="section level3">
-<h3>Integration</h3>
+<div id="difference-operator-integration" class="section level3">
+<h3>Difference Operator &amp; Integration</h3>
+<ul>
+<li>Difference Operator: <span class="math inline">\(Δ \equiv 1-L\)</span>
+<ul>
+<li>First difference: <span class="math inline">\(ΔY_t = Y_t - Y_{t-1}\)</span></li>
+<li>Second difference: <span class="math inline">\(Δ^2 Y_t = ΔY_t - ΔY_{t-1}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(I(0)\)</span> denotes stationary series
+<ul>
+<li>Mean reverting</li>
+<li>Finite variance</li>
+<li>Limited memory of past behaviour</li>
+</ul></li>
+<li><span class="math inline">\(I(1)\)</span> denotes series that become stationary after first-differencing
+<ul>
+<li>Infinitely long memory</li>
+</ul></li>
+</ul>
 </div>
 <div id="deterministic-linear-trend" class="section level3">
 <h3>Deterministic (Linear) Trend</h3>
