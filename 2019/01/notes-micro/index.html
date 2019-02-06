@@ -121,7 +121,13 @@
 <li><a href="#supply">Supply</a></li>
 <li><a href="#law-of-supply">Law of Supply</a></li>
 </ul></li>
-<li><a href="#partial-equilibrium">Partial Equilibrium</a></li>
+<li><a href="#partial-equilibrium">Partial Equilibrium</a><ul>
+<li><a href="#perfect-competition-short-run">Perfect Competition (Short Run)</a></li>
+<li><a href="#perfect-competition-long-run">Perfect Competition (Long Run)</a></li>
+<li><a href="#monopoly">Monopoly</a></li>
+<li><a href="#cournot">Cournot</a></li>
+<li><a href="#bertrand">Bertrand</a></li>
+</ul></li>
 <li><a href="#general-equilibrium">General Equilibrium</a></li>
 </ul>
 </div>
@@ -181,8 +187,7 @@ Show that the two definitions of preferences are indeed equivalent.</p>
 <span class="math display">\[\begin{cases} x&gt;y \text{ and } y&gt;z \implies x&gt;z \\
 x&gt;y \text{ and } yIz \implies x&gt;z \\
 xIy \text{ and } y&gt;z \implies x&gt;z \\
-xIy \text{ and } yIz \implies xIz \end{cases}\]</span><br />
-</li>
+xIy \text{ and } yIz \implies xIz \end{cases}\]</span></li>
 <li>Check injection<br />
 Let some <span class="math inline">\(f^1\neq f^2\)</span><br />
 <span class="math inline">\(\implies\)</span> there are some <span class="math inline">\(x, y\)</span> s.t. <span class="math inline">\(f^1(x, y)\neq f^2(x, y)\)</span><br />
@@ -192,7 +197,7 @@ Let some <span class="math inline">\(f^1\neq f^2\)</span><br />
 Define <span class="math inline">\(f^R\)</span> s.t.<br />
 <span class="math display">\[f^R(x,y) = \begin{cases}  x&gt;y &amp; \text{if } (x,y) \in R \text{ and } (y,x) \not\in R \\
 I &amp; \text{if } (x,y), (y,x) \in R \\
-y&gt;x &amp; \text{if } (x,y) \not\in R \text{ and } (y,x) \in R\end{cases}\]</span><br />
+y&gt;x &amp; \text{if } (x,y) \not\in R \text{ and } (y,x) \in R\end{cases}\]</span>
 Check f^R is transitive<br />
 Assume for some <span class="math inline">\(x, y, z\)</span>, <span class="math inline">\(f^R(x,y) = I\)</span> and <span class="math inline">\(f^R(y,z) = I\)</span><br />
 <span class="math inline">\(\implies x\geq y\)</span> and <span class="math inline">\(y\geq x\)</span>, <span class="math inline">\(y\geq z\)</span> and <span class="math inline">\(z\geq y\)</span><br />
@@ -232,7 +237,7 @@ Let some <span class="math inline">\(R\)</span> satisfy definition 2<br />
 Define <span class="math inline">\(P^R = \{ (x, y) \ | \ \lnot yRx \}\)</span><br />
 <span class="math display">\[\begin{aligned}  T(P^R) &amp;= \{ (x, y) \ | \ \lnot (y, x) \in P) \} \\
 &amp;= \{ (x, y) \ | \ \lnot ( \lnot yRx) \} \\
-&amp;= \{ (x, y) \ | \ xRy \}\end{aligned}\]</span> ~</li>
+&amp;= \{ (x, y) \ | \ xRy \}\end{aligned}\]</span></li>
 </ol>
 <blockquote>
 <p>HM3 (RBST PS1.Q4)<br />
@@ -280,7 +285,7 @@ Proof: (to be added)</p>
 <p>Counterexample:<br />
 Let <span class="math inline">\(\succsim\)</span> be defined on <span class="math inline">\(X = \mathbb{R}\)</span>, represented by
 <span class="math display">\[\begin{aligned} V(x) &amp;= x \\
-U(x) &amp;= \begin{cases} x &amp; x\leq0 \\ x+1 &amp; x&gt;0 \end{cases}\end{aligned}\]</span><br />
+U(x) &amp;= \begin{cases} x &amp; x\leq0 \\ x+1 &amp; x&gt;0 \end{cases}\end{aligned}\]</span>
 <span class="math inline">\(\implies v\)</span> and <span class="math inline">\(u\)</span> give same results for comparison between any <span class="math inline">\(x, x&#39;\in X\)</span><br />
 Let <span class="math inline">\(f =\begin{cases} x &amp; x\leq 1 \\ x-1 &amp; x &gt; 1 \end{cases}\)</span><br />
 <span class="math inline">\(\implies f\big(U(x)\big) = V(x)\)</span>, but <span class="math inline">\(f\)</span> is not strictly monotonic</p>
@@ -341,7 +346,7 @@ But for all <span class="math inline">\(B_x\)</span>, there is some <span class=
 <p>PS0.Q4<br />
 Claire’s choice behavior is represented by a choice function <span class="math inline">\(f : D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
 Assume:<br />
-<span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
 1. What does it mean that a choice function can be rationalized? (omitted)<br />
 2. Do the facts about <span class="math inline">\(f\)</span> imply that <span class="math inline">\(f\)</span> cannot be rationalized?</p>
 </blockquote>
@@ -391,7 +396,7 @@ If <span class="math inline">\(x\neq y\implies x\in C_{\succsim}(A)\)</span><br 
 <p>PS0.Q4<br />
 Claire’s choice behavior is represented by a choice function <span class="math inline">\(f : D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
 Assume:<br />
-<span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
 3. Does <span class="math inline">\(f\)</span> satisfy the weak axiom of revealed preference?<br />
 4. Does <span class="math inline">\(f\)</span> satisfy the strong axiom of revealed preference?</p>
 </blockquote>
@@ -516,7 +521,7 @@ Since <span class="math inline">\(x^*\)</span> is a solution, <span class="math 
 Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem <span class="math inline">\(B(p,w)\)</span>,<br />
 Prove that if the preferences are represented by a utility function <span class="math inline">\(U\)</span> that is differentiable at <span class="math inline">\(x^*\)</span>,<br />
 then for any commodity <span class="math inline">\(k\)</span> with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span>,<br />
-<span class="math display">\[\frac{\partial_kU(x^*)}{p_k} \geq \frac{\partial_lU(x^*)}{p_l}\]</span> ~</p>
+<span class="math display">\[\frac{\partial_kU(x^*)}{p_k} \geq \frac{\partial_lU(x^*)}{p_l}\]</span></p>
 </blockquote>
 <p>FSOC assume that <span class="math inline">\(\frac{\partial_kU(x^*)}{p_k} &lt; \frac{\partial_lU(x^*)}{p_l}\)</span><br />
 <span class="math inline">\(\implies \partial_lU(x^*)\cdot\frac{p_k}{p_l} - \partial_kU(x^*) &gt; 0\)</span><br />
@@ -573,12 +578,11 @@ Give an example where aggregate consumption cannot be rationalized even though i
 <ul>
 <li>Let <span class="math inline">\(x\)</span> satisfy WARP and Walras Law<br />
 </li>
-<li>If <span class="math inline">\(w&#39; = p&#39;\cdot (p,w)\)</span>, then<br />
+<li>If <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then<br />
 <span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
-&amp;= w - p \cdot x(p&#39;,w&#39;) \\ &amp;\leq 0\end{aligned}\]</span><br />
+&amp;= w - p \cdot x(p&#39;,w&#39;) \\ &amp;\leq 0\end{aligned}\]</span>
 <span class="math display">\[w - p \cdot x(p&#39;,w&#39;) \begin{cases} = 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) = x(p,w) \\
-&lt; 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) &gt; x(p,w)\end{cases}\]</span><br />
-</li>
+&lt; 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) &gt; x(p,w)\end{cases}\]</span></li>
 <li>It is never the case that <span class="math inline">\(x(p&#39;,w&#39;) &lt; x(p,w)\)</span></li>
 <li>Decomposition: <span class="math inline">\(x(p&#39;,w) - x(p,w) = \underbrace{x(p&#39;,w) - x(p&#39;,w&#39;) }_{\text{income effect}} + \underbrace{x(p&#39;,w&#39;) - x(p,w)}_{\text{substitution effect}} + u_i\)</span>
 <img src="/post-img/notes-micro--law-of-demand.png" alt="Source: Investopedia" width="300" /></li>
@@ -701,6 +705,54 @@ Prove that the profit function is convex.</p>
 </div>
 <div id="partial-equilibrium" class="section level2">
 <h2>Partial Equilibrium</h2>
+<ul>
+<li>(textbook P165, slide 10 P4)</li>
+<li>Set of consumers: <span class="math inline">\(\mathcal{I}\equiv\{1,2,\dots, I\}\)</span></li>
+<li>Individual <span class="math inline">\(i\)</span>’s demand for good <span class="math inline">\(q\)</span>: <span class="math inline">\(q^i(p,\mathbb{p},y^i)\)</span>
+<ul>
+<li>Price of good <span class="math inline">\(q\)</span>: <span class="math inline">\(p\)</span></li>
+<li>Price of all other goods: <span class="math inline">\(\mathbb{p}\)</span></li>
+<li>Income: <span class="math inline">\(y^i\)</span></li>
+</ul></li>
+<li>Market demand: <span class="math inline">\(q^d(p)\equiv\sum_{i\in\mathcal{I}} q^i(p,\mathbb{p},y^i)\)</span></li>
+</ul>
+<div id="perfect-competition-short-run" class="section level3">
+<h3>Perfect Competition (Short Run)</h3>
+<ul>
+<li>Set of firms: <span class="math inline">\(\mathcal{J}\equiv\{1,2,\dots, J\}\)</span></li>
+<li>Individual <span class="math inline">\(j\)</span>’s supply for good <span class="math inline">\(q\)</span>: <span class="math inline">\(q^j(p, \mathbb{w})\)</span>
+<ul>
+<li>Price of inputs: <span class="math inline">\(\mathbb{w}\)</span></li>
+</ul></li>
+<li>Market supply: <span class="math inline">\(q^s(p)\equiv\sum_{j\in\mathcal{J}} q^j(p, \mathbb{w})\)</span></li>
+<li>SR Equilibrium at price <span class="math inline">\(p^*\)</span>: <span class="math inline">\(q^d(p^*) = q^s(p^*)\)</span></li>
+</ul>
+</div>
+<div id="perfect-competition-long-run" class="section level3">
+<h3>Perfect Competition (Long Run)</h3>
+<ul>
+<li>Possiblility of firm entry and exit</li>
+<li>Profit function: <span class="math inline">\(π(p, \mathbb{w}) = \max_{\mathbb{x},y} py - \mathbb{w}\mathbb{x}\)</span>   s.t. <span class="math inline">\(y\leq f(\mathbb{x})\)</span>
+<ul>
+<li>increasing in <span class="math inline">\(p\)</span>, decreasing in <span class="math inline">\(\mathbb{w}\)</span></li>
+<li>homogenous of degree 1 in <span class="math inline">\((p, \mathbb{w})\)</span></li>
+<li>convex</li>
+<li>differentiable for <span class="math inline">\((p, \mathbb{w})\gg 0\)</span></li>
+<li>Production function: <span class="math inline">\(f(\mathbb{x})\)</span></li>
+<li>Hotelling’s Lemma: <span class="math inline">\(\begin{cases} y(p,\mathbb{w}) = \frac{\partial π}{\partial p} \\ x_i(p,\mathbb{w}) = -\frac{\partial π}{\partial w_i}\end{cases}\)</span></li>
+</ul></li>
+<li>LR Equilibrium: <span class="math inline">\(\begin{cases} q^d(\hat{p}) = \sum_{j=1}^{\hat{J}} q^j(\hat{p}) \\ π^j(\hat{p}) = 0\end{cases}\)</span></li>
+</ul>
+</div>
+<div id="monopoly" class="section level3">
+<h3>Monopoly</h3>
+</div>
+<div id="cournot" class="section level3">
+<h3>Cournot</h3>
+</div>
+<div id="bertrand" class="section level3">
+<h3>Bertrand</h3>
+</div>
 </div>
 <div id="general-equilibrium" class="section level2">
 <h2>General Equilibrium</h2>
