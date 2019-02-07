@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">26 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -131,6 +131,7 @@
 <li><a href="#welfare">Welfare</a></li>
 <li><a href="#general-equilibrium">General Equilibrium</a><ul>
 <li><a href="#exchange-economy">Exchange Economy</a></li>
+<li><a href="#core">Core</a></li>
 <li><a href="#competitive-market">Competitive Market</a></li>
 </ul></li>
 </ul>
@@ -942,9 +943,22 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 <li>Allocation for all goods: <span class="math inline">\(\mathbb{x} = (x^1,x^2,\dots,x^I)\)</span>
 <ul>
 <li>Feasible allocations: <span class="math inline">\(F(e)\equiv \big\{ \mathbb{x} \ | \ \sum_{\mathcal{I}} x^i = \sum_{\mathcal{I}} e^i\big\}\)</span></li>
-<li>Pareto efficient allocation: <span class="math inline">\(x\in F(e)\)</span> s.t. no <span class="math inline">\(\mathbb{y}\in F(e)\)</span> exists s.t. <span class="math inline">\(y^i\succsim^i x^i\)</span> for all i and <span class="math inline">\(y^i\succ^i x^i\)</span> for one i</li>
+<li>Pareto efficient allocation: <span class="math inline">\(\mathbb{x}\in F(e)\)</span> is Pareto efficient if there is no <span class="math inline">\(\mathbb{y}\neq \mathbb{x}\)</span> s.t. <span class="math inline">\(y^i\succsim^i x^i\)</span> for all <span class="math inline">\(i\in \mathcal{I}\)</span> and <span class="math inline">\(y^i\succ^i x^i\)</span> for at least one i</li>
 </ul></li>
 </ul>
+</div>
+<div id="core" class="section level3">
+<h3>Core</h3>
+<ul>
+<li>Coalition of consumers: <span class="math inline">\(S\subset \mathcal{I}\)</span></li>
+<li><span class="math inline">\(S\)</span> is a blocking coalition for <span class="math inline">\(\mathbb{x}\in F(e)\)</span> if exists <span class="math inline">\(\mathbb{y}\neq \mathbb{x}\)</span> s.t.
+<ul>
+<li><span class="math inline">\(\sum_S y^i = \sum_S e^i\)</span></li>
+<li><span class="math inline">\(y^i\succsim^i x^i\)</span> for all <span class="math inline">\(i\in S\)</span> and <span class="math inline">\(y^i\succ^i x^i\)</span> for at least one i</li>
+</ul></li>
+<li>Core <span class="math inline">\(C(e)\)</span> is the set of all unblocked feasible allocations</li>
+</ul>
+<!-- ![Source: [Diagram Technology Templates and Examples](https://diagram-ideas.com/page/3082/)](/post-img/notes-micro--edgeworth-core.png) -->
 </div>
 <div id="competitive-market" class="section level3">
 <h3>Competitive Market</h3>
@@ -962,6 +976,8 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 <li>Walras’ law: <span class="math inline">\(p\cdot \mathbb{z}(p) = 0\)</span></li>
 </ul></li>
 <li>Walrasian Equilibrium (price): <span class="math inline">\(p^*\)</span> s.t. <span class="math inline">\(\mathbb{z}(p^*) = 0\)</span></li>
+<li>Contract Curve: Pareto efficient allocations</li>
+<li>Core: inside the lens (not blocked by either consumer) + on the contract curve</li>
 </ul>
 <blockquote>
 <p>PS2.Q1<br />
@@ -980,8 +996,8 @@ FOC:
 \frac{x_1^{ρ-1}}{p_1} &amp;= \frac{x_2^{ρ-1}}{p_2} \\
 x_1 &amp;= x_2\cdot\frac{p_1}{p_2}^{\frac{1}{ρ-1}}\end{aligned}\]</span>
 Substitution into constraint gives
-<span class="math display">\[\begin{cases} x_1^i = \frac{p_1^{r-1}}{p_1^r+p_2^r}y^i \\
-x_2^i = \frac{p_2^{r-1}}{p_1^r+p_2^r}y^i\end{cases}\]</span>
+<span class="math display">\[\begin{aligned} x_1^i = \frac{p_1^{r-1}}{p_1^r+p_2^r}y^i \\
+x_2^i = \frac{p_2^{r-1}}{p_1^r+p_2^r}y^i\end{aligned}\]</span>
 where <span class="math inline">\(r = \frac{ρ}{ρ-1}\)</span></p>
 <blockquote>
 <p>PS2.Q2<br />
@@ -998,10 +1014,10 @@ Derive the consumers’ excess demand functions.</p>
 x_2^i = \frac{1}{p^r+1}y^i\end{cases}\]</span>
 where <span class="math inline">\(r = \frac{ρ}{ρ-1}\)</span><br />
 Consumer 1’s income: <span class="math inline">\(y^1 = p\cdot 1 + 1\cdot 0 = p\)</span><br />
-Therefore, <span class="math display">\[\begin{cases} x_1^1 = \frac{p^{r-1}}{p^r+1}\cdot p = \frac{p^r}{p^r+1} \\ x_2^1 = \frac{1}{p^r+1}\cdot p \end{cases}\]</span>
+Therefore, <span class="math display">\[\begin{aligned} x_1^1 = \frac{p^{r-1}}{p^r+1}\cdot p = \frac{p^r}{p^r+1} \\ x_2^1 = \frac{1}{p^r+1}\cdot p \end{aligned}\]</span>
 Excess demand: <span class="math inline">\(\begin{cases} z_1^1 = x_1^1 - 1 \\z_2^1 = x_2^1\end{cases}\)</span><br />
 Consumer 2’s income: <span class="math inline">\(y^2 = p\cdot 0 + 1\cdot 1 = 1\)</span><br />
-Therefore, <span class="math display">\[\begin{cases} x_1^2 = \frac{p^{r-1}}{p^r+1}\\ x_2^2 = \frac{1}{p^r+1}\end{cases}\]</span>
+Therefore, <span class="math display">\[\begin{aligned} x_1^2 = \frac{p^{r-1}}{p^r+1}\\ x_2^2 = \frac{1}{p^r+1}\end{aligned}\]</span>
 Excess demand: <span class="math inline">\(\begin{cases} z_1^2 = x_1^2 \\z_2^2 = x_2^2 - 1\end{cases}\)</span></li>
 </ol>
 <blockquote>
@@ -1013,7 +1029,41 @@ Argue that a Walrasian equilibrium must exist.</p>
 <p>By Walras’ law, <span class="math display">\[\begin{aligned} p\cdot z_1 + 1\cdot z_2 &amp;= 0 \\
 p(x_1^1 - 1 + x_1^2) + 1\cdot (x_2^1 + x_2^2 - 1) &amp;= 0 \\
 p\cdot \frac{p^r}{p^r+1} - p + p\cdot\frac{p^{r-1}}{p^r+1} + \frac{1}{p^r+1}\cdot p + \frac{1}{p^r+1} - 1 &amp;= 0 \\
-\end{aligned}\]</span></p>
+(p+1)\frac{p^r}{p^r+1} + (p+1)\frac{1}{p^r+1} &amp;= p+1 \\
+\frac{p^r}{p^r+1} + \frac{1}{p^r+1} &amp;= 1\end{aligned}\]</span>
+Need to find <span class="math inline">\(p\)</span> s.t. <span class="math display">\[\begin{aligned} z_1^1 + z_1^2 &amp;= 0 \\
+\frac{p^r}{p^r+1} - 1 + \frac{p^{r-1}}{p^r+1} = 0\end{aligned}\]</span>
+Let <span class="math inline">\(f(p) = \frac{p^r}{p^r+1} - 1 + \frac{p^{r-1}}{p^r+1}\)</span>
+Need to prove <span class="math inline">\(f(p)\)</span> has at least one root (omitted, use L’Hopital’s rule)</p>
+<blockquote>
+<p>PS2.Q4<br />
+Consider a two person economy where 2 consumers have CES utility functions: <span class="math inline">\(u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}}\)</span>, <span class="math inline">\(0&lt;ρ&lt;1\)</span><br />
+and endowments <span class="math inline">\(e^1 = (1,0)\)</span>, <span class="math inline">\(e^2 = (0,1)\)</span><br />
+Characterize the contract curve for this economy.</p>
+</blockquote>
+<p>For each <span class="math inline">\(\bar{u}\in\big[0,2^{\frac{1}{ρ}}\big]\)</span>, bundles on the contract curve satisfy:
+<span class="math display">\[\begin{aligned}\max_{x_1^1, x_2^1} u^1 &amp;= \big((x_1^1)^ρ+(x_2^1)^ρ\big)^{\frac{1}{ρ}} \\
+s.t. u^2 &amp;= \big((1-x_1^1)^ρ+(1-x_2^1)^ρ\big)^{\frac{1}{ρ}} = \bar{u} \\
+\mathcal{L} &amp;= \big((x_1^1)^ρ+(x_2^1)^ρ\big)^{\frac{1}{ρ}} - λ \left(\big((1-x_1^1)^ρ+(1-x_2^1)^ρ\big)^{\frac{1}{ρ}} - \bar{u}\right)\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x_1^1} &amp;= \frac{1}{ρ}\cdot\big((x_1^1)^ρ+(x_2^1)^ρ\big)^{\frac{1}{ρ}-1}\cdot ρ\cdot (x_1^1)^{ρ-1} \\
+&amp;\phantom{12} - λ\cdot \frac{1}{ρ}\big((1-x_1^1)^ρ+(1-x_2^1)^ρ\big)^{\frac{1}{ρ}-1}\cdot ρ\cdot(1-x_1^1)^{ρ-1} \\
+&amp;= \big((x_1^1)^ρ+(x_2^1)^ρ\big)^{\frac{1}{ρ}-1}\cdot (x_1^1)^{ρ-1} - λ\cdot\big((1-x_1^1)^ρ+(1-x_2^1)^ρ\big)^{\frac{1}{ρ}-1}\cdot(1-x_1^1)^{ρ-1} = 0 \\
+\frac{\partial\mathcal{L}}{\partial x_2^1} &amp;= \big((x_1^1)^ρ+(x_2^1)^ρ\big)^{\frac{1}{ρ}-1}\cdot (x_2^1)^{ρ-1} - λ\cdot\big((1-x_1^1)^ρ+(1-x_2^1)^ρ\big)^{\frac{1}{ρ}-1}\cdot(1-x_2^1)^{ρ-1} = 0\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} \frac{(x_1^1)^{ρ-1}}{(x_2^1)^{ρ-1}} &amp;= \frac{(1-x_1^1)^{ρ-1}}{(1-x_2^1)^{ρ-1}} \\
+\frac{x_1^1}{x_2^1} &amp;= \frac{1-x_1^1}{1-x_2^1}\end{aligned}\]</span>
+Therefore, the contract curve is a 45° line</p>
+<blockquote>
+<p>PS2.Q5<br />
+Consider a two person economy where 2 consumers have CES utility functions: <span class="math inline">\(u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}}\)</span>, <span class="math inline">\(0&lt;ρ&lt;1\)</span><br />
+and endowments <span class="math inline">\(e^1 = (1,0)\)</span>, <span class="math inline">\(e^2 = (0,1)\)</span><br />
+Characterize the core for this economy.</p>
+</blockquote>
+<p>Consumer 1 weakly preferes allocations s.t. <span class="math display">\[\begin{aligned} \big((x_1^1)^ρ+(x_2^1)^ρ\big)^{\frac{1}{ρ}} &amp;\geq (1^ρ+0^ρ)^{\frac{1}{ρ}} \\ &amp;=1 \\
+(x_1^1)^ρ+(x_2^1)^ρ \geq 1 \end{aligned}\]</span>
+Consumer 2 weakly preferes allocations s.t. <span class="math display">\[\begin{aligned} \big((x_1^2)^ρ+(x_2^2)^ρ\big)^{\frac{1}{ρ}} &amp;\geq (0^ρ+1^ρ)^{\frac{1}{ρ}} \\ &amp;=1 \\
+(1-x_1^1)^ρ+(1-x_2^1)^ρ \geq 1 \end{aligned}\]</span>
+The core is the part of contract curve that is inside the lens.</p>
 </div>
 </div>
 
