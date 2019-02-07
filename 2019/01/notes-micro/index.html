@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">22 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -770,6 +770,143 @@ q^* &amp;= \frac{a-c}{b(J+1)}\end{aligned}\]</span></li>
 </ul></li>
 <li>Cournot-Nash Equilibrium: <span class="math inline">\((\bar{q}^1,\bar{q}^2,\dots,\bar{q}^J)\)</span></li>
 </ul>
+<blockquote>
+<p>PS1.Q1, EX 4.6<br />
+A firm <span class="math inline">\(j\)</span> in a competitive industry has total cost function <span class="math inline">\(c_j(q) = aq+b_jq^2\)</span>,<br />
+<span class="math inline">\(a &gt; 0\)</span> and <span class="math inline">\(q\)</span> is firm output, and <span class="math inline">\(b^j\)</span> is different for each firm<br />
+1. If <span class="math inline">\(b_j &gt; 0\)</span> for all firms, what governs the amount produced by each of them? Will they produce equal amounts of output? Explain.<br />
+2. What happens if <span class="math inline">\(b_j &lt; 0\)</span> for all firms?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>For each firm <span class="math inline">\(j\)</span>:
+<span class="math display">\[\begin{aligned} c_j(q) &amp;= aq+b_jq^2 \\
+π^j &amp;= pq - c_j(q)\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π^j}{\partial q} &amp;= p - c_j&#39;(q) = 0 \\
+&amp;= p - a - 2b_jq \\
+p &amp;= a + 2b_j q \\
+q &amp;= \frac{p-a}{2b_j}\end{aligned}\]</span>
+When <span class="math inline">\(b_j&gt;0\)</span>, if <span class="math inline">\(p&gt;a\)</span>, then the higher <span class="math inline">\(b_j\)</span> is, the lower <span class="math inline">\(q\)</span> is.<br />
+</li>
+<li>If <span class="math inline">\(b_j &lt; 0\)</span>, <span class="math inline">\(c_j(q) = aq\)</span><br />
+FOC: <span class="math display">\[\begin{aligned} \frac{\partial π^j}{\partial q} &amp;= p - c_j&#39;(q) = 0 \\
+&amp;= p - a\end{aligned}\]</span> (needs check)</li>
+</ol>
+<blockquote>
+<p>PS1.Q2, EX 4.8<br />
+In the Cournot oligopoly, suppose that <span class="math inline">\(J = 2\)</span><br />
+Let each duopolist have constant average and marginal costs as before, but suppose that <span class="math inline">\(0\leq c_1 &lt; c_2\)</span><br />
+Show that firm 1 will have greater profits and produce a greater share of market output than firm 2 in the Nash equilibrium.</p>
+</blockquote>
+<p>For each firm:
+<span class="math display">\[\max_{q^i} π_i(q^1,q^2) = \big(a-b(q_1+q_2)\big)q_i - c_iq_i\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π_i}{\partial q_i} &amp;= a - 2bq_i - bq_{-i} - c_i \\
+q_i^* &amp;= \frac{a - bq_{-i} - c_i}{2b} \\
+&amp;= \frac{a-c_i}{2b} - \frac{q_{-i}}{2}\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{cases} q_1^* =\frac{a-c_1}{2b} - \frac{q_{2}}{2} \\ q_2^* =\frac{a-c_2}{2b} - \frac{q_{1}}{2}\end{cases}\]</span>
+<span class="math display">\[\implies\begin{cases} q_1^* =\frac{a-2c_1+c_2}{3b} \\ q_2^* =\frac{a-2c_2+c_1}{3b}\end{cases}\]</span>
+<span class="math inline">\(c_2&gt;c_1\implies q_1 &gt; q_2\)</span><br />
+Consider profit:
+<span class="math display">\[\begin{aligned} π_1(q^1,q^2) &amp;= \big(a-b(q_1+q_2)\big)q_1 - c_1q_1 \\
+&amp;= \left(a - b\Big(\frac{a-2c_1+c_2}{3b} + \frac{a-2c_2+c_1}{3b}\Big)\right) q_1 - c_1q_1 \\
+&amp;= \Big( a - \frac{2a - c_1 - c_2}{3}\Big)q_1 - c_1q_1 \\
+&amp;= \frac{q_1}{3}(a-2c_1 + c_2) \\
+\text{and } π_2(q^1,q^2) &amp;= \frac{q_2}{3}(a-2c_2 + c_1)\end{aligned}\]</span>
+<span class="math inline">\(c_2&gt;c_1\implies π_1 &gt; π_2\)</span></p>
+<blockquote>
+<p>PS1.Q3, EX 4.9<br />
+In a Stackelberg duopoly, one firm is a ‘leader’ and one is a ‘follower’<br />
+Both firms know each other’s costs and market demand<br />
+The follower takes the leader’s output as given and picks his own output accordingly (i.e., the follower acts like a Cournot competitor)<br />
+The leader takes the follower’s reactions as given and picks his own output accordingly<br />
+Suppose that firms 1 and 2 face market demand <span class="math inline">\(p=100−(q_1 +q_2)\)</span>, and firm costs are <span class="math inline">\(c_1 =10q_1\)</span> and <span class="math inline">\(c_2 =q_2^2\)</span><br />
+1. Calculate market price and each firm’s profit, assuming that firm 1 is the leader and firm 2 the follower.</p>
+</blockquote>
+<p>Assuming firm 1 is the leader<br />
+For firm 2:
+<span class="math display">\[\begin{aligned} π_2 &amp;= \big(100−(q_1 +q_2)\big) q_2 - q_2^2\\
+&amp;= 100q_2 - q_1q_2 - 2q_2^2\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π_2}{\partial q_2} &amp;= 100 - q_1 - 4q_2 = 0 \\
+q_2^* &amp;= 25 - \frac{q_1}{4} \end{aligned}\]</span>
+For firm 1:
+<span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1\\ 
+&amp;= 75 - \frac{3}{4}q_1^2 - 10 q_1\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π_1}{\partial q_1} &amp;= 75 - 2\cdot \frac{3}{4}q_1 - 10 = 0 \\
+q_1^* &amp;= \frac{130}{3} \\
+\text{and }q_2^* &amp;= 25 - \frac{q_1}{4} \\
+&amp;= \frac{85}{6}\end{aligned}\]</span>
+Market price: <span class="math inline">\(100 - (q_1+q_2) = 42.5\)</span><br />
+Profit:
+<span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1 = \frac{4225}{3} \approx 1408.83\\
+π_2 &amp;= \big(100−(q_1 +q_2)\big) q_2 - q_2^2 = \frac{9350}{36} \approx 269.72\end{aligned}\]</span></p>
+<blockquote>
+<p>PS1.Q3, EX 4.9<br />
+In a Stackelberg duopoly, one firm is a ‘leader’ and one is a ‘follower’<br />
+2. Do the same assuming that firm 2 is the leader and firm 1 is the follower.<br />
+3. Given your answers in (1) and (2), who would firm 1 want to be the leader in the market? Who would firm 2 want to be the leader?<br />
+4. If each firm assumes what it wants to be the case in (3), what are the equilibrium market price and firm profits?<br />
+How does this compare with the Cournot-Nash equilibrium in this market?</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Assuming firm 2 is the leader<br />
+For firm 1:
+<span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1\\ 
+&amp;= 90q_1 - q_2q_1 - q_1^2\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π_1}{\partial q_1} &amp;= 90 - q_2 - 2q_1 = 0 \\
+q_1^* &amp;= 45 - \frac{q_2}{2}\end{aligned}\]</span>
+For firm 2:
+<span class="math display">\[\begin{aligned} π_2 &amp;= \big(100−(q_1 +q_2)\big) q_2 - q_2^2\\
+&amp;= 55q_2 - \frac{3}{2}q_2^2\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π_2}{\partial q_2} &amp;= 55 - 3q_2 = 0 \\
+q_2^* &amp;= \frac{55}{3} \\
+\text{and } q_1^* &amp;= 45 - \frac{q_2}{2}\\
+&amp;= \frac{215}{6}\end{aligned}\]</span>
+Market price: <span class="math inline">\(100 - (q_1+q_2) = \frac{275}{6} \approx 45.83\)</span><br />
+Profit:
+<span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1 = \frac{3025}{6} \approx 504.17 \\
+π_2 &amp;= \big(100−(q_1 +q_2)\big) q_2 - q_2^2 = \frac{46225}{36} \approx 1284.03\end{aligned}\]</span></p></li>
+<li>Firm 1 wants firm 1 to be the leader, and firm 2 wants firm 2 to be the leader.</li>
+<li><p>If both firms assume they are leader,<br />
+<span class="math display">\[\begin{cases} q_1 = \frac{130}{3} \\ q_2 = \frac{55}{3}\end{cases}\]</span>
+Market price: <span class="math inline">\(100 - (q_1+q_2) = \frac{115}{3} \approx 38.33\)</span><br />
+Profit:
+<span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1 = \frac{11050}{9} \approx 1227.78 \\
+π_2 &amp;= \big(100−(q_1 +q_2)\big) q_2 - q_2^2 = \frac{1100}{36} \approx 366.67\end{aligned}\]</span>
+Under Cournot, both firms are “follower”:
+<span class="math display">\[\begin{aligned} q_1^* &amp;= 45 - \frac{q_2}{2} \\
+q_2^* &amp;= 25 - \frac{q_1}{4} \end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{cases} q_1^* = \frac{260}{7} \\ q_2^* = \frac{110}{7}\end{cases}\]</span>
+Market price: <span class="math inline">\(100 - (q_1+q_2) = \frac{330}{7} \approx 47.14\)</span><br />
+Profit:
+<span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1 = \frac{2600}{7} \approx 371.43 \\
+π_2 &amp;= \big(100−(q_1 +q_2)\big) q_2 - q_2^2 = \frac{24200}{49} \approx 493.88\end{aligned}\]</span></p></li>
+</ol>
+<blockquote>
+<p>PS1.Q4, EX 4.13<br />
+Duopolists producing substitute goods <span class="math inline">\(q_1\)</span> and <span class="math inline">\(q_2\)</span> face inverse demand schedules:<br />
+<span class="math display">\[\begin{cases} p_1 =20+\frac{1}{2}p_2-q_1 \\ p_2 =20+\frac{1}{2}p_1-q_2\end{cases}\]</span>
+Each firm has constant marginal costs of <span class="math inline">\(20\)</span> and no fixed costs.<br />
+Each firm is a Cournot competitor in price, not quantity.<br />
+Compute the Cournot equilibrium in this market, giving equilibrium price and output for each good.</p>
+</blockquote>
+<p>For firm 1:
+<span class="math display">\[\begin{aligned} p_1 &amp;= 20+\frac{p_2}{2}-q_1 \\
+q_1 &amp;= 20+\frac{p_2}{2} - p_1\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} π_i = p_1\cdot \big(20+\frac{p_2}{2}-p_1\big) - 20\cdot \big(20+\frac{p_2}{2}-p_1\big) \\
+&amp;= \frac{p_1p_2}{2} + 40p_1 - p_1^2 + 400\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π_1}{\partial p_1} &amp;= \frac{p_2}{2} + 40 - 2p_1 = 0\\
+p_1^* &amp;= \frac{p_2}{4}+20 \\
+\text{and } p_2^* &amp;= \frac{p_1}{4}+20\end{aligned}\]</span>
+<span class="math inline">\(p_1^* = p_2^* \implies p^* = \frac{80}{3}\)</span><br />
+<span class="math inline">\(\implies q_1^* = q_2^* = \frac{20}{3}\)</span></p>
 </div>
 <div id="bertrand-duopoly-price" class="section level3">
 <h3>Bertrand Duopoly (Price)</h3>
