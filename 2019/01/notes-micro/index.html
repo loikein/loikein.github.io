@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">17 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -125,10 +125,10 @@
 <li><a href="#perfect-competition-short-run">Perfect Competition (Short Run)</a></li>
 <li><a href="#perfect-competition-long-run">Perfect Competition (Long Run)</a></li>
 <li><a href="#monopoly">Monopoly</a></li>
-<li><a href="#cournot">Cournot</a></li>
-<li><a href="#bertrand">Bertrand</a></li>
+<li><a href="#cournot-quantity">Cournot (Quantity)</a></li>
+<li><a href="#bertrand-duopoly-price">Bertrand Duopoly (Price)</a></li>
 </ul></li>
-<li><a href="#general-equilibrium">General Equilibrium</a></li>
+<li><a href="#welfare">Welfare</a></li>
 </ul>
 </div>
 
@@ -739,23 +739,48 @@ Prove that the profit function is convex.</p>
 <li>convex</li>
 <li>differentiable for <span class="math inline">\((p, \mathbb{w})\gg 0\)</span></li>
 <li>Production function: <span class="math inline">\(f(\mathbb{x})\)</span></li>
-<li>Hotelling’s Lemma: <span class="math inline">\(\begin{cases} y(p,\mathbb{w}) = \frac{\partial π}{\partial p} \\ x_i(p,\mathbb{w}) = -\frac{\partial π}{\partial w_i}\end{cases}\)</span></li>
+<li>Hotelling’s Lemma: <span class="math inline">\(\begin{cases}\text{Output: } y(p,\mathbb{w}) = \frac{\partial π}{\partial p} \\\text{Input: }\phantom{\leq} x_i(p,\mathbb{w}) = -\frac{\partial π}{\partial w_i}\end{cases}\)</span></li>
 </ul></li>
 <li>LR Equilibrium: <span class="math inline">\(\begin{cases} q^d(\hat{p}) = \sum_{j=1}^{\hat{J}} q^j(\hat{p}) \\ π^j(\hat{p}) = 0\end{cases}\)</span></li>
 </ul>
 </div>
 <div id="monopoly" class="section level3">
 <h3>Monopoly</h3>
+<ul>
+<li>Firm’s problem: <span class="math inline">\(π(q) = \max_q \underbrace{p(q)\cdot q}_{r(q)} - c(q)\)</span>
+<ul>
+<li>FOC: <span class="math display">\[\begin{aligned} MC(q^*) &amp;= MR(q^*) \geq 0 \\ &amp;= p(q)\cdot 1 + q\cdot\frac{dp(q)}{dq} \\
+&amp;= p(q) + \frac{dp(q)}{dq}\cdot\frac{q}{p(q)}\cdot p(q) \\
+&amp;= p(q)\cdot\bigg[1+\underbrace{\frac{dp(q)}{dq}\cdot\frac{q}{p(q)}}_{\text{Elasticity }|ε(q)|}\bigg]\end{aligned}\]</span></li>
+<li>Optimal output: <span class="math inline">\(q^*\)</span></li>
+</ul></li>
+<li>Monopoly Equilibrium: <span class="math inline">\(\frac{p(q^*) - MC(q^*)}{p(q^*)} = \frac{1}{|ε(q)|}\)</span><br />
+<img src="/post-img/notes-micro--monopoly-eq.png" width="373" /></li>
+</ul>
 </div>
-<div id="cournot" class="section level3">
-<h3>Cournot</h3>
+<div id="cournot-quantity" class="section level3">
+<h3>Cournot (Quantity)</h3>
+<ul>
+<li>Firms’ problem: <span class="math inline">\(\max_{q^j} π^j(q^1,q^2,\dots,q^J) = \big(\underbrace{a-b\cdot\sum_J q^j}_{\text{Market Demand }p}\big)\cdot q^j - c\cdot q^j\)</span>
+<ul>
+<li><span class="math inline">\(\frac{\partial π^j}{\partial q^k}&lt;0\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
+<li>FOC: <span class="math display">\[\begin{aligned} \frac{\partial π^j}{\partial q^j} &amp;= a - 2bq^j - b\cdot\sum_{k\neq j} q^k - c \\
+&amp;= a - c - b\cdot\sum_{J} q^j - bq^j \\
+q^* &amp;= \frac{a-c}{b(J+1)}\end{aligned}\]</span></li>
+</ul></li>
+<li>Cournot-Nash Equilibrium: <span class="math inline">\((\bar{q}^1,\bar{q}^2,\dots,\bar{q}^J)\)</span></li>
+</ul>
 </div>
-<div id="bertrand" class="section level3">
-<h3>Bertrand</h3>
+<div id="bertrand-duopoly-price" class="section level3">
+<h3>Bertrand Duopoly (Price)</h3>
+<ul>
+<li>Firms’ problem: <span class="math inline">\(π^i = \begin{cases} (p^i - c)(\underbrace{α - βp^i}_{\text{Market Demand } Q}) &amp; p^i &lt; p^{-i} \\ \frac{1}{2}(p^i - c)(α - βp^i) &amp; p^i = p^{-i} \\ 0 &amp; p^i &gt; p^{-i}\end{cases}\)</span></li>
+<li>Bertrand-Nash Equilibrium: <span class="math inline">\(\begin{cases} p^i = c \\ π^i = 0\end{cases}\)</span></li>
+</ul>
 </div>
 </div>
-<div id="general-equilibrium" class="section level2">
-<h2>General Equilibrium</h2>
+<div id="welfare" class="section level2">
+<h2>Welfare</h2>
 </div>
 
     </div>
