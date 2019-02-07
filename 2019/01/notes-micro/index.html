@@ -128,12 +128,12 @@
 <li><a href="#cournot-quantity">Cournot (Quantity)</a></li>
 <li><a href="#bertrand-duopoly-price">Bertrand Duopoly (Price)</a></li>
 </ul></li>
-<li><a href="#welfare">Welfare</a></li>
-<li><a href="#general-equilibrium">General Equilibrium</a><ul>
-<li><a href="#exchange-economy">Exchange Economy</a></li>
+<li><a href="#general-equilibrium-exchange">General Equilibrium (Exchange)</a><ul>
 <li><a href="#core">Core</a></li>
 <li><a href="#competitive-market">Competitive Market</a></li>
 </ul></li>
+<li><a href="#welfare">Welfare</a></li>
+<li><a href="#general-equilibrium-production">General Equilibrium (Production)</a></li>
 </ul>
 </div>
 
@@ -927,13 +927,8 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 </ul>
 </div>
 </div>
-<div id="welfare" class="section level2">
-<h2>Welfare</h2>
-</div>
-<div id="general-equilibrium" class="section level2">
-<h2>General Equilibrium</h2>
-<div id="exchange-economy" class="section level3">
-<h3>Exchange Economy</h3>
+<div id="general-equilibrium-exchange" class="section level2">
+<h2>General Equilibrium (Exchange)</h2>
 <ul>
 <li>Economy: <span class="math inline">\(\mathcal{E}=(\succsim^i, e^i)\)</span>
 <ul>
@@ -946,7 +941,6 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 <li>Pareto efficient allocation: <span class="math inline">\(\mathbb{x}\in F(e)\)</span> is Pareto efficient if there is no <span class="math inline">\(\mathbb{y}\neq \mathbb{x}\)</span> s.t. <span class="math inline">\(y^i\succsim^i x^i\)</span> for all <span class="math inline">\(i\in \mathcal{I}\)</span> and <span class="math inline">\(y^i\succ^i x^i\)</span> for at least one i</li>
 </ul></li>
 </ul>
-</div>
 <div id="core" class="section level3">
 <h3>Core</h3>
 <ul>
@@ -958,30 +952,37 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 </ul></li>
 <li>Core <span class="math inline">\(C(e)\)</span> is the set of all unblocked feasible allocations</li>
 </ul>
-<!-- ![Source: [Diagram Technology Templates and Examples](https://diagram-ideas.com/page/3082/)](/post-img/notes-micro--edgeworth-core.png) -->
 </div>
 <div id="competitive-market" class="section level3">
 <h3>Competitive Market</h3>
 <ul>
 <li>Market price: <span class="math inline">\(p = (p_1, p_2,\dots,p_n)\)</span></li>
-<li>Consumer’s problem: <span class="math inline">\(\max u^i(x^i)\)</span> s.t. <span class="math inline">\(p\cdot x^i\leq p\cdot e^i\)</span>
+<li>Consumer’s problem: <span class="math display">\[\begin{aligned} \max u^i(x^i) &amp;&amp; p\cdot x^i\leq p\cdot e^i\end{aligned}\]</span>
 <ul>
 <li>Continuous, strongly increasing, strictly quasi-concave (Assumption 5.1)</li>
 <li>Demanded bundle: <span class="math inline">\(x^i(p,pe^i)\)</span></li>
 </ul></li>
-<li>Aggregate excess demand for good k: <span class="math inline">\(z_k(p) = \sum_{\mathcal{I}}x^i_k(p,pe^i) - \sum_{\mathcal{I}} e^i_k\)</span>
+<li>Aggregate excess (net) demand for good k: <span class="math display">\[z_k(p) = \sum_{\mathcal{I}}x^i_k(p,pe^i) - \sum_{\mathcal{I}} e^i_k\]</span>
 <ul>
-<li>Aggregate excess demand function: <span class="math inline">\(\mathbb{z}(p) = \big(z_1(p), z_2(p),\dots, z_n(p)\big)\)</span></li>
+<li>Aggregate excess demand function: <span class="math display">\[\mathbb{z}(p) = \big(z_1(p), z_2(p),\dots, z_n(p)\big)\]</span></li>
 <li>Continuous, homogeneous of degree 0</li>
 <li>Walras’ law: <span class="math inline">\(p\cdot \mathbb{z}(p) = 0\)</span></li>
 </ul></li>
-<li>Walrasian Equilibrium (price): <span class="math inline">\(p^*\)</span> s.t. <span class="math inline">\(\mathbb{z}(p^*) = 0\)</span></li>
 <li>Contract Curve: Pareto efficient allocations</li>
-<li>Core: inside the lens (not blocked by either consumer) + on the contract curve</li>
+<li>Core <span class="math inline">\(C(e)\)</span>: on the contract curve + inside the lens (not blocked by either consumer)</li>
+<li>Walrasian Equilibrium (price): <span class="math inline">\(p^*\)</span> s.t. <span class="math inline">\(\mathbb{z}(p^*) = 0\)</span>
+<ul>
+<li>Condition: (Assumption 5.1) + <span class="math inline">\(\sum_I e^i \gg 0\)</span></li>
+</ul></li>
+<li>WEA (Walras Equilibrium Allocations): <span class="math inline">\(W(e)\subset C(e)\)</span>
+<ul>
+<li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing</li>
+</ul></li>
 </ul>
+<!-- ![Source: [Diagram Technology Templates and Examples](https://diagram-ideas.com/page/3082/)](/post-img/notes-micro--edgeworth-core.png) -->
 <blockquote>
 <p>PS2.Q1<br />
-Consider a two person economy where 2 consumers have CES utility functions: <span class="math inline">\(u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}}\)</span>, <span class="math inline">\(0&lt;ρ&lt;1\)</span><br />
+Consider a two person economy where 2 consumers have CES (constant elasticity of substitution) utility functions: <span class="math inline">\(u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}}\)</span>, <span class="math inline">\(0&lt;ρ&lt;1\)</span><br />
 and endowments <span class="math inline">\(e^1 = (1,0)\)</span>, <span class="math inline">\(e^2 = (0,1)\)</span><br />
 Suppose there are given prices <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> for the two goods<br />
 Suppose further that consumers think their income is <span class="math inline">\(y_1\)</span> and <span class="math inline">\(y_2\)</span> (for the time being, not thinking about how they get that income)<br />
@@ -1065,6 +1066,49 @@ Consumer 2 weakly preferes allocations s.t. <span class="math display">\[\begin{
 (1-x_1^1)^ρ+(1-x_2^1)^ρ \geq 1 \end{aligned}\]</span>
 The core is the part of contract curve that is inside the lens.</p>
 </div>
+</div>
+<div id="welfare" class="section level2">
+<h2>Welfare</h2>
+<ul>
+<li>First Welfare: every WEA is Pareto efficient
+<ul>
+<li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing</li>
+</ul></li>
+<li>Second Welfare: for every Pareto efficient allocation <span class="math inline">\(\bar{x}\)</span>, there is <span class="math inline">\(\bar{p}\)</span> s.t. <span class="math inline">\(\bar{x}\)</span> is a WEA, if the endowment has been redistributed to <span class="math inline">\(\bar{x}\)</span>
+<ul>
+<li>Condition: (Assumption 5.1) + <span class="math inline">\(\sum_I e^i \gg 0\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="general-equilibrium-production" class="section level2">
+<h2>General Equilibrium (Production)</h2>
+<ul>
+<li>Set of firms: <span class="math inline">\(\mathcal{J}\equiv\{1,2,\dots, J\}\)</span>
+<ul>
+<li>Production plan: <span class="math inline">\(y^j \in\mathbb{R}^n\)</span>, positive element is output, negative elements are input</li>
+</ul></li>
+<li>Production possibility set: <span class="math inline">\(Y^j\)</span>
+<ul>
+<li><span class="math inline">\(0\in Y^j\)</span>, closed, bounded, strongly convex (Assumption 5.2)</li>
+<li>No free production</li>
+</ul></li>
+<li>Firm’s problem: <span class="math display">\[Π_j(p) = \max_{y^j} p\cdot y^j\]</span>
+<ul>
+<li>Continuous</li>
+</ul></li>
+<li>Profit-maximizing plan: $y^j(p)
+<ul>
+<li>Continuous</li>
+<li>Unique for every <span class="math inline">\(p\gg 0\)</span></li>
+</ul></li>
+<li>Aggregate production: <span class="math display">\[Y \equiv \{ y \ | \ y = \sum_{\mathcal{J}} y^j, \ y^j\in Y^j\}\]</span>
+<ul>
+<li>If each <span class="math inline">\(Y^j\)</span> satisfies (Assumption 5.2), then <span class="math inline">\(Y\)</span> satisfies (Assumption 5.2)</li>
+</ul></li>
+<li>Assume all firms are owned by consumers through shares</li>
+<li>Consumer’s budget constraint: <span class="math display">\[m^i(p) = p\cdot e^i + \underbrace{\sum_{J} θ^{ij}\cdot Π_j(p)}_{\text{share of profit}}\]</span></li>
+<li>Consumer’s problem: <span class="math display">\[\begin{aligned} \max u^i(x^i) &amp;&amp; p\cdot x^i\leq m^i(p)\end{aligned}\]</span></li>
+</ul>
 </div>
 
     </div>
