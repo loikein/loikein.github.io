@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">29 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -143,7 +143,7 @@ Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4
 <ul>
 <li>[ ] PS0</li>
 <li>[x] PS1</li>
-<li>[ ] PS2</li>
+<li>[x] PS2</li>
 <li>[ ] PS3</li>
 </ul>
 <div id="preference" class="section level2">
@@ -964,7 +964,7 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 </ul></li>
 <li>Aggregate excess (net) demand for good k: <span class="math display">\[z_k(p) = \sum_{\mathcal{I}}x^i_k(p,pe^i) - \sum_{\mathcal{I}} e^i_k\]</span>
 <ul>
-<li>Aggregate excess demand function: <span class="math display">\[\mathbb{z}(p) = \big(z_1(p), z_2(p),\dots, z_n(p)\big)\]</span></li>
+<li>Aggregate excess demand vector: <span class="math display">\[\mathbb{z}(p) = \big(z_1(p), z_2(p),\dots, z_n(p)\big)\]</span></li>
 <li>Continuous, homogeneous of degree 0</li>
 <li>Walras’ law: <span class="math inline">\(p\cdot \mathbb{z}(p) = 0\)</span></li>
 </ul></li>
@@ -1083,6 +1083,7 @@ The core is the part of contract curve that is inside the lens.</p>
 <div id="general-equilibrium-production" class="section level2">
 <h2>General Equilibrium (Production)</h2>
 <ul>
+<li>Economy: <span class="math inline">\(\mathcal{E}=(u^i, e^i, θ^{ij}, Y^j)_{i\in \mathcal{I}, j\in\mathcal{J}}\)</span></li>
 <li>Set of firms: <span class="math inline">\(\mathcal{J}\equiv\{1,2,\dots, J\}\)</span>
 <ul>
 <li>Production plan: <span class="math inline">\(y^j \in\mathbb{R}^n\)</span>, positive element is output, negative elements are input</li>
@@ -1109,6 +1110,63 @@ The core is the part of contract curve that is inside the lens.</p>
 <li>Consumer’s budget constraint: <span class="math display">\[m^i(p) = p\cdot e^i + \underbrace{\sum_{J} θ^{ij}\cdot Π_j(p)}_{\text{share of profit}}\]</span></li>
 <li>Consumer’s problem: <span class="math display">\[\begin{aligned} \max u^i(x^i) &amp;&amp; p\cdot x^i\leq m^i(p)\end{aligned}\]</span></li>
 </ul>
+<p>~</p>
+<ul>
+<li>Aggregate excess demand for good k: <span class="math display">\[z_k(p) = \underbrace{\sum_{\mathcal{I}} x^i_k\big(p, m^i(p)\big)}_{\text{Consumption}} - \underbrace{\sum_{\mathcal{J}} y^j_k(p)}_{\text{Production}} - \underbrace{\sum_{\mathcal{I}} e^i_k}_{\text{Endowment}}\]</span>
+<ul>
+<li>Aggregate excess demand vector: <span class="math display">\[\mathbb{z}(p) = \big(z_1(p), z_2(p),\dots, z_n(p)\big)\]</span></li>
+</ul></li>
+<li>Walrasian Equilibrium (price): <span class="math inline">\(p^*\)</span> s.t. <span class="math inline">\(\mathbb{z}(p^*) = 0\)</span>
+<ul>
+<li>Condition: (Assumption 5.1) + (Assumption 5.2) + <span class="math inline">\(y + \sum_I e^i \gg 0\)</span> for some <span class="math inline">\(y\in\sum_{\mathcal{J}} Y^j\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>PS3.Q2, Example 5.2<br />
+Suppose Robinson is endowed with zero units of the consumption good <span class="math inline">\(y\)</span>, and 24 hours of time <span class="math inline">\(h\)</span>, so <span class="math inline">\(e = (24,0)\)</span>.<br />
+Suppose his preferences are represented by the utility function <span class="math inline">\(u(h,y) = h\cdot y\)</span>.<br />
+Production possibilities are <span class="math inline">\(Y = \big\{ (-h,y) \ | \ 0\leq h\leq b, 0\leq y\leq\sqrt{h}\big\}\)</span>, where <span class="math inline">\(b\)</span> is some large positive number.<br />
+1. Find relative prices that clear the consumption and leisure markets simultaneously.</p>
+</blockquote>
+<p>Let <span class="math inline">\(p_y\to p\)</span> denote the price of good y, and <span class="math inline">\(p_h\to w\)</span> denote the price of <span class="math inline">\(h\)</span><br />
+The firm does not waste input, so it will choose <span class="math inline">\(y = \sqrt{h}\)</span><br />
+The firm’s problem:
+<span class="math display">\[\begin{aligned} \max_{y,h} π(w,p) &amp;= p\cdot y - w\cdot h \\ &amp;= p\cdot\sqrt{h} - w\cdot h\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial π(w,p)}{\partial h} &amp;= \frac{1}{2}p\cdot h^{-\frac{1}{2}} - w = 0 \\
+h^f &amp;= \frac{p^2}{4w^2} \\
+y^f &amp;= \frac{p}{2w}\end{aligned}\]</span>
+Profit function: <span class="math display">\[\begin{aligned} π(w,p) &amp;= p\cdot y - w\cdot h \\ &amp;= \frac{p^2}{4w}\end{aligned}\]</span></p>
+<p>The consumer’s budget constraint: <span class="math display">\[m^i(w,p) =  \underbrace{w\cdot 24}_{\text{Endowment}} + π(w,p) \geq p\cdot y + \underbrace{w\cdot h}_{\text{Cost of leisure}}\]</span>
+The consumer’s problem (with no waste):
+<span class="math display">\[\begin{aligned} \max_{h,y} u(h,y) = h\cdot y &amp;&amp; w\cdot 24 + π(w,p) = p\cdot y\end{aligned}\]</span>
+Set MRS equals to price ratio:
+<span class="math display">\[\begin{aligned} \frac{y}{h} &amp;= \frac{w}{p} \\ p\cdot y &amp;= w\cdot h\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned} p\cdot y = w\cdot h &amp;= \frac{1}{2}\big(w\cdot 24 + π(w,p)\big) \\ 
+y^c &amp;= \frac{12w}{p} + \frac{1}{2p}π(w,p) \\
+h^c &amp;= 12 + \frac{1}{2w}π(w,p)\end{aligned}\]</span></p>
+<p>Clear the market: <span class="math inline">\(\begin{cases} y^c = y^f \\ h^c + h^f = 24\end{cases}\)</span><br />
+<span class="math display">\[\begin{aligned} \frac{12w}{p} + \frac{1}{2p}π(w,p) &amp;= \frac{p}{2w} \\
+12 + \frac{1}{2w}π(w,p) + \frac{p^2}{4w^2} &amp;= 24\end{aligned}\]</span>
+<span class="math inline">\(\implies p^2 = 32w^2\)</span><br />
+Set <span class="math inline">\(p^* = 1\)</span>, <span class="math inline">\(w^* = \frac{1}{\sqrt{32}}\)</span></p>
+<blockquote>
+<p>PS3.Q2<br />
+Suppose Robinson is endowed with zero units of the consumption good <span class="math inline">\(y\)</span>, and 24 hours of time <span class="math inline">\(h\)</span>, so <span class="math inline">\(e = (24,0)\)</span>.<br />
+Suppose his preferences are represented by the utility function <span class="math inline">\(u(h,y) = h\cdot y\)</span>.<br />
+Production possibilities are <span class="math inline">\(Y = \big\{ (-h,y) \ | \ 0\leq h\leq b, 0\leq y\leq\sqrt{h}\big\}\)</span>, where <span class="math inline">\(b\)</span> is some large positive number.<br />
+2. Calculate the equilibirum consumption and production plans.
+3. How many hours a day does the consumer work?</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>When <span class="math inline">\(p^* = 1\)</span>, <span class="math inline">\(w^* = \frac{1}{\sqrt{32}}\)</span>,<br />
+Production plan: <span class="math display">\[\begin{aligned} h^f &amp;= \frac{p^2}{4w^2} \\ &amp;= \frac{1}{4w^2} = 8 \\
+y^f &amp;= \frac{p}{2w} \\ &amp;= \frac{1}{2\cdot \frac{1}{\sqrt{32}}} = 2\sqrt{2}\end{aligned}\]</span>
+Consumption: <span class="math inline">\(y^c = y^f = 2\sqrt{2}\)</span><br />
+</li>
+<li><span class="math inline">\(h^c = 24 - h^f = 16\)</span></li>
+</ol>
 </div>
 
     </div>
