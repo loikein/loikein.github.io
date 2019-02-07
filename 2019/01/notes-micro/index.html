@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">22 min read</span>
+    <span class="article-duration">24 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -129,12 +129,22 @@
 <li><a href="#bertrand-duopoly-price">Bertrand Duopoly (Price)</a></li>
 </ul></li>
 <li><a href="#welfare">Welfare</a></li>
+<li><a href="#general-equilibrium">General Equilibrium</a><ul>
+<li><a href="#exchange-economy">Exchange Economy</a></li>
+<li><a href="#competitive-market">Competitive Market</a></li>
+</ul></li>
 </ul>
 </div>
 
 <p>Textbook 1: <a href="http://arielrubinstein.tau.ac.il/books.html">Lecture Notes in Microeconomic Theory</a> (~ <a href="#producer">#Producer</a>)<br />
 Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory (3ed)</a> (<a href="#partial-equilibrium">#Partial Equilibrium</a> ~ )<br />
 Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory (MWG)</a></p>
+<ul>
+<li>[ ] PS0</li>
+<li>[x] PS1</li>
+<li>[ ] PS2</li>
+<li>[ ] PS3</li>
+</ul>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
 <ul>
@@ -918,6 +928,93 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 </div>
 <div id="welfare" class="section level2">
 <h2>Welfare</h2>
+</div>
+<div id="general-equilibrium" class="section level2">
+<h2>General Equilibrium</h2>
+<div id="exchange-economy" class="section level3">
+<h3>Exchange Economy</h3>
+<ul>
+<li>Economy: <span class="math inline">\(\mathcal{E}=(\succsim^i, e^i)\)</span>
+<ul>
+<li>Set of consumers: <span class="math inline">\(\mathcal{I}\equiv\{1,2,\dots, I\}\)</span></li>
+<li>Consumer i’s endowment: <span class="math inline">\(e^i = (e^i_1, e^i_2,\dots, e^i_n)\)</span></li>
+</ul></li>
+<li>Allocation for all goods: <span class="math inline">\(\mathbb{x} = (x^1,x^2,\dots,x^I)\)</span>
+<ul>
+<li>Feasible allocations: <span class="math inline">\(F(e)\equiv \big\{ \mathbb{x} \ | \ \sum_{\mathcal{I}} x^i = \sum_{\mathcal{I}} e^i\big\}\)</span></li>
+<li>Pareto efficient allocation: <span class="math inline">\(x\in F(e)\)</span> s.t. no <span class="math inline">\(\mathbb{y}\in F(e)\)</span> exists s.t. <span class="math inline">\(y^i\succsim^i x^i\)</span> for all i and <span class="math inline">\(y^i\succ^i x^i\)</span> for one i</li>
+</ul></li>
+</ul>
+</div>
+<div id="competitive-market" class="section level3">
+<h3>Competitive Market</h3>
+<ul>
+<li>Market price: <span class="math inline">\(p = (p_1, p_2,\dots,p_n)\)</span></li>
+<li>Consumer’s problem: <span class="math inline">\(\max u^i(x^i)\)</span> s.t. <span class="math inline">\(p\cdot x^i\leq p\cdot e^i\)</span>
+<ul>
+<li>Continuous, strongly increasing, strictly quasi-concave (Assumption 5.1)</li>
+<li>Demanded bundle: <span class="math inline">\(x^i(p,pe^i)\)</span></li>
+</ul></li>
+<li>Aggregate excess demand for good k: <span class="math inline">\(z_k(p) = \sum_{\mathcal{I}}x^i_k(p,pe^i) - \sum_{\mathcal{I}} e^i_k\)</span>
+<ul>
+<li>Aggregate excess demand function: <span class="math inline">\(\mathbb{z}(p) = \big(z_1(p), z_2(p),\dots, z_n(p)\big)\)</span></li>
+<li>Continuous, homogeneous of degree 0</li>
+<li>Walras’ law: <span class="math inline">\(p\cdot \mathbb{z}(p) = 0\)</span></li>
+</ul></li>
+<li>Walrasian Equilibrium (price): <span class="math inline">\(p^*\)</span> s.t. <span class="math inline">\(\mathbb{z}(p^*) = 0\)</span></li>
+</ul>
+<blockquote>
+<p>PS2.Q1<br />
+Consider a two person economy where 2 consumers have CES utility functions: <span class="math inline">\(u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}}\)</span>, <span class="math inline">\(0&lt;ρ&lt;1\)</span><br />
+and endowments <span class="math inline">\(e^1 = (1,0)\)</span>, <span class="math inline">\(e^2 = (0,1)\)</span><br />
+Suppose there are given prices <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> for the two goods<br />
+Suppose further that consumers think their income is <span class="math inline">\(y_1\)</span> and <span class="math inline">\(y_2\)</span> (for the time being, not thinking about how they get that income)<br />
+Derive the consumersídemand functions for good 1 and good 2, respectively.</p>
+</blockquote>
+<p>Let <span class="math inline">\(p = (p_1,p_2)\)</span>, consumer’s problem:
+<span class="math display">\[\begin{aligned} \max_{x_1,x_2} u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}} \\ s.t. y^i = p_1x_1+p_2x_2 \\
+\mathcal{L} = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}} - λ(p_1x_1+p_2x_2- y^i)\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x_1} = \frac{1}{ρ}(x_1^ρ+x_2^ρ)^{\frac{1}{ρ}-1}\cdot ρx_1^{ρ-1} &amp;- λp_1 = 0 \\
+\frac{\partial\mathcal{L}}{\partial x_2} = \frac{1}{ρ}(x_1^ρ+x_2^ρ)^{\frac{1}{ρ}-1}\cdot ρx_2^{ρ-1} &amp;- λp_2 = 0 \\
+\frac{x_1^{ρ-1}}{p_1} &amp;= \frac{x_2^{ρ-1}}{p_2} \\
+x_1 &amp;= x_2\cdot\frac{p_1}{p_2}^{\frac{1}{ρ-1}}\end{aligned}\]</span>
+Substitution into constraint gives
+<span class="math display">\[\begin{cases} x_1^i = \frac{p_1^{r-1}}{p_1^r+p_2^r}y^i \\
+x_2^i = \frac{p_2^{r-1}}{p_1^r+p_2^r}y^i\end{cases}\]</span>
+where <span class="math inline">\(r = \frac{ρ}{ρ-1}\)</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider a two person economy where 2 consumers have CES utility functions: <span class="math inline">\(u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}}\)</span>, <span class="math inline">\(0&lt;ρ&lt;1\)</span><br />
+and endowments <span class="math inline">\(e^1 = (1,0)\)</span>, <span class="math inline">\(e^2 = (0,1)\)</span><br />
+1. What changes on the demands if you divide both prices by <span class="math inline">\(p_2\)</span>?<br />
+The new prices would be <span class="math inline">\(p = \frac{p_1}{p_2}\)</span> and <span class="math inline">\(\hat{p}_2 = 1\)</span><br />
+2. Using these prices, derive the consumers’ income that they will get from selling their endowments.<br />
+Derive the consumers’ excess demand functions.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Since the relative prices do not change, the demands do not change.</li>
+<li>Demands in relative price: <span class="math display">\[\begin{cases} x_1^i = \frac{p^{r-1}}{p^r+1}y^i \\
+x_2^i = \frac{1}{p^r+1}y^i\end{cases}\]</span>
+where <span class="math inline">\(r = \frac{ρ}{ρ-1}\)</span><br />
+Consumer 1’s income: <span class="math inline">\(y^1 = p\cdot 1 + 1\cdot 0 = p\)</span><br />
+Therefore, <span class="math display">\[\begin{cases} x_1^1 = \frac{p^{r-1}}{p^r+1}\cdot p = \frac{p^r}{p^r+1} \\ x_2^1 = \frac{1}{p^r+1}\cdot p \end{cases}\]</span>
+Excess demand: <span class="math inline">\(\begin{cases} z_1^1 = x_1^1 - 1 \\z_2^1 = x_2^1\end{cases}\)</span><br />
+Consumer 2’s income: <span class="math inline">\(y^2 = p\cdot 0 + 1\cdot 1 = 1\)</span><br />
+Therefore, <span class="math display">\[\begin{cases} x_1^2 = \frac{p^{r-1}}{p^r+1}\\ x_2^2 = \frac{1}{p^r+1}\end{cases}\]</span>
+Excess demand: <span class="math inline">\(\begin{cases} z_1^2 = x_1^2 \\z_2^2 = x_2^2 - 1\end{cases}\)</span></li>
+</ol>
+<blockquote>
+<p>PS2.Q3<br />
+Consider a two person economy where 2 consumers have CES utility functions: <span class="math inline">\(u^i(x_1,x_2) = (x_1^ρ+x_2^ρ)^{\frac{1}{ρ}}\)</span>, <span class="math inline">\(0&lt;ρ&lt;1\)</span><br />
+and endowments <span class="math inline">\(e^1 = (1,0)\)</span>, <span class="math inline">\(e^2 = (0,1)\)</span><br />
+Argue that a Walrasian equilibrium must exist.</p>
+</blockquote>
+<p>By Walras’ law, <span class="math display">\[\begin{aligned} p\cdot z_1 + 1\cdot z_2 &amp;= 0 \\
+p(x_1^1 - 1 + x_1^2) + 1\cdot (x_2^1 + x_2^2 - 1) &amp;= 0 \\
+p\cdot \frac{p^r}{p^r+1} - p + p\cdot\frac{p^{r-1}}{p^r+1} + \frac{1}{p^r+1}\cdot p + \frac{1}{p^r+1} - 1 &amp;= 0 \\
+\end{aligned}\]</span></p>
+</div>
 </div>
 
     </div>
