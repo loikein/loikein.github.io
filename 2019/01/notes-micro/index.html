@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">30 min read</span>
+    <span class="article-duration">32 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -132,19 +132,23 @@
 <li><a href="#core">Core</a></li>
 <li><a href="#competitive-market">Competitive Market</a></li>
 </ul></li>
-<li><a href="#welfare">Welfare</a></li>
 <li><a href="#general-equilibrium-production">General Equilibrium (Production)</a></li>
+<li><a href="#welfare">Welfare</a><ul>
+<li><a href="#with-exchange">With Exchange</a></li>
+<li><a href="#with-production">With Production</a></li>
+</ul></li>
+<li><a href="#externality">Externality</a></li>
 </ul>
 </div>
 
 <p>Textbook 1: <a href="http://arielrubinstein.tau.ac.il/books.html">Lecture Notes in Microeconomic Theory</a> (~ <a href="#producer">#Producer</a>)<br />
-Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory (3ed)</a> (<a href="#partial-equilibrium">#Partial Equilibrium</a> ~ )<br />
-Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory (MWG)</a></p>
+Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory (3ed)</a> (<a href="#partial-equilibrium">#Partial Equilibrium</a> ~ <a href="#welfare">#Welfare</a>)<br />
+Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory (MWG)</a> (<a href="#externality">#Externality</a> ~ )</p>
 <ul>
-<li>[ ] PS0</li>
+<li>[ ] PS0: [x]Q1 [ ]Q2 [x]Q3 [ ]Q4 [ ]Q5 [ ]Q6 [ ]Q7 [x]Q8 [x]Q9 [x]Q10</li>
 <li>[x] PS1</li>
 <li>[x] PS2</li>
-<li>[ ] PS3</li>
+<li>[x] PS3</li>
 </ul>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
@@ -328,6 +332,27 @@ But for all <span class="math inline">\(B_x\)</span>, there is some <span class=
 2. Give an example of a preference relation that is not continuous.<br />
 3. Explain why the preference in your example is not continuous.</p>
 </blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Lexicographic preference:<br />
+<span class="math inline">\((a_1,a_2)\succsim_L (b_1,b_2)\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(a_1&gt;b_1\)</span> or <span class="math inline">\(\begin{cases} a_1=b_1 \\ a_2\geq b_2 \end{cases}\)</span><br />
+</li>
+<li>If <span class="math inline">\(\succsim_L\)</span> is continuous, then exists continuous utility representaiton s.t. <span class="math inline">\(B(a)\succsim_L B(b)\)</span> for some neighbourhood <span class="math inline">\(B(a)\)</span> and <span class="math inline">\(B(b)\)</span>, which is not the case.</li>
+</ol>
+<blockquote>
+<p>PS0.Q2<br />
+Let <span class="math inline">\(X\)</span> be a finite set of alternatives.<br />
+For each pair <span class="math inline">\((x, y)\)</span> we ask our decision maker to fill out the following questionnaire:<br />
+How do you compare <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>? Tick one of the following five options:<br />
+<span class="math display">\[\begin{aligned} x&amp;\succ\succ y \\ x&amp;\succ y \\ x&amp;Iy \\ y&amp;\succ x \\ y&amp;\succ\succ x\end{aligned}\]</span>
+Assume the answers of the decision are such that <span class="math inline">\(\succ\)</span> is a preference relation, and, moreover the following three conditions hold:<br />
+a) if <span class="math inline">\(x\succ y\)</span> or <span class="math inline">\(xIy\)</span> and <span class="math inline">\(y\succ\succ z\)</span>, then <span class="math inline">\(x\succ\succ z\)</span><br />
+b) if <span class="math inline">\(x\succ\succ y\)</span> and <span class="math inline">\(y\succ z\)</span> or <span class="math inline">\(yIz\)</span>, then <span class="math inline">\(x\succ\succ z\)</span><br />
+c) if <span class="math inline">\(x\succ y\)</span> and <span class="math inline">\(y\succ z\)</span>, then <span class="math inline">\(x\succ\succ z\)</span><br />
+Show that there exists a function <span class="math inline">\(u: X\to \mathbb{R}\)</span> such that:<br />
+1. <span class="math inline">\(u(x)&gt;u(y) \iff x\succ y\)</span><br />
+2. <span class="math inline">\(u(x)&gt;u(y)+1 \iff x\succ\succ y\)</span><br />
+3. <span class="math inline">\(u(x)=u(y) \iff xIy\)</span></p>
+</blockquote>
 </div>
 </div>
 <div id="choice" class="section level2">
@@ -473,9 +498,19 @@ Is this behavior consistent with the maximization of a monotonic, continuous and
 <blockquote>
 <p>PS0.Q3<br />
 Consider a world with 2 commodities.<br />
-1. What does it mean for a preference to be differentiable? (omitted)<br />
+1. What does it mean for a preference to be differentiable?<br />
 2. Show that the preferences induced by utility function <span class="math inline">\(u\big((x, y)\big) = \min(x, y)\)</span> are not differentiable.</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Preferences are differentiable at bundle <span class="math inline">\(x\)</span> if there is a vector <span class="math inline">\(v(x)\)</span> of K non-negative numbers s.t. the set of improvement directions coincides with <span class="math inline">\(\{d\in \mathbb{R}^K \ | \ d\cdot v(x) &gt; 0\}\)</span><br />
+Preferences are differentiable if they are differentiable at any bundle <span class="math inline">\(x\)</span><br />
+</li>
+<li>FSOC assume <span class="math inline">\(u\big((x, y)\big) = \min(x, y)\)</span> is differentiable at <span class="math inline">\((x,y)=(0,0)\)</span><br />
+Since <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span> are not improvement directions,<br />
+and <span class="math inline">\((1,1)\)</span> is improvement direction,<br />
+<span class="math inline">\(\begin{cases} (1,0)\cdot v\leq 0 \\ (0,1)\cdot v\leq 0\end{cases}\)</span> and <span class="math inline">\((1,1)\cdot v &gt; 0\)</span><br />
+Contradiction</li>
+</ol>
 <blockquote>
 <p>HM7<br />
 Assume a consumer has preferences on <span class="math inline">\(\mathbb{R}^2\)</span><br />
@@ -570,6 +605,13 @@ Find preferences rationalizing the following behaviors:<br />
 It is common practice in economics to view aggregate demand as being derived from the behavior of a representative consumer choosing bundles according to some preference <span class="math inline">\(\succ\)</span>.<br />
 Give an example where aggregate consumption cannot be rationalized even though individual consumption by each consumer can be.</p>
 </blockquote>
+<p>Consider the case of two goods and two consumers with wealth w = 12<br />
+Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p_1 =1\)</span>, <span class="math inline">\(p2 =2\)</span>,<br />
+<span class="math inline">\(B_2\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p1 =2\)</span>, <span class="math inline">\(p2 =1\)</span><br />
+<img src="/post-img/notes-micro--PS0Q8.png" width="524" /><br />
+A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
+while two consumers separately choosing them will not.<br />
+Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 </div>
 <div id="warp-revisited" class="section level3">
 <h3>WARP (revisited)</h3>
@@ -632,6 +674,7 @@ If, for some prices and wealth, an increase of <span class="math inline">\(p_1\)
 <li>Prime Problem <span class="math inline">\(P(p,z)\)</span>: Find the <span class="math inline">\(\succsim\)</span>-best bundle <span class="math inline">\(x(p,z)\)</span> that solves <span class="math inline">\(\max_x u(x)\)</span> s.t. <span class="math inline">\(p\cdot x\leq p\cdot z\)</span> (<strong>Marshallian demand function</strong>)</li>
 <li>Dual Problem <span class="math inline">\(D(p,z)\)</span>: Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> that solves <span class="math inline">\(\min_x p\cdot x\)</span> s.t. <span class="math inline">\(u(x)\geq\bar{u} = u(z)\)</span> (<strong>Hicksian demand function</strong>)</li>
 <li>Expenditure function: <span class="math inline">\(e(p,\bar{u}) = p\cdot h(p,\bar{u})\)</span></li>
+<li>The prime problem and the dual problem are equivalent if <span class="math inline">\(u(x)\)</span> is increasing + continuous</li>
 </ul>
 <div id="duality-properties" class="section level3">
 <h3>Duality Properties</h3>
@@ -655,6 +698,10 @@ Explain under what assumptions the following two statements are equivalent:<br /
 (1) the maximal amount of Pizzas Joey can eat in <span class="math inline">\(24\)</span> hours is <span class="math inline">\(13\)</span><br />
 (2) the minimal amount of time Joey needs to eat <span class="math inline">\(13\)</span> pizzas is <span class="math inline">\(24\)</span> hours</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>and (2) are equivalent if:<br />
+The maximal amount Joey can eat, as a function of time, is increasing and continuous</li>
+</ol>
 </div>
 </div>
 <div id="producer" class="section level2">
@@ -705,6 +752,12 @@ Explain under what assumptions the following two statements are equivalent:<br /
 Assume that the producer’s problem always has a unique solution.<br />
 Prove that the profit function is convex.</p>
 </blockquote>
+<p>Let <span class="math inline">\(z(p)\)</span> be the supply function<br />
+The the profits function is given by <span class="math inline">\(π(p) = p\cdot z(p)\)</span><br />
+For any price <span class="math inline">\(p^*\)</span>, <span class="math inline">\(π(p^*) = p^*\cdot z(p^*)\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(\{(x,y) \ | \ p\cdot (x,y) = p\cdot z(p^*)\}\)</span> is a hyperplane tangent to profit function at <span class="math inline">\(p^*\)</span><br />
+And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span class="math inline">\(p\)</span><br />
+<span class="math inline">\(\implies\)</span> production function is convex</p>
 </div>
 <div id="law-of-supply" class="section level3">
 <h3>Law of Supply</h3>
@@ -1067,49 +1120,6 @@ Consumer 2 weakly preferes allocations s.t. <span class="math display">\[\begin{
 The core is the part of contract curve that is inside the lens.</p>
 </div>
 </div>
-<div id="welfare" class="section level2">
-<h2>Welfare</h2>
-<ul>
-<li>First Welfare: every WEA is Pareto efficient
-<ul>
-<li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing</li>
-</ul></li>
-<li>Second Welfare: for every Pareto efficient allocation <span class="math inline">\(\bar{x}\)</span>, there is <span class="math inline">\(\bar{p}\)</span> s.t. <span class="math inline">\(\bar{x}\)</span> is a WEA, if the endowment has been redistributed to <span class="math inline">\(\bar{x}\)</span>
-<ul>
-<li>Condition: (Assumption 5.1) + <span class="math inline">\(\sum_I e^i \gg 0\)</span></li>
-</ul></li>
-</ul>
-<blockquote>
-<p>PS3.Q1<br />
-Consider an exchange economy with two identical consumers<br />
-Their common utility function is <span class="math inline">\(u^i (x_1, x_2) = x_1^α x_2^{1-α}\)</span> for <span class="math inline">\(0&lt;α&lt;1\)</span><br />
-Society has 10 units of <span class="math inline">\(x_1\)</span> and 10 units of <span class="math inline">\(x_2\)</span> in all.<br />
-Find endowments <span class="math inline">\(e^1\)</span> and <span class="math inline">\(e^2\)</span> and Walrasian equilibrium prices that will support as a Walrasian Equilibrium Allocation: the equal-division allocation, giving both consumers the bundle <span class="math inline">\((5, 5)\)</span></p>
-</blockquote>
-<p>Let price of good 1 be <span class="math inline">\(1\)</span>, and price of good 2 be <span class="math inline">\(p = \frac{p_2}{p_1}\)</span><br />
-Consumer 1’s problem:<br />
-<span class="math display">\[\begin{aligned}\max_{x_1^1,x_2^1} u^1 = (x_1^1)^α(x_2^1)^{1-α} &amp;&amp; x_1^1 + p\cdot x_2^1 = e_1^1 + p\cdot e_2^1\end{aligned}\]</span>
-Set MRC = price ratio:<br />
-<span class="math display">\[\begin{aligned} \frac{α\cdot x_2^1}{(1-α)\cdot x_1^1} &amp;= \frac{1}{p} \\
-α\cdot x_2^1\cdot p &amp;= (1-α)\cdot x_1^1 \\
-x_2^1 &amp;= \frac{(1-α)\cdot x_1^1}{αp}\end{aligned}\]</span>
-Therefore,
-<span class="math display">\[\begin{aligned} x_1^1 + p\cdot \frac{(1-α)\cdot x_1^1}{αp} &amp;= e_1^1 + p\cdot e_2^1 \\
-\frac{x_1^1}{α} &amp;= e_1^1 + p\cdot e_2^1 \\
-x_1^1 &amp;= α(e_1^1 + p\cdot e_2^1) \\
-x_2^1 &amp;= \frac{1-α}{p}\cdot(e_1^1 + p\cdot e_2^1)\end{aligned}\]</span>
-Similarly, for consumer 2:
-<span class="math display">\[\begin{aligned} x_1^2 &amp;= α(e_1^2 + p\cdot e_2^2) \\
-x_2^2 &amp;= \frac{1-α}{p}\cdot(e_1^2 + p\cdot e_2^2)\end{aligned}\]</span>
-For an equal-division allocation, we need
-<span class="math display">\[\begin{cases} x_1^1 = x_1^2 = 5 \\ x_2^1 = x_2^2 = 5 \end{cases}\]</span>
-for all <span class="math inline">\(α\)</span>’s, therefore,
-<span class="math display">\[\begin{aligned} α &amp;= \frac{1-α}{p} \\ p &amp;= \frac{1-α}{α}\end{aligned}\]</span></p>
-<p>The endowments should be s.t.
-<span class="math display">\[\begin{cases} αe_1^1 + (1-α)e_2^1) = 5 \\ αe_1^2 + (1-α) e_2^2) = 5\end{cases}\]</span>
-for all <span class="math inline">\(α\)</span>’s, therefore,
-<span class="math display">\[\begin{aligned} e_1^1 = e_1^2 = 5 \\ e_2^1 = e_2^2 = 5\end{aligned}\]</span></p>
-</div>
 <div id="general-equilibrium-production" class="section level2">
 <h2>General Equilibrium (Production)</h2>
 <ul>
@@ -1197,6 +1207,69 @@ Consumption: <span class="math inline">\(y^c = y^f = 2\sqrt{2}\)</span><br />
 </li>
 <li><span class="math inline">\(h^c = 24 - h^f = 16\)</span></li>
 </ol>
+</div>
+<div id="welfare" class="section level2">
+<h2>Welfare</h2>
+<ul>
+<li>First Welfare: every WEA is Pareto efficient
+<ul>
+<li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing</li>
+</ul></li>
+</ul>
+<div id="with-exchange" class="section level3">
+<h3>With Exchange</h3>
+<ul>
+<li>Second Welfare: for every Pareto efficient allocation <span class="math inline">\(\bar{x}\)</span>, there is <span class="math inline">\(\bar{p}\)</span> s.t. <span class="math inline">\(\bar{x}\)</span> is a WEA, if the endowment has been redistributed to <span class="math inline">\(\bar{x}\)</span>
+<ul>
+<li>Condition: (Assumption 5.1) + <span class="math inline">\(\sum_I e^i \gg 0\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>PS3.Q1<br />
+Consider an exchange economy with two identical consumers<br />
+Their common utility function is <span class="math inline">\(u^i (x_1, x_2) = x_1^α x_2^{1-α}\)</span> for <span class="math inline">\(0&lt;α&lt;1\)</span><br />
+Society has 10 units of <span class="math inline">\(x_1\)</span> and 10 units of <span class="math inline">\(x_2\)</span> in all.<br />
+Find endowments <span class="math inline">\(e^1\)</span> and <span class="math inline">\(e^2\)</span> and Walrasian equilibrium prices that will support as a Walrasian Equilibrium Allocation: the equal-division allocation, giving both consumers the bundle <span class="math inline">\((5, 5)\)</span></p>
+</blockquote>
+<p>Let price of good 1 be <span class="math inline">\(1\)</span>, and price of good 2 be <span class="math inline">\(p = \frac{p_2}{p_1}\)</span><br />
+Consumer 1’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_{x_1^1,x_2^1} u^1 = (x_1^1)^α(x_2^1)^{1-α} &amp;&amp; x_1^1 + p\cdot x_2^1 = e_1^1 + p\cdot e_2^1\end{aligned}\]</span>
+Set MRC = price ratio:<br />
+<span class="math display">\[\begin{aligned} \frac{α\cdot x_2^1}{(1-α)\cdot x_1^1} &amp;= \frac{1}{p} \\
+α\cdot x_2^1\cdot p &amp;= (1-α)\cdot x_1^1 \\
+x_2^1 &amp;= \frac{(1-α)\cdot x_1^1}{αp}\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned} x_1^1 + p\cdot \frac{(1-α)\cdot x_1^1}{αp} &amp;= e_1^1 + p\cdot e_2^1 \\
+\frac{x_1^1}{α} &amp;= e_1^1 + p\cdot e_2^1 \\
+x_1^1 &amp;= α(e_1^1 + p\cdot e_2^1) \\
+x_2^1 &amp;= \frac{1-α}{p}\cdot(e_1^1 + p\cdot e_2^1)\end{aligned}\]</span>
+Similarly, for consumer 2:
+<span class="math display">\[\begin{aligned} x_1^2 &amp;= α(e_1^2 + p\cdot e_2^2) \\
+x_2^2 &amp;= \frac{1-α}{p}\cdot(e_1^2 + p\cdot e_2^2)\end{aligned}\]</span>
+For an equal-division allocation, we need
+<span class="math display">\[\begin{cases} x_1^1 = x_1^2 = 5 \\ x_2^1 = x_2^2 = 5 \end{cases}\]</span>
+for all <span class="math inline">\(α\)</span>’s, therefore,
+<span class="math display">\[\begin{aligned} α &amp;= \frac{1-α}{p} \\ p &amp;= \frac{1-α}{α}\end{aligned}\]</span></p>
+<p>The endowments should be s.t.
+<span class="math display">\[\begin{cases} αe_1^1 + (1-α)e_2^1) = 5 \\ αe_1^2 + (1-α) e_2^2) = 5\end{cases}\]</span>
+for all <span class="math inline">\(α\)</span>’s, therefore,
+<span class="math display">\[\begin{aligned} e_1^1 = e_1^2 = 5 \\ e_2^1 = e_2^2 = 5\end{aligned}\]</span></p>
+</div>
+<div id="with-production" class="section level3">
+<h3>With Production</h3>
+<ul>
+<li>Second Welfare: for every Pareto efficient allocation <span class="math inline">\((\bar{x}, \bar{y})\)</span>, there is <span class="math inline">\(\bar{p}\)</span> and income transfer <span class="math inline">\((T_1,T_2,\dots,T_I)\)</span>, s.t.
+<span class="math display">\[\begin{aligned} \bar{x}^i&amp;\in\text{argmax} \ u^i(x^i) &amp;&amp; \bar{p}\cdot x_i\leq m^i(\bar{p})+ T_i &amp;&amp; &amp;\text{for all }i\in\mathcal{I} \\
+\bar{y}^j&amp;\in\text{argmax} \ \bar{p}\cdot y^j &amp;&amp; y^j\in Y^j &amp;&amp; &amp;\text{for all }j\in\mathcal{J}  \end{aligned}\]</span>
+<ul>
+<li>Condition: (Assumption 5.1) + (Assumption 5.2) + <span class="math inline">\(y + \sum_I e^i \gg 0\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="externality" class="section level2">
+<h2>Externality</h2>
+<p>(textbook P350, slide 16)</p>
 </div>
 
     </div>
