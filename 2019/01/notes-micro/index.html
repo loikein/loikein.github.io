@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">34 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -96,6 +96,7 @@
 <li><a href="#choice-function">Choice Function</a></li>
 <li><a href="#rational-choice-function">Rational Choice Function</a></li>
 <li><a href="#warp-weak-axiom-of-revealed-preference">WARP (Weak Axiom of Revealed Preference)</a></li>
+<li><a href="#sarp-strong-axiom-of-revealed-preference">SARP (Strong Axiom of Revealed Preference)</a></li>
 </ul></li>
 <li><a href="#consumer-preference">Consumer Preference</a><ul>
 <li><a href="#convex">Convex</a></li>
@@ -108,7 +109,6 @@
 <li><a href="#demand-function">Demand Function</a></li>
 <li><a href="#rational-demand-function">Rational Demand Function</a></li>
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
-<li><a href="#sarp-strong-axiom-of-revealed-preference">SARP (Strong Axiom of Revealed Preference)</a></li>
 <li><a href="#law-of-demand">Law of Demand</a></li>
 <li><a href="#indirect-preference-over-budget-sets">Indirect Preference (Over Budget Sets)</a></li>
 </ul></li>
@@ -144,12 +144,6 @@
 <p>Textbook 1: <a href="http://arielrubinstein.tau.ac.il/books.html">Lecture Notes in Microeconomic Theory</a> (~ <a href="#producer">#Producer</a>)<br />
 Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory (3ed)</a> (<a href="#partial-equilibrium">#Partial Equilibrium</a> ~ <a href="#welfare">#Welfare</a>)<br />
 Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory (MWG)</a> (<a href="#externality">#Externality</a> ~ )</p>
-<ul>
-<li>[ ] PS0: [ ]Q2 [ ]Q4 [ ]Q5 [ ]Q6</li>
-<li>[x] PS1</li>
-<li>[x] PS2</li>
-<li>[x] PS3</li>
-</ul>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
 <ul>
@@ -349,10 +343,22 @@ a) if <span class="math inline">\(x\succ y\)</span> or <span class="math inline"
 b) if <span class="math inline">\(x\succ\succ y\)</span> and <span class="math inline">\(y\succ z\)</span> or <span class="math inline">\(yIz\)</span>, then <span class="math inline">\(x\succ\succ z\)</span><br />
 c) if <span class="math inline">\(x\succ y\)</span> and <span class="math inline">\(y\succ z\)</span>, then <span class="math inline">\(x\succ\succ z\)</span><br />
 Show that there exists a function <span class="math inline">\(u: X\to \mathbb{R}\)</span> such that:<br />
-1. <span class="math inline">\(u(x)&gt;u(y) \iff x\succ y\)</span><br />
-2. <span class="math inline">\(u(x)&gt;u(y)+1 \iff x\succ\succ y\)</span><br />
-3. <span class="math inline">\(u(x)=u(y) \iff xIy\)</span></p>
+1) <span class="math inline">\(u(x)&gt;u(y) \iff x\succ y\)</span><br />
+2) <span class="math inline">\(u(x)&gt;u(y)+1 \iff x\succ\succ y\)</span><br />
+3) <span class="math inline">\(u(x)=u(y) \iff xIy\)</span></p>
 </blockquote>
+<p>Proof by mathematical induction:<br />
+When <span class="math inline">\(|X| = 1\)</span>, <span class="math inline">\(u(x) = 0\)</span> satisfies (1) ~ (3)<br />
+Assume there is some utility function s.t. (1) ~ (3) are satisfied for <span class="math inline">\(|X| = n\)</span><br />
+Consider <span class="math inline">\(|X| = n+1\)</span>:<br />
+Since <span class="math inline">\(|X\backslash\{x_1\}| = n\)</span>, exsits <span class="math inline">\(u\)</span> s.t. (1) ~ (3) are satisfied<br />
+Denote the optimal element of <span class="math inline">\(|X\backslash\{x_1\}|\)</span> as <span class="math inline">\(x_2\)</span><br />
+Extend <span class="math inline">\(u\)</span> as: <span class="math display">\[u(x_1) = \begin{cases} u(x_2) + 2 &amp; x_1\succ\succ x_2 \\
+u(x_2) + 1 &amp; x_1\succ x_2 \\
+u(x_2) &amp; x_1 I x_2 \\
+u(x_2) - 1 &amp; x_2\succ x_1 \\
+u(x_2) - 2 &amp; x_2\succ\succ x_1\end{cases}\]</span>
+Therefore, <span class="math inline">\(u\)</span> satisfies (1) ~ (3) for <span class="math inline">\(|X| = n+1\)</span></p>
 </div>
 </div>
 <div id="choice" class="section level2">
@@ -380,16 +386,26 @@ Show that there exists a function <span class="math inline">\(u: X\to \mathbb{R}
 </ul>
 <blockquote>
 <p>PS0.Q4<br />
-Claire’s choice behavior is represented by a choice function <span class="math inline">\(f : D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
+Claire’s choice behavior is represented by a choice function <span class="math inline">\(f: D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
 Assume:<br />
 <span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
 1. What does it mean that a choice function can be rationalized? (omitted)<br />
 2. Do the facts about <span class="math inline">\(f\)</span> imply that <span class="math inline">\(f\)</span> cannot be rationalized?</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Choice function <span class="math inline">\(C\)</span> can be rationalized if exists preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t.<br />
+for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\(C(A)\)</span> is strictly better than any other bundles in <span class="math inline">\(A\)</span><br />
+</li>
+<li>Yes.<br />
+<span class="math inline">\(f(\{a,b,c\}) = a \implies a\succ b\)</span><br />
+<span class="math inline">\(f(\{b,c,d\}) = b \implies b\succ c\)</span>, <span class="math inline">\(a\succ c\)</span><br />
+<span class="math inline">\(f(\{c,d,e\}) = c \implies c\succ d\)</span>, <span class="math inline">\(a\succ d\)</span><br />
+<span class="math inline">\(f(\{a,d,e\}) = d \implies d\succ a\)</span>, transitivity is violated.</li>
+</ol>
 </div>
 <div id="warp-weak-axiom-of-revealed-preference" class="section level3">
 <h3>WARP (Weak Axiom of Revealed Preference)</h3>
-<p>(RBST P31, Slide 4 P70)</p>
+<p>(RBST P31, slide 4 P70, slide 6 P111)</p>
 <ul>
 <li>Choice <span class="math inline">\(C\)</span> satisfies WARP if for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span>
 <ul>
@@ -428,14 +444,30 @@ If <span class="math inline">\(x\neq y\implies x\in C_{\succsim}(A)\)</span><br 
 <span class="math inline">\(\implies x\in C(A)\)</span></li>
 </ol></li>
 </ol>
+</div>
+<div id="sarp-strong-axiom-of-revealed-preference" class="section level3">
+<h3>SARP (Strong Axiom of Revealed Preference)</h3>
+<p>(slide 6 P113)</p>
+<ul>
+<li>Choice <span class="math inline">\(C\)</span> sattisfies SARP iff <span class="math inline">\(\succ_R\)</span> is acyclical: there is no <span class="math inline">\(x_1,x_2,\dots,x_k\)</span> s.t. <span class="math inline">\(x_1 \succ_R x_2 \succ_R\dots\succ_R x_k\succ_R x_1\)</span></li>
+</ul>
 <blockquote>
 <p>PS0.Q4<br />
 Claire’s choice behavior is represented by a choice function <span class="math inline">\(f : D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
 Assume:<br />
 <span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
 3. Does <span class="math inline">\(f\)</span> satisfy the weak axiom of revealed preference?<br />
-4. Does <span class="math inline">\(f\)</span> satisfy the strong axiom of revealed preference?</p>
+4. Does <span class="math inline">\(f\)</span> satisfy the strong axiom of revealed preference?<br />
+5. What is the relationship between your answers to (2), (3), and (4)?</p>
 </blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>WARP: for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span><br />
+Since <span class="math inline">\(A\cap B\)</span> are all singletons, WARP is satisfied.<br />
+</li>
+<li>SARP: <span class="math inline">\(\succsim\)</span> is acyclical (violated)<br />
+</li>
+<li>Rationalizability <span class="math inline">\(\implies\)</span> SARP <span class="math inline">\(\implies\)</span> WARP</li>
+</ol>
 </div>
 </div>
 <div id="consumer-preference" class="section level2">
@@ -452,20 +484,39 @@ Assume:<br />
 <li><strong>Monotonic + Continuity</strong> preference relations can be represented by a utility function</li>
 </ul>
 <blockquote>
-<p>PS0.Q6<br />
+<p>PS0.Q6, textbook P50 Claim<br />
 John’s preferences over bundles <span class="math inline">\((x, y)\in [0, \infty)^2\)</span> are monotonic and continuous.<br />
 Explain how one can construct a utility function representing John’s preferences.</p>
 </blockquote>
+<p>For some bundle <span class="math inline">\((x,y)\)</span>,<br />
+Since <span class="math inline">\((x,y)\succsim \mathbb{0} = (0,0)\)</span>,<br />
+and <span class="math inline">\((x,y)\precsim M = \big(\max(x,y),\max(x,y)\big)\)</span>,<br />
+Exists <span class="math inline">\((\hat{x},\hat{x})\in (\mathbb{0}, M)\)</span> s.t. <span class="math inline">\((x,y)\sim (\hat{x},\hat{x})\)</span></p>
+<p>By monotonicity and continuity, <span class="math inline">\((\hat{x},\hat{x})\)</span> exists and is unique for every <span class="math inline">\((x,y)\)</span>,<br />
+denoted as <span class="math inline">\(\hat{x} = f(x,y)\)</span><br />
+Let <span class="math inline">\(u(x,y) = f(x,y)\)</span><br />
+For any <span class="math inline">\((x&#39;,y&#39;)\)</span>, <span class="math inline">\((x,y)\succsim (x&#39;,y&#39;)\)</span> <span class="math inline">\(\iff\)</span>
+<span class="math display">\[\begin{aligned} \hat{x} &amp;\succsim \hat{x}&#39; \\
+u(x,y) &amp;\geq u(x&#39;,y&#39;)\end{aligned}\]</span></p>
 <blockquote>
 <p>PS0.Q5<br />
 In an experiment, a monkey is given <span class="math inline">\(m = 12\)</span> coins which he can exchange for apples or bananas.<br />
-The monkey faces <span class="math inline">\(m\)</span> consecutive choices in which he gives a coin either to experimenter 1) in return for <span class="math inline">\(a\)</span> apples or 2) in return for <span class="math inline">\(b\)</span> bananas.<br />
-1. Assume that the experiment is repeated with different values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> and that each time the monkey trades the first <span class="math inline">\(4\)</span> coins for apples and the next <span class="math inline">\(8\)</span> coins for bananas.<br />
+The monkey faces <span class="math inline">\(m\)</span> consecutive choices in which he gives a coin either to experimenter in return for <span class="math inline">\(a\)</span> apples or <span class="math inline">\(b\)</span> bananas.<br />
+1. Assume that the experiment is repeated with different values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, and each time the monkey trades the first <span class="math inline">\(4\)</span> coins for apples and the next <span class="math inline">\(8\)</span> coins for bananas.<br />
 Show that the monkeys behavior is consistent with the maximization of a monotonic, continuous and convex preference relation on the space of bundles.<br />
-2. Assume that it was later observed that when the monkey holds an arbitrary number of coins, <span class="math inline">\(m\)</span>.<br />
-Then, irrespective of the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, he exchanges the first <span class="math inline">\(4\)</span> coins for apples and the remaining <span class="math inline">\(m−4\)</span> coins for bananas.<br />
+2. Assume when the monkey holds arbitrary <span class="math inline">\(m\)</span>, then irrespective of the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>,<br />
+he exchanges the first <span class="math inline">\(4\)</span> coins for apples and the remaining <span class="math inline">\(m−4\)</span> coins for bananas.<br />
 Is this behavior consistent with the maximization of a monotonic, continuous and convex preference relation on the space of bundles?</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Since the monkey always spends <span class="math inline">\(\frac{1}{3}\)</span> of his wealth on apples and <span class="math inline">\(\frac{2}{3}\)</span> on bananas,<br />
+the behaviour can be represented with<br />
+<span class="math display">\[\begin{aligned} u(a,b) = a\cdot b^2\end{aligned}\]</span></li>
+<li>No.<br />
+When <span class="math inline">\(m = 4\)</span>, <span class="math inline">\(a = 2\)</span>, <span class="math inline">\(b = 100\)</span>, the monkey chooses <span class="math inline">\((8,0)\succsim (4, 200)\succ (4,6)\)</span><br />
+When <span class="math inline">\(m = 10\)</span>, <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 1\)</span>, the monkey chooses <span class="math inline">\((4,6)\succsim (8,2)\succ (8,0)\)</span><br />
+Contradiction.</li>
+</ol>
 <div id="convex" class="section level3">
 <h3>Convex</h3>
 <ul>
@@ -622,9 +673,6 @@ Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 <img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" width="224" /></li>
 </ul></li>
 </ul>
-</div>
-<div id="sarp-strong-axiom-of-revealed-preference" class="section level3">
-<h3>SARP (Strong Axiom of Revealed Preference)</h3>
 </div>
 <div id="law-of-demand" class="section level3">
 <h3>Law of Demand</h3>
