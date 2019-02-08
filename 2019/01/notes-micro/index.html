@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">30 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -844,7 +844,7 @@ FOC:
 q_2^* &amp;= 25 - \frac{q_1}{4} \end{aligned}\]</span>
 For firm 1:
 <span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1\\ 
-&amp;= 75 - \frac{3}{4}q_1^2 - 10 q_1\end{aligned}\]</span>
+&amp;= 75q_1 - \frac{3}{4}q_1^2 - 10 q_1\end{aligned}\]</span>
 FOC:
 <span class="math display">\[\begin{aligned} \frac{\partial π_1}{\partial q_1} &amp;= 75 - 2\cdot \frac{3}{4}q_1 - 10 = 0 \\
 q_1^* &amp;= \frac{130}{3} \\
@@ -855,7 +855,7 @@ Profit:
 <span class="math display">\[\begin{aligned} π_1 &amp;= \big(100−(q_1 +q_2)\big) q_1 - 10q_1 = \frac{4225}{3} \approx 1408.83\\
 π_2 &amp;= \big(100−(q_1 +q_2)\big) q_2 - q_2^2 = \frac{9350}{36} \approx 269.72\end{aligned}\]</span></p>
 <blockquote>
-<p>PS1.Q3, EX 4.9<br />
+<p>PS1.Q3<br />
 In a Stackelberg duopoly, one firm is a ‘leader’ and one is a ‘follower’<br />
 2. Do the same assuming that firm 2 is the leader and firm 1 is the follower.<br />
 3. Given your answers in (1) and (2), who would firm 1 want to be the leader in the market? Who would firm 2 want to be the leader?<br />
@@ -1086,6 +1086,29 @@ Their common utility function is <span class="math inline">\(u^i (x_1, x_2) = x_
 Society has 10 units of <span class="math inline">\(x_1\)</span> and 10 units of <span class="math inline">\(x_2\)</span> in all.<br />
 Find endowments <span class="math inline">\(e^1\)</span> and <span class="math inline">\(e^2\)</span> and Walrasian equilibrium prices that will support as a Walrasian Equilibrium Allocation: the equal-division allocation, giving both consumers the bundle <span class="math inline">\((5, 5)\)</span></p>
 </blockquote>
+<p>Let price of good 1 be <span class="math inline">\(1\)</span>, and price of good 2 be <span class="math inline">\(p = \frac{p_2}{p_1}\)</span><br />
+Consumer 1’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_{x_1^1,x_2^1} u^1 = (x_1^1)^α(x_2^1)^{1-α} &amp;&amp; x_1^1 + p\cdot x_2^1 = e_1^1 + p\cdot e_2^1\end{aligned}\]</span>
+Set MRC = price ratio:<br />
+<span class="math display">\[\begin{aligned} \frac{α\cdot x_2^1}{(1-α)\cdot x_1^1} &amp;= \frac{1}{p} \\
+α\cdot x_2^1\cdot p &amp;= (1-α)\cdot x_1^1 \\
+x_2^1 &amp;= \frac{(1-α)\cdot x_1^1}{αp}\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned} x_1^1 + p\cdot \frac{(1-α)\cdot x_1^1}{αp} &amp;= e_1^1 + p\cdot e_2^1 \\
+\frac{x_1^1}{α} &amp;= e_1^1 + p\cdot e_2^1 \\
+x_1^1 &amp;= α(e_1^1 + p\cdot e_2^1) \\
+x_2^1 &amp;= \frac{1-α}{p}\cdot(e_1^1 + p\cdot e_2^1)\end{aligned}\]</span>
+Similarly, for consumer 2:
+<span class="math display">\[\begin{aligned} x_1^2 &amp;= α(e_1^2 + p\cdot e_2^2) \\
+x_2^2 &amp;= \frac{1-α}{p}\cdot(e_1^2 + p\cdot e_2^2)\end{aligned}\]</span>
+For an equal-division allocation, we need
+<span class="math display">\[\begin{cases} x_1^1 = x_1^2 = 5 \\ x_2^1 = x_2^2 = 5 \end{cases}\]</span>
+for all <span class="math inline">\(α\)</span>’s, therefore,
+<span class="math display">\[\begin{aligned} α &amp;= \frac{1-α}{p} \\ p &amp;= \frac{1-α}{α}\end{aligned}\]</span></p>
+<p>The endowments should be s.t.
+<span class="math display">\[\begin{cases} αe_1^1 + (1-α)e_2^1) = 5 \\ αe_1^2 + (1-α) e_2^2) = 5\end{cases}\]</span>
+for all <span class="math inline">\(α\)</span>’s, therefore,
+<span class="math display">\[\begin{aligned} e_1^1 = e_1^2 = 5 \\ e_2^1 = e_2^2 = 5\end{aligned}\]</span></p>
 </div>
 <div id="general-equilibrium-production" class="section level2">
 <h2>General Equilibrium (Production)</h2>
@@ -1147,7 +1170,7 @@ Profit function: <span class="math display">\[\begin{aligned} π(w,p) &amp;= p\c
 <p>The consumer’s budget constraint: <span class="math display">\[m^i(w,p) =  \underbrace{w\cdot 24}_{\text{Endowment}} + π(w,p) \geq p\cdot y + \underbrace{w\cdot h}_{\text{Cost of leisure}}\]</span>
 The consumer’s problem (with no waste):
 <span class="math display">\[\begin{aligned} \max_{h,y} u(h,y) = h\cdot y &amp;&amp; w\cdot 24 + π(w,p) = p\cdot y\end{aligned}\]</span>
-Set MRS equals to price ratio:
+Set MRS = price ratio:
 <span class="math display">\[\begin{aligned} \frac{y}{h} &amp;= \frac{w}{p} \\ p\cdot y &amp;= w\cdot h\end{aligned}\]</span>
 Therefore,
 <span class="math display">\[\begin{aligned} p\cdot y = w\cdot h &amp;= \frac{1}{2}\big(w\cdot 24 + π(w,p)\big) \\ 
