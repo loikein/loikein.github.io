@@ -301,7 +301,7 @@ Let <span class="math inline">\(f =\begin{cases} x &amp; x\leq 1 \\ x-1 &amp; x 
 <div id="continuous-preference" class="section level3">
 <h3>Continuous Preference</h3>
 <ul>
-<li><span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> is continuous if for all <span class="math inline">\(a\succsim b\)</span>, there exist balls <span class="math inline">\(B_a\)</span> and <span class="math inline">\(B_b\)</span> s.t. <span class="math inline">\(a&#39;\succsim b&#39;\)</span> for all <span class="math inline">\(a&#39; \in B_a\)</span> and <span class="math inline">\(b&#39; \in B_b\)</span></li>
+<li><span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> is continuous if <span class="math inline">\(a\succsim b\)</span> <span class="math inline">\(\implies\)</span> there exist balls <span class="math inline">\(B_a\)</span> and <span class="math inline">\(B_b\)</span> s.t. <span class="math inline">\(a&#39;\succsim b&#39;\)</span> for all <span class="math inline">\(a&#39; \in B_a\)</span> and <span class="math inline">\(b&#39; \in B_b\)</span></li>
 <li>Utility representation <span class="math inline">\(U\)</span> is continuous if <span class="math inline">\(\succsim\)</span> is continuous and <span class="math inline">\(X\)</span> is convex</li>
 </ul>
 <blockquote>
@@ -322,11 +322,13 @@ FSOC assume the preference induced by <span class="math inline">\(u()\)</span> i
 But for all <span class="math inline">\(B_x\)</span>, there is some <span class="math inline">\(x&#39;\)</span> s.t. <span class="math inline">\(x&#39; I y\)</span>, contradiction</p>
 <blockquote>
 <p>PS0.Q1<br />
-1. What does it mean for a preference relation to be continuous? (omitted)<br />
+1. What does it mean for a preference relation to be continuous?<br />
 2. Give an example of a preference relation that is not continuous.<br />
 3. Explain why the preference in your example is not continuous.</p>
 </blockquote>
-<ol start="2" style="list-style-type: decimal">
+<ol style="list-style-type: decimal">
+<li>A preference relation <span class="math inline">\(\succsim\)</span> is continuous if <span class="math inline">\(a\succsim b\)</span> <span class="math inline">\(\implies\)</span> there is <span class="math inline">\(ε&gt;0\)</span> s.t. <span class="math inline">\(B_ε(a)\succsim B_ε(b)\)</span><br />
+</li>
 <li>Lexicographic preference:<br />
 <span class="math inline">\((a_1,a_2)\succsim_L (b_1,b_2)\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(a_1&gt;b_1\)</span> or <span class="math inline">\(\begin{cases} a_1=b_1 \\ a_2\geq b_2 \end{cases}\)</span><br />
 </li>
