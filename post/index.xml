@@ -6,10 +6,19 @@
     <description>Recent content in Posts on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Introduction to JavaScript</title>
+      <link>/2019/02/notes-intro-js/</link>
+      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/notes-intro-js/</guid>
+      <description>Basics Property Method Built-in Object Math Number  Variable   Basics console.log( &amp;#39;hello, world&amp;#39; ); // comment /* multi-line comment */ console.log( 22 + 3.5 ); console.log( 2019 - 1969 ); console.log( 65 / 240 ); console.log( 0.2708 * 100 ); console.log( &amp;#39;mind &amp;#39; + &amp;#39;the&amp;#39; + &amp;#39; &amp;#39; + &amp;#39;gap&amp;#39; ); // mind the gap  Property console.log( &amp;#39;Count me&amp;#39;.length );  Method console.log( &amp;#39;hello&amp;#39;.toUpperCase() ); // HELLO console.</description>
+    </item>
     
     <item>
       <title>Notes on Econometrics - Tests and Statistics</title>

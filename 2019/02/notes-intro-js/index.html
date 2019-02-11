@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.54.0" />
+
+<title>Notes on Introduction to JavaScript - loikein</title>
+<meta property="og:title" content="Notes on Introduction to JavaScript - loikein">
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Notes on Introduction to JavaScript</h1>
+
+    
+    <span class="article-date">2019/02/10</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/javascript'>JavaScript</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#property">Property</a></li>
+<li><a href="#method">Method</a></li>
+<li><a href="#built-in-object">Built-in Object</a><ul>
+<li><a href="#math"><code>Math</code></a></li>
+<li><a href="#number"><code>Number</code></a></li>
+</ul></li>
+<li><a href="#variable">Variable</a></li>
+</ul>
+</div>
+
+<div id="basics" class="section level2">
+<h2>Basics</h2>
+<pre class="javascript"><code>console.log( &#39;hello, world&#39; );
+
+// comment
+
+/*
+multi-line comment
+*/
+
+console.log( 22 + 3.5 );
+console.log( 2019 - 1969 );
+console.log( 65 / 240 );
+console.log( 0.2708 * 100 );
+
+console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; ); // mind the gap</code></pre>
+</div>
+<div id="property" class="section level2">
+<h2>Property</h2>
+<pre class="javascript"><code>console.log( &#39;Count me&#39;.length );</code></pre>
+</div>
+<div id="method" class="section level2">
+<h2>Method</h2>
+<pre class="javascript"><code>console.log( &#39;hello&#39;.toUpperCase() ); // HELLO
+
+console.log( &#39;hello&#39;.startsWith(&#39;a&#39;) ); // false
+
+console.log(&#39;    Remove whitespace   &#39;.trim() ); // Remove whitespace</code></pre>
+</div>
+<div id="built-in-object" class="section level2">
+<h2>Built-in Object</h2>
+<div id="math" class="section level3">
+<h3><code>Math</code></h3>
+<pre class="javascript"><code>console.log( Math.random() ); // random number 0~1
+console.log( Math.random() * 100 );
+
+console.log( Math.floor( 43.8 )); // 43
+console.log( Math.ceil( 43.8 )); // 44</code></pre>
+</div>
+<div id="number" class="section level3">
+<h3><code>Number</code></h3>
+<pre class="javascript"><code>console.log(Number.isInteger( 2019 )); // true</code></pre>
+</div>
+</div>
+<div id="variable" class="section level2">
+<h2>Variable</h2>
+<pre class="javascript"><code>var someNumber = 7;
+var someString = &#39;what&#39;;
+
+let someBoolean = true;
+someBoolean = false;
+console.log( someBoolean ); // false
+
+const someConst = &#39;do not change&#39;;
+someConst = &#39;hey&#39;; // Error</code></pre>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+
