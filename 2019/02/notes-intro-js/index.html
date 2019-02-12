@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">3 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -106,6 +106,17 @@
 <li><a href="#math"><code>Math</code></a></li>
 <li><a href="#number"><code>Number</code></a></li>
 </ul></li>
+<li><a href="#conditional-statement">Conditional Statement</a><ul>
+<li><a href="#if"><code>if</code></a></li>
+<li><a href="#truthy-and-falsy">Truthy and Falsy</a></li>
+<li><a href="#short-circuit-evaluation">Short-Circuit Evaluation</a></li>
+<li><a href="#ternary-operator">Ternary Operator</a></li>
+<li><a href="#else-if"><code>else if</code></a></li>
+<li><a href="#switch"><code>switch</code></a></li>
+</ul></li>
+<li><a href="#function">Function</a><ul>
+<li><a href="#return">Return</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -126,7 +137,10 @@ console.log( 2019 - 1969 );
 console.log( 65 / 240 );
 console.log( 0.2708 * 100 );
 
-console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; ); // mind the gap</code></pre>
+console.log( 1 &gt;= 2 );               // false
+console.log( 3 &lt;= 4 );               // true
+console.log( &#39;orange&#39; === &#39;apple&#39; ); // false
+console.log( &#39;orange&#39; !== &#39;apple&#39;);  // true</code></pre>
 <div id="constant" class="section level3">
 <h3>Constant</h3>
 <pre class="javascript"><code>const someConst = &#39;do not change&#39;;
@@ -171,7 +185,9 @@ loseMe --; // 5</code></pre>
 </div>
 <div id="string-varible" class="section level3">
 <h3>String + Varible</h3>
-<pre class="javascript"><code>let favoriteAnimal = &#39;panda&#39;;
+<pre class="javascript"><code>console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; ); // mind the gap
+
+let favoriteAnimal = &#39;panda&#39;;
 
 console.log( &#39;My favorite animal: &#39; + favoriteAnimal ); // My favorite animal: panda
 console.log( `My favorite animal: ${favoriteAnimal}` ); // My favorite animal: panda</code></pre>
@@ -202,6 +218,104 @@ console.log( Math.ceil( 43.8 )); // 44</code></pre>
 <div id="number" class="section level3">
 <h3><code>Number</code></h3>
 <pre class="javascript"><code>console.log(Number.isInteger( 2019 )); // true</code></pre>
+</div>
+</div>
+<div id="conditional-statement" class="section level2">
+<h2>Conditional Statement</h2>
+<div id="if" class="section level3">
+<h3><code>if</code></h3>
+<pre class="javascript"><code>let sale = false;
+let holiday = true;
+
+if( sale &amp;&amp; holiday ){
+  console.log(&#39;Buy!&#39;);
+} else {
+  console.log( &#39;Wait for a sale.&#39; );
+} // Wait for a sale.</code></pre>
+</div>
+<div id="truthy-and-falsy" class="section level3">
+<h3>Truthy and Falsy</h3>
+<pre class="javascript"><code>let falsyNum = 0;
+let falsyString = &#39;&#39;;
+
+if (falsyNum || falsyString) {
+  console.log( true );
+} else {
+  console.log( false );
+} // false</code></pre>
+</div>
+<div id="short-circuit-evaluation" class="section level3">
+<h3>Short-Circuit Evaluation</h3>
+<pre class="javascript"><code>let userName = &#39;&#39;;
+let yourName = userName || &#39;Stranger&#39;;
+console.log( yourName );               // Stranger
+
+userName = &#39;rw&#39;;
+let myName = userName || &#39;Stranger&#39;;
+console.log( myName );                 // rw</code></pre>
+</div>
+<div id="ternary-operator" class="section level3">
+<h3>Ternary Operator</h3>
+<pre class="javascript"><code>let answer = 99;
+answer === 100 ?
+  console.log(&#39;Correct&#39;) :
+  console.log(&#39;Incorrect&#39;); // Incorrect</code></pre>
+</div>
+<div id="else-if" class="section level3">
+<h3><code>else if</code></h3>
+<pre class="javascript"><code>let season = &#39;summer&#39;;
+
+if (season === &#39;spring&#39;) {
+  console.log( &#39;It\&#39;s spring&#39; );
+} else if (season === &#39;summer&#39;) {
+  console.log( &#39;It\&#39;s summer&#39; );
+} else if (season === &#39;fall&#39;) {
+  console.log( &#39;It\&#39;s fall&#39; );
+} else if (season === &#39;winter&#39;) {
+  console.log( &#39;It\&#39;s winter&#39; );
+} else {
+  console.log( &#39;Invalid season.&#39; );
+} // It&#39;s summer</code></pre>
+</div>
+<div id="switch" class="section level3">
+<h3><code>switch</code></h3>
+<pre class="javascript"><code>let season = &#39;summer&#39;;
+
+switch( season ){
+  case &#39;spring&#39;:
+    console.log(&#39;It\&#39;s spring&#39;);
+    break;
+  case &#39;summer&#39;:
+    console.log( &#39;It\&#39;s summer&#39; );
+    break;
+  case &#39;fall&#39;:
+    console.log( &#39;It\&#39;s fall&#39; );
+    break;
+  case &#39;winter&#39;:
+    console.log( &#39;It\&#39;s winter&#39; );
+    break;
+  default:
+    console.log( &#39;Invalid season.&#39; );
+    break;
+} // It&#39;s summer</code></pre>
+</div>
+</div>
+<div id="function" class="section level2">
+<h2>Function</h2>
+<pre class="javascript"><code>function hello(name = &#39;world&#39;) {
+  console.log( &#39;hello &#39; + name );
+}
+hello(); // hello world
+hello( &#39;rw&#39; ); // hello rw
+
+function makeShoppingList( item1 = &#39;milk&#39;, item2 = &#39;bread&#39;, item3 = &#39;eggs&#39; ){
+  console.log( `Remember to buy ${item1}` );
+  console.log( `Remember to buy ${item2}` );
+  console.log( `Remember to buy ${item3}` );
+}</code></pre>
+<div id="return" class="section level3">
+<h3>Return</h3>
+<pre class="javascript"><code></code></pre>
 </div>
 </div>
 
