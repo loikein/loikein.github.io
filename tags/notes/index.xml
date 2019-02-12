@@ -17,7 +17,9 @@
       <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/02/notes-intro-js/</guid>
-      <description>Basics Property Method Built-in Object Math Number  Variable   Basics console.log( &amp;#39;hello, world&amp;#39; ); // comment /* multi-line comment */ console.log( 22 + 3.5 ); console.log( 2019 - 1969 ); console.log( 65 / 240 ); console.log( 0.2708 * 100 ); console.log( &amp;#39;mind &amp;#39; + &amp;#39;the&amp;#39; + &amp;#39; &amp;#39; + &amp;#39;gap&amp;#39; ); // mind the gap  Property console.log( &amp;#39;Count me&amp;#39;.length );  Method console.log( &amp;#39;hello&amp;#39;.toUpperCase() ); // HELLO console.</description>
+      <description>Basics Constant Variable Assignment Operator Increment Operator String + Varible  Property Method Built-in Object Math Number    19 个 JavaScript 有用的简写技术 - SangSir - SegmentFault 思否
+表达式和运算符 - JavaScript | MDN
+Basics console.log( &amp;#39;hello, world&amp;#39; ); // comment /* multi-line comment */ console.log( 22 + 3.5 ); console.log( 2019 - 1969 ); console.log( 65 / 240 ); console.log( 0.2708 * 100 ); console.log( &amp;#39;mind &amp;#39; + &amp;#39;the&amp;#39; + &amp;#39; &amp;#39; + &amp;#39;gap&amp;#39; ); // mind the gap Constant const someConst = &amp;#39;do not change&amp;#39;; someConst = &amp;#39;hey&amp;#39;; // Error  Variable var someNumber = 7; var someString = &amp;#39;what&amp;#39;; let someBoolean = true; someBoolean = false; console.</description>
     </item>
     
     <item>

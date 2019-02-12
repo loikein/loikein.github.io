@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -93,17 +93,24 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#basics">Basics</a></li>
+<li><a href="#basics">Basics</a><ul>
+<li><a href="#constant">Constant</a></li>
+<li><a href="#variable">Variable</a></li>
+<li><a href="#assignment-operator">Assignment Operator</a></li>
+<li><a href="#increment-operator">Increment Operator</a></li>
+<li><a href="#string-varible">String + Varible</a></li>
+</ul></li>
 <li><a href="#property">Property</a></li>
 <li><a href="#method">Method</a></li>
 <li><a href="#built-in-object">Built-in Object</a><ul>
 <li><a href="#math"><code>Math</code></a></li>
 <li><a href="#number"><code>Number</code></a></li>
 </ul></li>
-<li><a href="#variable">Variable</a></li>
 </ul>
 </div>
 
+<p><a href="https://segmentfault.com/a/1190000012673854">19 个 JavaScript 有用的简写技术 - SangSir - SegmentFault 思否</a><br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">表达式和运算符 - JavaScript | MDN</a></p>
 <div id="basics" class="section level2">
 <h2>Basics</h2>
 <pre class="javascript"><code>console.log( &#39;hello, world&#39; );
@@ -120,6 +127,55 @@ console.log( 65 / 240 );
 console.log( 0.2708 * 100 );
 
 console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; ); // mind the gap</code></pre>
+<div id="constant" class="section level3">
+<h3>Constant</h3>
+<pre class="javascript"><code>const someConst = &#39;do not change&#39;;
+someConst = &#39;hey&#39;;                 // Error</code></pre>
+</div>
+<div id="variable" class="section level3">
+<h3>Variable</h3>
+<pre class="javascript"><code>var someNumber = 7;
+var someString = &#39;what&#39;;
+
+let someBoolean = true;
+someBoolean = false;
+console.log( someBoolean ); // false
+
+// change type
+
+let changeType = &#39;hey!&#39;;
+console.log( typeof changeType); // string
+
+changeType = 1;
+console.log( typeof changeType); // number</code></pre>
+</div>
+<div id="assignment-operator" class="section level3">
+<h3>Assignment Operator</h3>
+<pre class="javascript"><code>let addMe = 95;
+let subtractMe = 200;
+let multiplyMe = 10;
+let quarterMe = 400;
+
+addMe += 5;        // 100
+subtractMe -= 100; // 100
+multiplyMe *= 10;  // 100
+quarterMe /= 4;    // 100</code></pre>
+</div>
+<div id="increment-operator" class="section level3">
+<h3>Increment Operator</h3>
+<pre class="javascript"><code>let gainMe = 4;
+let loseMe = 6;
+
+gainMe ++; // 5
+loseMe --; // 5</code></pre>
+</div>
+<div id="string-varible" class="section level3">
+<h3>String + Varible</h3>
+<pre class="javascript"><code>let favoriteAnimal = &#39;panda&#39;;
+
+console.log( &#39;My favorite animal: &#39; + favoriteAnimal ); // My favorite animal: panda
+console.log( `My favorite animal: ${favoriteAnimal}` ); // My favorite animal: panda</code></pre>
+</div>
 </div>
 <div id="property" class="section level2">
 <h2>Property</h2>
@@ -147,18 +203,6 @@ console.log( Math.ceil( 43.8 )); // 44</code></pre>
 <h3><code>Number</code></h3>
 <pre class="javascript"><code>console.log(Number.isInteger( 2019 )); // true</code></pre>
 </div>
-</div>
-<div id="variable" class="section level2">
-<h2>Variable</h2>
-<pre class="javascript"><code>var someNumber = 7;
-var someString = &#39;what&#39;;
-
-let someBoolean = true;
-someBoolean = false;
-console.log( someBoolean ); // false
-
-const someConst = &#39;do not change&#39;;
-someConst = &#39;hey&#39;; // Error</code></pre>
 </div>
 
     </div>
@@ -212,6 +256,9 @@ someConst = &#39;hey&#39;; // Error</code></pre>
 
 
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
   </body>
