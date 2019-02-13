@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">4 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -115,7 +115,12 @@
 <li><a href="#switch"><code>switch</code></a></li>
 </ul></li>
 <li><a href="#function">Function</a><ul>
-<li><a href="#return">Return</a></li>
+<li><a href="#function-as-expression">Function as Expression</a></li>
+<li><a href="#function-in-function">Function in Function</a></li>
+</ul></li>
+<li><a href="#scope">Scope</a><ul>
+<li><a href="#scope-pollution">Scope Pollution</a></li>
+<li><a href="#good-scoping">Good Scoping</a></li>
 </ul></li>
 </ul>
 </div>
@@ -144,7 +149,7 @@ console.log( &#39;orange&#39; !== &#39;apple&#39;);  // true</code></pre>
 <div id="constant" class="section level3">
 <h3>Constant</h3>
 <pre class="javascript"><code>const someConst = &#39;do not change&#39;;
-someConst = &#39;hey&#39;;                 // Error</code></pre>
+someConst = &#39;hey&#39;;                   // Error</code></pre>
 </div>
 <div id="variable" class="section level3">
 <h3>Variable</h3>
@@ -153,15 +158,15 @@ var someString = &#39;what&#39;;
 
 let someBoolean = true;
 someBoolean = false;
-console.log( someBoolean ); // false
+console.log( someBoolean );          // false
 
 // change type
 
 let changeType = &#39;hey!&#39;;
-console.log( typeof changeType); // string
+console.log( typeof changeType);     // string
 
 changeType = 1;
-console.log( typeof changeType); // number</code></pre>
+console.log( typeof changeType);     // number</code></pre>
 </div>
 <div id="assignment-operator" class="section level3">
 <h3>Assignment Operator</h3>
@@ -170,18 +175,18 @@ let subtractMe = 200;
 let multiplyMe = 10;
 let quarterMe = 400;
 
-addMe += 5;        // 100
-subtractMe -= 100; // 100
-multiplyMe *= 10;  // 100
-quarterMe /= 4;    // 100</code></pre>
+addMe += 5;                          // 100
+subtractMe -= 100;                   // 100
+multiplyMe *= 10;                    // 100
+quarterMe /= 4;                      // 100</code></pre>
 </div>
 <div id="increment-operator" class="section level3">
 <h3>Increment Operator</h3>
 <pre class="javascript"><code>let gainMe = 4;
 let loseMe = 6;
 
-gainMe ++; // 5
-loseMe --; // 5</code></pre>
+gainMe ++;                           // 5
+loseMe --;                           // 5</code></pre>
 </div>
 <div id="string-varible" class="section level3">
 <h3>String + Varible</h3>
@@ -199,9 +204,9 @@ console.log( `My favorite animal: ${favoriteAnimal}` ); // My favorite animal: p
 </div>
 <div id="method" class="section level2">
 <h2>Method</h2>
-<pre class="javascript"><code>console.log( &#39;hello&#39;.toUpperCase() ); // HELLO
+<pre class="javascript"><code>console.log( &#39;hello&#39;.toUpperCase() );            // HELLO
 
-console.log( &#39;hello&#39;.startsWith(&#39;a&#39;) ); // false
+console.log( &#39;hello&#39;.startsWith(&#39;a&#39;) );          // false
 
 console.log(&#39;    Remove whitespace   &#39;.trim() ); // Remove whitespace</code></pre>
 </div>
@@ -209,11 +214,11 @@ console.log(&#39;    Remove whitespace   &#39;.trim() ); // Remove whitespace</c
 <h2>Built-in Object</h2>
 <div id="math" class="section level3">
 <h3><code>Math</code></h3>
-<pre class="javascript"><code>console.log( Math.random() ); // random number 0~1
+<pre class="javascript"><code>console.log( Math.random() );        // random number 0~1
 console.log( Math.random() * 100 );
 
-console.log( Math.floor( 43.8 )); // 43
-console.log( Math.ceil( 43.8 )); // 44</code></pre>
+console.log( Math.floor( 43.8 ));    // 43
+console.log( Math.ceil( 43.8 ));     // 44</code></pre>
 </div>
 <div id="number" class="section level3">
 <h3><code>Number</code></h3>
@@ -231,7 +236,7 @@ if( sale &amp;&amp; holiday ){
   console.log(&#39;Buy!&#39;);
 } else {
   console.log( &#39;Wait for a sale.&#39; );
-} // Wait for a sale.</code></pre>
+}                                    // Wait for a sale.</code></pre>
 </div>
 <div id="truthy-and-falsy" class="section level3">
 <h3>Truthy and Falsy</h3>
@@ -242,24 +247,24 @@ if (falsyNum || falsyString) {
   console.log( true );
 } else {
   console.log( false );
-} // false</code></pre>
+}                                    // false</code></pre>
 </div>
 <div id="short-circuit-evaluation" class="section level3">
 <h3>Short-Circuit Evaluation</h3>
 <pre class="javascript"><code>let userName = &#39;&#39;;
 let yourName = userName || &#39;Stranger&#39;;
-console.log( yourName );               // Stranger
+console.log( yourName );             // Stranger
 
 userName = &#39;rw&#39;;
 let myName = userName || &#39;Stranger&#39;;
-console.log( myName );                 // rw</code></pre>
+console.log( myName );               // rw</code></pre>
 </div>
 <div id="ternary-operator" class="section level3">
 <h3>Ternary Operator</h3>
 <pre class="javascript"><code>let answer = 99;
 answer === 100 ?
   console.log(&#39;Correct&#39;) :
-  console.log(&#39;Incorrect&#39;); // Incorrect</code></pre>
+  console.log(&#39;Incorrect&#39;);          // Incorrect</code></pre>
 </div>
 <div id="else-if" class="section level3">
 <h3><code>else if</code></h3>
@@ -275,7 +280,7 @@ if (season === &#39;spring&#39;) {
   console.log( &#39;It\&#39;s winter&#39; );
 } else {
   console.log( &#39;Invalid season.&#39; );
-} // It&#39;s summer</code></pre>
+}                                    // It&#39;s summer</code></pre>
 </div>
 <div id="switch" class="section level3">
 <h3><code>switch</code></h3>
@@ -297,25 +302,80 @@ switch( season ){
   default:
     console.log( &#39;Invalid season.&#39; );
     break;
-} // It&#39;s summer</code></pre>
+}                                    // It&#39;s summer</code></pre>
 </div>
 </div>
 <div id="function" class="section level2">
 <h2>Function</h2>
-<pre class="javascript"><code>function hello(name = &#39;world&#39;) {
+<pre class="javascript"><code>function hello(name = &#39;world&#39; ){
   console.log( &#39;hello &#39; + name );
 }
-hello(); // hello world
-hello( &#39;rw&#39; ); // hello rw
-
-function makeShoppingList( item1 = &#39;milk&#39;, item2 = &#39;bread&#39;, item3 = &#39;eggs&#39; ){
+hello();                             // hello world
+hello( &#39;rw&#39; );                       // hello rw</code></pre>
+<pre class="javascript"><code>function makeShoppingList( item1 = &#39;milk&#39;, item2 = &#39;bread&#39;, item3 = &#39;eggs&#39; ){
   console.log( `Remember to buy ${item1}` );
   console.log( `Remember to buy ${item2}` );
   console.log( `Remember to buy ${item3}` );
 }</code></pre>
-<div id="return" class="section level3">
-<h3>Return</h3>
-<pre class="javascript"><code></code></pre>
+<div id="function-as-expression" class="section level3">
+<h3>Function as Expression</h3>
+<pre class="javascript"><code>const hello = function( name = &#39;world&#39; ){
+  return( &#39;hello &#39; + name );
+}
+
+console.log( hello());               // hello world
+console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
+<pre class="javascript"><code>const hello = ( name = &#39;world&#39; ) =&gt; {
+  return( &#39;hello &#39; + name );
+}
+
+console.log( hello());               // hello world
+console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
+<pre class="javascript"><code>const hello = name =&gt; &#39;hello &#39; + name;
+
+console.log( hello( &#39;world&#39; ));      // hello world
+console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
+</div>
+<div id="function-in-function" class="section level3">
+<h3>Function in Function</h3>
+<pre class="javascript"><code>let price = 10;
+
+function count( row, col ){
+  return row * col;
+}
+
+function cost ( row, col ){
+  return count( row, col ) * price;
+}
+
+console.log( cost( 5,4 ));           // 200</code></pre>
+</div>
+</div>
+<div id="scope" class="section level2">
+<h2>Scope</h2>
+<div id="scope-pollution" class="section level3">
+<h3>Scope Pollution</h3>
+<pre class="javascript"><code>let someNumber = 1;
+
+function change(){
+  someNumber = 2;
+  console.log( someNumber );
+}
+
+change();                            // 2
+console.log( someNumber );           // 2</code></pre>
+</div>
+<div id="good-scoping" class="section level3">
+<h3>Good Scoping</h3>
+<pre class="javascript"><code>let someNumber = 1;
+
+function change(){
+  let someNumber = 2;
+  console.log( someNumber );
+}
+
+change();                            // 2
+console.log( someNumber );           // 1</code></pre>
 </div>
 </div>
 
