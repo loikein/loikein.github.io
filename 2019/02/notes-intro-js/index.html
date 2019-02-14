@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -124,7 +124,14 @@
 </ul></li>
 <li><a href="#array">Array</a><ul>
 <li><a href="#let-const"><code>let</code> &amp; <code>const</code></a></li>
-<li><a href="#array-methods">Array Methods</a></li>
+<li><a href="#array-method">Array Method</a></li>
+<li><a href="#nested-array">Nested Array</a></li>
+</ul></li>
+<li><a href="#loop">Loop</a><ul>
+<li><a href="#for"><code>for</code></a></li>
+<li><a href="#while"><code>while</code></a></li>
+<li><a href="#do-...-while"><code>do ... while</code></a></li>
+<li><a href="#break"><code>break</code></a></li>
 </ul></li>
 </ul>
 </div>
@@ -339,6 +346,13 @@ console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
 
 console.log( hello( &#39;world&#39; ));      // hello world
 console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
+<pre class="javascript"><code>function someFunctionWithAnnoyinglyLongName(){
+  console.log( &#39;busy!&#39; );
+}
+
+const busy = someFunctionWithAnnoyinglyLongName;
+busy();                              // busy!
+console.log( busy.name );            // someFunctionWithAnnoyinglyLongName</code></pre>
 </div>
 <div id="function-in-function" class="section level3">
 <h3>Function in Function</h3>
@@ -353,6 +367,21 @@ function cost ( row, col ){
 }
 
 console.log( cost( 5,4 ));           // 200</code></pre>
+<pre class="javascript"><code>function addFive( num ){
+  return num + 5;
+}
+
+function checkTwice( func, arg ){
+  let first = func( arg );
+  let second = func( arg );
+  if( first === second ){
+    return &#39;Correct&#39;;
+  } else {
+    return &#39;Wrong&#39;;
+  }
+}
+
+console.log( checkTwice( addFive, 2 ));          // Correct</code></pre>
 </div>
 </div>
 <div id="scope" class="section level2">
@@ -406,8 +435,8 @@ constArray = &#39;foolish&#39;;              // Error
 constArray[1] = &#39;foolish&#39;;
 console.log( constArray );           // [ &#39;stay&#39;, &#39;foolish&#39; ]</code></pre>
 </div>
-<div id="array-methods" class="section level3">
-<h3>Array Methods</h3>
+<div id="array-method" class="section level3">
+<h3>Array Method</h3>
 <pre class="javascript"><code>const constArray = [&#39;stay&#39;, &#39;hungry&#39;];
 
 constArray.push( &#39;stay&#39;, &#39;foolish&#39; );
@@ -426,6 +455,77 @@ console.log( constArray.slice(0, 2) );           // [ &#39;I\&#39;m&#39;, &#39;h
 
 constArray = [&#39;stay&#39;, &#39;stay&#39;];
 console.log( constArray.indexOf( &#39;stay&#39; ));      // 0</code></pre>
+</div>
+<div id="nested-array" class="section level3">
+<h3>Nested Array</h3>
+<pre class="javascript"><code>let moreArray = [ [1,2], [3,4], [5,6] ];
+
+let six = moreArray[2][1];
+console.log( six )                   // 6</code></pre>
+</div>
+</div>
+<div id="loop" class="section level2">
+<h2>Loop</h2>
+<div id="for" class="section level3">
+<h3><code>for</code></h3>
+<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+
+console.log( &#39;I want to&#39; );
+for( let i = 0; i &lt; someArray.length; i++ ){
+  console.log( someArray[i] );
+}                                    // I want to stay hungry stay foolish</code></pre>
+<pre class="javascript"><code>let myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+let yourFollowers = [ &#39;Susa&#39;, &#39;Kate&#39;, &#39;Lia&#39; ];
+let mutualFollowers = [];
+
+for( let i = 0; i &lt; myFollowers.length; i++ ){
+  for( let j = 0; j &lt; yourFollowers.length; j++){
+    if( myFollowers[i] === yourFollowers[j] ){
+      mutualFollowers.push( myFollowers[i] );
+    }
+  }
+}
+
+console.log( mutualFollowers );      // [ &#39;Lia&#39;, &#39;Susa&#39; ]</code></pre>
+</div>
+<div id="while" class="section level3">
+<h3><code>while</code></h3>
+<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+
+console.log( &#39;I want to&#39; );
+
+let i = 0;
+while( i &lt; someArray.length ){
+  console.log( someArray[i] );
+  i++;
+}                                    // I want to stay hungry stay foolish</code></pre>
+</div>
+<div id="do-...-while" class="section level3">
+<h3><code>do ... while</code></h3>
+<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+
+console.log( &#39;I want to&#39; );
+
+let i = 0;
+do {
+  console.log( someArray[i] );
+  i++;
+} while( i &lt; someArray.length );     // I want to stay hungry stay foolish</code></pre>
+</div>
+<div id="break" class="section level3">
+<h3><code>break</code></h3>
+<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+
+console.log( &#39;I want to&#39; );
+
+let i = 0;
+do {
+  console.log( someArray[i] );
+  i++;
+  if( someArray[i] === &#39;foolish&#39; ){
+    break;
+  }
+} while( i &lt; someArray.length );     // I want to stay hungry stay</code></pre>
 </div>
 </div>
 
