@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">4 min read</span>
+    <span class="article-duration">5 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -99,9 +99,9 @@
 <li><a href="#assignment-operator">Assignment Operator</a></li>
 <li><a href="#increment-operator">Increment Operator</a></li>
 <li><a href="#string-varible">String + Varible</a></li>
-</ul></li>
 <li><a href="#property">Property</a></li>
 <li><a href="#method">Method</a></li>
+</ul></li>
 <li><a href="#built-in-object">Built-in Object</a><ul>
 <li><a href="#math"><code>Math</code></a></li>
 <li><a href="#number"><code>Number</code></a></li>
@@ -121,6 +121,10 @@
 <li><a href="#scope">Scope</a><ul>
 <li><a href="#scope-pollution">Scope Pollution</a></li>
 <li><a href="#good-scoping">Good Scoping</a></li>
+</ul></li>
+<li><a href="#array">Array</a><ul>
+<li><a href="#let-const"><code>let</code> &amp; <code>const</code></a></li>
+<li><a href="#array-methods">Array Methods</a></li>
 </ul></li>
 </ul>
 </div>
@@ -197,18 +201,18 @@ let favoriteAnimal = &#39;panda&#39;;
 console.log( &#39;My favorite animal: &#39; + favoriteAnimal ); // My favorite animal: panda
 console.log( `My favorite animal: ${favoriteAnimal}` ); // My favorite animal: panda</code></pre>
 </div>
-</div>
-<div id="property" class="section level2">
-<h2>Property</h2>
+<div id="property" class="section level3">
+<h3>Property</h3>
 <pre class="javascript"><code>console.log( &#39;Count me&#39;.length );</code></pre>
 </div>
-<div id="method" class="section level2">
-<h2>Method</h2>
+<div id="method" class="section level3">
+<h3>Method</h3>
 <pre class="javascript"><code>console.log( &#39;hello&#39;.toUpperCase() );            // HELLO
 
 console.log( &#39;hello&#39;.startsWith(&#39;a&#39;) );          // false
 
 console.log(&#39;    Remove whitespace   &#39;.trim() ); // Remove whitespace</code></pre>
+</div>
 </div>
 <div id="built-in-object" class="section level2">
 <h2>Built-in Object</h2>
@@ -376,6 +380,52 @@ function change(){
 
 change();                            // 2
 console.log( someNumber );           // 1</code></pre>
+</div>
+</div>
+<div id="array" class="section level2">
+<h2>Array</h2>
+<pre class="javascript"><code>let someArray = [&#39;hello&#39;, &#39;there&#39;];
+let first = someArray[0];
+console.log( first );                // hello
+console.log( first[0] );             // h
+
+someArray[0] = &#39;hallo&#39;;
+console.log( someArray );            // [ &#39;hallo&#39;, &#39;there&#39; ]
+
+console.log( someArray.length );     // 2</code></pre>
+<div id="let-const" class="section level3">
+<h3><code>let</code> &amp; <code>const</code></h3>
+<pre class="javascript"><code>let varArray = [&#39;hello&#39;, &#39;there&#39;];
+const constArray = [&#39;stay&#39;, &#39;hungry&#39;];
+
+varArray = &#39;hi&#39;;
+console.log( varArray );             // hi
+
+constArray = &#39;foolish&#39;;              // Error
+
+constArray[1] = &#39;foolish&#39;;
+console.log( constArray );           // [ &#39;stay&#39;, &#39;foolish&#39; ]</code></pre>
+</div>
+<div id="array-methods" class="section level3">
+<h3>Array Methods</h3>
+<pre class="javascript"><code>const constArray = [&#39;stay&#39;, &#39;hungry&#39;];
+
+constArray.push( &#39;stay&#39;, &#39;foolish&#39; );
+console.log( constArray );           // [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ]
+
+constArray.pop();
+console.log( constArray );           // [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;]
+
+constArray.shift();
+console.log( constArray );           // [ &#39;hungry&#39;, &#39;stay&#39;]
+
+constArray.unshift(&quot;I&#39;m&quot;);
+console.log( constArray );           // [ &#39;I\&#39;m&#39;, &#39;hungry&#39;, &#39;stay&#39; ]
+
+console.log( constArray.slice(0, 2) );           // [ &#39;I\&#39;m&#39;, &#39;hungry&#39; ]
+
+constArray = [&#39;stay&#39;, &#39;stay&#39;];
+console.log( constArray.indexOf( &#39;stay&#39; ));      // 0</code></pre>
 </div>
 </div>
 
