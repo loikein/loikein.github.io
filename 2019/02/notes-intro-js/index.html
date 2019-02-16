@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">7 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -132,7 +132,9 @@
 <li><a href="#while"><code>while</code></a></li>
 <li><a href="#do-...-while"><code>do ... while</code></a></li>
 <li><a href="#break"><code>break</code></a></li>
+<li><a href="#iteration">Iteration</a></li>
 </ul></li>
+<li><a href="#object">Object</a></li>
 </ul>
 </div>
 
@@ -160,7 +162,7 @@ console.log( &#39;orange&#39; !== &#39;apple&#39;);  // true</code></pre>
 <div id="constant" class="section level3">
 <h3>Constant</h3>
 <pre class="javascript"><code>const someConst = &#39;do not change&#39;;
-someConst = &#39;hey&#39;;                   // Error</code></pre>
+someConst = &#39;hey&#39;;                   // Error!</code></pre>
 </div>
 <div id="variable" class="section level3">
 <h3>Variable</h3>
@@ -430,7 +432,7 @@ const constArray = [&#39;stay&#39;, &#39;hungry&#39;];
 varArray = &#39;hi&#39;;
 console.log( varArray );             // hi
 
-constArray = &#39;foolish&#39;;              // Error
+constArray = &#39;foolish&#39;;              // Error!
 
 constArray[1] = &#39;foolish&#39;;
 console.log( constArray );           // [ &#39;stay&#39;, &#39;foolish&#39; ]</code></pre>
@@ -474,8 +476,8 @@ console.log( &#39;I want to&#39; );
 for( let i = 0; i &lt; someArray.length; i++ ){
   console.log( someArray[i] );
 }                                    // I want to stay hungry stay foolish</code></pre>
-<pre class="javascript"><code>let myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
-let yourFollowers = [ &#39;Susa&#39;, &#39;Kate&#39;, &#39;Lia&#39; ];
+<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+const yourFollowers = [ &#39;Susa&#39;, &#39;Kate&#39;, &#39;Lia&#39; ];
 let mutualFollowers = [];
 
 for( let i = 0; i &lt; myFollowers.length; i++ ){
@@ -527,6 +529,80 @@ do {
   }
 } while( i &lt; someArray.length );     // I want to stay hungry stay</code></pre>
 </div>
+<div id="iteration" class="section level3">
+<h3>Iteration</h3>
+<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+
+myFollowers.forEach(
+  follower =&gt; console.log( follower + &#39; is following me&#39;)
+);
+
+/*
+Lia is following me
+Susa is following me
+Cath is following me
+Dean is following me
+*/
+
+/* or
+myFollowers.forEach(
+  function( follower ){
+    console.log( follower + &#39; is following me&#39;);
+  }
+); */</code></pre>
+<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+
+console.log(
+  myFollowers.map( follower =&gt; follower + &#39; is following me&#39; )
+);
+
+/*
+[ &#39;Lia is following me&#39;,
+  &#39;Susa is following me&#39;,
+  &#39;Cath is following me&#39;,
+  &#39;Dean is following me&#39; ]
+*/</code></pre>
+<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+
+console.log(
+  myFollowers.filter( follower =&gt; follower.length &gt; 3 )
+);
+
+/*
+[ &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ]
+*/</code></pre>
+<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+
+console.log(
+  myFollowers.findIndex( follower =&gt; follower.length &gt; 3 )
+);
+
+/*
+1
+*/</code></pre>
+<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+
+const myFollowersList = myFollowers.reduce(
+  ( list, nextName ) =&gt; list + &#39; &#39; + nextName
+, &#39;My followers are&#39;);
+
+console.log( myFollowersList );
+
+/*
+My followers are Lia Susa Cath Dean
+*/</code></pre>
+</div>
+</div>
+<div id="object" class="section level2">
+<h2>Object</h2>
+<pre class="javascript"><code>let myComputer = {
+  brand: &#39;Apple&#39;,
+  color: &#39;black&#39;,
+};
+
+console.log( myComputer.color );     // black
+console.log( myComputer[&#39;color&#39;] );  // black
+console.log( myComputer[ color ] );  // Error!</code></pre>
 </div>
 
     </div>
