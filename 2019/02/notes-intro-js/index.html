@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">11 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -136,7 +136,9 @@
 <li><a href="#iteration">Iteration</a></li>
 </ul></li>
 <li><a href="#object">Object</a><ul>
+<li><a href="#destructured-assignment">Destructured Assignment</a></li>
 <li><a href="#method-1">Method</a></li>
+<li><a href="#built-in-method">Built-in Method</a></li>
 <li><a href="#nested-object">Nested Object</a></li>
 <li><a href="#pass-by-reference">Pass by Reference</a></li>
 <li><a href="#loop-in-object">Loop in Object</a></li>
@@ -144,6 +146,10 @@
 <li><a href="#get"><code>get</code></a></li>
 <li><a href="#set"><code>set</code></a></li>
 <li><a href="#factory-function">Factory Function</a></li>
+</ul></li>
+<li><a href="#class">Class</a><ul>
+<li><a href="#static-method">Static Method</a></li>
+<li><a href="#inheritance">Inheritance</a></li>
 </ul></li>
 </ul>
 </div>
@@ -608,7 +614,7 @@ My followers are Lia Susa Cath Dean
 </div>
 <div id="object" class="section level2">
 <h2>Object</h2>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
 };
@@ -622,23 +628,62 @@ myComputer.numStickers = 3;
 myComputer = { brand: &#39;ThinkPad&#39;, };
 
 // delete myComputer.brand;</code></pre>
-<div id="method-1" class="section level3">
-<h3>Method</h3>
-<pre class="javascript"><code>let myComputer = {
+<div id="destructured-assignment" class="section level3">
+<h3>Destructured Assignment</h3>
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
-  startUp: () =&gt; console.log( &#39;Duang!&#39; ),
-  // or: startUp(){ console.log( &#39;Duang!&#39; )},
+};
+
+const { brand } = myComputer;
+console.log( brand );                // Apple</code></pre>
+</div>
+<div id="method-1" class="section level3">
+<h3>Method</h3>
+<pre class="javascript"><code>const myComputer = {
+  brand: &#39;Apple&#39;,
+  color: &#39;black&#39;,
+  startUp(){ console.log( &#39;Duang!&#39; )},
+  // or: startUp: () =&gt; console.log( &#39;Duang!&#39; ),
 };
 
 myComputer.startUp();                // Duang!</code></pre>
 </div>
-<div id="nested-object" class="section level3">
-<h3>Nested Object</h3>
-<pre class="javascript"><code>let myComputer = {
+<div id="built-in-method" class="section level3">
+<h3>Built-in Method</h3>
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
-  startUp: () =&gt; console.log( &#39;Duang!&#39; ),
+  startUp(){ console.log( &#39;Duang!&#39; )},
+};
+
+console.log( Object.keys( myComputer ));
+/*
+[ &#39;brand&#39;, &#39;color&#39;, &#39;startUp&#39; ]
+*/
+
+console.log( Object.entries( myComputer ));
+/*
+[ [ &#39;brand&#39;, &#39;Apple&#39; ],
+  [ &#39;color&#39;, &#39;black&#39; ],
+  [ &#39;startUp&#39;, [Function: startUp] ] ]
+*/
+
+let myNewComputer = Object.assign({ year: 2018 }, myComputer );
+console.log( myNewComputer );
+/*
+{ year: 2018,
+  brand: &#39;Apple&#39;,
+  color: &#39;black&#39;,
+  startUp: [Function: startUp] }
+*/</code></pre>
+</div>
+<div id="nested-object" class="section level3">
+<h3>Nested Object</h3>
+<pre class="javascript"><code>const myComputer = {
+  brand: &#39;Apple&#39;,
+  color: &#39;black&#39;,
+  startUp(){ console.log( &#39;Duang!&#39; )},
   apps: {
     finder: { user: &#39;admin&#39;},
     timeMachine: { user: &#39;all&#39; },
@@ -649,7 +694,7 @@ console.log( myComputer.apps.finder.user );      // admin</code></pre>
 </div>
 <div id="pass-by-reference" class="section level3">
 <h3>Pass by Reference</h3>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
 };
@@ -665,7 +710,7 @@ console.log( myComputer );
 { brand: &#39;Apple&#39;,
   color: &#39;black&#39; }
 */</code></pre>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
 };
@@ -684,10 +729,9 @@ console.log( myComputer );
 </div>
 <div id="loop-in-object" class="section level3">
 <h3>Loop in Object</h3>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
-  startUp: () =&gt; console.log( &#39;Duang!&#39; ),
   apps: {
     finder: { user: &#39;admin&#39;},
     timeMachine: { user: &#39;all&#39; },
@@ -705,14 +749,14 @@ timeMachine is used by all
 </div>
 <div id="this" class="section level3">
 <h3><code>this</code></h3>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   claimFail: () =&gt; console.log( &quot;I&#39;m produced by &quot; + this.brand ),
 };
 
 myComputer.claimFail();              // I&#39;m produced by undefined</code></pre>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   claimSuccess(){ console.log( &quot;I&#39;m produced by &quot; + this.brand )},
@@ -722,7 +766,7 @@ myComputer.claimSuccess();           // I&#39;m produced by Apple</code></pre>
 </div>
 <div id="get" class="section level3">
 <h3><code>get</code></h3>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   _brand: &#39;Apple&#39;,
   _color: &#39;black&#39;,
   _battery: 50,
@@ -735,7 +779,7 @@ console.log( myComputer.battery);    // 50% charged</code></pre>
 </div>
 <div id="set" class="section level3">
 <h3><code>set</code></h3>
-<pre class="javascript"><code>let myComputer = {
+<pre class="javascript"><code>const myComputer = {
   _brand: &#39;Apple&#39;,
   _color: &#39;black&#39;,
   _battery: 50,
@@ -764,8 +808,104 @@ myComputer.battery = &#39;charged&#39;;      // Invalid battery status</code></p
   }
 };
 
-let myComputer = computer( &#39;Apple&#39;, &#39;black&#39; );
+const myComputer = computer( &#39;Apple&#39;, &#39;black&#39; );
 myComputer.startUp();                // Duang!</code></pre>
+</div>
+</div>
+<div id="class" class="section level2">
+<h2>Class</h2>
+<pre class="javascript"><code>class Computer{
+  constructor( brand, color ){
+    this._brand = brand;
+    this._color = color;
+    this._battery = 50;
+  }
+
+  get brand(){ return this._brand }
+
+  get color(){ return this._color }
+
+  charge( batteryChange ){
+    if( typeof batteryChange === &#39;number&#39; &amp;&amp; batteryChange &gt;= 0 ){
+      this._battery += batteryChange;
+    } else {
+      console.log( &#39;Invalid battery status&#39; );
+    }
+  }
+}
+
+const myComputer = new Computer( &#39;Apple&#39;, &#39;black&#39;);
+myComputer.charge( 50 );
+console.log( myComputer._battery );              // 100</code></pre>
+<div id="static-method" class="section level3">
+<h3>Static Method</h3>
+<pre class="javascript"><code>class Computer{
+  constructor( brand, color ){
+    this._brand = brand;
+    this._color = color;
+    this._battery = 50;
+  }
+
+  get brand(){ return this._brand }
+
+  get color(){ return this._color }
+
+  charge( batteryChange ){
+    if( typeof batteryChange === &#39;number&#39; &amp;&amp; batteryChange &gt;= 0 ){
+      this._battery += batteryChange;
+    } else {
+      console.log( &#39;Invalid battery status&#39; );
+    }
+  }
+  
+  static generateSerial(){ return Math.floor( Math.random()*10000 )}
+}
+
+console.log( Computer.generateSerial );          // 2052 (changes every time)
+
+const myComputer = new Computer( &#39;Apple&#39;, &#39;black&#39;);
+console.log( myComputer.generateSerial );        // undefined</code></pre>
+</div>
+<div id="inheritance" class="section level3">
+<h3>Inheritance</h3>
+<pre class="javascript"><code>class Appliance{
+  constructor( brand, color ){
+    this._brand = brand;
+    this._color = color;
+    this._battery = 50;
+  }
+  get brand(){ return this._brand }
+  get color(){ return this._color }
+  charge( batteryChange ){
+    if( typeof batteryChange === &#39;number&#39; &amp;&amp; batteryChange &gt;= 0 ){
+      this._battery += batteryChange;
+    } else {
+      console.log( &#39;Invalid battery status&#39; );
+    }
+  }
+}
+
+class Computer extends Appliance{
+  constructor( brand, color, apps ){
+    super( brand, color );
+    this._apps = apps;
+  }
+  installNewApp( appName ){
+    this._apps.push( appName );
+  }
+}
+
+const myComputer = new Computer( &#39;Apple&#39;, &#39;black&#39;, [&#39;finder&#39;, &#39;timeMachine&#39;]);
+myComputer.installNewApp( &#39;RStudio&#39; );
+console.log( myComputer );
+
+/*
+Computer {
+  _brand: &#39;Apple&#39;,
+  _color: &#39;black&#39;,
+  _battery: 50,
+  _apps: [ &#39;finder&#39;, &#39;timeMachine&#39;, &#39;RStudio&#39; ] }
+*/</code></pre>
 </div>
 </div>
 
