@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">Rmd Template</h1>
@@ -115,11 +115,16 @@
 <h2>Words of Warning</h2>
 <p>I use Typora to write my posts. It usually processes <code>.Rmd</code> file correctly, but it gets lost in a file as complicated as this one.<br />
 Always check twice and preview the <code>.html</code> page.</p>
-<p>DO NOT put spaces right after and before the <span class="math inline">\(\LaTeX\)</span> $ $ pair or the expression will not be rendered properly.</p>
+<p>When writing maths expressions,</p>
+<pre class="markdown"><code>Do this:
+$\LaTeX$
+
+Not this:
+$ \LaTeX $</code></pre>
 <p>All codes will be displayed but not executed under default settings of this template. To turn on executing codes, type</p>
-<pre class="markdown"><code> ```{r, eval = TRUE}
+<pre class="markdown"><code>```{r, eval = TRUE}
     (your code here)
- ```</code></pre>
+```</code></pre>
 <p>for the chunk option.</p>
 </div>
 <div id="rmd-reference" class="section level2">
@@ -164,11 +169,15 @@ Always check twice and preview the <code>.html</code> page.</p>
 </div>
 <div id="code-from-other-languages" class="section level3">
 <h3>Code from Other Languages</h3>
-<p>Potential ways to display code from other languages:<br />
-<img src="/post-img/rmd-template--display-code.png" width="290" /><br />
-which all failed while all I wanted to display was this:<br />
-<img src="/post-img/rmd-template--latex-code.png" width="90" /><br />
-This is hilarious. Currently I don’t have time to dig into this, but one day I will.</p>
+<pre class="markdown"><code>​````JavaScript
+    (your code here)
+​````</code></pre>
+<!-- Potential ways to display code from other languages:  
+![](/post-img/rmd-template--display-code.png){ width=290px}  
+which all failed while all I wanted to display was this:  
+![](/post-img/rmd-template--latex-code.png){ width=90px }  
+This is hilarious. Currently I don't have  time to dig into this, but one day I will.
+-->
 </div>
 <div id="latex" class="section level3">
 <h3>LaTeX</h3>
