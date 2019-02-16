@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">9 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -115,7 +115,8 @@
 <li><a href="#switch"><code>switch</code></a></li>
 </ul></li>
 <li><a href="#function">Function</a><ul>
-<li><a href="#function-as-expression">Function as Expression</a></li>
+<li><a href="#default-argument">Default Argument</a></li>
+<li><a href="#arrow-function">Arrow Function</a></li>
 <li><a href="#function-in-function">Function in Function</a></li>
 </ul></li>
 <li><a href="#scope">Scope</a><ul>
@@ -139,6 +140,10 @@
 <li><a href="#nested-object">Nested Object</a></li>
 <li><a href="#pass-by-reference">Pass by Reference</a></li>
 <li><a href="#loop-in-object">Loop in Object</a></li>
+<li><a href="#this"><code>this</code></a></li>
+<li><a href="#get"><code>get</code></a></li>
+<li><a href="#set"><code>set</code></a></li>
+<li><a href="#factory-function">Factory Function</a></li>
 </ul></li>
 </ul>
 </div>
@@ -330,19 +335,29 @@ switch( season ){
 }
 hello();                             // hello world
 hello( &#39;rw&#39; );                       // hello rw</code></pre>
-<pre class="javascript"><code>function makeShoppingList( item1 = &#39;milk&#39;, item2 = &#39;bread&#39;, item3 = &#39;eggs&#39; ){
-  console.log( `Remember to buy ${item1}` );
-  console.log( `Remember to buy ${item2}` );
-  console.log( `Remember to buy ${item3}` );
-}</code></pre>
-<div id="function-as-expression" class="section level3">
-<h3>Function as Expression</h3>
 <pre class="javascript"><code>const hello = function( name = &#39;world&#39; ){
   return( &#39;hello &#39; + name );
 }
 
 console.log( hello());               // hello world
 console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
+<pre class="javascript"><code>function someFunctionWithAnnoyinglyLongName(){
+  console.log( &#39;busy!&#39; );
+}
+
+const busy = someFunctionWithAnnoyinglyLongName;
+busy();                              // busy!
+console.log( busy.name );            // someFunctionWithAnnoyinglyLongName</code></pre>
+<div id="default-argument" class="section level3">
+<h3>Default Argument</h3>
+<pre class="javascript"><code>function makeShoppingList( item1 = &#39;milk&#39;, item2 = &#39;bread&#39;, item3 = &#39;eggs&#39; ){
+  console.log( `Remember to buy ${item1}` );
+  console.log( `Remember to buy ${item2}` );
+  console.log( `Remember to buy ${item3}` );
+}</code></pre>
+</div>
+<div id="arrow-function" class="section level3">
+<h3>Arrow Function</h3>
 <pre class="javascript"><code>const hello = ( name = &#39;world&#39; ) =&gt; {
   return( &#39;hello &#39; + name );
 }
@@ -353,13 +368,6 @@ console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
 
 console.log( hello( &#39;world&#39; ));      // hello world
 console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
-<pre class="javascript"><code>function someFunctionWithAnnoyinglyLongName(){
-  console.log( &#39;busy!&#39; );
-}
-
-const busy = someFunctionWithAnnoyinglyLongName;
-busy();                              // busy!
-console.log( busy.name );            // someFunctionWithAnnoyinglyLongName</code></pre>
 </div>
 <div id="function-in-function" class="section level3">
 <h3>Function in Function</h3>
@@ -620,6 +628,7 @@ myComputer = { brand: &#39;ThinkPad&#39;, };
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   startUp: () =&gt; console.log( &#39;Duang!&#39; ),
+  // or: startUp(){ console.log( &#39;Duang!&#39; )},
 };
 
 myComputer.startUp();                // Duang!</code></pre>
@@ -693,6 +702,70 @@ for( let app in myComputer.apps ){
 finder is used by admin
 timeMachine is used by all
 */</code></pre>
+</div>
+<div id="this" class="section level3">
+<h3><code>this</code></h3>
+<pre class="javascript"><code>let myComputer = {
+  brand: &#39;Apple&#39;,
+  color: &#39;black&#39;,
+  claimFail: () =&gt; console.log( &quot;I&#39;m produced by &quot; + this.brand ),
+};
+
+myComputer.claimFail();              // I&#39;m produced by undefined</code></pre>
+<pre class="javascript"><code>let myComputer = {
+  brand: &#39;Apple&#39;,
+  color: &#39;black&#39;,
+  claimSuccess(){ console.log( &quot;I&#39;m produced by &quot; + this.brand )},
+};
+
+myComputer.claimSuccess();           // I&#39;m produced by Apple</code></pre>
+</div>
+<div id="get" class="section level3">
+<h3><code>get</code></h3>
+<pre class="javascript"><code>let myComputer = {
+  _brand: &#39;Apple&#39;,
+  _color: &#39;black&#39;,
+  _battery: 50,
+  get brand(){ return( &quot;I&#39;m produced by &quot; + this._brand )},
+  get battery(){ return( `${this._battery}% charged`)},
+};
+
+console.log( myComputer.brand);      // I&#39;m produced by Apple
+console.log( myComputer.battery);    // 50% charged</code></pre>
+</div>
+<div id="set" class="section level3">
+<h3><code>set</code></h3>
+<pre class="javascript"><code>let myComputer = {
+  _brand: &#39;Apple&#39;,
+  _color: &#39;black&#39;,
+  _battery: 50,
+  get battery(){ return( `${this._battery}% charged` )},
+  set battery( num ){ 
+    if( typeof num === &#39;number&#39; &amp;&amp; num &gt;= 0 ){
+      this._battery = num;
+    } else {
+      console.log( &#39;Invalid battery status&#39; );
+    }
+  }
+};
+
+myComputer.battery = 100;
+console.log( myComputer.battery );   // 100% charged
+
+myComputer.battery = &#39;charged&#39;;      // Invalid battery status</code></pre>
+</div>
+<div id="factory-function" class="section level3">
+<h3>Factory Function</h3>
+<pre class="javascript"><code>const computer = ( brand, color ) =&gt; {
+  return{
+    brand,
+    color,
+    startUp(){ console.log( &#39;Duang!&#39; )}
+  }
+};
+
+let myComputer = computer( &#39;Apple&#39;, &#39;black&#39; );
+myComputer.startUp();                // Duang!</code></pre>
 </div>
 </div>
 
