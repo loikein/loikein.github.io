@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">11 min read</span>
+    <span class="article-duration">12 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -150,6 +150,13 @@
 <li><a href="#class">Class</a><ul>
 <li><a href="#static-method">Static Method</a></li>
 <li><a href="#inheritance">Inheritance</a></li>
+</ul></li>
+<li><a href="#module">Module</a><ul>
+<li><a href="#create-module">Create Module</a></li>
+<li><a href="#use-module">Use Module</a></li>
+</ul></li>
+<li><a href="#browser-compatibility">Browser Compatibility</a><ul>
+<li><a href="#babel">Babel</a></li>
 </ul></li>
 </ul>
 </div>
@@ -906,6 +913,78 @@ Computer {
   _battery: 50,
   _apps: [ &#39;finder&#39;, &#39;timeMachine&#39;, &#39;RStudio&#39; ] }
 */</code></pre>
+</div>
+</div>
+<div id="module" class="section level2">
+<h2>Module</h2>
+<div id="create-module" class="section level3">
+<h3>Create Module</h3>
+<ol style="list-style-type: decimal">
+<li>Create an object</li>
+<li>Add some properties</li>
+<li>Export the object as a module</li>
+</ol>
+<pre class="javascript"><code>const Computer = {
+  brand: &#39;Apple&#39;,
+  startUp(){ console.log( &#39;Duang!&#39; )},
+};
+
+module.exports = Computer;
+
+/*
+or in ES6:
+export default Computer;
+*/</code></pre>
+</div>
+<div id="use-module" class="section level3">
+<h3>Use Module</h3>
+<ol style="list-style-type: decimal">
+<li>Require a module</li>
+<li>Use properties of the module</li>
+</ol>
+<pre class="javascript"><code>const Computer = require( &#39;./computer.js&#39; );
+
+/*
+or in ES6:
+import Computer from &#39;./computer&#39;;
+*/
+
+console.log( Computer.brand );                   // Apple
+Computer.startUp();                              // Duang!</code></pre>
+</div>
+</div>
+<div id="browser-compatibility" class="section level2">
+<h2>Browser Compatibility</h2>
+<div id="babel" class="section level3">
+<h3>Babel</h3>
+<pre class="bash"><code>$ ls
+# src
+
+$ npm init
+# name: test-babel
+# discription: Use Babel to transpile JavaScript ES6 to ES5
+# this command will create a package.json file to prepare the project
+
+$ ls
+# package.json  src
+
+$ npm install babel-cli -D
+$ npm install babel-preset-env -D
+
+$ ls
+# node_modules  package.json  src
+
+$ touch .babelrc
+# add &gt;{&quot;presets&quot;: [&quot;env&quot;]}&lt; in the .babelrc file
+
+# add &gt;&quot;build&quot;: &quot;babel src -d lib&quot;&lt; beneath &quot;scripts&quot;: &quot;test&quot; in the package.json file
+
+$ npm run build
+
+# &gt; test-babel@1.0.0 build /home/ccuser/workspace/learn-javascript-transpilation-bct-npm-init
+# &gt; babel src -d lib
+# src/main.js -&gt; lib/main.js
+# (ES6)          (ES5)</code></pre>
 </div>
 </div>
 
