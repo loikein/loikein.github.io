@@ -156,6 +156,9 @@
 <li><a href="#use-module">Use Module</a></li>
 <li><a href="#named-export-import-es6">Named Export &amp; Import (ES6)</a></li>
 </ul></li>
+<li><a href="#promise"><code>Promise</code></a><ul>
+<li><a href="#settimeout"><code>setTimeout</code></a></li>
+</ul></li>
 <li><a href="#browser-compatibility">Browser Compatibility</a><ul>
 <li><a href="#babel">Babel</a></li>
 </ul></li>
@@ -976,6 +979,51 @@ import * as Computer from &#39;./computer&#39;;
 
 console.log( Computer.computerBrand );           // Apple
 Computer.startUp();                              // Duang!
+*/</code></pre>
+</div>
+</div>
+<div id="promise" class="section level2">
+<h2><code>Promise</code></h2>
+<pre class="javascript"><code>let someNumber = 7;
+
+function executorFunction( resolve, reject ){
+  if( someNumber &gt; 5 ) {
+      resolve( &#39;Large Number&#39; );
+  }else{
+      reject( &#39;Small Number&#39; );
+  }
+}
+
+const checkNumber = () =&gt; new Promise(executorFunction);
+
+/*
+or:
+const checkNumber = () =&gt;
+{ return new Promise(
+  function(resolve, reject){
+    if( someNumber &gt; 5 ){ resolve( &#39;Large Number&#39; ); }
+    else{ reject( &#39;Small Number&#39; ); }
+  }
+)};
+*/
+
+console.log( checkNumber());                     // Large Number</code></pre>
+<div id="settimeout" class="section level3">
+<h3><code>setTimeout</code></h3>
+<pre class="javascript"><code>console.log( &#39;The first line&#39; );
+
+function startUp(){
+  console.log( &#39;Duang!&#39; );
+}
+
+setTimeout( startUp, 1000 );
+
+console.log( &#39;The last line&#39; );
+
+/*
+The first line
+The last line
+Duang!
 */</code></pre>
 </div>
 </div>
