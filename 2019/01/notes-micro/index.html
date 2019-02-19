@@ -173,7 +173,7 @@ Show that the two definitions of preferences are indeed equivalent.</p>
 <tbody>
 <tr class="odd">
 <td><span class="math inline">\(x \succ y\)</span></td>
-<td><span class="math inline">\(x \succsim y\)</span></td>
+<td><span class="math inline">\(x \succsim y\)</span> and <span class="math inline">\(\lnot y \succsim x\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(I\)</span></td>
@@ -181,12 +181,12 @@ Show that the two definitions of preferences are indeed equivalent.</p>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(y \succ x\)</span></td>
-<td><span class="math inline">\(y \succsim x\)</span></td>
+<td><span class="math inline">\(y \succsim x\)</span> and <span class="math inline">\(\lnot x \succsim y\)</span></td>
 </tr>
 </tbody>
 </table>
 <p>Define <span class="math inline">\(T\)</span> as function of <span class="math inline">\(f\)</span> in definition 1:<br />
-<span class="math display">\[T(f) = \{ (x,y) \in X\times X \ | \ f(x,y) = x &gt; y or f(x,y) = I\}\]</span></p>
+<span class="math display">\[T(f) = \{ (x,y) \in X\times X \ | \ f(x,y) = x &gt; y \text{or} f(x,y) = I\}\]</span></p>
 <ol style="list-style-type: decimal">
 <li>Check completeness<br />
 :) for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, either <span class="math inline">\((x, y) \in T(f)\)</span> or <span class="math inline">\((y, x) \in T(f)\)</span><br />

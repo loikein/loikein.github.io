@@ -154,6 +154,7 @@
 <li><a href="#module">Module</a><ul>
 <li><a href="#create-module">Create Module</a></li>
 <li><a href="#use-module">Use Module</a></li>
+<li><a href="#named-export-import-es6">Named Export &amp; Import (ES6)</a></li>
 </ul></li>
 <li><a href="#browser-compatibility">Browser Compatibility</a><ul>
 <li><a href="#babel">Babel</a></li>
@@ -939,7 +940,7 @@ export default Computer;
 <div id="use-module" class="section level3">
 <h3>Use Module</h3>
 <ol style="list-style-type: decimal">
-<li>Require a module</li>
+<li>Import a module</li>
 <li>Use properties of the module</li>
 </ol>
 <pre class="javascript"><code>const Computer = require( &#39;./computer.js&#39; );
@@ -951,6 +952,31 @@ import Computer from &#39;./computer&#39;;
 
 console.log( Computer.brand );                   // Apple
 Computer.startUp();                              // Duang!</code></pre>
+</div>
+<div id="named-export-import-es6" class="section level3">
+<h3>Named Export &amp; Import (ES6)</h3>
+<pre class="javascript"><code>const brand = &#39;Apple&#39;;
+function startUp(){ console.log( &#39;Duang!&#39; )};
+
+export{ brand as computerBrand, startUp };
+
+/*
+or:
+export const computerBrand = &#39;Apple&#39;;
+export function startUp(){ console.log( &#39;Duang!&#39; )};
+*/</code></pre>
+<pre class="javascript"><code>import{ computerBrand, startUp as computerStartUp } from &#39;./computer&#39;;
+
+console.log( computerBrand );                    // Apple
+computerStartUp();                               // Duang!
+
+/*
+or:
+import * as Computer from &#39;./computer&#39;;
+
+console.log( Computer.computerBrand );           // Apple
+Computer.startUp();                              // Duang!
+*/</code></pre>
 </div>
 </div>
 <div id="browser-compatibility" class="section level2">
