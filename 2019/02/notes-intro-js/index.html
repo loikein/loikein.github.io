@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">12 min read</span>
+    <span class="article-duration">13 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -156,8 +156,9 @@
 <li><a href="#use-module">Use Module</a></li>
 <li><a href="#named-export-import-es6">Named Export &amp; Import (ES6)</a></li>
 </ul></li>
-<li><a href="#promise"><code>Promise</code></a><ul>
+<li><a href="#promise">Promise</a><ul>
 <li><a href="#settimeout"><code>setTimeout</code></a></li>
+<li><a href="#then"><code>then</code></a></li>
 </ul></li>
 <li><a href="#browser-compatibility">Browser Compatibility</a><ul>
 <li><a href="#babel">Babel</a></li>
@@ -983,7 +984,7 @@ Computer.startUp();                              // Duang!
 </div>
 </div>
 <div id="promise" class="section level2">
-<h2><code>Promise</code></h2>
+<h2>Promise</h2>
 <pre class="javascript"><code>let someNumber = 7;
 
 function executorFunction( resolve, reject ){
@@ -998,12 +999,12 @@ const checkNumber = () =&gt; new Promise(executorFunction);
 
 /*
 or:
-const checkNumber = () =&gt;
-{ return new Promise(
-  function(resolve, reject){
-    if( someNumber &gt; 5 ){ resolve( &#39;Large Number&#39; ); }
-    else{ reject( &#39;Small Number&#39; ); }
-  }
+const checkNumber = () =&gt;{
+  return new Promise(
+    function( resolve, reject ){
+      if( someNumber &gt; 5 ){ resolve( &#39;Large Number&#39; ); }
+      else{ reject( &#39;Small Number&#39; ); }
+    }
 )};
 */
 
@@ -1025,6 +1026,29 @@ The first line
 The last line
 Duang!
 */</code></pre>
+</div>
+<div id="then" class="section level3">
+<h3><code>then</code></h3>
+<pre class="javascript"><code>let someNumber = 7;
+
+const checkNumber = ( num ) =&gt;{
+  return new Promise(
+    function( resolve, reject ){
+      if( num &gt; 5 ){ resolve( &#39;Large Number&#39; ); }
+      else{ reject( &#39;Small Number&#39; ); }
+    }
+)};
+
+function onFulfilled( resolvedValue ){
+  console.log( resolvedValue );
+}
+
+function onRejected( rejectionReason ){
+  console.log( rejectionReason );
+}
+
+checkNumber( someNumber ).then( onFulfilled, onRejected );
+// Large Number</code></pre>
 </div>
 </div>
 <div id="browser-compatibility" class="section level2">
