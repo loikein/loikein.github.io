@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">14 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -158,7 +158,9 @@
 </ul></li>
 <li><a href="#promise">Promise</a><ul>
 <li><a href="#settimeout"><code>setTimeout</code></a></li>
-<li><a href="#then"><code>then</code></a></li>
+<li><a href="#then-catch"><code>then</code> &amp; <code>catch</code></a></li>
+<li><a href="#multiple-promises-composition">Multiple Promises (Composition)</a></li>
+<li><a href="#promise.all"><code>Promise.all</code></a></li>
 </ul></li>
 <li><a href="#browser-compatibility">Browser Compatibility</a><ul>
 <li><a href="#babel">Babel</a></li>
@@ -989,9 +991,9 @@ Computer.startUp();                              // Duang!
 
 function executorFunction( resolve, reject ){
   if( someNumber &gt; 5 ) {
-      resolve( &#39;Large Number&#39; );
+      resolve( &#39;Greater than 5&#39; );
   }else{
-      reject( &#39;Small Number&#39; );
+      reject( &#39;Smaller than 5&#39; );
   }
 }
 
@@ -1002,13 +1004,13 @@ or:
 const checkNumber = () =&gt;{
   return new Promise(
     function( resolve, reject ){
-      if( someNumber &gt; 5 ){ resolve( &#39;Large Number&#39; ); }
-      else{ reject( &#39;Small Number&#39; ); }
+      if( someNumber &gt; 5 ){ resolve( &#39;Greater than 5&#39; ); }
+      else{ reject( &#39;Smaller than 5&#39; ); }
     }
 )};
 */
 
-console.log( checkNumber());                     // Large Number</code></pre>
+console.log( checkNumber());                     // Greater than 5</code></pre>
 <div id="settimeout" class="section level3">
 <h3><code>setTimeout</code></h3>
 <pre class="javascript"><code>console.log( &#39;The first line&#39; );
@@ -1027,15 +1029,15 @@ The last line
 Duang!
 */</code></pre>
 </div>
-<div id="then" class="section level3">
-<h3><code>then</code></h3>
+<div id="then-catch" class="section level3">
+<h3><code>then</code> &amp; <code>catch</code></h3>
 <pre class="javascript"><code>let someNumber = 7;
 
-const checkNumber = ( num ) =&gt;{
+const checkNumber = ( num ) =&gt; {
   return new Promise(
     function( resolve, reject ){
-      if( num &gt; 5 ){ resolve( &#39;Large Number&#39; ); }
-      else{ reject( &#39;Small Number&#39; ); }
+      if( num &gt; 5 ){ resolve( &#39;Greater than 5&#39; ); }
+      else{ reject( &#39;Smaller than 5&#39; ); }
     }
 )};
 
@@ -1048,7 +1050,100 @@ function onRejected( rejectionReason ){
 }
 
 checkNumber( someNumber ).then( onFulfilled, onRejected );
-// Large Number</code></pre>
+// Greater than 5
+
+/*
+don&#39;t do:
+
+checkNumber( someNumber ).then( onFulfilled )
+                         .then( onRejected );
+
+// Greater than 5
+// defined
+
+do:
+
+checkNumber( someNumber ).then( onFulfilled )
+                         .catch( onRejected );
+
+// Greater than 5
+*/</code></pre>
+</div>
+<div id="multiple-promises-composition" class="section level3">
+<h3>Multiple Promises (Composition)</h3>
+<pre class="javascript"><code>let someNumber = 7;
+
+const checkNumber = ( num ) =&gt; {
+  return new Promise(
+    function( resolve, reject ){
+      if( num &gt; 5 ){ 
+        console.log( &#39;Greater than 5&#39; );
+        resolve( num );
+      }
+      else{ reject( &#39;Smaller than 5&#39; ); }
+    }
+)};
+
+const checkNumberTwice = ( num ) =&gt; {
+  return new Promise(
+    function( resolve, reject ){
+      if( num &gt; 10 ){
+        console.log( &#39;Greater than 10&#39; );
+        resolve( num );
+      }
+      else{ reject( &#39;Smaller than 10&#39; ); }
+    }
+)};
+
+checkNumber( someNumber )
+  .then(( resolvedNumber ) =&gt;
+      { return checkNumberTwice( resolvedNumber ); })
+  .then(( successMessage ) =&gt;
+      { console.log( successMessage ); })
+  .catch(( errorMessage ) =&gt;
+      { console.log( errorMessage ); });
+
+/*
+Greater than 5
+Smaller than 10
+*/</code></pre>
+</div>
+<div id="promise.all" class="section level3">
+<h3><code>Promise.all</code></h3>
+<pre class="javascript"><code>let someNumber = 7;
+
+const checkNumber = ( num ) =&gt; {
+  return new Promise(
+    function( resolve, reject ){
+      if( num &gt; 5 ){ 
+        resolve( &#39;Greater than 5&#39; );
+      }
+      else{ reject( &#39;Smaller than 5&#39; ); }
+    }
+)};
+
+const checkNumberTwice = ( num ) =&gt; {
+  return new Promise(
+    function( resolve, reject ){
+      if( num &gt; 10 ){
+        resolve( &#39;Greater than 10&#39; );
+      }
+      else{ reject( &#39;Smaller than 10&#39; ); }
+    }
+)};
+
+Promise.all([ checkNumber( someNumber ),
+              checkNumberTwice( someNumber )])
+  .then(( successMessage ) =&gt;
+      { console.log( successMessage ); })
+  .catch(( errorMessage ) =&gt;
+      { console.log( errorMessage ); });
+
+/*
+Smaller than 10
+
+// failing fast
+*/</code></pre>
 </div>
 </div>
 <div id="browser-compatibility" class="section level2">
