@@ -162,6 +162,7 @@
 <li><a href="#multiple-promises-composition">Multiple Promises (Composition)</a></li>
 <li><a href="#promise.all"><code>Promise.all</code></a></li>
 </ul></li>
+<li><a href="#async-await">Async Await</a></li>
 <li><a href="#browser-compatibility">Browser Compatibility</a><ul>
 <li><a href="#babel">Babel</a></li>
 </ul></li>
@@ -170,6 +171,8 @@
 
 <p><a href="https://segmentfault.com/a/1190000012673854">19 个 JavaScript 有用的简写技术 - SangSir - SegmentFault 思否</a><br />
 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators">表达式和运算符 - JavaScript | MDN</a></p>
+<p><a href="https://segmentfault.com/a/1190000007535316">理解 JavaScript 的 async/await - 边城客栈 - SegmentFault 思否</a><br />
+<a href="http://www.ruanyifeng.com/blog/2015/05/async.html">async 函数的含义和用法 - 阮一峰的网络日志</a></p>
 <div id="basics" class="section level2">
 <h2>Basics</h2>
 <pre class="javascript"><code>console.log( &#39;hello, world&#39; );
@@ -1145,6 +1148,34 @@ Smaller than 10
 // failing fast
 */</code></pre>
 </div>
+</div>
+<div id="async-await" class="section level2">
+<h2>Async Await</h2>
+<pre class="javascript"><code>async function someFunc(){
+  ...
+}
+
+//or
+
+const someFunc = async () =&gt; {
+  ...
+}</code></pre>
+<pre class="javascript"><code>let someNumber = 7;
+
+async function checkNumber( num ){
+  if( num &gt; 5 ){
+    return( &#39;Greater than 5&#39; );
+  }else{
+    return( &#39;Smaller than 5&#39; );
+  }
+}
+
+function onFulfilled( resolvedValue ){
+  console.log( resolvedValue );
+}
+
+checkNumber( someNumber )
+  .then( onFulfilled );      // Greater than 5</code></pre>
 </div>
 <div id="browser-compatibility" class="section level2">
 <h2>Browser Compatibility</h2>
