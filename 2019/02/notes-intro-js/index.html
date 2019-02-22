@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">14 min read</span>
+    <span class="article-duration">15 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -162,7 +162,10 @@
 <li><a href="#multiple-promises-composition">Multiple Promises (Composition)</a></li>
 <li><a href="#promise.all"><code>Promise.all</code></a></li>
 </ul></li>
-<li><a href="#async-await">Async Await</a></li>
+<li><a href="#async-await">Async Await</a><ul>
+<li><a href="#async"><code>async</code></a></li>
+<li><a href="#await"><code>await</code></a></li>
+</ul></li>
 <li><a href="#browser-compatibility">Browser Compatibility</a><ul>
 <li><a href="#babel">Babel</a></li>
 </ul></li>
@@ -1034,9 +1037,7 @@ Duang!
 </div>
 <div id="then-catch" class="section level3">
 <h3><code>then</code> &amp; <code>catch</code></h3>
-<pre class="javascript"><code>let someNumber = 7;
-
-const checkNumber = ( num ) =&gt; {
+<pre class="javascript"><code>const checkNumber = ( num ) =&gt; {
   return new Promise(
     function( resolve, reject ){
       if( num &gt; 5 ){ resolve( &#39;Greater than 5&#39; ); }
@@ -1052,31 +1053,29 @@ function onRejected( rejectionReason ){
   console.log( rejectionReason );
 }
 
-checkNumber( someNumber ).then( onFulfilled, onRejected );
+checkNumber( 7 ).then( onFulfilled, onRejected );
 // Greater than 5
 
 /*
 don&#39;t do:
 
-checkNumber( someNumber ).then( onFulfilled )
-                         .then( onRejected );
+checkNumber( 7 ).then( onFulfilled )
+                .then( onRejected );
 
 // Greater than 5
 // defined
 
 do:
 
-checkNumber( someNumber ).then( onFulfilled )
-                         .catch( onRejected );
+checkNumber( 7 ).then( onFulfilled )
+                .catch( onRejected );
 
 // Greater than 5
 */</code></pre>
 </div>
 <div id="multiple-promises-composition" class="section level3">
 <h3>Multiple Promises (Composition)</h3>
-<pre class="javascript"><code>let someNumber = 7;
-
-const checkNumber = ( num ) =&gt; {
+<pre class="javascript"><code>const checkNumber = ( num ) =&gt; {
   return new Promise(
     function( resolve, reject ){
       if( num &gt; 5 ){ 
@@ -1098,7 +1097,7 @@ const checkNumberTwice = ( num ) =&gt; {
     }
 )};
 
-checkNumber( someNumber )
+checkNumber( 7 )
   .then(( resolvedNumber ) =&gt;
       { return checkNumberTwice( resolvedNumber ); })
   .then(( successMessage ) =&gt;
@@ -1113,9 +1112,7 @@ Smaller than 10
 </div>
 <div id="promise.all" class="section level3">
 <h3><code>Promise.all</code></h3>
-<pre class="javascript"><code>let someNumber = 7;
-
-const checkNumber = ( num ) =&gt; {
+<pre class="javascript"><code>const checkNumber = ( num ) =&gt; {
   return new Promise(
     function( resolve, reject ){
       if( num &gt; 5 ){ 
@@ -1135,8 +1132,8 @@ const checkNumberTwice = ( num ) =&gt; {
     }
 )};
 
-Promise.all([ checkNumber( someNumber ),
-              checkNumberTwice( someNumber )])
+Promise.all([ checkNumber( 7 ),
+              checkNumberTwice( 7 )])
   .then(( successMessage ) =&gt;
       { console.log( successMessage ); })
   .catch(( errorMessage ) =&gt;
@@ -1151,6 +1148,8 @@ Smaller than 10
 </div>
 <div id="async-await" class="section level2">
 <h2>Async Await</h2>
+<div id="async" class="section level3">
+<h3><code>async</code></h3>
 <pre class="javascript"><code>async function someFunc(){
   ...
 }
@@ -1160,9 +1159,7 @@ Smaller than 10
 const someFunc = async () =&gt; {
   ...
 }</code></pre>
-<pre class="javascript"><code>let someNumber = 7;
-
-async function checkNumber( num ){
+<pre class="javascript"><code>async function checkNumber( num ){
   if( num &gt; 5 ){
     return( &#39;Greater than 5&#39; );
   }else{
@@ -1174,8 +1171,51 @@ function onFulfilled( resolvedValue ){
   console.log( resolvedValue );
 }
 
-checkNumber( someNumber )
+checkNumber( 7 )
   .then( onFulfilled );      // Greater than 5</code></pre>
+</div>
+<div id="await" class="section level3">
+<h3><code>await</code></h3>
+<pre class="javascript"><code>const chooseNumber = () =&gt; {
+  return new Promise(
+    function( resolve, reject ){
+      setTimeout( () =&gt; {
+        let number = Math.floor( Math.random() * 10 );
+        console.log( number ); 
+        resolve( number );
+      }, 1000 )
+    }
+  )
+};
+
+async function checkNumber(){
+  let num = await chooseNumber();
+  if( num &gt; 5 ){
+    console.log( &#39;Greater than 5&#39; );
+    return( num );
+  }else{
+    console.log( &#39;Smaller than 5&#39; );
+    return( num );
+  }
+}
+
+async function checkNumberTwice(){
+  let num = await checkNumber();
+  if( num &gt; 10 ){
+    console.log( &#39;Greater than 10&#39; );
+  }else{
+    console.log( &#39;Smaller than 10&#39; );
+  }
+}
+
+checkNumberTwice();
+
+/*
+3
+Smaller than 5
+Smaller than 10
+*/</code></pre>
+</div>
 </div>
 <div id="browser-compatibility" class="section level2">
 <h2>Browser Compatibility</h2>
