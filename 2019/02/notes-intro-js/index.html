@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">17 min read</span>
     
 
     <h1 class="article-title">Notes on Introduction to JavaScript</h1>
@@ -170,8 +170,12 @@
 <li><a href="#try-...-catch"><code>try ... catch</code></a></li>
 </ul></li>
 <li><a href="#request">Request</a><ul>
-<li><a href="#get-1">GET</a></li>
-<li><a href="#post">POST</a></li>
+<li><a href="#xhr-get">XHR GET</a></li>
+<li><a href="#xhr-post">XHR POST</a></li>
+<li><a href="#fetch-get">Fetch GET</a></li>
+<li><a href="#fecth-post">Fecth POST</a></li>
+<li><a href="#async-get">Async GET</a></li>
+<li><a href="#async-post">Async POST</a></li>
 </ul></li>
 <li><a href="#browser-compatibility">Browser Compatibility</a><ul>
 <li><a href="#babel">Babel</a></li>
@@ -1105,12 +1109,12 @@ const checkNumberTwice = ( num ) =&gt; {
 )};
 
 checkNumber( 7 )
-  .then(( resolvedNumber ) =&gt;
-      { return checkNumberTwice( resolvedNumber ); })
-  .then(( successMessage ) =&gt;
-      { console.log( successMessage ); })
-  .catch(( errorMessage ) =&gt;
-      { console.log( errorMessage ); });
+.then(( resolvedNumber ) =&gt;
+    { return checkNumberTwice( resolvedNumber ); })
+.then(( successMessage ) =&gt;
+    { console.log( successMessage ); })
+.catch(( errorMessage ) =&gt;
+    { console.log( errorMessage ); });
 
 /*
 Greater than 5
@@ -1141,10 +1145,10 @@ const checkNumberTwice = ( num ) =&gt; {
 
 Promise.all([ checkNumber( 7 ),
               checkNumberTwice( 7 )])
-  .then(( successMessage ) =&gt;
-      { console.log( successMessage ); })
-  .catch(( errorMessage ) =&gt;
-      { console.log( errorMessage ); });
+.then(( successMessage ) =&gt;
+  { console.log( successMessage ); })
+.catch(( errorMessage ) =&gt;
+  { console.log( errorMessage ); });
 
 /*
 Smaller than 10
@@ -1179,7 +1183,7 @@ function onFulfilled( resolvedValue ){
 }
 
 checkNumber( 7 )
-  .then( onFulfilled );      // Greater than 5
+.then( onFulfilled );      // Greater than 5
 
 /*
 or:
@@ -1318,18 +1322,16 @@ checkNumber( 7 );            // Greater than 5</code></pre>
 <div id="request" class="section level2">
 <h2>Request</h2>
 <p>AJAX (Asynchronous JavaScript and XML)</p>
-<div id="get-1" class="section level3">
-<h3>GET</h3>
-<pre class="javascript"><code>// XML Http Request GET
-
-const xhr = new XMLHttpRequest();
+<div id="xhr-get" class="section level3">
+<h3>XHR GET</h3>
+<pre class="javascript"><code>const xhr = new XMLHttpRequest();
 const url = &#39;http://api-to-call.com/endpoint&#39;;
 
 xhr.responseType = &#39;json&#39;;
 
 xhr.onreadystatechange = () =&gt; {
   if( xhr.readyState === XMLHttpRequest.DONE ){
-    // response code
+    // response
     // return xhr.response;
   }
 };
@@ -1337,11 +1339,9 @@ xhr.onreadystatechange = () =&gt; {
 xhr.open( &#39;GET&#39;, url );
 xhr.send();</code></pre>
 </div>
-<div id="post" class="section level3">
-<h3>POST</h3>
-<pre class="javascript"><code>// XML Http Request POST
-
-const xhr = new XMLHttpRequest();
+<div id="xhr-post" class="section level3">
+<h3>XHR POST</h3>
+<pre class="javascript"><code>const xhr = new XMLHttpRequest();
 const url = &#39;http://api-to-call.com/endpoint&#39;;
 const data = JSON.stringify({ id:&#39;200&#39; });
 
@@ -1349,13 +1349,76 @@ xhr.responseType = &#39;json&#39;;
 
 xhr.onreadystatechange = () =&gt; {
   if( xhr.readyState === XMLHttpRequest.DONE ){
-    // response code
-    // return xhr.response;
+    // response
   }
 };
 
 xhr.open( &#39;POST&#39;, url );
 xhr.send( data );</code></pre>
+</div>
+<div id="fetch-get" class="section level3">
+<h3>Fetch GET</h3>
+<pre class="javascript"><code>fetch( &#39;http://api-to-call.com/endpoint&#39; )
+.then( response =&gt; {
+  if( response.ok ){
+    return response.json();
+  }
+  throw new Error( &#39;Request failed!&#39; );
+}, networkError =&gt; console.log( networkError.message ))
+.then( jsonResponse =&gt; {
+  // response
+  // return jsonResponse;
+});</code></pre>
+</div>
+<div id="fecth-post" class="section level3">
+<h3>Fecth POST</h3>
+<pre class="javascript"><code>fetch( &#39;http://api-to-call.com/endpoint&#39;,
+       { method: &#39;POST&#39;, body: JSON.stringify({id:&#39;200&#39;}) })
+.then( response =&gt; {
+  if( response.ok ){
+    return response.json();
+  }
+  throw new Error( &#39;Request failed!&#39; );
+}, networkError =&gt; console.log( networkError.message ))
+.then( jsonResponse =&gt; {
+  // response
+  // return jsonResponse;
+});</code></pre>
+</div>
+<div id="async-get" class="section level3">
+<h3>Async GET</h3>
+<pre class="javascript"><code>async function getData(){
+  try{
+    const response = await fetch( &#39;http://api-to-call.com/endpoint&#39; );
+    if( response.ok ){
+      const jsonResponse = await response.json;
+      // response
+      // return jsonResponse;
+    }
+    throw new Error( &#39;Request failed!&#39; );
+  } catch( error ){
+    console.log( error );
+    // or: redirection
+  }
+}</code></pre>
+</div>
+<div id="async-post" class="section level3">
+<h3>Async POST</h3>
+<pre class="javascript"><code>async function getData(){
+  try{
+    const response = await fetch( &#39;http://api-to-call.com/endpoint&#39;,
+                                  { method: &#39;POST&#39;, body: JSON.stringify({id:&#39;200&#39;}) });
+    if( response.ok ){
+      const jsonResponse = await response.json;
+      // response
+      // return jsonResponse;
+    }
+    throw new Error( &#39;Request failed!&#39; );
+  } catch( error ){
+    console.log( error );
+    // or: redirection
+  }
+}</code></pre>
 </div>
 </div>
 <div id="browser-compatibility" class="section level2">
