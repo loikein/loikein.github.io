@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">35 min read</span>
+    <span class="article-duration">36 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -90,7 +90,7 @@
 <ul>
 <li><a href="#logic">Logic</a><ul>
 <li><a href="#truth-table">Truth table</a></li>
-<li><a href="#direct-proof">Direct proof</a></li>
+<li><a href="#proof-by-deduction">Proof by Deduction</a></li>
 </ul></li>
 <li><a href="#relation">Relation</a><ul>
 <li><a href="#order">Order</a></li>
@@ -101,7 +101,7 @@
 <li><a href="#cauchy-schwarz-inequality">Cauchy-Schwarz Inequality</a></li>
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
-<li><a href="#proof-by-deduction">Proof by Deduction</a></li>
+<li><a href="#proof-by-deduction-1">Proof by Deduction</a></li>
 <li><a href="#inclusion-of-b_">Inclusion of <span class="math inline">\(B_ε\)</span></a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
@@ -146,6 +146,14 @@
 </ul>
 <div id="logic" class="section level2">
 <h2>Logic</h2>
+<ul>
+<li>For some <span class="math inline">\(x\in X\)</span>, “<span class="math inline">\(x\)</span> has property <span class="math inline">\(p\)</span>” is either true or false. If true, denote as <span class="math inline">\(p(x)\)</span><br />
+</li>
+<li><span class="math inline">\(\forall x\)</span>, <span class="math inline">\(\exists y\)</span> s.t. <span class="math inline">\(p(x,y)\neq\exists y\)</span>, <span class="math inline">\(\forall x\)</span> s.t. <span class="math inline">\(p(x,y)\)</span><br />
+</li>
+<li><span class="math inline">\(\lnot\big[\forall x, \ p(x) \big]\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(\exists x\)</span> s.t. <span class="math inline">\(\lnot p(x)\)</span><br />
+<span class="math inline">\(\lnot\big[\exists x, \ p(x) \big]\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(\forall x\)</span> s.t. <span class="math inline">\(\lnot p(x)\)</span></li>
+</ul>
 <div id="truth-table" class="section level3">
 <h3>Truth table</h3>
 <blockquote>
@@ -200,8 +208,8 @@ Prove that <span class="math inline">\(\lnot (p \lor q) \iff \lnot p \land \lnot
 </tbody>
 </table>
 </div>
-<div id="direct-proof" class="section level3">
-<h3>Direct proof</h3>
+<div id="proof-by-deduction" class="section level3">
+<h3>Proof by Deduction</h3>
 <blockquote>
 <p>PS1.Q2<br />
 Let <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> be three statements<br />
@@ -220,6 +228,12 @@ Prove that if <span class="math inline">\(p \implies q\)</span> and <span class=
 </div>
 <div id="relation" class="section level2">
 <h2>Relation</h2>
+<ul>
+<li>Cartesian Product of Sets: <span class="math inline">\(X\times Y \equiv \{ (x,y) \ | \ x\in X, y\in Y\}\)</span></li>
+<li>(Binary) relation <span class="math inline">\(R\)</span> defined from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> is a subset of <span class="math inline">\(X\times Y\)</span></li>
+<li><span class="math inline">\((x,y)\in R\)</span> is also denoted as <span class="math inline">\(xRy\)</span> or <span class="math inline">\(y\in R(x)\)</span></li>
+<li><span class="math inline">\(y\)</span> is called the image of <span class="math inline">\(x\)</span></li>
+</ul>
 <div id="order" class="section level3">
 <h3>Order</h3>
 <blockquote>
@@ -352,13 +366,30 @@ Since the last line is obviously true, all previous statements are true</p>
 </div>
 <div id="set-collection-operation" class="section level2">
 <h2>Set Collection &amp; Operation</h2>
-<div id="proof-by-deduction" class="section level3">
+<ul>
+<li>Commutative law:<br />
+<span class="math display">\[\begin{aligned} A\cup B = B\cup A \\ A\cap B = B\cap A\end{aligned}\]</span></li>
+<li>Associative law:<br />
+<span class="math display">\[\begin{aligned} (A\cup B)\cup C = A\cup (B\cup C) \\ (A\cap B)\cap C = A\cap (B\cap C)\end{aligned}\]</span></li>
+<li>Distributive law:<br />
+<span class="math display">\[\begin{aligned} (A\cup B)\cap C = (A\cap C)\cup (B\cap C) \\ (A\cap B)\cup C = (A\cup C)\cap (B\cap C)\end{aligned}\]</span></li>
+<li>De Morgan’s laws: Let <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i\in I\)</span> be sets, then<br />
+<span class="math display">\[\begin{aligned} \big(\cup_{i\in I} X_i\big)^c = \cap_{i\in I}\big(X_i^c\big) \\
+\big(\cap_{i\in I} X_i\big)^c = \cup_{i\in I}\big(X_i^c\big)\end{aligned}\]</span></li>
+</ul>
+<div id="proof-by-deduction-1" class="section level3">
 <h3>Proof by Deduction</h3>
 <blockquote>
 <p>PS1.Q3<br />
 Let <span class="math inline">\(\{ A_i \}_{i \in Ι}\)</span> be any arbitrary collection of sets<br />
-Prove that <span class="math inline">\(\big( \cup_{i\in Ι} A_i \big)^c = \cap _{i\in Ι} A_i^c\)</span></p>
+Prove that <span class="math inline">\(\big(\cup_{i\in Ι} \ A_i \big)^c = \cap_{i\in Ι} \ A_i^c\)</span></p>
 </blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in \big(\cup_{i\in Ι} \ A_i \big)^c\)</span><br />
+<span class="math inline">\(\iff x\notin \cup_{i\in Ι} \ A_i\)</span><br />
+<span class="math inline">\(\iff \lnot (\exists i\in I\)</span> s.t. <span class="math inline">\(x\in A_i)\)</span><br />
+<span class="math inline">\(\iff \forall i\in I\)</span>, <span class="math inline">\(x\notin A_i\)</span><br />
+<span class="math inline">\(\iff \forall i\in I\)</span>, <span class="math inline">\(x\in A_i^c\)</span><br />
+<span class="math inline">\(\iff x\in \cap_{i\in Ι} \ A_i^c\)</span></p>
 <blockquote>
 <p>PS1.Q4, 2016.F1.Q1<br />
 Let <span class="math inline">\(A, B \subset U\)</span> be two sets<br />
