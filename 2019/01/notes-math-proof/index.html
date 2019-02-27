@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">36 min read</span>
+    <span class="article-duration">37 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -93,6 +93,7 @@
 <li><a href="#proof-by-deduction">Proof by Deduction</a></li>
 </ul></li>
 <li><a href="#relation">Relation</a><ul>
+<li><a href="#preorder-quasi-order">Preorder (Quasi-order)</a></li>
 <li><a href="#order">Order</a></li>
 <li><a href="#complete-order">Complete Order</a></li>
 </ul></li>
@@ -112,8 +113,8 @@
 <li><a href="#dense">Dense</a></li>
 </ul></li>
 <li><a href="#function">Function</a><ul>
-<li><a href="#range-image">Range / Image</a></li>
-<li><a href="#injection-surjection">Injection &amp; Surjection</a></li>
+<li><a href="#image">Image</a></li>
+<li><a href="#injection-one-to-one-surjection-onto">Injection (One-to-one) &amp; Surjection (Onto)</a></li>
 <li><a href="#continuity">Continuity</a></li>
 <li><a href="#value-theorems">Value Theorems</a></li>
 <li><a href="#contraction">Contraction</a></li>
@@ -230,10 +231,20 @@ Prove that if <span class="math inline">\(p \implies q\)</span> and <span class=
 <h2>Relation</h2>
 <ul>
 <li>Cartesian Product of Sets: <span class="math inline">\(X\times Y \equiv \{ (x,y) \ | \ x\in X, y\in Y\}\)</span></li>
-<li>(Binary) relation <span class="math inline">\(R\)</span> defined from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> is a subset of <span class="math inline">\(X\times Y\)</span></li>
+<li>(Binary) Relation <span class="math inline">\(R\)</span> defined from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> is a subset of <span class="math inline">\(X\times Y\)</span></li>
 <li><span class="math inline">\((x,y)\in R\)</span> is also denoted as <span class="math inline">\(xRy\)</span> or <span class="math inline">\(y\in R(x)\)</span></li>
 <li><span class="math inline">\(y\)</span> is called the image of <span class="math inline">\(x\)</span></li>
+<li>Inverse Relation of <span class="math inline">\(R\)</span>: <span class="math inline">\(R^{-1}\equiv \{(y,x) \ | \ (x,y)\in R\}\)</span></li>
 </ul>
+<div id="preorder-quasi-order" class="section level3">
+<h3>Preorder (Quasi-order)</h3>
+<ul>
+<li>Reflective + Transitive</li>
+<li>Not Anti-Symmetry: <span class="math inline">\(x\geq y\)</span> and <span class="math inline">\(y\geq x\)</span> but <span class="math inline">\(x\neq y\implies x\sim y\)</span> (<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are equivalent)</li>
+<li>Complete Preorder: Reflective + Transitive + Complete</li>
+<li>Preference</li>
+</ul>
+</div>
 <div id="order" class="section level3">
 <h3>Order</h3>
 <blockquote>
@@ -402,26 +413,23 @@ Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></
 <span class="math inline">\(\iff (x \in A^c) \lor (x\in B)\)</span><br />
 <span class="math inline">\(\iff x \in A^c \cup B\)</span><br />
 <span class="math inline">\(\implies (A\backslash B)^c = A^c \cup B\)</span></p>
-<blockquote>
-<p>PS1.Q9<br />
-Let <span class="math inline">\(f: U \to U&#39;\)</span>, <span class="math inline">\(\{ B_i\}_{i \in Ι}\)</span> be a collection of subsets of <span class="math inline">\(U&#39;\)</span><br />
-Prove <span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) = \cap _{i\in Ι} f^{-1} \big( B_i \big)\)</span></p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(f^{-1} \big( \cap _{i\in Ι} B_i \big) \subset \cap _{i\in Ι} f^{-1} \big( B_i \big)\)</span><br />
-<span class="math inline">\(x \in f^{-1} \big( \cap _{i \in Ι} B_i \big)\)</span><br />
-<span class="math inline">\(\implies f(x) \in \cap _{i\in Ι} B_i\)</span><br />
-<span class="math inline">\(\implies f(x) \in B_i \forall i \in I\)</span><br />
-<span class="math inline">\(\implies x \in f ^{-1} \big( B_i \big) \forall i \in I\)</span><br />
-<span class="math inline">\(\implies x \in \cap f^{-1}\big( B_i \big)\)</span><br />
-</li>
-<li><span class="math inline">\(\cap _{i\in Ι} f^{-1} \big( B_i \big) \subset f^{-1} \big( \cap _{i\in Ι} B_i \big)\)</span><br />
-<span class="math inline">\(x \in \cap _{i \in Ι} f ^ {-1} \big( B_i \big)\)</span><br />
-<span class="math inline">\(\implies x\inf^{-1}\big( B_i \big) \forall i \in I\)</span><br />
-<span class="math inline">\(\implies f(x) \in B_i \forall i\in I\)</span><br />
-<span class="math inline">\(\implies f(x) \in \cap B_i\)</span><br />
-<span class="math inline">\(\implies x \inf^{-1}\big( \cap B_i \big)\)</span></li>
-</ol>
+<!-- > PS1.Q9  
+> Let $f: U \to U'$, $\{ B_i\}_{i \in Ι}$ be a collection of subsets of $U'$  
+> Prove $f^{-1} \big( \cap _{i\in Ι} B_i \big) = \cap _{i\in Ι} f^{-1} \big( B_i \big)$ 
+
+1. $f^{-1} \big( \cap _{i\in Ι} B_i \big) \subset \cap _{i\in Ι} f^{-1} \big( B_i \big)$   
+   $x \in f^{-1} \big( \cap _{i \in Ι} B_i \big)$   
+   $\implies f(x) \in \cap _{i\in Ι} B_i$  
+   $\implies f(x) \in B_i \forall i \in I$  
+   $\implies x \in f ^{-1} \big( B_i \big) \forall i \in I$  
+   $\implies x \in \cap f^{-1}\big( B_i \big)$   
+2. $\cap _{i\in Ι} f^{-1} \big( B_i \big) \subset f^{-1} \big( \cap _{i\in Ι} B_i \big)$   
+   $x \in \cap _{i \in Ι} f ^ {-1} \big( B_i \big)$   
+   $\implies x\inf^{-1}\big( B_i \big) \forall i \in I$  
+   $\implies f(x) \in B_i \forall i\in I$  
+   $\implies f(x) \in \cap B_i$  
+   $\implies x \inf^{-1}\big( \cap B_i \big)$
+ -->
 </div>
 <div id="inclusion-of-b_" class="section level3">
 <h3>Inclusion of <span class="math inline">\(B_ε\)</span></h3>
@@ -619,8 +627,19 @@ Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class
 </div>
 <div id="function" class="section level2">
 <h2>Function</h2>
-<div id="range-image" class="section level3">
-<h3>Range / Image</h3>
+<ul>
+<li>A function <span class="math inline">\(f\)</span> from <span class="math inline">\(X\)</span> into <span class="math inline">\(Y\)</span> is a relation that for each <span class="math inline">\(x\in X\)</span>, exists a unique <span class="math inline">\(y\in Y\)</span> s.t. <span class="math inline">\((x,y)\in f\)</span></li>
+<li>Domain: <span class="math inline">\(X\)</span></li>
+<li>Image (Range): <span class="math inline">\(f(X)\)</span>
+<ul>
+<li>Codomain: <span class="math inline">\(Y\)</span></li>
+<li>only for <span class="math inline">\(f\)</span> is surjection, <span class="math inline">\(f(X) = Y\)</span></li>
+</ul></li>
+<li><span class="math inline">\(y\)</span> is the image of <span class="math inline">\(x\)</span> under <span class="math inline">\(f\)</span>, <span class="math inline">\(f(x) = y\)</span></li>
+<li><span class="math inline">\(x\)</span> is the pre-image (inverse image) of <span class="math inline">\(y\)</span>, <span class="math inline">\(x\in f^{-1}(y)\)</span></li>
+</ul>
+<div id="image" class="section level3">
+<h3>Image</h3>
 <blockquote>
 <p>PS2.Q3<br />
 Let <span class="math inline">\(f:U\to U&#39;\)</span>, <span class="math inline">\(A \subset U\)</span> and <span class="math inline">\(B \subset U&#39;\)</span><br />
@@ -630,6 +649,26 @@ Prove that <span class="math inline">\((f|_A)^{-1} (B) = f^{-1}(B) \cap A\)</spa
 <span class="math inline">\(\iff x\in A\)</span> and <span class="math inline">\(f(x) \in B\)</span><br />
 <span class="math inline">\(\iff (f|_A)(x ) \in B\)</span><br />
 <span class="math inline">\(\iff x\in (f|_A)^{-1} (B)\)</span></p>
+<blockquote>
+<p>PS1.Q9, textbook P21<br />
+Let <span class="math inline">\(f: X\to Y\)</span> be a function, <span class="math inline">\(B_i\)</span>, <span class="math inline">\(i\in I\)</span> subsets of <span class="math inline">\(Y\)</span>,<br />
+Prove:<br />
+1. <span class="math inline">\(f^{-1}\big( \cup_{i\in I} B_i \big) = \cup_{i\in I} f^{-1}(B_i)\)</span><br />
+2. <span class="math inline">\(f^{-1}\big( \cap_{i\in I} B_i \big) = \cap_{i\in I} f^{-1}(B_i)\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Take arbitrary <span class="math inline">\(x\in ^{-1}\big( \cup_{i\in I} B_i \big)\)</span><br />
+<span class="math inline">\(\iff f(x)\in \cup_{i\in I} B_i\)</span><br />
+<span class="math inline">\(\iff\exists i\)</span> s.t. <span class="math inline">\(f(x)\in B_i\)</span><br />
+<span class="math inline">\(\iff\exists i\)</span> s.t. <span class="math inline">\(x\in f^{-1}(B_i)\)</span><br />
+<span class="math inline">\(\iff x\in \cup_{i\in I} f^{-1}(B_i)\)</span><br />
+</li>
+<li>Take arbitrary <span class="math inline">\(x\in ^{-1}\big( \cap_{i\in I} B_i \big)\)</span><br />
+<span class="math inline">\(\iff f(x)\in \cup_{i\in I} B_i\)</span><br />
+<span class="math inline">\(\iff\forall i\)</span>, <span class="math inline">\(f(x)\in B_i\)</span><br />
+<span class="math inline">\(\iff\forall i\)</span>, <span class="math inline">\(x\in f^{-1}(B_i)\)</span><br />
+<span class="math inline">\(\iff x\in \cap_{i\in I} f^{-1}(B_i)\)</span></li>
+</ol>
 <blockquote>
 <p>PS5.Q2<br />
 Let <span class="math inline">\(f: U \to U&#39;\)</span> and <span class="math inline">\(B \subset U&#39;\)</span><br />
@@ -665,6 +704,17 @@ Take arbitary <span class="math inline">\(x\in A \subset U\)</span><br />
 <span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset \supset A\)</span></li>
 </ol>
 <blockquote>
+<p>textbook P22<br />
+Let <span class="math inline">\(f: X\to Y\)</span> be a function, <span class="math inline">\(A_i\)</span>, <span class="math inline">\(i\in I\)</span> subsets of <span class="math inline">\(X\)</span>,<br />
+Prove:<br />
+1. <span class="math inline">\(f\big( \cup_{i\in I} A_i\big) = \cup_{i\in I}f(A_i)\)</span><br />
+2. <span class="math inline">\(f\big( \cap_{i\in I} A_i\big) \subseteq \cap_{i\in I}f(A_i)\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Take arbitrary <span class="math inline">\(y\in f\big( \cup_{i\in I} A_i\big)\)</span><br />
+<span class="math inline">\(\iff\)</span></li>
+</ol>
+<blockquote>
 <p>PS9.Q5<br />
 Let <span class="math inline">\(A\equiv [1,\infty)\)</span> and <span class="math inline">\(f: A \to \mathbb{R}\)</span>, <span class="math inline">\(f(x)= x+\frac{1}{x}\)</span><br />
 1. Prove that <span class="math inline">\(f(A)\subset A\)</span><br />
@@ -683,8 +733,8 @@ Since <span class="math inline">\(x\in [1,\infty) \implies \frac{1}{x}&gt;0\)</s
 &amp;&lt; |x-y|\end{aligned}\]</span></li>
 </ol>
 </div>
-<div id="injection-surjection" class="section level3">
-<h3>Injection &amp; Surjection</h3>
+<div id="injection-one-to-one-surjection-onto" class="section level3">
+<h3>Injection (One-to-one) &amp; Surjection (Onto)</h3>
 <blockquote>
 <p>PS2.Q1<br />
 Let <span class="math inline">\(f(x) = x^2: \mathbb{R} \to \mathbb{R}_+\)</span><br />
@@ -696,7 +746,7 @@ Is it surjective?</p>
 :) <span class="math inline">\(x_1 \neq x_2 \implies f(x_1) \neq f(x_2)\)</span><br />
 </li>
 <li>Surjective<br />
-:) <span class="math inline">\(x\in f( \text{domain}) \iff x \in \text{range}\)</span></li>
+:) For all <span class="math inline">\(y\in Y\)</span>, exists <span class="math inline">\(x \in X\)</span> s.t. <span class="math inline">\(f(x) = y\)</span></li>
 </ol>
 </div>
 <div id="continuity" class="section level3">
