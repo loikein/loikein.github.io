@@ -103,7 +103,7 @@
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
 <li><a href="#proof-by-deduction-1">Proof by Deduction</a></li>
-<li><a href="#inclusion-of-b_">Inclusion of <span class="math inline">\(B_ε\)</span></a></li>
+<li><a href="#inclusion-of-">Inclusion of ε</a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
 <li><a href="#close-open">Close / Open</a></li>
@@ -125,7 +125,7 @@
 <li><a href="#concave-convex">Concave &amp; Convex</a></li>
 <li><a href="#epigraph">Epigraph</a></li>
 </ul></li>
-<li><a href="#set-times-function">Set <span class="math inline">\(\times\)</span> Function</a><ul>
+<li><a href="#set-function">Set × Function</a><ul>
 <li><a href="#injection-surjection-revisited">Injection &amp; Surjection (revisited)</a></li>
 <li><a href="#finite-countable">Finite &amp; Countable</a></li>
 </ul></li>
@@ -134,7 +134,7 @@
 <li><a href="#convergent">Convergent</a></li>
 <li><a href="#limit-cluster-point">Limit &amp; Cluster Point</a></li>
 </ul></li>
-<li><a href="#set-times-sequence">Set <span class="math inline">\(\times\)</span> Sequence</a></li>
+<li><a href="#set-sequence">Set × Sequence</a></li>
 </ul>
 </div>
 
@@ -310,6 +310,11 @@ Prove that <span class="math inline">\(R\)</span> is a complete order</p>
 </div>
 <div id="distance" class="section level3">
 <h3>Distance</h3>
+<ul>
+<li>Triangle Inequality:<br />
+Real numbers: <span class="math inline">\(|x+y|\leq |x|+|y|\)</span><br />
+Distance: <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
+</ul>
 <blockquote>
 <p>PS2.Q6<br />
 Show that <span class="math inline">\(d(x,y)\equiv |x-y|\)</span> is a distance in <span class="math inline">\(\mathbb{R}\)</span></p>
@@ -364,13 +369,16 @@ Therefore,<br />
 </div>
 <div id="cauchy-schwarz-inequality" class="section level3">
 <h3>Cauchy-Schwarz Inequality</h3>
+<ul>
+<li><span class="math inline">\(| u\cdot v | \leq \|u\| \cdot \|v\|\)</span></li>
+</ul>
 <blockquote>
 <p>PS5.Q4<br />
 Prove the Cauchy-Schwarz inequality for <span class="math inline">\(\mathbb{R}^2\)</span></p>
 </blockquote>
 <p>Let <span class="math inline">\(u = (u_1, u_2), v = (v_1, v_2)\)</span><br />
 <span class="math inline">\(\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\)</span>, <span class="math inline">\(| u\cdot v | = | u_1 v_1 + u_2 v_2 |\)</span><br />
-Assume Cauchy-Schwarz inequality: <span class="math inline">\(| u\cdot v | \leq \|u\| \cdot \|v\|\)</span> is true<br />
+Assume Cauchy-Schwarz inequality is true<br />
 <span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\\ u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2)\\ 0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span>
 Since the last line is obviously true, all previous statements are true</p>
 </div>
@@ -431,8 +439,8 @@ Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></
    $\implies x \inf^{-1}\big( \cap B_i \big)$
  -->
 </div>
-<div id="inclusion-of-b_" class="section level3">
-<h3>Inclusion of <span class="math inline">\(B_ε\)</span></h3>
+<div id="inclusion-of-" class="section level3">
+<h3>Inclusion of ε</h3>
 <blockquote>
 <p>PS2.Q8, PS3.Q8<br />
 1. Show that the intersection of a finite collection of open sets is open<br />
@@ -583,13 +591,22 @@ Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)
 <div id="maximum-supremum" class="section level3">
 <h3>Maximum &amp; Supremum</h3>
 <ul>
-<li><span class="math inline">\(x&#39;\)</span> is an upper bound of set <span class="math inline">\(A\)</span> if <span class="math inline">\(x&#39; \geq x\)</span> for all <span class="math inline">\(x \in A\)</span> (only exist if <span class="math inline">\(A\)</span> is bounded above, not unique)</li>
-<li>Maximum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(x \equiv \max(A)\)</span>, if <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x\)</span> is an upper bound of <span class="math inline">\(A\)</span> (only exists if <span class="math inline">\(A\)</span> is finite, unique)</li>
-<li>Supremum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\sup(A)\)</span>, is the lowest upper bound of <span class="math inline">\(A\)</span> (always exists, <span class="math inline">\(\pm\infty\)</span> if <span class="math inline">\(A\)</span> is unbounded)
+<li><span class="math inline">\(y\)</span> is an upper bound of set <span class="math inline">\(A\)</span> if <span class="math inline">\(y \geq x\)</span> for all <span class="math inline">\(x \in A\)</span><br />
+(only exist if <span class="math inline">\(A\)</span> is bounded above, not unique)</li>
+<li>Maximum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(x \equiv \max(A)\)</span>, if <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x\)</span> is an upper bound of <span class="math inline">\(A\)</span><br />
+(only exists if <span class="math inline">\(A\)</span> is finite, unique)</li>
+<li>Supremum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\sup(A)\)</span>, is the lowest upper bound of <span class="math inline">\(A\)</span><br />
+(always exists, <span class="math inline">\(\pm\infty\)</span> if <span class="math inline">\(A\)</span> is unbounded)
 <ul>
 <li><span class="math inline">\(\sup(A)\in A\iff A\)</span> has maximum</li>
 </ul></li>
 </ul>
+<blockquote>
+<p>textbook P34 Problem 6.13<br />
+Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be nonempty sets of real numbers, both bounded above<br />
+Let <span class="math inline">\(C = \{c = a + b \ | \ a\in A, b\in B\}\)</span><br />
+Show that <span class="math inline">\(C\)</span> has a supremum, and <span class="math inline">\(\sup C = \sup A + \sup B\)</span></p>
+</blockquote>
 <blockquote>
 <p>PS3.Q7<br />
 Show that for any bounded and non-empty set <span class="math inline">\(A\subset \mathbb{R}\)</span>, <span class="math inline">\(B_ε \big( \sup(A) \big) \cap A \neq \emptyset\)</span> for all <span class="math inline">\(ε &gt;0\)</span></p>
@@ -1359,8 +1376,8 @@ Take <span class="math inline">\(x,y\in E_f \cap E_g\)</span><br />
 <span class="math inline">\(\implies h\)</span> is convex</p>
 </div>
 </div>
-<div id="set-times-function" class="section level2">
-<h2>Set <span class="math inline">\(\times\)</span> Function</h2>
+<div id="set-function" class="section level2">
+<h2>Set × Function</h2>
 <div id="injection-surjection-revisited" class="section level3">
 <h3>Injection &amp; Surjection (revisited)</h3>
 <blockquote>
@@ -1516,8 +1533,8 @@ Contradicts to <span class="math inline">\(x\)</span> is the limit of <span clas
 </ol>
 </div>
 </div>
-<div id="set-times-sequence" class="section level2">
-<h2>Set <span class="math inline">\(\times\)</span> Sequence</h2>
+<div id="set-sequence" class="section level2">
+<h2>Set × Sequence</h2>
 <ul>
 <li><span class="math inline">\(x\)</span> is is the limit of some sequence in <span class="math inline">\(A \iff x \in \bar{A}\)</span> (closure of <span class="math inline">\(A\)</span>)</li>
 <li><span class="math inline">\(x\)</span> is is a limit point of <span class="math inline">\(A \iff x\)</span> is the limit of some sequence in <span class="math inline">\(A\backslash \{x\}\)</span></li>
