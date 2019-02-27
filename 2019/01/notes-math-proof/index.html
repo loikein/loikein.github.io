@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">37 min read</span>
+    <span class="article-duration">38 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -451,6 +451,15 @@ Take <span class="math inline">\(\underline{ε} \equiv \min \{ ε_n\}\)</span><b
 </div>
 <div id="set" class="section level2">
 <h2>Set</h2>
+<ul>
+<li>Power Set of set <span class="math inline">\(X\)</span>, denoted as <span class="math inline">\(2^X\)</span>, is the set of all subsets of <span class="math inline">\(X\)</span></li>
+<li>Set <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are Numerically Equivalent if exists a bijection function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>
+<ul>
+<li>Set <span class="math inline">\(A\)</span> is Countable if <span class="math inline">\(A\)</span> is numerically equivalent to any subset of <span class="math inline">\(\mathbb{Z}_+\)</span></li>
+<li>Set <span class="math inline">\(A\)</span> is Finite if <span class="math inline">\(A\)</span> is numerically equivalent to <span class="math inline">\(\{1,2,\dots,n\}\subset \mathbb{Z}_+\)</span> for some <span class="math inline">\(n\)</span></li>
+<li><span class="math inline">\(\emptyset\)</span> is finite</li>
+</ul></li>
+</ul>
 <div id="close-open" class="section level3">
 <h3>Close / Open</h3>
 <ul>
@@ -628,7 +637,7 @@ Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class
 <div id="function" class="section level2">
 <h2>Function</h2>
 <ul>
-<li>A function <span class="math inline">\(f\)</span> from <span class="math inline">\(X\)</span> into <span class="math inline">\(Y\)</span> is a relation that for each <span class="math inline">\(x\in X\)</span>, exists a unique <span class="math inline">\(y\in Y\)</span> s.t. <span class="math inline">\((x,y)\in f\)</span></li>
+<li>Function <span class="math inline">\(f\)</span> from <span class="math inline">\(X\)</span> into <span class="math inline">\(Y\)</span> is a relation that for each <span class="math inline">\(x\in X\)</span>, exists a unique <span class="math inline">\(y\in Y\)</span> s.t. <span class="math inline">\((x,y)\in f\)</span></li>
 <li>Domain: <span class="math inline">\(X\)</span></li>
 <li>Image (Range): <span class="math inline">\(f(X)\)</span>
 <ul>
@@ -637,6 +646,7 @@ Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class
 </ul></li>
 <li><span class="math inline">\(y\)</span> is the image of <span class="math inline">\(x\)</span> under <span class="math inline">\(f\)</span>, <span class="math inline">\(f(x) = y\)</span></li>
 <li><span class="math inline">\(x\)</span> is the pre-image (inverse image) of <span class="math inline">\(y\)</span>, <span class="math inline">\(x\in f^{-1}(y)\)</span></li>
+<li>Correspondence <span class="math inline">\(Ψ: X\rightrightarrows Y\)</span> is a generalized function that assigns a subset of <span class="math inline">\(Y\)</span> (element of <span class="math inline">\(2^Y\)</span>) to each <span class="math inline">\(x\in X\)</span></li>
 </ul>
 <div id="image" class="section level3">
 <h3>Image</h3>
@@ -650,7 +660,7 @@ Prove that <span class="math inline">\((f|_A)^{-1} (B) = f^{-1}(B) \cap A\)</spa
 <span class="math inline">\(\iff (f|_A)(x ) \in B\)</span><br />
 <span class="math inline">\(\iff x\in (f|_A)^{-1} (B)\)</span></p>
 <blockquote>
-<p>PS1.Q9, textbook P21<br />
+<p>PS1.Q9, textbook P21 Theorem 4.2<br />
 Let <span class="math inline">\(f: X\to Y\)</span> be a function, <span class="math inline">\(B_i\)</span>, <span class="math inline">\(i\in I\)</span> subsets of <span class="math inline">\(Y\)</span>,<br />
 Prove:<br />
 1. <span class="math inline">\(f^{-1}\big( \cup_{i\in I} B_i \big) = \cup_{i\in I} f^{-1}(B_i)\)</span><br />
@@ -664,7 +674,7 @@ Prove:<br />
 <span class="math inline">\(\iff x\in \cup_{i\in I} f^{-1}(B_i)\)</span><br />
 </li>
 <li>Take arbitrary <span class="math inline">\(x\in ^{-1}\big( \cap_{i\in I} B_i \big)\)</span><br />
-<span class="math inline">\(\iff f(x)\in \cup_{i\in I} B_i\)</span><br />
+<span class="math inline">\(\iff f(x)\in \cap_{i\in I} B_i\)</span><br />
 <span class="math inline">\(\iff\forall i\)</span>, <span class="math inline">\(f(x)\in B_i\)</span><br />
 <span class="math inline">\(\iff\forall i\)</span>, <span class="math inline">\(x\in f^{-1}(B_i)\)</span><br />
 <span class="math inline">\(\iff x\in \cap_{i\in I} f^{-1}(B_i)\)</span></li>
@@ -704,7 +714,7 @@ Take arbitary <span class="math inline">\(x\in A \subset U\)</span><br />
 <span class="math inline">\(\implies f^{ -1 } \big( f ( A ) \big) = \emptyset \supset A\)</span></li>
 </ol>
 <blockquote>
-<p>textbook P22<br />
+<p>textbook P22 Theorem 4.3<br />
 Let <span class="math inline">\(f: X\to Y\)</span> be a function, <span class="math inline">\(A_i\)</span>, <span class="math inline">\(i\in I\)</span> subsets of <span class="math inline">\(X\)</span>,<br />
 Prove:<br />
 1. <span class="math inline">\(f\big( \cup_{i\in I} A_i\big) = \cup_{i\in I}f(A_i)\)</span><br />
@@ -712,7 +722,15 @@ Prove:<br />
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Take arbitrary <span class="math inline">\(y\in f\big( \cup_{i\in I} A_i\big)\)</span><br />
-<span class="math inline">\(\iff\)</span></li>
+<span class="math inline">\(\iff\exists x\in \cup_{i\in I} A_i\)</span> s.t. <span class="math inline">\(y = f(x)\)</span><br />
+<span class="math inline">\(\iff\exists i\in I\)</span> s.t. <span class="math inline">\(y = f(x)\in f(A_i)\)</span><br />
+<span class="math inline">\(\iff y\in \cup_{i\in I}f(A_i)\)</span><br />
+</li>
+<li>Take arbitrary <span class="math inline">\(y\in f\big( \cap_{i\in I} A_i\big)\)</span><br />
+<span class="math inline">\(\iff\exists x\in \cap_{i\in I} A_i\)</span> s.t. <span class="math inline">\(y = f(x)\)</span><br />
+<span class="math inline">\(\implies\forall i\in I\)</span>, <span class="math inline">\(\exists x_i\in A_i\)</span> s.t. <span class="math inline">\(y = f(x_i)\)</span><br />
+<span class="math inline">\(\iff\forall i\in I\)</span>, <span class="math inline">\(y\in f(A_i)\)</span><br />
+<span class="math inline">\(\iff y\in\cap_{i\in I}f(A_i)\)</span></li>
 </ol>
 <blockquote>
 <p>PS9.Q5<br />
@@ -1367,6 +1385,12 @@ Prove <span class="math inline">\(\mathbb{Q}\)</span> is countable</p>
 </div>
 <div id="sequence" class="section level2">
 <h2>Sequence</h2>
+<ul>
+<li>Sequence <span class="math inline">\(\{x_n\}\)</span> is a function <span class="math inline">\(s\)</span> from <span class="math inline">\(\mathcal{N}\)</span> to some set <span class="math inline">\(X\)</span></li>
+<li><span class="math inline">\(x_i = s(i)\)</span> denotes the <span class="math inline">\(i\)</span>-th value of the sequence</li>
+<li>Let <span class="math inline">\(g: \mathcal{N}\to\mathcal{N}\)</span> be a strictly increasing function,<br />
+<span class="math inline">\(h(k) = s\big(g(k)\big)\)</span> is a subsequence of <span class="math inline">\(s\)</span>, denoted as <span class="math inline">\(\{x_{n_k}\}\)</span></li>
+</ul>
 <div id="un-bounded" class="section level3">
 <h3>(Un-)bounded</h3>
 <blockquote>
