@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">38 min read</span>
+    <span class="article-duration">40 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -300,7 +300,10 @@ Prove that <span class="math inline">\(R\)</span> is a complete order</p>
 <div id="space" class="section level2">
 <h2>Space</h2>
 <ul>
-<li>norm <span class="math inline">\(\supset\)</span> (induces) metric</li>
+<li>Norm <span class="math inline">\(\implies\)</span> (generates) Metric (Distance)
+<ul>
+<li>Norm <span class="math inline">\(\neq\)</span> Distance</li>
+</ul></li>
 <li>metric space <span class="math inline">\(\supset\)</span> complete (Cauchy) space <span class="math inline">\(\supset\)</span> Banach (complete normed vector) space</li>
 <li>vector (linear) space <span class="math inline">\(\supset\)</span> normed vector space <span class="math inline">\(\supset\)</span> Banach space <span class="math inline">\(\supset\)</span> Euclidean space</li>
 </ul>
@@ -311,6 +314,7 @@ Prove that <span class="math inline">\(R\)</span> is a complete order</p>
 <div id="distance" class="section level3">
 <h3>Distance</h3>
 <ul>
+<li>Distance given by Euclidean Norm: <span class="math inline">\(d(x,y) = \|x-y\| = \sqrt{\sum(x_i-y_i)^2}\)</span></li>
 <li>Triangle Inequality:<br />
 Real numbers: <span class="math inline">\(|x+y|\leq |x|+|y|\)</span><br />
 Distance: <span class="math inline">\(d(x,y) + d(y,z) \geq d(x,z)\)</span></li>
@@ -373,14 +377,51 @@ Therefore,<br />
 <li><span class="math inline">\(| u\cdot v | \leq \|u\| \cdot \|v\|\)</span></li>
 </ul>
 <blockquote>
-<p>PS5.Q4<br />
+<p>Approach 1<br />
+textbook P42 Theorem 1.6<br />
+Prove <span class="math inline">\(\big( \sum x_i \cdot y_i\big)^2 \leq \big( \sum x_i^2\big)\big( \sum y_i^2\big)\)</span></p>
+</blockquote>
+<p>Take arbitrary vectors <span class="math inline">\(x\)</span>, <span class="math inline">\(y\in \mathbb{R}^n\)</span><br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} (x-λy)&#39;(x-λy) \\ &amp;= x&#39;x - 2λ\cdot x&#39;y + λ^2\cdot y&#39;y \geq 0 \end{aligned}\]</span>
+Let <span class="math inline">\(λ = \frac{x&#39;y}{y&#39;y}\)</span><br />
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg} x&#39;x - 2λ\cdot x&#39;y + λ^2\cdot y&#39;y \\
+&amp;= x&#39;x - 2\cdot\frac{x&#39;y}{y&#39;y}\cdot x&#39;y + \Big(\frac{x&#39;y}{y&#39;y}\Big)^2\cdot y&#39;y \\
+&amp;= x&#39;x - 2\cdot\frac{(x&#39;y)^2}{y&#39;y} + (x&#39;y)^2 \geq 0\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} x&#39;x\cdot y&#39;y - (x&#39;y)^2 &amp;\geq 0 \\
+x&#39;x\cdot y&#39;y &amp;\geq (x&#39;y)^2 \\
+(x&#39;y)^2 &amp;\leq x&#39;x\cdot y&#39;y \\
+\big( \textstyle{\sum} x_i \cdot y_i\big)^2 &amp;\leq \textstyle{\sum} x_i^2 \cdot \textstyle{\sum} y_i^2\end{aligned}\]</span>
+Which also implies<br />
+<span class="math display">\[\textstyle{\sum} x_i \cdot y_i \leq \sqrt{\textstyle{\sum} x_i^2} \cdot \sqrt{\textstyle{\sum} y_i^2}\]</span></p>
+<blockquote>
+<p>Approach 2<br />
+PS5.Q4<br />
 Prove the Cauchy-Schwarz inequality for <span class="math inline">\(\mathbb{R}^2\)</span></p>
 </blockquote>
 <p>Let <span class="math inline">\(u = (u_1, u_2), v = (v_1, v_2)\)</span><br />
-<span class="math inline">\(\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\)</span>, <span class="math inline">\(| u\cdot v | = | u_1 v_1 + u_2 v_2 |\)</span><br />
+<span class="math inline">\(\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\)</span><br />
+<span class="math inline">\(| u\cdot v | = | u_1 v_1 + u_2 v_2 |\)</span><br />
 Assume Cauchy-Schwarz inequality is true<br />
-<span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}\\ u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2)\\ 0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} | u_1 v_1 + u_2 v_2 | &amp;\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2} \\
+u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &amp;\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2) \\
+0 &amp;\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &amp;=(u_1v_2-u_2v_1)^2\end{aligned}\]</span>
 Since the last line is obviously true, all previous statements are true</p>
+<blockquote>
+<p>textbook P42<br />
+Verify triangle inequality for Euclidean norm</p>
+</blockquote>
+<p>Take arbitrary vectors <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(z\in \mathbb{R}^n\)</span><br />
+<span class="math display">\[\begin{aligned} d(x,z) &amp;= \sqrt{\textstyle{\sum}(x_i - z_i)^2} \\
+\big(d(x,z)\big)^2 &amp;= \textstyle{\sum}(x_i - z_i)^2 \\
+&amp;= \textstyle{\sum}(x_i - y_i + y_i - z_i)^2 \\
+&amp;= \textstyle{\sum}(x_i - y_i)^2 + \textstyle{\sum}(y_i - z_i)^2 + 2\cdot\textstyle{\sum}(x_i - y_i)(y_i - z_i) \\
+&amp;\leq \textstyle{\sum}(x_i - y_i)^2 + \textstyle{\sum}(y_i - z_i)^2 + 2\cdot\sqrt{\textstyle{\sum}(x_i - y_i)^2}\cdot\sqrt{\textstyle{\sum}(y_i - z_i)^2} \\
+&amp;= \big(d(x,y)\big)^2 + \big(d(y,z)\big)^2 + 2\cdot d(x,y)\cdot d(y,z) \\
+&amp;= \big(d(x,y) + d(y,z)\big)^2 \\\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} \big(d(x,z)\big)^2 &amp;\leq \big(d(x,y) + d(y,z)\big)^2 \\
+d(x,z) &amp;\leq d(x,y) + d(y,z)\end{aligned}\]</span></p>
 </div>
 </div>
 <div id="set-collection-operation" class="section level2">
