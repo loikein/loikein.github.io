@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">40 min read</span>
+    <span class="article-duration">41 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematical Proofs</h1>
@@ -108,10 +108,11 @@
 <li><a href="#set">Set</a><ul>
 <li><a href="#open-closed">Open / Closed</a></li>
 <li><a href="#closure-interior-boundary">Closure &amp; Interior &amp; Boundary</a></li>
+<li><a href="#compact">Compact</a></li>
 <li><a href="#convex">Convex</a></li>
 <li><a href="#maximum-supremum">Maximum &amp; Supremum</a></li>
 <li><a href="#dense">Dense</a></li>
-<li><a href="#path-connected">(Path-)Connected</a></li>
+<li><a href="#separated-connected">Separated / Connected</a></li>
 </ul></li>
 <li><a href="#function">Function</a><ul>
 <li><a href="#image">Image</a></li>
@@ -607,6 +608,16 @@ Since <span class="math inline">\(x\notin B \implies x \in B^C\)</span><br />
 <span class="math inline">\(\implies B^C\)</span> is not open<br />
 <span class="math inline">\(\implies B\)</span> is not closed (contradiction)</p>
 </div>
+<div id="compact" class="section level3">
+<h3>Compact</h3>
+<ul>
+<li>Compact = Closed + Bounded (in metric space)
+<ul>
+<li>Closed subset of compact set is compact</li>
+<li>For compact set <span class="math inline">\(A\subset X\)</span>, if <span class="math inline">\(f: X\to Y\)</span> is continuous, then <span class="math inline">\(f(A)\)</span> is compact</li>
+</ul></li>
+</ul>
+</div>
 <div id="convex" class="section level3">
 <h3>Convex</h3>
 <blockquote>
@@ -705,13 +716,22 @@ Take the largest integer <span class="math inline">\(n\)</span> s.t. <span class
 <span class="math inline">\(\implies \frac{n+1}{N} \in B_ε(x)\)</span><br />
 <span class="math inline">\(\frac{n+1}{N} \in \mathbb{Q} \implies B_ε(x) \cap \mathbb{Q} \neq \emptyset\)</span></p>
 </div>
-<div id="path-connected" class="section level3">
-<h3>(Path-)Connected</h3>
+<div id="separated-connected" class="section level3">
+<h3>Separated / Connected</h3>
 <ul>
-<li>Set <span class="math inline">\(A\)</span> is connected if do not exist open sets <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> s.t. <span class="math inline">\(B\cap C = \emptyset\)</span>, <span class="math inline">\(A\cap B\neq\emptyset\)</span>, <span class="math inline">\(A\cap C\neq\emptyset\)</span>, and <span class="math inline">\(A\subset B\cup C\)</span></li>
-<li>Let <span class="math inline">\(A\)</span> be open, <span class="math inline">\(A\)</span> is connected <span class="math inline">\(\iff\)</span> for all <span class="math inline">\(x,y\in A\)</span>, exists path function: <span class="math inline">\(f\in\mathcal{C}: [0,1]\to A\)</span><br />
-s.t. <span class="math inline">\(f(0) = x\)</span> and <span class="math inline">\(f(1) = y\)</span></li>
-<li>Reference: <a href="https://maths.ucd.ie/courses/mst3013/resources/l/4/mst3013CapFour11.pdf">Path-Connected Sets</a></li>
+<li>Set <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> are separated if <span class="math inline">\(A\cap\bar{B} = B\cap\bar{A} = \emptyset\)</span></li>
+<li>Set <span class="math inline">\(A\)</span> is connected if do not exist open sets <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> s.t. <span class="math inline">\(B\cap C = \emptyset\)</span>, <span class="math inline">\(A\cap B\neq\emptyset\)</span>, <span class="math inline">\(A\cap C\neq\emptyset\)</span>, and <span class="math inline">\(A\subset B\cup C\)</span>
+<ul>
+<li>or: if <span class="math inline">\(A\)</span> is not the union of two non-empty separated sets</li>
+</ul></li>
+<li>Let <span class="math inline">\(A\)</span> be open, <span class="math inline">\(A\)</span> is path-connected if for all <span class="math inline">\(x,y\in A\)</span>,<br />
+exists path function: <span class="math inline">\(f\in\mathcal{C}: [0,1]\to A\)</span> s.t. <span class="math inline">\(f(0) = x\)</span> and <span class="math inline">\(f(1) = y\)</span>
+<ul>
+<li>Path-connected <span class="math inline">\(\iff\)</span> connected</li>
+<li>Reference: <a href="https://maths.ucd.ie/courses/mst3013/resources/l/4/mst3013CapFour11.pdf">Path-Connected Sets</a>, <a href="http://mathworld.wolfram.com/Pathwise-Connected.html">Pathwise-Connected</a>, <a href="http://mathworld.wolfram.com/Arcwise-Connected.html">Arcwise-Connected</a><br />
+</li>
+</ul></li>
+<li>For connected set <span class="math inline">\(A\subset X\)</span>, if <span class="math inline">\(f: X\to Y\)</span> is continuous, then <span class="math inline">\(f(A)\)</span> is connected</li>
 </ul>
 </div>
 </div>
@@ -992,8 +1012,14 @@ Show that if <span class="math inline">\(f(0)&gt;0\)</span>, then <span class="m
 <h3>Contraction</h3>
 <ul>
 <li>Function <span class="math inline">\(f: X\to X\)</span> is a contraction of modulus <span class="math inline">\(λ\)</span><br />
-if for all <span class="math inline">\(x,x&#39;\in X\)</span>, <span class="math inline">\(d\big(f(x), f(x&#39;)\big) \leq λ d(x,x&#39;)\)</span> for some <span class="math inline">\(λ \in [0,1)\)</span>,</li>
+if for all <span class="math inline">\(x,x&#39;\in X\)</span>, <span class="math inline">\(d\big(f(x), f(x&#39;)\big) \leq λ d(x,x&#39;)\)</span> for some <span class="math inline">\(λ \in [0,1)\)</span></li>
+<li>Contraction Mapping Theorem: if <span class="math inline">\(f: X\to X\)</span> is a contraction, and <span class="math inline">\(X\)</span> is complete,<br />
+then <span class="math inline">\(f\)</span> has a unique fixed point</li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-math-proof--contraction-fixed-point.png" alt="Contraction Mapping, textbook P86 Figure 2.11" />
+<p class="caption">Contraction Mapping, textbook P86 Figure 2.11</p>
+</div>
 <blockquote>
 <p>PS9.Q1<br />
 Prove that if <span class="math inline">\(f\)</span> is contraction, then it is continuous</p>
