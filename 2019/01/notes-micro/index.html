@@ -88,15 +88,18 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#preference">Preference</a></li>
-<li><a href="#utility-function">Utility Function</a><ul>
+<li><a href="#preference">Preference</a><ul>
+<li><a href="#utility-function">Utility Function</a></li>
 <li><a href="#continuous-preference">Continuous Preference</a></li>
 </ul></li>
 <li><a href="#choice">Choice</a><ul>
-<li><a href="#choice-function">Choice Function</a></li>
-<li><a href="#rational-choice-function">Rational Choice Function</a></li>
+<li><a href="#revealed-preference-relation">Revealed Preference Relation</a></li>
 <li><a href="#warp-weak-axiom-of-revealed-preference">WARP (Weak Axiom of Revealed Preference)</a></li>
 <li><a href="#sarp-strong-axiom-of-revealed-preference">SARP (Strong Axiom of Revealed Preference)</a></li>
+</ul></li>
+<li><a href="#preference-choice">Preference × Choice</a><ul>
+<li><a href="#rational-choice-function">Rational Choice Function</a></li>
+<li><a href="#rationalization">Rationalization</a></li>
 </ul></li>
 <li><a href="#consumer-preference">Consumer Preference</a><ul>
 <li><a href="#convex">Convex</a></li>
@@ -152,9 +155,9 @@ Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4
 <li>No order effect: <span class="math inline">\(f(x,y)=f(y,x)\)</span></li>
 <li>Transitivity: if <span class="math inline">\(f(x,y) = x \succ y\)</span> and <span class="math inline">\(f(y,z) = y \succ z\)</span>, then <span class="math inline">\(f(x,z) = x \succ z\)</span></li>
 </ul></li>
-<li>Preferences on a set <span class="math inline">\(X\)</span> is a binary relation <span class="math inline">\(\succsim\)</span> s.t. for any <span class="math inline">\(x, y\in X\)</span>:
+<li>(Rational) Preferences on a set <span class="math inline">\(X\)</span> is a binary relation <span class="math inline">\(\succsim\)</span> s.t. for any <span class="math inline">\(x, y\in X\)</span>:
 <ul>
-<li>Completeness: <span class="math inline">\(x \succsim y\)</span>, or <span class="math inline">\(y \succsim x\)</span></li>
+<li>Completeness: <span class="math inline">\(x \succsim y\)</span>, or <span class="math inline">\(y \succsim x\)</span>, or both</li>
 <li>Transitivity: if <span class="math inline">\(x \succsim y\)</span> and <span class="math inline">\(y \succsim z\)</span>, then <span class="math inline">\(x \succsim z\)</span></li>
 </ul></li>
 </ul>
@@ -276,9 +279,8 @@ And, for all <span class="math inline">\(x \succ^* x&#39;\in X\backslash x^*\)</
 <blockquote>
 <p>HM4 (omitted)</p>
 </blockquote>
-</div>
-<div id="utility-function" class="section level2">
-<h2>Utility Function</h2>
+<div id="utility-function" class="section level3">
+<h3>Utility Function</h3>
 <ul>
 <li>Utility function <span class="math inline">\(U: X\to \mathbb{R}\)</span> represents the preference relation <span class="math inline">\(\succsim\)</span> if <span class="math inline">\(x \succsim y \iff U(x)\geq U(y)\)</span></li>
 <li>If <span class="math inline">\(U\)</span> represents <span class="math inline">\(\succsim\)</span>, then for any strictly increasing <span class="math inline">\(f\)</span>, <span class="math inline">\(f\big( U(x)\big)\)</span> also represents <span class="math inline">\(\succsim\)</span></li>
@@ -298,6 +300,7 @@ U(x) &amp;= \begin{cases} x &amp; x\leq0 \\ x+1 &amp; x&gt;0 \end{cases}\end{ali
 <span class="math inline">\(\implies v\)</span> and <span class="math inline">\(u\)</span> give same results for comparison between any <span class="math inline">\(x, x&#39;\in X\)</span><br />
 Let <span class="math inline">\(f =\begin{cases} x &amp; x\leq 1 \\ x-1 &amp; x &gt; 1 \end{cases}\)</span><br />
 <span class="math inline">\(\implies f\big(U(x)\big) = V(x)\)</span>, but <span class="math inline">\(f\)</span> is not strictly monotonic</p>
+</div>
 <div id="continuous-preference" class="section level3">
 <h3>Continuous Preference</h3>
 <ul>
@@ -365,45 +368,29 @@ Therefore, <span class="math inline">\(u\)</span> satisfies (1) ~ (3) for <span 
 </div>
 <div id="choice" class="section level2">
 <h2>Choice</h2>
-<div id="choice-function" class="section level3">
-<h3>Choice Function</h3>
 <ul>
-<li>Choice function <span class="math inline">\(C\)</span> is defined on:
+<li>Choice function <span class="math inline">\(C(\cdot)\)</span> is defined on:
 <ul>
-<li>Context <span class="math inline">\((X,D)\)</span>: <span class="math inline">\(X\)</span> is the universe of all alternatives, <span class="math inline">\(D\)</span> is a set of feasibly possible subsets of <span class="math inline">\(X\)</span>, <span class="math inline">\(D \subset 2^X\)</span> (power set of <span class="math inline">\(X\)</span>)</li>
-<li>Domain: <span class="math inline">\(D\)</span></li>
+<li>Context <span class="math inline">\((X,D)\)</span>: <span class="math inline">\(X\)</span> is the universe of all alternatives,</li>
+<li>Domain: <span class="math inline">\(D\)</span>, a set of feasibly possible subsets of <span class="math inline">\(X\)</span>, <span class="math inline">\(D \subset 2^X\)</span> (power set)</li>
+<li>Choice structure: <span class="math inline">\((D, C(\cdot))\)</span></li>
 </ul></li>
-<li><span class="math inline">\(C\)</span> assigns the best element(s) <span class="math inline">\(C(A)\in A\)</span> to every possible situation <span class="math inline">\(A\in D\)</span>
+<li><span class="math inline">\(C(\cdot)\)</span>: correspondence, assigns the best element(s) <span class="math inline">\(C(A)\in A\)</span> to every choice problem <span class="math inline">\(A\in D\)</span>
 <ul>
 <li>If <span class="math inline">\(x,y\in C(A)\)</span>, then <span class="math inline">\(x\)</span> is revealed to be at least as good as <span class="math inline">\(y\)</span></li>
 <li>If <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\not\in C(A)\)</span>, then <span class="math inline">\(x\)</span> is revealed to be strictly better than <span class="math inline">\(y\)</span></li>
 </ul></li>
 </ul>
-</div>
-<div id="rational-choice-function" class="section level3">
-<h3>Rational Choice Function</h3>
+<div id="revealed-preference-relation" class="section level3">
+<h3>Revealed Preference Relation</h3>
+<p>(MWG Definition 1.C.2)</p>
 <ul>
-<li><span class="math inline">\(C_{\succsim}\)</span> is the choice function induced by <span class="math inline">\(\succsim\)</span> that assigns the <span class="math inline">\(\succsim\)</span>-best element of every <span class="math inline">\(A\in D\)</span></li>
-<li><span class="math inline">\(C\)</span> is rationalizable if there is a preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(C(A) = C_{\succsim}(A)\)</span> for every <span class="math inline">\(A\in D\)</span></li>
+<li>Given a choice function <span class="math inline">\(C\)</span> and domain <span class="math inline">\(D\)</span>, Revealed Preference Relation <span class="math inline">\(\succsim^*\)</span> is defined as<br />
+<span class="math inline">\(x\succsim^* y\iff\)</span> exists <span class="math inline">\(B\in D\)</span> s.t. <span class="math inline">\(x,y\in B\)</span> and <span class="math inline">\(x\in C(B)\)</span>
+<ul>
+<li><span class="math inline">\(\succsim^*\)</span> is not necessarily complete or transitive</li>
+</ul></li>
 </ul>
-<blockquote>
-<p>PS0.Q4<br />
-Claire’s choice behavior is represented by a choice function <span class="math inline">\(f: D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
-Assume:<br />
-<span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
-1. What does it mean that a choice function can be rationalized? (omitted)<br />
-2. Do the facts about <span class="math inline">\(f\)</span> imply that <span class="math inline">\(f\)</span> cannot be rationalized?</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Choice function <span class="math inline">\(C\)</span> can be rationalized if exists preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t.<br />
-for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\(C(A)\)</span> is strictly better than any other bundles in <span class="math inline">\(A\)</span><br />
-</li>
-<li>Yes.<br />
-<span class="math inline">\(f(\{a,b,c\}) = a \implies a\succ b\)</span><br />
-<span class="math inline">\(f(\{b,c,d\}) = b \implies b\succ c\)</span>, <span class="math inline">\(a\succ c\)</span><br />
-<span class="math inline">\(f(\{c,d,e\}) = c \implies c\succ d\)</span>, <span class="math inline">\(a\succ d\)</span><br />
-<span class="math inline">\(f(\{a,d,e\}) = d \implies d\succ a\)</span>, transitivity is violated.</li>
-</ol>
 </div>
 <div id="warp-weak-axiom-of-revealed-preference" class="section level3">
 <h3>WARP (Weak Axiom of Revealed Preference)</h3>
@@ -416,8 +403,52 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
 <li>Condition α: if <span class="math inline">\(a\in A\subset B\)</span>, and <span class="math inline">\(a\in C(B)\)</span>, then <span class="math inline">\(a\in C(A)\)</span></li>
 <li>Condition β: if <span class="math inline">\(a,b\in A\subset B\)</span>, <span class="math inline">\(a\in C(A)\)</span>, and <span class="math inline">\(b\in C(B)\)</span>, then also <span class="math inline">\(a\in C(B)\)</span></li>
 </ul>
+</div>
+<div id="sarp-strong-axiom-of-revealed-preference" class="section level3">
+<h3>SARP (Strong Axiom of Revealed Preference)</h3>
+<p>(slide 6 P113)</p>
+<ul>
+<li>Choice <span class="math inline">\(C\)</span> sattisfies SARP iff <span class="math inline">\(\succ_R\)</span> is acyclical: there is no <span class="math inline">\(x_1,x_2,\dots,x_k\)</span> s.t. <span class="math inline">\(x_1 \succ_R x_2 \succ_R\dots\succ_R x_k\succ_R x_1\)</span></li>
+</ul>
 <blockquote>
-<p>HM6<br />
+<p>PS0.Q4<br />
+Claire’s choice behavior is represented by a choice function <span class="math inline">\(f : D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
+Assume:<br />
+<span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
+3. Does <span class="math inline">\(f\)</span> satisfy the weak axiom of revealed preference?<br />
+4. Does <span class="math inline">\(f\)</span> satisfy the strong axiom of revealed preference?<br />
+5. What is the relationship between your answers to (2), (3), and (4)?</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>WARP: for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span><br />
+Since <span class="math inline">\(A\cap B\)</span> are all singletons, WARP is satisfied.<br />
+</li>
+<li>SARP: <span class="math inline">\(\succsim\)</span> is acyclical (violated)<br />
+</li>
+<li>Rationalizability <span class="math inline">\(\implies\)</span> SARP <span class="math inline">\(\implies\)</span> WARP</li>
+</ol>
+</div>
+</div>
+<div id="preference-choice" class="section level2">
+<h2>Preference × Choice</h2>
+<p>RBST P25, MWG 1.D</p>
+<div id="rational-choice-function" class="section level3">
+<h3>Rational Choice Function</h3>
+<ul>
+<li><span class="math inline">\(C_{\succsim}(\cdot)\)</span> is the choice function induced by rational preference <span class="math inline">\(\succsim\)</span> that assigns the <span class="math inline">\(\succsim\)</span>-best element of every <span class="math inline">\(A\in D\)</span></li>
+<li><span class="math inline">\(C_{\succsim}(\cdot)\)</span> satisfies WARP</li>
+</ul>
+</div>
+<div id="rationalization" class="section level3">
+<h3>Rationalization</h3>
+<ul>
+<li><span class="math inline">\(C(\cdot)\)</span> is rationalizable if there is a rational preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(C(A) = C_{\succsim}(A)\)</span> for every <span class="math inline">\(A\in D\)</span>
+<ul>
+<li>It is possible for some <span class="math inline">\(C(\cdot)\)</span> to be rationalized by multiple preference relations</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>HM6, MWG Proposition 1.D.2<br />
 Assume that <span class="math inline">\(C\)</span> is a choice correspondence with a domain that includes at least all subsets of size 2 or 3.<br />
 Prove that if <span class="math inline">\(C\)</span> satisfies WA, then there is a preference <span class="math inline">\(\succsim\)</span> so that <span class="math inline">\(C = C_{\succsim}\)</span>.</p>
 </blockquote>
@@ -446,37 +477,31 @@ If <span class="math inline">\(x\neq y\implies x\in C_{\succsim}(A)\)</span><br 
 <span class="math inline">\(\implies x\in C(A)\)</span></li>
 </ol></li>
 </ol>
-</div>
-<div id="sarp-strong-axiom-of-revealed-preference" class="section level3">
-<h3>SARP (Strong Axiom of Revealed Preference)</h3>
-<p>(slide 6 P113)</p>
-<ul>
-<li>Choice <span class="math inline">\(C\)</span> sattisfies SARP iff <span class="math inline">\(\succ_R\)</span> is acyclical: there is no <span class="math inline">\(x_1,x_2,\dots,x_k\)</span> s.t. <span class="math inline">\(x_1 \succ_R x_2 \succ_R\dots\succ_R x_k\succ_R x_1\)</span></li>
-</ul>
 <blockquote>
 <p>PS0.Q4<br />
-Claire’s choice behavior is represented by a choice function <span class="math inline">\(f : D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
+Claire’s choice behavior is represented by a choice function <span class="math inline">\(f: D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
 Assume:<br />
 <span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
-3. Does <span class="math inline">\(f\)</span> satisfy the weak axiom of revealed preference?<br />
-4. Does <span class="math inline">\(f\)</span> satisfy the strong axiom of revealed preference?<br />
-5. What is the relationship between your answers to (2), (3), and (4)?</p>
+1. What does it mean that a choice function can be rationalized? (omitted)<br />
+2. Do the facts about <span class="math inline">\(f\)</span> imply that <span class="math inline">\(f\)</span> cannot be rationalized?</p>
 </blockquote>
-<ol start="3" style="list-style-type: decimal">
-<li>WARP: for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span><br />
-Since <span class="math inline">\(A\cap B\)</span> are all singletons, WARP is satisfied.<br />
+<ol style="list-style-type: decimal">
+<li>Choice function <span class="math inline">\(C\)</span> can be rationalized if exists preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t.<br />
+for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\(C(A)\)</span> is strictly better than any other bundles in <span class="math inline">\(A\)</span><br />
 </li>
-<li>SARP: <span class="math inline">\(\succsim\)</span> is acyclical (violated)<br />
-</li>
-<li>Rationalizability <span class="math inline">\(\implies\)</span> SARP <span class="math inline">\(\implies\)</span> WARP</li>
+<li>Yes.<br />
+<span class="math inline">\(f(\{a,b,c\}) = a \implies a\succ b\)</span><br />
+<span class="math inline">\(f(\{b,c,d\}) = b \implies b\succ c\)</span>, <span class="math inline">\(a\succ c\)</span><br />
+<span class="math inline">\(f(\{c,d,e\}) = c \implies c\succ d\)</span>, <span class="math inline">\(a\succ d\)</span><br />
+<span class="math inline">\(f(\{a,d,e\}) = d \implies d\succ a\)</span>, transitivity is violated.</li>
 </ol>
 </div>
 </div>
 <div id="consumer-preference" class="section level2">
 <h2>Consumer Preference</h2>
 <ul>
-<li>Universe: <span class="math inline">\(X = \mathbb{R}^K_+\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\big\{(x_1, x_2,\dots, x_K) \ | \ x_k\geq 0 \big\}\)</span></li>
-<li>Bundle: <span class="math inline">\(x = (x_1, x_2,\dots, x_K) \in X\)</span>, where <span class="math inline">\(x_k\)</span> represents the quantity of good <span class="math inline">\(k\)</span></li>
+<li>Commodity Space: <span class="math inline">\(X \subset \mathbb{R}^K_+\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\big\{ x = (x_1, x_2,\dots, x_K) \ | \ x_k\geq 0 \big\}\)</span></li>
+<li>Bundle: <span class="math inline">\(x = (x_1, x_2,\dots, x_K) \in X\)</span>, (vertical vector), where <span class="math inline">\(x_k\)</span> represents the quantity of commodity <span class="math inline">\(k\)</span></li>
 <li>Preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> satisfies:
 <ul>
 <li>Strong monotonicity: if <span class="math inline">\(x_k\geq y_k\)</span> for all <span class="math inline">\(k\)</span> and <span class="math inline">\(x\neq y\)</span>, then <span class="math inline">\(x\succ y\)</span>, for all <span class="math inline">\(y\)</span></li>
