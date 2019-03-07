@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">35 min read</span>
+    <span class="article-duration">36 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -107,12 +107,14 @@
 <li><a href="#quasi-linear-preference">Quasi-Linear Preference</a></li>
 <li><a href="#differentiable-preference">Differentiable Preference</a></li>
 </ul></li>
-<li><a href="#demand">Demand</a><ul>
-<li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
+<li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
 <li><a href="#demand-function">Demand Function</a></li>
-<li><a href="#rational-demand-function">Rational Demand Function</a></li>
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
 <li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
+</ul></li>
+<li><a href="#consumer-preference-demand">Consumer Preference × Demand</a><ul>
+<li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
+<li><a href="#rational-demand-function">Rational Demand Function</a></li>
 <li><a href="#indirect-preference-over-budget-sets">Indirect Preference (Over Budget Sets)</a></li>
 </ul></li>
 <li><a href="#dual-consumer">Dual Consumer</a><ul>
@@ -504,6 +506,7 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
 <li>Bundle: <span class="math inline">\(x = (x_1, x_2,\dots, x_K) \in X\)</span>, (vertical vector), where <span class="math inline">\(x_k\)</span> represents the quantity of commodity <span class="math inline">\(k\)</span></li>
 <li>Preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> satisfies:
 <ul>
+<li>Rationality: Completeness + Transitivity</li>
 <li>Strong monotonicity: if <span class="math inline">\(x_k\geq y_k\)</span> for all <span class="math inline">\(k\)</span> and <span class="math inline">\(x\neq y\)</span>, then <span class="math inline">\(x\succ y\)</span>, for all <span class="math inline">\(y\)</span></li>
 <li>Contiuity: <span class="math inline">\(x\succ y\implies x&#39; \succ y&#39;\)</span> for all <span class="math inline">\(d(x,x&#39;)&lt;ε\)</span> and <span class="math inline">\(d(y,y&#39;)&lt;ε\)</span>, for some <span class="math inline">\(ε&gt;0\)</span></li>
 <li>Convexity</li>
@@ -547,7 +550,10 @@ Contradiction.</li>
 <div id="convex" class="section level3">
 <h3>Convex</h3>
 <ul>
-<li>Convexity: <span class="math inline">\(x\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)y\succsim y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span></li>
+<li>Convexity: <span class="math inline">\(x\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)y\succsim y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span>
+<ul>
+<li><strong>Convex + Monotonic + Continuous</strong> preference relations can be represented by <strong>Quasi-concave</strong> utility function</li>
+</ul></li>
 <li>Strict convexity: <span class="math inline">\(x, x&#39;\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)x&#39;\succ y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span></li>
 </ul>
 </div>
@@ -604,8 +610,8 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <p><img src="/post-img/notes-micro--hm7.png" width="512" /></p>
 </div>
 </div>
-<div id="demand" class="section level2">
-<h2>Demand</h2>
+<div id="demand-consumer-choice" class="section level2">
+<h2>Demand (Consumer Choice)</h2>
 <ul>
 <li>Budget set: <span class="math inline">\(B(p,w) = \{x\in X \ | \ p\cdot x\leq w\}\)</span> (non-empty, compact)</li>
 <li>Consumer problem: find the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span>
@@ -616,43 +622,6 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <li>If <span class="math inline">\(\succsim\)</span> is strictly convex, then the consumer problem has at most one solution</li>
 </ul></li>
 </ul>
-<div id="demand-with-differentiable-preference" class="section level3">
-<h3>Demand with Differentiable Preference</h3>
-<ul>
-<li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution to the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
-<li>If <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k, x^*_j &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k} = \frac{v_j(x^*)}{p_j}\)</span>
-<ul>
-<li><span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> only when <span class="math inline">\(x^*\)</span> is a corner solution (see HM8)</li>
-</ul></li>
-<li>Marginal utility: <span class="math inline">\(v_k(x^*) = \frac{\partial U}{\partial x_k}(x^*)\)</span></li>
-</ul>
-<blockquote>
-<p>HM8<br />
-Assume the solution to consumer problem is <span class="math inline">\(x^* = (x_1^*, x_2^*)\)</span> s.t. <span class="math inline">\(x_1^* &gt; 0\)</span> and <span class="math inline">\(x_2^* = 0\)</span>,<br />
-The preference is differentiable at <span class="math inline">\(x^*\)</span> with some <span class="math inline">\(v(x)\)</span>.<br />
-Show that <span class="math inline">\(\frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
-</blockquote>
-<p>Slope of budget line (frontier of budget set): <span class="math inline">\(-\frac{p_1}{p_2}\)</span><br />
-Let <span class="math inline">\(v&#39; = α\cdot (p_1,p_2)\)</span><br />
-<span class="math inline">\(\implies v&#39;\)</span> is orthogonal to the budget line<br />
-<span class="math inline">\(\implies \frac{v_1&#39;}{p_1} = \frac{v_2&#39;}{p_2}\)</span><br />
-Since <span class="math inline">\(x^*\)</span> is a solution, <span class="math inline">\(v = (v_1,v_2)\)</span> s.t. <span class="math inline">\(v_1 &gt; 0\)</span><br />
-<span class="math inline">\(\implies \frac{v_1}{p_1} = \frac{v_1&#39;}{p_1}\)</span>, <span class="math inline">\(\frac{v_2}{p_2} \geq \frac{v_2&#39;}{p_2}\)</span><br />
-<span class="math inline">\(\implies \frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
-<p><img src="/post-img/notes-micro--hm8.png" width="363" /></p>
-<blockquote>
-<p>HM9<br />
-Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem <span class="math inline">\(B(p,w)\)</span>,<br />
-Prove that if the preferences are represented by a utility function <span class="math inline">\(U\)</span> that is differentiable at <span class="math inline">\(x^*\)</span>,<br />
-then for any commodity <span class="math inline">\(k\)</span> with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span>,<br />
-<span class="math display">\[\frac{\partial_kU(x^*)}{p_k} \geq \frac{\partial_lU(x^*)}{p_l}\]</span></p>
-</blockquote>
-<p>FSOC assume that <span class="math inline">\(\frac{\partial_kU(x^*)}{p_k} &lt; \frac{\partial_lU(x^*)}{p_l}\)</span><br />
-<span class="math inline">\(\implies \partial_lU(x^*)\cdot\frac{p_k}{p_l} - \partial_kU(x^*) &gt; 0\)</span><br />
-<span class="math inline">\(\implies\)</span> reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(1\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(\frac{p_k}{p_l}\)</span> is an improvement<br />
-Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(ε\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(ε\cdot\frac{p_k}{p_l}\)</span> for some small <span class="math inline">\(ε&gt;0\)</span> is feasible and is an improvement<br />
-<span class="math inline">\(\implies\)</span> contradiction to <span class="math inline">\(x^*\)</span> is a solution to <span class="math inline">\(B(p,w)\)</span></p>
-</div>
 <div id="demand-function" class="section level3">
 <h3>Demand Function</h3>
 <ul>
@@ -661,35 +630,6 @@ Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="m
 <li>If <span class="math inline">\(\succsim\)</span> is monotonic, then <span class="math inline">\(p\cdot x(p,w) = w\)</span> (<strong>Walras Law</strong>)</li>
 <li>If <span class="math inline">\(\succsim\)</span> is monotonic, then <span class="math inline">\(x(p,w)\)</span> is continuous in <span class="math inline">\(p,w\)</span></li>
 </ul>
-</div>
-<div id="rational-demand-function" class="section level3">
-<h3>Rational Demand Function</h3>
-<ul>
-<li><span class="math inline">\(x(p,w)\)</span> is rationalizable if there is a preference relation <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(x(p,w)\)</span> is the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
-<li><span class="math inline">\(\succsim\)</span> fully rationalizes <span class="math inline">\(x(p,w)\)</span> if <span class="math inline">\(x(p,w)\)</span> is the unique <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
-</ul>
-<blockquote>
-<p>HM10<br />
-Find preferences rationalizing the following behaviors:<br />
-1. A consumer chooses bundle <span class="math inline">\((z,z,\dots, z)\)</span>, where <span class="math inline">\(z\cdot\sum^K_{k=1} p_k = w\)</span><br />
-2. A consumer spends <span class="math inline">\(w\cdot α_k\)</span> on commodity <span class="math inline">\(k\)</span>, where <span class="math inline">\(\sum^K_{k=1} α_k = 1\)</span></p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(U = \min\{ x_1, x_2,\dots, x_K\}\)</span></li>
-<li><span class="math inline">\(U = x_1^{α_1}\cdot x_2^{α_2}\cdot\dots\cdot x_K^{α_K}\)</span></li>
-</ol>
-<blockquote>
-<p>PS0.Q8<br />
-It is common practice in economics to view aggregate demand as being derived from the behavior of a representative consumer choosing bundles according to some preference <span class="math inline">\(\succ\)</span>.<br />
-Give an example where aggregate consumption cannot be rationalized even though individual consumption by each consumer can be.</p>
-</blockquote>
-<p>Consider the case of two goods and two consumers with wealth w = 12<br />
-Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p_1 =1\)</span>, <span class="math inline">\(p2 =2\)</span>,<br />
-<span class="math inline">\(B_2\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p1 =2\)</span>, <span class="math inline">\(p2 =1\)</span></p>
-<p><img src="/post-img/notes-micro--PS0Q8.png" width="524" /></p>
-<p>A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
-while two consumers separately choosing them will not.<br />
-Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 </div>
 <div id="warp-revisited" class="section level3">
 <h3>WARP (revisited)</h3>
@@ -769,6 +709,75 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 <span class="math inline">\(\implies x_1\)</span> decreases for an increase of <span class="math inline">\(p_1\)</span>, contradiction.</li>
 </ol>
 </div>
+</div>
+<div id="consumer-preference-demand" class="section level2">
+<h2>Consumer Preference × Demand</h2>
+<div id="demand-with-differentiable-preference" class="section level3">
+<h3>Demand with Differentiable Preference</h3>
+<ul>
+<li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution to the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
+<li>If <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k, x^*_j &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k} = \frac{v_j(x^*)}{p_j}\)</span>
+<ul>
+<li><span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> only when <span class="math inline">\(x^*\)</span> is a corner solution (see HM8)</li>
+</ul></li>
+<li>Marginal utility: <span class="math inline">\(v_k(x^*) = \frac{\partial U}{\partial x_k}(x^*)\)</span></li>
+</ul>
+<blockquote>
+<p>HM8<br />
+Assume the solution to consumer problem is <span class="math inline">\(x^* = (x_1^*, x_2^*)\)</span> s.t. <span class="math inline">\(x_1^* &gt; 0\)</span> and <span class="math inline">\(x_2^* = 0\)</span>,<br />
+The preference is differentiable at <span class="math inline">\(x^*\)</span> with some <span class="math inline">\(v(x)\)</span>.<br />
+Show that <span class="math inline">\(\frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
+</blockquote>
+<p>Slope of budget line (frontier of budget set): <span class="math inline">\(-\frac{p_1}{p_2}\)</span><br />
+Let <span class="math inline">\(v&#39; = α\cdot (p_1,p_2)\)</span><br />
+<span class="math inline">\(\implies v&#39;\)</span> is orthogonal to the budget line<br />
+<span class="math inline">\(\implies \frac{v_1&#39;}{p_1} = \frac{v_2&#39;}{p_2}\)</span><br />
+Since <span class="math inline">\(x^*\)</span> is a solution, <span class="math inline">\(v = (v_1,v_2)\)</span> s.t. <span class="math inline">\(v_1 &gt; 0\)</span><br />
+<span class="math inline">\(\implies \frac{v_1}{p_1} = \frac{v_1&#39;}{p_1}\)</span>, <span class="math inline">\(\frac{v_2}{p_2} \geq \frac{v_2&#39;}{p_2}\)</span><br />
+<span class="math inline">\(\implies \frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
+<p><img src="/post-img/notes-micro--hm8.png" width="363" /></p>
+<blockquote>
+<p>HM9<br />
+Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem <span class="math inline">\(B(p,w)\)</span>,<br />
+Prove that if the preferences are represented by a utility function <span class="math inline">\(U\)</span> that is differentiable at <span class="math inline">\(x^*\)</span>,<br />
+then for any commodity <span class="math inline">\(k\)</span> with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span>,<br />
+<span class="math display">\[\frac{\partial_kU(x^*)}{p_k} \geq \frac{\partial_lU(x^*)}{p_l}\]</span></p>
+</blockquote>
+<p>FSOC assume that <span class="math inline">\(\frac{\partial_kU(x^*)}{p_k} &lt; \frac{\partial_lU(x^*)}{p_l}\)</span><br />
+<span class="math inline">\(\implies \partial_lU(x^*)\cdot\frac{p_k}{p_l} - \partial_kU(x^*) &gt; 0\)</span><br />
+<span class="math inline">\(\implies\)</span> reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(1\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(\frac{p_k}{p_l}\)</span> is an improvement<br />
+Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(ε\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(ε\cdot\frac{p_k}{p_l}\)</span> for some small <span class="math inline">\(ε&gt;0\)</span> is feasible and is an improvement<br />
+<span class="math inline">\(\implies\)</span> contradiction to <span class="math inline">\(x^*\)</span> is a solution to <span class="math inline">\(B(p,w)\)</span></p>
+</div>
+<div id="rational-demand-function" class="section level3">
+<h3>Rational Demand Function</h3>
+<ul>
+<li><span class="math inline">\(x(p,w)\)</span> is rationalizable if there is a preference relation <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(x(p,w)\)</span> is the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
+<li><span class="math inline">\(\succsim\)</span> fully rationalizes <span class="math inline">\(x(p,w)\)</span> if <span class="math inline">\(x(p,w)\)</span> is the unique <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
+</ul>
+<blockquote>
+<p>HM10<br />
+Find preferences rationalizing the following behaviors:<br />
+1. A consumer chooses bundle <span class="math inline">\((z,z,\dots, z)\)</span>, where <span class="math inline">\(z\cdot\sum^K_{k=1} p_k = w\)</span><br />
+2. A consumer spends <span class="math inline">\(w\cdot α_k\)</span> on commodity <span class="math inline">\(k\)</span>, where <span class="math inline">\(\sum^K_{k=1} α_k = 1\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(U = \min\{ x_1, x_2,\dots, x_K\}\)</span></li>
+<li><span class="math inline">\(U = x_1^{α_1}\cdot x_2^{α_2}\cdot\dots\cdot x_K^{α_K}\)</span></li>
+</ol>
+<blockquote>
+<p>PS0.Q8<br />
+It is common practice in economics to view aggregate demand as being derived from the behavior of a representative consumer choosing bundles according to some preference <span class="math inline">\(\succ\)</span>.<br />
+Give an example where aggregate consumption cannot be rationalized even though individual consumption by each consumer can be.</p>
+</blockquote>
+<p>Consider the case of two goods and two consumers with wealth w = 12<br />
+Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p_1 =1\)</span>, <span class="math inline">\(p_2 =2\)</span>,<br />
+<span class="math inline">\(B_2\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p_1 =2\)</span>, <span class="math inline">\(p_2 =1\)</span></p>
+<p><img src="/post-img/notes-micro--PS0Q8.png" width="524" /></p>
+<p>A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
+while two consumers separately choosing them will not.<br />
+Therefore, aggregate consumption cannot be rationalized in this setting.</p>
+</div>
 <div id="indirect-preference-over-budget-sets" class="section level3">
 <h3>Indirect Preference (Over Budget Sets)</h3>
 <ul>
@@ -790,11 +799,17 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 <div id="dual-consumer" class="section level2">
 <h2>Dual Consumer</h2>
 <ul>
-<li>For price vector <span class="math inline">\(p\)</span> and initial bundle <span class="math inline">\(z\)</span></li>
-<li>Prime Problem <span class="math inline">\(P(p,z)\)</span>: Find the <span class="math inline">\(\succsim\)</span>-best bundle <span class="math inline">\(x(p,z)\)</span> that solves <span class="math inline">\(\max_x u(x)\)</span> s.t. <span class="math inline">\(p\cdot x\leq p\cdot z\)</span> (<strong>Marshallian demand function</strong>)</li>
-<li>Dual Problem <span class="math inline">\(D(p,z)\)</span>: Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> that solves <span class="math inline">\(\min_x p\cdot x\)</span> s.t. <span class="math inline">\(u(x)\geq\bar{u} = u(z)\)</span> (<strong>Hicksian demand function</strong>)</li>
+<li>For price vector <span class="math inline">\(p\)</span> and initial bundle (endowment) <span class="math inline">\(z\)</span>,</li>
+<li>Prime Problem <span class="math inline">\(P(p,z)\)</span>, Utility Maximization Problem:<br />
+Find the <span class="math inline">\(\succsim\)</span>-best bundle <span class="math inline">\(x(p,z)\)</span> (<strong>Marshallian / Walrasian demand function</strong>) s.t.<br />
+<span class="math display">\[\begin{aligned} \max_x u(x) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x\leq p\cdot z\end{aligned}\]</span></li>
+<li>Dual Problem <span class="math inline">\(D(p,z)\)</span>, Expenditure Minimization Problem:<br />
+Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> (<strong>Hicksian demand function</strong>) s.t.<br />
+<span class="math display">\[\begin{aligned} \min_x p\cdot x &amp;&amp; \text{s.t.} &amp;&amp; u(x)\geq\bar{u} = u(z) \end{aligned}\]</span>
+<ul>
 <li>Expenditure function: <span class="math inline">\(e(p,\bar{u}) = p\cdot h(p,\bar{u})\)</span></li>
-<li>The prime problem and the dual problem are equivalent if <span class="math inline">\(u(x)\)</span> is increasing + continuous</li>
+</ul></li>
+<li>The prime problem and the dual problem are equivalent if <span class="math inline">\(u(x)\)</span> is <strong>increasing + continuous</strong></li>
 </ul>
 <div id="duality-properties" class="section level3">
 <h3>Duality Properties</h3>
@@ -1212,7 +1227,7 @@ p\cdot \frac{p^r}{p^r+1} - p + p\cdot\frac{p^{r-1}}{p^r+1} + \frac{1}{p^r+1}\cdo
 (p+1)\frac{p^r}{p^r+1} + (p+1)\frac{1}{p^r+1} &amp;= p+1 \\
 \frac{p^r}{p^r+1} + \frac{1}{p^r+1} &amp;= 1\end{aligned}\]</span>
 Need to find <span class="math inline">\(p\)</span> s.t. <span class="math display">\[\begin{aligned} z_1^1 + z_1^2 &amp;= 0 \\
-\frac{p^r}{p^r+1} - 1 + \frac{p^{r-1}}{p^r+1} = 0\end{aligned}\]</span>
+\frac{p^r}{p^r+1} - 1 + \frac{p^{r-1}}{p^r+1} &amp;= 0\end{aligned}\]</span>
 Let <span class="math inline">\(f(p) = \frac{p^r}{p^r+1} - 1 + \frac{p^{r-1}}{p^r+1}\)</span>
 Need to prove <span class="math inline">\(f(p)\)</span> has at least one root (omitted, use L’Hopital’s rule)</p>
 <blockquote>
