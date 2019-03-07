@@ -706,18 +706,34 @@ Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 <img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" />
 <p class="caption">RBST Figure 5.2(a)</p>
 </div>
+<blockquote>
+<p>MWG Exercise 2.F.2<br />
+In a three-commodity world, let <span class="math inline">\(w = 8\)</span>, consider three budget sets and respective (unique) choices:<br />
+<span class="math display">\[\begin{aligned} p_1 = (2, 1, 2) &amp;&amp; x_1 = (1, 2, 2) \\ p_2 = (2, 2, 1) &amp;&amp; x_2 = (2, 1, 2) \\ p_3 = (1, 2, 2) &amp;&amp; x_3 = (2, 2, 1)\end{aligned}\]</span>
+Verify that any two pairs of choices satisfy the WA,<br />
+but that <span class="math inline">\(x_3\)</span> is revealed preferred to <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_2\)</span> is revealed preferred to <span class="math inline">\(x_1\)</span> , and <span class="math inline">\(x_1\)</span> is revealed preferred to <span class="math inline">\(x_3\)</span>,<br />
+which is incompatible with the existence of underlying rational preferences (violates transitivity)</p>
+</blockquote>
+<p><span class="math inline">\(x_1\in B(p_2, w)\)</span>, <span class="math inline">\(x_2\notin B(p_1, w)\implies x_2\succsim^* x_1\)</span><br />
+<span class="math inline">\(x_2\in B(p_3, w)\)</span>, <span class="math inline">\(x_3\notin B(p_2, w)\implies x_3\succsim^* x_2\)</span><br />
+<span class="math inline">\(x_3\in B(p_1, w)\)</span>, <span class="math inline">\(x_1\notin B(p_3, w)\implies x_1\succsim^* x_3\)</span><br />
+<span class="math inline">\(\implies x_1\succsim^* x_3\succsim^* x_2\succsim^* x_1\)</span>, transitivity is violated</p>
 </div>
 <div id="compensated-law-of-demand" class="section level3">
 <h3>(Compensated) Law of Demand</h3>
 <ul>
+<li>Law of Demand: demand and price move in opposite directions</li>
 <li>Let <span class="math inline">\(x(p,w)\)</span> be homogeneous and satisfy Walras Law<br />
 </li>
-<li><span class="math inline">\(x(p,w)\)</span> satisfy WARP <span class="math inline">\(\iff\)</span><br />
-if <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then for <span class="math inline">\(p&#39; &gt; p\)</span>,<br />
-<span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
-&amp;= w - p \cdot x(p&#39;,w&#39;) \\ &amp;\leq 0\end{aligned}\]</span>
+<li>If <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then for <span class="math inline">\(p&#39; &gt; p\)</span>, <span class="math inline">\(x(p,w)\)</span> satisfy WARP <span class="math inline">\(\iff\)</span><br />
+<span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= \underbrace{p&#39;\cdot x(p&#39;,w&#39;)}_{\text{Walras Law}} - \underbrace{p&#39;\cdot x(p,w)}_{\text{Compensated wealth}} - p\cdot x(p&#39;,w&#39;) + p\cdot x(p,w)\\
+&amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
+&amp;= w - \underbrace{p \cdot x(p&#39;,w&#39;)}_{\text{WARP: infeasible}} \\
+&amp;\leq 0\end{aligned}\]</span>
 <ul>
-<li>an increase in price makes the consumer poorer</li>
+<li>Slutsky Wealth Compensation:
+<span class="math display">\[\begin{aligned} Δw &amp;= (p&#39; - p)\cdot x(p,w) \\ w&#39; &amp;= (p&#39; - p)\cdot x(p,w) + w \\ &amp;= p&#39;\cdot x(p,w)\end{aligned}\]</span></li>
+<li>Intuition: an increase in price makes the consumer poorer than before (impoverish)</li>
 <li>Equality holds only when <span class="math inline">\(x(p&#39;,w&#39;) = x(p,w)\)</span></li>
 </ul></li>
 <li>For normal goods, it is never the case that <span class="math inline">\(x(p&#39;,w&#39;) &lt; x(p,w)\)</span></li>
