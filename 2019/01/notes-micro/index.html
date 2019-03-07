@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">34 min read</span>
+    <span class="article-duration">35 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -112,7 +112,7 @@
 <li><a href="#demand-function">Demand Function</a></li>
 <li><a href="#rational-demand-function">Rational Demand Function</a></li>
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
-<li><a href="#law-of-demand">Law of Demand</a></li>
+<li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
 <li><a href="#indirect-preference-over-budget-sets">Indirect Preference (Over Budget Sets)</a></li>
 </ul></li>
 <li><a href="#dual-consumer">Dual Consumer</a><ul>
@@ -599,9 +599,9 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <ol style="list-style-type: decimal">
 <li>Not determined<br />
 </li>
-<li>If <span class="math inline">\(f\)</span> is convex, then <span class="math inline">\(D(x)\)</span> is the set of improvements<br />
-<img src="/post-img/notes-micro--hm7.png" width="512" /></li>
+<li>If <span class="math inline">\(f\)</span> is convex, then <span class="math inline">\(D(x)\)</span> is the set of improvements</li>
 </ol>
+<p><img src="/post-img/notes-micro--hm7.png" width="512" /></p>
 </div>
 </div>
 <div id="demand" class="section level2">
@@ -638,8 +638,8 @@ Let <span class="math inline">\(v&#39; = α\cdot (p_1,p_2)\)</span><br />
 <span class="math inline">\(\implies \frac{v_1&#39;}{p_1} = \frac{v_2&#39;}{p_2}\)</span><br />
 Since <span class="math inline">\(x^*\)</span> is a solution, <span class="math inline">\(v = (v_1,v_2)\)</span> s.t. <span class="math inline">\(v_1 &gt; 0\)</span><br />
 <span class="math inline">\(\implies \frac{v_1}{p_1} = \frac{v_1&#39;}{p_1}\)</span>, <span class="math inline">\(\frac{v_2}{p_2} \geq \frac{v_2&#39;}{p_2}\)</span><br />
-<span class="math inline">\(\implies \frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span><br />
-<img src="/post-img/notes-micro--hm8.png" width="363" /></p>
+<span class="math inline">\(\implies \frac{v_1}{p_1}\geq \frac{v_2}{p_2}\)</span></p>
+<p><img src="/post-img/notes-micro--hm8.png" width="363" /></p>
 <blockquote>
 <p>HM9<br />
 Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem <span class="math inline">\(B(p,w)\)</span>,<br />
@@ -685,36 +685,49 @@ Give an example where aggregate consumption cannot be rationalized even though i
 </blockquote>
 <p>Consider the case of two goods and two consumers with wealth w = 12<br />
 Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p_1 =1\)</span>, <span class="math inline">\(p2 =2\)</span>,<br />
-<span class="math inline">\(B_2\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p1 =2\)</span>, <span class="math inline">\(p2 =1\)</span><br />
-<img src="/post-img/notes-micro--PS0Q8.png" width="524" /><br />
-A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
+<span class="math inline">\(B_2\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p1 =2\)</span>, <span class="math inline">\(p2 =1\)</span></p>
+<p><img src="/post-img/notes-micro--PS0Q8.png" width="524" /></p>
+<p>A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
 while two consumers separately choosing them will not.<br />
 Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 </div>
 <div id="warp-revisited" class="section level3">
 <h3>WARP (revisited)</h3>
 <ul>
-<li>If <span class="math inline">\(x(p&#39;,w&#39;)\in B(p,w)\)</span> and <span class="math inline">\(x(p,w)\neq x(p&#39;,w&#39;)\)</span>, then <span class="math inline">\(x(p,w)\not\in B(p&#39;,w&#39;)\)</span>
+<li>If <span class="math inline">\(x(p,w)\neq x(p&#39;,w&#39;)\)</span>, then<br />
+<span class="math display">\[\begin{aligned} &amp;\phantom{\implies}\begin{cases}x(p&#39;,w&#39;)\in B(p,w) \\ p\cdot x(p&#39;,w&#39;)\leq w \text{ (feasible)}\end{cases} \\
+&amp;\implies \\
+&amp;\phantom{\implies}\begin{cases} x(p,w)\not\in B(p&#39;,w&#39;) \\ p&#39;\cdot x(p,w) &gt; w&#39; \text{ (infeasible)}\end{cases}\end{aligned}\]</span>
 <ul>
-<li><span class="math inline">\(p\cdot x(p&#39;,w&#39;)\leq w\)</span> (feasible) <span class="math inline">\(\implies p&#39;\cdot x(p,w) &gt; w&#39;\)</span> (infeasible)<br />
-<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" width="224" /></li>
+<li><span class="math inline">\(x(p,w)\succsim^* x(p&#39;,w&#39;)\)</span></li>
 </ul></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" />
+<p class="caption">RBST Figure 5.2(a)</p>
 </div>
-<div id="law-of-demand" class="section level3">
-<h3>Law of Demand</h3>
+</div>
+<div id="compensated-law-of-demand" class="section level3">
+<h3>(Compensated) Law of Demand</h3>
 <ul>
-<li>Let <span class="math inline">\(x\)</span> satisfy WARP and Walras Law<br />
+<li>Let <span class="math inline">\(x(p,w)\)</span> be homogeneous and satisfy Walras Law<br />
 </li>
-<li>If <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then<br />
+<li><span class="math inline">\(x(p,w)\)</span> satisfy WARP <span class="math inline">\(\iff\)</span><br />
+if <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then for <span class="math inline">\(p&#39; &gt; p\)</span>,<br />
 <span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
 &amp;= w - p \cdot x(p&#39;,w&#39;) \\ &amp;\leq 0\end{aligned}\]</span>
-<span class="math display">\[w - p \cdot x(p&#39;,w&#39;) \begin{cases} = 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) = x(p,w) \\
-&lt; 0 &amp;&amp; \text{if }x(p&#39;,w&#39;) &gt; x(p,w)\end{cases}\]</span></li>
+<ul>
+<li>an increase in price makes the consumer poorer</li>
+<li>Equality holds only when <span class="math inline">\(x(p&#39;,w&#39;) = x(p,w)\)</span></li>
+</ul></li>
 <li>For normal goods, it is never the case that <span class="math inline">\(x(p&#39;,w&#39;) &lt; x(p,w)\)</span></li>
-<li>Decomposition: <span class="math inline">\(x(p&#39;,w) - x(p,w) = \underbrace{x(p&#39;,w) - x(p&#39;,w&#39;) }_{\text{income effect}} + \underbrace{x(p&#39;,w&#39;) - x(p,w)}_{\text{substitution effect}} + u_i\)</span>
-<img src="/post-img/notes-micro--law-of-demand.png" alt="Source: Investopedia" width="300" /></li>
+<li>Slutsky Decomposition:<br />
+<span class="math display">\[x(p&#39;,w) - x(p,w) = \underbrace{x(p&#39;,w) - x(p&#39;,w&#39;) }_{\text{income effect}} + \underbrace{x(p&#39;,w&#39;) - x(p,w)}_{\text{substitution effect}} + u_i\]</span></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-micro--law-of-demand.png" alt="Source: Investopedia" />
+<p class="caption">Source: <a href="https://www.investopedia.com/terms/l/lawofdemand.asp">Investopedia</a></p>
+</div>
 <blockquote>
 <p>PS0.Q7<br />
 Consider a consumer who consumes just two goods.<br />
@@ -853,9 +866,12 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 <div id="law-of-supply" class="section level3">
 <h3>Law of Supply</h3>
 <ul>
-<li>If <span class="math inline">\(z(p)\neq z(p&#39;)\)</span>, then <span class="math inline">\((p-p&#39;)\big[z(p) - z(p&#39;) \big] &gt; 0\)</span><br />
-<img src="/post-img/notes-micro--law-of-supply.png" alt="Source: Investopedia" width="307" /></li>
+<li>If <span class="math inline">\(z(p)\neq z(p&#39;)\)</span>, then <span class="math inline">\((p-p&#39;)\big[z(p) - z(p&#39;) \big] &gt; 0\)</span></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-micro--law-of-supply.png" alt="Source: Investopedia" />
+<p class="caption">Source: <a href="https://www.investopedia.com/terms/l/lawofsupply.asp">Investopedia</a></p>
+</div>
 </div>
 </div>
 <div id="partial-equilibrium" class="section level2">
@@ -909,9 +925,12 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 &amp;= p(q)\cdot\bigg[1+\underbrace{\frac{dp(q)}{dq}\cdot\frac{q}{p(q)}}_{\text{Elasticity }|ε(q)|}\bigg]\end{aligned}\]</span></li>
 <li>Optimal output: <span class="math inline">\(q^*\)</span></li>
 </ul></li>
-<li>Monopoly Equilibrium: <span class="math inline">\(\frac{p(q^*) - MC(q^*)}{p(q^*)} = \frac{1}{|ε(q)|}\)</span><br />
-<img src="/post-img/notes-micro--monopoly-eq.png" width="373" /></li>
+<li>Monopoly Equilibrium: <span class="math inline">\(\frac{p(q^*) - MC(q^*)}{p(q^*)} = \frac{1}{|ε(q)|}\)</span></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-micro--monopoly-eq.png" alt="Advanced Microeconomic Theory, Figure 4.3" />
+<p class="caption">Advanced Microeconomic Theory, Figure 4.3</p>
+</div>
 </div>
 <div id="cournot-quantity" class="section level3">
 <h3>Cournot (Quantity)</h3>

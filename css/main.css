@@ -182,13 +182,11 @@ strong {
 	color: var(--black);
 }
 
-.figure {
-	margin: auto;
-}
-
+.article-content p img,
 .figure img{
-	width: 100%;
+	max-width: 100%;
 	margin: auto;
+	display:block;
 }
 
 .article-title {
@@ -221,6 +219,10 @@ strong {
 
 .article-content p {
 	margin: 15px 0 25px;
+}
+
+.article-content .caption {
+	text-align: center;
 }
 
 .article-content code {
