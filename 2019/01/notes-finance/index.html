@@ -175,13 +175,13 @@
 <li>or: Effective Annual Yield (EAY), Annual Percentage Yield (APY)</li>
 </ul></li>
 <li>Annual Percentage Rate (APR): the amount of interest earned without compounding, <span class="math inline">\(APR &lt; EAR\)</span></li>
-<li>Given APR, if interest is compounded <span class="math inline">\(k\)</span> times a year, actual interest: <span class="math display">\[1+EAR = \left(1+\frac{APR}{k}\right)^k\]</span> ~</li>
+<li>Given APR, if interest is compounded <span class="math inline">\(k\)</span> times a year, actual interest: <span class="math display">\[1+EAR = \left(1+\frac{APR}{k}\right)^k\]</span></li>
 </ul>
 </div>
 <div id="internal-rate-of-return-irr" class="section level3">
 <h3>Internal Rate of Return (IRR)</h3>
 <ul>
-<li>Given PV and cash flows, the interest rate s.t. <span class="math display">\[NPV = -\text{investment} + PV(\text{return}) = 0\]</span> ~</li>
+<li>Given PV and cash flows, the interest rate s.t. <span class="math display">\[NPV = -\text{investment} + PV(\text{return}) = 0\]</span></li>
 </ul>
 </div>
 <div id="tax" class="section level3">
@@ -232,16 +232,14 @@
 <div id="cash-flow-stream" class="section level2">
 <h2>Cash Flow Stream</h2>
 <ul>
-<li>PV of Cash Flow Stream: <span class="math display">\[\begin{aligned} PV &amp;= C_0 + \frac{C_1}{1 + r} + \frac{C_2}{(1 + r)^2} +\cdots + \frac{C_N}{(1 + r)^N}\\ &amp;= \sum_{n=0}^N \frac{C_n}{(1 + r)^n}\end{aligned}\]</span><br />
-</li>
+<li>PV of Cash Flow Stream: <span class="math display">\[\begin{aligned} PV &amp;= C_0 + \frac{C_1}{1 + r} + \frac{C_2}{(1 + r)^2} +\cdots + \frac{C_N}{(1 + r)^N}\\ &amp;= \sum_{n=0}^N \frac{C_n}{(1 + r)^n}\end{aligned}\]</span></li>
 <li>FV of Cash Flow Stream: <span class="math inline">\(FV = PV\cdot (1+r)^n\)</span></li>
 </ul>
 <div id="perpetuity" class="section level3">
 <h3>Perpetuity</h3>
 <ul>
 <li>Perpetuity: a bond that pays a stream of regular equal cash flows forever (e.g. consol)</li>
-<li>PV of Perpetuity: <span class="math display">\[\begin{aligned} PV &amp;= \sum_{n=1}^{\infty}\frac{C}{(1 + r)^n} \\ &amp;= \frac{C}{r}\end{aligned}\]</span><br />
-</li>
+<li>PV of Perpetuity: <span class="math display">\[\begin{aligned} PV &amp;= \sum_{n=1}^{\infty}\frac{C}{(1 + r)^n} \\ &amp;= \frac{C}{r}\end{aligned}\]</span></li>
 <li>By depositing the amount <span class="math inline">\(\frac{C}{r}\)</span> today, we can withdraw interest of <span class="math inline">\(\frac{C}{r}\cdot r=C\)</span> each period</li>
 <li>PV of Growing Perpetuity with growth rate <span class="math inline">\(g\)</span>: <span class="math inline">\(PV = \frac{C}{r-g}\)</span></li>
 </ul>
@@ -250,10 +248,8 @@
 <h3>Annuity</h3>
 <ul>
 <li>Annuity: a bond that pays a stream of regular equal cash flows for <span class="math inline">\(N\)</span> periods</li>
-<li>PV of Annuity: <span class="math display">\[\begin{aligned} PV &amp;= \sum_{n=1}^{N}\frac{C}{(1 + r)^n} \\ &amp;= \frac{C}{r}\left( 1-\frac{1}{(1+r)^N}\right)\end{aligned}\]</span><br />
-</li>
-<li>FV of Annuity: <span class="math display">\[\begin{aligned} FV &amp;= PV\cdot (1+r)^N \\ &amp;= \frac{C}{r}\left( 1-\frac{1}{(1+r)^N}\right)\cdot (1+r)^N \\ &amp;= \frac{C}{r}\cdot \left[(1+r)^N - 1\right]\end{aligned}\]</span><br />
-</li>
+<li>PV of Annuity: <span class="math display">\[\begin{aligned} PV &amp;= \sum_{n=1}^{N}\frac{C}{(1 + r)^n} \\ &amp;= \frac{C}{r}\left( 1-\frac{1}{(1+r)^N}\right)\end{aligned}\]</span></li>
+<li>FV of Annuity: <span class="math display">\[\begin{aligned} FV &amp;= PV\cdot (1+r)^N \\ &amp;= \frac{C}{r}\left( 1-\frac{1}{(1+r)^N}\right)\cdot (1+r)^N \\ &amp;= \frac{C}{r}\cdot \left[(1+r)^N - 1\right]\end{aligned}\]</span></li>
 <li>PV of Growing Annuity with growth rate <span class="math inline">\(g\)</span>: <span class="math inline">\(PV = \frac{C}{r-g}\left( 1-\Big(\frac{1+g}{1+r}\Big)^N\right)\)</span></li>
 </ul>
 <blockquote>
@@ -264,7 +260,7 @@ If the account earns 10% per year, how much will Jane have saved at age 65?</p>
 </blockquote>
 <p><span class="math display">\[\begin{aligned} FV &amp;= \frac{C}{r}\cdot \left[(1+r)^N - 1\right] \\
 &amp;= \frac{10000}{10\%}\cdot \left[(1+10\%)^{30} - 1\right] \\
-&amp;= 1644940\end{aligned}\]</span> ~</p>
+&amp;= 1644940\end{aligned}\]</span></p>
 <blockquote>
 <p>PS.6-5.1<br />
 Bill Clinton reportedly was paid $10 million to write his book My Way. The book took three years to write.<br />
@@ -276,7 +272,7 @@ What is the NPV of agreeing to write the book (ignoring any royalty payments)?</
 <p>NPV of the book:
 <span class="math display">\[\begin{aligned} NPV &amp;= PV(\text{income}) - PV(\text{cost}) \\
 &amp;= 10 - \frac{8}{10\%}\left(1-\frac{1}{(1+10\%)^3}\right) \\
-&amp;= -9.895 \end{aligned}\]</span> ~</p>
+&amp;= -9.895 \end{aligned}\]</span></p>
 <blockquote>
 <p>PS.6-5.2<br />
 Bill Clinton reportedly was paid $10 million to write his book My Way. The book took three years to write.<br />
@@ -287,12 +283,12 @@ Assume that, once the book is finished, it is expected to generate royalties of 
 What is the NPV of the book with the royalty payments?</p>
 </blockquote>
 <p>PV of royalty at <span class="math inline">\(t=3\)</span>:<br />
-<span class="math display">\[\begin{aligned} PV &amp;= \frac{C}{r-g} \\ &amp;= \frac{5}{10\% - (- 30\%)} \\ &amp;= 12.5\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} PV &amp;= \frac{C}{r-g} \\ &amp;= \frac{5}{10\% - (- 30\%)} \\ &amp;= 12.5\end{aligned}\]</span>
 PV of royalty at today:<br />
-<span class="math display">\[\frac{12.5}{(1+10\%)^3} = 9.391\]</span><br />
+<span class="math display">\[\frac{12.5}{(1+10\%)^3} = 9.391\]</span>
 NPV of the book with royalty:<br />
 <span class="math display">\[\begin{aligned} NPV &amp;= -9.895 + 9.391 \\
-&amp;= -0.504 \end{aligned}\]</span> ~</p>
+&amp;= -0.504 \end{aligned}\]</span></p>
 </div>
 </div>
 <div id="decision-rules" class="section level2">
@@ -330,10 +326,10 @@ NPV of the book with royalty:<br />
 <li>Face Value (Principle): the amount repaid at maturity in addition to coupon (if not zero)</li>
 <li>Coupon: the amount paid at each term</li>
 <li>Coupon Rate: ratio of each coupon repayment (APR)</li>
-<li>Coupon Payment (CPN): <span class="math display">\[CPN = \frac{\text{Coupon Rate}\times\text{Face Value}}{\text{# of repayments per year}}\]</span> ~</li>
+<li>Coupon Payment (CPN): <span class="math display">\[CPN = \frac{\text{Coupon Rate}\times\text{Face Value}}{\text{# of repayments per year}}\]</span></li>
 <li>Yield (to Maturity) (YTM or <span class="math inline">\(y\)</span>): s.t. Price <span class="math inline">\(P = PV(\text{Face Value})\)</span></li>
 </ul>
-<!-- $$YTM = \frac{APR}{\text{# of repayments per year}}$$ ~  -->
+<!-- $$YTM = \frac{APR}{\text{# of repayments per year}}$$  -->
 <div id="bond-price" class="section level3">
 <h3>Bond Price</h3>
 <table>
@@ -372,8 +368,7 @@ NPV of the book with royalty:<br />
 </ul></li>
 <li>YTM:
 <span class="math display">\[\begin{aligned} P &amp;= \frac{\text{Face Value}}{(1+YTM_n)^n} \\
-YTM_n &amp;= \left(\frac{\text{Face Value}}{P}\right)^{\frac{1}{n}}-1 \end{aligned}\]</span><br />
-</li>
+YTM_n &amp;= \left(\frac{\text{Face Value}}{P}\right)^{\frac{1}{n}}-1 \end{aligned}\]</span></li>
 <li><span class="math inline">\(YTM_n = r_f\)</span></li>
 </ul>
 <blockquote>
@@ -383,7 +378,7 @@ Suppose there is no risk that the payment will not be made.<br />
 If the risk-free interest rate is 5%, what can we conclude about the price of this bond in a normal market?</p>
 </blockquote>
 <p><span class="math display">\[\begin{aligned} PV(1000\text{ in one year}) &amp;= \frac{1000}{1+5\%} \\
-&amp;= 952.38\text{ today} \\ &amp;= \text{No Arbitrage Price of Bond}\end{aligned}\]</span><br />
+&amp;= 952.38\text{ today} \\ &amp;= \text{No Arbitrage Price of Bond}\end{aligned}\]</span>
 Suppose the bond traded for a price of $940, we can buy the bond for $940 and at the same time borrow $952.38 from the bank.<br />
 Given the 5% interest rate, we will owe the bank <span class="math inline">\(952.38 \times 1.05 = 1000\)</span> in one year.<br />
 We can earn $12.38 in cash today for each bond that we buy, without taking any risk or paying any of our own money in the future.</p>
@@ -413,21 +408,19 @@ The yield to maturity on this bond when it was issued was 6%.<br />
 <ol style="list-style-type: decimal">
 <li>Coupon Payment:<br />
 <span class="math display">\[\begin{aligned} CPN &amp;= \frac{\text{Coupon Rate}\times\text{Face Value}}{\text{# of repayments per year}} \\
-&amp;= \frac{7\%\times 1000}{1} \\ &amp;= 70\end{aligned}\]</span><br />
+&amp;= \frac{7\%\times 1000}{1} \\ &amp;= 70\end{aligned}\]</span>
 Price of bond:<br />
 <span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM} + \frac{CPN}{(1+YTM)^2} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^N}\\
 &amp;= \frac{70}{6\%}\left(1-\frac{1}{(1+6\%)^{10}}\right) + \frac{1000}{(1+6\%)^{10}} \\
-&amp;= 1073.60\end{aligned}\]</span><br />
-</li>
+&amp;= 1073.60\end{aligned}\]</span></li>
 <li>Price before the first coupon payment:<br />
 <span class="math display">\[\begin{aligned} P &amp;= CPN + \frac{CPN}{1+YTM} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^9} \\
 &amp;= 70 + \frac{70}{1+6\%} + \cdots + \frac{70 + 1000}{(1+6\%)^9} \\
-&amp;= 1138.02\end{aligned}\]</span><br />
-</li>
+&amp;= 1138.02\end{aligned}\]</span></li>
 <li>Price after the first coupon payment:<br />
 <span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM} + \cdots + \frac{CPN + \text{Face Value}}{(1+YTM)^9} \\
 &amp;= \frac{70}{1+6\%} + \cdots + \frac{70 + 1000}{(1+6\%)^9} \\
-&amp;= 1068.02\end{aligned}\]</span> ~</li>
+&amp;= 1068.02\end{aligned}\]</span></li>
 </ol>
 <blockquote>
 <p>PS.8-24<br />
@@ -485,17 +478,17 @@ If so, how would you take advantage of this opportunity? If not, why not?</p>
 </blockquote>
 <p>Bond A:<br />
 <span class="math display">\[\begin{aligned} 934.58 &amp;= \frac{1000}{1+YTM_1} \\
-YTM_1 = 7.0\%\end{aligned}\]</span><br />
+YTM_1 = 7.0\%\end{aligned}\]</span>
 Bond B:<br />
 <span class="math display">\[\begin{aligned} 881.66 &amp;= \frac{1000}{(1+YTM_2)^2} \\
-YTM_2 = 6.5\%\end{aligned}\]</span><br />
+YTM_2 = 6.5\%\end{aligned}\]</span>
 Bond D:<br />
 <span class="math display">\[\begin{aligned} 839.62 &amp;= \frac{1000}{(1+YTM_3)^3} \\
-YTM_3 = 6.0\%\end{aligned}\]</span><br />
+YTM_3 = 6.0\%\end{aligned}\]</span>
 If YTM’s are consistent, price for bond C should be:<br />
 <span class="math display">\[\begin{aligned} P &amp;= \frac{CPN}{1+YTM_1} + \frac{CPN}{(1+YTM_2)^2} + \frac{CPN}{(1+YTM_3)^3} \\
 &amp;= \frac{100}{1+7.0\%} + \frac{100}{(1+6.5\%)^2} + \frac{1100}{(1+6.0\%)^3} \\
-&amp;= 1105.2 &lt; 1,118.21\end{aligned}\]</span><br />
+&amp;= 1105.2 &lt; 1,118.21\end{aligned}\]</span>
 Therefore, there is an arbitrage opportunity.<br />
 Since bond C is overpriced, one can short sell bond C and buy bond A, B, D at the same time.</p>
 </div>
@@ -507,34 +500,27 @@ Since bond C is overpriced, one can short sell bond C and buy bond A, B, D at th
 <ul>
 <li>Stock’s total return = expected return of other investments with equivalent risk</li>
 <li>Dividend by the end of the <span class="math inline">\(n\)</span>-th year: <span class="math inline">\(Div_n\)</span></li>
-<li>Stock Price in one year: <span class="math display">\[P_0 = \frac{Div_1 + P_1}{1+r_E}\]</span><br />
-</li>
-<li>Equity Cost of Capital = Total Return (Rate): <span class="math display">\[\begin{aligned} r_E &amp;= \frac{Div_1 + P_1}{P_0} - 1 \\ &amp;= \underbrace{\frac{Div_1}{P_0}}_{\text{Dividend Yield}}+\underbrace{\frac{P_1-P_0}{P_0}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
-</li>
+<li>Stock Price in one year: <span class="math display">\[P_0 = \frac{Div_1 + P_1}{1+r_E}\]</span></li>
+<li>Equity Cost of Capital = Total Return (Rate): <span class="math display">\[\begin{aligned} r_E &amp;= \frac{Div_1 + P_1}{P_0} - 1 \\ &amp;= \underbrace{\frac{Div_1}{P_0}}_{\text{Dividend Yield}}+\underbrace{\frac{P_1-P_0}{P_0}}_{\text{Capital Gain Rate}}\end{aligned}\]</span></li>
 <li>Stock Price in two years:
 <span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1 + P_1}{1+r_E} \\
 &amp;= \frac{Div_1}{1+r_E} + \frac{1}{1+r_E}\cdot\underbrace{\frac{Div_2+P_2}{1+r_E}}_{P_1} \\
-&amp;= \frac{Div_1}{1+r_E} + \frac{Div_2+P_2}{(1+r_E)^2}\end{aligned}\]</span><br />
-</li>
+&amp;= \frac{Div_1}{1+r_E} + \frac{Div_2+P_2}{(1+r_E)^2}\end{aligned}\]</span></li>
 <li>Stock Price in <span class="math inline">\(N\)</span> years:
 <span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1}{1+r_E} + \frac{Div_2}{(1+r_E)^2} +\cdots + \frac{Div_N}{(1+r_E)^N}+ \frac{P_N}{(1+r_E)^N} \\
-(N\to\infty) \ &amp;= \sum_{n=1}^{\infty} \frac{Div_n}{(1+r_E)^n}\end{aligned}\]</span><br />
-</li>
+(N\to\infty) \ &amp;= \sum_{n=1}^{\infty} \frac{Div_n}{(1+r_E)^n}\end{aligned}\]</span></li>
 <li>Constant Dividend Growth:
 <span class="math display">\[\begin{aligned} P_0 &amp;=\frac{Div_1}{r_E-g} \\
-r_E &amp;= \frac{Div_1}{P_0} - g\end{aligned}\]</span><br />
-</li>
+r_E &amp;= \frac{Div_1}{P_0} - g\end{aligned}\]</span></li>
 <li>Stock Price in <span class="math inline">\(N\)</span> years with Constant Dividend Growth:
-<span class="math display">\[P_0 = \frac{Div_1}{1+r_E} + \frac{Div_2}{(1+r_E)^2} +\cdots + \frac{Div_N}{(1+r_E)^N}+ \frac{1}{(1+r_E)^N}\cdot\underbrace{\frac{Div_{N+1}}{r_E-g}}_{P_N}\]</span><br />
-</li>
+<span class="math display">\[P_0 = \frac{Div_1}{1+r_E} + \frac{Div_2}{(1+r_E)^2} +\cdots + \frac{Div_N}{(1+r_E)^N}+ \frac{1}{(1+r_E)^N}\cdot\underbrace{\frac{Div_{N+1}}{r_E-g}}_{P_N}\]</span></li>
 <li>Dividend Payout Rate:
-<span class="math display">\[Div_t = \frac{\text{earnings}}{\text{# of shares}\times\text{Dividend Payout Rate}_t}\]</span><br />
-</li>
+<span class="math display">\[Div_t = \frac{\text{earnings}}{\text{# of shares}}\times\text{Dividend Payout Rate}_t\]</span></li>
 <li>Earnings and Growth Rate:
 <span class="math display">\[\begin{aligned} \text{change in earnings} &amp;= \text{new investment}\times\text{return} \\
 &amp;= \text{earnings}\times\text{retention rate}\times\text{return} \\
 g &amp;= \frac{\text{change in earnings}}{\text{earnings}} \\
-&amp;= \text{retention rate}\times\text{return}\end{aligned}\]</span> ~</li>
+&amp;= \text{retention rate}\times\text{return}\end{aligned}\]</span></li>
 </ul>
 <blockquote>
 <p>PS.9-2<br />
@@ -545,15 +531,13 @@ Anle Corporation has a current price of $20, is expected to pay a dividend of $1
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Expected dividend yield:
-<span class="math display">\[\begin{aligned} \frac{Div_1}{P_0} &amp;= \frac{1}{20} \\ &amp;= 5\%\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} \frac{Div_1}{P_0} &amp;= \frac{1}{20} \\ &amp;= 5\%\end{aligned}\]</span></li>
 <li>Expected capital gain rate:
-<span class="math display">\[\begin{aligned} \frac{P_1-P_0}{P_0} &amp;= \frac{22-20}{20} \\ &amp;= 10\%\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} \frac{P_1-P_0}{P_0} &amp;= \frac{22-20}{20} \\ &amp;= 10\%\end{aligned}\]</span></li>
 <li>Equity cost of capital:
 <span class="math display">\[\begin{aligned} P_0 &amp;= \frac{Div_1 + P_1}{1+r_E} \\
 20 &amp;= \frac{1 + 22}{1+r_E} \\
-r_E &amp;= 15\%\end{aligned}\]</span> ~</li>
+r_E &amp;= 15\%\end{aligned}\]</span></li>
 </ol>
 <blockquote>
 <p>PS.9-9<br />
@@ -570,19 +554,17 @@ Should DFB raise its dividend?</p>
 <li>Expected growth rate of earnings:
 <span class="math display">\[\begin{aligned} g &amp;= \text{retention rate}\times\text{return} \\
 &amp;= \frac{2}{5}\cdot 15\% \\
-&amp;= 6\%\end{aligned}\]</span><br />
-</li>
+&amp;= 6\%\end{aligned}\]</span></li>
 <li>Expected price of stock:
 <span class="math display">\[\begin{aligned} P_0 &amp;=\frac{Div_1}{r_E-g} \\
-&amp;= \frac{3}{12\% - 6\%} \\ &amp;= 50\end{aligned}\]</span><br />
-</li>
+&amp;= \frac{3}{12\% - 6\%} \\ &amp;= 50\end{aligned}\]</span></li>
 <li>Expected growth rate of earnings:
 <span class="math display">\[\begin{aligned} g &amp;= \text{retention rate}\times\text{return} \\
 &amp;= \frac{1}{5}\cdot 15\% \\
-&amp;= 3\%\end{aligned}\]</span><br />
+&amp;= 3\%\end{aligned}\]</span>
 Expected price of stock:
 <span class="math display">\[\begin{aligned} P_0 &amp;=\frac{Div_1}{r_E-g} \\
-&amp;= \frac{4}{12\% - 3\%} \\ &amp;= 44\end{aligned}\]</span><br />
+&amp;= \frac{4}{12\% - 3\%} \\ &amp;= 44\end{aligned}\]</span>
 Since expected return of new project is <span class="math inline">\(15\% &gt; 12\%\)</span> (equity cost of capital), DFB should not raise its dividend.</li>
 </ol>
 </div>
@@ -596,19 +578,14 @@ Since expected return of new project is <span class="math inline">\(15\% &gt; 12
 <h3>Discounted FCF (Free Cash Flow) Model</h3>
 <ul>
 <li>Value of Firm:
-<span class="math display">\[\text{firm value} = \text{market value of equity} + \text{debt} - \text{cash}\]</span><br />
-</li>
+<span class="math display">\[\text{firm value} = \text{market value of equity} + \text{debt} - \text{cash}\]</span></li>
 <li>Free Cash Flow:
-<span class="math display">\[FCF = \underbrace{\text{pre-tax earnings}}_{\text{EBIT}}\cdot (1-τ) - \text{net investment} - (\underbrace{\text{assets} - \text{liability}}_{\text{net working capital}})\]</span><br />
-</li>
-<li>Current Value of Firm: <span class="math display">\[V_0 = PV(\text{future FCF})\]</span><br />
-</li>
-<li>Future (Terminal) Value of Firm: <span class="math display">\[\begin{aligned} V_N &amp;= \frac{FCF_{N+1}}{r_{WACC} - g_{FCF}} \\ &amp;= \frac{FCF_N\cdot (1+g_{FCF})}{r_{WACC} - g_{FCF}} \end{aligned}\]</span><br />
-</li>
-<li>Stock Price: <span class="math display">\[P_0 = \frac{V_0 + \text{cash}_0 - \text{debt}_0}{\text{# of shares}}\]</span><br />
-</li>
+<span class="math display">\[FCF = \underbrace{\text{pre-tax earnings}}_{\text{EBIT}}\cdot (1-τ) - \text{net investment} - (\underbrace{\text{assets} - \text{liability}}_{\text{net working capital}})\]</span></li>
+<li>Current Value of Firm: <span class="math display">\[V_0 = PV(\text{future FCF})\]</span></li>
+<li>Future (Terminal) Value of Firm: <span class="math display">\[\begin{aligned} V_N &amp;= \frac{FCF_{N+1}}{r_{WACC} - g_{FCF}} \\ &amp;= \frac{FCF_N\cdot (1+g_{FCF})}{r_{WACC} - g_{FCF}} \end{aligned}\]</span></li>
+<li>Stock Price: <span class="math display">\[P_0 = \frac{V_0 + \text{cash}_0 - \text{debt}_0}{\text{# of shares}}\]</span></li>
 <li>with WACC (Weighted Average Cost of Capital):
-<span class="math display">\[V_0 = \frac{FCF_1}{1+r_{WACC}} + \frac{FCF_2}{(1+r_{WACC})^2} +\cdots + \frac{FCF_N}{(1+r_{WACC})^N}+ \frac{V_N}{(1+r_{WACC})^N}\]</span> ~</li>
+<span class="math display">\[V_0 = \frac{FCF_1}{1+r_{WACC}} + \frac{FCF_2}{(1+r_{WACC})^2} +\cdots + \frac{FCF_N}{(1+r_{WACC})^N}+ \frac{V_N}{(1+r_{WACC})^N}\]</span></li>
 </ul>
 <blockquote>
 <p>PS.9-19<br />
@@ -626,15 +603,15 @@ Estimate the value of IDX per share using a discounted FCF approach and the foll
 <p>Expected value of firm in 2009:<br />
 <span class="math display">\[\begin{aligned} V_{2009} &amp;= \frac{FCF_{2010}}{r_{WACC} - g_{FCF}} \\
 &amp;= \frac{50}{9.4\% - 5\%} \\
-&amp;= 1136.36\end{aligned}\]</span><br />
+&amp;= 1136.36\end{aligned}\]</span>
 Expected value of firm in 2008:<br />
 <span class="math display">\[\begin{aligned} V_{2008} &amp;= \frac{FCF_{2009}}{(1+r_{WACC})^1}+ \frac{V_{2009}}{(1+r_{WACC})^1} \\
 &amp;= \frac{45}{1+9.4\%}+ \frac{1136.36}{1+9.4\%} \\
-&amp;= 1079.85\end{aligned}\]</span><br />
+&amp;= 1079.85\end{aligned}\]</span>
 Expected stock price in 2008:<br />
 <span class="math display">\[\begin{aligned} P_0 &amp;= \frac{V_0 + \text{cash}_0 - \text{debt}_0}{\text{# of shares}} \\
 &amp;= \frac{1079.85 + 110 - 30}{50} \\
-&amp;= 23.2\end{aligned}\]</span> ~</p>
+&amp;= 23.2\end{aligned}\]</span></p>
 </div>
 </div>
 <div id="capm-capital-asset-pricing-model" class="section level2">
@@ -653,28 +630,20 @@ Expected stock price in 2008:<br />
 <ul>
 <li>Expected Return: <span class="math inline">\(E[R] = \sum Pr(R) \cdot R\)</span></li>
 <li>Excess Return: <span class="math inline">\(E[R] - r_f\)</span></li>
-<li>Variance: <span class="math display">\[\begin{aligned} Var(R) &amp;= E\left[\big(R - E[R]\big)^2\right] \\ &amp;= \sum Pr(R) \cdot \big(R - E[R]\big)^2\end{aligned}\]</span><br />
-</li>
+<li>Variance: <span class="math display">\[\begin{aligned} Var(R) &amp;= E\left[\big(R - E[R]\big)^2\right] \\ &amp;= \sum Pr(R) \cdot \big(R - E[R]\big)^2\end{aligned}\]</span></li>
 <li>Standard Deviation: <span class="math inline">\(SD(R) = \sqrt{Var(R)}\)</span></li>
 <li>Realized Return (remember <a href="#dividend-discount-model">Equity Cost of Capital</a>):
-<span class="math display">\[\begin{aligned} R_{t+1} &amp;= \frac{Div_{t+1} + P_{t+1}}{P_t} - 1 \\ &amp;= \underbrace{\frac{Div_{t+1}}{P_t}}_{\text{Dividend Yield}}+\underbrace{\frac{P_{t+1}-P_t}{P_t}}_{\text{Capital Gain Rate}}\end{aligned}\]</span><br />
-</li>
-<li>Realized Annual Return: <span class="math display">\[1+R_{year} = (1+R_{Q1})(1+R_{Q2})(1+R_{Q3})(1+R_{Q4})\]</span><br />
-</li>
-<li>Average / Historical Annual Return: <span class="math display">\[\begin{aligned} \bar{R} &amp;= \frac{1}{T}(R_1+R_2+\cdots +R_T) \\ &amp;= \frac{1}{T}\sum_{t=1}^T R_t\end{aligned}\]</span><br />
-</li>
-<li>Estimated Variance: <span class="math display">\[Var(R) = \frac{1}{T-1}\sum_{t=1}^T (R_t - \bar{R})^2\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} R_{t+1} &amp;= \frac{Div_{t+1} + P_{t+1}}{P_t} - 1 \\ &amp;= \underbrace{\frac{Div_{t+1}}{P_t}}_{\text{Dividend Yield}}+\underbrace{\frac{P_{t+1}-P_t}{P_t}}_{\text{Capital Gain Rate}}\end{aligned}\]</span></li>
+<li>Realized Annual Return: <span class="math display">\[1+R_{year} = (1+R_{Q1})(1+R_{Q2})(1+R_{Q3})(1+R_{Q4})\]</span></li>
+<li>Average / Historical Annual Return: <span class="math display">\[\begin{aligned} \bar{R} &amp;= \frac{1}{T}(R_1+R_2+\cdots +R_T) \\ &amp;= \frac{1}{T}\sum_{t=1}^T R_t\end{aligned}\]</span></li>
+<li>Estimated Variance: <span class="math display">\[Var(R) = \frac{1}{T-1}\sum_{t=1}^T (R_t - \bar{R})^2\]</span></li>
 <li>Standard Error: standard deviation of the average return<br />
-<span class="math display">\[SE = \frac{SD}{\sqrt{\text{# of observations}}}\]</span><br />
-</li>
+<span class="math display">\[SE = \frac{SD}{\sqrt{\text{# of observations}}}\]</span></li>
 <li>Covariance between two stocks:
-<span class="math display">\[Cov(R_i,R_j) = E\left[\big(R_i - E[R_i]\big)\big(R_j - E[R_j]\big)\right]\]</span><br />
-</li>
+<span class="math display">\[Cov(R_i,R_j) = E\left[\big(R_i - E[R_i]\big)\big(R_j - E[R_j]\big)\right]\]</span></li>
 <li>Estimated Covariance:
-<span class="math display">\[Cov(R_i,R_j) = \frac{1}{T-1}\sum_{t=1}^T (R_{i,t} - \bar{R}_i)(R_{j,t} - \bar{R}_j)\]</span><br />
-</li>
-<li>Correlation: <span class="math display">\[Corr(R_i,R_j) = \frac{Cov(R_i,R_j)}{SD(R_i)\cdot SD(R_j)} \in [-1,1]\]</span> ~</li>
+<span class="math display">\[Cov(R_i,R_j) = \frac{1}{T-1}\sum_{t=1}^T (R_{i,t} - \bar{R}_i)(R_{j,t} - \bar{R}_j)\]</span></li>
+<li>Correlation: <span class="math display">\[Corr(R_i,R_j) = \frac{Cov(R_i,R_j)}{SD(R_i)\cdot SD(R_j)} \in [-1,1]\]</span></li>
 </ul>
 <blockquote>
 <p>PS.10-14<br />
@@ -690,14 +659,12 @@ For stocks, no clear relation exists.<br />
 <ul>
 <li>Market Portfolio <span class="math inline">\(\subset\)</span> Efficient Portfolios: cannot be further diversified</li>
 <li><span class="math inline">\(β\)</span> of Stock: expected % change in its return given a 1% change in the return of the market portfolio
-<span class="math display">\[β_i = \frac{Cov(R_i,R_{market})}{Var(R_{market})}\]</span><br />
-</li>
+<span class="math display">\[β_i = \frac{Cov(R_i,R_{market})}{Var(R_{market})}\]</span></li>
 <li>Market Risk Premium (ratio): the risk premium investors earn by holding market risk
-<span class="math display">\[\text{Market Risk Premium} = E[R_{market}] - r_f\]</span><br />
-</li>
+<span class="math display">\[\text{Market Risk Premium} = E[R_{market}] - r_f\]</span></li>
 <li>CAPM Cost of Capital (of Investment) = SML (Security Market Line):
 <span class="math display">\[\begin{aligned} r_I &amp;= r_f + β_I \cdot \text{Market Risk Premium} \\
-&amp;= r_f + β_I \cdot \left(E[R_{market}] - r_f \right)\end{aligned}\]</span> ~</li>
+&amp;= r_f + β_I \cdot \left(E[R_{market}] - r_f \right)\end{aligned}\]</span></li>
 </ul>
 <blockquote>
 <p>PS.10-23<br />
@@ -713,13 +680,11 @@ Suppose the market portfolio is equally likely to increase by 30% or decrease by
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Beta:
-<span class="math display">\[β = \frac{43\% - (- 17\%)}{30\% -(- 10\%)} = 1.5\]</span><br />
-</li>
+<span class="math display">\[β = \frac{43\% - (- 17\%)}{30\% -(- 10\%)} = 1.5\]</span></li>
 <li>Beta:
-<span class="math display">\[β = \frac{-18\% - 22\%}{30\% -(- 10\%)} = -1\]</span><br />
-</li>
+<span class="math display">\[β = \frac{-18\% - 22\%}{30\% -(- 10\%)} = -1\]</span></li>
 <li>Beta:
-<span class="math display">\[β = 0\]</span> ~</li>
+<span class="math display">\[β = 0\]</span></li>
 </ol>
 <blockquote>
 <p>PS.10-36<br />
@@ -741,28 +706,22 @@ Inconsistent with CAPM but consistent with efficient capital market</li>
 <h3>Portfolio</h3>
 <ul>
 <li>(Weighted) Return on Portfolio:
-<span class="math display">\[\begin{aligned} R_P &amp;= x_1R_1 + x_2R_2 + \cdots + x_nR_n \\ &amp;= \sum x_iR_i\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} R_P &amp;= x_1R_1 + x_2R_2 + \cdots + x_nR_n \\ &amp;= \sum x_iR_i\end{aligned}\]</span></li>
 <li>Expected Return of Portfolio:
-<span class="math display">\[E[R_P] = \sum x_i \cdot E[R_i]\]</span><br />
-</li>
+<span class="math display">\[E[R_P] = \sum x_i \cdot E[R_i]\]</span></li>
 <li>Variance of Portfolio:
-<span class="math display">\[Var(R_P) = \sum_i \sum_j x_i\cdot x_j\cdot Cov(R_i,R_j)\]</span><br />
-</li>
+<span class="math display">\[Var(R_P) = \sum_i \sum_j x_i\cdot x_j\cdot Cov(R_i,R_j)\]</span></li>
 <li>Variance of equally weighted portfolio:
-<span class="math display">\[Var(R_P) = \frac{1}{n}(\text{average variance}) + \left(1-\frac{1}{n}\right)(\text{average covariance})\]</span><br />
-</li>
+<span class="math display">\[Var(R_P) = \frac{1}{n}(\text{average variance}) + \left(1-\frac{1}{n}\right)(\text{average covariance})\]</span></li>
 <li>Standard Deviation of Portfolio:
 <span class="math display">\[\begin{aligned} SD(R_P) &amp;= \sum_i x_i \cdot SD(R_i) \cdot Corr(R_i,R_P) \\
-&amp;&lt; \sum_i x_i \cdot SD(R_i)\end{aligned}\]</span><br />
-</li>
+&amp;&lt; \sum_i x_i \cdot SD(R_i)\end{aligned}\]</span></li>
 <li><span class="math inline">\(β\)</span> of Portfolio:
-<span class="math display">\[\begin{aligned} β_P &amp;= \frac{Cov(R_P,R_{market})}{Var(R_{market})}\\ &amp;= \sum_i x_i\cdot\frac{Cov(R_i,R_{market})}{Var(R_{market})} \\ &amp;= \sum_i x_i β_i\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} β_P &amp;= \frac{Cov(R_P,R_{market})}{Var(R_{market})}\\ &amp;= \sum_i x_i\cdot\frac{Cov(R_i,R_{market})}{Var(R_{market})} \\ &amp;= \sum_i x_i β_i\end{aligned}\]</span></li>
 <li>Efficient Frontier</li>
 <li>Sharpe Ratio: choose the highest
 <span class="math display">\[\begin{aligned} \text{Sharpe Ratio} &amp;= \frac{\text{excess return}}{\text{volatility}} \\
-&amp;= \frac{R_P - r_f}{SD(R_P)}\end{aligned}\]</span> ~</li>
+&amp;= \frac{R_P - r_f}{SD(R_P)}\end{aligned}\]</span></li>
 </ul>
 <blockquote>
 <p>PS.11-35<br />
@@ -798,11 +757,11 @@ Which fund would you recommend without knowing your client’s risk preference?<
 </table>
 </blockquote>
 <p>Sharpe ratio of fund A:
-<span class="math display">\[\frac{R_A - r_f}{SD(R_A)} = \frac{10\% - 4\%}{10\%} = 0.6\]</span><br />
+<span class="math display">\[\frac{R_A - r_f}{SD(R_A)} = \frac{10\% - 4\%}{10\%} = 0.6\]</span>
 Sharpe ratio of fund B:
-<span class="math display">\[\frac{R_B - r_f}{SD(R_B)} = \frac{15\% - 4\%}{22\%} = 0.5\]</span><br />
+<span class="math display">\[\frac{R_B - r_f}{SD(R_B)} = \frac{15\% - 4\%}{22\%} = 0.5\]</span>
 Sharpe ratio of fund C:
-<span class="math display">\[\frac{R_C - r_f}{SD(R_C)} = \frac{6\% - 4\%}{2\%} = 1\]</span><br />
+<span class="math display">\[\frac{R_C - r_f}{SD(R_C)} = \frac{6\% - 4\%}{2\%} = 1\]</span>
 Therefore, should choose fund C regardless of clients’ risk preferences.</p>
 </div>
 <div id="combined-portfolio" class="section level3">
@@ -811,8 +770,7 @@ Therefore, should choose fund C regardless of clients’ risk preferences.</p>
 <li>Stock (<span class="math inline">\(x\)</span>) + Risk-Free Security (<span class="math inline">\(1-x\)</span>)</li>
 <li>Expected Return:
 <span class="math display">\[\begin{aligned} E[R_{x,P}] &amp;= (1-x)r_f + x\cdot E[R_P] \\
-&amp;= r_f + x\cdot\underbrace{(E[R_P] - r_f)}_{\text{risk premium}}\end{aligned}\]</span><br />
-</li>
+&amp;= r_f + x\cdot\underbrace{(E[R_P] - r_f)}_{\text{risk premium}}\end{aligned}\]</span></li>
 <li>SD: <span class="math inline">\(SD(R_{x,P}) = x\cdot SD(R_P)\)</span></li>
 <li>Levered Portfolio: <span class="math inline">\(x&gt;100\%\)</span></li>
 <li>Efficient Frontier</li>
@@ -832,20 +790,19 @@ What is the expected return of this investment?</p>
 <li>Let the expected return be<br />
 <span class="math display">\[\begin{aligned} E[R_{MS}] &amp;= r_f + x\cdot (E[R_{market}] - r_f) \\
 12 \% &amp;= 5\% + x\cdot (10\% - 5\%) \\
-x &amp;= 140\%\end{aligned}\]</span><br />
+x &amp;= 140\%\end{aligned}\]</span>
 Therefore, same expected return can be achieved by borrowing <span class="math inline">\(15000\times 40\% = 6000\)</span> and investing <span class="math inline">\(21000\)</span> into market portfolio.<br />
 Volatility:<br />
 <span class="math display">\[\begin{aligned} SD(R_{x,market}) &amp;= x\cdot SD(R_{market}) \\
-&amp;= 140\% \times 18\% \\ &amp;= 25.2\% \end{aligned}\]</span><br />
-</li>
+&amp;= 140\% \times 18\% \\ &amp;= 25.2\% \end{aligned}\]</span></li>
 <li>Let the volatility be<br />
 <span class="math display">\[\begin{aligned} SD(R_{MS}) &amp;= x\cdot SD(R_{market}) \\
 40\% &amp;= x\cdot 18\% \\
-x &amp;= 222\%\end{aligned}\]</span><br />
+x &amp;= 222\%\end{aligned}\]</span>
 Therefore, same volatility can be achieved by borrowing <span class="math inline">\(15000\times 122\% = 18300\)</span> and investing <span class="math inline">\(33300\)</span> into market portfolio.<br />
 Expected return:<br />
 <span class="math display">\[\begin{aligned} E[R_{x,market}] &amp;= r_f + x\cdot (E[R_{market}] - r_f) \\
-&amp;= 5\% + 222\%\cdot (10\% - 5\%) \\ &amp;= 16.1\%\end{aligned}\]</span> ~</li>
+&amp;= 5\% + 222\%\cdot (10\% - 5\%) \\ &amp;= 16.1\%\end{aligned}\]</span></li>
 </ol>
 </div>
 </div>
@@ -890,13 +847,11 @@ According to MM, what is the value of Acort’s equity in this case?<br />
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Current value of equity:<br />
-<span class="math display">\[\begin{aligned} PV &amp;= \frac{FV}{1+r} \\ &amp;= \frac{80\%\times 50 + 20\%\times 20}{1+10\%} \\ &amp;= 40\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} PV &amp;= \frac{FV}{1+r} \\ &amp;= \frac{80\%\times 50 + 20\%\times 20}{1+10\%} \\ &amp;= 40\end{aligned}\]</span></li>
 <li>Current value of debt:<br />
-<span class="math display">\[\begin{aligned} PV &amp;= \frac{FV}{1+r_f} \\ &amp;= \frac{20}{1+5\%} \\ &amp;= 19.05\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} PV &amp;= \frac{FV}{1+r_f} \\ &amp;= \frac{20}{1+5\%} \\ &amp;= 19.05\end{aligned}\]</span>
 Current value of equity:
-<span class="math display">\[40 - 19.05 = 20.95\]</span><br />
-</li>
+<span class="math display">\[40 - 19.05 = 20.95\]</span></li>
 <li>Expected return w/o leverage: <span class="math inline">\(\frac{44}{40} - 100\% = 10\%\)</span><br />
 Expected return with leverage: <span class="math inline">\(\frac{44-20}{20.95} - 100\% = 14.55\%\)</span><br />
 </li>
@@ -915,12 +870,9 @@ Lowest possible realized return with leverage: <span class="math inline">\(\frac
 <li><span class="math inline">\(A\)</span>: assets</li>
 <li>Debt-to-Value Ratio: <span class="math inline">\(\frac{D}{E+D}\)</span></li>
 </ul></li>
-<li>Cost of Capital (unlevered) = Pre-Tax WACC: <span class="math display">\[r_U = \frac{E}{E+D}r_E + \frac{D}{E+D}r_D\]</span><br />
-</li>
-<li>Cost of Capital (levered): <span class="math display">\[r_E = r_U + \frac{D}{E}(r_U - r_D)\]</span><br />
-</li>
-<li>Unlevered <span class="math inline">\(β\)</span>: <span class="math display">\[\begin{aligned} β_U &amp;= \frac{E}{E+D}β_E + \frac{D}{E+D}β_D \\ β_E &amp;= β_U + \frac{D}{E}(β_U - β_D)\end{aligned}\]</span><br />
-</li>
+<li>Cost of Capital (unlevered) = Pre-Tax WACC: <span class="math display">\[r_U = \frac{E}{E+D}r_E + \frac{D}{E+D}r_D\]</span></li>
+<li>Cost of Capital (levered): <span class="math display">\[r_E = r_U + \frac{D}{E}(r_U - r_D)\]</span></li>
+<li>Unlevered <span class="math inline">\(β\)</span>: <span class="math display">\[\begin{aligned} β_U &amp;= \frac{E}{E+D}β_E + \frac{D}{E+D}β_D \\ β_E &amp;= β_U + \frac{D}{E}(β_U - β_D)\end{aligned}\]</span></li>
 <li>Levered <span class="math inline">\(β\)</span>:</li>
 </ul>
 <blockquote>
@@ -941,7 +893,7 @@ What is the unlevered beta of your firm?</p>
 <p>Unlevered beta:
 <span class="math display">\[\begin{aligned} β_U &amp;= \frac{E}{E+D}β_E + \frac{D}{E+D}β_D \\
 &amp;= \frac{4}{1+4}\times 1.15 + \frac{1}{1+4}\times 0 \\
-&amp;= 0.92\end{aligned}\]</span> ~</p>
+&amp;= 0.92\end{aligned}\]</span></p>
 </div>
 </div>
 <div id="debt-and-tax" class="section level2">
@@ -956,10 +908,9 @@ What is the unlevered beta of your firm?</p>
 <li><span class="math inline">\(\text{interest tax shield} = V^L - V^U\)</span></li>
 </ul></li>
 <li>PV of interest tax shield (constant tax rate + permanent debt):
-<span class="math display">\[\begin{aligned} PV(\text{interest tax shield}) &amp;=\frac{τ\cdot (r_f\cdot D)}{r_f} \\ &amp;= τ\cdot D\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} PV(\text{interest tax shield}) &amp;=\frac{τ\cdot (r_f\cdot D)}{r_f} \\ &amp;= τ\cdot D\end{aligned}\]</span></li>
 <li>WACC with interest tax shield:
-<span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D(1-τ) \\ &amp;= \underbrace{\frac{E}{E+D}r_E + \frac{D}{E+D}r_D}_{\text{Pre-Tax WACC}} - \underbrace{\frac{D}{E+D}r_D\cdot τ}_{\text{interest tax shield}}\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D(1-τ) \\ &amp;= \underbrace{\frac{E}{E+D}r_E + \frac{D}{E+D}r_D}_{\text{Pre-Tax WACC}} - \underbrace{\frac{D}{E+D}r_D\cdot τ}_{\text{interest tax shield}}\end{aligned}\]</span>
 <img src="/post-img/notes-finance--interest-tax-shield.png" width="450" /></li>
 </ul>
 <blockquote>
@@ -982,11 +933,10 @@ Suppose Rumolt’s equity cost of capital is 10%, and its debt cost of capital i
 Pretax weighted average cost of capital:<br />
 <span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D \\
 &amp;= \frac{30\times 15}{600}\times 10\% + \frac{150}{600}\times 5\% \\
-&amp;= 8.75\% \end{aligned}\]</span><br />
-</li>
+&amp;= 8.75\% \end{aligned}\]</span></li>
 <li>After-tax weighted average cost of capital:<br />
 <span class="math display">\[\begin{aligned} r_{WACC} &amp;= 8.75\% - \frac{D}{E+D}r_D\cdot τ \\
-&amp;= 8.75\% - \frac{150}{600}\times 5\%\times 35\% \\ &amp;= 8.3125\%\end{aligned}\]</span> ~</li>
+&amp;= 8.75\% - \frac{150}{600}\times 5\%\times 35\% \\ &amp;= 8.3125\%\end{aligned}\]</span></li>
 </ol>
 <blockquote>
 <p>Mock.I.Q4<br />
@@ -998,15 +948,15 @@ If Flagstaff currently maintains a 0.5 debt to equity ratio, what is then the va
 <p>Pre-tax WACC:<br />
 <span class="math display">\[\begin{aligned} WACC &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D \\
 &amp;= \frac{2}{1+2}13\% + \frac{1}{1+2}7\% \\
-&amp;= 11\%\end{aligned}\]</span><br />
+&amp;= 11\%\end{aligned}\]</span>
 Value of the firm:
-<span class="math display">\[\begin{aligned}V^U &amp;= \frac{FCF_{n+1}}{WACC - g} \\ &amp;= \frac{8}{11\% - 3\%} \\ &amp;= 100 \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned}V^U &amp;= \frac{FCF_{n+1}}{WACC - g} \\ &amp;= \frac{8}{11\% - 3\%} \\ &amp;= 100 \end{aligned}\]</span>
 After-tax WACC:<br />
-<span class="math display">\[\begin{aligned} WACC &amp;= 11\% - \frac{D}{E+D}r_D\cdot τ \\ &amp;= 11\% - \frac{1}{1+2}7\%\times 35\% \\ &amp;= 11\% - 0.816\% \\ &amp;= 10.18\%\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} WACC &amp;= 11\% - \frac{D}{E+D}r_D\cdot τ \\ &amp;= 11\% - \frac{1}{1+2}7\%\times 35\% \\ &amp;= 11\% - 0.816\% \\ &amp;= 10.18\%\end{aligned}\]</span>
 Value of the firm:
-<span class="math display">\[\begin{aligned}V^L &amp;= \frac{FCF_{n+1}}{WACC - g} \\ &amp;= \frac{8}{10.18\% - 3\%} \\ &amp;= 111.42\end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned}V^L &amp;= \frac{FCF_{n+1}}{WACC - g} \\ &amp;= \frac{8}{10.18\% - 3\%} \\ &amp;= 111.42\end{aligned}\]</span>
 Tax shield:
-<span class="math display">\[V^L - V^U = 111.42 - 100 = 11.42\]</span> ~</p>
+<span class="math display">\[V^L - V^U = 111.42 - 100 = 11.42\]</span></p>
 <blockquote>
 <p>Mock.II.Q2<br />
 You are a consultant who was hired to evaluate a new product line for Markum Enterprises.<br />
@@ -1022,7 +972,7 @@ Markum maintains a debt-equity ratio of 0.40.<br />
 <li>WACC:<br />
 <span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D(1-τ)\\
 &amp;= \frac{1}{1+0.4}\times 11.3\% + \frac{0.4}{1+0.4}\times 5\%\times (1-35\%) \\
-&amp;= 9\%\end{aligned}\]</span><br />
+&amp;= 9\%\end{aligned}\]</span>
 PV of earnings: <span class="math inline">\(\frac{C}{r-g} = \frac{0.75}{9\%-4\%} = 15\)</span><br />
 NPV: <span class="math inline">\(15 - 10 = 5\)</span><br />
 </li>
@@ -1031,7 +981,7 @@ NPV: <span class="math inline">\(15 - 10 = 5\)</span><br />
 <li>Pre-Tax WACC:
 <span class="math display">\[\begin{aligned} r_{WACC} &amp;= \frac{E}{E+D}r_E + \frac{D}{E+D}r_D\\
 &amp;= \frac{1}{1+0.4}\times 11.3\% + \frac{0.4}{1+0.4}\times 5\% \\
-&amp;= 9.5\%\end{aligned}\]</span><br />
+&amp;= 9.5\%\end{aligned}\]</span>
 Pre-Tax PV of earnings: <span class="math inline">\(\frac{C}{r-g} = \frac{0.75}{9.5\%-4\%} = 13.64\)</span><br />
 Interest tax shield: <span class="math inline">\(15-13.64 = 1.36\)</span></li>
 </ol>
@@ -1039,11 +989,9 @@ Interest tax shield: <span class="math inline">\(15-13.64 = 1.36\)</span></li>
 <div id="personal-tax" class="section level3">
 <h3>Personal Tax</h3>
 <ul>
-<li>Debt holder: tax on interest income <span class="math display">\[(1-τ_i)\]</span><br />
-</li>
-<li>Equity holder: (corporate tax) + tax on equity income <span class="math display">\[(1-τ_c)(1-τ_e)\]</span><br />
-</li>
-<li>Effective Tax Advantage of Debt: <span class="math display">\[\begin{aligned} τ^* &amp;= \frac{(1-τ_i)-(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;= 1-\frac{(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;\leq τ_c\end{aligned}\]</span><br />
+<li>Debt holder: tax on interest income <span class="math display">\[(1-τ_i)\]</span></li>
+<li>Equity holder: (corporate tax) + tax on equity income <span class="math display">\[(1-τ_c)(1-τ_e)\]</span></li>
+<li>Effective Tax Advantage of Debt: <span class="math display">\[\begin{aligned} τ^* &amp;= \frac{(1-τ_i)-(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;= 1-\frac{(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;\leq τ_c\end{aligned}\]</span>
 <img src="/post-img/notes-finance--personal-tax.png" width="442" /></li>
 </ul>
 <blockquote>
@@ -1059,14 +1007,13 @@ However, the dividends on preferred stock are not deductible for corporate tax p
 <li><span class="math inline">\(τ_i = 35\%\)</span>, <span class="math inline">\(τ_c = 40\%\)</span>, <span class="math inline">\(τ_e = 15\%\)</span><br />
 Return for risk-free debt: <span class="math inline">\(6\%\cdot(1-τ_i) = 6\% \times (1-35\%) = 3.9\%\)</span><br />
 Set the return for preferred stock at <span class="math inline">\(3.9\%\)</span>, cost of capital for risk-free preferred stock:<br />
-<span class="math display">\[\frac{3.9\%}{1-τ_e} = \frac{3.9\%}{1-15\%} = 4.59\%\]</span><br />
-</li>
+<span class="math display">\[\frac{3.9\%}{1-τ_e} = \frac{3.9\%}{1-15\%} = 4.59\%\]</span></li>
 <li>After-tax debt cost of capital:<br />
-<span class="math display">\[\begin{aligned} 6\% \times (1-τ_c) &amp;= 6\% \times (1-40\%) \\ &amp;= 3.6\% \\ &amp;&lt; 4.59\% \end{aligned}\]</span><br />
+<span class="math display">\[\begin{aligned} 6\% \times (1-τ_c) &amp;= 6\% \times (1-40\%) \\ &amp;= 3.6\% \\ &amp;&lt; 4.59\% \end{aligned}\]</span>
 Therefore, debt is cheaper.<br />
 </li>
-<li><span class="math display">\[\begin{aligned} τ^* &amp;= 1-\frac{(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;= 1-\frac{(1-40\%)(1-15\%)}{(1-35\%)} \\ &amp;= 21.54\%\end{aligned}\]</span><br />
-<span class="math display">\[\begin{aligned} 4.59\%\times (1 − τ^*) &amp;= 4.59\%\times (1-21.54\%) \\ &amp;= 3.6\%\end{aligned}\]</span> ~</li>
+<li><span class="math display">\[\begin{aligned} τ^* &amp;= 1-\frac{(1-τ_c)(1-τ_e)}{(1-τ_i)} \\ &amp;= 1-\frac{(1-40\%)(1-15\%)}{(1-35\%)} \\ &amp;= 21.54\%\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} 4.59\%\times (1 − τ^*) &amp;= 4.59\%\times (1-21.54\%) \\ &amp;= 3.6\%\end{aligned}\]</span></li>
 </ol>
 </div>
 </div>
@@ -1098,11 +1045,11 @@ If you did quit, you expect you could find a new job paying $85,000 per year, bu
 <li><span class="math inline">\(85000\times\left(1-\frac{1}{4}\right) = 63750\)</span><br />
 </li>
 <li>Offer A:<br />
-<span class="math display">\[85000+\frac{85000}{1+5\%} = 165952\]</span><br />
+<span class="math display">\[85000+\frac{85000}{1+5\%} = 165952\]</span>
 Offer B:<br />
 <span class="math display">\[\begin{aligned} &amp;90000 + 50\%\times \frac{90000}{1+5\%} + 50\%\times \frac{63750}{1+5\%} \\
 = \ &amp;90000 + 50\%\times 85714 + 50\%\times 60714 \\
-= \ &amp; 163214\end{aligned}\]</span><br />
+= \ &amp; 163214\end{aligned}\]</span>
 Therefore, offer A pays higher.<br />
 </li>
 <li>Because the risk of bankruptcy will decrease the expected wage employees can receive.</li>
@@ -1307,7 +1254,7 @@ Explain what you must do to exploit this arbitrage opportunity. Provide calculat
 <li>Stock Price <span class="math inline">\(S\)</span></li>
 <li>Intrinsic Value: <span class="math inline">\(S-K\)</span></li>
 <li>Put-Call Parity gives:
-<span class="math display">\[\begin{aligned} \underbrace{S + P}_{\text{stock &amp; put}} &amp;= \underbrace{PV(K) + PV(Div) + C}_{\text{bond &amp; call}} \\ \underbrace{C}_{\text{European call}} &amp;= P + S - PV(K) - PV(Div)\end{aligned}\]</span> ~</li>
+<span class="math display">\[\begin{aligned} \underbrace{S + P}_{\text{stock &amp; put}} &amp;= \underbrace{PV(K) + PV(Div) + C}_{\text{bond &amp; call}} \\ \underbrace{C}_{\text{European call}} &amp;= P + S - PV(K) - PV(Div)\end{aligned}\]</span></li>
 </ul>
 <table>
 <thead>
@@ -1380,9 +1327,8 @@ Explain why an American call option on a non-dividend-paying stock always has th
 <ul>
 <li><h1 id="of-stock-">of stock: <span class="math inline">\(Δ\)</span></h1></li>
 <li>Position in the bond: <span class="math inline">\(B\)</span>
-<span class="math display">\[\begin{aligned} C_u &amp;= S_u\cdot Δ + (1+r_f)\cdot B \\ C_d &amp;= S_d\cdot Δ + (1+r_f)\cdot B \end{aligned}\]</span><br />
-<span class="math display">\[\begin{aligned} Δ &amp;= \frac{C_u - C_d}{S_u - S_d} \\ B &amp;= \frac{C_d - S_d\cdot Δ}{1+r_f}\end{aligned}\]</span><br />
-</li>
+<span class="math display">\[\begin{aligned} C_u &amp;= S_u\cdot Δ + (1+r_f)\cdot B \\ C_d &amp;= S_d\cdot Δ + (1+r_f)\cdot B \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} Δ &amp;= \frac{C_u - C_d}{S_u - S_d} \\ B &amp;= \frac{C_d - S_d\cdot Δ}{1+r_f}\end{aligned}\]</span></li>
 <li>Call Price: <span class="math inline">\(C = S\cdot Δ + B\)</span></li>
 </ul>
 <table>
@@ -1467,19 +1413,19 @@ Using the Binomial Model, calculate the price of a two-year call option on Natas
 </table>
 <p>Up state:<br />
 <span class="math display">\[\begin{aligned} Δ &amp;= \frac{C_u - C_d}{S_u - S_d} \\
-&amp;= \frac{4 - 0}{11 - 6.5} \\ &amp;= 0.889\end{aligned}\]</span><br />
+&amp;= \frac{4 - 0}{11 - 6.5} \\ &amp;= 0.889\end{aligned}\]</span>
 <span class="math display">\[\begin{aligned} B &amp;= \frac{C_d - S_d\cdot Δ}{1+r_f} \\
-&amp;= \frac{0 - 6.5\cdot 0.889}{1+3\%} \\ &amp;= −5.61\end{aligned}\]</span><br />
+&amp;= \frac{0 - 6.5\cdot 0.889}{1+3\%} \\ &amp;= −5.61\end{aligned}\]</span>
 <span class="math display">\[\begin{aligned} C &amp;= S\cdot Δ + B \\
-&amp;= 8.5\cdot 0.889 − 5.61 \\ &amp;= 1.95\end{aligned}\]</span><br />
+&amp;= 8.5\cdot 0.889 − 5.61 \\ &amp;= 1.95\end{aligned}\]</span>
 Down state: 0<br />
 Whole portfolio:<br />
 <span class="math display">\[\begin{aligned} Δ &amp;= \frac{C_u - C_d}{S_u - S_d} \\
-&amp;= \frac{1.95 - 0}{8.5 - 4} \\ &amp;= 0.433\end{aligned}\]</span><br />
+&amp;= \frac{1.95 - 0}{8.5 - 4} \\ &amp;= 0.433\end{aligned}\]</span>
 <span class="math display">\[\begin{aligned} B &amp;= \frac{C_d - S_d\cdot Δ}{1+r_f} \\
-&amp;= \frac{0 - 4\cdot 0.433}{1+3\%} \\ &amp;= −1.68\end{aligned}\]</span><br />
+&amp;= \frac{0 - 4\cdot 0.433}{1+3\%} \\ &amp;= −1.68\end{aligned}\]</span>
 <span class="math display">\[\begin{aligned} C &amp;= S\cdot Δ + B \\
-&amp;= 6\cdot 0.433 − 1.68 \\ &amp;= 0.92\end{aligned}\]</span> ~</p>
+&amp;= 6\cdot 0.433 − 1.68 \\ &amp;= 0.92\end{aligned}\]</span></p>
 <blockquote>
 <p>PS.21-9<br />
 Hema Corp. is an all equity firm with a current market value of $1000 million (i.e., $1 billion), and will be worth $900 million or $1400 million in one year.<br />
