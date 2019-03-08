@@ -108,14 +108,14 @@
 <li><a href="#types-of-commodity">Types of Commodity</a></li>
 <li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
 </ul></li>
-<li><a href="#consumer-preference">Consumer Preference</a><ul>
+<li><a href="#demand-consumer-preference">Demand (Consumer Preference)</a><ul>
 <li><a href="#continuity-revisited">Continuity (revisited)</a></li>
 <li><a href="#monotonicity">Monotonicity</a></li>
 <li><a href="#convexity">Convexity</a></li>
 <li><a href="#special-preferences">Special Preferences</a></li>
 <li><a href="#utility-maximization-problem">Utility Maximization Problem</a></li>
 <li><a href="#differentiability">Differentiability</a></li>
-<li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
+<li><a href="#consumer-problem-with-differentiable-preference">Consumer Problem with Differentiable Preference</a></li>
 </ul></li>
 <li><a href="#consumer-preference-demand">Consumer Preference × Demand</a><ul>
 <li><a href="#rational-demand-function">Rational Demand Function</a></li>
@@ -536,14 +536,11 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
 <li>Consumer problem: find the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span>
 <ul>
 <li>Solution: <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x^*\succsim x\)</span> for all <span class="math inline">\(x\in B(p,w)\)</span></li>
-<li>Condition on <span class="math inline">\(\succsim\)</span>: <strong>strongly monotonic + convex + continuous + differentiable</strong></li>
+<li><span class="math inline">\(\succsim\)</span> is continuous <span class="math inline">\(\implies x^*\)</span> exists<br />
+<span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x^*\)</span> is convex<br />
+<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x^*\)</span> is singleton</li>
 </ul></li>
 </ul>
-<!--
-    - If $\succsim$ is continuous, then the consumer problem has some solution 
-    - If $\succsim$ is convex, then the set of solutions is convex 
-    - If $\succsim$ is strictly convex, then the consumer problem has at most one solution 
--->
 </div>
 <div id="walrasian-demand-function" class="section level3">
 <h3>(Walrasian) Demand Function</h3>
@@ -650,8 +647,8 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 </ol>
 </div>
 </div>
-<div id="consumer-preference" class="section level2">
-<h2>Consumer Preference</h2>
+<div id="demand-consumer-preference" class="section level2">
+<h2>Demand (Consumer Preference)</h2>
 <ul>
 <li>Preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> satisfies:
 <ul>
@@ -755,25 +752,29 @@ Contradiction.</li>
 <ul>
 <li>If <span class="math inline">\(p\gg 0\)</span> and <span class="math inline">\(u(\cdot)\)</span> is continuous, then UMP has a solution</li>
 </ul></li>
-<li>(Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} u(x)\)</span>
+<li>(Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} \ u(x)\)</span>
 <ul>
 <li><span class="math inline">\(x(p,w)\)</span> is called (Walrasian) Demand Function when single-valued</li>
-<li>If <span class="math inline">\(\succsim\)</span> is <strong>monotonic + continuous</strong>, then <span class="math inline">\(x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong></li>
-<li>If <span class="math inline">\(\succsim\)</span> is convex, then <span class="math inline">\(x(p,w)\)</span> is convex</li>
-<li>If <span class="math inline">\(\succsim\)</span> is strictly convex, then <span class="math inline">\(x(p,w)\)</span> is singleton</li>
+<li><span class="math inline">\(\succsim\)</span> is <strong>monotonic + continuous</strong> <span class="math inline">\(\implies x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong><br />
+<span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x(p,w)\)</span> is convex<br />
+<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x(p,w)\)</span> is singleton</li>
 </ul></li>
 </ul>
 </div>
 <div id="differentiability" class="section level3">
 <h3>Differentiability</h3>
+<p>(slide 5 P86)</p>
 <ul>
 <li>Improvement: <span class="math inline">\(z\in\mathbb{R}^K\)</span> s.t. <span class="math inline">\(x + z\succ x\)</span>
 <ul>
 <li>Improvement Direction: <span class="math inline">\(d\in\mathbb{R}^K\)</span> s.t. <span class="math inline">\(x + λd\succ x\)</span> for all <span class="math inline">\(λ\in (0,\exists λ^*)\)</span></li>
-<li>Set of Improvement direction at <span class="math inline">\(x\)</span>: <span class="math inline">\(d\in D(x)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(λd\in D(x)\)</span></li>
+<li>Set of Improvement Directions at <span class="math inline">\(x\)</span>: <span class="math inline">\(d\in D_{\succsim}(x)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(λd\in D_{\succsim}(x)\)</span></li>
 </ul></li>
 <li>Subjective value function: <span class="math inline">\(x+d\succ x \iff v(x)^T\cdot d &gt;0\)</span></li>
-<li><span class="math inline">\(\succsim\)</span> is differentiable if can find some <span class="math inline">\(v(x)\)</span> s.t. <span class="math inline">\(D_{\succsim}(x) = D_{v(x)}(x)\)</span>, for all <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(\succsim\)</span> is differentiable at <span class="math inline">\(x\)</span> if exists <span class="math inline">\(v(x)\in\mathbb{R}^K_+\)</span> s.t. <span class="math inline">\(D_{\succsim}(x) = D_{v(x)}(x)\)</span>
+<ul>
+<li>If <span class="math inline">\(\succsim\)</span> is represented by <span class="math inline">\(u(x)\)</span>: <strong>differentiable + quasi-concave</strong>, then <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x) = \nabla u(x)\)</span></li>
+</ul></li>
 </ul>
 <blockquote>
 <p>PS0.Q3<br />
@@ -805,8 +806,8 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 </ol>
 <p><img src="/post-img/notes-micro--hm7.png" width="512" /></p>
 </div>
-<div id="demand-with-differentiable-preference" class="section level3">
-<h3>Demand with Differentiable Preference</h3>
+<div id="consumer-problem-with-differentiable-preference" class="section level3">
+<h3>Consumer Problem with Differentiable Preference</h3>
 <ul>
 <li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution to the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
 <li>If <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k, x^*_j &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k} = \frac{v_j(x^*)}{p_j}\)</span>
@@ -885,7 +886,7 @@ Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 <li>Continuity</li>
 </ul></li>
 </ul>
-<p>(Slides 7 P136)</p>
+<p>(slide 7 P136)</p>
 <ul>
 <li>Compensating Variation: <span class="math inline">\(e\big( p&#39;, v(p,w)\big) - w&#39;\)</span></li>
 <li>Equivalent Variation: <span class="math inline">\(e\big( p, v(p&#39;,w&#39;)\big) - w\)</span></li>
@@ -909,7 +910,7 @@ Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> (<str
 </ul>
 <div id="duality-properties" class="section level3">
 <h3>Duality Properties</h3>
-<p>(RBST P82, Slides 7 P132)</p>
+<p>(RBST P82, slide 7 P132)</p>
 <ul>
 <li>If <span class="math inline">\(\bar{u} = u\big( x(p,w)\big)\)</span>, then <span class="math inline">\(h(p,\bar{u}) = x(p,w)\)</span></li>
 <li><span class="math inline">\(h(p,\bar{u}) = h(λp,\bar{u})\)</span> and <span class="math inline">\(e(λp,\bar{u}) = λe(p,\bar{u})\)</span></li>
