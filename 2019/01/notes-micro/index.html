@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">36 min read</span>
+    <span class="article-duration">37 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -90,7 +90,7 @@
 <ul>
 <li><a href="#preference">Preference</a><ul>
 <li><a href="#utility-function">Utility Function</a></li>
-<li><a href="#continuous-preference">Continuous Preference</a></li>
+<li><a href="#continuity">Continuity</a></li>
 </ul></li>
 <li><a href="#choice">Choice</a><ul>
 <li><a href="#revealed-preference-relation">Revealed Preference Relation</a></li>
@@ -103,19 +103,21 @@
 </ul></li>
 <li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
 <li><a href="#consumer-problem">Consumer Problem</a></li>
-<li><a href="#demand-function">Demand Function</a></li>
+<li><a href="#walrasian-demand-function">(Walrasian) Demand Function</a></li>
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
 <li><a href="#types-of-commodity">Types of Commodity</a></li>
 <li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
 </ul></li>
 <li><a href="#consumer-preference">Consumer Preference</a><ul>
+<li><a href="#continuity-revisited">Continuity (revisited)</a></li>
 <li><a href="#monotonicity">Monotonicity</a></li>
 <li><a href="#convexity">Convexity</a></li>
-<li><a href="#differentiability">Differentiability</a></li>
 <li><a href="#special-preferences">Special Preferences</a></li>
+<li><a href="#utility-maximization-problem">Utility Maximization Problem</a></li>
+<li><a href="#differentiability">Differentiability</a></li>
+<li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
 </ul></li>
 <li><a href="#consumer-preference-demand">Consumer Preference × Demand</a><ul>
-<li><a href="#demand-with-differentiable-preference">Demand with Differentiable Preference</a></li>
 <li><a href="#rational-demand-function">Rational Demand Function</a></li>
 <li><a href="#indirect-preference-over-budget-sets">Indirect Preference (Over Budget Sets)</a></li>
 </ul></li>
@@ -305,8 +307,8 @@ U(x) &amp;= \begin{cases} x &amp; x\leq0 \\ x+1 &amp; x&gt;0 \end{cases}\end{ali
 Let <span class="math inline">\(f =\begin{cases} x &amp; x\leq 1 \\ x-1 &amp; x &gt; 1 \end{cases}\)</span><br />
 <span class="math inline">\(\implies f\big(U(x)\big) = V(x)\)</span>, but <span class="math inline">\(f\)</span> is not strictly monotonic</p>
 </div>
-<div id="continuous-preference" class="section level3">
-<h3>Continuous Preference</h3>
+<div id="continuity" class="section level3">
+<h3>Continuity</h3>
 <ul>
 <li><span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> is continuous if <span class="math inline">\(a\succsim b\)</span> <span class="math inline">\(\implies\)</span> there exist balls <span class="math inline">\(B_a\)</span> and <span class="math inline">\(B_b\)</span> s.t. <span class="math inline">\(a&#39;\succsim b&#39;\)</span> for all <span class="math inline">\(a&#39; \in B_a\)</span> and <span class="math inline">\(b&#39; \in B_b\)</span></li>
 <li>Utility representation <span class="math inline">\(U\)</span> is continuous if <span class="math inline">\(\succsim\)</span> is continuous and <span class="math inline">\(X\)</span> is convex</li>
@@ -543,8 +545,8 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
     - If $\succsim$ is strictly convex, then the consumer problem has at most one solution 
 -->
 </div>
-<div id="demand-function" class="section level3">
-<h3>Demand Function</h3>
+<div id="walrasian-demand-function" class="section level3">
+<h3>(Walrasian) Demand Function</h3>
 <ul>
 <li>Demand function <span class="math inline">\(x(p,w)\)</span> is defined as the unique solution (when exists) to the consumer problem <span class="math inline">\(B(p,w)\)</span>
 <ul>
@@ -694,28 +696,82 @@ When <span class="math inline">\(m = 4\)</span>, <span class="math inline">\(a =
 When <span class="math inline">\(m = 10\)</span>, <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 1\)</span>, the monkey chooses <span class="math inline">\((4,6)\succsim (8,2)\succ (8,0)\)</span><br />
 Contradiction.</li>
 </ol>
+<div id="continuity-revisited" class="section level3">
+<h3>Continuity (revisited)</h3>
+<ul>
+<li>If <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> is continuous, then exists a utility function <span class="math inline">\(u(x)\)</span> that represents <span class="math inline">\(\succsim\)</span>
+<ul>
+<li><span class="math inline">\(u(x)\)</span> is continuous</li>
+</ul></li>
+</ul>
+</div>
 <div id="monotonicity" class="section level3">
 <h3>Monotonicity</h3>
 <ul>
 <li>(Weak) Monotonicity: if <span class="math inline">\(x_k &gt; y_k\)</span> for all <span class="math inline">\(k\)</span>, then <span class="math inline">\(x\succ y\)</span></li>
-<li>Strong Monotonicity: if <span class="math inline">\(x_k\geq y_k\)</span> for all <span class="math inline">\(k\)</span> and <span class="math inline">\(x\neq y\)</span>, then <span class="math inline">\(x\succ y\)</span></li>
+<li>Strong Monotonicity: if <span class="math inline">\(x_k\geq y_k\)</span> for all <span class="math inline">\(k\)</span> and <span class="math inline">\(x\neq y\)</span>, then <span class="math inline">\(x\succ y\)</span>
+<ul>
+<li><strong>Monotonic + Continuous</strong> preference relation is represented by <strong>Increasing</strong> utility function</li>
+</ul></li>
 </ul>
 </div>
 <div id="convexity" class="section level3">
 <h3>Convexity</h3>
 <ul>
-<li>Convexity: <span class="math inline">\(x\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)y\succsim y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span>
+<li>Convexity: <span class="math inline">\(x\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)y\succsim y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span></li>
+<li>Strict convexity: <span class="math inline">\(x, x&#39;\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)x&#39;\succ y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span>
 <ul>
-<li><strong>Convex + Monotonic + Continuous</strong> preference relations can be represented by <strong>Quasi-concave</strong> utility function</li>
+<li><strong>Convex + Monotonic + Continuous</strong> preference relation is represented by <strong>Quasi-concave</strong> utility function</li>
 </ul></li>
-<li>Strict convexity: <span class="math inline">\(x, x&#39;\succsim y\implies\)</span> <span class="math inline">\(λx + (1-λ)x&#39;\succ y\)</span>, for all <span class="math inline">\(λ\in (0,1)\)</span></li>
+</ul>
+</div>
+<div id="special-preferences" class="section level3">
+<h3>Special Preferences</h3>
+<p>Preference that can be induced by one single indifference set</p>
+<ul>
+<li>Indifference Set: <span class="math inline">\(\{ y\in X \ | \ y\sim x\}\)</span></li>
+<li>Homothetic Preference:<br />
+<span class="math inline">\(x\succsim y\implies αx\succsim αy\)</span> for all <span class="math inline">\(α\geq 0\)</span>
+<ul>
+<li><strong>Homothetic + Monotonic + Continuous</strong> preference relations can be represented by <strong>Continuous + Homogeneous (1)</strong> utility function</li>
+</ul></li>
+<li>Quasi-Linear Preference<br />
+<span class="math inline">\(x\succsim y\implies (x+εe_1)\succsim (y+εe_1)\)</span> for all <span class="math inline">\(ε\geq 0\)</span>, <span class="math inline">\(e_1 = (1,0,\dots,0)\)</span>
+<ul>
+<li><strong>Quasi-Linear + Strong Monotonic + Continuous</strong> preference relations can be represented by <span class="math inline">\(U = x_1 + v(x_2,\dots,x_K)\)</span> for some <span class="math inline">\(v\)</span></li>
+</ul></li>
+<li>Leontief Preference<br />
+<span class="math inline">\(x\succsim y\iff \min{x_1,x_2}\geq\min{y_1,y_2}\)</span>
+<ul>
+<li>Monotonic + Continuous but not differentiable</li>
+</ul></li>
+</ul>
+</div>
+<div id="utility-maximization-problem" class="section level3">
+<h3>Utility Maximization Problem</h3>
+<ul>
+<li>Utility Maximization Problem (UMP):
+<span class="math display">\[\begin{aligned} \max_x u(x) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x\leq w\end{aligned}\]</span>
+<ul>
+<li>If <span class="math inline">\(p\gg 0\)</span> and <span class="math inline">\(u(\cdot)\)</span> is continuous, then UMP has a solution</li>
+</ul></li>
+<li>(Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} u(x)\)</span>
+<ul>
+<li><span class="math inline">\(x(p,w)\)</span> is called (Walrasian) Demand Function when single-valued</li>
+<li>If <span class="math inline">\(\succsim\)</span> is <strong>monotonic + continuous</strong>, then <span class="math inline">\(x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong></li>
+<li>If <span class="math inline">\(\succsim\)</span> is convex, then <span class="math inline">\(x(p,w)\)</span> is convex</li>
+<li>If <span class="math inline">\(\succsim\)</span> is strictly convex, then <span class="math inline">\(x(p,w)\)</span> is singleton</li>
+</ul></li>
 </ul>
 </div>
 <div id="differentiability" class="section level3">
 <h3>Differentiability</h3>
 <ul>
-<li>Set of improvement directions: <span class="math inline">\(D(x)\subset \mathbb{R}^K\)</span></li>
-<li>Improvement direction at <span class="math inline">\(x\)</span>: <span class="math inline">\(d\in D(x)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(λd\in D(x)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x+λd\succ x\)</span>, for all <span class="math inline">\(λ\in (0,\exists λ^*)\)</span></li>
+<li>Improvement: <span class="math inline">\(z\in\mathbb{R}^K\)</span> s.t. <span class="math inline">\(x + z\succ x\)</span>
+<ul>
+<li>Improvement Direction: <span class="math inline">\(d\in\mathbb{R}^K\)</span> s.t. <span class="math inline">\(x + λd\succ x\)</span> for all <span class="math inline">\(λ\in (0,\exists λ^*)\)</span></li>
+<li>Set of Improvement direction at <span class="math inline">\(x\)</span>: <span class="math inline">\(d\in D(x)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(λd\in D(x)\)</span></li>
+</ul></li>
 <li>Subjective value function: <span class="math inline">\(x+d\succ x \iff v(x)^T\cdot d &gt;0\)</span></li>
 <li><span class="math inline">\(\succsim\)</span> is differentiable if can find some <span class="math inline">\(v(x)\)</span> s.t. <span class="math inline">\(D_{\succsim}(x) = D_{v(x)}(x)\)</span>, for all <span class="math inline">\(x\)</span></li>
 </ul>
@@ -749,26 +805,6 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 </ol>
 <p><img src="/post-img/notes-micro--hm7.png" width="512" /></p>
 </div>
-<div id="special-preferences" class="section level3">
-<h3>Special Preferences</h3>
-<p>Preference that can be induced by one single indifference set</p>
-<ul>
-<li>Indifference Set: <span class="math inline">\(\{ y\in X \ | \ y\sim x\}\)</span></li>
-<li>Homothetic Preference:<br />
-<span class="math inline">\(x\succsim y\implies αx\succsim αy\)</span> for all <span class="math inline">\(α\geq 0\)</span>
-<ul>
-<li><strong>Homothetic + Monotonic + Continuous</strong> preference relations can be represented by <strong>Continuous + Homogeneous (1)</strong> utility function</li>
-</ul></li>
-<li>Quasi-Linear Preference<br />
-<span class="math inline">\(x\succsim y\implies (x+εe_1)\succsim (y+εe_1)\)</span> for all <span class="math inline">\(ε\geq 0\)</span>, <span class="math inline">\(e_1 = (1,0,\dots,0)\)</span>
-<ul>
-<li><strong>Quasi-Linear + Strong Monotonic + Continuous</strong> preference relations can be represented by <span class="math inline">\(U = x_1 + v(x_2,\dots,x_K)\)</span> for some <span class="math inline">\(v\)</span></li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="consumer-preference-demand" class="section level2">
-<h2>Consumer Preference × Demand</h2>
 <div id="demand-with-differentiable-preference" class="section level3">
 <h3>Demand with Differentiable Preference</h3>
 <ul>
@@ -806,6 +842,9 @@ then for any commodity <span class="math inline">\(k\)</span> with <span class="
 Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(ε\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(ε\cdot\frac{p_k}{p_l}\)</span> for some small <span class="math inline">\(ε&gt;0\)</span> is feasible and is an improvement<br />
 <span class="math inline">\(\implies\)</span> contradiction to <span class="math inline">\(x^*\)</span> is a solution to <span class="math inline">\(B(p,w)\)</span></p>
 </div>
+</div>
+<div id="consumer-preference-demand" class="section level2">
+<h2>Consumer Preference × Demand</h2>
 <div id="rational-demand-function" class="section level3">
 <h3>Rational Demand Function</h3>
 <ul>
