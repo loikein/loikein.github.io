@@ -101,13 +101,6 @@
 <li><a href="#rational-choice-function">Rational Choice Function</a></li>
 <li><a href="#rationalizing-choice-function">Rationalizing Choice Function</a></li>
 </ul></li>
-<li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
-<li><a href="#consumer-problem">Consumer Problem</a></li>
-<li><a href="#demand-function">Demand Function</a></li>
-<li><a href="#warp-revisited">WARP (revisited)</a></li>
-<li><a href="#types-of-commodity">Types of Commodity</a></li>
-<li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
-</ul></li>
 <li><a href="#demand-consumer-preference">Demand (Consumer Preference)</a><ul>
 <li><a href="#continuity-revisited">Continuity (revisited)</a></li>
 <li><a href="#monotonicity">Monotonicity</a></li>
@@ -120,7 +113,14 @@
 <li><a href="#emp-expenditure-minimizationg-problem">EMP (Expenditure Minimizationg Problem)</a></li>
 <li><a href="#dual-consumer">Dual Consumer</a></li>
 <li><a href="#duality-properties">Duality Properties</a></li>
+</ul></li>
+<li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
+<li><a href="#consumer-problem">Consumer Problem</a></li>
+<li><a href="#demand-function">Demand Function</a></li>
 <li><a href="#rationalizing-demand-function">Rationalizing Demand Function</a></li>
+<li><a href="#warp-revisited">WARP (revisited)</a></li>
+<li><a href="#types-of-commodity">Types of Commodity</a></li>
+<li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
 </ul></li>
 <li><a href="#producer">Producer</a><ul>
 <li><a href="#technology">Technology</a></li>
@@ -373,7 +373,7 @@ Therefore, <span class="math inline">\(u\)</span> satisfies (1) ~ (3) for <span 
 <div id="choice" class="section level2">
 <h2>Choice</h2>
 <ul>
-<li>Choice function <span class="math inline">\(C(\cdot)\)</span> is defined on:
+<li>Choice Function <span class="math inline">\(C(\cdot)\)</span> is defined on:
 <ul>
 <li>Context <span class="math inline">\((X,D)\)</span>: <span class="math inline">\(X\)</span> is the universe of all alternatives,</li>
 <li>Domain: <span class="math inline">\(D\)</span>, a set of feasibly possible subsets of <span class="math inline">\(X\)</span>, <span class="math inline">\(D \subset 2^X\)</span> (power set)</li>
@@ -501,152 +501,6 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
 </ol>
 </div>
 </div>
-<div id="demand-consumer-choice" class="section level2">
-<h2>Demand (Consumer Choice)</h2>
-<ul>
-<li>Commodity Space: <span class="math inline">\(\mathbb{R}^K_+\)</span>
-<ul>
-<li>Convex</li>
-</ul></li>
-<li>Consumption Set: <span class="math inline">\(X \subset \mathbb{R}^K_+\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\big\{ x = (x_1, x_2,\dots, x_K) \ | \ x_k\geq 0 \big\}\)</span>
-<ul>
-<li>Assumed to be Convex (not necessarily)</li>
-</ul></li>
-<li>Consumption Bundle: <span class="math inline">\(x = (x_1, x_2,\dots, x_K) \in X\)</span>
-<ul>
-<li><span class="math inline">\(x_k\)</span> represents the quantity of commodity <span class="math inline">\(k\)</span></li>
-</ul></li>
-</ul>
-<div id="consumer-problem" class="section level3">
-<h3>Consumer Problem</h3>
-<ul>
-<li>Price Vector: <span class="math inline">\(p = (p_1, p_2,\dots, p_K) \in \mathbb{R}^K\)</span></li>
-<li>(Walras) Budget Set: <span class="math inline">\(B(p,w) = \{x\in X \ | \ p\cdot x\leq w\}\)</span>
-<ul>
-<li>Non-empty</li>
-<li>Compact</li>
-<li>Convex (if <span class="math inline">\(X\)</span> is convex)</li>
-</ul></li>
-<li>Budget Line (Hyperplane): <span class="math inline">\(\{x\in X \ | \ p\cdot x = w\}\)</span>
-<ul>
-<li>Rate of Exchange: <span class="math inline">\(-\frac{p_1}{p_2}\)</span> (when <span class="math inline">\(K = 2\)</span>)</li>
-</ul></li>
-<li>Consumer problem: find the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span>
-<ul>
-<li>Solution: <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x^*\succsim x\)</span> for all <span class="math inline">\(x\in B(p,w)\)</span></li>
-<li><span class="math inline">\(\succsim\)</span> is continuous <span class="math inline">\(\implies x^*\)</span> exists<br />
-<span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x^*\)</span> is convex<br />
-<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x^*\)</span> is singleton</li>
-</ul></li>
-</ul>
-</div>
-<div id="demand-function" class="section level3">
-<h3>Demand Function</h3>
-<ul>
-<li>(Marshallian / Walrasian) Demand function <span class="math inline">\(x(p,w)\)</span> is defined as the unique solution (when exists) to the consumer problem <span class="math inline">\(B(p,w)\)</span>
-<ul>
-<li>Homogeneous (0): <span class="math inline">\(x(p,w) = x(λp, λw)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
-<li><strong>Walras Law</strong>: <span class="math inline">\(p\cdot x(p,w) = w\)</span> (if <span class="math inline">\(\succsim\)</span> is monotonic)</li>
-<li>Continuity: <span class="math inline">\(x(p,w)\)</span> is continuous in <span class="math inline">\(p,w\)</span> (if <span class="math inline">\(\succsim\)</span> is continuous)</li>
-</ul></li>
-</ul>
-</div>
-<div id="warp-revisited" class="section level3">
-<h3>WARP (revisited)</h3>
-<ul>
-<li>If <span class="math inline">\(x(p,w)\neq x(p&#39;,w&#39;)\)</span>, then<br />
-<span class="math display">\[\begin{aligned} &amp;\phantom{\implies}\begin{cases}x(p&#39;,w&#39;)\in B(p,w) &amp; \text{(not chosen)}\\ p\cdot x(p&#39;,w&#39;)\leq w &amp; \text{(feasible)}\end{cases} \\
-&amp;\implies \\
-&amp;\phantom{\implies}\begin{cases} x(p,w)\not\in B(p&#39;,w&#39;) \\ p&#39;\cdot x(p,w) &gt; w&#39; &amp; \text{(infeasible)}\end{cases}\end{aligned}\]</span>
-<ul>
-<li><span class="math inline">\(x(p,w)\succsim^* x(p&#39;,w&#39;)\)</span></li>
-</ul></li>
-</ul>
-<div class="figure">
-<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" />
-<p class="caption">RBST Figure 5.2(a)</p>
-</div>
-<blockquote>
-<p>MWG Exercise 2.F.2<br />
-In a three-commodity world, let <span class="math inline">\(w = 8\)</span>, consider three budget sets and respective (unique) choices:<br />
-<span class="math display">\[\begin{aligned} p_1 = (2, 1, 2) &amp;&amp; x_1 = (1, 2, 2) \\ p_2 = (2, 2, 1) &amp;&amp; x_2 = (2, 1, 2) \\ p_3 = (1, 2, 2) &amp;&amp; x_3 = (2, 2, 1)\end{aligned}\]</span>
-Verify that any two pairs of choices satisfy the WA,<br />
-but that <span class="math inline">\(x_3\)</span> is revealed preferred to <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_2\)</span> is revealed preferred to <span class="math inline">\(x_1\)</span> , and <span class="math inline">\(x_1\)</span> is revealed preferred to <span class="math inline">\(x_3\)</span>,<br />
-which is incompatible with the existence of underlying rational preferences (violates transitivity)</p>
-</blockquote>
-<p><span class="math inline">\(x_1\in B(p_2, w)\)</span>, <span class="math inline">\(x_2\notin B(p_1, w)\implies x_2\succsim^* x_1\)</span><br />
-<span class="math inline">\(x_2\in B(p_3, w)\)</span>, <span class="math inline">\(x_3\notin B(p_2, w)\implies x_3\succsim^* x_2\)</span><br />
-<span class="math inline">\(x_3\in B(p_1, w)\)</span>, <span class="math inline">\(x_1\notin B(p_3, w)\implies x_1\succsim^* x_3\)</span><br />
-<span class="math inline">\(\implies x_1\succsim^* x_3\succsim^* x_2\succsim^* x_1\)</span>, transitivity is violated</p>
-</div>
-<div id="types-of-commodity" class="section level3">
-<h3>Types of Commodity</h3>
-<ul>
-<li>Normal: <span class="math inline">\(\begin{cases}\frac{\partial x_k(p,w)}{\partial w}\geq 0 \\ \frac{\partial x_k(p,w)}{\partial p_k} \leq 0 \end{cases}\)</span>
-<ul>
-<li>Inferior: <span class="math inline">\(\frac{\partial x_k(p,w)}{\partial w} &lt; 0\)</span></li>
-<li>Giffen: <span class="math inline">\(\frac{\partial x_k(p,w)}{\partial p_k} &gt; 0\)</span></li>
-</ul></li>
-</ul>
-</div>
-<div id="compensated-law-of-demand" class="section level3">
-<h3>(Compensated) Law of Demand</h3>
-<ul>
-<li>Law of Demand: demand and price move in opposite directions</li>
-<li>Let <span class="math inline">\(x(p,w)\)</span> be homogeneous and satisfy Walras Law<br />
-</li>
-<li>If <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then for <span class="math inline">\(p&#39; &gt; p\)</span>, <span class="math inline">\(x(p,w)\)</span> satisfy WARP <span class="math inline">\(\iff\)</span><br />
-<span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= \underbrace{p&#39;\cdot x(p&#39;,w&#39;)}_{\text{Walras Law}} - \underbrace{p&#39;\cdot x(p,w)}_{\text{Compensated wealth}} - p\cdot x(p&#39;,w&#39;) + p\cdot x(p,w)\\
-&amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
-&amp;= w - \underbrace{p \cdot x(p&#39;,w&#39;)}_{\text{WARP: infeasible}} \\
-&amp;\leq 0\end{aligned}\]</span>
-<ul>
-<li>Slutsky Wealth Compensation:
-<span class="math display">\[\begin{aligned} Δw &amp;= (p&#39; - p)\cdot x(p,w) \\ w&#39; &amp;= (p&#39; - p)\cdot x(p,w) + w \\ &amp;= p&#39;\cdot x(p,w)\end{aligned}\]</span></li>
-<li>Intuition: an increase in price makes the consumer poorer than before (impoverish)</li>
-<li>Equality holds only when <span class="math inline">\(x(p&#39;,w&#39;) = x(p,w)\)</span></li>
-</ul></li>
-</ul>
-<!--
-- Slutsky Substitution Matrix: $S(p,w)$ ($K\times K$)  
-$$\begin{aligned} s_{k,l} &= \frac{\partial x_k(p,w)}{\partial p_k} + \frac{\partial x_k(p,w)}{\partial w}\cdot x_l(p,w) \\
-s_{k,k} &\leq 0\end{aligned}$$
--->
-<!--
-- For normal goods, it is never the case that $x(p',w') < x(p,w)$
-- Slutsky Decomposition:  
-$$x(p',w) - x(p,w) = \underbrace{x(p',w) - x(p',w') }_{\text{income effect}} + \underbrace{x(p',w') - x(p,w)}_{\text{substitution effect}} + u_i$$
--->
-<div class="figure">
-<img src="/post-img/notes-micro--law-of-demand.png" alt="Source: Investopedia" />
-<p class="caption">Source: <a href="https://www.investopedia.com/terms/l/lawofdemand.asp">Investopedia</a></p>
-</div>
-<blockquote>
-<p>PS0.Q7<br />
-Consider a consumer who consumes just two goods.<br />
-1. State the law of demand. Under what assumptions does it hold?<br />
-2. Assume the law of demand holds and show the following.<br />
-If for some prices and wealth, an increase of <span class="math inline">\(p_1\)</span> (all other things constant) leads to a increase in <span class="math inline">\(x_1\)</span> then good 1 cannot be normal.<br />
-(Good 1 is normal if <span class="math inline">\(x_1(p,w)\)</span> is increasing in <span class="math inline">\(w\)</span>, otherwise is called <strong>Giffen good</strong>)</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Let <span class="math inline">\(x\)</span> be the demand that satisfies the WA and Walrass law.<br />
-Law of demand:
-<span class="math display">\[(p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) \leq 0\]</span>
-Assumption: <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span><br />
-</li>
-<li>When <span class="math inline">\(p_1\)</span> increases,
-<span class="math display">\[\begin{aligned} p&#39; - p &amp;= (Δ,0) &gt; 0 \\
-x_1(p&#39;,w&#39;) - x_1(p,w) &amp;\leq 0 \\
-x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w)\end{aligned}\]</span>
-FSOC assume <span class="math inline">\(x_1(p,w)\)</span> is increasing in <span class="math inline">\(w\)</span>, since <span class="math inline">\(w&#39;&gt;w\)</span>,<br />
-<span class="math display">\[\begin{aligned} x_1(p,w) &amp;\leq x_1(p,w&#39;) \\
-x_1(p&#39;,w&#39;) + x_1(p,w) &amp;\leq x_1(p,w) + x_1(p,w&#39;) \\
-x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
-<span class="math inline">\(\implies x_1\)</span> decreases for an increase of <span class="math inline">\(p_1\)</span>, contradiction.</li>
-</ol>
-</div>
-</div>
 <div id="demand-consumer-preference" class="section level2">
 <h2>Demand (Consumer Preference)</h2>
 <ul>
@@ -748,14 +602,30 @@ Contradiction.</li>
 <div id="ump-utility-maximization-problem" class="section level3">
 <h3>UMP (Utility Maximization Problem)</h3>
 <ul>
+<li>Commodity Space: <span class="math inline">\(\mathbb{R}^K_+\)</span>
+<ul>
+<li>Convex</li>
+</ul></li>
+<li>Consumption Set: <span class="math inline">\(X \subset \mathbb{R}^K_+\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\big\{ x = (x_1, x_2,\dots, x_K) \ | \ x_k\geq 0 \big\}\)</span>
+<ul>
+<li>Assumed to be Convex (not necessarily)</li>
+</ul></li>
+<li>Consumption Bundle: <span class="math inline">\(x = (x_1, x_2,\dots, x_K) \in X\)</span>
+<ul>
+<li><span class="math inline">\(x_k\)</span> represents the quantity of commodity <span class="math inline">\(k\)</span></li>
+</ul></li>
+<li>Price Vector: <span class="math inline">\(p = (p_1, p_2,\dots, p_K) \in \mathbb{R}^K\)</span></li>
+</ul>
+<p>~</p>
+<ul>
 <li>Utility Maximization Problem:
 <span class="math display">\[\begin{aligned} \max_x u(x) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x\leq w\end{aligned}\]</span>
 <ul>
 <li>If <span class="math inline">\(p\gg 0\)</span> and <span class="math inline">\(u(\cdot)\)</span> is continuous, then UMP has a solution</li>
 </ul></li>
-<li>(Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} \ u(x)\)</span>
+<li>(Marshallian / Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} \ u(x)\)</span>
 <ul>
-<li>(Walrasian) Demand Function when singleton</li>
+<li>Demand Function when singleton</li>
 <li><span class="math inline">\(\succsim\)</span> is <strong>Monotonic + Continuous</strong> <span class="math inline">\(\implies x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong><br />
 <span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x(p,w)\)</span> is convex<br />
 <span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x(p,w)\)</span> is singleton
@@ -957,6 +827,47 @@ Explain under what assumptions the following two statements are equivalent:<br /
 The maximal amount Joey can eat, as a function of time, is increasing and continuous</li>
 </ol>
 </div>
+</div>
+<div id="demand-consumer-choice" class="section level2">
+<h2>Demand (Consumer Choice)</h2>
+<div id="consumer-problem" class="section level3">
+<h3>Consumer Problem</h3>
+<ul>
+<li>(Walras) Budget Set: <span class="math inline">\(B(p,w) = \{x\in X \ | \ p\cdot x\leq w\}\)</span>
+<ul>
+<li>Non-empty</li>
+<li>Compact</li>
+<li>Convex (if <span class="math inline">\(X\)</span> is convex)</li>
+</ul></li>
+<li>Budget Line (Hyperplane): <span class="math inline">\(\{x\in X \ | \ p\cdot x = w\}\)</span>
+<ul>
+<li>Rate of Exchange: <span class="math inline">\(-\frac{p_1}{p_2}\)</span> (when <span class="math inline">\(K = 2\)</span>)</li>
+</ul></li>
+<li>Consumer problem: find the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span>
+<ul>
+<li>Solution: <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(x^*\succsim x\)</span> for all <span class="math inline">\(x\in B(p,w)\)</span></li>
+<li><span class="math inline">\(\succsim\)</span> is continuous <span class="math inline">\(\implies x^*\)</span> exists<br />
+<span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x^*\)</span> is convex<br />
+<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x^*\)</span> is singleton</li>
+</ul></li>
+</ul>
+</div>
+<div id="demand-function" class="section level3">
+<h3>Demand Function</h3>
+<ul>
+<li>Choice Structure: <span class="math inline">\(\big( B, x(\cdot)\big)\)</span></li>
+<li>(Marshallian / Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w)\)</span>
+<ul>
+<li>Demand Function when singleton</li>
+<li>If <span class="math inline">\(\succsim\)</span> is <strong>Continuous + Monotonic</strong>, then:</li>
+<li>(Walrasian) Demand Function when singleton</li>
+<li>Homogeneous (0): <span class="math inline">\(x(p,w) = x(λp, λw)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
+<li><strong>Walras Law</strong>: <span class="math inline">\(p\cdot x(p,w) = w\)</span> (if <span class="math inline">\(\succsim\)</span> is monotonic)</li>
+<li>Convex (<span class="math inline">\(\succsim\)</span> is convex)</li>
+<li>Singleton + Continuous (<span class="math inline">\(\succsim\)</span> is strictly convex)</li>
+</ul></li>
+</ul>
+</div>
 <div id="rationalizing-demand-function" class="section level3">
 <h3>Rationalizing Demand Function</h3>
 <ul>
@@ -985,6 +896,101 @@ Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="
 <p>A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
 while two consumers separately choosing them will not.<br />
 Therefore, aggregate consumption cannot be rationalized in this setting.</p>
+</div>
+<div id="warp-revisited" class="section level3">
+<h3>WARP (revisited)</h3>
+<ul>
+<li>If <span class="math inline">\(x(p,w)\neq x(p&#39;,w&#39;)\)</span>, then<br />
+<span class="math display">\[\begin{aligned} &amp;\phantom{\implies}\begin{cases}x(p&#39;,w&#39;)\in B(p,w) &amp; \text{(not chosen)}\\ p\cdot x(p&#39;,w&#39;)\leq w &amp; \text{(feasible)}\end{cases} \\
+&amp;\implies \\
+&amp;\phantom{\implies}\begin{cases} x(p,w)\not\in B(p&#39;,w&#39;) \\ p&#39;\cdot x(p,w) &gt; w&#39; &amp; \text{(infeasible)}\end{cases}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(x(p,w)\succsim^* x(p&#39;,w&#39;)\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" />
+<p class="caption">RBST Figure 5.2(a)</p>
+</div>
+<blockquote>
+<p>MWG Exercise 2.F.2<br />
+In a three-commodity world, let <span class="math inline">\(w = 8\)</span>, consider three budget sets and respective (unique) choices:<br />
+<span class="math display">\[\begin{aligned} p_1 = (2, 1, 2) &amp;&amp; x_1 = (1, 2, 2) \\ p_2 = (2, 2, 1) &amp;&amp; x_2 = (2, 1, 2) \\ p_3 = (1, 2, 2) &amp;&amp; x_3 = (2, 2, 1)\end{aligned}\]</span>
+Verify that any two pairs of choices satisfy the WA,<br />
+but that <span class="math inline">\(x_3\)</span> is revealed preferred to <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_2\)</span> is revealed preferred to <span class="math inline">\(x_1\)</span> , and <span class="math inline">\(x_1\)</span> is revealed preferred to <span class="math inline">\(x_3\)</span>,<br />
+which is incompatible with the existence of underlying rational preferences (violates transitivity)</p>
+</blockquote>
+<p><span class="math inline">\(x_1\in B(p_2, w)\)</span>, <span class="math inline">\(x_2\notin B(p_1, w)\implies x_2\succsim^* x_1\)</span><br />
+<span class="math inline">\(x_2\in B(p_3, w)\)</span>, <span class="math inline">\(x_3\notin B(p_2, w)\implies x_3\succsim^* x_2\)</span><br />
+<span class="math inline">\(x_3\in B(p_1, w)\)</span>, <span class="math inline">\(x_1\notin B(p_3, w)\implies x_1\succsim^* x_3\)</span><br />
+<span class="math inline">\(\implies x_1\succsim^* x_3\succsim^* x_2\succsim^* x_1\)</span>, transitivity is violated</p>
+</div>
+<div id="types-of-commodity" class="section level3">
+<h3>Types of Commodity</h3>
+<ul>
+<li>Normal: <span class="math inline">\(\begin{cases}\frac{\partial x_k(p,w)}{\partial w}\geq 0 \\ \frac{\partial x_k(p,w)}{\partial p_k} \leq 0 \end{cases}\)</span>
+<ul>
+<li>Inferior: <span class="math inline">\(\frac{\partial x_k(p,w)}{\partial w} &lt; 0\)</span></li>
+<li>Giffen: <span class="math inline">\(\frac{\partial x_k(p,w)}{\partial p_k} &gt; 0\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="compensated-law-of-demand" class="section level3">
+<h3>(Compensated) Law of Demand</h3>
+<ul>
+<li>Law of Demand: demand and price move in opposite directions</li>
+<li>Let <span class="math inline">\(x(p,w)\)</span> be homogeneous and satisfy Walras Law<br />
+</li>
+<li>If <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then for <span class="math inline">\(p&#39; &gt; p\)</span>, <span class="math inline">\(x(p,w)\)</span> satisfy WARP <span class="math inline">\(\iff\)</span><br />
+<span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= \underbrace{p&#39;\cdot x(p&#39;,w&#39;)}_{\text{Walras Law}} - \underbrace{p&#39;\cdot x(p,w)}_{\text{Compensated wealth}} - p\cdot x(p&#39;,w&#39;) + p\cdot x(p,w)\\
+&amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
+&amp;= w - \underbrace{p \cdot x(p&#39;,w&#39;)}_{\text{WARP: infeasible}} \\
+&amp;\leq 0\end{aligned}\]</span>
+<ul>
+<li>Slutsky Wealth Compensation:
+<span class="math display">\[\begin{aligned} Δw &amp;= (p&#39; - p)\cdot x(p,w) \\ w&#39; &amp;= (p&#39; - p)\cdot x(p,w) + w \\ &amp;= p&#39;\cdot x(p,w)\end{aligned}\]</span></li>
+<li>Intuition: an increase in price makes the consumer poorer than before (impoverish)</li>
+<li>Equality holds only when <span class="math inline">\(x(p&#39;,w&#39;) = x(p,w)\)</span></li>
+</ul></li>
+</ul>
+<!--
+- Slutsky Substitution Matrix: $S(p,w)$ ($K\times K$)  
+$$\begin{aligned} s_{k,l} &= \frac{\partial x_k(p,w)}{\partial p_k} + \frac{\partial x_k(p,w)}{\partial w}\cdot x_l(p,w) \\
+s_{k,k} &\leq 0\end{aligned}$$
+-->
+<!--
+- For normal goods, it is never the case that $x(p',w') < x(p,w)$
+- Slutsky Decomposition:  
+$$x(p',w) - x(p,w) = \underbrace{x(p',w) - x(p',w') }_{\text{income effect}} + \underbrace{x(p',w') - x(p,w)}_{\text{substitution effect}} + u_i$$
+-->
+<div class="figure">
+<img src="/post-img/notes-micro--law-of-demand.png" alt="Source: Investopedia" />
+<p class="caption">Source: <a href="https://www.investopedia.com/terms/l/lawofdemand.asp">Investopedia</a></p>
+</div>
+<blockquote>
+<p>PS0.Q7<br />
+Consider a consumer who consumes just two goods.<br />
+1. State the law of demand. Under what assumptions does it hold?<br />
+2. Assume the law of demand holds and show the following.<br />
+If for some prices and wealth, an increase of <span class="math inline">\(p_1\)</span> (all other things constant) leads to a increase in <span class="math inline">\(x_1\)</span> then good 1 cannot be normal.<br />
+(Good 1 is normal if <span class="math inline">\(x_1(p,w)\)</span> is increasing in <span class="math inline">\(w\)</span>, otherwise is called <strong>Giffen good</strong>)</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(x\)</span> be the demand that satisfies the WA and Walrass law.<br />
+Law of demand:
+<span class="math display">\[(p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) \leq 0\]</span>
+Assumption: <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span><br />
+</li>
+<li>When <span class="math inline">\(p_1\)</span> increases,
+<span class="math display">\[\begin{aligned} p&#39; - p &amp;= (Δ,0) &gt; 0 \\
+x_1(p&#39;,w&#39;) - x_1(p,w) &amp;\leq 0 \\
+x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w)\end{aligned}\]</span>
+FSOC assume <span class="math inline">\(x_1(p,w)\)</span> is increasing in <span class="math inline">\(w\)</span>, since <span class="math inline">\(w&#39;&gt;w\)</span>,<br />
+<span class="math display">\[\begin{aligned} x_1(p,w) &amp;\leq x_1(p,w&#39;) \\
+x_1(p&#39;,w&#39;) + x_1(p,w) &amp;\leq x_1(p,w) + x_1(p,w&#39;) \\
+x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
+<span class="math inline">\(\implies x_1\)</span> decreases for an increase of <span class="math inline">\(p_1\)</span>, contradiction.</li>
+</ol>
 </div>
 </div>
 <div id="producer" class="section level2">
