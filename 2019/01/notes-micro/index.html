@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">37 min read</span>
+    <span class="article-duration">38 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -99,11 +99,11 @@
 </ul></li>
 <li><a href="#preference-choice">Preference × Choice</a><ul>
 <li><a href="#rational-choice-function">Rational Choice Function</a></li>
-<li><a href="#rationalization">Rationalization</a></li>
+<li><a href="#rationalizing-choice-function">Rationalizing Choice Function</a></li>
 </ul></li>
 <li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
 <li><a href="#consumer-problem">Consumer Problem</a></li>
-<li><a href="#walrasian-demand-function">(Walrasian) Demand Function</a></li>
+<li><a href="#demand-function">Demand Function</a></li>
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
 <li><a href="#types-of-commodity">Types of Commodity</a></li>
 <li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
@@ -113,16 +113,14 @@
 <li><a href="#monotonicity">Monotonicity</a></li>
 <li><a href="#convexity">Convexity</a></li>
 <li><a href="#special-preferences">Special Preferences</a></li>
-<li><a href="#utility-maximization-problem">Utility Maximization Problem</a></li>
+<li><a href="#ump-utility-maximization-problem">UMP (Utility Maximization Problem)</a></li>
+<li><a href="#indirect-preference-utility">Indirect Preference &amp; Utility</a></li>
 <li><a href="#differentiability">Differentiability</a></li>
 <li><a href="#consumer-problem-with-differentiable-preference">Consumer Problem with Differentiable Preference</a></li>
-</ul></li>
-<li><a href="#consumer-preference-demand">Consumer Preference × Demand</a><ul>
-<li><a href="#rational-demand-function">Rational Demand Function</a></li>
-<li><a href="#indirect-preference-over-budget-sets">Indirect Preference (Over Budget Sets)</a></li>
-</ul></li>
-<li><a href="#dual-consumer">Dual Consumer</a><ul>
+<li><a href="#emp-expenditure-minimizationg-problem">EMP (Expenditure Minimizationg Problem)</a></li>
+<li><a href="#dual-consumer">Dual Consumer</a></li>
 <li><a href="#duality-properties">Duality Properties</a></li>
+<li><a href="#rationalizing-demand-function">Rationalizing Demand Function</a></li>
 </ul></li>
 <li><a href="#producer">Producer</a><ul>
 <li><a href="#technology">Technology</a></li>
@@ -445,8 +443,8 @@ Since <span class="math inline">\(A\cap B\)</span> are all singletons, WARP is s
 <li><span class="math inline">\(C_{\succsim}(\cdot)\)</span> satisfies WARP</li>
 </ul>
 </div>
-<div id="rationalization" class="section level3">
-<h3>Rationalization</h3>
+<div id="rationalizing-choice-function" class="section level3">
+<h3>Rationalizing Choice Function</h3>
 <ul>
 <li><span class="math inline">\(C(\cdot)\)</span> is rationalizable if there is a rational preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(C(A) = C_{\succsim}(A)\)</span> for every <span class="math inline">\(A\in D\)</span>
 <ul>
@@ -542,10 +540,10 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
 </ul></li>
 </ul>
 </div>
-<div id="walrasian-demand-function" class="section level3">
-<h3>(Walrasian) Demand Function</h3>
+<div id="demand-function" class="section level3">
+<h3>Demand Function</h3>
 <ul>
-<li>Demand function <span class="math inline">\(x(p,w)\)</span> is defined as the unique solution (when exists) to the consumer problem <span class="math inline">\(B(p,w)\)</span>
+<li>(Marshallian / Walrasian) Demand function <span class="math inline">\(x(p,w)\)</span> is defined as the unique solution (when exists) to the consumer problem <span class="math inline">\(B(p,w)\)</span>
 <ul>
 <li>Homogeneous (0): <span class="math inline">\(x(p,w) = x(λp, λw)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
 <li><strong>Walras Law</strong>: <span class="math inline">\(p\cdot x(p,w) = w\)</span> (if <span class="math inline">\(\succsim\)</span> is monotonic)</li>
@@ -608,10 +606,12 @@ which is incompatible with the existence of underlying rational preferences (vio
 <li>Intuition: an increase in price makes the consumer poorer than before (impoverish)</li>
 <li>Equality holds only when <span class="math inline">\(x(p&#39;,w&#39;) = x(p,w)\)</span></li>
 </ul></li>
-<li>Slutsky Substitution Matrix: <span class="math inline">\(S(p,w)\)</span> (<span class="math inline">\(K\times K\)</span>)<br />
-<span class="math display">\[\begin{aligned} s_{k,l} &amp;= \frac{\partial x_k(p,w)}{\partial p_k} + \frac{\partial x_k(p,w)}{\partial w}\cdot x_l(p,w) \\
-s_{k,k} &amp;\leq 0\end{aligned}\]</span></li>
 </ul>
+<!--
+- Slutsky Substitution Matrix: $S(p,w)$ ($K\times K$)  
+$$\begin{aligned} s_{k,l} &= \frac{\partial x_k(p,w)}{\partial p_k} + \frac{\partial x_k(p,w)}{\partial w}\cdot x_l(p,w) \\
+s_{k,k} &\leq 0\end{aligned}$$
+-->
 <!--
 - For normal goods, it is never the case that $x(p',w') < x(p,w)$
 - Slutsky Decomposition:  
@@ -705,6 +705,7 @@ Contradiction.</li>
 <div id="monotonicity" class="section level3">
 <h3>Monotonicity</h3>
 <ul>
+<li>Locally Nonsatiation</li>
 <li>(Weak) Monotonicity: if <span class="math inline">\(x_k &gt; y_k\)</span> for all <span class="math inline">\(k\)</span>, then <span class="math inline">\(x\succ y\)</span></li>
 <li>Strong Monotonicity: if <span class="math inline">\(x_k\geq y_k\)</span> for all <span class="math inline">\(k\)</span> and <span class="math inline">\(x\neq y\)</span>, then <span class="math inline">\(x\succ y\)</span>
 <ul>
@@ -744,21 +745,48 @@ Contradiction.</li>
 </ul></li>
 </ul>
 </div>
-<div id="utility-maximization-problem" class="section level3">
-<h3>Utility Maximization Problem</h3>
+<div id="ump-utility-maximization-problem" class="section level3">
+<h3>UMP (Utility Maximization Problem)</h3>
 <ul>
-<li>Utility Maximization Problem (UMP):
+<li>Utility Maximization Problem:
 <span class="math display">\[\begin{aligned} \max_x u(x) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x\leq w\end{aligned}\]</span>
 <ul>
 <li>If <span class="math inline">\(p\gg 0\)</span> and <span class="math inline">\(u(\cdot)\)</span> is continuous, then UMP has a solution</li>
 </ul></li>
 <li>(Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} \ u(x)\)</span>
 <ul>
-<li><span class="math inline">\(x(p,w)\)</span> is called (Walrasian) Demand Function when single-valued</li>
-<li><span class="math inline">\(\succsim\)</span> is <strong>monotonic + continuous</strong> <span class="math inline">\(\implies x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong><br />
+<li>(Walrasian) Demand Function when singleton</li>
+<li><span class="math inline">\(\succsim\)</span> is <strong>Monotonic + Continuous</strong> <span class="math inline">\(\implies x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong><br />
 <span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x(p,w)\)</span> is convex<br />
-<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x(p,w)\)</span> is singleton</li>
+<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x(p,w)\)</span> is singleton
+<span class="math inline">\(\succsim\)</span> is <strong>Continuous + Strictly Convex + Monotonic</strong> <span class="math inline">\(\implies x(p,w)\)</span> is continuous</li>
 </ul></li>
+</ul>
+</div>
+<div id="indirect-preference-utility" class="section level3">
+<h3>Indirect Preference &amp; Utility</h3>
+<p>RBST P78, slide 7 P121, MWG Proposition 3.D.3</p>
+<ul>
+<li>Indirect Preference: <span class="math inline">\(\succsim^*\)</span> induced by <span class="math inline">\(\succsim\)</span>
+<ul>
+<li><span class="math inline">\((p,w)\succsim^* (p&#39;,w&#39;)\)</span> if <span class="math inline">\(x(p,w)\succsim x(p&#39;,w&#39;)\)</span></li>
+<li>Invariance to Presentation: <span class="math inline">\(λ\cdot (p,w) \sim^* (p,w)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
+<li>Monotonicity: <span class="math inline">\(\succsim^*\)</span> is weakly decreasing in <span class="math inline">\(p_k\)</span> and strictly increasing in <span class="math inline">\(w\)</span></li>
+<li>Continuity</li>
+</ul></li>
+<li>Indirect Utility Function: <span class="math inline">\(v(p,w) = u(x^*)\)</span> for all <span class="math inline">\((p,w)\in\mathbb{R}^{K+1}_{++}\)</span>
+<ul>
+<li>When <span class="math inline">\(\succsim\)</span> is <strong>Monotonic + Continuous</strong></li>
+<li>Homogeneous (0)</li>
+<li>Strictly Increasing in <span class="math inline">\(w\)</span>, non-decreasing in <span class="math inline">\(p_k\)</span> for all <span class="math inline">\(k\)</span></li>
+<li>Continuous in <span class="math inline">\(p,w\)</span></li>
+<li>Quasi-convex</li>
+</ul></li>
+</ul>
+<p>(slide 7 P136)</p>
+<ul>
+<li>Compensating Variation: <span class="math inline">\(e\big( p&#39;, v(p,w)\big) - w&#39;\)</span></li>
+<li>Equivalent Variation: <span class="math inline">\(e\big( p, v(p&#39;,w&#39;)\big) - w\)</span></li>
 </ul>
 </div>
 <div id="differentiability" class="section level3">
@@ -816,7 +844,7 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 <ul>
 <li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution to the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span>
 <ul>
-<li>When <span class="math inline">\(x^*_j = 0\)</span>, <span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> (<span class="math inline">\(x^*\)</span> is corner solution, see HM8)</li>
+<li>When <span class="math inline">\(x^*_j = 0\)</span>, <span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> (<span class="math inline">\(x^*\)</span> is boundary solution, see HM8)</li>
 <li>When <span class="math inline">\(x^*_j &gt; 0\)</span>,
 <span class="math display">\[\begin{aligned} \frac{v_k(x^*)}{p_k} &amp;= \frac{v_j(x^*)}{p_j} \\
   \frac{v_k(x^*)}{v_j(x^*)} &amp;= \frac{p_k}{p_j} \\
@@ -851,11 +879,86 @@ then for any commodity <span class="math inline">\(k\)</span> with <span class="
 Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(ε\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(ε\cdot\frac{p_k}{p_l}\)</span> for some small <span class="math inline">\(ε&gt;0\)</span> is feasible and is an improvement<br />
 <span class="math inline">\(\implies\)</span> contradiction to <span class="math inline">\(x^*\)</span> is a solution to <span class="math inline">\(B(p,w)\)</span></p>
 </div>
+<div id="emp-expenditure-minimizationg-problem" class="section level3">
+<h3>EMP (Expenditure Minimizationg Problem)</h3>
+<ul>
+<li>Expenditure Minimizationg Problem:<br />
+<span class="math display">\[\begin{aligned} \min_x p\cdot x &amp;&amp; \text{s.t.} &amp;&amp; u(x)\geq \bar{u}\end{aligned}\]</span></li>
+<li>Expenditure Function: <span class="math inline">\(e(p,u) = p\cdot x^*\)</span>
+<ul>
+<li>If <span class="math inline">\(\succsim\)</span> is <strong>monotonic + continuous</strong>, then:</li>
+<li>Homogeneous (1)</li>
+<li>Stricly increasing in <span class="math inline">\(u\)</span>, non-decreasing in <span class="math inline">\(p_k\)</span> for all <span class="math inline">\(k\)</span></li>
+<li>Concave in <span class="math inline">\(p\)</span></li>
+<li>Continuous in <span class="math inline">\(p,u\)</span></li>
+</ul></li>
+<li>Hicksian Demand Correspondence: <span class="math inline">\(h(p,u)\subset\mathbb{R}^K_+\)</span>
+<ul>
+<li>Hicksian Demand Function when singleton</li>
+<li>Homogeneous (0) in <span class="math inline">\(p\)</span>: <span class="math inline">\(h(p,u) = h(αp,u)\)</span> for all <span class="math inline">\(α&gt;0\)</span></li>
+<li>No Excess Utility: <span class="math inline">\(u(x) = \bar{u}\)</span> for all <span class="math inline">\(x\in h(p,\bar{u})\)</span> (as compared to Walras Law)</li>
+<li>Satisfies Compensated Law of Demand: <span class="math inline">\((p&#39;-p)\cdot \big(h(p&#39;,\bar{u}) - h(p,\bar{u})\big)\leq 0\)</span><br />
+<span class="math inline">\(\iff\)</span> Non-increasing in <span class="math inline">\(p_k\)</span></li>
+<li><span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x^*\)</span> is convex<br />
+<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x^*\)</span> is singleton</li>
+<li>Roy’s Identity:<br />
+<span class="math display">\[\begin{aligned} x(p^*,w^*) &amp;= -\frac{\nabla_p v(p^*, w^*)}{\nabla_w v(p^*,w^*)} \\
+  x_k(p^*,w^*) &amp;= -\frac{\partial v(p^*, w^*) / \partial p_k}{\partial v(p^*, w^*) / \partial w}\end{aligned}\]</span></li>
+</ul></li>
+</ul>
 </div>
-<div id="consumer-preference-demand" class="section level2">
-<h2>Consumer Preference × Demand</h2>
-<div id="rational-demand-function" class="section level3">
-<h3>Rational Demand Function</h3>
+<div id="dual-consumer" class="section level3">
+<h3>Dual Consumer</h3>
+<ul>
+<li>For price vector <span class="math inline">\(p\)</span> and initial bundle (endowment) <span class="math inline">\(z\)</span>,</li>
+<li>Prime Problem <span class="math inline">\(P(p,z)\)</span>, UMP:<br />
+Find the <span class="math inline">\(\succsim\)</span>-best bundle <span class="math inline">\(x(p,z)\)</span> (<strong>Marshallian / Walrasian demand function</strong>) s.t.<br />
+<span class="math display">\[\begin{aligned} \max_x u(x) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x\leq p\cdot z\end{aligned}\]</span></li>
+<li>Dual Problem <span class="math inline">\(D(p,z)\)</span>, EMP:<br />
+Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> (<strong>Hicksian demand function</strong>) s.t.<br />
+<span class="math display">\[\begin{aligned} \min_x p\cdot x &amp;&amp; \text{s.t.} &amp;&amp; u(x)\geq\bar{u} = u(z) \end{aligned}\]</span>
+<ul>
+<li>Expenditure function: <span class="math inline">\(e(p,\bar{u}) = p\cdot h(p,\bar{u})\)</span></li>
+</ul></li>
+<li>The prime problem and the dual problem are equivalent<br />
+if <span class="math inline">\(u(x)\)</span> is <strong>Increasing + Continuous</strong> <span class="math inline">\(\iff\succsim\)</span> is <strong>Monotonic + Continuous</strong>
+<ul>
+<li><span class="math inline">\(\begin{cases} e\big(p,v(p,w)\big) = w \\ v\big(p, e(p,w)\big) = \bar{u}\end{cases}\)</span>, <span class="math inline">\(\begin{cases} h(p,\bar{u}) = x\big( p, e(p,\bar{u})\big) \\ x(p,w) = h\big(p, v(p,w)\big)\end{cases}\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-micro--dual-consumer.png" alt="MWG Figure 3.G.3" />
+<p class="caption">MWG Figure 3.G.3</p>
+</div>
+</div>
+<div id="duality-properties" class="section level3">
+<h3>Duality Properties</h3>
+<p>(RBST P82, slide 7 P132)</p>
+<ul>
+<li>If <span class="math inline">\(\bar{u} = u\big( x(p,w)\big)\)</span>, then <span class="math inline">\(h(p,\bar{u}) = x(p,w)\)</span></li>
+<li><span class="math inline">\(h(p,\bar{u}) = h(λp,\bar{u})\)</span> and <span class="math inline">\(e(λp,\bar{u}) = λe(p,\bar{u})\)</span></li>
+<li><span class="math inline">\(h(p,\bar{u}) \sim z\)</span></li>
+<li><span class="math inline">\(h(p,\bar{u})\)</span> and <span class="math inline">\(e(p,\bar{u})\)</span> are continuous</li>
+<li><span class="math inline">\(H = \big\{(p,e) \ | \ e = p\cdot h(p^*, \bar{u})\big\}\)</span> is tangent to <span class="math inline">\(e(p,\bar{u})\)</span> at <span class="math inline">\(p^*\)</span></li>
+<li>MWG Proposition 3.G.1:<br />
+<span class="math display">\[\begin{aligned} h( p^*, \bar{u}) &amp;= \nabla_p e(p,\bar{u}) \\
+h_k( p^*, \bar{u}) &amp;= \frac{\partial e(p,\bar{u})}{\partial p_k}\end{aligned}\]</span></li>
+<li>Slutsky Equation: for all <span class="math inline">\((p,w)\)</span> and <span class="math inline">\(\bar{u} = v(p,w)\)</span>,<br />
+<span class="math display">\[\frac{\partial h_k(p,\bar{u})}{\partial p_k} = \frac{\partial x_k(p,w)}{\partial p_k} + \frac{\partial x_k(p,w)}{\partial w}\cdot x_k(p,w)\]</span></li>
+</ul>
+<blockquote>
+<p>PS0.Q9<br />
+Explain under what assumptions the following two statements are equivalent:<br />
+(1) the maximal amount of Pizzas Joey can eat in <span class="math inline">\(24\)</span> hours is <span class="math inline">\(13\)</span><br />
+(2) the minimal amount of time Joey needs to eat <span class="math inline">\(13\)</span> pizzas is <span class="math inline">\(24\)</span> hours</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>and (2) are equivalent if:<br />
+The maximal amount Joey can eat, as a function of time, is increasing and continuous</li>
+</ol>
+</div>
+<div id="rationalizing-demand-function" class="section level3">
+<h3>Rationalizing Demand Function</h3>
 <ul>
 <li><span class="math inline">\(x(p,w)\)</span> is rationalizable if there is a preference relation <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(x(p,w)\)</span> is the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
 <li><span class="math inline">\(\succsim\)</span> fully rationalizes <span class="math inline">\(x(p,w)\)</span> if <span class="math inline">\(x(p,w)\)</span> is the unique <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
@@ -882,66 +985,6 @@ Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="
 <p>A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
 while two consumers separately choosing them will not.<br />
 Therefore, aggregate consumption cannot be rationalized in this setting.</p>
-</div>
-<div id="indirect-preference-over-budget-sets" class="section level3">
-<h3>Indirect Preference (Over Budget Sets)</h3>
-<ul>
-<li><span class="math inline">\((p,w)\succsim^* (p&#39;,w&#39;)\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(x(p,w)\succsim x(p&#39;,w&#39;)\)</span></li>
-<li><span class="math inline">\(\succsim^*\)</span> defined on <span class="math inline">\(\mathbb{R}^{K+1}_{++}\)</span>
-<ul>
-<li>Invariance to presentation: <span class="math inline">\(λ\cdot (p,w) \sim^* (p,w)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
-<li>Monotonicity: <span class="math inline">\(\succsim^*\)</span> is weakly decreasing in <span class="math inline">\(p_k\)</span> and strictly increasing in <span class="math inline">\(w\)</span></li>
-<li>Continuity</li>
-</ul></li>
-</ul>
-<p>(slide 7 P136)</p>
-<ul>
-<li>Compensating Variation: <span class="math inline">\(e\big( p&#39;, v(p,w)\big) - w&#39;\)</span></li>
-<li>Equivalent Variation: <span class="math inline">\(e\big( p, v(p&#39;,w&#39;)\big) - w\)</span></li>
-</ul>
-</div>
-</div>
-<div id="dual-consumer" class="section level2">
-<h2>Dual Consumer</h2>
-<ul>
-<li>For price vector <span class="math inline">\(p\)</span> and initial bundle (endowment) <span class="math inline">\(z\)</span>,</li>
-<li>Prime Problem <span class="math inline">\(P(p,z)\)</span>, Utility Maximization Problem:<br />
-Find the <span class="math inline">\(\succsim\)</span>-best bundle <span class="math inline">\(x(p,z)\)</span> (<strong>Marshallian / Walrasian demand function</strong>) s.t.<br />
-<span class="math display">\[\begin{aligned} \max_x u(x) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x\leq p\cdot z\end{aligned}\]</span></li>
-<li>Dual Problem <span class="math inline">\(D(p,z)\)</span>, Expenditure Minimization Problem:<br />
-Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> (<strong>Hicksian demand function</strong>) s.t.<br />
-<span class="math display">\[\begin{aligned} \min_x p\cdot x &amp;&amp; \text{s.t.} &amp;&amp; u(x)\geq\bar{u} = u(z) \end{aligned}\]</span>
-<ul>
-<li>Expenditure function: <span class="math inline">\(e(p,\bar{u}) = p\cdot h(p,\bar{u})\)</span></li>
-</ul></li>
-<li>The prime problem and the dual problem are equivalent if <span class="math inline">\(u(x)\)</span> is <strong>increasing + continuous</strong></li>
-</ul>
-<div id="duality-properties" class="section level3">
-<h3>Duality Properties</h3>
-<p>(RBST P82, slide 7 P132)</p>
-<ul>
-<li>If <span class="math inline">\(\bar{u} = u\big( x(p,w)\big)\)</span>, then <span class="math inline">\(h(p,\bar{u}) = x(p,w)\)</span></li>
-<li><span class="math inline">\(h(p,\bar{u}) = h(λp,\bar{u})\)</span> and <span class="math inline">\(e(λp,\bar{u}) = λe(p,\bar{u})\)</span></li>
-<li><span class="math inline">\(h(p,\bar{u}) \sim z\)</span></li>
-<li><span class="math inline">\(h(p,\bar{u})\)</span> and <span class="math inline">\(e(p,\bar{u})\)</span> are continuous</li>
-<li><span class="math inline">\(H = \big\{(p,e) \ | \ e = p\cdot h(p^*, \bar{u})\big\}\)</span> is tangent to <span class="math inline">\(e(p,\bar{u})\)</span> at <span class="math inline">\(p^*\)</span></li>
-<li><span class="math inline">\(\frac{\partial e(p,\bar{u})}{\partial p_k} = h_k( p^*, \bar{u})\)</span></li>
-<li><span class="math inline">\(e(p,\bar{u})\)</span> is concave in <span class="math inline">\(p\)</span></li>
-<li><span class="math inline">\(h_k\)</span> is decreasing in <span class="math inline">\(p_k\)</span>, and <span class="math inline">\(e(p,\bar{u})\)</span> is increasing in <span class="math inline">\(p_k\)</span>
-<ul>
-<li><span class="math inline">\(p\cdot h(p&#39;,\bar{u}) &gt; p\cdot h(p,\bar{u})\)</span> for all <span class="math inline">\(p&#39;\)</span></li>
-</ul></li>
-</ul>
-<blockquote>
-<p>PS0.Q9<br />
-Explain under what assumptions the following two statements are equivalent:<br />
-(1) the maximal amount of Pizzas Joey can eat in <span class="math inline">\(24\)</span> hours is <span class="math inline">\(13\)</span><br />
-(2) the minimal amount of time Joey needs to eat <span class="math inline">\(13\)</span> pizzas is <span class="math inline">\(24\)</span> hours</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>and (2) are equivalent if:<br />
-The maximal amount Joey can eat, as a function of time, is increasing and continuous</li>
-</ol>
 </div>
 </div>
 <div id="producer" class="section level2">
@@ -1480,7 +1523,7 @@ Find endowments <span class="math inline">\(e^1\)</span> and <span class="math i
 <p>Let price of good 1 be <span class="math inline">\(1\)</span>, and price of good 2 be <span class="math inline">\(p = \frac{p_2}{p_1}\)</span><br />
 Consumer 1’s problem:<br />
 <span class="math display">\[\begin{aligned}\max_{x_1^1,x_2^1} u^1 = (x_1^1)^α(x_2^1)^{1-α} &amp;&amp; x_1^1 + p\cdot x_2^1 = e_1^1 + p\cdot e_2^1\end{aligned}\]</span>
-Set MRC = price ratio:<br />
+Set MRS = price ratio:<br />
 <span class="math display">\[\begin{aligned} \frac{α\cdot x_2^1}{(1-α)\cdot x_1^1} &amp;= \frac{1}{p} \\
 α\cdot x_2^1\cdot p &amp;= (1-α)\cdot x_1^1 \\
 x_2^1 &amp;= \frac{(1-α)\cdot x_1^1}{αp}\end{aligned}\]</span>
