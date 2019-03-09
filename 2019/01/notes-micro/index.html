@@ -773,7 +773,11 @@ Contradiction.</li>
 <li>Subjective value function: <span class="math inline">\(x+d\succ x \iff v(x)^T\cdot d &gt;0\)</span></li>
 <li><span class="math inline">\(\succsim\)</span> is differentiable at <span class="math inline">\(x\)</span> if exists <span class="math inline">\(v(x)\in\mathbb{R}^K_+\)</span> s.t. <span class="math inline">\(D_{\succsim}(x) = D_{v(x)}(x)\)</span>
 <ul>
-<li>If <span class="math inline">\(\succsim\)</span> is represented by <span class="math inline">\(u(x)\)</span>: <strong>differentiable + quasi-concave</strong>, then <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x) = \nabla u(x)\)</span></li>
+<li>If <span class="math inline">\(\succsim\)</span> is represented by <span class="math inline">\(u(x)\)</span>: <strong>differentiable + quasi-concave</strong>, then <span class="math inline">\(\succsim\)</span> is differentiable with
+<span class="math display">\[\begin{aligned} v(x) &amp;= \nabla u(x) \\
+  &amp;= \bigg(\frac{\partial u(x)}{\partial x_1}, \frac{\partial u(x)}{\partial x_2},\dots, \frac{\partial u(x)}{\partial x_K} \bigg) \ \text{(MWG P53)}\end{aligned}\]</span></li>
+<li>Marginal Utility:
+<span class="math display">\[\begin{aligned} v_k(x^*) &amp;= \frac{\partial u(x^*)}{\partial x_k} \\ &amp;= MU_k\end{aligned}\]</span></li>
 </ul></li>
 </ul>
 <blockquote>
@@ -808,13 +812,17 @@ s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</sp
 </div>
 <div id="consumer-problem-with-differentiable-preference" class="section level3">
 <h3>Consumer Problem with Differentiable Preference</h3>
+<p>slide 6 P97, RBST P65</p>
 <ul>
-<li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution to the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
-<li>If <span class="math inline">\(x^*\)</span> is a solution for the consumer problem, <span class="math inline">\(x^*_k, x^*_j &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k} = \frac{v_j(x^*)}{p_j}\)</span>
+<li>If <span class="math inline">\(\succsim\)</span> is differentiable with <span class="math inline">\(v(x)\)</span>, <span class="math inline">\(x^*\)</span> is a solution to the consumer problem, <span class="math inline">\(x^*_k &gt; 0\)</span>, then <span class="math inline">\(\frac{v_k(x^*)}{p_k}\geq \frac{v_j(x^*)}{p_j}\)</span> for all <span class="math inline">\(j\neq k\)</span>
 <ul>
-<li><span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> only when <span class="math inline">\(x^*\)</span> is a corner solution (see HM8)</li>
+<li>When <span class="math inline">\(x^*_j = 0\)</span>, <span class="math inline">\(\frac{v_k(x^*)}{p_k} &gt; \frac{v_j(x^*)}{p_j}\)</span> (<span class="math inline">\(x^*\)</span> is corner solution, see HM8)</li>
+<li>When <span class="math inline">\(x^*_j &gt; 0\)</span>,
+<span class="math display">\[\begin{aligned} \frac{v_k(x^*)}{p_k} &amp;= \frac{v_j(x^*)}{p_j} \\
+  \frac{v_k(x^*)}{v_j(x^*)} &amp;= \frac{p_k}{p_j} \\
+  \frac{\partial u(x^*) / \partial x_k}{\partial u(x^*) / \partial x_j} &amp;= \frac{p_k}{p_j} \\
+  \underbrace{\frac{MU_k}{MU_j}}_{\text{MRS of k for j}} &amp;= \frac{p_k}{p_j}\end{aligned}\]</span></li>
 </ul></li>
-<li>Marginal utility: <span class="math inline">\(v_k(x^*) = \frac{\partial U}{\partial x_k}(x^*)\)</span></li>
 </ul>
 <blockquote>
 <p>HM8<br />
