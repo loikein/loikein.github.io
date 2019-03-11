@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">38 min read</span>
+    <span class="article-duration">39 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -116,8 +116,9 @@
 <li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
 <li><a href="#consumer-problem">Consumer Problem</a></li>
 <li><a href="#demand-function">Demand Function</a></li>
-<li><a href="#rationalizing-demand-function">Rationalizing Demand Function</a></li>
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
+<li><a href="#rationalizing-demand-function">Rationalizing Demand Function</a></li>
+<li><a href="#sarp-revisited">SARP (revisited)</a></li>
 <li><a href="#types-of-commodity">Types of Commodity</a></li>
 <li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
 </ul></li>
@@ -840,6 +841,10 @@ equivalently, let EV be s.t.<br />
 <img src="/post-img/notes-micro--CV-EV-2.png" alt="MWG Figure 3.I.2" />
 <p class="caption">MWG Figure 3.I.2</p>
 </div>
+<ul>
+<li>Change of (Marshallian) Consumer Surplus: (MWG (3.I.8), AMT (4.27))<br />
+<span class="math display">\[\begin{aligned} ΔCS &amp;= \int_{p_k&#39;}^{p_k} x_k(p&#39;,w) dp&#39;\end{aligned}\]</span></li>
+</ul>
 </div>
 </div>
 <div id="demand-consumer-choice" class="section level2">
@@ -882,6 +887,34 @@ equivalently, let EV be s.t.<br />
 </ul></li>
 </ul>
 </div>
+<div id="warp-revisited" class="section level3">
+<h3>WARP (revisited)</h3>
+<ul>
+<li>If <span class="math inline">\(x(p,w)\neq x(p&#39;,w&#39;)\)</span>, then<br />
+<span class="math display">\[\begin{aligned} &amp;\phantom{\implies}\begin{cases}x(p&#39;,w&#39;)\in B(p,w) &amp; \text{(not chosen)}\\ p\cdot x(p&#39;,w&#39;)\leq w &amp; \text{(feasible)}\end{cases} \\
+&amp;\implies \\
+&amp;\phantom{\implies}\begin{cases} x(p,w)\not\in B(p&#39;,w&#39;) \\ p&#39;\cdot x(p,w) &gt; w&#39; &amp; \text{(infeasible)}\end{cases}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(x(p,w)\succsim^* x(p&#39;,w&#39;)\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" />
+<p class="caption">RBST Figure 5.2(a)</p>
+</div>
+<blockquote>
+<p>MWG Exercise 2.F.2<br />
+In a three-commodity world, let <span class="math inline">\(w = 8\)</span>, consider three budget sets and respective (unique) choices:<br />
+<span class="math display">\[\begin{aligned} p_1 = (2, 1, 2) &amp;&amp; x_1 = (1, 2, 2) \\ p_2 = (2, 2, 1) &amp;&amp; x_2 = (2, 1, 2) \\ p_3 = (1, 2, 2) &amp;&amp; x_3 = (2, 2, 1)\end{aligned}\]</span>
+Verify that any two pairs of choices satisfy the WA,<br />
+but that <span class="math inline">\(x_3\)</span> is revealed preferred to <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_2\)</span> is revealed preferred to <span class="math inline">\(x_1\)</span> , and <span class="math inline">\(x_1\)</span> is revealed preferred to <span class="math inline">\(x_3\)</span>,<br />
+which is incompatible with the existence of underlying rational preferences (violates transitivity)</p>
+</blockquote>
+<p><span class="math inline">\(x_1\in B(p_2, w)\)</span>, <span class="math inline">\(x_2\notin B(p_1, w)\implies x_2\succsim^* x_1\)</span><br />
+<span class="math inline">\(x_2\in B(p_3, w)\)</span>, <span class="math inline">\(x_3\notin B(p_2, w)\implies x_3\succsim^* x_2\)</span><br />
+<span class="math inline">\(x_3\in B(p_1, w)\)</span>, <span class="math inline">\(x_1\notin B(p_3, w)\implies x_1\succsim^* x_3\)</span><br />
+<span class="math inline">\(\implies x_1\succsim^* x_3\succsim^* x_2\succsim^* x_1\)</span>, transitivity is violated</p>
+</div>
 <div id="rationalizing-demand-function" class="section level3">
 <h3>Rationalizing Demand Function</h3>
 <p>slide 6 P106, RBST P68</p>
@@ -912,33 +945,15 @@ Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="
 while two consumers separately choosing them will not.<br />
 Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 </div>
-<div id="warp-revisited" class="section level3">
-<h3>WARP (revisited)</h3>
+<div id="sarp-revisited" class="section level3">
+<h3>SARP (revisited)</h3>
 <ul>
-<li>If <span class="math inline">\(x(p,w)\neq x(p&#39;,w&#39;)\)</span>, then<br />
-<span class="math display">\[\begin{aligned} &amp;\phantom{\implies}\begin{cases}x(p&#39;,w&#39;)\in B(p,w) &amp; \text{(not chosen)}\\ p\cdot x(p&#39;,w&#39;)\leq w &amp; \text{(feasible)}\end{cases} \\
-&amp;\implies \\
-&amp;\phantom{\implies}\begin{cases} x(p,w)\not\in B(p&#39;,w&#39;) \\ p&#39;\cdot x(p,w) &gt; w&#39; &amp; \text{(infeasible)}\end{cases}\end{aligned}\]</span>
-<ul>
-<li><span class="math inline">\(x(p,w)\succsim^* x(p&#39;,w&#39;)\)</span></li>
-</ul></li>
+<li>For any <span class="math inline">\((p^1,w^1)\)</span>, <span class="math inline">\((p^2,w^2)\)</span>, … <span class="math inline">\((p^N,w^N)\)</span>,<br />
+with <span class="math inline">\(x(p^n, w^n)\neq x(p^{n+1}, w^{n+1})\)</span>, then<br />
+<span class="math display">\[\begin{aligned} &amp;p^n\cdot x(p^{n+1},w^{n+1})\leq w^n\text{ for all }n\leq N-1 \\
+\implies &amp;p^N\cdot x(p^1,w^1)&gt;w^N\end{aligned}\]</span></li>
+<li>If <span class="math inline">\(x(p,w)\)</span> satisfies SARP, then exists <span class="math inline">\(\succsim\)</span> that rationalizes <span class="math inline">\(x(p,w)\)</span></li>
 </ul>
-<div class="figure">
-<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" />
-<p class="caption">RBST Figure 5.2(a)</p>
-</div>
-<blockquote>
-<p>MWG Exercise 2.F.2<br />
-In a three-commodity world, let <span class="math inline">\(w = 8\)</span>, consider three budget sets and respective (unique) choices:<br />
-<span class="math display">\[\begin{aligned} p_1 = (2, 1, 2) &amp;&amp; x_1 = (1, 2, 2) \\ p_2 = (2, 2, 1) &amp;&amp; x_2 = (2, 1, 2) \\ p_3 = (1, 2, 2) &amp;&amp; x_3 = (2, 2, 1)\end{aligned}\]</span>
-Verify that any two pairs of choices satisfy the WA,<br />
-but that <span class="math inline">\(x_3\)</span> is revealed preferred to <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_2\)</span> is revealed preferred to <span class="math inline">\(x_1\)</span> , and <span class="math inline">\(x_1\)</span> is revealed preferred to <span class="math inline">\(x_3\)</span>,<br />
-which is incompatible with the existence of underlying rational preferences (violates transitivity)</p>
-</blockquote>
-<p><span class="math inline">\(x_1\in B(p_2, w)\)</span>, <span class="math inline">\(x_2\notin B(p_1, w)\implies x_2\succsim^* x_1\)</span><br />
-<span class="math inline">\(x_2\in B(p_3, w)\)</span>, <span class="math inline">\(x_3\notin B(p_2, w)\implies x_3\succsim^* x_2\)</span><br />
-<span class="math inline">\(x_3\in B(p_1, w)\)</span>, <span class="math inline">\(x_1\notin B(p_3, w)\implies x_1\succsim^* x_3\)</span><br />
-<span class="math inline">\(\implies x_1\succsim^* x_3\succsim^* x_2\succsim^* x_1\)</span>, transitivity is violated</p>
 </div>
 <div id="types-of-commodity" class="section level3">
 <h3>Types of Commodity</h3>
