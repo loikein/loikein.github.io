@@ -91,12 +91,12 @@
 <li><a href="#preference">Preference</a><ul>
 <li><a href="#utility-function">Utility Function</a></li>
 <li><a href="#continuity">Continuity</a></li>
+<li><a href="#rational-choice-function">Rational Choice Function</a></li>
 </ul></li>
 <li><a href="#choice">Choice</a><ul>
 <li><a href="#revealed-preference-relation">Revealed Preference Relation</a></li>
 <li><a href="#warp-weak-axiom-of-revealed-preference">WARP (Weak Axiom of Revealed Preference)</a></li>
 <li><a href="#sarp-strong-axiom-of-revealed-preference">SARP (Strong Axiom of Revealed Preference)</a></li>
-<li><a href="#rational-choice-function">Rational Choice Function</a></li>
 <li><a href="#rationalizing-choice-function">Rationalizing Choice Function</a></li>
 </ul></li>
 <li><a href="#demand-consumer-preference">Demand (Consumer Preference)</a><ul>
@@ -111,6 +111,7 @@
 <li><a href="#emp-expenditure-minimizationg-problem">EMP (Expenditure Minimizationg Problem)</a></li>
 <li><a href="#dual-consumer">Dual Consumer</a></li>
 <li><a href="#duality-properties">Duality Properties</a></li>
+<li><a href="#consumer-welfare">Consumer Welfare</a></li>
 </ul></li>
 <li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
 <li><a href="#consumer-problem">Consumer Problem</a></li>
@@ -138,7 +139,7 @@
 <li><a href="#competitive-market">Competitive Market</a></li>
 </ul></li>
 <li><a href="#general-equilibrium-production">General Equilibrium (Production)</a></li>
-<li><a href="#welfare">Welfare</a><ul>
+<li><a href="#total-welfare">Total Welfare</a><ul>
 <li><a href="#with-exchange">With Exchange</a></li>
 <li><a href="#with-production">With Production</a></li>
 </ul></li>
@@ -146,8 +147,8 @@
 </ul>
 </div>
 
-<p>Textbook 1: <a href="http://arielrubinstein.tau.ac.il/books.html">Lecture Notes in Microeconomic Theory</a> (~ <a href="#producer">#Producer</a>)<br />
-Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory (3ed)</a> (<a href="#partial-equilibrium">#Partial Equilibrium</a> ~ <a href="#welfare">#Welfare</a>)<br />
+<p>Textbook 1: <a href="http://arielrubinstein.tau.ac.il/books.html">Lecture Notes in Microeconomic Theory (RBST)</a> (~ <a href="#producer">#Producer</a>)<br />
+Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory, 3ed (AMT)</a> (<a href="#partial-equilibrium">#Partial Equilibrium</a> ~ <a href="#welfare">#Welfare</a>)<br />
 Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory (MWG)</a> (<a href="#externality">#Externality</a> ~ )</p>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
@@ -367,6 +368,14 @@ u(x_2) - 1 &amp; x_2\succ x_1 \\
 u(x_2) - 2 &amp; x_2\succ\succ x_1\end{cases}\]</span>
 Therefore, <span class="math inline">\(u\)</span> satisfies (1) ~ (3) for <span class="math inline">\(|X| = n+1\)</span></p>
 </div>
+<div id="rational-choice-function" class="section level3">
+<h3>Rational Choice Function</h3>
+<p>RBST P25, MWG 1.D</p>
+<ul>
+<li><span class="math inline">\(C_{\succsim}(\cdot)\)</span> is the choice function induced by rational preference <span class="math inline">\(\succsim\)</span> that assigns the <span class="math inline">\(\succsim\)</span>-best element of every <span class="math inline">\(A\in D\)</span></li>
+<li><span class="math inline">\(C_{\succsim}(\cdot)\)</span> satisfies WARP</li>
+</ul>
+</div>
 </div>
 <div id="choice" class="section level2">
 <h2>Choice</h2>
@@ -429,14 +438,6 @@ Since <span class="math inline">\(A\cap B\)</span> are all singletons, WARP is s
 </li>
 <li>Rationalizability <span class="math inline">\(\implies\)</span> SARP <span class="math inline">\(\implies\)</span> WARP</li>
 </ol>
-</div>
-<div id="rational-choice-function" class="section level3">
-<h3>Rational Choice Function</h3>
-<p>RBST P25, MWG 1.D</p>
-<ul>
-<li><span class="math inline">\(C_{\succsim}(\cdot)\)</span> is the choice function induced by rational preference <span class="math inline">\(\succsim\)</span> that assigns the <span class="math inline">\(\succsim\)</span>-best element of every <span class="math inline">\(A\in D\)</span></li>
-<li><span class="math inline">\(C_{\succsim}(\cdot)\)</span> satisfies WARP</li>
-</ul>
 </div>
 <div id="rationalizing-choice-function" class="section level3">
 <h3>Rationalizing Choice Function</h3>
@@ -509,7 +510,7 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
 <li><strong>Monotonic + Continuous</strong> preference relations can be represented by a utility function</li>
 </ul>
 <blockquote>
-<p>PS0.Q6, textbook P50 Claim<br />
+<p>PS0.Q6, RBST P50 Claim<br />
 John’s preferences over bundles <span class="math inline">\((x, y)\in [0, \infty)^2\)</span> are monotonic and continuous.<br />
 Explain how one can construct a utility function representing John’s preferences.</p>
 </blockquote>
@@ -647,11 +648,6 @@ Contradiction.</li>
 <li>Continuous in <span class="math inline">\(p,w\)</span></li>
 <li>Quasi-convex</li>
 </ul></li>
-</ul>
-<p>(slide 7 P136)</p>
-<ul>
-<li>Compensating Variation: <span class="math inline">\(e\big( p&#39;, v(p,w)\big) - w&#39;\)</span></li>
-<li>Equivalent Variation: <span class="math inline">\(e\big( p, v(p&#39;,w&#39;)\big) - w\)</span></li>
 </ul>
 </div>
 <div id="differentiability" class="section level3">
@@ -822,6 +818,29 @@ Explain under what assumptions the following two statements are equivalent:<br /
 The maximal amount Joey can eat, as a function of time, is increasing and continuous</li>
 </ol>
 </div>
+<div id="consumer-welfare" class="section level3">
+<h3>Consumer Welfare</h3>
+<p>AMT 4.3, MWG 3.I, slide 7 P136</p>
+<ul>
+<li>Let <span class="math inline">\(\begin{cases} u = v(p, w) \\ u&#39; = v(p&#39;,w)\end{cases}\)</span>, <span class="math inline">\(e(p,u) = e(p&#39;,u&#39;) = w\)</span> (Walras Law)</li>
+<li>Compensating Variation:<br />
+<span class="math display">\[\begin{aligned} CV &amp;= e(p&#39;,u&#39;) - e(p&#39;,u)\\ &amp;= w - e(p&#39;,u) \\ &amp;= e(p,u) - e(p&#39;,u)\end{aligned}\]</span>
+equivalently, let CV be s.t.<br />
+<span class="math display">\[\begin{aligned}u &amp;= v(p&#39;, w - CV) \\ e(p,u) &amp;= e\big( p&#39;, v(p&#39;,w - CV)\big) \\ &amp;= w - CV\end{aligned}\]</span></li>
+<li>Equivalent Variation:<br />
+<span class="math display">\[\begin{aligned} EV &amp;= e(p,u&#39;) - e(p,u) \\ &amp;= e(p,u&#39;) - w \\ &amp;= e(p,u&#39;) - e(p&#39;,u&#39;)\end{aligned}\]</span>
+equivalently, let EV be s.t.<br />
+<span class="math display">\[\begin{aligned}u&#39; &amp;= v(p, w + EV) \\ e(p,u&#39;) &amp;= e\big( p, v(p, w + EV)\big) \\ &amp;= w + EV\end{aligned}\]</span></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-micro--CV-EV-1.png" alt="MWG Figure 3.I.1" />
+<p class="caption">MWG Figure 3.I.1</p>
+</div>
+<div class="figure">
+<img src="/post-img/notes-micro--CV-EV-2.png" alt="MWG Figure 3.I.2" />
+<p class="caption">MWG Figure 3.I.2</p>
+</div>
+</div>
 </div>
 <div id="demand-consumer-choice" class="section level2">
 <h2>Demand (Consumer Choice)</h2>
@@ -865,6 +884,7 @@ The maximal amount Joey can eat, as a function of time, is increasing and contin
 </div>
 <div id="rationalizing-demand-function" class="section level3">
 <h3>Rationalizing Demand Function</h3>
+<p>slide 6 P106, RBST P68</p>
 <ul>
 <li><span class="math inline">\(x(p,w)\)</span> is rationalizable if there is a preference relation <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(x(p,w)\)</span> is the <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
 <li><span class="math inline">\(\succsim\)</span> fully rationalizes <span class="math inline">\(x(p,w)\)</span> if <span class="math inline">\(x(p,w)\)</span> is the unique <span class="math inline">\(\succsim\)</span>-best bundle in <span class="math inline">\(B(p,w)\)</span></li>
@@ -1057,7 +1077,7 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 <div id="partial-equilibrium" class="section level2">
 <h2>Partial Equilibrium</h2>
 <ul>
-<li>(textbook P165, slide 10 P4)</li>
+<li>(AMT 4.1, slide 10 P4)</li>
 <li>Set of consumers: <span class="math inline">\(\mathcal{I}\equiv\{1,2,\dots, I\}\)</span></li>
 <li>Individual <span class="math inline">\(i\)</span>’s demand for good <span class="math inline">\(q\)</span>: <span class="math inline">\(q^i(p,\mathbb{p},y^i)\)</span>
 <ul>
@@ -1108,8 +1128,8 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 <li>Monopoly Equilibrium: <span class="math inline">\(\frac{p(q^*) - MC(q^*)}{p(q^*)} = \frac{1}{|ε(q)|}\)</span></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--monopoly-eq.png" alt="Advanced Microeconomic Theory, Figure 4.3" />
-<p class="caption">Advanced Microeconomic Theory, Figure 4.3</p>
+<img src="/post-img/notes-micro--monopoly-eq.png" alt="AMT, Figure 4.3" />
+<p class="caption">AMT, Figure 4.3</p>
 </div>
 </div>
 <div id="cournot-quantity" class="section level3">
@@ -1498,8 +1518,8 @@ Consumption: <span class="math inline">\(y^c = y^f = 2\sqrt{2}\)</span><br />
 <li><span class="math inline">\(h^c = 24 - h^f = 16\)</span></li>
 </ol>
 </div>
-<div id="welfare" class="section level2">
-<h2>Welfare</h2>
+<div id="total-welfare" class="section level2">
+<h2>Total Welfare</h2>
 <ul>
 <li>First Welfare: every WEA is Pareto efficient
 <ul>
@@ -1559,7 +1579,7 @@ for all <span class="math inline">\(α\)</span>’s, therefore,
 </div>
 <div id="externality" class="section level2">
 <h2>Externality</h2>
-<p>(textbook P350, slide 16)</p>
+<p>(MWG 11.A, slide 16)</p>
 </div>
 
     </div>
