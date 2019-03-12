@@ -1191,14 +1191,15 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 <div id="monopoly" class="section level3">
 <h3>Monopoly</h3>
 <ul>
-<li>Firm’s problem: <span class="math inline">\(π(q) = \max_q \underbrace{p(q)\cdot q}_{r(q)} - c(q)\)</span>
+<li>Firm’s problem: <span class="math display">\[π(q) = \max_q \underbrace{p(q)\cdot q}_{r(q)} - c(q)\]</span>
 <ul>
+<li>Optimal output: <span class="math inline">\(q^*\)</span></li>
 <li>FOC: <span class="math display">\[\begin{aligned} MC(q^*) &amp;= MR(q^*) \geq 0 \\ &amp;= p(q)\cdot 1 + q\cdot\frac{dp(q)}{dq} \\
 &amp;= p(q) + \frac{dp(q)}{dq}\cdot\frac{q}{p(q)}\cdot p(q) \\
-&amp;= p(q)\cdot\bigg[1+\underbrace{\frac{dp(q)}{dq}\cdot\frac{q}{p(q)}}_{\text{Elasticity }|ε(q)|}\bigg]\end{aligned}\]</span></li>
-<li>Optimal output: <span class="math inline">\(q^*\)</span></li>
+&amp;= p(q)\cdot\Big(1+\frac{dp(q)}{dq}\cdot\frac{q}{p(q)}\Big) \\
+&amp;= p(q)\cdot\Big(1-\frac{1}{|ε(q)|}\Big)\end{aligned}\]</span></li>
 </ul></li>
-<li>Monopoly Equilibrium: <span class="math inline">\(\frac{p(q^*) - MC(q^*)}{p(q^*)} = \frac{1}{|ε(q)|}\)</span></li>
+<li>Monopoly Equilibrium: <span class="math display">\[\frac{p(q^*) - MC(q^*)}{p(q^*)} = \frac{1}{|ε(q)|}\]</span></li>
 </ul>
 <div class="figure">
 <img src="/post-img/notes-micro--monopoly-eq.png" alt="AMT, Figure 4.3" />
@@ -1208,12 +1209,13 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 <div id="cournot-quantity" class="section level3">
 <h3>Cournot (Quantity)</h3>
 <ul>
-<li>Firms’ problem: <span class="math inline">\(\max_{q^j} π^j(q^1,q^2,\dots,q^J) = \big(\underbrace{a-b\cdot\sum_J q^j}_{\text{Market Demand }p}\big)\cdot q^j - c\cdot q^j\)</span>
+<li>Firms’ problem: <span class="math display">\[\max_{q^j} π^j(q^1,q^2,\dots,q^J) = \big(\underbrace{a-b\cdot\sum_J q^j}_{\text{Market Demand}}\big)\cdot q^j - c\cdot q^j\]</span>
 <ul>
 <li><span class="math inline">\(\frac{\partial π^j}{\partial q^k}&lt;0\)</span> for all <span class="math inline">\(j\neq k\)</span></li>
 <li>FOC: <span class="math display">\[\begin{aligned} \frac{\partial π^j}{\partial q^j} &amp;= a - 2bq^j - b\cdot\sum_{k\neq j} q^k - c \\
-&amp;= a - c - b\cdot\sum_{J} q^j - bq^j \\
-q^* &amp;= \frac{a-c}{b(J+1)}\end{aligned}\]</span></li>
+&amp;= a - c - b\cdot\sum_{J} q^j - bq^j\end{aligned}\]</span>
+Let <span class="math inline">\(q^1 = q^2 = \dots = \bar{q}\)</span>,<br />
+<span class="math display">\[\bar{q}= \frac{a-c}{b(J+1)}\]</span></li>
 </ul></li>
 <li>Cournot-Nash Equilibrium: <span class="math inline">\((\bar{q}^1,\bar{q}^2,\dots,\bar{q}^J)\)</span></li>
 </ul>
