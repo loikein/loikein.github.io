@@ -124,8 +124,8 @@
 </ul></li>
 <li><a href="#producer">Producer</a><ul>
 <li><a href="#technology">Technology</a></li>
+<li><a href="#pmp-profit-maximization-problem">PMP (Profit Maximization Problem)</a></li>
 <li><a href="#production-function">Production Function</a></li>
-<li><a href="#supply">Supply</a></li>
 <li><a href="#law-of-supply">Law of Supply</a></li>
 </ul></li>
 <li><a href="#partial-equilibrium">Partial Equilibrium</a><ul>
@@ -622,10 +622,10 @@ Contradiction.</li>
 </ul></li>
 <li>(Marshallian / Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} \ u(x)\)</span>
 <ul>
-<li>Demand Function when singleton</li>
+<li>Demand Function when single-valued</li>
 <li><span class="math inline">\(\succsim\)</span> is <strong>Monotonic + Continuous</strong> <span class="math inline">\(\implies x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong><br />
 <span class="math inline">\(\succsim\)</span> is convex <span class="math inline">\(\implies x(p,w)\)</span> is convex<br />
-<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x(p,w)\)</span> is singleton
+<span class="math inline">\(\succsim\)</span> is strictly convex <span class="math inline">\(\implies x(p,w)\)</span> is single-valued
 <span class="math inline">\(\succsim\)</span> is <strong>Continuous + Strictly Convex + Monotonic</strong> <span class="math inline">\(\implies x(p,w)\)</span> is continuous</li>
 </ul></li>
 </ul>
@@ -756,7 +756,7 @@ Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="m
 </ul></li>
 <li>Hicksian Demand Correspondence: <span class="math inline">\(h(p,u)\subset\mathbb{R}^K_+\)</span>
 <ul>
-<li>Hicksian Demand Function when singleton</li>
+<li>Hicksian Demand Function when single-valued</li>
 <li>Homogeneous (0) in <span class="math inline">\(p\)</span>: <span class="math inline">\(h(p,u) = h(αp,u)\)</span> for all <span class="math inline">\(α&gt;0\)</span></li>
 <li>No Excess Utility: <span class="math inline">\(u(x) = \bar{u}\)</span> for all <span class="math inline">\(x\in h(p,\bar{u})\)</span> (as compared to Walras Law)</li>
 <li>Satisfies <a href="#compensated-law-of-demand">Compensated Law of Demand</a>: <span class="math inline">\((p&#39;-p)\cdot \big(h(p&#39;,\bar{u}) - h(p,\bar{u})\big)\leq 0\)</span><br />
@@ -877,13 +877,12 @@ equivalently, let EV be s.t.<br />
 <li>Choice Structure: <span class="math inline">\(\big( B, x(\cdot)\big)\)</span></li>
 <li>(Marshallian / Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w)\)</span>
 <ul>
-<li>Demand Function when singleton</li>
+<li>(Walrasian) Demand Function when single-valued</li>
 <li>If <span class="math inline">\(\succsim\)</span> is <strong>Continuous + Monotonic</strong>, then:</li>
-<li>(Walrasian) Demand Function when singleton</li>
 <li>Homogeneous (0): <span class="math inline">\(x(p,w) = x(λp, λw)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
 <li><strong>Walras Law</strong>: <span class="math inline">\(p\cdot x(p,w) = w\)</span> (if <span class="math inline">\(\succsim\)</span> is monotonic)</li>
 <li>Convex (<span class="math inline">\(\succsim\)</span> is convex)</li>
-<li>Singleton + Continuous (<span class="math inline">\(\succsim\)</span> is strictly convex)</li>
+<li>Single-valued + Continuous (<span class="math inline">\(\succsim\)</span> is strictly convex)</li>
 </ul></li>
 </ul>
 </div>
@@ -1028,13 +1027,39 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 <div id="technology" class="section level3">
 <h3>Technology</h3>
 <ul>
-<li>Goods: <span class="math inline">\(1, 2,\dots, K\)</span></li>
-<li>Production Combination: <span class="math inline">\(z\in \mathbb{R}^K\)</span>, positive: output, negative: input</li>
-<li>Technology Space: <span class="math inline">\(Z \subset \mathbb{R}^K\)</span> of all feasible <span class="math inline">\(z\)</span>’s
+<li>Commodities: <span class="math inline">\(1, 2,\dots, K\)</span></li>
+<li>Production Combination: <span class="math inline">\(y\in \mathbb{R}^K\)</span>, positive: output, negative: input</li>
+<li>Technology Space: <span class="math inline">\(Y \subset \mathbb{R}^K\)</span> of all feasible <span class="math inline">\(z\)</span>’s
 <ul>
-<li>Closed and convex <span class="math inline">\(\implies\)</span> decreasing marginal productivity <span class="math inline">\(\implies\)</span> non-increasing returns to scale</li>
+<li>Closed and convex <span class="math inline">\(\implies\)</span> decreasing marginal productivity<br />
+<span class="math inline">\(\implies\)</span> non-increasing returns to scale</li>
 <li>No production with zero resources</li>
 <li>Free disposal</li>
+</ul></li>
+</ul>
+</div>
+<div id="pmp-profit-maximization-problem" class="section level3">
+<h3>PMP (Profit Maximization Problem)</h3>
+<ul>
+<li>Profit Maximization Problem:<br />
+<span class="math display">\[\begin{aligned}\max_y p\cdot y &amp;&amp; \text{s.t.} &amp;&amp; y\in Y\end{aligned}\]</span></li>
+<li>Profit Function: <span class="math display">\[π(p) = \max\{p\cdot y \ | \ y\in Y\}\]</span>
+<ul>
+<li>Homogeneous (1)</li>
+<li>Continuous</li>
+<li>Convex</li>
+</ul></li>
+<li>Supply Correspondence (Net Supply): <span class="math display">\[y(p) = \{y\in Y \ | \ p\cdot y = π(p)\}\]</span>
+<ul>
+<li>Homogeneous (0)</li>
+<li>Continuous</li>
+<li><span class="math inline">\(Y\)</span> is convex <span class="math inline">\(\implies y(p)\)</span> is convex<br />
+<span class="math inline">\(Y\)</span> is strictly convex <span class="math inline">\(\implies y(p)\)</span> is single-valued
+<!--
+  - $π(p) \geq p\cdot z(p^*)$ for all $p$ and $p^*$ 
+--></li>
+<li>Hotelling’s lemma: <span class="math inline">\(π(p)\)</span> is differentiable, and <span class="math inline">\(\frac{\partial π}{\partial p_k}(p^*) = y_k(p^*)\)</span><br />
+If <span class="math inline">\(π(p)\)</span> is twice differentiable, then <span class="math inline">\(\frac{\partial y_j}{\partial p_k}(p^*) = \frac{\partial y_k}{\partial p_j}(p^*)\)</span></li>
 </ul></li>
 </ul>
 </div>
@@ -1042,28 +1067,7 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 <h3>Production Function</h3>
 <ul>
 <li>Let good <span class="math inline">\(K\)</span> be the only output, vector of inputs: <span class="math inline">\(v\in \mathbb{R}^{K-1}_+\)</span></li>
-<li>Production Function: <span class="math inline">\(f(v) = \max x\)</span> s.t. <span class="math inline">\((-v,x)\in Z\)</span></li>
-</ul>
-</div>
-<div id="supply" class="section level3">
-<h3>Supply</h3>
-<ul>
-<li>Let price vector be <span class="math inline">\(p\)</span></li>
-<li>Choice Set: <span class="math inline">\(B(p) = \big\{ (z,p\cdot z)\big\}\)</span>, <span class="math inline">\(z\in Z\)</span></li>
-<li>Supply Function: <span class="math inline">\(z(p)\)</span>
-<ul>
-<li><span class="math inline">\(z(λp) = z(p)\)</span></li>
-<li>Continuous</li>
-</ul></li>
-<li>Profit Function: <span class="math inline">\(π(p) = \max_z p\cdot z\)</span>
-<ul>
-<li><span class="math inline">\(π(λp) = λπ(p)\)</span></li>
-<li>Continuous</li>
-<li>Convex</li>
-<li><span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span class="math inline">\(p\)</span> and <span class="math inline">\(p^*\)</span> (<strong>Hotelling’s lemma</strong>)</li>
-<li><span class="math inline">\(π(p)\)</span> is differentiable, and <span class="math inline">\(\frac{\partial π}{\partial p_k}(p^*) = z_k(p^*)\)</span></li>
-<li>If <span class="math inline">\(π(p)\)</span> is twice differentiable, then <span class="math inline">\(\frac{\partial z_j}{\partial p_k}(p^*) = \frac{\partial z_k}{\partial p_j}(p^*)\)</span></li>
-</ul></li>
+<li>Production Function: <span class="math inline">\(f(v) = \max x\)</span> s.t. <span class="math inline">\((-v,x)\in Y\)</span></li>
 <li>Cost Function: <span class="math inline">\(c(p,y) = \min_a p\cdot a\)</span> s.t. <span class="math inline">\((-a,y)\in Z\)</span></li>
 </ul>
 <blockquote>
