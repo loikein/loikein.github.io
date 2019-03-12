@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">39 min read</span>
+    <span class="article-duration">40 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -124,9 +124,10 @@
 </ul></li>
 <li><a href="#producer">Producer</a><ul>
 <li><a href="#technology">Technology</a></li>
-<li><a href="#pmp-profit-maximization-problem">PMP (Profit Maximization Problem)</a></li>
 <li><a href="#production-function">Production Function</a></li>
+<li><a href="#pmp-profit-maximization-problem">PMP (Profit Maximization Problem)</a></li>
 <li><a href="#law-of-supply">Law of Supply</a></li>
+<li><a href="#cmp-cost-minimization-problem">CMP (Cost Minimization Problem)</a></li>
 </ul></li>
 <li><a href="#partial-equilibrium">Partial Equilibrium</a><ul>
 <li><a href="#perfect-competition-short-run">Perfect Competition (Short Run)</a></li>
@@ -151,6 +152,7 @@
 <p>Textbook 1: <a href="http://arielrubinstein.tau.ac.il/books.html">Lecture Notes in Microeconomic Theory (RBST)</a> (~ <a href="#producer">#Producer</a>)<br />
 Textbook 2: <a href="http://93.174.95.27/book/index.php?md5=195A8D5D6D9CA71A7A96C3C9486D9E63">Advanced Microeconomic Theory, 3ed (AMT)</a> (<a href="#partial-equilibrium">#Partial Equilibrium</a> ~ <a href="#welfare">#Welfare</a>)<br />
 Textbook 3: <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory (MWG)</a> (<a href="#externality">#Externality</a> ~ )</p>
+<p>Notations are unified to the order: <span class="math inline">\(MWG\succsim AMT\succsim RBST\)</span></p>
 <div id="preference" class="section level2">
 <h2>Preference</h2>
 <ul>
@@ -971,7 +973,8 @@ with <span class="math inline">\(x(p^n, w^n)\neq x(p^{n+1}, w^{n+1})\)</span>, t
 <li>Let <span class="math inline">\(x(p,w)\)</span> be homogeneous and satisfy Walras Law<br />
 </li>
 <li>If <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then for <span class="math inline">\(p&#39; &gt; p\)</span>, <span class="math inline">\(x(p,w)\)</span> satisfy WARP <span class="math inline">\(\iff\)</span><br />
-<span class="math display">\[\begin{aligned} (p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) &amp;= \underbrace{p&#39;\cdot x(p&#39;,w&#39;)}_{\text{Walras Law}} - \underbrace{p&#39;\cdot x(p,w)}_{\text{Compensated wealth}} - p\cdot x(p&#39;,w&#39;) + p\cdot x(p,w)\\
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}(p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) \\
+&amp;= \underbrace{p&#39;\cdot x(p&#39;,w&#39;)}_{\text{Walras Law}} - \underbrace{p&#39;\cdot x(p,w)}_{\text{Compensated wealth}} - p\cdot x(p&#39;,w&#39;) + p\cdot x(p,w)\\
 &amp;= w&#39; - w&#39; - p\cdot x(p&#39;,w&#39;) + w \\
 &amp;= w - \underbrace{p \cdot x(p&#39;,w&#39;)}_{\text{WARP: infeasible}} \\
 &amp;\leq 0\end{aligned}\]</span>
@@ -1029,7 +1032,7 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 <ul>
 <li>Commodities: <span class="math inline">\(1, 2,\dots, K\)</span></li>
 <li>Production Combination: <span class="math inline">\(y\in \mathbb{R}^K\)</span>, positive: output, negative: input</li>
-<li>Technology Space: <span class="math inline">\(Y \subset \mathbb{R}^K\)</span> of all feasible <span class="math inline">\(z\)</span>’s
+<li>Technology Space: <span class="math inline">\(Y \subset \mathbb{R}^K\)</span> of all feasible <span class="math inline">\(y\)</span>’s
 <ul>
 <li>Closed and convex <span class="math inline">\(\implies\)</span> decreasing marginal productivity<br />
 <span class="math inline">\(\implies\)</span> non-increasing returns to scale</li>
@@ -1037,6 +1040,21 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 <li>Free disposal</li>
 </ul></li>
 </ul>
+</div>
+<div id="production-function" class="section level3">
+<h3>Production Function</h3>
+<ul>
+<li>Output: <span class="math inline">\(q\)</span> (commodity <span class="math inline">\(K\)</span>)</li>
+<li>Inputs: <span class="math inline">\(z = (z_1, z_2, \dots,z_{K-1})\)</span> (commodities <span class="math inline">\(1, 2,\dots, K-1\)</span>)</li>
+<li>Production Function: <span class="math inline">\(f(z): \mathbb{R}^{K-1}\to\mathbb{R}\)</span><br />
+<span class="math display">\[f(z) = \max\{ q \ | \ (-z,q)\in Y \}\]</span>
+<ul>
+<li>Continuous</li>
+<li>Strictly Increasing</li>
+<li><span class="math inline">\(f(0) = 0\)</span></li>
+</ul></li>
+</ul>
+<!-- $f(z)$ defines the Technology Space as $$Y = \{(-z, q) \ | \ f(z)\geq q, z\geq 0\}$$ -->
 </div>
 <div id="pmp-profit-maximization-problem" class="section level3">
 <h3>PMP (Profit Maximization Problem)</h3>
@@ -1062,14 +1080,6 @@ x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
 If <span class="math inline">\(π(p)\)</span> is twice differentiable, then <span class="math inline">\(\frac{\partial y_j}{\partial p_k}(p^*) = \frac{\partial y_k}{\partial p_j}(p^*)\)</span></li>
 </ul></li>
 </ul>
-</div>
-<div id="production-function" class="section level3">
-<h3>Production Function</h3>
-<ul>
-<li>Let good <span class="math inline">\(K\)</span> be the only output, vector of inputs: <span class="math inline">\(v\in \mathbb{R}^{K-1}_+\)</span></li>
-<li>Production Function: <span class="math inline">\(f(v) = \max x\)</span> s.t. <span class="math inline">\((-v,x)\in Y\)</span></li>
-<li>Cost Function: <span class="math inline">\(c(p,y) = \min_a p\cdot a\)</span> s.t. <span class="math inline">\((-a,y)\in Z\)</span></li>
-</ul>
 <blockquote>
 <p>PS0.Q10<br />
 Assume that the producer’s problem always has a unique solution.<br />
@@ -1085,53 +1095,97 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 <div id="law-of-supply" class="section level3">
 <h3>Law of Supply</h3>
 <ul>
-<li>If <span class="math inline">\(z(p)\neq z(p&#39;)\)</span>, then <span class="math inline">\((p-p&#39;)\big[z(p) - z(p&#39;) \big] &gt; 0\)</span></li>
+<li>For all <span class="math inline">\(p\)</span>, <span class="math inline">\(p&#39;\)</span>, <span class="math inline">\(y\in y(p)\)</span> and <span class="math inline">\(y&#39;\in y(p&#39;)\)</span>,<br />
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}(p - p&#39;)(y - y&#39;) \\
+&amp;= p\cdot y - p\cdot y&#39; - p&#39;\cdot y + p&#39;\cdot y&#39; \\
+&amp;= (p\cdot y - p\cdot y&#39;) + (p&#39;\cdot y&#39; - p&#39;\cdot y) \\
+&amp;= \big(\max_p p\cdot y(p) - p\cdot y&#39;\big) + \big(\max_{p&#39;} p&#39;\cdot y(p&#39;) - p&#39;\cdot y\big) \\
+&amp;\geq 0\end{aligned}\]</span></li>
 </ul>
 <div class="figure">
 <img src="/post-img/notes-micro--law-of-supply.png" alt="Source: Investopedia" />
 <p class="caption">Source: <a href="https://www.investopedia.com/terms/l/lawofsupply.asp">Investopedia</a></p>
 </div>
 </div>
+<div id="cmp-cost-minimization-problem" class="section level3">
+<h3>CMP (Cost Minimization Problem)</h3>
+<ul>
+<li>Input Price Vector: <span class="math inline">\(w\geq 0\)</span></li>
+<li>Cost Minimization Problem:<br />
+<span class="math display">\[\begin{aligned} \min_z w\cdot z &amp;&amp; \text{s.t.} &amp;&amp; f(z)\geq q\end{aligned}\]</span>
+<ul>
+<li>Homogeneous (1)</li>
+<li>Non-decreasing in <span class="math inline">\(q\)</span></li>
+<li>Concave in <span class="math inline">\(w\)</span></li>
+</ul></li>
+<li>(Conditional) Factor Demand Correspondence: <span class="math inline">\(z(w,q)\)</span>
+<ul>
+<li>Homogeneous (0) in <span class="math inline">\(w\)</span></li>
+<li><span class="math inline">\(\{z\geq 0 \ | \ f(z)\geq q\}\)</span> is convex <span class="math inline">\(\implies z(w,q)\)</span> is convex<br />
+<span class="math inline">\(\{z\geq 0 \ | \ f(z)\geq q\}\)</span> is strictly convex <span class="math inline">\(\implies z(w,q)\)</span> is single-valued</li>
+</ul></li>
+<li>Cost Function:<br />
+<span class="math display">\[c(w,q) = w\cdot z^*(w,q)\]</span>
+<ul>
+<li><span class="math inline">\(f(\cdot)\)</span> is concave <span class="math inline">\(\implies c(w,q)\)</span> is convex in <span class="math inline">\(q\)</span></li>
+<li>Shephard’s Lemma: if <span class="math inline">\(z(w_0, q)\)</span> is singleton, then <span class="math inline">\(\frac{\partial c(w_0, q)}{\partial w_0} = z(w_0, q)\)</span></li>
+</ul></li>
+<li>PMP becomes<br />
+<span class="math display">\[\max_{q} p\cdot q - c(w,q)\]</span></li>
+</ul>
+<!--
+### Dual Producer
+
+- If $f(\cdot)$ is __Continuous + Strictly Monotonic__, 
+-->
+</div>
 </div>
 <div id="partial-equilibrium" class="section level2">
 <h2>Partial Equilibrium</h2>
+<p>AMT 4.1, slide 10 P4</p>
 <ul>
-<li>(AMT 4.1, slide 10 P4)</li>
 <li>Set of consumers: <span class="math inline">\(\mathcal{I}\equiv\{1,2,\dots, I\}\)</span></li>
-<li>Individual <span class="math inline">\(i\)</span>’s demand for good <span class="math inline">\(q\)</span>: <span class="math inline">\(q^i(p,\mathbb{p},y^i)\)</span>
+<li>Individual <span class="math inline">\(i\)</span>’s demand for good <span class="math inline">\(q\)</span> (<span class="math inline">\(k\)</span>):<br />
+<span class="math display">\[q^i(p_k, \ p_{-k}, \ y^i)\]</span>
 <ul>
-<li>Price of good <span class="math inline">\(q\)</span>: <span class="math inline">\(p\)</span></li>
-<li>Price of all other goods: <span class="math inline">\(\mathbb{p}\)</span></li>
+<li>Price of good <span class="math inline">\(q\)</span>: <span class="math inline">\(p_k\)</span></li>
+<li>Price of all other goods: <span class="math inline">\(p_{-k}\)</span></li>
 <li>Income: <span class="math inline">\(y^i\)</span></li>
 </ul></li>
-<li>Market demand: <span class="math inline">\(q^d(p)\equiv\sum_{i\in\mathcal{I}} q^i(p,\mathbb{p},y^i)\)</span></li>
+<li>Market demand:<br />
+<span class="math display">\[q^D(p)\equiv\sum_{i\in\mathcal{I}} q^i(p_k, \ p_{-k}, \ y^i)\]</span></li>
 </ul>
 <div id="perfect-competition-short-run" class="section level3">
 <h3>Perfect Competition (Short Run)</h3>
 <ul>
-<li>Set of firms: <span class="math inline">\(\mathcal{J}\equiv\{1,2,\dots, J\}\)</span></li>
-<li>Individual <span class="math inline">\(j\)</span>’s supply for good <span class="math inline">\(q\)</span>: <span class="math inline">\(q^j(p, \mathbb{w})\)</span>
+<li>Settings:
 <ul>
-<li>Price of inputs: <span class="math inline">\(\mathbb{w}\)</span></li>
+<li>Output: <span class="math inline">\(q\)</span> (commodity <span class="math inline">\(K\)</span>)</li>
+<li>Input: <span class="math inline">\(z\)</span> (commodities <span class="math inline">\(1,2,\dots,K-1\)</span>)</li>
+<li>Price of Input: <span class="math inline">\(w\)</span></li>
+<li>Price of Output: <span class="math inline">\(p\)</span></li>
+<li>Set of firms: <span class="math inline">\(\mathcal{J}\equiv\{1,2,\dots, J\}\)</span></li>
 </ul></li>
-<li>Market supply: <span class="math inline">\(q^s(p)\equiv\sum_{j\in\mathcal{J}} q^j(p, \mathbb{w})\)</span></li>
-<li>SR Equilibrium at price <span class="math inline">\(p^*\)</span>: <span class="math inline">\(q^d(p^*) = q^s(p^*)\)</span></li>
+<li>Individual <span class="math inline">\(j\)</span>’s supply for good <span class="math inline">\(q\)</span>: <span class="math inline">\(q^j(p, w)\)</span></li>
+<li>Market supply: <span class="math display">\[q^S(p)\equiv\sum_{j\in\mathcal{J}} q^j(p, w)\]</span></li>
+<li>SR Equilibrium at price <span class="math inline">\(p^*\)</span>: <span class="math display">\[q^D(p^*) = q^S(p^*)\]</span></li>
 </ul>
 </div>
 <div id="perfect-competition-long-run" class="section level3">
 <h3>Perfect Competition (Long Run)</h3>
 <ul>
-<li>Possiblility of firm entry and exit</li>
-<li>Profit function: <span class="math inline">\(π(p, \mathbb{w}) = \max_{\mathbb{x},y} py - \mathbb{w}\mathbb{x}\)</span>   s.t. <span class="math inline">\(y\leq f(\mathbb{x})\)</span>
+<li>Firms have free entry and exit</li>
+<li>Profit function:<br />
+<span class="math display">\[\begin{aligned} π(p, w) = \max_{p,w} p\cdot q - w\cdot z&amp;&amp; \text{s.t.} &amp;&amp; f(z)\geq q\end{aligned}\]</span>
 <ul>
 <li>increasing in <span class="math inline">\(p\)</span>, decreasing in <span class="math inline">\(\mathbb{w}\)</span></li>
 <li>homogenous of degree 1 in <span class="math inline">\((p, \mathbb{w})\)</span></li>
 <li>convex</li>
 <li>differentiable for <span class="math inline">\((p, \mathbb{w})\gg 0\)</span></li>
 <li>Production function: <span class="math inline">\(f(\mathbb{x})\)</span></li>
-<li>Hotelling’s Lemma: <span class="math inline">\(\begin{cases}\text{Output: } y(p,\mathbb{w}) = \frac{\partial π}{\partial p} \\\text{Input: }\phantom{\leq} x_i(p,\mathbb{w}) = -\frac{\partial π}{\partial w_i}\end{cases}\)</span></li>
+<li>Hotelling’s Lemma: <span class="math inline">\(\begin{cases}\text{Output: } q(p,\mathbb{w}) = \frac{\partial π}{\partial p} \\\text{Input: }\phantom{\leq} z_i(p,\mathbb{w}) = -\frac{\partial π}{\partial w_i}\end{cases}\)</span></li>
 </ul></li>
-<li>LR Equilibrium: <span class="math inline">\(\begin{cases} q^d(\hat{p}) = \sum_{j=1}^{\hat{J}} q^j(\hat{p}) \\ π^j(\hat{p}) = 0\end{cases}\)</span></li>
+<li>LR Equilibrium: <span class="math display">\[\begin{cases} q^D(\hat{p}) = \sum_{j=1}^{\hat{J}} q^j(\hat{p}) \\ π^j(\hat{p}) = 0\end{cases}\]</span></li>
 </ul>
 </div>
 <div id="monopoly" class="section level3">
