@@ -1558,11 +1558,14 @@ The core is the part of contract curve that is inside the lens.</p>
 <ul>
 <li>First Welfare Theorem: every WEA is Pareto efficient
 <ul>
-<li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing</li>
+<li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing <span class="math inline">\(\implies W(e)\subset C(e)\)</span></li>
 </ul></li>
-<li>Second Welfare Theorem: for every Pareto efficient allocation <span class="math inline">\(\bar{x}\)</span>, there is <span class="math inline">\(\bar{p}\)</span> s.t. <span class="math inline">\(\bar{x}\)</span> is a WEA, if the endowment has been redistributed to <span class="math inline">\(\bar{x}\)</span>
+<li>Second Welfare Theorem: for every Pareto efficient allocation <span class="math inline">\(\bar{x}\)</span>,<br />
+if the initial endowments have been redistributed to <span class="math inline">\(\bar{x}\)</span>,<br />
+then <span class="math inline">\(\bar{x}\)</span> is a WEA
 <ul>
-<li>Condition: (Assumption 5.1) + <span class="math inline">\(\sum_I e^i \gg 0\)</span></li>
+<li>Condition: (Assumption 5.1) + <span class="math inline">\(\sum_{\mathcal{I}} e^i \gg 0\)</span></li>
+<li>Corollary: if the initial endowments have been redistributed to <span class="math inline">\(e^*\in F(e)\)</span> s.t. <span class="math inline">\(\bar{p}\cdot e^{*i} = \bar{p}\cdot\bar{x}^i\)</span>, then <span class="math inline">\(\bar{x}\)</span> is a WEA for WE <span class="math inline">\(\bar{p}\)</span></li>
 </ul></li>
 </ul>
 <blockquote>
@@ -1611,29 +1614,37 @@ $$\begin{aligned} \bar{x}^i&\in\text{argmax} \ u^i(x^i) && \bar{p}\cdot x_i\leq 
 <li>Economy: <span class="math inline">\(\mathcal{E}=(u^i, e^i, θ^{ij}, Y^j)_{i\in \mathcal{I}, j\in\mathcal{J}}\)</span></li>
 <li>Set of firms: <span class="math inline">\(\mathcal{J}\equiv\{1,2,\dots, J\}\)</span>
 <ul>
-<li>Production plan: <span class="math inline">\(y^j \in\mathbb{R}^n\)</span>, positive element is output, negative elements are input</li>
+<li>Production plan: <span class="math inline">\(y^j \in\mathbb{R}^K\)</span>, positive element is output, negative elements are input</li>
 </ul></li>
 <li>Production possibility set: <span class="math inline">\(Y^j\)</span>
 <ul>
-<li><span class="math inline">\(0\in Y^j\)</span>, closed, bounded, strongly convex (Assumption 5.2)</li>
-<li>No free production</li>
+<li>AMT Assumption 5.2:</li>
+<li><span class="math inline">\(0\in Y^j\)</span></li>
+<li>Compact</li>
+<li>Strongly Convex</li>
+<li>No free production (<span class="math inline">\(y^j\cap\mathbb{R}^K_{+} = 0\)</span>)</li>
 </ul></li>
 <li>Firm’s problem: <span class="math display">\[Π_j(p) = \max_{y^j} p\cdot y^j\]</span>
 <ul>
 <li>Continuous</li>
+<li><span class="math inline">\(Y^j\)</span> is strongly convex <span class="math inline">\(\implies Π_j(p)\)</span> has unique solution in <span class="math inline">\(p\gg 0\)</span></li>
 </ul></li>
-<li>Profit-maximizing plan: $y^j(p)
+<li>Profit-maximizing plan: <span class="math inline">\(y^j(p)\)</span>
 <ul>
 <li>Continuous</li>
 <li>Unique for every <span class="math inline">\(p\gg 0\)</span></li>
 </ul></li>
 <li>Aggregate production: <span class="math display">\[Y \equiv \{ y \ | \ y = \sum_{\mathcal{J}} y^j, \ y^j\in Y^j\}\]</span>
 <ul>
-<li>If each <span class="math inline">\(Y^j\)</span> satisfies (Assumption 5.2), then <span class="math inline">\(Y\)</span> satisfies (Assumption 5.2)</li>
+<li><span class="math inline">\(Y^j\)</span> satisfies (Assumption 5.2) for all <span class="math inline">\(j\implies Y\)</span> satisfies (Assumption 5.2)</li>
+<li><span class="math inline">\(p\cdot\bar{y}\geq p\cdot y\)</span> for all <span class="math inline">\(y\in Y\iff p\cdot\bar{y}^j\geq p\cdot y^j\)</span> for all <span class="math inline">\(y^j\in Y^j\)</span>, <span class="math inline">\(j\in\mathcal{J}\)</span></li>
 </ul></li>
+</ul>
+<p>~</p>
+<ul>
 <li>Assume all firms are owned by consumers through shares</li>
-<li>Consumer’s budget constraint: <span class="math display">\[m^i(p) = p\cdot e^i + \underbrace{\sum_{J} θ^{ij}\cdot Π_j(p)}_{\text{share of profit}}\]</span></li>
-<li>Consumer’s problem: <span class="math display">\[\begin{aligned} \max u^i(x^i) &amp;&amp; p\cdot x^i\leq m^i(p)\end{aligned}\]</span></li>
+<li>Consumer’s budget constraint: <span class="math display">\[m^i(p) = p\cdot e^i + \underbrace{\sum_{\mathcal{J}} θ^{ij}\cdot Π_j(p)}_{\text{share of profit}}\]</span></li>
+<li>Consumer’s problem: <span class="math display">\[\begin{aligned} \max u^i(x^i) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x^i\leq m^i(p)\end{aligned}\]</span></li>
 </ul>
 <p>~</p>
 <ul>
