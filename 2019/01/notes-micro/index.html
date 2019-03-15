@@ -147,7 +147,9 @@
 <li><a href="#production-equilibrium">Production Equilibrium</a></li>
 <li><a href="#total-welfare-production">Total Welfare (Production)</a></li>
 </ul></li>
-<li><a href="#externality">Externality</a></li>
+<li><a href="#externality">Externality</a><ul>
+<li><a href="#bilateral-externality">Bilateral Externality</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -634,7 +636,7 @@ Contradiction.</li>
 <li>Indirect Preference: <span class="math inline">\(\succsim^*\)</span> induced by <span class="math inline">\(\succsim\)</span>
 <ul>
 <li><span class="math inline">\((p,w)\succsim^* (p&#39;,w&#39;)\)</span> if <span class="math inline">\(x(p,w)\succsim x(p&#39;,w&#39;)\)</span></li>
-<li>Invariance to Presentation: <span class="math inline">\(λ\cdot (p,w) \sim^* (p,w)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
+<li>Invariance to Presentation: <span class="math inline">\((λ\cdot p,λ\cdot w) \sim^* (p,w)\)</span> for all <span class="math inline">\(λ&gt;0\)</span></li>
 <li>Monotonicity: <span class="math inline">\(\succsim^*\)</span> is weakly decreasing in <span class="math inline">\(p_k\)</span> and strictly increasing in <span class="math inline">\(w\)</span></li>
 <li>Continuity</li>
 </ul></li>
@@ -1734,6 +1736,32 @@ s.t. <span class="math inline">\(\bar{x},\bar{y}\)</span> is a WEA
 <div id="externality" class="section level2">
 <h2>Externality</h2>
 <p>(MWG 11.A, slide 16)</p>
+<ul>
+<li>The well-being of a consumer or the production possibilities of a firm<br />
+is directly affected by the action of another agent in the society</li>
+</ul>
+<div id="bilateral-externality" class="section level3">
+<h3>Bilateral Externality</h3>
+<ul>
+<li>Consumers: <span class="math inline">\(i = 1, 2\)</span></li>
+<li>Wealth: <span class="math inline">\(w^i\)</span></li>
+<li>Utility function: <span class="math inline">\(u^i( x_1^i, x_2^i,\dots,x_L^i, h)\)</span>
+<ul>
+<li><span class="math inline">\(h\in\mathbb{R}_+\)</span> is an action taken by consumer 1</li>
+<li>Externality: assume <span class="math inline">\(\frac{\partial u^2}{\partial h}\neq 0\)</span></li>
+</ul></li>
+<li>Derived (Indirect) Utility Function:<br />
+<span class="math display">\[\begin{aligned}v^i(p,w^i,h) = \max_{x^i} u^i(x^i,h) &amp;&amp; \text{s.t.} &amp;&amp; p\cdot x^i\leq w^i\end{aligned}\]</span>
+<ul>
+<li>assume: <span class="math inline">\(u^i\)</span> is quasi-linear in commodity 1
+<span class="math display">\[\begin{aligned}u^i(x^i,h) &amp;= g^i(x_{-1}^i,h) + x_1^i \\
+  v^i(p,w^i,h) &amp;= \underbrace{g^i\big(x_{-1}^{i*}(p,h),h\big) - p\cdot x_1^{i*}(p,h)} + w^i \\
+  &amp;= φ^i(p,h) + w^i \\
+  &amp;= φ^i(h) + w^i\end{aligned}\]</span></li>
+<li>assume: <span class="math inline">\(φ^i(h)\)</span> is twice differentiable, <span class="math inline">\(φ^{i\prime\prime} (\cdot)&lt;0\)</span> (concave)</li>
+</ul></li>
+</ul>
+</div>
 </div>
 
     </div>
