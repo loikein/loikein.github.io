@@ -135,17 +135,17 @@
 <li><a href="#monopoly">Monopoly</a></li>
 <li><a href="#cournot-quantity">Cournot (Quantity)</a></li>
 <li><a href="#bertrand-duopoly-price">Bertrand Duopoly (Price)</a></li>
-<li><a href="#total-welfare">Total Welfare</a></li>
+<li><a href="#total-welfare-partial">Total Welfare (Partial)</a></li>
 </ul></li>
 <li><a href="#general-equilibrium-exchange">General Equilibrium (Exchange)</a><ul>
 <li><a href="#core">Core</a></li>
 <li><a href="#efficiency-edgeworth-box">Efficiency &amp; Edgeworth Box</a></li>
 <li><a href="#competitive-market-equilibrium">Competitive Market Equilibrium</a></li>
-<li><a href="#total-welfare-1">Total Welfare</a></li>
+<li><a href="#total-welfare-exchange">Total Welfare (Exchange)</a></li>
 </ul></li>
 <li><a href="#general-equilibrium-production">General Equilibrium (Production)</a><ul>
 <li><a href="#production-equilibrium">Production Equilibrium</a></li>
-<li><a href="#total-welfare-2">Total Welfare</a></li>
+<li><a href="#total-welfare-production">Total Welfare (Production)</a></li>
 </ul></li>
 <li><a href="#externality">Externality</a></li>
 </ul>
@@ -426,23 +426,6 @@ Therefore, <span class="math inline">\(u\)</span> satisfies (1) ~ (3) for <span 
 <ul>
 <li>Choice <span class="math inline">\(C\)</span> sattisfies SARP iff <span class="math inline">\(\succ_R\)</span> is acyclical: there is no <span class="math inline">\(x_1,x_2,\dots,x_k\)</span> s.t. <span class="math inline">\(x_1 \succ_R x_2 \succ_R\dots\succ_R x_k\succ_R x_1\)</span></li>
 </ul>
-<blockquote>
-<p>PS0.Q4<br />
-Claire’s choice behavior is represented by a choice function <span class="math inline">\(f : D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
-Assume:<br />
-<span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
-3. Does <span class="math inline">\(f\)</span> satisfy the weak axiom of revealed preference?<br />
-4. Does <span class="math inline">\(f\)</span> satisfy the strong axiom of revealed preference?<br />
-5. What is the relationship between your answers to (2), (3), and (4)?</p>
-</blockquote>
-<ol start="3" style="list-style-type: decimal">
-<li>WARP: for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span><br />
-Since <span class="math inline">\(A\cap B\)</span> are all singletons, WARP is satisfied.<br />
-</li>
-<li>SARP: <span class="math inline">\(\succsim\)</span> is acyclical (violated)<br />
-</li>
-<li>Rationalizability <span class="math inline">\(\implies\)</span> SARP <span class="math inline">\(\implies\)</span> WARP</li>
-</ol>
 </div>
 <div id="rationalizing-choice-function" class="section level3">
 <h3>Rationalizing Choice Function</h3>
@@ -487,8 +470,11 @@ If <span class="math inline">\(x\neq y\implies x\in C_{\succsim}(A)\)</span><br 
 Claire’s choice behavior is represented by a choice function <span class="math inline">\(f: D \to X\)</span>, where <span class="math inline">\(X = \{a, b, c, d, e\}\)</span>, and <span class="math inline">\(D\)</span> consists of all subsets of <span class="math inline">\(X\)</span> of size 3.<br />
 Assume:<br />
 <span class="math display">\[\begin{aligned} f(\{a,b,c\}) &amp;= a \\ f(\{b,c,d\}) &amp;= b \\ f(\{c,d,e\}) &amp;= c \\ f(\{a,d,e\}) &amp;= d\end{aligned}\]</span>
-1. What does it mean that a choice function can be rationalized? (omitted)<br />
-2. Do the facts about <span class="math inline">\(f\)</span> imply that <span class="math inline">\(f\)</span> cannot be rationalized?</p>
+1. What does it mean that a choice function can be rationalized?<br />
+2. Do the facts about <span class="math inline">\(f\)</span> imply that <span class="math inline">\(f\)</span> cannot be rationalized?<br />
+3. Does <span class="math inline">\(f\)</span> satisfy the weak axiom of revealed preference?<br />
+4. Does <span class="math inline">\(f\)</span> satisfy the strong axiom of revealed preference?<br />
+5. What is the relationship between your answers to (2), (3), and (4)?</p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Choice function <span class="math inline">\(C\)</span> can be rationalized if exists preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t.<br />
@@ -498,7 +484,14 @@ for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\
 <span class="math inline">\(f(\{a,b,c\}) = a \implies a\succ b\)</span><br />
 <span class="math inline">\(f(\{b,c,d\}) = b \implies b\succ c\)</span>, <span class="math inline">\(a\succ c\)</span><br />
 <span class="math inline">\(f(\{c,d,e\}) = c \implies c\succ d\)</span>, <span class="math inline">\(a\succ d\)</span><br />
-<span class="math inline">\(f(\{a,d,e\}) = d \implies d\succ a\)</span>, transitivity is violated.</li>
+<span class="math inline">\(f(\{a,d,e\}) = d \implies d\succ a\)</span>, transitivity is violated.<br />
+</li>
+<li>WARP: for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span><br />
+Since <span class="math inline">\(A\cap B\)</span> are all singletons, WARP is satisfied.<br />
+</li>
+<li>SARP: <span class="math inline">\(\succsim\)</span> is acyclical (violated)<br />
+</li>
+<li>Rationalizability <span class="math inline">\(\implies\)</span> SARP <span class="math inline">\(\implies\)</span> WARP</li>
 </ol>
 </div>
 </div>
@@ -1369,8 +1362,8 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 ### Monopolistic Competition
 -->
 </div>
-<div id="total-welfare" class="section level3">
-<h3>Total Welfare</h3>
+<div id="total-welfare-partial" class="section level3">
+<h3>Total Welfare (Partial)</h3>
 <ul>
 <li>Assume initial market result: <span class="math inline">\((p^0,q^0)\)</span>, <span class="math inline">\(p^0 &gt; mc(q^0)\)</span></li>
 <li>With a movement to <span class="math inline">\((p^1,q^1)\)</span>:
@@ -1556,20 +1549,21 @@ Consumer 2 weakly preferes allocations s.t. <span class="math display">\[\begin{
 (1-x_1^1)^ρ+(1-x_2^1)^ρ \geq 1 \end{aligned}\]</span>
 The core is the part of contract curve that is inside the lens.</p>
 </div>
-<div id="total-welfare-1" class="section level3">
-<h3>Total Welfare</h3>
+<div id="total-welfare-exchange" class="section level3">
+<h3>Total Welfare (Exchange)</h3>
 <ul>
 <li>First Welfare Theorem: every WEA is Pareto efficient
 <ul>
 <li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing <span class="math inline">\(\implies W(e)\subset C(e)\)</span></li>
 </ul></li>
 <li>Second Welfare Theorem: for every Pareto efficient allocation <span class="math inline">\(\bar{x}\)</span>,<br />
-if the initial endowments have been redistributed to <span class="math inline">\(\bar{x}\)</span>,<br />
-then <span class="math inline">\(\bar{x}\)</span> is a WEA
+if the initial endowments have been redistributed to <span class="math inline">\(\bar{x}\)</span>, then <span class="math inline">\(\bar{x}\)</span> is a WEA
 <ul>
-<li>Condition: (Assumption 5.1) + <span class="math inline">\(\sum_{\mathcal{I}} e^i \gg 0\)</span></li>
-<li>Corollary: if the initial endowments have been redistributed to <span class="math inline">\(e^*\in F(e)\)</span> s.t. <span class="math inline">\(\bar{p}\cdot e^{*i} = \bar{p}\cdot\bar{x}^i\)</span>, then <span class="math inline">\(\bar{x}\)</span> is a WEA for WE <span class="math inline">\(\bar{p}\)</span></li>
+<li>Conditions:</li>
+<li>(Assumption 5.1) for all <span class="math inline">\(u^i\)</span></li>
+<li><span class="math inline">\(\sum_{\mathcal{I}} e^i \gg 0\)</span></li>
 </ul></li>
+<li>Corollary: if the initial endowments have been redistributed to <span class="math inline">\(e^*\in F(e)\)</span> s.t. <span class="math inline">\(\bar{p}\cdot e^{*i} = \bar{p}\cdot\bar{x}^i\)</span>, then <span class="math inline">\(\bar{x}\)</span> is a WEA for WE <span class="math inline">\(\bar{p}\)</span></li>
 </ul>
 <blockquote>
 <p>PS3.Q1<br />
@@ -1688,7 +1682,7 @@ y^f &amp;= \frac{p}{2w}\end{aligned}\]</span>
 Profit function: <span class="math display">\[\begin{aligned} π(w,p) &amp;= p\cdot y - w\cdot h \\ &amp;= \frac{p^2}{4w}\end{aligned}\]</span></p>
 <p>The consumer’s budget constraint: <span class="math display">\[m^i(w,p) =  \underbrace{w\cdot 24}_{\text{Endowment}} + π(w,p) \geq p\cdot y + \underbrace{w\cdot h}_{\text{Cost of leisure}}\]</span>
 The consumer’s problem (with no waste):
-<span class="math display">\[\begin{aligned} \max_{h,y} u(h,y) = h\cdot y &amp;&amp; w\cdot 24 + π(w,p) = p\cdot y\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} \max_{h,y} u(h,y) = h\cdot y &amp;&amp; \text{s.t.} &amp;&amp; w\cdot 24 + π(w,p) = p\cdot y\end{aligned}\]</span>
 Set MRS = price ratio:
 <span class="math display">\[\begin{aligned} \frac{y}{h} &amp;= \frac{w}{p} \\ p\cdot y &amp;= w\cdot h\end{aligned}\]</span>
 Therefore,
@@ -1717,8 +1711,24 @@ Consumption: <span class="math inline">\(y^c = y^f = 2\sqrt{2}\)</span><br />
 <li><span class="math inline">\(h^c = 24 - h^f = 16\)</span></li>
 </ol>
 </div>
-<div id="total-welfare-2" class="section level3">
-<h3>Total Welfare</h3>
+<div id="total-welfare-production" class="section level3">
+<h3>Total Welfare (Production)</h3>
+<p>AMT P234</p>
+<ul>
+<li>First Welfare Theorem: every WEA is Pareto efficient
+<ul>
+<li>Condition: <span class="math inline">\(u^i\)</span> strictly increasing <span class="math inline">\(\implies W(e)\subset C(e)\)</span></li>
+</ul></li>
+<li>Second Welfare Theorem: for every Pareto efficient allocation <span class="math inline">\(\bar{x},\bar{y}\)</span>,<br />
+exists (consumer) income transfers <span class="math inline">\(T_1,\dots,T_I\)</span>, <span class="math inline">\(\sum_{\mathcal{I}} T_i = 0\)</span>, and WE <span class="math inline">\(\bar{p}\)</span><br />
+s.t. <span class="math inline">\(\bar{x},\bar{y}\)</span> is a WEA
+<ul>
+<li>Conditions:</li>
+<li>(Assumption 5.1) for all <span class="math inline">\(u^i\)</span></li>
+<li>(Assumption 5.2) for all <span class="math inline">\(Y^j\)</span></li>
+<li>Net Aggregate Production <span class="math inline">\(\in\mathbb{R}^K_{++}\)</span></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="externality" class="section level2">
