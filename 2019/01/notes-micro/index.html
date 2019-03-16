@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">42 min read</span>
+    <span class="article-duration">43 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -152,6 +152,9 @@
 <li><a href="#quota">Quota</a></li>
 <li><a href="#taxation">Taxation</a></li>
 <li><a href="#bargain-property-right">Bargain (Property Right)</a></li>
+</ul></li>
+<li><a href="#public-goods">Public Goods</a><ul>
+<li><a href="#private-provision">Private Provision</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1819,6 +1822,58 @@ FOC &amp;&amp; φ^{2\prime}(h^{**}) + φ^{1\prime}(h^{**}) &amp;= 0 \\
 </ul></li>
 <li>Coase’s Theorem: bargaining leads to an efficient outcome no matter how property rights are allocated</li>
 </ul>
+</div>
+</div>
+<div id="public-goods" class="section level2">
+<h2>Public Goods</h2>
+<ul>
+<li><span class="math inline">\(I\)</span> consumers, <span class="math inline">\(L\)</span> commodities, <span class="math inline">\(1\)</span> public good</li>
+<li>Derived (Indirect) Utility Function for <span class="math inline">\(q\)</span> units of public good<br />
+<span class="math display">\[v^i = φ^i(q) + w^i\]</span>
+<ul>
+<li>assume: <span class="math inline">\(φ^{i\prime} (\cdot)&gt;0\)</span></li>
+</ul></li>
+<li>Pareto Optimal:
+<span class="math display">\[\begin{aligned} \max_{q\geq 0} &amp;&amp; \sum_I φ^i(q) - c(q)&amp; \\
+FOC &amp;&amp; \sum_I φ^{i\prime}(q^o) - c&#39;(q^o) &amp;= 0 \\
+&amp;&amp; \sum_I φ^{i\prime}(q^o) &amp;= c&#39;(q^o)\end{aligned}\]</span>
+<ul>
+<li>assume:</li>
+<li><span class="math inline">\(c^{\prime} (\cdot)&gt;0\)</span></li>
+<li><span class="math inline">\(c(q)\)</span> is twice differentiable, <span class="math inline">\(c&#39;&#39; (\cdot)&gt;0\)</span> for all <span class="math inline">\(q\geq 0\)</span></li>
+</ul></li>
+</ul>
+<div id="private-provision" class="section level3">
+<h3>Private Provision</h3>
+<ul>
+<li>Consumer i’s problem:
+<span class="math display">\[\begin{aligned}\max_{q^i\geq 0} &amp;&amp; φ^i(q^i + \sum_L x_l^*) - p^*\cdot q^i&amp; \\
+FOC &amp;&amp; φ^{i\prime}(q^{i*} + \sum_L x_l^*) - p^* &amp;= 0 \\
+&amp;&amp; φ^{i\prime}(q^{i*} + \sum_L x_l^*) &amp;= p^*\end{aligned}\]</span>
+take <span class="math inline">\(q^{-i*}\)</span> as constant, let <span class="math inline">\(q^d = \sum_I q^{i*}\)</span>,<br />
+<span class="math display">\[φ^{i\prime}(q^d) = p^*\]</span></li>
+<li>Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{q\geq 0} &amp;&amp; p^*\cdot q- c(q)&amp; \\
+FOC &amp;&amp; p^* - c&#39;(q^s) &amp;= 0 \\ 
+&amp;&amp; p^* &amp;= c&#39;(q^s)\end{aligned}\]</span></li>
+<li>Competitive Equilibrium:
+<span class="math display">\[\begin{aligned} q^s &amp;= q^d \\
+φ^{i\prime}(q^*) &amp;= c&#39;(q^*) \\
+c&#39;(q^*) &amp;&lt; c&#39;(q^o) \\
+q^* &amp;&lt; q^o\end{aligned}\]</span></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-micro--public-goods-private-provision.png" alt="MWG Figure 11.C.1" />
+<p class="caption">MWG Figure 11.C.1</p>
+</div>
+<!-- 
+$$\begin{cases}φ^{i\prime}(q^d) \leq p^* \\ p^* \leq c'(q^s) \\ q^s = q^d\end{cases}$$ 
+using Kuhn-Tucker method, 
+$$\begin{aligned}φ^{i\prime}(q) &\leq c'(q) \\
+\sum_I λ^i\big[φ^{i\prime}(q) - c'(q) \big] &= 0\end{aligned}$$ 
+for $q >0\implies λ^i > 0$, 
+$$φ^{i\prime}(q) = c'(q)$$
+ -->
 </div>
 </div>
 
