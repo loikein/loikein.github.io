@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">41 min read</span>
+    <span class="article-duration">42 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -149,6 +149,9 @@
 </ul></li>
 <li><a href="#externality">Externality</a><ul>
 <li><a href="#bilateral-externality">Bilateral Externality</a></li>
+<li><a href="#quota">Quota</a></li>
+<li><a href="#taxation">Taxation</a></li>
+<li><a href="#bargain-property-right">Bargain (Property Right)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1763,7 +1766,58 @@ is directly affected by the action of another agent in the society
   &amp;= φ^i(h) + w^i\end{aligned}\]</span></li>
 <li>assume: <span class="math inline">\(φ^i(h)\)</span> is twice differentiable, <span class="math inline">\(φ^{i\prime\prime} (\cdot)&lt;0\)</span> (concave)</li>
 </ul></li>
-<li>Inefficiency:</li>
+<li>Inefficiency:<br />
+Pareto Optimal:<br />
+<span class="math display">\[\begin{aligned} \max_{h\geq 0} &amp;&amp; φ^1(h) &amp;+ φ^2(h) \\
+FOC &amp;&amp; φ^{1\prime}(h^o) &amp;= - φ^{2\prime}(h^o)\end{aligned}\]</span>
+Competitive Outcome:<br />
+<span class="math display">\[\begin{aligned}\max_{h\geq 0} &amp;&amp; φ^1(h)&amp; \\
+FOC &amp;&amp; φ^{1\prime}(h^*) &amp;= 0 \\\end{aligned}\]</span>
+assume Negative externality,
+<span class="math display">\[\begin{aligned}φ^{2\prime}(h) &amp;&lt; 0 \\
+φ^{1\prime}(h^o) &amp;= - φ^{2\prime}(h^o) &gt; 0 \\
+h^o &amp;&lt; h^*\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="quota" class="section level3">
+<h3>Quota</h3>
+<ul>
+<li>Set <span class="math inline">\(h\leq h^o\)</span></li>
+</ul>
+</div>
+<div id="taxation" class="section level3">
+<h3>Taxation</h3>
+<ul>
+<li>Pigouvian Taxation Rate: <span class="math inline">\(t_h = - φ^{2\prime}(h^o)\)</span></li>
+<li>Competitive Outcome:<br />
+<span class="math display">\[\begin{aligned} \max_{h\geq 0} &amp;&amp; φ^1(h) - t_h\cdot h&amp; \\
+FOC &amp;&amp; φ^{1\prime}(h^*) - t_h &amp;= 0 \\
+&amp;&amp; φ^{1\prime}(h^*) &amp;= t_h \\
+&amp;&amp; &amp;= - φ^{2\prime}(h^o)\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="bargain-property-right" class="section level3">
+<h3>Bargain (Property Right)</h3>
+<ul>
+<li>When consumer 2 has the property right, their problem:<br />
+<span class="math display">\[\begin{aligned}\max_{h\geq 0, T} &amp;&amp; φ^2(h) + T &amp;&amp; \text{s.t.} &amp;&amp; \underbrace{φ^1(h) - T \geq φ^1(0)}_{\text{Compatibility Constraint}}\end{aligned}\]</span>
+set the constraint to equality,<br />
+<span class="math display">\[\begin{aligned}\max_{h\geq 0} &amp;&amp; φ^2(h) + φ^1(h) - φ^1(0)&amp; \\
+FOC &amp;&amp; φ^{2\prime}(h^{**}) + φ^{1\prime}(h^{**}) &amp;= 0 \\
+&amp;&amp; h^{**} &amp;= h^o\end{aligned}\]</span>
+<ul>
+<li>Consumer 1 pays <span class="math inline">\(T\)</span> to consumer 2, and enjoys <span class="math inline">\(h^{**} = h^o\)</span></li>
+</ul></li>
+<li>When consumer 1 has the property right, consumer 2’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_{h\geq 0, T} &amp;&amp; φ^2(h) + T &amp;&amp; \text{s.t.} &amp;&amp; \underbrace{φ^1(h) - T \geq φ^1(h^*)}_{\text{Compatibility Constraint}}\end{aligned}\]</span>
+set the constraint to equality,<br />
+<span class="math display">\[\begin{aligned}\max_{h\geq 0} &amp;&amp; φ^2(h) + φ^1(h) - φ^1(h^*)&amp; \\
+FOC &amp;&amp; φ^{2\prime}(h^{**}) + φ^{1\prime}(h^{**}) &amp;= 0 \\
+&amp;&amp; h^{**} &amp;= h^o\end{aligned}\]</span>
+<ul>
+<li>Consumer 1 receives <span class="math inline">\(T\)</span> from consumer 2, and enjoys <span class="math inline">\(h^{**} = h^o\)</span></li>
+</ul></li>
+<li>Coase’s Theorem: bargaining leads to an efficient outcome no matter how property rights are allocated</li>
 </ul>
 </div>
 </div>
