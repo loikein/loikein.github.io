@@ -155,7 +155,9 @@
 <li><a href="#multilateral-externality">Multilateral Externality</a></li>
 <li><a href="#taxation-1">Taxation</a></li>
 </ul></li>
-<li><a href="#externality-asymmetric-information">Externality (Asymmetric Information)</a></li>
+<li><a href="#externality-asymmetric-information">Externality (Asymmetric Information)</a><ul>
+<li><a href="#bargain">Bargain</a></li>
+</ul></li>
 <li><a href="#public-goods">Public Goods</a><ul>
 <li><a href="#private-provision">Private Provision</a></li>
 <li><a href="#subsidy">Subsidy</a></li>
@@ -1835,13 +1837,13 @@ FOC &amp;&amp; φ^{2\prime}(h^{**}) + φ^{1\prime}(h^{**}) &amp;= 0 \\
 <li><span class="math inline">\(I\)</span> consumers, <span class="math inline">\(J\)</span> firms</li>
 <li>Firm’s Derived Utility Function: <span class="math inline">\(π^j(h^j)\)</span>
 <ul>
-<li>assume: twice-differentiable, <span class="math inline">\(π^{j\prime\prime}(\cdot) &lt; 0\)</span></li>
+<li>assume: Concave, <span class="math inline">\(π^{j\prime\prime}(\cdot) &lt; 0\)</span></li>
 </ul></li>
 <li>Consumer’s Derived Utility Function: <span class="math inline">\(φ^i(\tilde{h}^j)\)</span>
 <ul>
 <li>assume:</li>
 <li>Negative Externality: <span class="math inline">\(φ^{i\prime}(\cdot) &lt; 0\)</span></li>
-<li>twice-differentiable, <span class="math inline">\(φ^{i\prime\prime}(\cdot) &lt; 0\)</span></li>
+<li>Concave: <span class="math inline">\(φ^{i\prime\prime}(\cdot) &lt; 0\)</span></li>
 <li>Non-Depletable: <span class="math inline">\(\tilde{h}^j =\sum_J h^j\)</span></li>
 </ul></li>
 <li>Pareto Iptimal:
@@ -1868,6 +1870,39 @@ FOC &amp;&amp; π^{j\prime}(h^{j**}) - t_h &amp;= 0 \\
 <div id="externality-asymmetric-information" class="section level2">
 <h2>Externality (Asymmetric Information)</h2>
 <p>MWG 11.E, slide 17 P6</p>
+<ul>
+<li>Assume bilateral externality</li>
+<li>Firm’s Derived Utility Function: <span class="math inline">\(π(h, θ)\)</span>
+<ul>
+<li>assume: twice-differentiable, <span class="math inline">\(π&#39;&#39;(\cdot) &lt; 0\)</span></li>
+</ul></li>
+<li>Consumer’s Derived Utility Function: <span class="math inline">\(φ^i(h, η)\)</span>
+<ul>
+<li>assume:</li>
+<li>Negative Externality: <span class="math inline">\(φ&#39;(\cdot) &lt; 0\)</span></li>
+<li>Concave: <span class="math inline">\(φ&#39;&#39;(\cdot) &lt; 0\)</span></li>
+</ul></li>
+</ul>
+<div id="bargain" class="section level3">
+<h3>Bargain</h3>
+<ul>
+<li>Assume two levels of externality: 0 and <span class="math inline">\(\bar{h}\)</span></li>
+<li>Firm’s Profit:
+<span class="math display">\[b(θ) = π(\bar{h}, θ) - π(0, θ)\]</span>
+<ul>
+<li>Probability Density Function of <span class="math inline">\(θ\)</span>: <span class="math inline">\(g(b)\)</span></li>
+<li>Cumulative Distribution Function: <span class="math inline">\(G(b)\)</span></li>
+</ul></li>
+<li>Consumer’s Cost:
+<span class="math display">\[c(η) = φ(0, η) - φ(\bar{h}, η)\]</span>
+<ul>
+<li>Probability Density Function of <span class="math inline">\(η\)</span>: <span class="math inline">\(f(c)\)</span></li>
+<li>Cumulative Distribution Function: <span class="math inline">\(F(c)\)</span></li>
+</ul></li>
+<li>Consumer’s Problem:
+<span class="math display">\[\begin{aligned}\max_T &amp;&amp; \underbrace{\big(1 - G(T)\big)}_{\text{Probability that firm accept}}\cdot \underbrace{(T - c)}_{\text{Consumer&#39;s net benefit}} \end{aligned}\]</span></li>
+</ul>
+</div>
 </div>
 <div id="public-goods" class="section level2">
 <h2>Public Goods</h2>
@@ -1886,7 +1921,7 @@ FOC &amp;&amp; \sum_I φ^{i\prime}(q^o) - c&#39;(q^o) &amp;= 0 \\
 <ul>
 <li>assume:</li>
 <li><span class="math inline">\(c^{\prime} (\cdot)&gt;0\)</span></li>
-<li><span class="math inline">\(c(q)\)</span> is twice differentiable, <span class="math inline">\(c&#39;&#39; (\cdot)&gt;0\)</span> for all <span class="math inline">\(q\geq 0\)</span></li>
+<li>Convex: <span class="math inline">\(c&#39;&#39; (\cdot)&gt;0\)</span> for all <span class="math inline">\(q\geq 0\)</span></li>
 </ul></li>
 </ul>
 <div id="private-provision" class="section level3">
