@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">43 min read</span>
+    <span class="article-duration">44 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -147,13 +147,15 @@
 <li><a href="#production-equilibrium">Production Equilibrium</a></li>
 <li><a href="#total-welfare-production">Total Welfare (Production)</a></li>
 </ul></li>
-<li><a href="#externality">Externality</a><ul>
+<li><a href="#externality-perfect-information">Externality (Perfect Information)</a><ul>
 <li><a href="#bilateral-externality">Bilateral Externality</a></li>
 <li><a href="#quota">Quota</a></li>
 <li><a href="#taxation">Taxation</a></li>
 <li><a href="#bargain-property-right">Bargain (Property Right)</a></li>
 <li><a href="#multilateral-externality">Multilateral Externality</a></li>
+<li><a href="#taxation-1">Taxation</a></li>
 </ul></li>
+<li><a href="#externality-asymmetric-information">Externality (Asymmetric Information)</a></li>
 <li><a href="#public-goods">Public Goods</a><ul>
 <li><a href="#private-provision">Private Provision</a></li>
 <li><a href="#subsidy">Subsidy</a></li>
@@ -1741,8 +1743,8 @@ s.t. <span class="math inline">\(\bar{x},\bar{y}\)</span> is a WEA
 </ul>
 </div>
 </div>
-<div id="externality" class="section level2">
-<h2>Externality</h2>
+<div id="externality-perfect-information" class="section level2">
+<h2>Externality (Perfect Information)</h2>
 <p>MWG 11.A, slide 16</p>
 <ul>
 <li>The well-being of a consumer or the production possibilities of a firm<br />
@@ -1796,9 +1798,10 @@ h^o &amp;&lt; h^*\end{aligned}\]</span></li>
 <li>Pigouvian Taxation Rate: <span class="math inline">\(t_h = - φ^{2\prime}(h^o)\)</span></li>
 <li>Competitive Outcome:<br />
 <span class="math display">\[\begin{aligned} \max_{h\geq 0} &amp;&amp; φ^1(h) - t_h\cdot h&amp; \\
-FOC &amp;&amp; φ^{1\prime}(h^*) - t_h &amp;= 0 \\
-&amp;&amp; φ^{1\prime}(h^*) &amp;= t_h \\
-&amp;&amp; &amp;= - φ^{2\prime}(h^o)\end{aligned}\]</span></li>
+FOC &amp;&amp; φ^{1\prime}(h^{**}) - t_h &amp;= 0 \\
+&amp;&amp; φ^{1\prime}(h^{**}) &amp;= t_h \\
+&amp;&amp; &amp;= - φ^{2\prime}(h^o) \\
+&amp;&amp; h^{**} &amp;= h^o\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="bargain-property-right" class="section level3">
@@ -1828,7 +1831,43 @@ FOC &amp;&amp; φ^{2\prime}(h^{**}) + φ^{1\prime}(h^{**}) &amp;= 0 \\
 <div id="multilateral-externality" class="section level3">
 <h3>Multilateral Externality</h3>
 <p>MWG 11.D, slide 17</p>
+<ul>
+<li><span class="math inline">\(I\)</span> consumers, <span class="math inline">\(J\)</span> firms</li>
+<li>Firm’s Derived Utility Function: <span class="math inline">\(π^j(h^j)\)</span>
+<ul>
+<li>assume: twice-differentiable, <span class="math inline">\(π^{j\prime\prime}(\cdot) &lt; 0\)</span></li>
+</ul></li>
+<li>Consumer’s Derived Utility Function: <span class="math inline">\(φ^i(\tilde{h}^j)\)</span>
+<ul>
+<li>assume:</li>
+<li>Negative Externality: <span class="math inline">\(φ^{i\prime}(\cdot) &lt; 0\)</span></li>
+<li>twice-differentiable, <span class="math inline">\(φ^{i\prime\prime}(\cdot) &lt; 0\)</span></li>
+<li>Non-Depletable: <span class="math inline">\(\tilde{h}^j =\sum_J h^j\)</span></li>
+</ul></li>
+<li>Pareto Iptimal:
+<span class="math display">\[\begin{aligned}\max_{h^1,\dots,h^J\geq 0} &amp;&amp; \underbrace{\sum_I φ^i\big(\sum_J h^j\big)}_{\text{Consumers}} + \underbrace{\sum_J π^j(h^j)}_{\text{Firms}}&amp; \\
+FOC &amp;&amp; \sum_I φ^{i\prime}\big(\sum_J h^{jo}\big) + π^{j\prime}(h^{jo}) &amp;= 0 \\
+&amp;&amp; \sum_I φ^{i\prime}\big(\sum_J h^{jo}\big) &amp;= - π^{j\prime}(h^{jo})\end{aligned}\]</span></li>
+<li>Without government intervention, the competitive outcome of non-depletable externality acts like <a href="#private-provision">public goods</a></li>
+</ul>
 </div>
+<div id="taxation-1" class="section level3">
+<h3>Taxation</h3>
+<ul>
+<li>Tax Rate: <span class="math inline">\(t_h = -\sum_I φ^{i\prime}\big(\sum_J h^{jo}\big)\)</span></li>
+<li>Competitive Outcome:
+<span class="math display">\[\begin{aligned}\max_{h^j} &amp;&amp; π^j(h^j) - t_h\cdot h^j&amp; \\
+FOC &amp;&amp; π^{j\prime}(h^{j**}) - t_h &amp;= 0 \\
+&amp;&amp; π^{j\prime}(h^{j**}) &amp;= t_h \\
+&amp;&amp; &amp;= -\sum_I φ^{i\prime}\big(\sum_J h^{jo}\big) \\
+&amp;&amp; &amp;= π^{j\prime}(h^{jo}) \\
+&amp;&amp; h^{j**} &amp;= h^{jo}\end{aligned}\]</span></li>
+</ul>
+</div>
+</div>
+<div id="externality-asymmetric-information" class="section level2">
+<h2>Externality (Asymmetric Information)</h2>
+<p>MWG 11.E, slide 17 P6</p>
 </div>
 <div id="public-goods" class="section level2">
 <h2>Public Goods</h2>
