@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">45 min read</span>
+    <span class="article-duration">47 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics</h1>
@@ -1960,6 +1960,40 @@ FOC &amp;&amp; π(h^t, θ) - t &amp;= 0 \\
 <img src="/post-img/notes-micro--externality-asy-info-tax.png" alt="MWG Figure 11.E.3" />
 <p class="caption">MWG Figure 11.E.3</p>
 </div>
+<blockquote>
+<p>MWG Exercise 11.E.1<br />
+Suppose a firm’s profit function is <span class="math display">\[π(h,θ) = -\frac{1}{2b}(β + θ - bh)^2\]</span>
+and a consumer’s utility function is <span class="math display">\[φ(h,η) = -\frac{1}{2c}(γ + η - ch)^2\]</span>
+<span class="math inline">\(β,b,c &gt; 0\)</span> and <span class="math inline">\(γ&lt;0\)</span> are known, <span class="math inline">\(E[θ] = E[η] = 0\)</span>, <span class="math inline">\(E[θ^2] = σ_θ^2\)</span>, <span class="math inline">\(E[η^2] = σ_η^2\)</span>, <span class="math inline">\(E[θ\cdot η] = 0\)</span><br />
+1. Identify the best quota <span class="math inline">\(\hat{h}^*\)</span> for a planner who wants to maximize the expected value of aggregate surplus<br />
+2. Identify the best tax <span class="math inline">\(t^*\)</span> for this same planner<br />
+3. Compare the two instruments: Which is better and when?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>The social planner’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_h &amp;&amp; &amp;\phantom{ggg} E[π(h,θ)] + E[φ(h,η)] \\
+&amp;&amp; &amp;= -\frac{1}{2b}(β + θ - bh)^2 -\frac{1}{2c}(γ + η - ch)^2 \\
+FOC &amp;&amp; &amp;\phantom{ggg}\frac{\partial}{\partial h}E\Big[ -\frac{1}{2b}(β + θ - bh)^2 -\frac{1}{2c}(γ + η - ch)^2\Big] \\
+&amp;&amp; &amp;= E\Big[ -\frac{1}{b}(b^2h - βb - θb) - \frac{1}{c}(c^2h - γc - ηc) \Big] \\
+&amp;&amp; &amp;= E[- bh + β + θ - ch + γ + η] \\
+&amp;&amp; &amp;= (- b - c) h + β + γ = 0 \\
+&amp;&amp; \hat{h}^* &amp;= \frac{β + γ}{b + c}\end{aligned}\]</span></li>
+<li>Under a tax rate of <span class="math inline">\(t\)</span>, the firm’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_h &amp;&amp; -\frac{1}{2b}(β + θ - bh)^2 - th&amp; \\
+FOC &amp;&amp; -bh + β + θ - t &amp;= 0 \\
+&amp;&amp; h(t) &amp;= \frac{β + θ - t}{b}\end{aligned}\]</span>
+The social planner’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_t &amp;&amp; &amp;\phantom{ggg} E[π(h,θ)] + E[φ(h,η)] \\
+&amp;&amp; &amp;= -\frac{1}{2b}\big(β + θ - bh(t)\big)^2 -\frac{1}{2c}\big(γ + η - ch(t)\big)^2 \\
+FOC &amp;&amp; &amp;\phantom{ggg}\frac{\partial}{\partial t}E\Big[ -\frac{1}{2b}\big(β + θ - bh(t)\big)^2 -\frac{1}{2c}\big(γ + η - ch(t)\big)^2 \Big] \\
+&amp;&amp; &amp;= \frac{\partial}{\partial h}E\Big[ -\frac{1}{2b}(β + θ - bh)^2 -\frac{1}{2c}(γ + η - ch)^2\Big]\cdot\frac{\partial h(t)}{\partial t} \\
+&amp;&amp; &amp;= E\big[(- b - c)\cdot h(t) + β + γ\big]\cdot\frac{\partial h(t)}{\partial t} \\
+&amp;&amp; &amp;= E\Big[(- b - c)\cdot\frac{β + θ - t}{b} + β + γ\Big]\cdot\frac{-1}{b} \\
+&amp;&amp; &amp;= E\Big[(b + c)\cdot\frac{β + θ - t}{b^2} - \frac{β}{b} - \frac{γ}{b}\Big] \\
+&amp;&amp; &amp;= (b + c)\cdot\frac{β - t}{b^2} - \frac{β}{b} - \frac{γ}{b} = 0 \\
+&amp;&amp; t^* &amp;= \frac{cβ - bγ}{b+c}\end{aligned}\]</span></li>
+<li>(omitted, see slide 18)</li>
+</ol>
 </div>
 </div>
 <div id="public-goods" class="section level2">
