@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">4 min read</span>
+    <span class="article-duration">5 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics - First Final</h1>
@@ -88,21 +88,21 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#problem-1">Problem 1</a><ul>
+<li><a href="#problem-1-dual-consumer">Problem 1: Dual Consumer</a><ul>
 <li><a href="#a">a)</a></li>
 <li><a href="#b">b)</a></li>
 <li><a href="#c">c)</a></li>
 </ul></li>
-<li><a href="#problem-2">Problem 2</a><ul>
+<li><a href="#problem-2-law-of-supply">Problem 2: Law of Supply</a><ul>
 <li><a href="#a-1">a)</a></li>
 <li><a href="#b-1">b)</a></li>
 </ul></li>
-<li><a href="#problem-3">Problem 3</a><ul>
+<li><a href="#problem-3-cournot-competition">Problem 3: Cournot Competition</a><ul>
 <li><a href="#a-2">a)</a></li>
 <li><a href="#b-2">b)</a></li>
 <li><a href="#c-1">c)</a></li>
 </ul></li>
-<li><a href="#problem-4">Problem 4</a><ul>
+<li><a href="#problem-4-externality">Problem 4: Externality</a><ul>
 <li><a href="#a-3">a)</a></li>
 <li><a href="#b-3">b)</a></li>
 <li><a href="#c-2">c)</a></li>
@@ -112,8 +112,8 @@
 </div>
 
 <p>Warning: I failed this exam.</p>
-<div id="problem-1" class="section level2">
-<h2>Problem 1</h2>
+<div id="problem-1-dual-consumer" class="section level2">
+<h2>Problem 1: Dual Consumer</h2>
 <blockquote>
 <p>Joey is a consumer in a world with a single commodity: potato chips.<br />
 Assume that potato chips are a divisible good with quantities in gram.<br />
@@ -128,6 +128,7 @@ Consider the following two statements:<br />
 <blockquote>
 <p>Use an example to show that in general it can be the case that (i) holds and (ii) does not.</p>
 </blockquote>
+<p><img src="/post-img/notes-micro-final--1a.png" /></p>
 </div>
 <div id="b" class="section level3">
 <h3>b)</h3>
@@ -136,6 +137,7 @@ Consider the following two statements:<br />
 Remarks: You do not need to prove that those conditions are sufficient.<br />
 There will be less points for conditions which are more restrictive.</p>
 </blockquote>
+<p><span class="math inline">\(u(\cdot)\)</span> is increasing (or weaker: local non-satiation) and continuous</p>
 </div>
 <div id="c" class="section level3">
 <h3>c)</h3>
@@ -144,10 +146,11 @@ There will be less points for conditions which are more restrictive.</p>
 Remarks: You do not need to prove that those conditions are sufficient.<br />
 There will be less points for conditions which are more restrictive.</p>
 </blockquote>
+<p><span class="math inline">\(u(\cdot)\)</span> is increasing (or weaker: local non-satiation) and continuous</p>
 </div>
 </div>
-<div id="problem-2" class="section level2">
-<h2>Problem 2</h2>
+<div id="problem-2-law-of-supply" class="section level2">
+<h2>Problem 2: Law of Supply</h2>
 <blockquote>
 <p>Consider a producer in a world with <span class="math inline">\(K\geq 2\)</span> commodities where the producer’s technology is given by a choice set <span class="math inline">\(Z\subset\mathbb{R}^K\)</span>.<br />
 Assume that <span class="math inline">\(z\)</span> is the producer’s supply function, i.e. for any <span class="math inline">\(p\in\mathbb{R}^K\)</span>, <span class="math inline">\(z(p)\)</span> is the unique vector in <span class="math inline">\(Z\)</span> solving <span class="math inline">\(\max_{z\in Z} p\cdot z\)</span>.</p>
@@ -155,23 +158,36 @@ Assume that <span class="math inline">\(z\)</span> is the producer’s supply fu
 <div id="a-1" class="section level3">
 <h3>a)</h3>
 <blockquote>
-<p>Assume that for some vector <span class="math inline">\(p\in\mathbb{R}^K\)</span>, it is the case that <span class="math inline">\(z_1(p) &lt; 0\)</span>, i.e. good I is an input good.<br />
-Explain why it has to be the case that if the price of good 1 increases the producer will either continue producing the same outputs with the same inputs, or use less of good 1 aS an input.<br />
+<p>Assume that for some vector <span class="math inline">\(p\in\mathbb{R}^K\)</span>, it is the case that <span class="math inline">\(z_1(p) &lt; 0\)</span>, i.e. good 1 is an input good.<br />
+Explain why it has to be the case that if the price of good 1 increases the producer will either continue producing the same outputs with the same inputs, or use less of good 1 as an input.<br />
 Remarks: To keep notation simple, you can restrict attention to the case where K = 2.<br />
 The explanation why the above statement is true, should be “from fundamentals”, and, in particular, not rely on the law of supply.</p>
 </blockquote>
+<p>For <span class="math inline">\(p_1&#39; &gt; p_1\)</span>,<br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{ggg} (p&#39; - p)\cdot\big(z(p&#39;) - z(p)\big) \\
+&amp;= p&#39;\cdot z(p&#39;) - p&#39;\cdot z(p) - p\cdot z(p&#39;) + p\cdot z(p) \\
+&amp;= \big(p&#39;\cdot z(p&#39;) - p&#39;\cdot z(p)\big) + \big(p\cdot z(p) - p\cdot z(p&#39;)\big) \\
+&amp;= \big(\max_{z} p&#39;\cdot z - p&#39;\cdot z(p)\big) + \big(\max_{z} p\cdot z - p\cdot z(p&#39;)\big) \\
+&amp;\geq 0\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} z(p&#39;) - z(p) &amp;\geq 0 \\
+z(p&#39;)&amp;\geq z(p) \\
+|z_1(p&#39;)|&amp;\leq |z_1(p)|\end{aligned}\]</span>
+So, it is either the case that <span class="math inline">\(z_1(p&#39;) = z_1(p)\)</span>, or the producer will use less of good 1 as an input.</p>
 </div>
 <div id="b-1" class="section level3">
 <h3>b)</h3>
 <blockquote>
-<p>Does a similar statement hold in the context of consumer theory under ana logous assumptions?<br />
+<p>Does a similar statement hold in the context of consumer theory under analogous assumptions?<br />
 (If a price of a good increases consumption decreases, when demand function is well defined)<br />
 You do not need to explain your answer, a yes/no answer is sufficient.</p>
 </blockquote>
+<p>If the good has no wealth effect, yes.<br />
+Otherwise, no.</p>
 </div>
 </div>
-<div id="problem-3" class="section level2">
-<h2>Problem 3</h2>
+<div id="problem-3-cournot-competition" class="section level2">
+<h2>Problem 3: Cournot Competition</h2>
 <blockquote>
 <p>Consider the following market:<br />
 Inversc market demand is <span class="math inline">\(P(Q) = 1 - Q\)</span>, whero <span class="math inline">\(Q\)</span> is the aggregate quantity in the market.<br />
@@ -200,8 +216,8 @@ How does it depend on <span class="math inline">\(N\)</span>?</p>
 </blockquote>
 </div>
 </div>
-<div id="problem-4" class="section level2">
-<h2>Problem 4</h2>
+<div id="problem-4-externality" class="section level2">
+<h2>Problem 4: Externality</h2>
 <blockquote>
 <p>Suppose consumer 1 gets utility <span class="math inline">\(φ_1(h)\)</span> if she can listen to music, where <span class="math inline">\(h\geq 0\)</span> is the noise level.<br />
 Consumer 2 gets disutility <span class="math inline">\(φ_2(h)\)</span> if consumer 1 enjoys music with noise level <span class="math inline">\(h\)</span>.<br />
