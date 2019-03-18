@@ -6,10 +6,22 @@
     <description>Recent content in Notes on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Microeconomics - First Final</title>
+      <link>/2019/03/notes-micro-final/</link>
+      <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/03/notes-micro-final/</guid>
+      <description>Problem 1 a) b) c)  Problem 2 a) b)  Problem 3 a) b) c)  Problem 4 a) b) c) d)    Warning: I failed this exam.
+Problem 1  Joey is a consumer in a world with a single commodity: potato chips.
+Assume that potato chips are a divisible good with quantities in gram.
+Joey’s preferences are represented by a utility function \(u:[0, \infty)\to\mathbb{R}\).</description>
+    </item>
     
     <item>
       <title>Notes on Introduction to JavaScript</title>
