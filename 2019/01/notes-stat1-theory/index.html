@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">30 min read</span>
+    <span class="article-duration">31 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -96,7 +96,7 @@
 <div id="TOC">
 <ul>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
-<li><a href="#ols-error">OLS Error</a><ul>
+<li><a href="#ols-model">OLS Model</a><ul>
 <li><a href="#normality-of-">Normality of ε</a></li>
 <li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
 <li><a href="#consistency-of-s2">Consistency of s^2</a></li>
@@ -110,7 +110,7 @@
 <li><a href="#blue-best-linear-unbiased-estimator">BLUE (Best Linear Unbiased Estimator)</a></li>
 <li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
 </ul></li>
-<li><a href="#ols-model">OLS Model</a><ul>
+<li><a href="#ols-model-1">OLS Model</a><ul>
 <li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
 <li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
 <li><a href="#loglinear-model">Loglinear Model</a></li>
@@ -192,8 +192,32 @@ where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="m
 Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε_t]\end{aligned}\]</span>
 <span class="math inline">\(\implies E[x_t ε_t] = 0\)</span></p>
 </div>
-<div id="ols-error" class="section level2">
-<h2>OLS Error</h2>
+<div id="ols-model" class="section level2">
+<h2>OLS Model</h2>
+<ul>
+<li>Regressand: <span class="math inline">\(y = [y_1, y_2, \dots, y_N]\)</span></li>
+<li>Regressor: <span class="math inline">\(x_i = [1, x_{i2}, \dots, x_{iK}]\)</span></li>
+<li>Estimator: <span class="math inline">\(β = [β_1, β_2, \dots, β_K]\)</span></li>
+<li>Let the difference between observation and estimation be<br />
+<span class="math display">\[y_i - x_i&#39;\cdot β\]</span>
+OLS chooses <span class="math inline">\(β\)</span> s.t.
+<span class="math display">\[\begin{aligned}\max_{β} &amp;&amp; S(β) = \sum_N^{i=1} (y_i - x_i&#39;\cdot β)^2&amp; \\
+FOC &amp;&amp; -2\cdot \sum_N x_i\cdot( y_i - x_i&#39;\cdot β^*) &amp;= 0 \\
+&amp;&amp; \sum_N x_i\cdot y_i - \sum_N x_i\cdot x_i&#39;\cdot β^* &amp;= 0 \\
+&amp;&amp; \big(\sum_N x_i\cdot x_i&#39;\big) \cdot β^* &amp;= \sum_N x_i\cdot y_i\end{aligned}\]</span></li>
+<li>No-Multicollinearity Assumption: if <span class="math inline">\(\sum_N x_i\cdot x_i&#39;\)</span> is invertible,<br />
+<span class="math display">\[\begin{aligned} b &amp;\equiv β^* \\ &amp;= \big(\sum_N x_i\cdot x_i&#39;\big)^{-1}\sum_N x_i\cdot y_i\end{aligned}\]</span></li>
+<li>Best Linear Approximation:
+<span class="math display">\[\hat{y}_i = x_i&#39;\cdot b\]</span></li>
+<li>Residual:
+<span class="math display">\[\begin{aligned} e_i &amp;= y_i - \hat{y}_i \\
+&amp;= y_i - x_i&#39;\cdot b \\
+S(b) &amp;= \sum_N (y_i - x_i&#39;\cdot b)^2 \\
+&amp;= \sum_N e_i^2\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}\sum_N x_i\cdot e_i &amp;= \sum_N x_i\cdot( y_i - x_i&#39;\cdot b) \\
+&amp;= 0\end{aligned}\]</span></li>
+</ul>
 <div id="normality-of-" class="section level3">
 <h3>Normality of ε</h3>
 </div>
@@ -478,7 +502,7 @@ Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)<
 </ul>
 </div>
 </div>
-<div id="ols-model" class="section level2">
+<div id="ols-model-1" class="section level2">
 <h2>OLS Model</h2>
 <div id="converge-in-probability-mean-square" class="section level3">
 <h3>Converge in Probability &amp; Mean Square</h3>
