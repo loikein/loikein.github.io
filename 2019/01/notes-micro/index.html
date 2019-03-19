@@ -1229,7 +1229,7 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 Let <span class="math inline">\(q^1 = q^2 = \dots = \bar{q}\)</span>,<br />
 <span class="math display">\[\bar{q}= \frac{a-c}{b(J+1)}\]</span></li>
 </ul></li>
-<li>Cournot-Nash Equilibrium: <span class="math inline">\((\underbrace{\bar{q}^,\bar{q},\dots,\bar{q}}_{J})\)</span></li>
+<li>Cournot-Nash Equilibrium: <span class="math inline">\((\underbrace{\bar{q},\bar{q},\dots,\bar{q}}_{J})\)</span></li>
 </ul>
 <blockquote>
 <p>PS1.Q1, EX 4.6<br />
@@ -1241,17 +1241,22 @@ A firm <span class="math inline">\(j\)</span> in a competitive industry has tota
 <ol style="list-style-type: decimal">
 <li>For each firm <span class="math inline">\(j\)</span>:
 <span class="math display">\[\begin{aligned} c_j(q) &amp;= aq+b_jq^2 \\
-π^j &amp;= pq - c_j(q)\end{aligned}\]</span>
+π^j &amp;= pq - c_j(q) \\
+&amp;= pq - aq - b_j\cdot q^2\end{aligned}\]</span>
 FOC:
-<span class="math display">\[\begin{aligned} \frac{\partial π^j}{\partial q} &amp;= p - c_j&#39;(q) = 0 \\
-&amp;= p - a - 2b_jq \\
-p &amp;= a + 2b_j q \\
-q &amp;= \frac{p-a}{2b_j}\end{aligned}\]</span>
-When <span class="math inline">\(b_j&gt;0\)</span>, if <span class="math inline">\(p&gt;a\)</span>, then the higher <span class="math inline">\(b_j\)</span> is, the lower <span class="math inline">\(q\)</span> is.<br />
-</li>
-<li>If <span class="math inline">\(b_j &lt; 0\)</span>, <span class="math inline">\(c_j(q) = aq\)</span><br />
-FOC: <span class="math display">\[\begin{aligned} \frac{\partial π^j}{\partial q} &amp;= p - c_j&#39;(q) = 0 \\
-&amp;= p - a\end{aligned}\]</span> (needs check)</li>
+<span class="math display">\[\begin{aligned} \frac{\partial π^j}{\partial q} &amp;= p - a - 2b_j\cdot q^* = 0 \\
+p &amp;= a + 2b_j\cdot q^* \\
+q^* &amp;= \frac{p-a}{2b_j}\end{aligned}\]</span>
+When <span class="math inline">\(b_j&gt;0\)</span>, <span class="math inline">\(p = a + 2b_j\cdot q &gt; a\)</span>,<br />
+therefore, the higher <span class="math inline">\(b_j\)</span> is, the lower <span class="math inline">\(q\)</span> is.<br />
+They will not produce equal amounts of output.
+<!-- 2. If $b_j < 0$, $c_j(q) = aq$  
+FOC: $$\begin{aligned} \frac{\partial π^j}{\partial q} &= p - c_j'(q) = 0 \\
+&= p - a\end{aligned}$$ (needs check) --></li>
+<li>(Different to the answer)<br />
+When <span class="math inline">\(b_j&gt;0\)</span>,<br />
+If <span class="math inline">\(p-a \geq 0\)</span>, <span class="math inline">\(q = 0\)</span>;<br />
+If <span class="math inline">\(p-a &lt; 0\)</span>, <span class="math inline">\(q = \frac{p-a}{2b_j}\)</span>.</li>
 </ol>
 <blockquote>
 <p>PS1.Q2, EX 4.8<br />

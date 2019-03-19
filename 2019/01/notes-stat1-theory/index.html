@@ -97,15 +97,15 @@
 <ul>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 <li><a href="#ols-error">OLS Error</a><ul>
-<li><a href="#normality-of-">Normality of <span class="math inline">\(ε\)</span></a></li>
-<li><a href="#unbiasedness-of-s2">Unbiasedness of <span class="math inline">\(s^2\)</span></a></li>
-<li><a href="#consistency-of-s2">Consistency of <span class="math inline">\(s^2\)</span></a></li>
+<li><a href="#normality-of-">Normality of ε</a></li>
+<li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
+<li><a href="#consistency-of-s2">Consistency of s^2</a></li>
 </ul></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
 <li><a href="#derive-ols">Derive OLS</a></li>
-<li><a href="#normality-of-b">Normality of <span class="math inline">\(b\)</span></a></li>
-<li><a href="#unbiasedness-of-b">Unbiasedness of <span class="math inline">\(b\)</span></a></li>
-<li><a href="#consistent-of-b-asymptotic">Consistent of <span class="math inline">\(b\)</span> (Asymptotic)</a></li>
+<li><a href="#normality-of-b">Normality of b</a></li>
+<li><a href="#unbiasedness-of-b">Unbiasedness of b</a></li>
+<li><a href="#consistent-of-b-asymptotic">Consistent of b (Asymptotic)</a></li>
 <li><a href="#efficienty">Efficienty</a></li>
 <li><a href="#blue-best-linear-unbiased-estimator">BLUE (Best Linear Unbiased Estimator)</a></li>
 <li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
@@ -122,7 +122,7 @@
 </ul></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
 <li><a href="#derive-iv">Derive IV</a></li>
-<li><a href="#iv-estimator-hat_iv">IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></a></li>
+<li><a href="#iv-estimator-_iv">IV Estimator ^β_IV</a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
 <li><a href="#heteroskedasticity-autocorrelation">Heteroskedasticity &amp; Autocorrelation</a><ul>
@@ -131,7 +131,7 @@
 </ul></li>
 <li><a href="#ml-maximum-likelihood-model">ML (Maximum Likelihood) Model</a><ul>
 <li><a href="#assumption">Assumption</a></li>
-<li><a href="#property-of-hat">Property of <span class="math inline">\(\hat{θ}\)</span></a></li>
+<li><a href="#property-of-">Property of ^θ</a></li>
 <li><a href="#asymptotic-covariance-matrix-v">Asymptotic Covariance Matrix <span class="math inline">\(V\)</span></a></li>
 </ul></li>
 <li><a href="#binary-choice-model">Binary Choice Model</a><ul>
@@ -163,7 +163,7 @@
 </div>
 
 <p>Warning: under proofreading</p>
-<p>All I wanted was a clear &amp; complete guidance (for upcoming exams).<br />
+<p>All I wanted was a clear &amp; complete guidance.<br />
 Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
 <div id="gauss-markov-assumptions" class="section level2">
 <h2>Gauss-Markov Assumptions</h2>
@@ -195,10 +195,10 @@ Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε
 <div id="ols-error" class="section level2">
 <h2>OLS Error</h2>
 <div id="normality-of-" class="section level3">
-<h3>Normality of <span class="math inline">\(ε\)</span></h3>
+<h3>Normality of ε</h3>
 </div>
 <div id="unbiasedness-of-s2" class="section level3">
-<h3>Unbiasedness of <span class="math inline">\(s^2\)</span></h3>
+<h3>Unbiasedness of s^2</h3>
 <blockquote>
 <p>PS1.Q2<br />
 Consider the linear regression model:<br />
@@ -232,7 +232,7 @@ Therefore,<br />
 And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
 </div>
 <div id="consistency-of-s2" class="section level3">
-<h3>Consistency of <span class="math inline">\(s^2\)</span></h3>
+<h3>Consistency of s^2</h3>
 <ul>
 <li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
 <span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
@@ -283,7 +283,7 @@ where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="m
 &amp;= β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t \end{aligned}\]</span></p>
 </div>
 <div id="normality-of-b" class="section level3">
-<h3>Normality of <span class="math inline">\(b\)</span></h3>
+<h3>Normality of b</h3>
 <ul>
 <li>OLS estimator is normally distributed with <span class="math inline">\(b ∼ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big)\)</span></li>
 <li>Obtained if: (slide 2 P30)<br />
@@ -355,7 +355,7 @@ Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^
 <span class="math inline">\(\implies \sqrt{N}(b − β) \to^d \mathcal{N} (0, σ^2 Σ_{xx}^{-1})\)</span></p>
 </div>
 <div id="unbiasedness-of-b" class="section level3">
-<h3>Unbiasedness of <span class="math inline">\(b\)</span></h3>
+<h3>Unbiasedness of b</h3>
 <ul>
 <li>OLS estimator is unbiased when <span class="math inline">\(E(b) = β\)</span></li>
 <li>Obtained if: (textbook P16, slide 2 P24)<br />
@@ -370,7 +370,7 @@ Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimat
 Unbiasedness is only conditional on the average of errors and independence between error and <span class="math inline">\(x\)</span>'s.</p>
 </div>
 <div id="consistent-of-b-asymptotic" class="section level3">
-<h3>Consistent of <span class="math inline">\(b\)</span> (Asymptotic)</h3>
+<h3>Consistent of b (Asymptotic)</h3>
 <ul>
 <li>See the whole section: <a href="#ols-model">#OLS Model</a></li>
 <li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
@@ -718,8 +718,8 @@ Solving (1) and (3) gives consistent estimator <span class="math inline">\(\hat{
 <span class="math display">\[\text{Auxiliary Regression: }x_{2i} = x_{1i}&#39; π_1 + z_{2i} π_2 + v_i\]</span>
 should yield <span class="math inline">\(π_2 \neq 0\)</span>.</p>
 </div>
-<div id="iv-estimator-hat_iv" class="section level3">
-<h3>IV Estimator <span class="math inline">\(\hat{β}_{IV}\)</span></h3>
+<div id="iv-estimator-_iv" class="section level3">
+<h3>IV Estimator ^β_IV</h3>
 <blockquote>
 <p>PS5.Q1<br />
 Show that <span class="math inline">\(\hat{β}_{IV} =(X&#39;ZW_N Z′X)^{−1}X&#39;ZW_N Z&#39;y\)</span> minimizes<br />
@@ -838,8 +838,8 @@ When applying robust standard errors, the <strong>OLS point estimates</strong> (
 <div id="assumption" class="section level3">
 <h3>Assumption</h3>
 </div>
-<div id="property-of-hat" class="section level3">
-<h3>Property of <span class="math inline">\(\hat{θ}\)</span></h3>
+<div id="property-of-" class="section level3">
+<h3>Property of ^θ</h3>
 <ul>
 <li>Consistent: <span class="math inline">\(\text{plim} \ \hat{θ} = θ\)</span></li>
 <li>Asymptotically Efficient: <span class="math inline">\(Var(\hat{θ})\)</span></li>
