@@ -190,7 +190,7 @@ Otherwise, no.</p>
 <h2>Problem 3: Cournot Competition</h2>
 <blockquote>
 <p>Consider the following market:<br />
-Inversc market demand is <span class="math inline">\(P(Q) = 1 - Q\)</span>, whero <span class="math inline">\(Q\)</span> is the aggregate quantity in the market.<br />
+Inverse market demand is <span class="math inline">\(P(Q) = 1 - Q\)</span>, whero <span class="math inline">\(Q\)</span> is the aggregate quantity in the market.<br />
 There are N firms in the market, they all produce with zero costs.</p>
 </blockquote>
 <div id="a-2" class="section level3">
@@ -199,6 +199,8 @@ There are N firms in the market, they all produce with zero costs.</p>
 <p>Characterize the Pareto efficient aggregate production level by the N firms.<br />
 What can you say about the individual production levels of the firms?</p>
 </blockquote>
+<p>Pareto efficiency requires price equalized to marginal cost (zero).<br />
+Therefore, aggregate production level is <span class="math inline">\(q^s = 1\)</span>, where <span class="math inline">\(q = \frac{1}{N}\)</span> for each firm.</p>
 </div>
 <div id="b-2" class="section level3">
 <h3>b)</h3>
@@ -207,6 +209,13 @@ What can you say about the individual production levels of the firms?</p>
 How much output does each firm produce in the symmetric Cournot-(Nash)-equilibrium?<br />
 How much do all firms produce on aggregate?</p>
 </blockquote>
+<p>Indivisual firm’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_{q_i} &amp;&amp; \big(1 - \sum_N q_i\big)\cdot q_i&amp; \\
+FOC &amp;&amp; 1 - \sum^{j\neq i}_N q_j - 2q_i^* &amp;= 0 \\
+&amp;&amp; 1 - \sum_N q_i - q_i^* &amp;= 0 \\
+&amp;&amp; q_i^* &amp;= \frac{1}{N+1}\end{aligned}\]</span>
+Aggregate supply:
+<span class="math display">\[\begin{aligned}q^s &amp;= \frac{1}{N+1}\cdot N \\ &amp;= \frac{N}{N+1}\end{aligned}\]</span></p>
 </div>
 <div id="c-1" class="section level3">
 <h3>c)</h3>
@@ -214,6 +223,8 @@ How much do all firms produce on aggregate?</p>
 <p>Discuss the inefficiency of the Cournot-equilibrium.<br />
 How does it depend on <span class="math inline">\(N\)</span>?</p>
 </blockquote>
+<p>Since <span class="math inline">\(\frac{N}{N+1} &lt; 1\)</span>, all firms could have produced more to raise the total surplus of the society.<br />
+The larger <span class="math inline">\(N\)</span> is, the closer <span class="math inline">\(\frac{N}{N+1}\)</span> and 1 are, and the less inefficient it is.</p>
 </div>
 </div>
 <div id="problem-4-externality" class="section level2">
