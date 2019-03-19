@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">Notes on Microeconomics - First Final</h1>
@@ -238,10 +238,31 @@ and that <span class="math inline">\(φ_2(h)\)</span> is twice differentiable, d
 <div id="a-3" class="section level3">
 <h3>a)</h3>
 <blockquote>
-<p>What level of <span class="math inline">\(h^*\)</span> maximizes the sum of the two individuals’ utilities?<br />
-What level of <span class="math inline">\(\hat{h}\)</span> maximizes consumer 1’s utility?<br />
-What level of <span class="math inline">\(\bar{h}\)</span> maximizes consumer 2’s utility?</p>
+<ol style="list-style-type: decimal">
+<li>What level of <span class="math inline">\(h^*\)</span> maximizes the sum of the two individuals’ utilities?<br />
+</li>
+<li>What level of <span class="math inline">\(\hat{h}\)</span> maximizes consumer 1’s utility?<br />
+</li>
+<li>What level of <span class="math inline">\(\bar{h}\)</span> maximizes consumer 2’s utility?</li>
+</ol>
 </blockquote>
+<p>Since <span class="math inline">\(φ_1(h)\)</span> is twice differentiable, increasing and concave, <span class="math inline">\(φ&#39;_1(h)\geq 0\)</span>, <span class="math inline">\(φ&#39;&#39;_1(h)&lt;0\)</span><br />
+Since <span class="math inline">\(φ_2(h)\)</span> is twice differentiable, decreasing and concave, <span class="math inline">\(φ&#39;_2(h)\leq 0\)</span>, <span class="math inline">\(φ&#39;&#39;_2(h)&lt;0\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Consider both consumer’s utility<br />
+<span class="math display">\[\begin{aligned}\max_h &amp;&amp; φ_1(h) + φ_2(h)&amp; \\
+FOC &amp;&amp; φ&#39;_1(h^*) + φ&#39;_2(h^*) &amp;= 0 \\
+&amp;&amp; φ&#39;_1(h^*) &amp;= -φ&#39;_2(h^*)\end{aligned}\]</span>
+Since <span class="math inline">\(φ&#39;_1(h)\geq 0\)</span> and <span class="math inline">\(φ&#39;_2(h)\leq 0\)</span>, <span class="math inline">\(h^*\geq 0\)</span></li>
+<li>Consider consumer 1’s utility<br />
+<span class="math display">\[\begin{aligned}\max_h &amp;&amp; φ_1(h)\\
+FOC &amp;&amp; φ&#39;_1(\hat{h}) &amp;= 0\end{aligned}\]</span>
+Since <span class="math inline">\(φ&#39;_1(h)\geq 0\)</span>, <span class="math inline">\(\hat{h}\)</span> is as large as possible.</li>
+<li>Consider consumer 2’s utility<br />
+<span class="math display">\[\begin{aligned}\max_h &amp;&amp; φ_2(h)\\
+FOC &amp;&amp; φ&#39;_2(\bar{h}) &amp;= 0\end{aligned}\]</span>
+Since <span class="math inline">\(φ&#39;_2(h)\leq 0\)</span>, <span class="math inline">\(\bar{h} = 0\)</span></li>
+</ol>
 </div>
 <div id="b-3" class="section level3">
 <h3>b)</h3>
@@ -249,8 +270,15 @@ What level of <span class="math inline">\(\bar{h}\)</span> maximizes consumer 2�
 <p>Suppose that the utility of consumer <span class="math inline">\(i\)</span> with music at level <span class="math inline">\(h\)</span> and receiving a transfer <span class="math inline">\(T\)</span> is <span class="math inline">\(φ_i(h) + T\)</span> (<span class="math inline">\(-T\)</span> if the consumer has to pay).<br />
 Suppose that consumer 1 has the right to choose the level that maximizes her payoff, <span class="math inline">\(\hat{h}\)</span>.<br />
 However, consumer 2 can make a take-it-or-leave-it offer to consumer 1 to pay the amount <span class="math inline">\(T\)</span> to consumer 1 to reduce <span class="math inline">\(h\)</span> to some level.<br />
-What level of <span class="math inline">\(h\)</span> will be chosen if consumer 2 makes the optimal offer to consu1ner 1?</p>
+What level of <span class="math inline">\(h\)</span> will be chosen if consumer 2 makes the optimal offer to consumer 1?</p>
 </blockquote>
+<p>Consumer 2’s problem:<br />
+<span class="math display">\[\begin{aligned}\max &amp;&amp; φ_2(h) + T&amp; &amp;&amp; \text{s.t.} &amp;&amp; φ_1(h) - T \geq φ_1(\hat{h})\end{aligned}\]</span>
+Set the constraint to equality,<br />
+<span class="math display">\[\begin{aligned} \max &amp;&amp; φ_2(h) + \big(φ_1(h) - φ_1(\hat{h})\big)&amp; \\
+FOC &amp;&amp; φ&#39;_2(h^2) + φ&#39;_1(h^2) &amp;= 0 \\
+&amp;&amp; φ&#39;_2(h^2) &amp;= -φ&#39;_1(h^2)\end{aligned}\]</span>
+Therefore, consumer 2 will choose <span class="math inline">\(h^2 = h^*\)</span> as the offer.</p>
 </div>
 <div id="c-2" class="section level3">
 <h3>c)</h3>
@@ -259,12 +287,20 @@ What level of <span class="math inline">\(h\)</span> will be chosen if consumer 
 However, consumer 1 can make a take-it-or-leave-it offer to consumer 2 to pay <span class="math inline">\(T\)</span> in exchange for the right to increase <span class="math inline">\(h\)</span> to some specified level.<br />
 To what level will <span class="math inline">\(h\)</span> be increased in the optimal take-it-or-leave-it offer?</p>
 </blockquote>
+<p>Consumer 1’s problem:<br />
+<span class="math display">\[\begin{aligned}\max &amp;&amp; φ_1(h) - T&amp; &amp;&amp; \text{s.t.} &amp;&amp; φ_2(h) + T \geq φ_2(0)\end{aligned}\]</span>
+Set the constraint to equality,<br />
+<span class="math display">\[\begin{aligned} \max &amp;&amp; φ_1(h) - \big(φ_2(0) - φ_2(h)\big)&amp; \\
+FOC &amp;&amp; φ&#39;_1(h^1) + φ&#39;_2(h^1) &amp;= 0 \\
+&amp;&amp; φ&#39;_1(h^1) &amp;= -φ&#39;_2(h^1)\end{aligned}\]</span>
+Therefore, consumer 1 will choose <span class="math inline">\(h^1 = h^*\)</span> as the offer.</p>
 </div>
 <div id="d" class="section level3">
 <h3>d)</h3>
 <blockquote>
 <p>Relate your answers in a), b), and c) to a known theorem.</p>
 </blockquote>
+<p>Coase’s Theorem: bargaining leads to an efficient outcome, no matter how property rights are allocated</p>
 </div>
 </div>
 
