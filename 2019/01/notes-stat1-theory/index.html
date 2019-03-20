@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">31 min read</span>
+    <span class="article-duration">32 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -100,11 +100,6 @@
 <li><a href="#statistical-model">Statistical Model</a></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 </ul></li>
-<li><a href="#ols-error-term">OLS Error Term</a><ul>
-<li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
-<li><a href="#consistency-of-s2">Consistency of s^2</a></li>
-<li><a href="#normality-of-">Normality of ε</a></li>
-</ul></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
 <li><a href="#derive-b">Derive b</a></li>
 <li><a href="#unbiasedness-of-b">Unbiasedness of b</a></li>
@@ -112,6 +107,11 @@
 <li><a href="#consistent-of-b-asymptotic">Consistent of b (Asymptotic)</a></li>
 <li><a href="#normality-of-b">Normality of b</a></li>
 <li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
+</ul></li>
+<li><a href="#ols-residual">OLS Residual</a><ul>
+<li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
+<li><a href="#consistency-of-s2">Consistency of s^2</a></li>
+<li><a href="#normality-of-">Normality of ε</a></li>
 </ul></li>
 <li><a href="#ols-model-1">OLS Model</a><ul>
 <li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
@@ -231,6 +231,7 @@ M_X\cdot P_X &amp;= 0\end{aligned}\]</span>
 <li>Ceteris Paribus</li>
 </ul></li>
 <li>OLS Estimator: <span class="math inline">\(b\)</span></li>
+<li>OLS Residuals: <span class="math inline">\(e\)</span></li>
 </ul>
 </div>
 <div id="gauss-markov-assumptions" class="section level3">
@@ -259,53 +260,6 @@ where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="m
 <span class="math display">\[\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
 Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε_t]\end{aligned}\]</span>
 <span class="math inline">\(\implies E[x_t ε_t] = 0\)</span></p>
-</div>
-</div>
-<div id="ols-error-term" class="section level2">
-<h2>OLS Error Term</h2>
-<div id="unbiasedness-of-s2" class="section level3">
-<h3>Unbiasedness of s^2</h3>
-<blockquote>
-<p>PS1.Q2<br />
-Consider the linear regression model:<br />
-<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span>
-with <span class="math inline">\(εi ∼ NID(0,σ2)\)</span>.<br />
-Denote by K the number of regressors including the intercept.<br />
-Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N-1} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
-Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
-~~~~ <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
-</blockquote>
-<p>Rewrite the model in matrix form:<br />
-<span class="math display">\[\mathbb{y} = X β + ε\]</span>
-Let <span class="math inline">\(P_X \equiv X(X&#39; X)^{-1} X&#39;\)</span>, <span class="math inline">\(M_X = I_N - P_X\)</span>,<br />
-<span class="math display">\[\begin{aligned} M_X X &amp;= \big( I_N − X (X&#39; X)^{-1} X&#39;\big) \cdot X \\
-&amp;= X − X (X&#39; X)^{-1} X&#39; X \\ &amp;= X − X \\ &amp;= 0\end{aligned}\]</span>
-Therefore,<br />
-<span class="math display">\[\begin{aligned} e &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span>
-Sum of squared error:<br />
-<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= e&#39;e \\ &amp;= tr(e&#39;e) \\
-&amp;= tr(ε&#39; M_X&#39; M_X ε) \\ &amp;= tr(ε&#39; M_X ε) \\ &amp;= tr(M_X ε ε&#39;)\end{aligned}\]</span>
-Take expectation of both sides<br />
-<span class="math display">\[\begin{aligned} E[e&#39;e] &amp;= tr \big( M_X \cdot E [ε ε&#39;] \big) \\
-&amp;= σ^2 \cdot tr(M_X) \\ &amp;= σ^2 \cdot tr \big( I_N - X(X&#39; X)^{-1} X&#39; \big) \\
-&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X&#39; X)^{-1} X&#39; \big) \\
-&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X&#39; X(X&#39; X)^{-1} \big) \\
-&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr(I_K) \\ &amp;= σ^2(N - K)\end{aligned}\]</span>
-Therefore,<br />
-<span class="math display">\[\begin{aligned} E[s^2] &amp;= \frac{1}{N-K} \cdot E \left[ \sum^N_{i=1} e_i^2 \right] \\
-&amp;= \frac{1}{N-K} \cdot σ^2(N - K) \\ &amp;= σ^2\end{aligned}\]</span>
-<span class="math inline">\(\implies s^2\)</span> is unbiased.<br />
-And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
-</div>
-<div id="consistency-of-s2" class="section level3">
-<h3>Consistency of s^2</h3>
-<ul>
-<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
-</ul>
-</div>
-<div id="normality-of-" class="section level3">
-<h3>Normality of ε</h3>
 </div>
 </div>
 <div id="ols-estimator" class="section level2">
@@ -373,7 +327,7 @@ Unbiasedness is only conditional on the average of errors and independence betwe
 <h3>BLUE</h3>
 <p>textbook P17, slide 2 P26</p>
 <ul>
-<li>BLUE: <strong>Unbiased + Efficient + OLS</strong></li>
+<li>BLUE (Best Linear Unbiased Estimator): <strong>Unbiased + Efficient + OLS</strong></li>
 <li>Gauss–Markov Theorem: OLS estimator is BLUE if (A1) ~ (A4) are all satisfied</li>
 <li>Efficienty (best): minimal variance<br />
 <span class="math inline">\(V(b) \leq V(\tilde{b})\)</span> for all <span class="math inline">\(\tilde{b} \iff V(\tilde{b}) - V(b)\)</span> is positive semi-definite
@@ -381,8 +335,13 @@ Unbiasedness is only conditional on the average of errors and independence betwe
 &amp;= E\big[ (X&#39;X)^{-1}X&#39;ε \cdot ε&#39;X(X&#39;X)^{-1}\big] \\
 &amp;= E\big[ (X&#39;X)^{-1}X&#39;\big]\cdot E[εε&#39;] \cdot E\big[ X(X&#39;X)^{-1}\big] &amp;&amp; \text{(A2)}\\
 &amp;= (X&#39;X)^{-1}X&#39;\cdot (σ^2 \cdot I_N) \cdot X(X&#39;X)^{-1} &amp;&amp; \text{(A3) + (A4)}\\
-&amp;= σ^2 \cdot (X&#39;X)^{-1}X&#39;\cdot X(X&#39;X)^{-1} \\ &amp;= σ^2(X&#39;X)^{-1}\end{aligned}\]</span></li>
+&amp;= σ^2 \cdot (X&#39;X)^{-1}X&#39;\cdot X(X&#39;X)^{-1} \\ &amp;= σ^2(X&#39;X)^{-1} \\\end{aligned}\]</span></li>
+<li>With sample variance, estimated variance: <span class="math display">\[V(b) = s^2(X&#39;X)^{-1}\]</span></li>
+<li>Standard Error / Estimated Standard Deviation:
+<span class="math display">\[\begin{aligned} se(b) &amp;= \sqrt{V(b)} \\
+&amp;= \sqrt{s^2} \cdot \end{aligned}\]</span></li>
 </ul>
+<p>&amp;= s^2 (X’X)^{-1} &amp;&amp; </p>
 <blockquote>
 <p>PS1.Q4<br />
 Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.<br />
@@ -553,6 +512,61 @@ Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^
 <li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)</li>
 <li><span class="math inline">\(\sqrt{N}\)</span> is called the rate of convergence</li>
 </ul>
+</div>
+</div>
+<div id="ols-residual" class="section level2">
+<h2>OLS Residual</h2>
+<ul>
+<li>Population Variance of Error Terms: <span class="math inline">\(σ^2\)</span></li>
+<li>Unbiased Sample Variance of Residuals <span class="math display">\[s^2 = \frac{1}{N-K} e&#39;e\]</span></li>
+</ul>
+<div id="unbiasedness-of-s2" class="section level3">
+<h3>Unbiasedness of s^2</h3>
+<p>textbook P18, slide 2 P27</p>
+<ul>
+<li>Obtained if (A1) ~ (A4) are satisfied</li>
+</ul>
+<blockquote>
+<p>PS1.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span>
+with <span class="math inline">\(ε^i ∼ NID(0,σ2)\)</span>.<br />
+Denote by K the number of regressors including the intercept.<br />
+Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N-1} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
+Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
+~~~~ <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
+</blockquote>
+<p>Rewrite the model in matrix form:<br />
+<span class="math display">\[\mathbb{y} = X β + ε\]</span>
+Let <span class="math inline">\(P_X \equiv X(X&#39; X)^{-1} X&#39;\)</span>, <span class="math inline">\(M_X = I_N - P_X\)</span>,<br />
+<span class="math display">\[\begin{aligned} M_X X &amp;= \big( I_N − X (X&#39; X)^{-1} X&#39;\big) \cdot X \\
+&amp;= X − X (X&#39; X)^{-1} X&#39; X \\ &amp;= X − X \\ &amp;= 0\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} e &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span>
+Sum of squared error:<br />
+<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= e&#39;e \\ &amp;= tr(e&#39;e) \\
+&amp;= tr(ε&#39; M_X&#39; M_X ε) \\ &amp;= tr(ε&#39; M_X ε) \\ &amp;= tr(M_X ε ε&#39;)\end{aligned}\]</span>
+Take expectation of both sides<br />
+<span class="math display">\[\begin{aligned} E[e&#39;e] &amp;= tr \big( M_X \cdot E [ε ε&#39;] \big) \\
+&amp;= σ^2 \cdot tr(M_X) \\ &amp;= σ^2 \cdot tr \big( I_N - X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X&#39; X(X&#39; X)^{-1} \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr(I_K) \\ &amp;= σ^2(N - K)\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} E[s^2] &amp;= \frac{1}{N-K} \cdot E \left[ \sum^N_{i=1} e_i^2 \right] \\
+&amp;= \frac{1}{N-K} \cdot σ^2(N - K) \\ &amp;= σ^2\end{aligned}\]</span>
+<span class="math inline">\(\implies s^2\)</span> is unbiased.<br />
+And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
+</div>
+<div id="consistency-of-s2" class="section level3">
+<h3>Consistency of s^2</h3>
+<ul>
+<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
+<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+</ul>
+</div>
+<div id="normality-of-" class="section level3">
+<h3>Normality of ε</h3>
 </div>
 </div>
 <div id="ols-model-1" class="section level2">
@@ -816,9 +830,6 @@ Argue why the correlation between instruments and regressors matter for the prec
 What happens in the limiting case when this correlation approaches zero?</p>
 </blockquote>
 <p><span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{−1}Z&#39;y \\
-&amp;= (X&#39;ZZ&#39;X)^{-1}X&#39;ZZ&#39;y \\
-&amp;= (Z&#39;X)^{-1}(X&#39;Z)^{-1}(X&#39;Z)^{-1}Z&#39;y \\
-&amp;= (Z&#39;X)^{-1}Z&#39;y \\
 &amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\
 &amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε \\
 &amp;= β + (Z&#39;X)^{-1}Z&#39;ε\end{aligned}\]</span>
@@ -1025,10 +1036,7 @@ Otherwise, <span class="math inline">\(\frac{\ln L_1}{\ln L_0}\to 0\)</span>, <s
 <ul>
 <li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
 </ul></li>
-<li>AR (p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span>
-<ul>
-<li><span class="math inline">\(y_t = θ_1y_{t-1} -\cdots - θ_py_{t-p} + ε_t\)</span></li>
-</ul></li>
+<li>AR (p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span></li>
 <li>ARMA (p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
 </ul>
 </div>
