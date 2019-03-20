@@ -164,10 +164,12 @@ R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span></p>
 <p>textbook P26, slide 3 P16</p>
 <ul>
 <li><a href="../../01/notes-stat1-theory/#normality-of-b">Normality of b</a></li>
+<li><span class="math inline">\(H_0\)</span> is rejected if <span class="math inline">\(t_k\)</span> is significantly different to some critical value <span class="math inline">\(\begin{cases}\text{one-sided} &amp; t_{N-K; α} \\ \text{two-sided} &amp; t_{N-K; α/2} \end{cases}\)</span></li>
 </ul>
 <p><span class="math display">\[\begin{aligned} z &amp;= \frac{b_k - β_k}{se(b_k)} ∼ \mathcal{N}(0,1) \\
 t_k &amp;= \frac{b_k - β^0_k}{se(b_k)} \end{aligned}\]</span></p>
-<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(b_k = β^0_k\)</span>, <span class="math inline">\(t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)\)</span><br />
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(b_k = β^0_k\)</span>,<br />
+<span class="math inline">\(t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's.</p>
 <blockquote>
 <p>PS4.Q2.9<br />
@@ -186,9 +188,13 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 </div>
 <div id="f-test-joint-test" class="section level2">
 <h2>F-test (Joint Test)</h2>
-<p>(textbook P26, P70, P75, slide 3 P18)<br />
-<span class="math display">\[F = \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)}\]</span>
-<span class="math inline">\(H_0: F ∼ F_{N-K}^J\)</span><br />
+<p>textbook P26, P70, P75, slide 3 P18</p>
+<p><span class="math display">\[\begin{aligned}\text{Unrestricted Model: } y_1 &amp;= β_1 + β_2x_2 + \dots + β_K x_K + ε \\
+\text{Restricted Model: } y_0 &amp;= β_1 + β_2x_2 + \dots + β_{K-J}x_{K-J} + ε\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned} F &amp;= \frac{\frac{1}{J} \cdot (S_0 - S_1)}{\frac{1}{N-K} \cdot S_1} \\
+&amp;= \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)}\end{aligned}\]</span></p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(β_{K-J+1} = β_{K-J+2} = \dots = β_K = 0\)</span>,<br />
+<span class="math inline">\(F ∼ F_{N-K}^J\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested (<span class="math inline">\(= 0\)</span>), <span class="math inline">\(F \geq J + 1\)</span>.</p>
 </div>
 <div id="wald-test" class="section level2">
