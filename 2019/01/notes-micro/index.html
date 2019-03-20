@@ -1364,8 +1364,8 @@ Compute the Cournot equilibrium in this market, giving equilibrium price and out
 </blockquote>
 <p>For firm 1:
 <span class="math display">\[\begin{aligned} p_1 &amp;= 20+\frac{p_2}{2}-q_1 \\
-q_1 &amp;= 20+\frac{p_2}{2} - p_1\end{aligned}\]</span>
-<span class="math display">\[\begin{aligned} π_i = p_1\cdot \big(20+\frac{p_2}{2}-p_1\big) - 20\cdot \big(20+\frac{p_2}{2}-p_1\big) \\
+q_1 &amp;= 20+\frac{p_2}{2} - p_1 \\
+π_i &amp;= p_1\cdot \big(20+\frac{p_2}{2}-p_1\big) - 20\cdot \big(20+\frac{p_2}{2}-p_1\big) \\
 &amp;= \frac{p_1p_2}{2} + 40p_1 - p_1^2 + 400\end{aligned}\]</span>
 FOC:
 <span class="math display">\[\begin{aligned} \frac{\partial π_1}{\partial p_1} &amp;= \frac{p_2}{2} + 40 - 2p_1 = 0\\
@@ -1912,7 +1912,7 @@ FOC &amp;&amp; π^{j\prime}(h^{jt}) - t_h &amp;= 0 \\
 <li>Cumulative Distribution Function: <span class="math inline">\(F(c)\)</span></li>
 </ul></li>
 <li>Consumer’s Problem:
-<span class="math display">\[\begin{aligned}\max_T &amp;&amp; \underbrace{\big(1 - G(T)\big)}_{\text{Probability that firm accept }&gt;0}\times \underbrace{(T - c)}_{\text{Consumer&#39;s net benefit}}&amp; \\
+<span class="math display">\[\begin{aligned}\max_T &amp;&amp; \underbrace{\big(1 - \overbrace{G(T)}^{Pr(b\leq T)}\big)}_{Pr(b&gt;T)&gt;0}\times \underbrace{(T - c)}_{\text{Consumer&#39;s net benefit}}&amp; \\
 \end{aligned}\]</span>
 <ul>
 <li><span class="math inline">\(T^b &gt; c\)</span></li>

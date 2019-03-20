@@ -97,6 +97,8 @@
 <ul>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 <li><a href="#ols-model">OLS Model</a><ul>
+<li><a href="#ols-method">OLS Method</a></li>
+<li><a href="#statistical-model">Statistical Model</a></li>
 <li><a href="#normality-of-">Normality of ε</a></li>
 <li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
 <li><a href="#consistency-of-s2">Consistency of s^2</a></li>
@@ -194,30 +196,62 @@ Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε
 </div>
 <div id="ols-model" class="section level2">
 <h2>OLS Model</h2>
+<div id="ols-method" class="section level3">
+<h3>OLS Method</h3>
 <ul>
-<li>Regressand: <span class="math inline">\(y = [y_1, y_2, \dots, y_N]\)</span></li>
-<li>Regressor: <span class="math inline">\(x_i = [1, x_{i2}, \dots, x_{iK}]\)</span></li>
-<li>Estimator: <span class="math inline">\(β = [β_1, β_2, \dots, β_K]\)</span></li>
+<li>Regressand: <span class="math inline">\(y = [y_1, y_2, \dots, y_N]\)</span> (K*1)</li>
+<li>Regressor: <span class="math inline">\(x_i = [1, x_{i2}, \dots, x_{iK}]\)</span> (K<em>1), <span class="math inline">\(X = [x_1&#39;, x_2&#39;, \dots, x_N&#39;]\)</span> (N</em>K)</li>
+<li>Estimator: <span class="math inline">\(β = [β_1, β_2, \dots, β_K]\)</span> (K*1)</li>
 <li>Let the difference between observation and estimation be<br />
-<span class="math display">\[y_i - x_i&#39;\cdot β\]</span>
+<span class="math display">\[y - X&#39;\cdot β\]</span>
 OLS chooses <span class="math inline">\(β\)</span> s.t.
-<span class="math display">\[\begin{aligned}\max_{β} &amp;&amp; S(β) = \sum_N^{i=1} (y_i - x_i&#39;\cdot β)^2&amp; \\
-FOC &amp;&amp; -2\cdot \sum_N x_i\cdot( y_i - x_i&#39;\cdot β^*) &amp;= 0 \\
-&amp;&amp; \sum_N x_i\cdot y_i - \sum_N x_i\cdot x_i&#39;\cdot β^* &amp;= 0 \\
-&amp;&amp; \big(\sum_N x_i\cdot x_i&#39;\big) \cdot β^* &amp;= \sum_N x_i\cdot y_i\end{aligned}\]</span></li>
-<li>No-Multicollinearity Assumption: if <span class="math inline">\(\sum_N x_i\cdot x_i&#39;\)</span> is invertible,<br />
-<span class="math display">\[\begin{aligned} b &amp;\equiv β^* \\ &amp;= \big(\sum_N x_i\cdot x_i&#39;\big)^{-1}\sum_N x_i\cdot y_i\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\min_{β} &amp;&amp; S(β) = (y - Xβ)&#39;(y - Xβ) &amp; \\
+FOC &amp;&amp; -2\cdot X&#39;(y - Xβ) &amp;= 0 \\
+&amp;&amp; X&#39;y - X&#39;Xβ &amp;= 0 \\
+&amp;&amp; X&#39;X β &amp;= X&#39;y \end{aligned}\]</span></li>
+<li>No-Multicollinearity Assumption: if <span class="math inline">\(X&#39;X\)</span> is invertible,<br />
+<span class="math display">\[\begin{aligned} b &amp;\equiv β^* \\ &amp;= (X&#39;X)^{-1}X&#39;y\end{aligned}\]</span></li>
 <li>Best Linear Approximation:
-<span class="math display">\[\hat{y}_i = x_i&#39;\cdot b\]</span></li>
-<li>Residual:
-<span class="math display">\[\begin{aligned} e_i &amp;= y_i - \hat{y}_i \\
-&amp;= y_i - x_i&#39;\cdot b \\
-S(b) &amp;= \sum_N (y_i - x_i&#39;\cdot b)^2 \\
-&amp;= \sum_N e_i^2\end{aligned}\]</span>
-therefore,
-<span class="math display">\[\begin{aligned}\sum_N x_i\cdot e_i &amp;= \sum_N x_i\cdot( y_i - x_i&#39;\cdot b) \\
-&amp;= 0\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\hat{y} &amp;= X&#39;b \\
+&amp;= \underbrace{X&#39; \ (X&#39;X)^{-1}X&#39;}_{\text{Projection Matrix}} \ y \\
+&amp;= P_X\cdot y\end{aligned}\]</span></li>
 </ul>
+<!--
+&= \underbrace{X' \ \lefteqn{\overbrace{\phantom{(X'X)^{-1}X'\cdot y}}^{b}} (X'X)^{-1}X'}_{\text{Projection Matrix}}\ y \\
+-->
+<ul>
+<li>Residual:
+<span class="math display">\[\begin{aligned} e &amp;= y - \hat{y} \\
+&amp;= y - X&#39;b \\
+&amp;= (1 - P_X)\cdot y \\
+&amp;= M_X \cdot y \\
+S(b) &amp;= (y - Xb)&#39;(y - Xb) \\
+&amp;= e&#39;e\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}X&#39;e &amp;= X&#39;(y - Xβ) \\
+&amp;= 0\end{aligned}\]</span></li>
+<li>Property of Projection Matrix:
+<span class="math display">\[\begin{aligned} M_X + P_X &amp;= I \\
+M_X\cdot P_X &amp;= 0\end{aligned}\]</span>
+<ul>
+<li>Symmetric <span class="math display">\[\begin{aligned} P_X&#39; &amp;= P_X\end{aligned}\]</span></li>
+<li>Idempotent <span class="math display">\[\begin{aligned} P_X&#39;\cdot P_X &amp;= P_X \\
+  M_X&#39;\cdot M_X &amp;= M_X\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="statistical-model" class="section level3">
+<h3>Statistical Model</h3>
+<ul>
+<li>Dependent Variable: <span class="math inline">\(y\)</span></li>
+<li>Independent Variable / Explanatory Variable / Regressor: <span class="math inline">\(x\)</span></li>
+<li>Population Parameter: <span class="math inline">\(β\)</span></li>
+<li>Error Term: <span class="math inline">\(ε\)</span></li>
+<li>Number of Observations: <span class="math inline">\(N\)</span></li>
+<li>the model:
+<span class="math display">\[y = Xβ + ε\]</span></li>
+</ul>
+</div>
 <div id="normality-of-" class="section level3">
 <h3>Normality of ε</h3>
 </div>
@@ -239,12 +273,12 @@ Let <span class="math inline">\(P_X \equiv X(X&#39; X)^{-1} X&#39;\)</span>, <sp
 <span class="math display">\[\begin{aligned} M_X X &amp;= \big( I_N − X (X&#39; X)^{-1} X&#39;\big) \cdot X \\
 &amp;= X − X (X&#39; X)^{-1} X&#39; X \\ &amp;= X − X \\ &amp;= 0\end{aligned}\]</span>
 Therefore,<br />
-<span class="math display">\[\begin{aligned} \mathbb{e} &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} e &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span>
 Sum of squared error:<br />
-<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= \mathbb{e}&#39;\mathbb{e} \\ &amp;= tr(\mathbb{e}&#39;\mathbb{e}) \\
+<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= e&#39;e \\ &amp;= tr(e&#39;e) \\
 &amp;= tr(ε&#39; M_X&#39; M_X ε) \\ &amp;= tr(ε&#39; M_X ε) \\ &amp;= tr(M_X ε ε&#39;)\end{aligned}\]</span>
 Take expectation of both sides<br />
-<span class="math display">\[\begin{aligned} \mathbb{E} [\mathbb{e}&#39;\mathbb{e}] &amp;= tr \big( M_X \mathbb{E} (ε ε&#39;) \big) \\
+<span class="math display">\[\begin{aligned} E[e&#39;e] &amp;= tr \big( M_X \cdot E [ε ε&#39;] \big) \\
 &amp;= σ^2 \cdot tr(M_X) \\ &amp;= σ^2 \cdot tr \big( I_N - X(X&#39; X)^{-1} X&#39; \big) \\
 &amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X&#39; X)^{-1} X&#39; \big) \\
 &amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X&#39; X(X&#39; X)^{-1} \big) \\
