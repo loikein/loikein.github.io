@@ -95,21 +95,22 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 <li><a href="#ols-model">OLS Model</a><ul>
 <li><a href="#ols-method">OLS Method</a></li>
 <li><a href="#statistical-model">Statistical Model</a></li>
-<li><a href="#normality-of-">Normality of ε</a></li>
+<li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
+</ul></li>
+<li><a href="#ols-error-term">OLS Error Term</a><ul>
 <li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
 <li><a href="#consistency-of-s2">Consistency of s^2</a></li>
+<li><a href="#normality-of-">Normality of ε</a></li>
 </ul></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
-<li><a href="#derive-ols">Derive OLS</a></li>
-<li><a href="#normality-of-b">Normality of b</a></li>
+<li><a href="#derive-b">Derive b</a></li>
 <li><a href="#unbiasedness-of-b">Unbiasedness of b</a></li>
+<li><a href="#blue">BLUE</a></li>
 <li><a href="#consistent-of-b-asymptotic">Consistent of b (Asymptotic)</a></li>
-<li><a href="#efficienty">Efficienty</a></li>
-<li><a href="#blue-best-linear-unbiased-estimator">BLUE (Best Linear Unbiased Estimator)</a></li>
+<li><a href="#normality-of-b">Normality of b</a></li>
 <li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
 </ul></li>
 <li><a href="#ols-model-1">OLS Model</a><ul>
@@ -167,33 +168,6 @@
 <p>Warning: under proofreading</p>
 <p>All I wanted was a clear &amp; complete guidance.<br />
 Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
-<div id="gauss-markov-assumptions" class="section level2">
-<h2>Gauss-Markov Assumptions</h2>
-<p>(A1) ~ (A4): textbook P15, slide 2 P23 = BLUE<br />
-(A5): textbook P19, slide 2 P29 ~~~~~ = (A1) + (A3) + (A4) + normal<br />
-(A6): textbook P34, slide 4 P10<br />
-(A7): textbook P35, slide 4 P11 ~~~ <span class="math inline">\(\Longleftarrow\)</span> (A1), (A2) or (A8)<br />
-(A8): textbook P37 ~~~~~~~~~~~~~ <span class="math inline">\(\Longleftarrow\)</span> (A2)</p>
-<p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
-(A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
-(A3): <span class="math inline">\(Var(ε_i) = σ^2\)</span><br />
-(A4): <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
-<p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
-(A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
-(A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
-(A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent for all <span class="math inline">\(i\)</span></p>
-<blockquote>
-<p>PS2.Q2<br />
-Consider the linear regression model:<br />
-<span class="math display">\[y_t = β x_t + ε_t\]</span>
-where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
-1. What does the independence imply for <span class="math inline">\(E[x_t ε_t]\)</span>?</p>
-</blockquote>
-<p>Since <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent, they are not correlated
-<span class="math display">\[\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
-Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε_t]\end{aligned}\]</span>
-<span class="math inline">\(\implies E[x_t ε_t] = 0\)</span></p>
-</div>
 <div id="ols-model" class="section level2">
 <h2>OLS Model</h2>
 <div id="ols-method" class="section level3">
@@ -246,15 +220,49 @@ M_X\cdot P_X &amp;= 0\end{aligned}\]</span>
 <li>Dependent Variable: <span class="math inline">\(y\)</span></li>
 <li>Independent Variable / Explanatory Variable / Regressor: <span class="math inline">\(x\)</span></li>
 <li>Population Parameter: <span class="math inline">\(β\)</span></li>
-<li>Error Term: <span class="math inline">\(ε\)</span></li>
+<li>Error Term / Disturbance Term: <span class="math inline">\(ε\)</span></li>
 <li>Number of Observations: <span class="math inline">\(N\)</span></li>
-<li>the model:
+<li>True Model:
 <span class="math display">\[y = Xβ + ε\]</span></li>
+<li>Assumptions:
+<ul>
+<li>Exogenous Explanatory Variables <span class="math inline">\(\Longleftarrow\)</span> (A1) + (A2)
+<span class="math display">\[\begin{aligned}E[ε_i \ | \ x_i] &amp;= 0 \\ E[y_i \ | \ x_i] &amp;= x_i&#39; \cdot β \end{aligned}\]</span></li>
+<li>Ceteris Paribus</li>
+</ul></li>
+<li>OLS Estimator: <span class="math inline">\(b\)</span></li>
 </ul>
 </div>
-<div id="normality-of-" class="section level3">
-<h3>Normality of ε</h3>
+<div id="gauss-markov-assumptions" class="section level3">
+<h3>Gauss-Markov Assumptions</h3>
+<p>(A1) ~ (A4): textbook P15, slide 2 P23 = BLUE<br />
+(A5): textbook P19, slide 2 P29 ~~~~~ = (A1) + (A3) + (A4) + normal<br />
+(A6): textbook P34, slide 4 P10<br />
+(A7): textbook P35, slide 4 P11 ~~~ <span class="math inline">\(\Longleftarrow\)</span> (A1), (A2) or (A8)<br />
+(A8): textbook P37 ~~~~~~~~~~~~~ <span class="math inline">\(\Longleftarrow\)</span> (A2)</p>
+<p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
+(A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
+(A3): Homoskedasticity <span class="math inline">\(Var(ε_i) = σ^2\)</span><br />
+(A4): Autocorrelation <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
+<p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
+(A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
+(A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
+(A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent for all <span class="math inline">\(i\)</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+1. What does the independence imply for <span class="math inline">\(E[x_t ε_t]\)</span>?</p>
+</blockquote>
+<p>Since <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent, they are not correlated
+<span class="math display">\[\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
+Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε_t]\end{aligned}\]</span>
+<span class="math inline">\(\implies E[x_t ε_t] = 0\)</span></p>
 </div>
+</div>
+<div id="ols-error-term" class="section level2">
+<h2>OLS Error Term</h2>
 <div id="unbiasedness-of-s2" class="section level3">
 <h3>Unbiasedness of s^2</h3>
 <blockquote>
@@ -296,11 +304,14 @@ And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \imp
 <span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
 </ul>
 </div>
+<div id="normality-of-" class="section level3">
+<h3>Normality of ε</h3>
+</div>
 </div>
 <div id="ols-estimator" class="section level2">
 <h2>OLS Estimator</h2>
-<div id="derive-ols" class="section level3">
-<h3>Derive OLS</h3>
+<div id="derive-b" class="section level3">
+<h3>Derive b</h3>
 <blockquote>
 <p>PS1.Q1.3<br />
 Consider the linear model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
@@ -336,9 +347,132 @@ where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="m
 2. Verify that the OLS estimator can be written as<br />
 <span class="math display">\[b = β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t\]</span></p>
 </blockquote>
-<p><span class="math display">\[\begin{aligned} b &amp;= (X′X)^{−1} X′ y \\
+<p><span class="math display">\[\begin{aligned} b &amp;= (X&#39;X)^{−1} X&#39; y \\
 &amp;= β + (X&#39;X)^{-1} X&#39;ε \\
 &amp;= β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t \end{aligned}\]</span></p>
+</div>
+<div id="unbiasedness-of-b" class="section level3">
+<h3>Unbiasedness of b</h3>
+<p>textbook P16, slide 2 P24</p>
+<ul>
+<li>OLS estimator is unbiased when <span class="math inline">\(E[b] = β\)</span><br />
+<span class="math display">\[\begin{aligned}E[b] &amp;= E\big[(X&#39;X)^{-1}X&#39;y\big] \\ &amp;= E\big[β + (X&#39;X)^{-1}X&#39;ε\big] \\
+&amp;= β + E\big[(X&#39;X)^{-1}X&#39;ε\big] \\
+&amp;= β + E\big[(X&#39;X)^{-1}X&#39;\big]\cdot E[ε] &amp;&amp; \text{(A2)} \\
+&amp;= β + E\big[(X&#39;X)^{-1}X&#39;\big]\cdot 0 &amp;&amp; \text{(A1)}\\ &amp;= β \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>PS4.Q2.1<br />
+T/F?<br />
+Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased.</p>
+</blockquote>
+<p>True.<br />
+Unbiasedness is only conditional on the average of errors and independence between error and <span class="math inline">\(x\)</span>'s.</p>
+</div>
+<div id="blue" class="section level3">
+<h3>BLUE</h3>
+<p>textbook P17, slide 2 P26</p>
+<ul>
+<li>BLUE: <strong>Unbiased + Efficient + OLS</strong></li>
+<li>Gauss–Markov Theorem: OLS estimator is BLUE if (A1) ~ (A4) are all satisfied</li>
+<li>Efficienty (best): minimal variance<br />
+<span class="math inline">\(V(b) \leq V(\tilde{b})\)</span> for all <span class="math inline">\(\tilde{b} \iff V(\tilde{b}) - V(b)\)</span> is positive semi-definite
+<span class="math display">\[\begin{aligned}Var(b \ | \ X) &amp;= E\big[ (b - β) (b - β)&#39;\big] \\
+&amp;= E\big[ (X&#39;X)^{-1}X&#39;ε \cdot ε&#39;X(X&#39;X)^{-1}\big] \\
+&amp;= E\big[ (X&#39;X)^{-1}X&#39;\big]\cdot E[εε&#39;] \cdot E\big[ X(X&#39;X)^{-1}\big] &amp;&amp; \text{(A2)}\\
+&amp;= (X&#39;X)^{-1}X&#39;\cdot (σ^2 \cdot I_N) \cdot X(X&#39;X)^{-1} &amp;&amp; \text{(A3) + (A4)}\\
+&amp;= σ^2 \cdot (X&#39;X)^{-1}X&#39;\cdot X(X&#39;X)^{-1} \\ &amp;= σ^2(X&#39;X)^{-1}\end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>PS1.Q4<br />
+Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
+1. Verify that <span class="math inline">\(W X = I\)</span> holds due to unbiasedness (similar to <span class="math inline">\(CX = I\)</span>).</p>
+</blockquote>
+<p>Take expectation<br />
+<span class="math display">\[\begin{aligned} E[\tilde{b}] &amp;= E[Wy] \\ &amp;= E\big[ W(Xβ + ε)\big] \\
+&amp;= WXβ + W \cdot E[ε] \\ &amp;= WXβ\end{aligned}\]</span>
+Since <span class="math inline">\(\tilde{b}\)</span> is unbiased,<br />
+<span class="math display">\[\begin{aligned} E[\tilde{b}] = WXβ &amp;= β \\ WX &amp;= I\end{aligned}\]</span></p>
+<blockquote>
+<p>PS1.Q4<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
+2. Find the covariance matrix of <span class="math inline">\(\tilde{b}\)</span>, i.e. <span class="math inline">\(V(\tilde{b})\)</span>.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} V(\tilde{b}) &amp;= E \big[ (\tilde{b} - β)(\tilde{b} - β)&#39; \big] \\
+&amp;= E \big[ (WXβ + Wε - β)(WXβ + Wε - β)&#39; \big] \\ &amp;= E \big[ (Iβ + Wε - β)(Iβ + Wε - β)&#39; \big] \\ &amp;= E[ Wε ε&#39; W&#39;] \\
+&amp;= W \cdot E[ε ε&#39;] \cdot W&#39; \\ &amp;= σ^2 WW&#39; \end{aligned}\]</span></p>
+<blockquote>
+<p>PS1.Q4<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
+3. Compare the covariance matrices of <span class="math inline">\(\tilde{b}\)</span> and <span class="math inline">\(b\)</span> by building their difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span>.<br />
+~~ Show in the final step that the difference between the covariance matrices is positive semi-definite.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} V (\tilde{b}) − V (b) &amp;= σ^2 WW&#39; - σ^2 (X&#39;X)^{-1} \\
+&amp;= σ^2 \big[ WW&#39; - (X&#39;X)^{-1} \big] \\
+&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1}\cdot (WX)&#39; \big] \\
+&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1} \cdot X&#39;W&#39; \big] \\
+&amp;= σ^2 \left\{ W \big[ I - X(X&#39;X)^{-1}X&#39; \big] W&#39; \right\} \\
+&amp;= σ^2 W M_X W&#39;\end{aligned}\]</span>
+Take arbitrary <span class="math inline">\(a \neq 0\)</span><br />
+<span class="math display">\[\begin{aligned} a&#39; (σ^2 W M_X W&#39;) a &amp;= σ^2 a&#39; W M_X W&#39; a \\
+&amp;= σ^2 a&#39; W M_X M_X W&#39; a \\
+&amp;= σ^2 (M_X W&#39; a)&#39; (M_X W&#39; a) \\ &amp;\geq 0\end{aligned}\]</span>
+Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span> is positive semi-definite.<br />
+<span class="math inline">\(\implies\)</span> Any unbiased linear estimator cannot offer a variance smaller than the OLS estimator.</p>
+</div>
+<div id="consistent-of-b-asymptotic" class="section level3">
+<h3>Consistent of b (Asymptotic)</h3>
+<ul>
+<li>See the whole section: <a href="#ols-model">#OLS Model</a></li>
+<li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
+<li>Obtained if: (textbook P35)<br />
+<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+</ul>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model with a latent (unobserved) variable <span class="math inline">\(y_i^*\)</span>:<br />
+<span class="math display">\[y_i^∗ = x&#39;_i β + ε_i\]</span>
+where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
+The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span>,<br />
+where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
+(The unobserved <span class="math inline">\(y_i\)</span> is sometimes called a latent variable.)<br />
+Regress <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span>.<br />
+1. Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?</p>
+</blockquote>
+<p>Rewrite the model:<br />
+<span class="math display">\[\begin{aligned} y_i - v_i &amp;= x_i&#39; β + ε_i \\ y_i &amp;= x_i&#39; β + ε_i + v_i\end{aligned}\]</span>
+where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
+Let <span class="math inline">\(ε_i + v_i = u_i \implies u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
+OLS estimator can be written as:<br />
+<span class="math display">\[\begin{aligned} \tilde{β} &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N} \sum^N_{i=1} x_i y_i \\
+&amp;= β + \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \\
+\tilde{β} - β &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \end{aligned}\]</span>
+Apply LLN:
+<span class="math display">\[\begin{aligned} \tilde{β} - β &amp;\to^p \text{plim}(\tilde{β} - β) \\
+&amp;= \frac{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i u_i \right)}{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right)} \\
+&amp;= \frac{E[x_i u_i]}{Σ_{xx}}\end{aligned}\]</span></p>
+<p>where <span class="math inline">\(x&#39;x \to Σ_{xx}\)</span> (A6).<br />
+As long as <span class="math inline">\(E[x_i u_i] = 0\)</span> (A7), <span class="math inline">\(\tilde{β}\)</span> is consistent.</p>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model<br />
+<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span>
+2. What happens to the consistency of <span class="math inline">\(\tilde{β}\)</span> if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
+</blockquote>
+<p>Variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
+<span class="math display">\[Var(u_i) = σ^2_ε + ε^2_v + 2Cov(ε_i, v_i)\]</span>
+<span class="math inline">\(\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)\)</span><br />
+While everything remaining is unchanged, therefore the consistency of <span class="math inline">\(\tilde{β}\)</span>.</p>
 </div>
 <div id="normality-of-b" class="section level3">
 <h3>Normality of b</h3>
@@ -411,121 +545,6 @@ Therefore <span class="math inline">\(\sqrt{N}\)</span> is the implied convergen
 <span class="math display">\[\sqrt{N}(b − β) \to^d \mathcal{N} \big(0, (σ_x^2 σ_ε^2)(σ_x^2)^{-1} \big)\]</span>
 Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^2 σ_ε^2\)</span>, <span class="math inline">\(Σ_{xx} \equiv σ_x^2\)</span><br />
 <span class="math inline">\(\implies \sqrt{N}(b − β) \to^d \mathcal{N} (0, σ^2 Σ_{xx}^{-1})\)</span></p>
-</div>
-<div id="unbiasedness-of-b" class="section level3">
-<h3>Unbiasedness of b</h3>
-<ul>
-<li>OLS estimator is unbiased when <span class="math inline">\(E(b) = β\)</span></li>
-<li>Obtained if: (textbook P16, slide 2 P24)<br />
-<span class="math display">\[\begin{cases} E[ε_i] = 0 &amp;&amp; \text{(A1)} \\ \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)}\end{cases}\]</span></li>
-</ul>
-<blockquote>
-<p>PS4.Q2.1<br />
-T/F?<br />
-Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased.</p>
-</blockquote>
-<p>True.<br />
-Unbiasedness is only conditional on the average of errors and independence between error and <span class="math inline">\(x\)</span>'s.</p>
-</div>
-<div id="consistent-of-b-asymptotic" class="section level3">
-<h3>Consistent of b (Asymptotic)</h3>
-<ul>
-<li>See the whole section: <a href="#ols-model">#OLS Model</a></li>
-<li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
-<li>Obtained if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
-</ul>
-<blockquote>
-<p>PS5.Q4<br />
-Consider the model with a latent (unobserved) variable <span class="math inline">\(y_i^*\)</span>:<br />
-<span class="math display">\[y_i^∗ = x&#39;_i β + ε_i\]</span>
-where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
-The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span>,<br />
-where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
-(The unobserved <span class="math inline">\(y_i\)</span> is sometimes called a latent variable.)<br />
-Regress <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span>.<br />
-1. Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?</p>
-</blockquote>
-<p>Rewrite the model:<br />
-<span class="math display">\[\begin{aligned} y_i - v_i &amp;= x_i&#39; β + ε_i \\ y_i &amp;= x_i&#39; β + ε_i + v_i\end{aligned}\]</span>
-where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
-Let <span class="math inline">\(ε_i + v_i = u_i \implies u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
-OLS estimator can be written as:<br />
-<span class="math display">\[\begin{aligned} \tilde{β} &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N} \sum^N_{i=1} x_i y_i \\
-&amp;= β + \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \\
-\tilde{β} - β &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \end{aligned}\]</span>
-Apply LLN:
-<span class="math display">\[\begin{aligned} \tilde{β} - β &amp;\to^p \text{plim}(\tilde{β} - β) \\
-&amp;= \frac{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i u_i \right)}{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right)} \\
-&amp;= \frac{E[x_i u_i]}{Σ_{xx}}\end{aligned}\]</span></p>
-<p>where <span class="math inline">\(x&#39;x \to Σ_{xx}\)</span> (A6).<br />
-As long as <span class="math inline">\(E[x_i u_i] = 0\)</span> (A7), <span class="math inline">\(\tilde{β}\)</span> is consistent.</p>
-<blockquote>
-<p>PS5.Q4<br />
-Consider the model<br />
-<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span>
-2. What happens to the consistency of <span class="math inline">\(\tilde{β}\)</span> if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
-</blockquote>
-<p>Variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
-<span class="math display">\[Var(u_i) = σ^2_ε + ε^2_v + 2Cov(ε_i, v_i)\]</span>
-<span class="math inline">\(\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)\)</span><br />
-While everything remaining is unchanged, therefore the consistency of <span class="math inline">\(\tilde{β}\)</span>.</p>
-</div>
-<div id="efficienty" class="section level3">
-<h3>Efficienty</h3>
-<blockquote>
-<p>PS1.Q4<br />
-Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.<br />
-Consider the linear and unbiased OLS estimator:<br />
-<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
-And another linear and unbiased estimator:<br />
-<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
-1. Verify that <span class="math inline">\(W X = I\)</span> holds due to unbiasedness (similar to <span class="math inline">\(CX = I\)</span>).</p>
-</blockquote>
-<p>Take expectation<br />
-<span class="math display">\[\begin{aligned} E[\tilde{b}] &amp;= E[Wy] \\ &amp;= E\big[ W(Xβ + ε)\big] \\
-&amp;= WXβ + W \cdot E[ε] \\ &amp;= WXβ\end{aligned}\]</span>
-Since <span class="math inline">\(\tilde{b}\)</span> is unbiased,<br />
-<span class="math display">\[\begin{aligned} E[\tilde{b}] = WXβ &amp;= β \\ WX &amp;= I\end{aligned}\]</span></p>
-<blockquote>
-<p>PS1.Q4<br />
-Consider the linear and unbiased OLS estimator:<br />
-<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
-And another linear and unbiased estimator:<br />
-<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
-2. Find the covariance matrix of <span class="math inline">\(\tilde{b}\)</span>, i.e. <span class="math inline">\(V(\tilde{b})\)</span>.</p>
-</blockquote>
-<p><span class="math display">\[\begin{aligned} V(\tilde{b}) &amp;= E \big[ (\tilde{b} - β)(\tilde{b} - β)&#39; \big] \\
-&amp;= E \big[ (WXβ + Wε - β)(WXβ + Wε - β)&#39; \big] \\ &amp;= E \big[ (Iβ + Wε - β)(Iβ + Wε - β)&#39; \big] \\ &amp;= E[ Wε ε&#39; W&#39;] \\
-&amp;= W \cdot E[ε ε&#39;] \cdot W&#39; \\ &amp;= σ^2 WW&#39; \end{aligned}\]</span></p>
-<blockquote>
-<p>PS1.Q4<br />
-Consider the linear and unbiased OLS estimator:<br />
-<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
-And another linear and unbiased estimator:<br />
-<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
-3. Compare the covariance matrices of <span class="math inline">\(\tilde{b}\)</span> and <span class="math inline">\(b\)</span> by building their difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span>.<br />
-~~ Show in the final step that the difference between the covariance matrices is positive semi-definite.</p>
-</blockquote>
-<p><span class="math display">\[\begin{aligned} V (\tilde{b}) − V (b) &amp;= σ^2 WW&#39; - σ^2 (X&#39;X)^{-1} \\
-&amp;= σ^2 \big[ WW&#39; - (X&#39;X)^{-1} \big] \\
-&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1}\cdot (WX)&#39; \big] \\
-&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1} \cdot X&#39;W&#39; \big] \\
-&amp;= σ^2 \left\{ W \big[ I - X(X&#39;X)^{-1}X&#39; \big] W&#39; \right\} \\
-&amp;= σ^2 W M_X W&#39;\end{aligned}\]</span>
-Take arbitrary <span class="math inline">\(a \neq 0\)</span><br />
-<span class="math display">\[\begin{aligned} a&#39; (σ^2 W M_X W&#39;) a &amp;= σ^2 a&#39; W M_X W&#39; a \\
-&amp;= σ^2 a&#39; W M_X M_X W&#39; a \\
-&amp;= σ^2 (M_X W&#39; a)&#39; (M_X W&#39; a) \\ &amp;\geq 0\end{aligned}\]</span>
-Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span> is positive semi-definite.<br />
-<span class="math inline">\(\implies\)</span> Any unbiased linear estimator cannot offer a variance smaller than the OLS estimator.</p>
-</div>
-<div id="blue-best-linear-unbiased-estimator" class="section level3">
-<h3>BLUE (Best Linear Unbiased Estimator)</h3>
-<ul>
-<li>OLS estimator is BLUE when <span class="math inline">\(V(\tilde{b}) \geq V(b) \iff V(\tilde{b}) - V(b)\)</span> is positive semi-definite</li>
-<li>Obtained if (A1) ~ (A4) are all satisfied (textbook P17, slide 2 P26)</li>
-</ul>
 </div>
 <div id="can-consistent-and-asymptotically-normal" class="section level3">
 <h3>CAN (Consistent and Asymptotically Normal)</h3>
