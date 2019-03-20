@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">10 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Tests and Statistics</h1>
@@ -97,7 +97,7 @@
 <ul>
 <li><a href="#r2">R^2</a></li>
 <li><a href="#t-test">t-test</a></li>
-<li><a href="#f-test-joint-test">F-test (Joint Test)</a></li>
+<li><a href="#f-test-joint-test-model-test">F-test (Joint Test / Model Test)</a></li>
 <li><a href="#wald-test">Wald Test</a><ul>
 <li><a href="#wald-statistic">Wald statistic</a></li>
 <li><a href="#f-statistic">F-statistic</a></li>
@@ -186,30 +186,40 @@ When testing a single restriction, a t-test must be used as an F-test cannot be 
 When testing a single restriction, F-test is equivalent to t-test squared.<br />
 Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/when-does-the-f-test-reduce-to-t-test/">Juan Manuel</a>.</p>
 </div>
-<div id="f-test-joint-test" class="section level2">
-<h2>F-test (Joint Test)</h2>
+<div id="f-test-joint-test-model-test" class="section level2">
+<h2>F-test (Joint Test / Model Test)</h2>
 <p>textbook P26, P70, P75, slide 3 P18</p>
 <p><span class="math display">\[\begin{aligned}\text{Unrestricted Model: } y_1 &amp;= β_1 + β_2x_2 + \dots + β_K x_K + ε \\
 \text{Restricted Model: } y_0 &amp;= β_1 + β_2x_2 + \dots + β_{K-J}x_{K-J} + ε\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned} F &amp;= \frac{\frac{1}{J} \cdot (S_0 - S_1)}{\frac{1}{N-K} \cdot S_1} \\
-&amp;= \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)}\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned} F &amp;= \frac{(S_0 - S_1) / J}{S_1 / (N-K)} \\
+&amp;= \frac{(R^2_1 - R^2_0) / J}{(1-R^2_1) / (N-K)}\end{aligned}\]</span></p>
 <p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(β_{K-J+1} = β_{K-J+2} = \dots = β_K = 0\)</span>,<br />
 <span class="math inline">\(F ∼ F_{N-K}^J\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, and <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested (<span class="math inline">\(= 0\)</span>), <span class="math inline">\(F \geq J + 1\)</span>.</p>
 </div>
 <div id="wald-test" class="section level2">
 <h2>Wald Test</h2>
-<p>(textbook P29, P103, slide 3 P17)<br />
-Always two-sided</p>
+<p>textbook P29, P103, slide 3 P17</p>
+<ul>
+<li>Always two-sided</li>
+<li>Set of J Restrictions: <span class="math inline">\(\underbrace{R}_{\text{(J*K)}}\underbrace{β}_{\text{(K*1)}} = \underbrace{q}_{\text{(J*1)}}\)</span></li>
+</ul>
 <div id="wald-statistic" class="section level3">
 <h3>Wald statistic</h3>
+<ul>
+<li>Gauss-Markov Assumptions are not all satisfied</li>
+<li>The model deviates from linear regression model</li>
+</ul>
 <p><span class="math display">\[ξ = \frac{1}{σ^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
 <span class="math inline">\(H_0: ξ ∼ Χ^2_J\)</span><br />
 <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q = 0\)</span>.</p>
 </div>
 <div id="f-statistic" class="section level3">
 <h3>F-statistic</h3>
-<p><span class="math display">\[F = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
+<ul>
+<li>Exact sampling distribution under (A1) ~ (A5)</li>
+</ul>
+<p><span class="math display">\[F = \frac{1}{ξ} = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
 <span class="math inline">\(H_0: F ∼ F^J_{N-K}\)</span></p>
 <blockquote>
 <p>PS3.Q1.2<br />
