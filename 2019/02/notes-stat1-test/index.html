@@ -95,7 +95,7 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#r2"><span class="math inline">\(R^2\)</span></a></li>
+<li><a href="#r2">R^2</a></li>
 <li><a href="#t-test">t-test</a></li>
 <li><a href="#f-test-joint-test">F-test (Joint Test)</a></li>
 <li><a href="#wald-test">Wald Test</a><ul>
@@ -131,10 +131,14 @@
 <p>Warning: under proofreading</p>
 <p>Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
 <div id="r2" class="section level2">
-<h2><span class="math inline">\(R^2\)</span></h2>
-<p>(textbook P21, slide 3 P4)<br />
-<span class="math display">\[\begin{aligned}  &amp;&amp; &amp;R^2 = 1 - \frac{\sum^N_{i=1} e_i^2}{\sum^N_{i=1} (y_i-\bar{y})^2} \\
-\text{adjusted:} &amp;&amp; &amp;\bar{R^2} = 1 - \frac{\frac{1}{N-K}\sum^N_{i=1} e_i^2}{\frac{1}{N-1}\sum^N_{i=1} (y_i-\bar{y})^2}\end{aligned}\]</span></p>
+<h2>R^2</h2>
+<p>textbook P21, slide 3 P4</p>
+<ul>
+<li>Proportion of the sample variance of <span class="math inline">\(y\)</span> that is explained by the model.</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}  &amp;&amp; R^2 &amp;= \frac{Var(\hat{y}_i)}{Var(y_i)} = 1 - \frac{Var(e_i)}{Var(y_i)} \\
+&amp;&amp; &amp;= 1 - \frac{\sum_N e_i^2}{\sum_N (y_i-\bar{y})^2} \\
+\text{adjusted:} &amp;&amp; \bar{R^2} &amp;= 1 - \frac{\frac{1}{N-K}\sum_N  e_i^2}{\frac{1}{N-1}\sum_N  (y_i-\bar{y})^2}\end{aligned}\]</span></p>
 <blockquote>
 <p>PS2.Q1<br />
 Consider two linear regression models:<br />
@@ -157,9 +161,13 @@ R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span></p>
 </div>
 <div id="t-test" class="section level2">
 <h2>t-test</h2>
-<p>(textbook P26, slide 3 P16)<br />
-<span class="math display">\[t = \frac{\hat{β} - β_0}{se(\hat{β})}\]</span>
-<span class="math inline">\(H_0: t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)\)</span><br />
+<p>textbook P26, slide 3 P16</p>
+<ul>
+<li><a href="../../01/notes-stat1-theory/#normality-of-b">Normality of b</a></li>
+</ul>
+<p><span class="math display">\[\begin{aligned} z &amp;= \frac{b_k - β_k}{se(b_k)} ∼ \mathcal{N}(0,1) \\
+t_k &amp;= \frac{b_k - β^0_k}{se(b_k)} \end{aligned}\]</span></p>
+<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(b_k = β^0_k\)</span>, <span class="math inline">\(t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's.</p>
 <blockquote>
 <p>PS4.Q2.9<br />

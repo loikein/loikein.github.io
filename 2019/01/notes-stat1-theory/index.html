@@ -104,18 +104,22 @@
 <li><a href="#derive-b">Derive b</a></li>
 <li><a href="#unbiasedness-of-b">Unbiasedness of b</a></li>
 <li><a href="#blue">BLUE</a></li>
-<li><a href="#consistent-of-b-asymptotic">Consistent of b (Asymptotic)</a></li>
-<li><a href="#normality-of-b">Normality of b</a></li>
-<li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
 </ul></li>
 <li><a href="#ols-residual">OLS Residual</a><ul>
 <li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
 <li><a href="#consistency-of-s2">Consistency of s^2</a></li>
-<li><a href="#normality-of-">Normality of ε</a></li>
 </ul></li>
-<li><a href="#ols-model-1">OLS Model</a><ul>
+<li><a href="#normality-assumption">Normality Assumption</a><ul>
+<li><a href="#normality-of-">Normality of ε</a></li>
+<li><a href="#normality-of-b">Normality of b</a></li>
+</ul></li>
+<li><a href="#asymptotic-property">Asymptotic Property</a><ul>
 <li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
 <li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
+<li><a href="#consistent-of-b-asymptotic">Consistent of b (Asymptotic)</a></li>
+<li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
+</ul></li>
+<li><a href="#functional-form">Functional Form</a><ul>
 <li><a href="#loglinear-model">Loglinear Model</a></li>
 <li><a href="#elasticity">Elasticity</a></li>
 </ul></li>
@@ -336,12 +340,13 @@ Unbiasedness is only conditional on the average of errors and independence betwe
 &amp;= E\big[ (X&#39;X)^{-1}X&#39;\big]\cdot E[εε&#39;] \cdot E\big[ X(X&#39;X)^{-1}\big] &amp;&amp; \text{(A2)}\\
 &amp;= (X&#39;X)^{-1}X&#39;\cdot (σ^2 \cdot I_N) \cdot X(X&#39;X)^{-1} &amp;&amp; \text{(A3) + (A4)}\\
 &amp;= σ^2 \cdot (X&#39;X)^{-1}X&#39;\cdot X(X&#39;X)^{-1} \\ &amp;= σ^2(X&#39;X)^{-1} \\\end{aligned}\]</span></li>
-<li>With sample variance, estimated variance: <span class="math display">\[V(b) = s^2(X&#39;X)^{-1}\]</span></li>
+<li>With sample variance, estimated variance: (see <a href="#unbiasedness-of-s2">#Unbiasedness of s^2</a>)<br />
+<span class="math display">\[V(b) = s^2(X&#39;X)^{-1}\]</span></li>
 <li>Standard Error / Estimated Standard Deviation:
 <span class="math display">\[\begin{aligned} se(b) &amp;= \sqrt{V(b)} \\
-&amp;= \sqrt{s^2} \cdot \end{aligned}\]</span></li>
+&amp;= s\sqrt{(X&#39;X)^{-1}} \\
+&amp;\equiv s\sqrt{c_{kk}}\end{aligned}\]</span></li>
 </ul>
-<p>&amp;= s^2 (X’X)^{-1} &amp;&amp; </p>
 <blockquote>
 <p>PS1.Q4<br />
 Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.<br />
@@ -389,55 +394,81 @@ Take arbitrary <span class="math inline">\(a \neq 0\)</span><br />
 Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span> is positive semi-definite.<br />
 <span class="math inline">\(\implies\)</span> Any unbiased linear estimator cannot offer a variance smaller than the OLS estimator.</p>
 </div>
-<div id="consistent-of-b-asymptotic" class="section level3">
-<h3>Consistent of b (Asymptotic)</h3>
+</div>
+<div id="ols-residual" class="section level2">
+<h2>OLS Residual</h2>
 <ul>
-<li>See the whole section: <a href="#ols-model">#OLS Model</a></li>
-<li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
-<li>Obtained if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+<li>Population Variance of Error Terms: <span class="math inline">\(σ^2\)</span></li>
+<li>Unbiased Sample Variance of Residuals <span class="math display">\[s^2 = \frac{1}{N-K} e&#39;e\]</span></li>
+</ul>
+<div id="unbiasedness-of-s2" class="section level3">
+<h3>Unbiasedness of s^2</h3>
+<p>textbook P18, slide 2 P27</p>
+<ul>
+<li>Obtained if (A1) ~ (A4) are satisfied</li>
 </ul>
 <blockquote>
-<p>PS5.Q4<br />
-Consider the model with a latent (unobserved) variable <span class="math inline">\(y_i^*\)</span>:<br />
-<span class="math display">\[y_i^∗ = x&#39;_i β + ε_i\]</span>
-where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
-The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span>,<br />
-where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
-(The unobserved <span class="math inline">\(y_i\)</span> is sometimes called a latent variable.)<br />
-Regress <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span>.<br />
-1. Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?</p>
+<p>PS1.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span>
+with <span class="math inline">\(ε^i ∼ NID(0,σ2)\)</span>.<br />
+Denote by K the number of regressors including the intercept.<br />
+Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N-1} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
+Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
+~~~~ <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
 </blockquote>
-<p>Rewrite the model:<br />
-<span class="math display">\[\begin{aligned} y_i - v_i &amp;= x_i&#39; β + ε_i \\ y_i &amp;= x_i&#39; β + ε_i + v_i\end{aligned}\]</span>
-where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
-Let <span class="math inline">\(ε_i + v_i = u_i \implies u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
-OLS estimator can be written as:<br />
-<span class="math display">\[\begin{aligned} \tilde{β} &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N} \sum^N_{i=1} x_i y_i \\
-&amp;= β + \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \\
-\tilde{β} - β &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \end{aligned}\]</span>
-Apply LLN:
-<span class="math display">\[\begin{aligned} \tilde{β} - β &amp;\to^p \text{plim}(\tilde{β} - β) \\
-&amp;= \frac{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i u_i \right)}{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right)} \\
-&amp;= \frac{E[x_i u_i]}{Σ_{xx}}\end{aligned}\]</span></p>
-<p>where <span class="math inline">\(x&#39;x \to Σ_{xx}\)</span> (A6).<br />
-As long as <span class="math inline">\(E[x_i u_i] = 0\)</span> (A7), <span class="math inline">\(\tilde{β}\)</span> is consistent.</p>
-<blockquote>
-<p>PS5.Q4<br />
-Consider the model<br />
-<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span>
-2. What happens to the consistency of <span class="math inline">\(\tilde{β}\)</span> if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
-</blockquote>
-<p>Variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
-<span class="math display">\[Var(u_i) = σ^2_ε + ε^2_v + 2Cov(ε_i, v_i)\]</span>
-<span class="math inline">\(\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)\)</span><br />
-While everything remaining is unchanged, therefore the consistency of <span class="math inline">\(\tilde{β}\)</span>.</p>
+<p>Rewrite the model in matrix form:<br />
+<span class="math display">\[\mathbb{y} = X β + ε\]</span>
+Let <span class="math inline">\(P_X \equiv X(X&#39; X)^{-1} X&#39;\)</span>, <span class="math inline">\(M_X = I_N - P_X\)</span>,<br />
+<span class="math display">\[\begin{aligned} M_X X &amp;= \big( I_N − X (X&#39; X)^{-1} X&#39;\big) \cdot X \\
+&amp;= X − X (X&#39; X)^{-1} X&#39; X \\ &amp;= X − X \\ &amp;= 0\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} e &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span>
+Sum of squared error:<br />
+<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= e&#39;e \\ &amp;= tr(e&#39;e) \\
+&amp;= tr(ε&#39; M_X&#39; M_X ε) \\ &amp;= tr(ε&#39; M_X ε) \\ &amp;= tr(M_X ε ε&#39;)\end{aligned}\]</span>
+Take expectation of both sides<br />
+<span class="math display">\[\begin{aligned} E[e&#39;e] &amp;= tr \big( M_X \cdot E [ε ε&#39;] \big) \\
+&amp;= σ^2 \cdot tr(M_X) \\ &amp;= σ^2 \cdot tr \big( I_N - X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X&#39; X(X&#39; X)^{-1} \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr(I_K) \\ &amp;= σ^2(N - K)\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} E[s^2] &amp;= \frac{1}{N-K} \cdot E \left[ \sum^N_{i=1} e_i^2 \right] \\
+&amp;= \frac{1}{N-K} \cdot σ^2(N - K) \\ &amp;= σ^2\end{aligned}\]</span>
+<span class="math inline">\(\implies s^2\)</span> is unbiased.<br />
+And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
+</div>
+<div id="consistency-of-s2" class="section level3">
+<h3>Consistency of s^2</h3>
+<ul>
+<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
+<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+</ul>
+</div>
+</div>
+<div id="normality-assumption" class="section level2">
+<h2>Normality Assumption</h2>
+<div id="normality-of-" class="section level3">
+<h3>Normality of ε</h3>
+<ul>
+<li>(A1) + (A3) + (A4) + Nomally Distributed <span class="math inline">\(\implies\)</span></li>
+<li>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N)\)</span>
+<ul>
+<li>or: <span class="math inline">\(ε_i ∼ NID (0, σ^2)\)</span><br />
+</li>
+</ul></li>
+<li>Implies nomality of <span class="math inline">\(y_i \ | \ x_i\)</span></li>
+</ul>
 </div>
 <div id="normality-of-b" class="section level3">
 <h3>Normality of b</h3>
+<p>textbook P19, slide 2 P30</p>
 <ul>
-<li>OLS estimator is normally distributed with <span class="math inline">\(b ∼ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big)\)</span></li>
-<li>Obtained if: (slide 2 P30)<br />
+<li>OLS estimator is normally distributed with
+<span class="math display">\[\begin{aligned}b &amp;∼ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big) \\
+b_k &amp;∼ \mathcal{N}(β_k, σ^2c_{kk})\end{aligned}\]</span></li>
+<li>Obtained if<br />
 <span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span></li>
 </ul>
 <blockquote>
@@ -505,72 +536,9 @@ Therefore <span class="math inline">\(\sqrt{N}\)</span> is the implied convergen
 Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^2 σ_ε^2\)</span>, <span class="math inline">\(Σ_{xx} \equiv σ_x^2\)</span><br />
 <span class="math inline">\(\implies \sqrt{N}(b − β) \to^d \mathcal{N} (0, σ^2 Σ_{xx}^{-1})\)</span></p>
 </div>
-<div id="can-consistent-and-asymptotically-normal" class="section level3">
-<h3>CAN (Consistent and Asymptotically Normal)</h3>
-<ul>
-<li>OLS estimator is CAN when <span class="math inline">\(\sqrt{N} (b-β) \to^a \mathcal{N}(0, σ^2 Σ_{xx}^{-1})\)</span></li>
-<li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)</li>
-<li><span class="math inline">\(\sqrt{N}\)</span> is called the rate of convergence</li>
-</ul>
 </div>
-</div>
-<div id="ols-residual" class="section level2">
-<h2>OLS Residual</h2>
-<ul>
-<li>Population Variance of Error Terms: <span class="math inline">\(σ^2\)</span></li>
-<li>Unbiased Sample Variance of Residuals <span class="math display">\[s^2 = \frac{1}{N-K} e&#39;e\]</span></li>
-</ul>
-<div id="unbiasedness-of-s2" class="section level3">
-<h3>Unbiasedness of s^2</h3>
-<p>textbook P18, slide 2 P27</p>
-<ul>
-<li>Obtained if (A1) ~ (A4) are satisfied</li>
-</ul>
-<blockquote>
-<p>PS1.Q2<br />
-Consider the linear regression model:<br />
-<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span>
-with <span class="math inline">\(ε^i ∼ NID(0,σ2)\)</span>.<br />
-Denote by K the number of regressors including the intercept.<br />
-Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N-1} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
-Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
-~~~~ <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
-</blockquote>
-<p>Rewrite the model in matrix form:<br />
-<span class="math display">\[\mathbb{y} = X β + ε\]</span>
-Let <span class="math inline">\(P_X \equiv X(X&#39; X)^{-1} X&#39;\)</span>, <span class="math inline">\(M_X = I_N - P_X\)</span>,<br />
-<span class="math display">\[\begin{aligned} M_X X &amp;= \big( I_N − X (X&#39; X)^{-1} X&#39;\big) \cdot X \\
-&amp;= X − X (X&#39; X)^{-1} X&#39; X \\ &amp;= X − X \\ &amp;= 0\end{aligned}\]</span>
-Therefore,<br />
-<span class="math display">\[\begin{aligned} e &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span>
-Sum of squared error:<br />
-<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= e&#39;e \\ &amp;= tr(e&#39;e) \\
-&amp;= tr(ε&#39; M_X&#39; M_X ε) \\ &amp;= tr(ε&#39; M_X ε) \\ &amp;= tr(M_X ε ε&#39;)\end{aligned}\]</span>
-Take expectation of both sides<br />
-<span class="math display">\[\begin{aligned} E[e&#39;e] &amp;= tr \big( M_X \cdot E [ε ε&#39;] \big) \\
-&amp;= σ^2 \cdot tr(M_X) \\ &amp;= σ^2 \cdot tr \big( I_N - X(X&#39; X)^{-1} X&#39; \big) \\
-&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X&#39; X)^{-1} X&#39; \big) \\
-&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X&#39; X(X&#39; X)^{-1} \big) \\
-&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr(I_K) \\ &amp;= σ^2(N - K)\end{aligned}\]</span>
-Therefore,<br />
-<span class="math display">\[\begin{aligned} E[s^2] &amp;= \frac{1}{N-K} \cdot E \left[ \sum^N_{i=1} e_i^2 \right] \\
-&amp;= \frac{1}{N-K} \cdot σ^2(N - K) \\ &amp;= σ^2\end{aligned}\]</span>
-<span class="math inline">\(\implies s^2\)</span> is unbiased.<br />
-And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
-</div>
-<div id="consistency-of-s2" class="section level3">
-<h3>Consistency of s^2</h3>
-<ul>
-<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
-</ul>
-</div>
-<div id="normality-of-" class="section level3">
-<h3>Normality of ε</h3>
-</div>
-</div>
-<div id="ols-model-1" class="section level2">
-<h2>OLS Model</h2>
+<div id="asymptotic-property" class="section level2">
+<h2>Asymptotic Property</h2>
 <div id="converge-in-probability-mean-square" class="section level3">
 <h3>Converge in Probability &amp; Mean Square</h3>
 <ul>
@@ -608,6 +576,60 @@ According to LLN:<br />
 <span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
 \implies \frac{1}{N}\sum y_i^2 &amp;\to^p E[y_i^2]\end{aligned}\]</span></p>
 </div>
+<div id="consistent-of-b-asymptotic" class="section level3">
+<h3>Consistent of b (Asymptotic)</h3>
+<ul>
+<li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
+<li>Obtained if: (textbook P35)<br />
+<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+</ul>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model with a latent (unobserved) variable <span class="math inline">\(y_i^*\)</span>:<br />
+<span class="math display">\[y_i^∗ = x&#39;_i β + ε_i\]</span>
+where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
+The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span>,<br />
+where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
+(The unobserved <span class="math inline">\(y_i\)</span> is sometimes called a latent variable.)<br />
+Regress <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span>.<br />
+1. Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?</p>
+</blockquote>
+<p>Rewrite the model:<br />
+<span class="math display">\[\begin{aligned} y_i - v_i &amp;= x_i&#39; β + ε_i \\ y_i &amp;= x_i&#39; β + ε_i + v_i\end{aligned}\]</span>
+where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
+Let <span class="math inline">\(ε_i + v_i = u_i \implies u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
+OLS estimator can be written as:<br />
+<span class="math display">\[\begin{aligned} \tilde{β} &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N} \sum^N_{i=1} x_i y_i \\
+&amp;= β + \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \\
+\tilde{β} - β &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \end{aligned}\]</span>
+Apply LLN:
+<span class="math display">\[\begin{aligned} \tilde{β} - β &amp;\to^p \text{plim}(\tilde{β} - β) \\
+&amp;= \frac{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i u_i \right)}{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right)} \\
+&amp;= \frac{E[x_i u_i]}{Σ_{xx}}\end{aligned}\]</span></p>
+<p>where <span class="math inline">\(x&#39;x \to Σ_{xx}\)</span> (A6).<br />
+As long as <span class="math inline">\(E[x_i u_i] = 0\)</span> (A7), <span class="math inline">\(\tilde{β}\)</span> is consistent.</p>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model<br />
+<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span>
+2. What happens to the consistency of <span class="math inline">\(\tilde{β}\)</span> if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
+</blockquote>
+<p>Variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
+<span class="math display">\[Var(u_i) = σ^2_ε + ε^2_v + 2Cov(ε_i, v_i)\]</span>
+<span class="math inline">\(\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)\)</span><br />
+While everything remaining is unchanged, therefore the consistency of <span class="math inline">\(\tilde{β}\)</span>.</p>
+</div>
+<div id="can-consistent-and-asymptotically-normal" class="section level3">
+<h3>CAN (Consistent and Asymptotically Normal)</h3>
+<ul>
+<li>OLS estimator is CAN when <span class="math inline">\(\sqrt{N} (b-β) \to^a \mathcal{N}(0, σ^2 Σ_{xx}^{-1})\)</span></li>
+<li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)</li>
+<li><span class="math inline">\(\sqrt{N}\)</span> is called the rate of convergence</li>
+</ul>
+</div>
+</div>
+<div id="functional-form" class="section level2">
+<h2>Functional Form</h2>
 <div id="loglinear-model" class="section level3">
 <h3>Loglinear Model</h3>
 <table>
