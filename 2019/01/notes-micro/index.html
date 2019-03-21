@@ -322,7 +322,7 @@ Proof: (to be added)</p>
 Let <span class="math inline">\(\succsim\)</span> be defined on <span class="math inline">\(X = \mathbb{R}\)</span>, represented by
 <span class="math display">\[\begin{aligned} V(x) &amp;= x \\
 U(x) &amp;= \begin{cases} x &amp; x\leq0 \\ x+1 &amp; x&gt;0 \end{cases}\end{aligned}\]</span>
-<span class="math inline">\(\implies v\)</span> and <span class="math inline">\(u\)</span> give same results for comparison between any <span class="math inline">\(x, x&#39;\in X\)</span><br />
+<span class="math inline">\(\implies V(\cdot)\)</span> and <span class="math inline">\(U(\cdot)\)</span> give same results for comparison for any <span class="math inline">\(x, x&#39;\in X\)</span><br />
 Let <span class="math inline">\(f =\begin{cases} x &amp; x\leq 1 \\ x-1 &amp; x &gt; 1 \end{cases}\)</span><br />
 <span class="math inline">\(\implies f\big(U(x)\big) = V(x)\)</span>, but <span class="math inline">\(f\)</span> is not strictly monotonic</p>
 </div>
@@ -378,17 +378,17 @@ Show that there exists a function <span class="math inline">\(u: X\to \mathbb{R}
 3) <span class="math inline">\(u(x)=u(y) \iff xIy\)</span></p>
 </blockquote>
 <p>Proof by mathematical induction:<br />
-When <span class="math inline">\(|X| = 1\)</span>, define <span class="math inline">\(u(x) = 0\)</span>, <span class="math inline">\(u(x)\)</span> satisfies (1) ~ (3)</p>
+When <span class="math inline">\(|X| = 1\)</span>, there exist <span class="math inline">\(U(x) = 0\)</span>, for example, that <span class="math inline">\(U(\cdot)\)</span> satisfies (1) ~ (3)</p>
 <p>Assume there is some utility function s.t. (1) ~ (3) are satisfied for <span class="math inline">\(|X| = n\)</span></p>
 <p>Consider <span class="math inline">\(|X| = n+1\)</span>:<br />
-Since <span class="math inline">\(|X\backslash\{x_1\}| = n\)</span>, exsits <span class="math inline">\(u\)</span> s.t. (1) ~ (3) are satisfied<br />
+Since <span class="math inline">\(|X\backslash\{x_1\}| = n\)</span>, exsits <span class="math inline">\(U(\cdot)\)</span> s.t. (1) ~ (3) are satisfied<br />
 Denote the optimal element of <span class="math inline">\(|X\backslash\{x_1\}|\)</span> as <span class="math inline">\(x_2\)</span><br />
-Extend <span class="math inline">\(u\)</span> as: <span class="math display">\[u(x_1) = \begin{cases} u(x_2) + 2 &amp; x_1\succ\succ x_2 \\
-u(x_2) + 1 &amp; x_1\succ x_2 \\
-u(x_2) &amp; x_1 I x_2 \\
-u(x_2) - 1 &amp; x_2\succ x_1 \\
-u(x_2) - 2 &amp; x_2\succ\succ x_1\end{cases}\]</span>
-Therefore, <span class="math inline">\(u\)</span> satisfies (1) ~ (3) for <span class="math inline">\(|X| = n+1\)</span></p>
+Extend <span class="math inline">\(u\)</span> as: <span class="math display">\[u(x_1) = \begin{cases} U(x_2) + 2 &amp; x_1\succ\succ x_2 \\
+U(x_2) + 1 &amp; x_1\succ x_2 \\
+U(x_2) &amp; x_1 I x_2 \\
+U(x_2) - 1 &amp; x_2\succ x_1 \\
+U(x_2) - 2 &amp; x_2\succ\succ x_1\end{cases}\]</span>
+Therefore, <span class="math inline">\(U(\cdot)\)</span> satisfies (1) ~ (3) for <span class="math inline">\(|X| = n+1\)</span></p>
 </div>
 <div id="rational-choice-function" class="section level3">
 <h3>Rational Choice Function</h3>
@@ -441,7 +441,7 @@ Therefore, <span class="math inline">\(u\)</span> satisfies (1) ~ (3) for <span 
 <h3>SARP (Strong Axiom of Revealed Preference)</h3>
 <p>(slide 6 P113)</p>
 <ul>
-<li>Choice <span class="math inline">\(C\)</span> sattisfies SARP iff <span class="math inline">\(\succ_R\)</span> is acyclical: there is no <span class="math inline">\(x_1,x_2,\dots,x_k\)</span> s.t. <span class="math inline">\(x_1 \succ_R x_2 \succ_R\dots\succ_R x_k\succ_R x_1\)</span></li>
+<li>Choice <span class="math inline">\(C\)</span> sattisfies SARP <span class="math inline">\(\iff \succ_R\)</span> is acyclical: there is no <span class="math inline">\(x_1,x_2,\dots,x_k\)</span> s.t. <span class="math inline">\(x_1 \succ_R x_2 \succ_R\dots\succ_R x_k\succ_R x_1\)</span></li>
 </ul>
 </div>
 <div id="rationalizing-choice-function" class="section level3">
