@@ -604,7 +604,7 @@ Contradiction.</li>
 <li><strong>Quasi-Linear + Strong Monotonic + Continuous</strong> preference relations can be represented by <span class="math inline">\(U = x_1 + v(x_2,\dots,x_K)\)</span> for some <span class="math inline">\(v\)</span></li>
 </ul></li>
 <li>Leontief Preference<br />
-<span class="math inline">\(x\succsim y\iff \min{x_1,x_2}\geq\min{y_1,y_2}\)</span>
+<span class="math inline">\(x\succsim y\iff \min\{x_1,x_2\}\geq\min\{y_1,y_2\}\)</span>
 <ul>
 <li>Monotonic + Continuous but not differentiable</li>
 </ul></li>
@@ -634,7 +634,7 @@ Contradiction.</li>
 <ul>
 <li>If <span class="math inline">\(p\gg 0\)</span> and <span class="math inline">\(u(\cdot)\)</span> is continuous, then UMP has a solution</li>
 </ul></li>
-<li>(Marshallian / Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w) = \text{argmax} \ u(x)\)</span>
+<li>(Marshallian / Walrasian) Demand Correspondence: <span class="math inline">\(x(p,w)\)</span>
 <ul>
 <li>Demand Function when single-valued</li>
 <li><span class="math inline">\(\succsim\)</span> is <strong>Monotonic + Continuous</strong> <span class="math inline">\(\implies x(p,w)\)</span> is <strong>Homogeneous (0) + Walras Law</strong><br />
@@ -696,15 +696,16 @@ Preferences are differentiable if they are differentiable at any bundle <span cl
 </li>
 <li>FSOC assume <span class="math inline">\(u\big((x, y)\big) = \min(x, y)\)</span> is differentiable at <span class="math inline">\((x,y)=(0,0)\)</span><br />
 Since <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span> are not improvement directions,<br />
-and <span class="math inline">\((1,1)\)</span> is improvement direction,<br />
-<span class="math inline">\(\begin{cases} (1,0)\cdot v\leq 0 \\ (0,1)\cdot v\leq 0\end{cases}\)</span> and <span class="math inline">\((1,1)\cdot v &gt; 0\)</span><br />
-Contradiction</li>
+<span class="math display">\[\begin{cases} (1,0)\cdot v\leq 0 \\ (0,1)\cdot v\leq 0\end{cases}\]</span>
+but <span class="math inline">\((1,1)\)</span> is improvement direction, so<br />
+<span class="math display">\[\begin{aligned} (1,0) + (0,1) &amp;= (1,1) \\ (1,1) \cdot v &amp;&gt; 0\end{aligned}\]</span>
+Contradiction.</li>
 </ol>
 <blockquote>
 <p>HM7<br />
 Assume a consumer has preferences on <span class="math inline">\(\mathbb{R}^2\)</span><br />
 s.t. the indifference curve through <span class="math inline">\(x = (1, 1)\)</span> can be described as the graph of <span class="math inline">\(f : \mathbb{R} → \mathbb{R}\)</span>.<br />
-1. What can be said about the <strong>differentiability of the preferences</strong> (improvement direction) at <span class="math inline">\(x\)</span> if <span class="math inline">\(f\)</span> is known to be differentiable with <span class="math inline">\(f&#39;(x) = −2\)</span>?<br />
+1. What can be said about the differentiability of the preferences (improvement direction) at <span class="math inline">\(x\)</span> if <span class="math inline">\(f\)</span> is known to be differentiable with <span class="math inline">\(f&#39;(x) = −2\)</span>?<br />
 2. What can be said if in addition <span class="math inline">\(f\)</span> is a convex function?</p>
 </blockquote>
 <ol style="list-style-type: decimal">
@@ -747,10 +748,10 @@ Since <span class="math inline">\(x^*\)</span> is a solution, <span class="math 
 Assume <span class="math inline">\(x^*\)</span> is a solution to the consumer’s problem <span class="math inline">\(B(p,w)\)</span>,<br />
 Prove that if the preferences are represented by a utility function <span class="math inline">\(U\)</span> that is differentiable at <span class="math inline">\(x^*\)</span>,<br />
 then for any commodity <span class="math inline">\(k\)</span> with <span class="math inline">\(x_k^* &gt; 0\)</span> and any other commodity <span class="math inline">\(l\)</span>,<br />
-<span class="math display">\[\frac{\partial_kU(x^*)}{p_k} \geq \frac{\partial_lU(x^*)}{p_l}\]</span></p>
+<span class="math display">\[\frac{D_k U(x^*)}{p_k} \geq \frac{D_l U(x^*)}{p_l}\]</span></p>
 </blockquote>
-<p>FSOC assume that <span class="math inline">\(\frac{\partial_kU(x^*)}{p_k} &lt; \frac{\partial_lU(x^*)}{p_l}\)</span><br />
-<span class="math inline">\(\implies \partial_lU(x^*)\cdot\frac{p_k}{p_l} - \partial_kU(x^*) &gt; 0\)</span><br />
+<p>FSOC assume that <span class="math inline">\(\frac{D_k U(x^*)}{p_k} &lt; \frac{D_lU(x^*)}{p_l}\)</span><br />
+<span class="math inline">\(\implies D_lU(x^*)\cdot\frac{p_k}{p_l} - D_kU(x^*) &gt; 0\)</span><br />
 <span class="math inline">\(\implies\)</span> reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(1\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(\frac{p_k}{p_l}\)</span> is an improvement<br />
 Since <span class="math inline">\(x_k^* &gt; 0\)</span>, reducing <span class="math inline">\(x_k^*\)</span> by <span class="math inline">\(ε\)</span> and increasing <span class="math inline">\(x_l^*\)</span> by <span class="math inline">\(ε\cdot\frac{p_k}{p_l}\)</span> for some small <span class="math inline">\(ε&gt;0\)</span> is feasible and is an improvement<br />
 <span class="math inline">\(\implies\)</span> contradiction to <span class="math inline">\(x^*\)</span> is a solution to <span class="math inline">\(B(p,w)\)</span></p>
@@ -806,10 +807,6 @@ if <span class="math inline">\(u(x)\)</span> is <strong>Increasing + Continuous<
 <!--
     - $\begin{cases} e\big(p,v(p,w)\big) = w \\ v\big(p, e(p,w)\big) = \bar{u}\end{cases}$, $\begin{cases} h(p,\bar{u}) = x\big( p, e(p,\bar{u})\big) \\ x(p,w) = h\big(p, v(p,w)\big)\end{cases}$
 -->
-<div class="figure">
-<img src="/post-img/notes-micro--dual-consumer.png" alt="MWG Figure 3.G.3" />
-<p class="caption">MWG Figure 3.G.3</p>
-</div>
 </div>
 <div id="duality-properties" class="section level3">
 <h3>Duality Properties</h3>
@@ -826,43 +823,42 @@ h_k( p^*, \bar{u}) &amp;= \frac{\partial e(p,\bar{u})}{\partial p_k}\end{aligned
 <li>Slutsky Equation: for all <span class="math inline">\((p,w)\)</span> and <span class="math inline">\(\bar{u} = v(p,w)\)</span>,<br />
 <span class="math display">\[\frac{\partial h_k(p,\bar{u})}{\partial p_k} = \frac{\partial x_k(p,w)}{\partial p_k} + \frac{\partial x_k(p,w)}{\partial w}\cdot x_k(p,w)\]</span></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-micro--dual-consumer.png" alt="MWG Figure 3.G.3" />
+<p class="caption">MWG Figure 3.G.3</p>
+</div>
 <blockquote>
 <p>PS0.Q9<br />
 Explain under what assumptions the following two statements are equivalent:<br />
 (1) the maximal amount of Pizzas Joey can eat in <span class="math inline">\(24\)</span> hours is <span class="math inline">\(13\)</span><br />
 (2) the minimal amount of time Joey needs to eat <span class="math inline">\(13\)</span> pizzas is <span class="math inline">\(24\)</span> hours</p>
 </blockquote>
-<ol style="list-style-type: decimal">
-<li>and (2) are equivalent if:<br />
-The maximal amount Joey can eat, as a function of time, is increasing and continuous</li>
-</ol>
+<p>(1) and (2) are equivalent if:<br />
+The maximal amount Joey can eat, as a function of time, is increasing and continuous</p>
 </div>
 <div id="consumer-welfare" class="section level3">
 <h3>Consumer Welfare</h3>
-<p>AMT 4.3, MWG 3.I, slide 7 P136</p>
+<p>AMT 4.3, MWG 3.I, slide 7 P136, slide 11 P7, <a href="#total-welfare-partial">#Total Welfare (Partial)</a></p>
 <ul>
 <li>Let <span class="math inline">\(\begin{cases} u = v(p, w) \\ u&#39; = v(p&#39;,w)\end{cases}\)</span>, <span class="math inline">\(e(p,u) = e(p&#39;,u&#39;) = w\)</span> (Walras Law)</li>
 <li>Compensating Variation:<br />
 <span class="math display">\[\begin{aligned} CV &amp;= e(p&#39;,u&#39;) - e(p&#39;,u)\\ &amp;= w - e(p&#39;,u) \\ &amp;= e(p,u) - e(p&#39;,u)\end{aligned}\]</span>
 equivalently, let CV be s.t.<br />
 <span class="math display">\[\begin{aligned}u &amp;= v(p&#39;, w - CV) \\ e(p,u) &amp;= e\big( p&#39;, v(p&#39;,w - CV)\big) \\ &amp;= w - CV\end{aligned}\]</span></li>
-<li>Equivalent Variation:<br />
-<span class="math display">\[\begin{aligned} EV &amp;= e(p,u&#39;) - e(p,u) \\ &amp;= e(p,u&#39;) - w \\ &amp;= e(p,u&#39;) - e(p&#39;,u&#39;)\end{aligned}\]</span>
-equivalently, let EV be s.t.<br />
-<span class="math display">\[\begin{aligned}u&#39; &amp;= v(p, w + EV) \\ e(p,u&#39;) &amp;= e\big( p, v(p, w + EV)\big) \\ &amp;= w + EV\end{aligned}\]</span></li>
 </ul>
+<!--
+- Equivalent Variation:  
+$$\begin{aligned} EV &= e(p,u') - e(p,u) \\ &= e(p,u') - w \\ &= e(p,u') - e(p',u')\end{aligned}$$ 
+equivalently, let EV be s.t.  
+$$\begin{aligned}u' &= v(p, w + EV) \\ e(p,u') &= e\big( p, v(p, w + EV)\big) \\ &= w + EV\end{aligned}$$
+-->
 <div class="figure">
 <img src="/post-img/notes-micro--CV-EV-1.png" alt="MWG Figure 3.I.1" />
 <p class="caption">MWG Figure 3.I.1</p>
 </div>
-<div class="figure">
-<img src="/post-img/notes-micro--CV-EV-2.png" alt="MWG Figure 3.I.2" />
-<p class="caption">MWG Figure 3.I.2</p>
-</div>
-<ul>
-<li>Change of (Marshallian) Consumer Surplus: (MWG (3.I.8), AMT (4.27))<br />
-<span class="math display">\[\begin{aligned} ΔCS &amp;= \int_{p_k&#39;}^{p_k} x_k(p&#39;,w) dp&#39;\end{aligned}\]</span></li>
-</ul>
+<!--
+![MWG Figure 3.I.2](/post-img/notes-micro--CV-EV-2.png)
+-->
 </div>
 </div>
 <div id="demand-consumer-choice" class="section level2">
@@ -1384,13 +1380,17 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 </div>
 <div id="total-welfare-partial" class="section level3">
 <h3>Total Welfare (Partial)</h3>
+<p>MWG (3.I.8), AMT (4.27), <a href="#consumer-welfare">#Consumer Welfare</a></p>
 <ul>
 <li>Assume initial market result: <span class="math inline">\((p^0,q^0)\)</span>, <span class="math inline">\(p^0 &gt; mc(q^0)\)</span></li>
+<li>When <span class="math inline">\(p_k\)</span> changes, change of (Marshallian) Consumer Surplus:<br />
+<span class="math display">\[\begin{aligned} ΔCS &amp;= CS(p&#39;,w) - CS(p,w) \\
+&amp;= \int_{p_k&#39;}^{p_k} x_k(p,w) dp\end{aligned}\]</span></li>
 <li>With a movement to <span class="math inline">\((p^1,q^1)\)</span>:
 <ul>
-<li>Consumer Surplus: <span class="math inline">\(ΔCS = A + B\)</span></li>
+<li>Compensating Variation: <span class="math inline">\(CV = A + B \approx ΔCS\)</span></li>
 <li>Producer Surplus: <span class="math inline">\(ΔPS = (E + F + C + D) - (A + E + F) = C + D - A\)</span></li>
-<li>Total Surplus: <span class="math inline">\(ΔTS = (A + B) + (C + D - A) = B + C + D &gt; 0\)</span></li>
+<li>Total Surplus: <span class="math inline">\(ΔTS \approx (A + B) + (C + D - A) = B + C + D &gt; 0\)</span></li>
 <li>Therefore, taking <span class="math inline">\(A\)</span> from the consumer to the producer will be a Pareto Improvement</li>
 </ul></li>
 <li>Move to <span class="math inline">\((p^2,q^2)\)</span>, …, <span class="math inline">\((p^n,q^n)\)</span> s.t. <span class="math inline">\(p^n = mc(q^n)\)</span> will be Pareto Improvements</li>
