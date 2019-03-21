@@ -938,15 +938,15 @@ which is incompatible with the existence of underlying rational preferences (vio
 <blockquote>
 <p>HM10<br />
 Find preferences rationalizing the following behaviors:<br />
-1. A consumer chooses bundle <span class="math inline">\((z,z,\dots, z)\)</span>, where <span class="math inline">\(z\cdot\sum^K_{k=1} p_k = w\)</span><br />
-2. A consumer spends <span class="math inline">\(w\cdot α_k\)</span> on commodity <span class="math inline">\(k\)</span>, where <span class="math inline">\(\sum^K_{k=1} α_k = 1\)</span></p>
+1. A consumer chooses bundle <span class="math inline">\((z,z,\dots, z)\)</span>, where <span class="math inline">\(z\cdot\sum_K p_k = w\)</span><br />
+2. A consumer spends <span class="math inline">\(w\cdot α_k\)</span> on commodity <span class="math inline">\(k\)</span>, where <span class="math inline">\(\sum_K α_k = 1\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(U = \min\{ x_1, x_2,\dots, x_K\}\)</span></li>
 <li><span class="math inline">\(U = x_1^{α_1}\cdot x_2^{α_2}\cdot\dots\cdot x_K^{α_K}\)</span></li>
 </ol>
 <blockquote>
-<p>PS0.Q8<br />
+<p>PS0.Q8, RBST PS5.Q6<br />
 It is common practice in economics to view aggregate demand as being derived from the behavior of a representative consumer choosing bundles according to some preference <span class="math inline">\(\succ\)</span>.<br />
 Give an example where aggregate consumption cannot be rationalized even though individual consumption by each consumer can be.</p>
 </blockquote>
@@ -954,8 +954,8 @@ Give an example where aggregate consumption cannot be rationalized even though i
 Let <span class="math inline">\(B_1\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p_1 =1\)</span>, <span class="math inline">\(p_2 =2\)</span>,<br />
 <span class="math inline">\(B_2\)</span> be the budget set for <span class="math inline">\(w=12\)</span>, <span class="math inline">\(p_1 =2\)</span>, <span class="math inline">\(p_2 =1\)</span></p>
 <p><img src="/post-img/notes-micro--PS0Q8.png" width="524" /></p>
-<p>A representative consumer choosing all crossed bundles on the boundary of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> will violate WARP,<br />
-while two consumers separately choosing them will not.<br />
+<p>A representative consumer choosing any of the crossed bundles on the boundaries for <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>, respectively, will violate WARP since they are interior in the other budget set.<br />
+However, the bundles may occur as the average of two consumers’ choices without violating WARP.<br />
 Therefore, aggregate consumption cannot be rationalized in this setting.</p>
 </div>
 <div id="sarp-revisited" class="section level3">
@@ -991,7 +991,7 @@ with <span class="math inline">\(x(p^n, w^n)\neq x(p^{n+1}, w^{n+1})\)</span>, t
 &amp;= w - \underbrace{p \cdot x(p&#39;,w&#39;)}_{\text{WARP: infeasible}} \\
 &amp;\leq 0\end{aligned}\]</span>
 <ul>
-<li>Slutsky Wealth Compensation:
+<li>Slutsky Wealth Compensation: s.t. the original bundle is feasible
 <span class="math display">\[\begin{aligned} Δw &amp;= (p&#39; - p)\cdot x(p,w) \\ w&#39; &amp;= (p&#39; - p)\cdot x(p,w) + w \\ &amp;= p&#39;\cdot x(p,w)\end{aligned}\]</span>
 <!-- - Intuition: an increase in price makes the consumer poorer than before (impoverish) --></li>
 <li>Equality holds only when <span class="math inline">\(x(p&#39;,w&#39;) = x(p,w)\)</span></li>
@@ -1012,26 +1012,31 @@ $$x(p',w) - x(p,w) = \underbrace{x(p',w) - x(p',w') }_{\text{income effect}} + \
 <p>PS0.Q7<br />
 Consider a consumer who consumes just two goods.<br />
 1. State the law of demand. Under what assumptions does it hold?<br />
-2. Assume the law of demand holds and show the following.<br />
+2. Assume the law of demand holds and show the following:<br />
 If for some prices and wealth, an increase of <span class="math inline">\(p_1\)</span> (all other things constant) leads to a increase in <span class="math inline">\(x_1\)</span> then good 1 cannot be normal.<br />
 (Good 1 is normal if <span class="math inline">\(x_1(p,w)\)</span> is increasing in <span class="math inline">\(w\)</span>, otherwise is called <strong>Giffen good</strong>)</p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Let <span class="math inline">\(x\)</span> be the demand that satisfies the WA and Walrass law.<br />
+<li>Let <span class="math inline">\(x\)</span> be the demand that satisfies the WA and Walrass law, if <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>,<br />
 Law of demand:
-<span class="math display">\[(p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) \leq 0\]</span>
-Assumption: <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span><br />
-</li>
+<span class="math display">\[(p&#39; - p)\cdot \big(x(p&#39;,w&#39;) - x(p,w)\big) \leq 0\]</span></li>
 <li>When <span class="math inline">\(p_1\)</span> increases,
 <span class="math display">\[\begin{aligned} p&#39; - p &amp;= (Δ,0) &gt; 0 \\
 x_1(p&#39;,w&#39;) - x_1(p,w) &amp;\leq 0 \\
 x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w)\end{aligned}\]</span>
-FSOC assume <span class="math inline">\(x_1(p,w)\)</span> is increasing in <span class="math inline">\(w\)</span>, since <span class="math inline">\(w&#39;&gt;w\)</span>,<br />
-<span class="math display">\[\begin{aligned} x_1(p,w) &amp;\leq x_1(p,w&#39;) \\
-x_1(p&#39;,w&#39;) + x_1(p,w) &amp;\leq x_1(p,w) + x_1(p,w&#39;) \\
-x_1(p&#39;,w&#39;) &amp;\leq x_1(p,w&#39;)\end{aligned}\]</span>
-<span class="math inline">\(\implies x_1\)</span> decreases for an increase of <span class="math inline">\(p_1\)</span>, contradiction.</li>
+Let <span class="math inline">\(x_1\)</span> increase in <span class="math inline">\(p_1\)</span>,
+<span class="math display">\[\begin{aligned} x_1(p,w) &amp;\leq x_1(p&#39;,w) \\
+x_1(p&#39;,w&#39;) + x_1(p,w) &amp;\leq x_1(p,w) + x_1(p&#39;,w) \\
+x_1(p&#39;,w&#39;) &amp;\leq x_1(p&#39;,w) \\\end{aligned}\]</span>
+Since <span class="math inline">\(w&#39;&gt;w\)</span>, <span class="math inline">\(x_1(p,w)\)</span> is decreasing in <span class="math inline">\(w\)</span>.</li>
 </ol>
+<!--
+FSOC assume $x_1(p,w)$ is increasing in $w$, since $w'>w$,  
+$$\begin{aligned} x_1(p,w) &\leq x_1(p,w') \\
+x_1(p',w') + x_1(p,w) &\leq x_1(p,w) + x_1(p,w') \\
+x_1(p',w') &\leq x_1(p,w')\end{aligned}$$ 
+$\implies x_1$ decreases for an increase of $p_1$, contradiction. 
+-->
 </div>
 </div>
 <div id="producer" class="section level2">
