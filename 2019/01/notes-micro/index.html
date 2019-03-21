@@ -495,12 +495,12 @@ Assume:<br />
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Choice function <span class="math inline">\(C\)</span> can be rationalized if exists preference relation <span class="math inline">\(\succsim\)</span> on <span class="math inline">\(X\)</span> s.t.<br />
-for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\(C(A)\)</span> is strictly better than any other bundles in <span class="math inline">\(A\)</span><br />
+for any <span class="math inline">\(A\in D\)</span>, <span class="math inline">\(C(A)\)</span> is strictly better (<span class="math inline">\(\succ\)</span>) than any other bundles in <span class="math inline">\(A\)</span><br />
 </li>
 <li>Yes.<br />
 <span class="math inline">\(f(\{a,b,c\}) = a \implies a\succ b\)</span><br />
-<span class="math inline">\(f(\{b,c,d\}) = b \implies b\succ c\)</span>, <span class="math inline">\(a\succ c\)</span><br />
-<span class="math inline">\(f(\{c,d,e\}) = c \implies c\succ d\)</span>, <span class="math inline">\(a\succ d\)</span><br />
+<span class="math inline">\(f(\{b,c,d\}) = b \implies b\succ c\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(a\succ c\)</span><br />
+<span class="math inline">\(f(\{c,d,e\}) = c \implies c\succ d\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(a\succ d\)</span><br />
 <span class="math inline">\(f(\{a,d,e\}) = d \implies d\succ a\)</span>, transitivity is violated.<br />
 </li>
 <li>WARP: for any <span class="math inline">\(x,y\in A\cap B\in D\)</span>, <span class="math inline">\(x\in C(A)\)</span> and <span class="math inline">\(y\in C(B)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(x\in C(B)\)</span><br />
@@ -796,12 +796,16 @@ Find the cheapest bundle <span class="math inline">\(h(p,\bar{u})\)</span> (<str
 <ul>
 <li>Expenditure function: <span class="math inline">\(e(p,\bar{u}) = p\cdot h(p,\bar{u})\)</span></li>
 </ul></li>
-<li>The prime problem and the dual problem are equivalent<br />
+<li>UMP and EMP are equivalent<br />
 if <span class="math inline">\(u(x)\)</span> is <strong>Increasing + Continuous</strong> <span class="math inline">\(\iff\succsim\)</span> is <strong>Monotonic + Continuous</strong>
 <ul>
-<li><span class="math inline">\(\begin{cases} e\big(p,v(p,w)\big) = w \\ v\big(p, e(p,w)\big) = \bar{u}\end{cases}\)</span>, <span class="math inline">\(\begin{cases} h(p,\bar{u}) = x\big( p, e(p,\bar{u})\big) \\ x(p,w) = h\big(p, v(p,w)\big)\end{cases}\)</span></li>
+<li>UMP <span class="math inline">\(\implies\)</span> EMP if <span class="math inline">\(u(x)\)</span> is increasing</li>
+<li>EMP <span class="math inline">\(\implies\)</span> UMP if <span class="math inline">\(u(x)\)</span> is continuous</li>
 </ul></li>
 </ul>
+<!--
+    - $\begin{cases} e\big(p,v(p,w)\big) = w \\ v\big(p, e(p,w)\big) = \bar{u}\end{cases}$, $\begin{cases} h(p,\bar{u}) = x\big( p, e(p,\bar{u})\big) \\ x(p,w) = h\big(p, v(p,w)\big)\end{cases}$
+-->
 <div class="figure">
 <img src="/post-img/notes-micro--dual-consumer.png" alt="MWG Figure 3.G.3" />
 <p class="caption">MWG Figure 3.G.3</p>
@@ -981,7 +985,7 @@ with <span class="math inline">\(x(p^n, w^n)\neq x(p^{n+1}, w^{n+1})\)</span>, t
 <div id="compensated-law-of-demand" class="section level3">
 <h3>(Compensated) Law of Demand</h3>
 <ul>
-<li>Law of Demand: demand and price move in opposite directions</li>
+<li>For a compensated price change, demand and price move in opposite directions</li>
 <li>Let <span class="math inline">\(x(p,w)\)</span> be homogeneous and satisfy Walras Law<br />
 </li>
 <li>If <span class="math inline">\(w&#39; = p&#39;\cdot x(p,w)\)</span>, then for <span class="math inline">\(p&#39; &gt; p\)</span>, <span class="math inline">\(x(p,w)\)</span> satisfy WARP <span class="math inline">\(\iff\)</span><br />
@@ -992,8 +996,8 @@ with <span class="math inline">\(x(p^n, w^n)\neq x(p^{n+1}, w^{n+1})\)</span>, t
 &amp;\leq 0\end{aligned}\]</span>
 <ul>
 <li>Slutsky Wealth Compensation:
-<span class="math display">\[\begin{aligned} Δw &amp;= (p&#39; - p)\cdot x(p,w) \\ w&#39; &amp;= (p&#39; - p)\cdot x(p,w) + w \\ &amp;= p&#39;\cdot x(p,w)\end{aligned}\]</span></li>
-<li>Intuition: an increase in price makes the consumer poorer than before (impoverish)</li>
+<span class="math display">\[\begin{aligned} Δw &amp;= (p&#39; - p)\cdot x(p,w) \\ w&#39; &amp;= (p&#39; - p)\cdot x(p,w) + w \\ &amp;= p&#39;\cdot x(p,w)\end{aligned}\]</span>
+<!-- - Intuition: an increase in price makes the consumer poorer than before (impoverish) --></li>
 <li>Equality holds only when <span class="math inline">\(x(p&#39;,w&#39;) = x(p,w)\)</span></li>
 </ul></li>
 </ul>
@@ -1007,10 +1011,7 @@ s_{k,k} &\leq 0\end{aligned}$$
 - Slutsky Decomposition:  
 $$x(p',w) - x(p,w) = \underbrace{x(p',w) - x(p',w') }_{\text{income effect}} + \underbrace{x(p',w') - x(p,w)}_{\text{substitution effect}} + u_i$$
 -->
-<div class="figure">
-<img src="/post-img/notes-micro--law-of-demand.png" alt="Source: Investopedia" />
-<p class="caption">Source: <a href="https://www.investopedia.com/terms/l/lawofdemand.asp">Investopedia</a></p>
-</div>
+<!-- ![Source: [Investopedia](https://www.investopedia.com/terms/l/lawofdemand.asp)](/post-img/notes-micro--law-of-demand.png) -->
 <blockquote>
 <p>PS0.Q7<br />
 Consider a consumer who consumes just two goods.<br />
@@ -1108,16 +1109,13 @@ And <span class="math inline">\(π(p) \geq p\cdot z(p^*)\)</span> for all <span 
 <h3>Law of Supply</h3>
 <ul>
 <li>For all <span class="math inline">\(p\)</span>, <span class="math inline">\(p&#39;\)</span>, <span class="math inline">\(y\in y(p)\)</span> and <span class="math inline">\(y&#39;\in y(p&#39;)\)</span>,<br />
-<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}(p - p&#39;)\cdots(y - y&#39;) \\
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}(p - p&#39;)\cdot(y - y&#39;) \\
 &amp;= p\cdot y - p\cdot y&#39; - p&#39;\cdot y + p&#39;\cdot y&#39; \\
 &amp;= (p\cdot y - p\cdot y&#39;) + (p&#39;\cdot y&#39; - p&#39;\cdot y) \\
 &amp;= \big(\max_p p\cdot y(p) - p\cdot y&#39;\big) + \big(\max_{p&#39;} p&#39;\cdot y(p&#39;) - p&#39;\cdot y\big) \\
 &amp;\geq 0\end{aligned}\]</span></li>
 </ul>
-<div class="figure">
-<img src="/post-img/notes-micro--law-of-supply.png" alt="Source: Investopedia" />
-<p class="caption">Source: <a href="https://www.investopedia.com/terms/l/lawofsupply.asp">Investopedia</a></p>
-</div>
+<!-- ![Source: [Investopedia](https://www.investopedia.com/terms/l/lawofsupply.asp)](/post-img/notes-micro--law-of-supply.png) -->
 </div>
 <div id="cmp-cost-minimization-problem" class="section level3">
 <h3>CMP (Cost Minimization Problem)</h3>
