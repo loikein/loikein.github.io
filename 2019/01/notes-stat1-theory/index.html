@@ -104,10 +104,7 @@
 <li><a href="#derive-b">Derive b</a></li>
 <li><a href="#unbiasedness-of-b">Unbiasedness of b</a></li>
 <li><a href="#blue">BLUE</a></li>
-</ul></li>
-<li><a href="#ols-residual">OLS Residual</a><ul>
 <li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
-<li><a href="#consistency-of-s2">Consistency of s^2</a></li>
 </ul></li>
 <li><a href="#normality-assumption">Normality Assumption</a><ul>
 <li><a href="#normality-of-">Normality of ε</a></li>
@@ -116,8 +113,9 @@
 <li><a href="#asymptotic-property">Asymptotic Property</a><ul>
 <li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
 <li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
-<li><a href="#consistent-of-b-asymptotic">Consistent of b (Asymptotic)</a></li>
-<li><a href="#can-consistent-and-asymptotically-normal">CAN (Consistent and Asymptotically Normal)</a></li>
+<li><a href="#consistency-of-b">Consistency of b</a></li>
+<li><a href="#consistency-of-s2">Consistency of s^2</a></li>
+<li><a href="#asymptotic-nomality">Asymptotic Nomality</a></li>
 </ul></li>
 <li><a href="#functional-form">Functional Form</a><ul>
 <li><a href="#loglinear-model">Loglinear Model</a></li>
@@ -394,17 +392,12 @@ Take arbitrary <span class="math inline">\(a \neq 0\)</span><br />
 Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span> is positive semi-definite.<br />
 <span class="math inline">\(\implies\)</span> Any unbiased linear estimator cannot offer a variance smaller than the OLS estimator.</p>
 </div>
-</div>
-<div id="ols-residual" class="section level2">
-<h2>OLS Residual</h2>
-<ul>
-<li>Population Variance of Error Terms: <span class="math inline">\(σ^2\)</span></li>
-<li>Unbiased Sample Variance of Residuals <span class="math display">\[s^2 = \frac{1}{N-K} e&#39;e\]</span></li>
-</ul>
 <div id="unbiasedness-of-s2" class="section level3">
 <h3>Unbiasedness of s^2</h3>
 <p>textbook P18, slide 2 P27</p>
 <ul>
+<li>Population Variance of Error Terms: <span class="math inline">\(σ^2\)</span></li>
+<li>Unbiased Sample Variance of Residuals <span class="math display">\[s^2 = \frac{1}{N-K} e&#39;e\]</span></li>
 <li>Obtained if (A1) ~ (A4) are satisfied</li>
 </ul>
 <blockquote>
@@ -438,13 +431,6 @@ Therefore,<br />
 &amp;= \frac{1}{N-K} \cdot σ^2(N - K) \\ &amp;= σ^2\end{aligned}\]</span>
 <span class="math inline">\(\implies s^2\)</span> is unbiased.<br />
 And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
-</div>
-<div id="consistency-of-s2" class="section level3">
-<h3>Consistency of s^2</h3>
-<ul>
-<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
-</ul>
 </div>
 </div>
 <div id="normality-assumption" class="section level2">
@@ -539,6 +525,10 @@ Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^
 </div>
 <div id="asymptotic-property" class="section level2">
 <h2>Asymptotic Property</h2>
+<ul>
+<li>Gauss-Markov Assumptions</li>
+<li>No Normality</li>
+</ul>
 <div id="converge-in-probability-mean-square" class="section level3">
 <h3>Converge in Probability &amp; Mean Square</h3>
 <ul>
@@ -576,12 +566,22 @@ According to LLN:<br />
 <span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
 \implies \frac{1}{N}\sum y_i^2 &amp;\to^p E[y_i^2]\end{aligned}\]</span></p>
 </div>
-<div id="consistent-of-b-asymptotic" class="section level3">
-<h3>Consistent of b (Asymptotic)</h3>
+<div id="consistency-of-b" class="section level3">
+<h3>Consistency of b</h3>
+<p>textbook P35</p>
 <ul>
-<li>OLS estimator is consistent when <span class="math inline">\(\lim P\{ |b_k - β_k| &gt; δ \} = 0​\)</span> for all <span class="math inline">\(δ &gt; 0​\)</span></li>
-<li>Obtained if: (textbook P35)<br />
-<span class="math display">\[\begin{cases} \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+<li>OLS estimator is consistent if for all <span class="math inline">\(δ &gt; 0​\)</span>,
+<span class="math display">\[\begin{aligned}\lim P\{ |b_k - β_k| &gt; δ \} &amp;= 0​ \\
+\text{plim} b &amp;= β\end{aligned}\]</span>
+<ul>
+<li>If <span class="math inline">\(g(\cdot)\)</span> is a continuous function, then <span class="math inline">\(\text{plim} g(b) = g(β)\)</span></li>
+</ul></li>
+<li>When unbiasedness is not feasible, consistency is the minimal requirement for an estimator.
+<span class="math display">\[\begin{aligned}b - β &amp;= (X&#39;X)^{-1}X&#39;ε \\
+\text{plim} (b-β) &amp;= Σ_{xx}^{-1}\cdot X&#39;ε &amp;&amp; \text{(A6)} \\
+&amp;= Σ_{xx}^{-1}\cdot 0 &amp;&amp; \text{(A7)} \\
+&amp;= 0\end{aligned}\]</span></li>
+<li>denote the Consistent estimator as <span class="math inline">\(\hat{β}\)</span></li>
 </ul>
 <blockquote>
 <p>PS5.Q4<br />
@@ -619,12 +619,27 @@ Consider the model<br />
 <span class="math inline">\(\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)\)</span><br />
 While everything remaining is unchanged, therefore the consistency of <span class="math inline">\(\tilde{β}\)</span>.</p>
 </div>
-<div id="can-consistent-and-asymptotically-normal" class="section level3">
-<h3>CAN (Consistent and Asymptotically Normal)</h3>
+<div id="consistency-of-s2" class="section level3">
+<h3>Consistency of s^2</h3>
+<p>textbook P35</p>
 <ul>
-<li>OLS estimator is CAN when <span class="math inline">\(\sqrt{N} (b-β) \to^a \mathcal{N}(0, σ^2 Σ_{xx}^{-1})\)</span></li>
-<li>Obtained if (A1) ~ (A4) + (A6) are satisfied (textbook P36, slide 4 P13)</li>
-<li><span class="math inline">\(\sqrt{N}\)</span> is called the rate of convergence</li>
+<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if:<br />
+<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+</ul>
+</div>
+<div id="asymptotic-nomality" class="section level3">
+<h3>Asymptotic Nomality</h3>
+<p>textbook P36, slide 4 P13</p>
+<ul>
+<li>Asymptotic Distribution: distribution as <span class="math inline">\(N\to\infty\)</span>
+<ul>
+<li>Asymptotic distribution of <span class="math inline">\(\sqrt{N}\cdot(\hat{β} - β)\)</span> is a nomal distribution</li>
+<li>Rate of Convergence: <span class="math inline">\(\sqrt{N}\)</span></li>
+</ul></li>
+<li>OLS estimator is CAN (Consistent and Asymptotically Normal) if<br />
+<span class="math display">\[\begin{aligned} \sqrt{N} (b-β) &amp;\to^a \mathcal{N}(0, \ σ^2 Σ_{xx}^{-1}) \\
+b &amp;∼^a \mathcal{N}\Big(β, \ \frac{σ^2 Σ_{xx}^{-1}}{N}\Big) \\
+&amp;∼^a \mathcal{N}\Big(β, \ s^2\cdot\sum_N x_ix_i&#39;\Big) &amp;&amp; \text{(A1) ~ (A4), (A6)}\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
