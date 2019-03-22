@@ -99,6 +99,8 @@
 <li><a href="#ols-method">OLS Method</a></li>
 <li><a href="#statistical-model">Statistical Model</a></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
+<li><a href="#linear-loglinear">Linear &amp; Loglinear</a></li>
+<li><a href="#elasticity">Elasticity</a></li>
 </ul></li>
 <li><a href="#ols-estimator">OLS Estimator</a><ul>
 <li><a href="#derive-b">Derive b</a></li>
@@ -117,9 +119,15 @@
 <li><a href="#consistency-of-s2">Consistency of s^2</a></li>
 <li><a href="#asymptotic-nomality">Asymptotic Nomality</a></li>
 </ul></li>
-<li><a href="#functional-form">Functional Form</a><ul>
-<li><a href="#loglinear-model">Loglinear Model</a></li>
-<li><a href="#elasticity">Elasticity</a></li>
+<li><a href="#data-problems">Data Problems</a><ul>
+<li><a href="#multicollinearity">Multicollinearity</a></li>
+<li><a href="#outliers">Outliers</a></li>
+</ul></li>
+<li><a href="#model-problems">Model Problems</a><ul>
+<li><a href="#heteroskedasticity">Heteroskedasticity</a></li>
+<li><a href="#autocorrelation">Autocorrelation</a></li>
+<li><a href="#white-hetero-consistent-standard-error">White (Hetero-Consistent) Standard Error</a></li>
+<li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 </ul></li>
 <li><a href="#gls-generalized-least-squares-estimator">GLS (Generalized Least Squares) Estimator</a><ul>
 <li><a href="#gls-transformation">GLS Transformation</a></li>
@@ -129,10 +137,6 @@
 <li><a href="#derive-iv">Derive IV</a></li>
 <li><a href="#iv-estimator-_iv">IV Estimator ^β_IV</a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
-</ul></li>
-<li><a href="#heteroskedasticity-autocorrelation">Heteroskedasticity &amp; Autocorrelation</a><ul>
-<li><a href="#white-hetero-consistent-standard-error">White (Hetero-Consistent) Standard Error</a></li>
-<li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 </ul></li>
 <li><a href="#ml-maximum-likelihood-model">ML (Maximum Likelihood) Model</a><ul>
 <li><a href="#assumption">Assumption</a></li>
@@ -262,6 +266,164 @@ where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="m
 <span class="math display">\[\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
 Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε_t]\end{aligned}\]</span>
 <span class="math inline">\(\implies E[x_t ε_t] = 0\)</span></p>
+</div>
+<div id="linear-loglinear" class="section level3">
+<h3>Linear &amp; Loglinear</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Dependent Var</th>
+<th>Independent Var</th>
+<th><span class="math inline">\(β\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>level-level</td>
+<td><span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(Δy = β Δx\)</span></td>
+</tr>
+<tr class="even">
+<td>level-log</td>
+<td><span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(\log x\)</span></td>
+<td><span class="math inline">\(Δy = \frac{β}{100}\% Δx\)</span></td>
+</tr>
+<tr class="odd">
+<td>log-level</td>
+<td><span class="math inline">\(\log y\)</span></td>
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(\% Δy = (100\cdot β)Δx\)</span></td>
+</tr>
+<tr class="even">
+<td>log-log</td>
+<td><span class="math inline">\(\log y\)</span></td>
+<td><span class="math inline">\(\log x\)</span></td>
+<td><span class="math inline">\(\% Δy = β\% Δx\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Mock.Q1.1<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+1. Linearize the relationship and state a corresponding linear regression model with parameters <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span>.<br />
+2. Explain whether your regression model is a (i) level-level, (ii) level-log, (iii) log-level or (iv) log-log specification.<br />
+3. How should the slope parameter in your derived regression model be interpreted?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + ε_t\)</span>, where <span class="math inline">\(β_1 = \log α\)</span> and <span class="math inline">\(β_2 = γ\)</span><br />
+</li>
+<li>This is a log-level model, since the dependent variable is in <span class="math inline">\(\log\)</span> form and the independent variable is not.<br />
+</li>
+<li><span class="math display">\[\begin{aligned} Δ\log y_t &amp;= Δ x_t\cdot β_2 \\
+β_2 &amp;= \frac{Δ\log y_t}{Δ x_t}\end{aligned}\]</span>
+Therefore, <span class="math inline">\(β_2\)</span> can be interpreted as the expected percentage change of <span class="math inline">\(y_t\)</span> given one unit change of <span class="math inline">\(x_t\)</span>, held everhthing else constant</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.2<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+1. Which assumptions on the error term in your regression model are needed s.t. <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> be an appropriate estimator for the covariance matrix of the OLS estimator <span class="math inline">\(b\)</span> for <span class="math inline">\((β_1, β_2)&#39;\)</span>?<br />
+(<span class="math inline">\(X\)</span> denotes the full-rank regressor matrix in your regression model, and <span class="math inline">\(s^2\)</span> is an unbiased estimator of the residual variance <span class="math inline">\(σ^2\)</span>.)<br />
+2. Explain the influence of the variation in (i) the residuals and (ii) the regressor matrix on the precision of the OLS estimator based oh the covariance matrix <span class="math inline">\(σ^2(X&#39;X)^{-1}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> is an appropriate estimator for <span class="math inline">\(b\)</span>, all four Gauss-Markov assumptions are needed.<br />
+<span class="math inline">\(E[ε_t] = 0\)</span>, <span class="math inline">\(Var(ε_t) = σ^2\)</span>, <span class="math inline">\(Cov(ε_t, ε_t&#39;) = 0\)</span> for normal errors, and independence between <span class="math inline">\(ε\)</span> and <span class="math inline">\(x\)</span>.<br />
+</li>
+<li>Larger variance in residuals causes larger variance (less precise) of the OLS estimator,<br />
+while larger variance in the regressors causes the OLS estimator to be more precise.</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.3<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+Suppose that you are unsure whether to include an additional regressor <span class="math inline">\(z_t\)</span> to your linear regression model.<br />
+1. Describe three valid procedures to decide whether the additional regressor shall be included or not.<br />
+2. Give two conditions under which the omission of <span class="math inline">\(z_t\)</span> is unproblematic for the OLS estimator in your linearized model (excluding <span class="math inline">\(z_t\)</span>).</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li>Regress the model <span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + β_3\cdot z_t + ε_t\)</span>, and test with <span class="math inline">\(H_0\)</span>: <span class="math inline">\(β_3=0\)</span><br />
+</li>
+<li>Compare <span class="math inline">\(\bar{R^2}\)</span> of the two specifications<br />
+</li>
+<li>Compare AIC or BIC of the two specifications<br />
+</li>
+</ol></li>
+<li>If <span class="math inline">\(β_3=0\)</span> is not rejected, or AIC / BIC is not decreased by the inclusion of <span class="math inline">\(z_t\)</span>, then it is ok to omit it.</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.4<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+As an alternative to linearization, one may directly consider the nonlinear regression model <span class="math inline">\(y_t = α \exp(γ\cdot x_t)+ε_t\)</span> with the additional assumption that <span class="math inline">\(ε_t∼^{iid} \mathcal{N}(0,σ^2)\)</span><br />
+1. Outline two appropriate estimntors for <span class="math inline">\((α,γ)&#39;\)</span> other than the OLS estimator (maximal 4 sentences)<br />
+2. For a comparison between your linear regression specification and the given nonlinear one, would it be correct to consider the (adjusted) <span class="math inline">\(R^2\)</span> values?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Maximum likelihood model (does not assume the errors are normal)<br />
+Non-linear model: <span class="math inline">\(y_t = α \exp(γ\cdot x_t) + ε_t\)</span><br />
+</li>
+<li>No, because <span class="math inline">\(R^2\)</span> is conditional on the form of <span class="math inline">\(y_t\)</span></li>
+</ol>
+</div>
+<div id="elasticity" class="section level3">
+<h3>Elasticity</h3>
+<ul>
+<li>Elasticity measures the relative change in the dependent variable owing to a relative change in one of the <span class="math inline">\(x_i\)</span> variables.<br />
+</li>
+<li>For <span class="math inline">\(\log y_i = (\log x_i)&#39; γ + v_i\)</span>, elasticity:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&amp;\approx \frac{\partial E[\log y_i | \log x_i]}{\partial \log x_{ik}} \\ &amp;= γ_k \end{aligned}\]</span></li>
+<li>For <span class="math inline">\(y_i = x_i&#39; β + ε_i\)</span>, elasticity:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&amp;= β_k \cdot \frac{x_{ik}}{x_i&#39; β} \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>PS3.Q1.1<br />
+Consider the Cobb-Douglas production function:<br />
+<span class="math display">\[Y =F(K,L)=τK^{β_1}L^{β_2}\]</span>
+where <span class="math inline">\(F\)</span> is the production function, <span class="math inline">\(K\)</span> capital and <span class="math inline">\(L\)</span> labor.<br />
+Technology is assumed to be constant and represented by <span class="math inline">\(τ\)</span>.<br />
+1. Which coefficients are elasticities?</p>
+</blockquote>
+<p>For <span class="math inline">\(K\)</span>:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial K}\cdot\frac{K}{Y} &amp;= τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} \\
+&amp;= \frac{τβ_1K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&amp;= β_1\end{aligned}\]</span>
+For <span class="math inline">\(L\)</span>:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial L}\cdot\frac{L}{Y} &amp;= τβ_2K^{β_1}L^{β_2-1} \cdot \frac{K}{Y} \\
+&amp;= \frac{τβ_2K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&amp;= β_2\end{aligned}\]</span>
+Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span> are the elasticities.</p>
+<blockquote>
+<p>PS3.Q1.1<br />
+2. Specify the econometric model you think is appropriate to estimate the coefficients of the production function.</p>
+</blockquote>
+<p>Take log:<br />
+<span class="math display">\[\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\]</span></p>
+<blockquote>
+<p>PS2.Q3<br />
+Consider the wage regressions from slide 5 (text P86).<br />
+<img src="/post-img/notes-stat1--PS2Q3-6.png" width="393" /><br />
+6. Find the estimated elasticities for the effect of experience for males and females.<br />
+At which conventional level is the gender effect of experience significant?<br />
+Is the gender effect (measured by the male dummy coefficient) significant at <span class="math inline">\(10 \%\)</span> or <span class="math inline">\(5 \%\)</span> level when using a one-sided alternative (namely, positive coefficient)?</p>
+</blockquote>
+<p>Elasticity for female: <span class="math inline">\(0.207\)</span><br />
+Elasticity for male: <span class="math inline">\(0.207 + 0.041 = 0.248\)</span><br />
+Gender effect: <span class="math inline">\(0.041\)</span><br />
+t-ratio: <span class="math inline">\(1.891\)</span></p>
+<pre class="r"><code># calculate critical value
+qnorm( 0.90 )
+## [1] 1.281552
+qnorm( 0.95 )
+## [1] 1.644854</code></pre>
+<p>Therefore, <span class="math inline">\(H_0\)</span> is rejected at <span class="math inline">\(10 \%\)</span> level, but not rejected at <span class="math inline">\(5 \%\)</span> level.</p>
 </div>
 </div>
 <div id="ols-estimator" class="section level2">
@@ -438,7 +600,7 @@ And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \imp
 <div id="normality-of-" class="section level3">
 <h3>Normality of ε</h3>
 <ul>
-<li>(A1) + (A3) + (A4) + Nomally Distributed <span class="math inline">\(\implies\)</span></li>
+<li>(A1) + (A3) + (A4) + <span class="math inline">\(ε\)</span> is Nomally Distributed <span class="math inline">\(\implies\)</span></li>
 <li>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N)\)</span>
 <ul>
 <li>or: <span class="math inline">\(ε_i ∼ NID (0, σ^2)\)</span><br />
@@ -548,14 +710,12 @@ Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^
 <h3>LLN (Law of Large Numbers)</h3>
 <ul>
 <li><span class="math inline">\(\frac{1}{N}\sum^N_{i=1} x_n \to^p E[x]\)</span> as <span class="math inline">\(N \to \infty\)</span>, if <span class="math inline">\(\{x_n\}\)</span> are <span class="math inline">\(i.i.d\)</span> copies of <span class="math inline">\(\mathbb{x}\)</span></li>
-<li>(A6) + (A7) + LLN = <a href="#consistent-of-b-asymptotic">Asymptotic Consistency of OLS estimator</a></li>
+<li>(A6) + (A7) + LLN = <a href="#consistency-of-b">Consistency of b</a></li>
 </ul>
 <p>Under LLN:<br />
 <span class="math display">\[\begin{aligned}\frac{1}{N} \sum^N_{i=1} x_i x_i&#39; \to^p Σ_{xx}^{-1} &amp;&amp; \text{(A6)}\end{aligned}\]</span>
 and<br />
-<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
-b - β = \left( \frac{1}{N} \sum x_i x_i’ \right)^{-1} \left( \frac{1}{N} \sum x_i ε_i \right) &amp;\to^p Σ_{xx}^{-1} \cdot E[x_i ε_i] \end{aligned}\]</span>
-If <span class="math inline">\(E[x_i ε_i]=0\)</span> (A7), then <span class="math inline">\(b - β \to 0\)</span></p>
+<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i]\end{aligned}\]</span></p>
 <blockquote>
 <p>PS4.Q2.7<br />
 T/F?<br />
@@ -637,171 +797,66 @@ While everything remaining is unchanged, therefore the consistency of <span clas
 <li>Rate of Convergence: <span class="math inline">\(\sqrt{N}\)</span></li>
 </ul></li>
 <li>OLS estimator is CAN (Consistent and Asymptotically Normal) if<br />
-<span class="math display">\[\begin{aligned} \sqrt{N} (b-β) &amp;\to^a \mathcal{N}(0, \ σ^2 Σ_{xx}^{-1}) \\
-b &amp;∼^a \mathcal{N}\Big(β, \ \frac{σ^2 Σ_{xx}^{-1}}{N}\Big) \\
+<span class="math display">\[\begin{aligned} \sqrt{N} (b-β) &amp;\to^a \mathcal{N}(0, \ σ^2\cdot Σ_{xx}^{-1}) \\
+b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 &amp;∼^a \mathcal{N}\Big(β, \ s^2\cdot\sum_N x_ix_i&#39;\Big) &amp;&amp; \text{(A1) ~ (A4), (A6)}\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
-<div id="functional-form" class="section level2">
-<h2>Functional Form</h2>
-<div id="loglinear-model" class="section level3">
-<h3>Loglinear Model</h3>
-<table>
-<thead>
-<tr class="header">
-<th>Model</th>
-<th>Dependent Var</th>
-<th>Independent Var</th>
-<th><span class="math inline">\(β\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>level-level</td>
-<td><span class="math inline">\(y\)</span></td>
-<td><span class="math inline">\(x\)</span></td>
-<td><span class="math inline">\(Δy = β Δx\)</span></td>
-</tr>
-<tr class="even">
-<td>level-log</td>
-<td><span class="math inline">\(y\)</span></td>
-<td><span class="math inline">\(\log x\)</span></td>
-<td><span class="math inline">\(Δy = \frac{β}{100}\% Δx\)</span></td>
-</tr>
-<tr class="odd">
-<td>log-level</td>
-<td><span class="math inline">\(\log y\)</span></td>
-<td><span class="math inline">\(x\)</span></td>
-<td><span class="math inline">\(\% Δy = (100\cdot β)Δx\)</span></td>
-</tr>
-<tr class="even">
-<td>log-log</td>
-<td><span class="math inline">\(\log y\)</span></td>
-<td><span class="math inline">\(\log x\)</span></td>
-<td><span class="math inline">\(\% Δy = β\% Δx\)</span></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Mock.Q1.1<br />
-Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
-<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
-1. Linearize the relationship and state a corresponding linear regression model with parameters <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span>.<br />
-2. Explain whether your regression model is a (i) level-level, (ii) level-log, (iii) log-level or (iv) log-log specification.<br />
-3. How should the slope parameter in your derived regression model be interpreted?</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + ε_t\)</span>, where <span class="math inline">\(β_1 = \log α\)</span> and <span class="math inline">\(β_2 = γ\)</span><br />
-</li>
-<li>This is a log-level model, since the dependent variable is in <span class="math inline">\(\log\)</span> form and the independent variable is not.<br />
-</li>
-<li><span class="math display">\[\begin{aligned} Δ\log y_t &amp;= Δ x_t\cdot β_2 \\
-β_2 &amp;= \frac{Δ\log y_t}{Δ x_t}\end{aligned}\]</span>
-Therefore, <span class="math inline">\(β_2\)</span> can be interpreted as the expected percentage change of <span class="math inline">\(y_t\)</span> given one unit change of <span class="math inline">\(x_t\)</span>, held everhthing else constant</li>
-</ol>
-<blockquote>
-<p>Mock.Q1.2<br />
-Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
-<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
-1. Which assumptions on the error term in your regression model are needed s.t. <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> be an appropriate estimator for the covariance matrix of the OLS estimator <span class="math inline">\(b\)</span> for <span class="math inline">\((β_1, β_2)&#39;\)</span>?<br />
-(<span class="math inline">\(X\)</span> denotes the full-rank regressor matrix in your regression model, and <span class="math inline">\(s^2\)</span> is an unbiased estimator of the residual variance <span class="math inline">\(σ^2\)</span>.)<br />
-2. Explain the influence of the variation in (i) the residuals and (ii) the regressor matrix on the precision of the OLS estimator based oh the covariance matrix <span class="math inline">\(σ^2(X&#39;X)^{-1}\)</span></p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>When <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> is an appropriate estimator for <span class="math inline">\(b\)</span>, all four Gauss-Markov assumptions are needed.<br />
-<span class="math inline">\(E[ε_t] = 0\)</span>, <span class="math inline">\(Var(ε_t) = σ^2\)</span>, <span class="math inline">\(Cov(ε_t, ε_t&#39;) = 0\)</span> for normal errors, and independence between <span class="math inline">\(ε\)</span> and <span class="math inline">\(x\)</span>.<br />
-</li>
-<li>Larger variance in residuals causes larger variance (less precise) of the OLS estimator,<br />
-while larger variance in the regressors causes the OLS estimator to be more precise.</li>
-</ol>
-<blockquote>
-<p>Mock.Q1.3<br />
-Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
-<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
-Suppose that you are unsure whether to include an additional regressor <span class="math inline">\(z_t\)</span> to your linear regression model.<br />
-1. Describe three valid procedures to decide whether the additional regressor shall be included or not.<br />
-2. Give two conditions under which the omission of <span class="math inline">\(z_t\)</span> is unproblematic for the OLS estimator in your linearized model (excluding <span class="math inline">\(z_t\)</span>).</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li><ol style="list-style-type: decimal">
-<li>Regress the model <span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + β_3\cdot z_t + ε_t\)</span>, and test with <span class="math inline">\(H_0\)</span>: <span class="math inline">\(β_3=0\)</span><br />
-</li>
-<li>Compare <span class="math inline">\(\bar{R^2}\)</span> of the two specifications<br />
-</li>
-<li>Compare AIC or BIC of the two specifications<br />
-</li>
-</ol></li>
-<li>If <span class="math inline">\(β_3=0\)</span> is not rejected, or AIC / BIC is not decreased by the inclusion of <span class="math inline">\(z_t\)</span>, then it is ok to omit it.</li>
-</ol>
-<blockquote>
-<p>Mock.Q1.4<br />
-Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
-<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
-As an alternative to linearization, one may directly consider the nonlinear regression model <span class="math inline">\(y_t = α \exp(γ\cdot x_t)+ε_t\)</span> with the additional assumption that <span class="math inline">\(ε_t∼^{iid} \mathcal{N}(0,σ^2)\)</span><br />
-1. Outline two appropriate estimntors for <span class="math inline">\((α,γ)&#39;\)</span> other than the OLS estimator (maximal 4 sentences)<br />
-2. For a comparison between your linear regression specification and the given nonlinear one, would it be correct to consider the (adjusted) <span class="math inline">\(R^2\)</span> values?</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Maximum likelihood model (does not assume the errors are normal)<br />
-Non-linear model: <span class="math inline">\(y_t = α \exp(γ\cdot x_t) + ε_t\)</span><br />
-</li>
-<li>No, because <span class="math inline">\(R^2\)</span> is conditional on the form of <span class="math inline">\(y_t\)</span></li>
-</ol>
-</div>
-<div id="elasticity" class="section level3">
-<h3>Elasticity</h3>
+<div id="data-problems" class="section level2">
+<h2>Data Problems</h2>
+<div id="multicollinearity" class="section level3">
+<h3>Multicollinearity</h3>
 <ul>
-<li>Elasticity measures the relative change in the dependent variable owing to a relative change in one of the <span class="math inline">\(x_i\)</span> variables.<br />
-</li>
-<li>For <span class="math inline">\(\log y_i = (\log x_i)&#39; γ + v_i\)</span>, elasticity:<br />
-<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
-&amp;\approx \frac{\partial E[\log y_i | \log x_i]}{\partial \log x_{ik}} \\ &amp;= γ_k \end{aligned}\]</span></li>
-<li>For <span class="math inline">\(y_i = x_i&#39; β + ε_i\)</span>, elasticity:<br />
-<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
-&amp;= β_k \cdot \frac{x_{ik}}{x_i&#39; β} \end{aligned}\]</span></li>
+<li>Approximate linear relationship among some x’s <span class="math inline">\(\implies\)</span> unreliable regression estimates
+<ul>
+<li><span class="math inline">\(X&#39;X\)</span> may not be invertible</li>
+<li>Violates No-Multicollinearity Assumption in <a href="#ols-method">#OLS Method</a></li>
+</ul></li>
+<li>Signs
+<ul>
+<li>High se, low t-stat</li>
+<li>Hight <span class="math inline">\(R^2\)</span></li>
+<li>Dummy Variable Trap</li>
+</ul></li>
+<li>Solution
+<ul>
+<li>Large <span class="math inline">\(N\)</span> and large variations in variables</li>
+<li>Transformation: <span class="math inline">\(\log x\)</span> or <span class="math inline">\(\sqrt{x}\)</span></li>
+</ul></li>
 </ul>
+</div>
+<div id="outliers" class="section level3">
+<h3>Outliers</h3>
+</div>
+</div>
+<div id="model-problems" class="section level2">
+<h2>Model Problems</h2>
+<div id="heteroskedasticity" class="section level3">
+<h3>Heteroskedasticity</h3>
+</div>
+<div id="autocorrelation" class="section level3">
+<h3>Autocorrelation</h3>
+</div>
+<div id="white-hetero-consistent-standard-error" class="section level3">
+<h3>White (Hetero-Consistent) Standard Error</h3>
+<p>(slide 6 P18)</p>
 <blockquote>
-<p>PS3.Q1.1<br />
-Consider the Cobb-Douglas production function:<br />
-<span class="math display">\[Y =F(K,L)=τK^{β_1}L^{β_2}\]</span>
-where <span class="math inline">\(F\)</span> is the production function, <span class="math inline">\(K\)</span> capital and <span class="math inline">\(L\)</span> labor.<br />
-Technology is assumed to be constant and represented by <span class="math inline">\(τ\)</span>.<br />
-1. Which coefficients are elasticities?</p>
+<p>PS4.Q2.4<br />
+T/F?<br />
+When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
 </blockquote>
-<p>For <span class="math inline">\(K\)</span>:<br />
-<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial K}\cdot\frac{K}{Y} &amp;= τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} \\
-&amp;= \frac{τβ_1K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
-&amp;= β_1\end{aligned}\]</span>
-For <span class="math inline">\(L\)</span>:<br />
-<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial L}\cdot\frac{L}{Y} &amp;= τβ_2K^{β_1}L^{β_2-1} \cdot \frac{K}{Y} \\
-&amp;= \frac{τβ_2K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
-&amp;= β_2\end{aligned}\]</span>
-Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span> are the elasticities.</p>
+<p>True.</p>
+</div>
+<div id="hac-robust-standard-error" class="section level3">
+<h3>HAC (Robust) Standard Error</h3>
+<p>(textbook P128, slide 7 P14)</p>
 <blockquote>
-<p>PS3.Q1.1<br />
-2. Specify the econometric model you think is appropriate to estimate the coefficients of the production function.</p>
+<p>PS4.Q2.3<br />
+T/F?<br />
+When applying robust standard errors, the <strong>OLS point estimates</strong> (estimators) do not change.</p>
 </blockquote>
-<p>Take log:<br />
-<span class="math display">\[\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\]</span></p>
-<blockquote>
-<p>PS2.Q3<br />
-Consider the wage regressions from slide 5 (text P86).<br />
-<img src="/post-img/notes-stat1--PS2Q3-6.png" width="393" /><br />
-6. Find the estimated elasticities for the effect of experience for males and females.<br />
-At which conventional level is the gender effect of experience significant?<br />
-Is the gender effect (measured by the male dummy coefficient) significant at <span class="math inline">\(10 \%\)</span> or <span class="math inline">\(5 \%\)</span> level when using a one-sided alternative (namely, positive coefficient)?</p>
-</blockquote>
-<p>Elasticity for female: <span class="math inline">\(0.207\)</span><br />
-Elasticity for male: <span class="math inline">\(0.207 + 0.041 = 0.248\)</span><br />
-Gender effect: <span class="math inline">\(0.041\)</span><br />
-t-ratio: <span class="math inline">\(1.891\)</span></p>
-<pre class="r"><code># calculate critical value
-qnorm( 0.90 )
-## [1] 1.281552
-qnorm( 0.95 )
-## [1] 1.644854</code></pre>
-<p>Therefore, <span class="math inline">\(H_0\)</span> is rejected at <span class="math inline">\(10 \%\)</span> level, but not rejected at <span class="math inline">\(5 \%\)</span> level.</p>
+<p>True.</p>
 </div>
 </div>
 <div id="gls-generalized-least-squares-estimator" class="section level2">
@@ -916,29 +971,6 @@ Therefore<br />
 &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span>
 Note that this is the exact same variance matrix as in PS5.Q2</p></li>
 </ol>
-</div>
-</div>
-<div id="heteroskedasticity-autocorrelation" class="section level2">
-<h2>Heteroskedasticity &amp; Autocorrelation</h2>
-<div id="white-hetero-consistent-standard-error" class="section level3">
-<h3>White (Hetero-Consistent) Standard Error</h3>
-<p>(slide 6 P18)</p>
-<blockquote>
-<p>PS4.Q2.4<br />
-T/F?<br />
-When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
-</blockquote>
-<p>True.</p>
-</div>
-<div id="hac-robust-standard-error" class="section level3">
-<h3>HAC (Robust) Standard Error</h3>
-<p>(textbook P128, slide 7 P14)</p>
-<blockquote>
-<p>PS4.Q2.3<br />
-T/F?<br />
-When applying robust standard errors, the <strong>OLS point estimates</strong> (estimators) do not change.</p>
-</blockquote>
-<p>True.</p>
 </div>
 </div>
 <div id="ml-maximum-likelihood-model" class="section level2">
