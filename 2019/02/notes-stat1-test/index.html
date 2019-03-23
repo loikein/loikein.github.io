@@ -188,7 +188,7 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 </div>
 <div id="f-test-joint-test-model-test" class="section level2">
 <h2>F-test (Joint Test / Model Test)</h2>
-<p>textbook P26, P70, P75, slide 3 P18</p>
+<p>textbook P26, P70, slide 3 P18</p>
 <p><span class="math display">\[\begin{aligned}\text{Unrestricted Model: } y_1 &amp;= β_1 + β_2x_2 + \dots + β_K x_K + ε \\
 \text{Restricted Model: } y_0 &amp;= β_1 + β_2x_2 + \dots + β_{K-J}x_{K-J} + ε\end{aligned}\]</span></p>
 <p><span class="math display">\[\begin{aligned} F &amp;= \frac{(S_0 - S_1) / J}{S_1 / (N-K)} \\
@@ -210,7 +210,8 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 <li>Gauss-Markov Assumptions are not all satisfied</li>
 <li>The model deviates from linear regression model</li>
 </ul>
-<p><span class="math display">\[ξ = \frac{1}{σ^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
+<p><span class="math display">\[\begin{aligned} ξ &amp;= (Rb - q)&#39; \big[R\cdot V(b) R&#39; \big]^{-1}(Rb - q) \\
+&amp;= \frac{1}{s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big]^{-1}(Rb - q)\end{aligned}\]</span>
 <span class="math inline">\(H_0: ξ ∼ Χ^2_J\)</span><br />
 <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's, <span class="math inline">\(J\)</span> is the number of <span class="math inline">\(β\)</span> 's to be tested, <span class="math inline">\(R\)</span> is a <span class="math inline">\(J\times K\)</span> matrix, <span class="math inline">\(Rβ - q = 0\)</span>.</p>
 </div>
@@ -219,7 +220,7 @@ Check this complete proof by <a href="https://jmcanovas.netlify.com/2018/10/29/w
 <ul>
 <li>Exact sampling distribution under (A1) ~ (A5)</li>
 </ul>
-<p><span class="math display">\[F = \frac{1}{ξ} = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big](Rb - q)\]</span>
+<p><span class="math display">\[F = \frac{ξ}{J} = \frac{1}{J \cdot s^2} (Rb - q)&#39; \big[R(X&#39; X)^{-1} R&#39; \big]^{-1}(Rb - q)\]</span>
 <span class="math inline">\(H_0: F ∼ F^J_{N-K}\)</span></p>
 <blockquote>
 <p>PS3.Q1.2<br />

@@ -125,12 +125,10 @@
 </ul></li>
 <li><a href="#error-problems">Error Problems</a><ul>
 <li><a href="#heteroskedasticity">Heteroskedasticity</a></li>
-<li><a href="#autocorrelation">Autocorrelation</a></li>
 <li><a href="#white-hetero-consistent-standard-error">White (Hetero-Consistent) Standard Error</a></li>
+<li><a href="#autocorrelation">Autocorrelation</a></li>
 <li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
-</ul></li>
-<li><a href="#gls-generalized-least-squares">GLS (Generalized Least Squares)</a><ul>
-<li><a href="#gls-estimator">GLS Estimator</a></li>
+<li><a href="#gls-generalized-least-squares-estimator">GLS (Generalized Least Squares) Estimator</a></li>
 <li><a href="#egls-feasible-estimated-gls-estimator">EGLS (Feasible Estimated GLS) Estimator</a></li>
 </ul></li>
 <li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a></li>
@@ -855,21 +853,10 @@ b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 <li>Solution
 <ul>
 <li>Use another specification</li>
-<li><a href="#white-hetero-consistent-standard-error">White Standard Error</a></li>
-<li><a href="#hac-robust-standard-error">HAC Standard Error</a></li>
+<li>White Standard Error</li>
+<li>HAC Standard Error</li>
 <li><a href="#gls-generalized-least-squares-estimator">GLS Estimator</a></li>
 </ul></li>
-</ul>
-</div>
-<div id="autocorrelation" class="section level3">
-<h3>Autocorrelation</h3>
-<ul>
-<li>Different error terms are correlated, covariance matrix is nondiagonal
-<ul>
-<li>Data have a time dimension</li>
-</ul></li>
-<li>Signs</li>
-<li>Solution</li>
 </ul>
 </div>
 <div id="white-hetero-consistent-standard-error" class="section level3">
@@ -882,6 +869,23 @@ When applying White robust standard errors under heteroskedasticity, the t-stati
 </blockquote>
 <p>True.</p>
 </div>
+<div id="autocorrelation" class="section level3">
+<h3>Autocorrelation</h3>
+<ul>
+<li>Different error terms are correlated, covariance matrix is nondiagonal
+<ul>
+<li>Data have a time dimension</li>
+<li><span class="math inline">\(Ψ\)</span> is NOT diagonal matrix</li>
+</ul></li>
+<li>Signs</li>
+<li>Solution
+<ul>
+<li>Use another specification</li>
+<li>HAC Standard Error</li>
+<li><a href="#gls-generalized-least-squares-estimator">GLS Estimator</a></li>
+</ul></li>
+</ul>
+</div>
 <div id="hac-robust-standard-error" class="section level3">
 <h3>HAC (Robust) Standard Error</h3>
 <p>(textbook P128, slide 7 P14)</p>
@@ -892,15 +896,9 @@ When applying robust standard errors, the <strong>OLS point estimates</strong> (
 </blockquote>
 <p>True.</p>
 </div>
-</div>
-<div id="gls-generalized-least-squares" class="section level2">
-<h2>GLS (Generalized Least Squares)</h2>
-<ul>
-<li>textbook P99, slide 6 P12</li>
-<li>BLUE</li>
-</ul>
-<div id="gls-estimator" class="section level3">
-<h3>GLS Estimator</h3>
+<div id="gls-generalized-least-squares-estimator" class="section level3">
+<h3>GLS (Generalized Least Squares) Estimator</h3>
+<p>textbook P99, slide 6 P12</p>
 <ul>
 <li>Covariance matrix of OLS estimator: <span class="math display">\[Var(b) = σ^2(X&#39;X)^{-1}\cdot X&#39;ΨX\cdot(X&#39;X)^{-1}\]</span>
 Find some transformation matrix <span class="math inline">\(P\)</span> s.t. <span class="math display">\[\begin{aligned}Ψ^{-1} &amp;= P&#39;P \\
@@ -916,7 +914,10 @@ y^* &amp;= X^*β + ε^* \end{aligned}\]</span></li>
 &amp;= (X&#39;Ψ^{-1}X)^{-1}X&#39;Ψ^{-1}y \end{aligned}\]</span>
 <ul>
 <li>BLUE</li>
+<li>Covariance matrix: <span class="math display">\[\begin{aligned}Var(\hat{β}) &amp;= σ^2(X^{*\prime} X^*)^{-1} \\ &amp;= σ^2(X&#39;Ψ^{-1}X)^{-1} \end{aligned}\]</span></li>
 </ul></li>
+<li>Estimated error variance: <span class="math display">\[\begin{aligned}\hat{s}^2 &amp;= \frac{1}{N-K}(y^* - X^* \hat{β})&#39;\cdot (y^* - X^* \hat{β}) \\
+&amp;= \frac{1}{N-K}(y - X\hat{β})&#39; \cdot Ψ^{-1}\cdot (y - X\hat{β})\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="egls-feasible-estimated-gls-estimator" class="section level3">
