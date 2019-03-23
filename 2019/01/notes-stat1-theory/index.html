@@ -839,7 +839,7 @@ b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 <li>OLS estimator still unbiased, but not <a href="#blue">BLUE</a>:
 <span class="math display">\[\begin{aligned} Var(b) &amp;= Var\big( (X&#39;X)^{-1}X&#39;ε\big) \\
   &amp;= (X&#39;X)^{-1}X&#39;\cdot Var(ε) \cdot X(X&#39;X)^{-1} \\
-  &amp;= σ^2\underbrace{(X&#39;X)^{-1}\cdot X&#39;ΨX\cdot }_{\text{was }I}(X&#39;X)^{-1}\]</span></li>
+  &amp;= σ^2\underbrace{(X&#39;X)^{-1}\cdot X&#39;ΨX\cdot }_{\text{was }I}(X&#39;X)^{-1}\end{aligned}\]</span></li>
 </ul></li>
 </ul>
 <div id="heteroskedasticity" class="section level3">
@@ -916,7 +916,7 @@ y^* &amp;= X^*β + ε^* \end{aligned}\]</span></li>
 <li>BLUE</li>
 <li>Covariance matrix: <span class="math display">\[\begin{aligned}Var(\hat{β}) &amp;= σ^2(X^{*\prime} X^*)^{-1} \\ &amp;= σ^2(X&#39;Ψ^{-1}X)^{-1} \end{aligned}\]</span></li>
 </ul></li>
-<li>Estimated error variance: <span class="math display">\[\begin{aligned}\hat{s}^2 &amp;= \frac{1}{N-K}(y^* - X^* \hat{β})&#39;\cdot (y^* - X^* \hat{β}) \\
+<li>Estimated error variance: <span class="math display">\[\begin{aligned}\hat{σ}^2 &amp;= \frac{1}{N-K}(y^* - X^* \hat{β})&#39;\cdot (y^* - X^* \hat{β}) \\
 &amp;= \frac{1}{N-K}(y - X\hat{β})&#39; \cdot Ψ^{-1}\cdot (y - X\hat{β})\end{aligned}\]</span></li>
 </ul>
 </div>
@@ -924,6 +924,7 @@ y^* &amp;= X^*β + ε^* \end{aligned}\]</span></li>
 <h3>EGLS (Feasible Estimated GLS) Estimator</h3>
 <ul>
 <li>Use estimated value of <span class="math inline">\(Ψ\)</span></li>
+<li>Consistent, asymptotically best, but not BLUE</li>
 </ul>
 </div>
 </div>
