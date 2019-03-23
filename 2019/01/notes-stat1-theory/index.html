@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">33 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -123,16 +123,17 @@
 <li><a href="#multicollinearity">Multicollinearity</a></li>
 <li><a href="#outliers">Outliers</a></li>
 </ul></li>
-<li><a href="#model-problems">Model Problems</a><ul>
+<li><a href="#error-problems">Error Problems</a><ul>
 <li><a href="#heteroskedasticity">Heteroskedasticity</a></li>
 <li><a href="#autocorrelation">Autocorrelation</a></li>
 <li><a href="#white-hetero-consistent-standard-error">White (Hetero-Consistent) Standard Error</a></li>
 <li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 </ul></li>
-<li><a href="#gls-generalized-least-squares-estimator">GLS (Generalized Least Squares) Estimator</a><ul>
-<li><a href="#gls-transformation">GLS Transformation</a></li>
+<li><a href="#gls-generalized-least-squares">GLS (Generalized Least Squares)</a><ul>
+<li><a href="#gls-estimator">GLS Estimator</a></li>
 <li><a href="#egls-feasible-estimated-gls-estimator">EGLS (Feasible Estimated GLS) Estimator</a></li>
 </ul></li>
+<li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
 <li><a href="#derive-iv">Derive IV</a></li>
 <li><a href="#iv-estimator-_iv">IV Estimator ^β_IV</a></li>
@@ -250,7 +251,7 @@ M_X\cdot P_X &amp;= 0\end{aligned}\]</span>
 <p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
 (A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
 (A3): Homoskedasticity <span class="math inline">\(Var(ε_i) = σ^2\)</span><br />
-(A4): Autocorrelation <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
+(A4): No Autocorrelation <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
 <p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
 (A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
 (A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
@@ -830,13 +831,46 @@ b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 <h3>Outliers</h3>
 </div>
 </div>
-<div id="model-problems" class="section level2">
-<h2>Model Problems</h2>
+<div id="error-problems" class="section level2">
+<h2>Error Problems</h2>
+<ul>
+<li>Error terms do not have identical variances
+<ul>
+<li>Violate (A3) and (A4) in <a href="#gauss-markov-assumptions">#Gauss-Markov Assumptions</a></li>
+<li><span class="math inline">\(Var(ε_i) = σ^2\cdot Ψ\)</span>, <span class="math inline">\(Ψ\neq I\)</span></li>
+<li>OLS estimator still unbiased, but not <a href="#blue">BLUE</a>:
+<span class="math display">\[\begin{aligned} Var(b) &amp;= Var\big( (X&#39;X)^{-1}X&#39;ε\big) \\
+  &amp;= (X&#39;X)^{-1}X&#39;\cdot Var(ε) \cdot X(X&#39;X)^{-1} \\
+  &amp;= σ^2\underbrace{(X&#39;X)^{-1}\cdot X&#39;ΨX\cdot }_{\text{was }I}(X&#39;X)^{-1}\]</span></li>
+</ul></li>
+</ul>
 <div id="heteroskedasticity" class="section level3">
 <h3>Heteroskedasticity</h3>
+<ul>
+<li>Different error terms do not have identical variances, the diagonal elements of the covariance matrix are not the same
+<ul>
+<li>Exist different groups in the data</li>
+</ul></li>
+<li>Signs</li>
+<li>Solution
+<ul>
+<li>Use another specification</li>
+<li><a href="#white-hetero-consistent-standard-error">White Standard Error</a></li>
+<li><a href="#hac-robust-standard-error">HAC Standard Error</a></li>
+<li><a href="#gls-generalized-least-squares-estimator">GLS Estimator</a></li>
+</ul></li>
+</ul>
 </div>
 <div id="autocorrelation" class="section level3">
 <h3>Autocorrelation</h3>
+<ul>
+<li>Different error terms are correlated, covariance matrix is nondiagonal
+<ul>
+<li>Data have a time dimension</li>
+</ul></li>
+<li>Signs</li>
+<li>Solution</li>
+</ul>
 </div>
 <div id="white-hetero-consistent-standard-error" class="section level3">
 <h3>White (Hetero-Consistent) Standard Error</h3>
@@ -859,30 +893,41 @@ When applying robust standard errors, the <strong>OLS point estimates</strong> (
 <p>True.</p>
 </div>
 </div>
-<div id="gls-generalized-least-squares-estimator" class="section level2">
-<h2>GLS (Generalized Least Squares) Estimator</h2>
+<div id="gls-generalized-least-squares" class="section level2">
+<h2>GLS (Generalized Least Squares)</h2>
 <ul>
-<li>(textbook P99, slide 6 P12)</li>
+<li>textbook P99, slide 6 P12</li>
 <li>BLUE</li>
 </ul>
-<div id="gls-transformation" class="section level3">
-<h3>GLS Transformation</h3>
+<div id="gls-estimator" class="section level3">
+<h3>GLS Estimator</h3>
 <ul>
-<li>Model: <span class="math inline">\(y_i = x_i&#39;β + ε_i\)</span>
+<li>Covariance matrix of OLS estimator: <span class="math display">\[Var(b) = σ^2(X&#39;X)^{-1}\cdot X&#39;ΨX\cdot(X&#39;X)^{-1}\]</span>
+Find some transformation matrix <span class="math inline">\(P\)</span> s.t. <span class="math display">\[\begin{aligned}Ψ^{-1} &amp;= P&#39;P \\
+Ψ &amp;= (P&#39;P)^{-1} \\
+&amp;= P^{-1}(P&#39;)^{-1} \\
+P&#39;ΨP &amp;= I\end{aligned}\]</span>
+Covariance matrix of error becomes <span class="math display">\[\begin{aligned}Var(Pε) &amp;= P\cdot Var(ε)\cdot P&#39; \\
+&amp;= σ^2\cdot P&#39;ΨP \\
+&amp;= σ^2I \end{aligned}\]</span></li>
+<li>Transformed model: <span class="math display">\[\begin{aligned}Py &amp;= PXβ + Pε \\
+y^* &amp;= X^*β + ε^* \end{aligned}\]</span></li>
+<li>GLS Estimator: <span class="math display">\[\begin{aligned}\hat{β} &amp;= (X^{*\prime} X^*)^{-1}X^{*\prime}y^* \\
+&amp;= (X&#39;Ψ^{-1}X)^{-1}X&#39;Ψ^{-1}y \end{aligned}\]</span>
 <ul>
-<li>(A1) ~ (A4): <span class="math inline">\(\begin{cases} E[ε|X] = E[ε] = 0 \\ Var(ε|X) = Var(ε) = σ^2I\end{cases}\)</span><br />
-</li>
+<li>BLUE</li>
 </ul></li>
-<li>Violation of (A4) gives error covariance matrix: <span class="math inline">\(Var(ε) = σ^2Ψ\)</span> (assume known)
-<ul>
-<li>Variance of OLS estimator: <span class="math display">\[\begin{aligned} Var(b|X) &amp;= Var\big( (X&#39;X)^{-1}X&#39;ε\big) \\ &amp;= (X&#39;X)^{-1}X&#39;\cdot Var(ε) \cdot X(X&#39;X)^{-1} \\ &amp;= σ^2 (X&#39;X)^{-1}\underbrace{X&#39;ΨX(X&#39;X)^{-1}}_{\text{biased &amp; inefficient}}\end{aligned}\]</span></li>
-</ul></li>
-<li></li>
 </ul>
 </div>
 <div id="egls-feasible-estimated-gls-estimator" class="section level3">
 <h3>EGLS (Feasible Estimated GLS) Estimator</h3>
+<ul>
+<li>Use estimated value of <span class="math inline">\(Ψ\)</span></li>
+</ul>
 </div>
+</div>
+<div id="regressor-problem-endogeneity" class="section level2">
+<h2>Regressor Problem: Endogeneity</h2>
 </div>
 <div id="iv-instrument-variable" class="section level2">
 <h2>IV (Instrument Variable)</h2>
