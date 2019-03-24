@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">10 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Exercises</h1>
@@ -128,11 +128,26 @@
 <li><a href="#h-2">h (*)</a></li>
 <li><a href="#i-2">i</a></li>
 <li><a href="#j-2">j</a></li>
-<li><a href="#k">k</a></li>
-<li><a href="#l">l</a></li>
-<li><a href="#m">m</a></li>
+<li><a href="#k">k (*)</a></li>
+<li><a href="#l">l (*)</a></li>
+<li><a href="#m">m (*)</a></li>
 </ul></li>
-<li><a href="#exercise-9.2">Exercise 9.2</a></li>
+<li><a href="#exercise-9.2-cointegration">Exercise 9.2 (Cointegration)</a><ul>
+<li><a href="#a-3">a</a></li>
+<li><a href="#b-3">b</a></li>
+<li><a href="#c-3">c</a></li>
+<li><a href="#d-3">d</a></li>
+<li><a href="#e-3">e</a></li>
+<li><a href="#f-3">f</a></li>
+<li><a href="#g-3">g</a></li>
+<li><a href="#h-3">h</a></li>
+<li><a href="#i-3">i</a></li>
+<li><a href="#j-3">j</a></li>
+<li><a href="#k-1">k</a></li>
+<li><a href="#l-1">l (*)</a></li>
+<li><a href="#m-1">m (*)</a></li>
+<li><a href="#n">n (*)</a></li>
+</ul></li>
 <li><a href="#exercise-9.3">Exercise 9.3</a></li>
 </ul>
 </div>
@@ -154,10 +169,10 @@ Exercise 5.1</li>
 Exercise 5.2</li>
 <li><input type="checkbox" disabled="" checked="" />
 Exercise 7.1</li>
+<li><input type="checkbox" disabled="" checked="" />
+Exercise 8.1</li>
 <li><input type="checkbox" disabled="" />
-Exercise 8.1 (working)</li>
-<li><input type="checkbox" disabled="" />
-Exercise 9.2</li>
+Exercise 9.2 (working)</li>
 <li><input type="checkbox" disabled="" />
 Exercise 9.3</li>
 </ul>
@@ -492,12 +507,25 @@ Detecting a unit root is important because it is the boundary case between stati
 <blockquote>
 <p>Formulate the hypothesis of a unit root and perform a unit root test based on the above regression.</p>
 </blockquote>
+<p>slide 12 P20 22</p>
+<p>H0: <span class="math inline">\(θ - 1 = 0\)</span><br />
+H1: <span class="math inline">\(θ - 1 &lt; 0\)</span><br />
+<span class="math display">\[\begin{aligned}DF &amp;= \frac{\hat{θ} - 1}{se(\hat{θ})} \\
+&amp;= \frac{0.83 - 1}{0.07} \\
+&amp;= -2.4286\end{aligned}\]</span>
+Cannot reject the H0 at 5% level, maybe at 10% level.</p>
 </div>
 <div id="g-2" class="section level3">
 <h3>g</h3>
 <blockquote>
 <p>Perform a test for the null hypothesis that <span class="math inline">\(θ = 0.90\)</span></p>
 </blockquote>
+<p>H0: <span class="math inline">\(θ - 0.90 = 0\)</span><br />
+H0: <span class="math inline">\(θ - 0.90 &lt; 0\)</span><br />
+<span class="math display">\[\begin{aligned}DF &amp;= \frac{\hat{θ} - 1}{se(\hat{θ})} \\
+&amp;= \frac{0.83 - 0.90}{0.07} \\
+&amp;= -1\end{aligned}\]</span>
+Cannot reject the H0.</p>
 <blockquote>
 <p>Next, the researcher extends the model to an AR(2), with the following results (standard errors in parentheses):
 <span class="math display">\[\begin{aligned}Y_t &amp;= 50.0 + 0.74Y_{t−1} + 0.16 Y_{t-2}+ \hat{ε}_t \\ &amp;\phantom{\gg} (5.67) \phantom{0} (0.07) \phantom{Y_{t-1} 0} (0.07) \end{aligned}\]</span></p>
@@ -509,42 +537,152 @@ Detecting a unit root is important because it is the boundary case between stati
 <p>Would you prefer the AR(2) model to the AR(1) model?<br />
 How would you check whether an ARMA(2, 1) model may be more appropriate?</p>
 </blockquote>
+<p><span class="math display">\[\begin{aligned}z_{\hat{θ}_2} &amp;= \frac{0.16}{0.07} = 2.2857 ∼ \mathcal{N} \\
+Pr(z &gt; 2.2857) &amp;= 0.0113\end{aligned}\]</span>
+Therefore, I prefer AR(2) model to the AR(1) model.</p>
+<p>Check ARMA(2, 1)?</p>
 </div>
 <div id="i-2" class="section level3">
 <h3>i</h3>
 <blockquote>
 <p>What do the above results tell you about the validity of the unit root test of (f)?</p>
 </blockquote>
+<p><a href="https://stats.stackexchange.com/a/235916/147391">What is the difference between a stationary test and a unit root test? - Cross Validated</a></p>
+<p>The power of the test is relatively weak, maybe because <span class="math inline">\(\hat{θ}\)</span> is close to 1.</p>
 </div>
 <div id="j-2" class="section level3">
 <h3>j</h3>
 <blockquote>
 <p>How would you test for the presence of a unit root in the AR(2) model?</p>
 </blockquote>
+<p>textbook P304</p>
+<p>ADF test: H0: <span class="math inline">\(θ_1 + θ_2 - 1 = 0\)</span><br />
+H1: <span class="math inline">\(θ_1 + θ_2 - 1 &lt; 0\)</span><br />
+<span class="math inline">\(DF = \frac{\hat{θ_1} + \hat{θ_2} - 1}{se(\hat{θ_1} + \hat{θ_2} - 1)}\)</span></p>
 </div>
 <div id="k" class="section level3">
-<h3>k</h3>
+<h3>k (*)</h3>
 <blockquote>
 <p>From the above estimates, compute an estimate for the average number of unemployed <span class="math inline">\(E\{Y_t\}\)</span></p>
 </blockquote>
 </div>
 <div id="l" class="section level3">
-<h3>l</h3>
+<h3>l (*)</h3>
 <blockquote>
 <p>Suppose the last two quarterly unemployment levels for 2016:III and 2016:IV were 550 and 600, respectively.<br />
 Compute forecasts for 2017:I and 2017:II.</p>
 </blockquote>
 </div>
 <div id="m" class="section level3">
-<h3>m</h3>
+<h3>m (*)</h3>
 <blockquote>
 <p>Can you say anything sensible about the forecasted value for the quarter 2037:I?<br />
 And its accuracy?</p>
 </blockquote>
 </div>
 </div>
-<div id="exercise-9.2" class="section level2">
-<h2>Exercise 9.2</h2>
+<div id="exercise-9.2-cointegration" class="section level2">
+<h2>Exercise 9.2 (Cointegration)</h2>
+<blockquote>
+<p>Consider the following very simple relationship between aggregate savings <span class="math inline">\(S_t\)</span> and aggregate income <span class="math inline">\(Y_t\)</span>:
+<span class="math display">\[\begin{aligned}S_t = α + βY_t + ε_t &amp;&amp; t=1,\dots, T \end{aligned}\]</span>
+For some country this relationship is estimated by OLS over the years 1956–2005 (<span class="math inline">\(T = 50\)</span>).<br />
+The results are given in Table 9.17.<br />
+<img src="/post-img/notes-stat1-exercise--9-2.png" width="388" />
+Assume, for the moment, that the series <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are stationary.<br />
+Hint: if needed, consult Chapter 4 for the first set of questions.</p>
+</blockquote>
+<div id="a-3" class="section level3">
+<h3>a</h3>
+<blockquote>
+<p>How would you interpret the coefficient estimate of 0.098 for the income variable?</p>
+</blockquote>
+</div>
+<div id="b-3" class="section level3">
+<h3>b</h3>
+<blockquote>
+<p>Explain why the results indicate that there may be a problem of positive autocorrelation.<br />
+Can you give arguments why, in economic models, positive autocorrelation is more likely than negative autocorrelation?</p>
+</blockquote>
+</div>
+<div id="c-3" class="section level3">
+<h3>c</h3>
+<blockquote>
+<p>What are the effects of autocorrelation on the properties of the OLS estimator?<br />
+Think about unbiasedness, consistency and the BLUE property.</p>
+</blockquote>
+</div>
+<div id="d-3" class="section level3">
+<h3>d</h3>
+<blockquote>
+<p>Describe two different approaches to handle the autocorrelation problem in the above case.<br />
+Which one would you prefer?</p>
+</blockquote>
+<blockquote>
+<p>From now on, assume that <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are nonstationary I(1) series.</p>
+</blockquote>
+</div>
+<div id="e-3" class="section level3">
+<h3>e</h3>
+<blockquote>
+<p>Are there indications that the relationship between the two variables is ‘spurious’?</p>
+</blockquote>
+</div>
+<div id="f-3" class="section level3">
+<h3>f</h3>
+<blockquote>
+<p>Explain what we mean by ‘spurious regressions’.</p>
+</blockquote>
+</div>
+<div id="g-3" class="section level3">
+<h3>g</h3>
+<blockquote>
+<p>Are there indications that there is a cointegrating relationship between <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span>?</p>
+</blockquote>
+</div>
+<div id="h-3" class="section level3">
+<h3>h</h3>
+<blockquote>
+<p>Explain what we mean by a ‘cointegrating relationship’.</p>
+</blockquote>
+</div>
+<div id="i-3" class="section level3">
+<h3>i</h3>
+<blockquote>
+<p>Describe two different tests that can be used to test the null hypothesis that <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are not cointegrated.</p>
+</blockquote>
+</div>
+<div id="j-3" class="section level3">
+<h3>j</h3>
+<blockquote>
+<p>How do you interpret the coefficient estimate of 0.098 under the hypothesis that <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are cointegrated?</p>
+</blockquote>
+</div>
+<div id="k-1" class="section level3">
+<h3>k</h3>
+<blockquote>
+<p>Are there reasons to correct for autocorrelation in the error term when we estimate a cointegrating regression?</p>
+</blockquote>
+</div>
+<div id="l-1" class="section level3">
+<h3>l (*)</h3>
+<blockquote>
+<p>Explain intuitively why the estimator for a cointegrating parameter is super-consistent.</p>
+</blockquote>
+</div>
+<div id="m-1" class="section level3">
+<h3>m (*)</h3>
+<blockquote>
+<p>Assuming that <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are cointegrated, describe what we mean by an error-correction mechanism.<br />
+Give an example. What do we learn from it?</p>
+</blockquote>
+</div>
+<div id="n" class="section level3">
+<h3>n (*)</h3>
+<blockquote>
+<p>How can we consistently estimate an error-correction model?</p>
+</blockquote>
+</div>
 </div>
 <div id="exercise-9.3" class="section level2">
 <h2>Exercise 9.3</h2>
