@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">10 min read</span>
+    <span class="article-duration">11 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Exercises</h1>
@@ -143,20 +143,27 @@
 <li><a href="#h-3">h</a></li>
 <li><a href="#i-3">i</a></li>
 <li><a href="#j-3">j</a></li>
-<li><a href="#k-1">k</a></li>
+<li><a href="#k-1">k (*)</a></li>
 <li><a href="#l-1">l (*)</a></li>
 <li><a href="#m-1">m (*)</a></li>
 <li><a href="#n">n (*)</a></li>
 </ul></li>
-<li><a href="#exercise-9.3">Exercise 9.3</a></li>
+<li><a href="#exercise-9.3-cointegration---empirical">Exercise 9.3 (Cointegration - Empirical)</a><ul>
+<li><a href="#a-4">a</a></li>
+<li><a href="#b-4">b</a></li>
+<li><a href="#c-4">c</a></li>
+<li><a href="#d-4">d</a></li>
+<li><a href="#e-4">e</a></li>
+<li><a href="#f-4">f</a></li>
+</ul></li>
 </ul>
 </div>
 
-<p>Warning: under proofreading</p>
-<p>Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
+<p>Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a><br />
+(no access): <a href="http://bcs.wiley.com/he-bcs/Books?action=index&amp;bcsId=10946&amp;itemId=1119148650">Instructor Companion Site</a></p>
 <ul>
 <li><input type="checkbox" disabled="" />
-Exercise 2.1</li>
+<a href="#exercise-2.1-regression">Exercise 2.1</a></li>
 <li><input type="checkbox" disabled="" />
 Exercise 2.4</li>
 <li><input type="checkbox" disabled="" />
@@ -168,13 +175,13 @@ Exercise 5.1</li>
 <li><input type="checkbox" disabled="" />
 Exercise 5.2</li>
 <li><input type="checkbox" disabled="" checked="" />
-Exercise 7.1</li>
+<a href="#exercise-7.1-binary-choice-models">Exercise 7.1</a></li>
 <li><input type="checkbox" disabled="" checked="" />
-Exercise 8.1</li>
+<a href="#exercise-8.1-arma-models-and-unit-roots">Exercise 8.1</a></li>
+<li><input type="checkbox" disabled="" checked="" />
+<a href="#exercise-9.2-cointegration">Exercise 9.2</a></li>
 <li><input type="checkbox" disabled="" />
-Exercise 9.2 (working)</li>
-<li><input type="checkbox" disabled="" />
-Exercise 9.3</li>
+<a href="#exercise-9.3-cointegration---empirical">Exercise 9.3</a> (working)</li>
 </ul>
 <div id="exercise-2.1-regression" class="section level2">
 <h2>Exercise 2.1 (Regression)</h2>
@@ -597,6 +604,7 @@ Hint: if needed, consult Chapter 4 for the first set of questions.</p>
 <blockquote>
 <p>How would you interpret the coefficient estimate of 0.098 for the income variable?</p>
 </blockquote>
+<p>A unit change in income is correlated with 0.098 unit change in savings, everything else hold equal.</p>
 </div>
 <div id="b-3" class="section level3">
 <h3>b</h3>
@@ -604,6 +612,10 @@ Hint: if needed, consult Chapter 4 for the first set of questions.</p>
 <p>Explain why the results indicate that there may be a problem of positive autocorrelation.<br />
 Can you give arguments why, in economic models, positive autocorrelation is more likely than negative autocorrelation?</p>
 </blockquote>
+<p>slide 7 P7<br />
+<a href="https://www.displayr.com/autocorrelation/">What is Autocorrelation? | Autocorrelation examples</a></p>
+<p>The Durbin-Watson statistics <span class="math inline">\(dw = 0.7\)</span> indicates positive autocorrelation.<br />
+Negative autocorrelation is rare because the alternating pattern is unusual in economic data.</p>
 </div>
 <div id="c-3" class="section level3">
 <h3>c</h3>
@@ -611,6 +623,11 @@ Can you give arguments why, in economic models, positive autocorrelation is more
 <p>What are the effects of autocorrelation on the properties of the OLS estimator?<br />
 Think about unbiasedness, consistency and the BLUE property.</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Unbiasedness is unaffected</li>
+<li>Consistency is unaffected (?)</li>
+<li>The OLS estimator is no longer BLUE because no autocorrelation among error terms (A4) is violated</li>
+</ol>
 </div>
 <div id="d-3" class="section level3">
 <h3>d</h3>
@@ -618,6 +635,11 @@ Think about unbiasedness, consistency and the BLUE property.</p>
 <p>Describe two different approaches to handle the autocorrelation problem in the above case.<br />
 Which one would you prefer?</p>
 </blockquote>
+<p>slide 7 P12</p>
+<ol style="list-style-type: decimal">
+<li>Reconsider the model: functional form or specification (preferred)</li>
+<li>Use HAC standard error</li>
+</ol>
 <blockquote>
 <p>From now on, assume that <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are nonstationary I(1) series.</p>
 </blockquote>
@@ -627,39 +649,56 @@ Which one would you prefer?</p>
 <blockquote>
 <p>Are there indications that the relationship between the two variables is ‘spurious’?</p>
 </blockquote>
+<p>textbook P352, slide 12 P30</p>
+<p>Yes because <span class="math inline">\(R^2\)</span> is high, <span class="math inline">\(β\)</span> is significant and dw is low.</p>
 </div>
 <div id="f-3" class="section level3">
 <h3>f</h3>
 <blockquote>
 <p>Explain what we mean by ‘spurious regressions’.</p>
 </blockquote>
+<p>Two non-stationary process appear to be correlated because they are both trended, but without sensible causality.</p>
 </div>
 <div id="g-3" class="section level3">
 <h3>g</h3>
 <blockquote>
 <p>Are there indications that there is a cointegrating relationship between <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span>?</p>
 </blockquote>
+<p>textbook P353, slide 12 P31</p>
+<p><span class="math display">\[\begin{aligned}S_t &amp;= α + βY_t + ε_t \\
+ε_t &amp;= S_t - α - βY_t\end{aligned}\]</span>
+Since <span class="math inline">\(s = 22.57\)</span>, the sample variance of the residuals is relatively large,<br />
+indicates no cointegrating relationship.</p>
 </div>
 <div id="h-3" class="section level3">
 <h3>h</h3>
 <blockquote>
 <p>Explain what we mean by a ‘cointegrating relationship’.</p>
 </blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Cointegration?oldformat=true">Cointegration - Wikipedia</a></p>
+<p>Two non-stationary process are correlated, and their linear combination for some <span class="math inline">\(β\)</span> is stationary.</p>
 </div>
 <div id="i-3" class="section level3">
 <h3>i</h3>
 <blockquote>
 <p>Describe two different tests that can be used to test the null hypothesis that <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are not cointegrated.</p>
 </blockquote>
+<p>textbook P354</p>
+<ol style="list-style-type: decimal">
+<li>ADF test</li>
+<li>Cointegrating regression Durbin–Watson test</li>
+</ol>
 </div>
 <div id="j-3" class="section level3">
 <h3>j</h3>
 <blockquote>
 <p>How do you interpret the coefficient estimate of 0.098 under the hypothesis that <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are cointegrated?</p>
 </blockquote>
+<p>textbook P355</p>
+<p>Cannot reject H0: <span class="math inline">\(S_t\)</span> and <span class="math inline">\(Y_t\)</span> are not cointegrated</p>
 </div>
 <div id="k-1" class="section level3">
-<h3>k</h3>
+<h3>k (*)</h3>
 <blockquote>
 <p>Are there reasons to correct for autocorrelation in the error term when we estimate a cointegrating regression?</p>
 </blockquote>
@@ -684,8 +723,52 @@ Give an example. What do we learn from it?</p>
 </blockquote>
 </div>
 </div>
-<div id="exercise-9.3" class="section level2">
-<h2>Exercise 9.3</h2>
+<div id="exercise-9.3-cointegration---empirical" class="section level2">
+<h2>Exercise 9.3 (Cointegration - Empirical)</h2>
+<blockquote>
+<p>In this exercise we employ quarterly data on UK nominal consumption and income, for 1971:I to 1985:II (T = 58).<br />
+Part of these data was used in Exercise 8.3.</p>
+</blockquote>
+<div id="a-4" class="section level3">
+<h3>a</h3>
+<blockquote>
+<p>Test for a unit root in the consumption series using several augmented Dickey–Fuller tests.</p>
+</blockquote>
+</div>
+<div id="b-4" class="section level3">
+<h3>b</h3>
+<blockquote>
+<p>Perform a regression by OLS explaining consumption from income.<br />
+Test for cointegration using two different tests.</p>
+</blockquote>
+</div>
+<div id="c-4" class="section level3">
+<h3>c</h3>
+<blockquote>
+<p>Perform a regression by OLS explaining income from consumption.<br />
+Test for cointegration.</p>
+</blockquote>
+</div>
+<div id="d-4" class="section level3">
+<h3>d</h3>
+<blockquote>
+<p>Compare the estimation results and <span class="math inline">\(R_2\)</span>’s from the last two regressions.</p>
+</blockquote>
+</div>
+<div id="e-4" class="section level3">
+<h3>e</h3>
+<blockquote>
+<p>Determine the error-correction term from one of the two regressions and estimate an error-correction model for the change in consumption.<br />
+Test whether the adjustment coefficient is zero.</p>
+</blockquote>
+</div>
+<div id="f-4" class="section level3">
+<h3>f</h3>
+<blockquote>
+<p>Repeat the last question for the change in income.<br />
+What do you conclude?</p>
+</blockquote>
+</div>
 </div>
 
     </div>
