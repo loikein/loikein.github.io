@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">14 min read</span>
+    <span class="article-duration">15 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Exercises</h1>
@@ -251,7 +251,7 @@ If <span class="math inline">\(|t| &gt; t_{N-3, α/2}\)</span>, then H0 is rejec
 <p>slide 3 P16</p>
 <p>H0: <span class="math inline">\(β_2 + β_3 = 0\)</span><br />
 H1: <span class="math inline">\(β_2 + β_3\neq 0\)</span><br />
-Let <span class="math inline">\(se = \sqrt{Var(b_2, b_3)}\)</span>, <span class="math inline">\(t = \frac{b_2 + b_3}{se}\)</span><br />
+Let <span class="math inline">\(t = \frac{b_2 + b_3}{se(b_2 + b_3)}\)</span><br />
 If <span class="math inline">\(|t| &gt; t_{N-3, α/2}\)</span>, then H0 is rejected.</p>
 </div>
 <div id="f" class="section level3">
@@ -320,68 +320,100 @@ Therefore, <span class="math inline">\(β_3&#39; = β_2 + β_3\)</span>, other c
 <h3>a</h3>
 <blockquote>
 <p>Under the Gauss–Markov conditions, OLS can be shown to be BLUE.<br />
-The phrase ‘linear’ in this acronym refers to the fact that we are estimating a linear model.</p>
+The phrase ‘linear’ in this acronym refers to the fact that we are <strong>estimating a linear model</strong>.</p>
 </blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem?oldformat=true#Linearity">Gauss–Markov theorem - Wikipedia</a></p>
+<p>False.<br />
+‘Linear’ means the estimator is a linear function of the dependent variable.</p>
 </div>
 <div id="b-1" class="section level3">
 <h3>b</h3>
 <blockquote>
-<p>In order to apply a t-test, the Gauss–Markov conditions are strictly required.</p>
+<p>In order to apply a t-test, the <strong>(all) Gauss–Markov conditions</strong> are strictly required.</p>
 </blockquote>
+<p><a href="http://thestatsgeek.com/2013/09/28/the-t-test-and-robustness-to-non-normality/">The t-test and robustness to non-normality – The Stats Geek</a><br />
+<a href="https://en.wikipedia.org/wiki/Student%27s_t-test?oldformat=true#Alternatives_to_the_t-test_for_location_problems">Student’s t-test - Wikipedia</a></p>
+<p>False.<br />
+The only assumption needed is <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent for all <span class="math inline">\(i\)</span> (A8).</p>
 </div>
 <div id="c-1" class="section level3">
 <h3>c</h3>
 <blockquote>
 <p>A regression of the OLS residual upon the regressors included in the model by construction yields an <span class="math inline">\(R_2\)</span> of zero.</p>
 </blockquote>
+<p>slide 3 P19</p>
+<p>True.</p>
 </div>
 <div id="d-1" class="section level3">
 <h3>d</h3>
 <blockquote>
-<p>The hypothesis that the OLS estimator is equal to zero can be tested by means of a t-test.</p>
+<p>The hypothesis that the <strong>OLS estimator</strong> is equal to zero can be tested by means of a t-test.</p>
 </blockquote>
+<p>False.<br />
+What is tested is the true coefficients, not the estimators.</p>
 </div>
 <div id="e-1" class="section level3">
 <h3>e</h3>
 <blockquote>
-<p>From asymptotic theory, we learn that – under appropriate conditions – the error terms in a regression model will be approximately normally distributed if the sample size is sufficiently large.</p>
+<p>From asymptotic theory, we learn that, under appropriate conditions, the <strong>error terms</strong> in a regression model will be approximately normally distributed if the sample size is sufficiently large.</p>
 </blockquote>
+<p>slide 4 P15</p>
+<p>False.<br />
+Asymptotic theory says the estimators will be approximately normal with a large sample size.<br />
+The normality of error terms is an assumption.</p>
 </div>
 <div id="f-1" class="section level3">
 <h3>f</h3>
 <blockquote>
-<p>If the absolute t-value of a coefficient is smaller than 1.96, we accept the null hypothesis that the coefficient is zero, with 95% confidence.</p>
+<p>If the absolute t-value of a coefficient is smaller than 1.96, we <strong>accept</strong> the null hypothesis that the coefficient is zero, with 95% confidence.</p>
 </blockquote>
+<p>False.<br />
+We do not accept H0, we just can not reject it. A small t-value does not necessarily mean that H0 is correct.</p>
 </div>
 <div id="g-1" class="section level3">
 <h3>g</h3>
 <blockquote>
-<p>Because OLS provides the best linear approximation of a variable y from a set of regressors, OLS also gives best linear unbiased estimators for the coefficients of these regressors.</p>
+<p>Because OLS provides the <strong>best linear approximation</strong> of a variable <span class="math inline">\(y\)</span> from a set of regressors, OLS also gives <strong>best linear unbiased estimators</strong> for the coefficients of these regressors.</p>
 </blockquote>
+<p>False.<br />
+OLS provides the best linear approximation of <span class="math inline">\(y\)</span> by the construction of OLS method,<br />
+but whether an estimator is BLUE depends on whether the Gauss-Markov assumptions are satisfied.</p>
 </div>
 <div id="h-1" class="section level3">
 <h3>h</h3>
 <blockquote>
-<p>If a variable in a model is significant at the 10% level, it is also significant at the 5% level.</p>
+<p>If a variable in a model is significant at the X10% level, it is also significant at the 5% level.</p>
 </blockquote>
+<p>False.<br />
+Significance at 10% level is weaker than at 5% level.</p>
 </div>
 <div id="i-1" class="section level3">
 <h3>i</h3>
 <blockquote>
-<p>For hypothesis testing, the p-value is more informative than a confidence interval.</p>
+<p>For hypothesis testing, the p-value is <strong>more informative</strong> than a confidence interval.</p>
 </blockquote>
+<p>textbook P24</p>
+<p>False.<br />
+Confidence interval indicate magnitude and precision of a coefficient, whereas the p-value provides only the latter.</p>
 </div>
 <div id="j-1" class="section level3">
 <h3>j</h3>
 <blockquote>
-<p>It is advisable to remove outliers from a data set as this leads to lower standard errors for the OLS estimator.</p>
+<p>It is <strong>advisable to remove outliers</strong> from a data set as this leads to lower standard errors for the OLS estimator.</p>
 </blockquote>
+<p>textbook P48, slide 3 P25</p>
+<p>False.<br />
+If the outliers are correct data points, removing them may result in a less precise estimation.</p>
 </div>
 <div id="k" class="section level3">
 <h3>k</h3>
 <blockquote>
-<p>The p-value of a test corresponds to the probability that the null hypothesis is true.</p>
+<p>The p-value of a test corresponds to the probability that the <strong>null hypothesis is true</strong>.</p>
 </blockquote>
+<p>textbook P31</p>
+<p>False.<br />
+p-value is the probability that the reported test statistic occurs (H0 cannot be rejected).<br />
+H0 is not rejected does not equalize to it being true, and vice versa.</p>
 </div>
 <div id="l" class="section level3">
 <h3>l</h3>
