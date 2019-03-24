@@ -6,10 +6,19 @@
     <description>Recent content on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Econometrics - Exercises</title>
+      <link>/2019/03/notes-stat1-exercise/</link>
+      <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/03/notes-stat1-exercise/</guid>
+      <description>Exercise 2.1 (Regression) a b c d e f g h i j  Exercise 2.4 Exercise 3.2 Exercise 3.4 Exercise 5.1 Exercise 5.2 Exercise 7.1 (Binary Choice Models) a b c d e f g (*) h (*) i (*) j (*)  Exercise 8.1 (ARMA Models and Unit Roots) a b c d e f g h (*) i j k l m  Exercise 9.2 Exercise 9.</description>
+    </item>
     
     <item>
       <title>Notes on Microeconomics - First Final</title>
