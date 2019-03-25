@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">34 min read</span>
+    <span class="article-duration">36 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -127,12 +127,18 @@
 <li><a href="#heteroskedasticity">Heteroskedasticity</a></li>
 <li><a href="#autocorrelation-serial-correlation">Autocorrelation (Serial Correlation)</a></li>
 <li><a href="#white-hc-standard-error">White (HC) Standard Error</a></li>
-<li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
+<li><a href="#newey-west-hac-standard-error">Newey-West (HAC) Standard Error</a></li>
 <li><a href="#gls-generalized-least-squares-estimator">GLS (Generalized Least Squares) Estimator</a></li>
 <li><a href="#egls-feasible-estimated-gls-estimator">EGLS (Feasible Estimated GLS) Estimator</a></li>
 <li><a href="#wls-weighted-ls-estimator">WLS (Weighted LS) Estimator</a></li>
 </ul></li>
-<li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a></li>
+<li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a><ul>
+<li><a href="#lagged-dependent-variable">Lagged Dependent Variable</a></li>
+<li><a href="#measurement-error">Measurement Error</a></li>
+<li><a href="#omitted-variable-bias">Omitted Variable Bias</a></li>
+<li><a href="#reverse-causality">Reverse Causality</a></li>
+<li><a href="#gmm-generalized-method-of-moments">GMM (Generalized Method of Moments)</a></li>
+</ul></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
 <li><a href="#derive-iv">Derive IV</a></li>
 <li><a href="#iv-estimator-_iv">IV Estimator ^β_IV</a></li>
@@ -245,18 +251,28 @@ M_X\cdot P_X &amp;= 0\end{aligned}\]</span>
 <div id="gauss-markov-assumptions" class="section level3">
 <h3>Gauss-Markov Assumptions</h3>
 <p>(A1) ~ (A4): textbook P15, slide 2 P23 = BLUE<br />
-(A5): textbook P19, slide 2 P29 ~~~~~ = (A1) + (A3) + (A4) + normal<br />
+(A5): textbook P19, slide 2 P29 = (A1) + (A3) + (A4) + normal<br />
 (A6): textbook P34, slide 4 P10<br />
-(A7): textbook P35, slide 4 P11 ~~~ <span class="math inline">\(\Longleftarrow\)</span> (A1), (A2) or (A8)<br />
-(A8): textbook P37 ~~~~~~~~~~~~~ <span class="math inline">\(\Longleftarrow\)</span> (A2)</p>
+(A7): textbook P35 141, slide 4 P11 &lt; (A1) + (A2) / (A8)<br />
+(A8): textbook P37 &lt; (A2)<br />
+(A9): textbook P101<br />
+(A10): textbook P102 &gt; (A7)<br />
+(A11): textbook P140 &lt; (A5)<br />
+(A12): textbook P141 &lt; (A11)</p>
+<p>Original assumptions:</p>
 <p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
 (A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
 (A3): Homoskedasticity <span class="math inline">\(Var(ε_i) = σ^2\)</span><br />
 (A4): No Autocorrelation <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
+<p>Alternative assumptions:</p>
 <p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
 (A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
 (A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
-(A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent for all <span class="math inline">\(i\)</span></p>
+(A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent<br />
+(A9): Diagonal Heteroskedasticity <span class="math inline">\(Var(ε \ | \ X) = σ^2\cdot Diag(h_i^2)\)</span><br />
+(A10): <span class="math inline">\(E[ε \ | \ X] = 0\)</span><br />
+(A11): <span class="math inline">\(ε_i ∼ IID (0, σ^2)\)</span><br />
+(A12): Unknown Heteroskedasticity <span class="math inline">\(ε_t\)</span> are serially uncorrelated, <span class="math inline">\(E[ε_t] = 0\)</span></p>
 <blockquote>
 <p>PS2.Q2<br />
 Consider the linear regression model:<br />
@@ -791,7 +807,7 @@ While everything remaining is unchanged, therefore the consistency of <span clas
 </div>
 <div id="asymptotic-nomality" class="section level3">
 <h3>Asymptotic Nomality</h3>
-<p>textbook P36, slide 4 P13</p>
+<p>textbook P36 141, slide 4 P13</p>
 <ul>
 <li>Asymptotic Distribution: distribution as <span class="math inline">\(N\to\infty\)</span>
 <ul>
@@ -801,7 +817,11 @@ While everything remaining is unchanged, therefore the consistency of <span clas
 <li>OLS estimator is CAN (Consistent and Asymptotically Normal) if<br />
 <span class="math display">\[\begin{aligned} \sqrt{N} (b-β) &amp;\to^a \mathcal{N}(0, \ σ^2\cdot Σ_{xx}^{-1}) \\
 b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
-&amp;∼^a \mathcal{N}\Big(β, \ s^2\cdot\sum_N x_ix_i&#39;\Big) &amp;&amp; \text{(A1) ~ (A4), (A6)}\end{aligned}\]</span></li>
+&amp;∼^a \mathcal{N}\Big(β, \ s^2\cdot\sum_N x_ix_i&#39;\Big) &amp;&amp; \text{(A5) + (A6)}\end{aligned}\]</span>
+<ul>
+<li>Weaker: (A6) + (A8) + (A11)</li>
+<li>Weaker: (A6) + (A7) + (A12)</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -854,10 +874,7 @@ b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 <ul>
 <li>Exist different groups in the data</li>
 </ul></li>
-<li>Signs
-<ul>
 <li>Scatter plot</li>
-</ul></li>
 <li>Solution
 <ul>
 <li>Use another specification</li>
@@ -905,8 +922,8 @@ When applying White robust standard errors under heteroskedasticity, the t-stati
 </blockquote>
 <p>True.</p>
 </div>
-<div id="hac-robust-standard-error" class="section level3">
-<h3>HAC (Robust) Standard Error</h3>
+<div id="newey-west-hac-standard-error" class="section level3">
+<h3>Newey-West (HAC) Standard Error</h3>
 <p>textbook P128, slide 7 P14</p>
 <blockquote>
 <p>PS4.Q2.3<br />
@@ -966,6 +983,99 @@ OLS estimation yeilds <span class="math display">\[\hat{h}_i^2 = \exp(z_i&#39;\h
 </div>
 <div id="regressor-problem-endogeneity" class="section level2">
 <h2>Regressor Problem: Endogeneity</h2>
+<ul>
+<li>Explanatory variables are correlated with error term
+<ul>
+<li>OLS estimator biased but consistent if assumption <a href="#gauss-markov-assumptions">(A7) or (A8)</a> are satisfied</li>
+</ul></li>
+<li><span class="math inline">\(E[ε_tx_t]\neq 0\implies\)</span> OLS estimator biased and inconsistent
+<ul>
+<li>Lagged <span class="math inline">\(y\)</span></li>
+<li>Measurement error</li>
+<li>Omitted variable bias</li>
+<li>Reverse causality (simultaneity)</li>
+</ul></li>
+<li>Solution
+<ul>
+<li><a href="#iv-instrument-variable">Instrument Variable</a></li>
+<li><a href="#gmm-generalized-method-of-moments">GMM</a></li>
+<li><a href="#ml-maximum-likelihood-model">Maximum likelihood</a></li>
+</ul></li>
+</ul>
+<div id="lagged-dependent-variable" class="section level3">
+<h3>Lagged Dependent Variable</h3>
+<p>textbook P143, slide 8 P4</p>
+<ul>
+<li>For <span class="math inline">\(y_t = βy_{t-1} + ε_t\)</span>, <span class="math inline">\(E[y_{t-1}ε_t] = 0\implies\)</span> OLS estimator is consistent</li>
+<li>But if error follows <span class="math display">\[ε_t = ρε_{t-1} + v_t\]</span>
+Real model becomes <span class="math display">\[y_t = (β + ρ)y_{t-1} - βρy_{t-2} + v_t\]</span>
+So regressing <span class="math inline">\(y_t = βy_{t-1} + ε_t\)</span> leads to <span class="math inline">\(E[y_{t-1}ε_t] \neq 0\)</span>
+<ul>
+<li>OLS estimator is inconsistent</li>
+<li>Durbin-Watson test is invalid</li>
+<li>Breusch-Godfrey test is still valid!</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Mock.Q2.3<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span>
+One can show that<br />
+<span class="math display">\[\text{plim }b = \frac{β+ρ}{1+βρ}\]</span>
+where <span class="math inline">\(b\)</span> denotes the OLS estimator for <span class="math inline">\(β\)</span> obtained from the regression model.<br />
+Suppose that the true <span class="math inline">\(β\)</span> equals 0.54 and that <span class="math inline">\(ρ\in (0,1)\)</span>.<br />
+1. Explain whether the OLS estimator <span class="math inline">\(b\)</span> is biased and if so in which direction?<br />
+2. What happens in the limiting cases where <span class="math inline">\(ρ\to 0\)</span> or <span class="math inline">\(ρ\to 1\)</span>?<br />
+3. Would the endogeneity bias be circumvented by estimating the following alternative regression?<br />
+<span class="math display">\[y_t = β_1 y_{t-1} + β_2 y_{t-2} + β_3 y_{t-3} + w_t\]</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Yes.<br />
+<span class="math display">\[\begin{aligned} \text{plim }b &amp;= \frac{β+ρ}{1+βρ} \\
+&amp;= \frac{1+\frac{ρ}{β}}{\frac{1}{β}+ρ} \\
+&amp;= \frac{1+\frac{ρ}{β}+ βρ - βρ}{\frac{1}{β}+ρ} \\
+&amp;= \frac{1+ βρ}{\frac{1}{β}+ρ} + \frac{\frac{ρ}{β}- βρ}{\frac{1}{β}+ρ} \\
+&amp;= β + \frac{\frac{1}{β}- β}{\frac{1}{β}+ρ}\cdot ρ \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(ρ\to 0\)</span>, <span class="math inline">\(\text{plim }b\to β\)</span> (unbiasedness)<br />
+When <span class="math inline">\(ρ\to 1\)</span>, <span class="math inline">\(\text{plim }b\to 1\)</span><br />
+</li>
+<li>Yes, yet with efficiency loss if include <span class="math inline">\(t-3\)</span> term.<br />
+Rewrite the original model with lag operater:<br />
+<span class="math display">\[\begin{aligned} y_t &amp;= βL y_t + ε_t \\
+(1-βL) y_t &amp;= ε_t \end{aligned}\]</span>
+Therefore, two lags will be sufficient.</li>
+</ol>
+</div>
+<div id="measurement-error" class="section level3">
+<h3>Measurement Error</h3>
+<ul>
+<li>Real model: <span class="math display">\[\begin{aligned} y_i &amp;= β_1 + β_2w_t + v_t \\
+E[v_t \ | \ w_t] &amp;= 0\end{aligned}\]</span></li>
+<li>Measurement error: <span class="math inline">\(x_t = w_t + u_t\)</span></li>
+<li>Estimated model: <span class="math display">\[y_i = β_1 + β_2x_t + \underbrace{v_t - β_2u_t}_{ε_t}\]</span>
+<ul>
+<li><span class="math inline">\(x_t\)</span> depends on <span class="math inline">\(u_t\)</span>, <span class="math inline">\(ε_t\)</span> depends on <span class="math inline">\(u_t\implies E[x_tε_t]\neq 0\)</span></li>
+<li>Inconsistency of one estimator carries over to all other estimators
+<span class="math display">\[\begin{aligned}\text{plim} (b_2 - β_2) &amp;= β_2\Big(- \frac{σ^2_u}{σ^2_w + σ^2_u}\Big) \\
+  \text{plim} (b_1 - β_1) &amp;= -\text{plim} (b_2 - β_2)\cdot E[x_t]\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="omitted-variable-bias" class="section level3">
+<h3>Omitted Variable Bias</h3>
+<ul>
+<li>Omitted regressor / factor is correlated with included regressors
+<ul>
+<li>Violates ceteris paribus condition when interpreting the <a href="#statistical-model">model</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="reverse-causality" class="section level3">
+<h3>Reverse Causality</h3>
+</div>
+<div id="gmm-generalized-method-of-moments" class="section level3">
+<h3>GMM (Generalized Method of Moments)</h3>
+</div>
 </div>
 <div id="iv-instrument-variable" class="section level2">
 <h2>IV (Instrument Variable)</h2>
@@ -1269,35 +1379,6 @@ Var(ρ ε_{t-1} + v_t) &= Var(ε_{t-1}) \\
 ρ\cdot Var(ε_{t-1}) + Var(v_t) &= Var(ε_{t-1}) \\
 Var(ε_{t-1}) &= \frac{σ_v^2}{1-ρ} > 0 \\
 ρ &< 1\end{aligned}$$ --></li>
-</ol>
-<blockquote>
-<p>Mock.Q2.3<br />
-Consider the following regression model with a lagged dependent variable only:<br />
-<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span>
-One can show that<br />
-<span class="math display">\[\text{plim }b = \frac{β+ρ}{1+βρ}\]</span>
-where <span class="math inline">\(b\)</span> denotes the OLS estimator for <span class="math inline">\(β\)</span> obtained from the regression model.<br />
-Suppose that the true <span class="math inline">\(β\)</span> equals $0.54 and that <span class="math inline">\(ρ\in (0,1)\)</span>.<br />
-1. Explain whether the OLS estimator <span class="math inline">\(b\)</span> is biased and if so in which direction?<br />
-2. What happens in the limiting cases where <span class="math inline">\(ρ\to 0\)</span> or <span class="math inline">\(ρ\to 1\)</span>?<br />
-3. Would the endogeneity bias be circumvented by estimating the following alternative regression?<br />
-<span class="math inline">\(y_t = β_1 y_{t-1} + β_2 y_{t-2} + β_3 y_{t-3} + w_t\)</span></p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Yes.<br />
-<span class="math display">\[\begin{aligned} \text{plim }b &amp;= \frac{β+ρ}{1+βρ} \\
-&amp;= \frac{1+\frac{ρ}{β}}{\frac{1}{β}+ρ} \\
-&amp;= \frac{1+\frac{ρ}{β}+ βρ - βρ}{\frac{1}{β}+ρ} \\
-&amp;= \frac{1+ βρ}{\frac{1}{β}+ρ} + \frac{\frac{ρ}{β}- βρ}{\frac{1}{β}+ρ} \\
-&amp;= β + \frac{\frac{1}{β}- β}{\frac{1}{β}+ρ}\cdot ρ \end{aligned}\]</span></li>
-<li>When <span class="math inline">\(ρ\to 0\)</span>, <span class="math inline">\(\text{plim }b\to β\)</span> (unbiasedness)<br />
-When <span class="math inline">\(ρ\to 1\)</span>, <span class="math inline">\(\text{plim }b\to 1\)</span><br />
-</li>
-<li>Yes, yet with efficiency loss if include <span class="math inline">\(t-3\)</span> term.<br />
-Rewrite the original model with lag operater:<br />
-<span class="math display">\[\begin{aligned} y_t &amp;= βL y_t + ε_t \\
-(1-βL) y_t &amp;= ε_t \end{aligned}\]</span>
-Therefore, two lags will be sufficient.</li>
 </ol>
 <blockquote>
 <p>Mock.Q2.4<br />
