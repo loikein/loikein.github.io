@@ -139,8 +139,7 @@
 <li><a href="#reverse-causality">Reverse Causality</a></li>
 <li><a href="#gmm-generalized-method-of-moments">GMM (Generalized Method of Moments)</a></li>
 </ul></li>
-<li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
-<li><a href="#derive-iv">Derive IV</a></li>
+<li><a href="#iv-instrumental-variable">IV (Instrumental Variable)</a><ul>
 <li><a href="#iv-estimator-_iv">IV Estimator ^β_IV</a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
@@ -1095,23 +1094,27 @@ E[v_t \ | \ w_t] &amp;= 0\end{aligned}\]</span></li>
 <h3>GMM (Generalized Method of Moments)</h3>
 </div>
 </div>
-<div id="iv-instrument-variable" class="section level2">
-<h2>IV (Instrument Variable)</h2>
-<div id="derive-iv" class="section level3">
-<h3>Derive IV</h3>
+<div id="iv-instrumental-variable" class="section level2">
+<h2>IV (Instrumental Variable)</h2>
 <p>textbook P150, slide 9-1</p>
-<p>Consider model<br />
-<span class="math display">\[y_i = x_{1i}&#39; β_1 + x_{2i} β_2 + ε_i\]</span>
-Moment (expectation) conditions:<br />
+<ul>
+<li>Consider <a href="#reverse-causality">Keynesian consumption model</a>
+<span class="math display">\[y_i = x_{1i}&#39; β_1 + x_{2i} β_2 + ε_i\]</span></li>
+<li>Moment conditions:<br />
 <span class="math display">\[\begin{aligned} E[ε_i x_{1i}] &amp;= E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) x_{1i}\right] = 0 &amp;&amp; \text{(1)}\\
 E[ε_i x_{2i}] &amp;= E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) x_{2i}\right] = 0 &amp;&amp; \text{(2)}\end{aligned}\]</span>
-If <span class="math inline">\(E[ε_i x_{2i}] \neq 0\)</span>, OLS gives inconsistent estimator of <span class="math inline">\(β_2\)</span>, need to find instrument variable <span class="math inline">\(z_{2i}\)</span> s.t. (exogeneity)<br />
+But <span class="math inline">\(E[ε_i x_{2i}] \neq 0\)</span></li>
+<li>Find instrument variable <span class="math inline">\(z_{2i}\)</span> s.t. <span class="math inline">\(E[z_{2i} ε_i] = 0\)</span> (exogeneity)<br />
 <span class="math display">\[\begin{aligned} E[ε_i z_{2i}] = E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) z_{2i}\right] = 0  &amp;&amp; \text{(3)} \end{aligned}\]</span>
-Solving (1) and (3) gives consistent estimator <span class="math inline">\(\hat{β}_{IV}\)</span>.</p>
-<p>Test relavance of <span class="math inline">\(z_{2i}\)</span>:<br />
-<span class="math display">\[\text{Auxiliary Regression: }x_{2i} = x_{1i}&#39; π_1 + z_{2i} π_2 + v_i\]</span>
-should yield <span class="math inline">\(π_2 \neq 0\)</span>.</p>
-</div>
+<ul>
+<li>Solving (1) and (3) gives consistent estimator <span class="math inline">\(\hat{β}_{IV}\)</span>.</li>
+</ul></li>
+<li>Relevance of <span class="math inline">\(z_{2i}\)</span>: <span class="math inline">\(Cov(x_{2t}, z_{2t})\neq 0\)</span></li>
+</ul>
+<!--
+$$\text{Auxiliary Regression: }x_{2i} = x_{1i}' π_1 + z_{2i} π_2 + v_i$$ 
+should yield $π_2 \neq 0$. 
+-->
 <div id="iv-estimator-_iv" class="section level3">
 <h3>IV Estimator ^β_IV</h3>
 <blockquote>
