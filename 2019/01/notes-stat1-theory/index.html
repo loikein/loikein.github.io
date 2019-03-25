@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">33 min read</span>
+    <span class="article-duration">34 min read</span>
     
 
     <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
@@ -125,11 +125,12 @@
 </ul></li>
 <li><a href="#error-problems">Error Problems</a><ul>
 <li><a href="#heteroskedasticity">Heteroskedasticity</a></li>
+<li><a href="#autocorrelation-serial-correlation">Autocorrelation (Serial Correlation)</a></li>
 <li><a href="#white-hc-standard-error">White (HC) Standard Error</a></li>
-<li><a href="#autocorrelation">Autocorrelation</a></li>
 <li><a href="#hac-robust-standard-error">HAC (Robust) Standard Error</a></li>
 <li><a href="#gls-generalized-least-squares-estimator">GLS (Generalized Least Squares) Estimator</a></li>
 <li><a href="#egls-feasible-estimated-gls-estimator">EGLS (Feasible Estimated GLS) Estimator</a></li>
+<li><a href="#wls-weighted-ls-estimator">WLS (Weighted LS) Estimator</a></li>
 </ul></li>
 <li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a></li>
 <li><a href="#iv-instrument-variable">IV (Instrument Variable)</a><ul>
@@ -180,8 +181,8 @@ Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A58
 <div id="ols-method" class="section level3">
 <h3>OLS Method</h3>
 <ul>
-<li>Regressand: <span class="math inline">\(y = [y_1, y_2, \dots, y_N]\)</span> (K*1)</li>
-<li>Regressor: <span class="math inline">\(x_i = [1, x_{i2}, \dots, x_{iK}]\)</span> (K<em>1), <span class="math inline">\(X = [x_1&#39;, x_2&#39;, \dots, x_N&#39;]\)</span> (N</em>K)</li>
+<li>Regressand: <span class="math inline">\(y = [y_1, y_2, \dots, y_N]\)</span> (N*1)</li>
+<li>Regressor: <span class="math inline">\(x_i = [1, x_{i2}, \dots, x_{iK}]\)</span> (K*1), <span class="math inline">\(X = [x_1&#39;, x_2&#39;, \dots, x_N&#39;]\)</span> (N*K)</li>
 <li>Estimator: <span class="math inline">\(β = [β_1, β_2, \dots, β_K]\)</span> (K*1)</li>
 <li>Let the difference between observation and estimation be<br />
 <span class="math display">\[y - X&#39;\cdot β\]</span>
@@ -853,7 +854,10 @@ b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 <ul>
 <li>Exist different groups in the data</li>
 </ul></li>
-<li>Signs</li>
+<li>Signs
+<ul>
+<li>Scatter plot</li>
+</ul></li>
 <li>Solution
 <ul>
 <li>Use another specification</li>
@@ -863,22 +867,12 @@ b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 </ul></li>
 </ul>
 </div>
-<div id="white-hc-standard-error" class="section level3">
-<h3>White (HC) Standard Error</h3>
-<p>(slide 6 P18)</p>
-<blockquote>
-<p>PS4.Q2.4<br />
-T/F?<br />
-When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
-</blockquote>
-<p>True.</p>
-</div>
-<div id="autocorrelation" class="section level3">
-<h3>Autocorrelation</h3>
+<div id="autocorrelation-serial-correlation" class="section level3">
+<h3>Autocorrelation (Serial Correlation)</h3>
 <ul>
 <li>Different error terms are correlated, covariance matrix is nondiagonal
 <ul>
-<li>Data have a time dimension</li>
+<li>Data have a time / space dimension: not randomly sampled, time series / panel</li>
 <li><span class="math inline">\(Ψ\)</span> is NOT diagonal matrix</li>
 </ul></li>
 <li>Signs</li>
@@ -889,6 +883,18 @@ When applying White robust standard errors under heteroskedasticity, the t-stati
 <li><a href="#gls-generalized-least-squares-estimator">GLS Estimator</a></li>
 </ul></li>
 </ul>
+</div>
+<div id="white-hc-standard-error" class="section level3">
+<h3>White (HC) Standard Error</h3>
+<p>slide 6 P18, textbook P105, Greene P163</p>
+<p><span class="math display">\[\begin{aligned}Var(β) &amp;= σ^2 (X&#39;X)^{-1}\cdot X&#39;ΨX \cdot (X&#39;X)^{-1} \\
+ \hat{Var}(b) &amp;= (X&#39;X)^{-1}\cdot X&#39; (e&#39;e) X\cdot (X&#39;X)^{-1}\end{aligned}\]</span></p>
+<blockquote>
+<p>PS4.Q2.4<br />
+T/F?<br />
+When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
+</blockquote>
+<p>True.</p>
 </div>
 <div id="hac-robust-standard-error" class="section level3">
 <h3>HAC (Robust) Standard Error</h3>
@@ -931,6 +937,23 @@ y^* &amp;= X^*β + ε^* \end{aligned}\]</span></li>
 <li>Consistent, asymptotically best, but not BLUE</li>
 </ul>
 </div>
+<div id="wls-weighted-ls-estimator" class="section level3">
+<h3>WLS (Weighted LS) Estimator</h3>
+<p>slide 16 P16, textbook P102 106</p>
+<ul>
+<li>Form of heteroskedasticity: <span class="math display">\[\begin{aligned}Ψ &amp;= Diag(h_i^2) \\Var(ε_i) &amp;= σ^2 h_i^2 \\ 
+\underbrace{\frac{y_i}{h_i}}_{y_i^*} &amp;= \Big( \underbrace{\frac{x_i}{h_i}}_{x_i^*}\Big)&#39; β + \underbrace{\frac{ε_i}{h_i}}_{ε_i^*}\end{aligned}\]</span></li>
+<li>WLS Estimator: <span class="math display">\[\begin{aligned} \hat{β} &amp;= \Big( \sum_N x_i^*x_i^{*\prime} \Big)^{-1} \sum_N x_i^*y_i^* \\
+&amp;= \bigg(\sum_N \frac{x_ix_i&#39;}{h_i^2}\bigg)^{-1} \sum_N \frac{x_iy_i}{h_i^2}\end{aligned}\]</span></li>
+<li>Estimated form of heteroskedasticity: <span class="math display">\[\begin{aligned} Var(ε_i) &amp;= σ_i^2 \\
+&amp;= σ^2 \cdot \exp(z_i&#39;α) \\
+\log (σ_i^2) &amp;= \log(σ^2) + z_i&#39;α \\
+\log (e_i^2) &amp;= \log(σ^2) + z_i&#39;α + \underbrace{v_i}_{\text{Error}} \\
+e_i^2 &amp;= σ^2 \cdot \exp(z_i&#39;α) \cdot \exp(v_i) \\
+\frac{e_i^2}{σ^2} &amp;= \exp(z_i&#39;α)\cdot \exp(v_i)\end{aligned}\]</span>
+OLS estimation yeilds <span class="math display">\[\hat{h}_i^2 = \exp(z_i&#39;\hat{α})\]</span></li>
+</ul>
+</div>
 </div>
 <div id="regressor-problem-endogeneity" class="section level2">
 <h2>Regressor Problem: Endogeneity</h2>
@@ -939,8 +962,8 @@ y^* &amp;= X^*β + ε^* \end{aligned}\]</span></li>
 <h2>IV (Instrument Variable)</h2>
 <div id="derive-iv" class="section level3">
 <h3>Derive IV</h3>
-<p>(textbook P150, slide 9-1)<br />
-Consider model<br />
+<p>textbook P150, slide 9-1</p>
+<p>Consider model<br />
 <span class="math display">\[y_i = x_{1i}&#39; β_1 + x_{2i} β_2 + ε_i\]</span>
 Moment (expectation) conditions:<br />
 <span class="math display">\[\begin{aligned} E[ε_i x_{1i}] &amp;= E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) x_{1i}\right] = 0 &amp;&amp; \text{(1)}\\

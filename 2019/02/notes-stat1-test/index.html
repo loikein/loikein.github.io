@@ -111,7 +111,7 @@
 <li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
 <li><a href="#durbin-watson-test-autocorrelation">Durbin-Watson Test (Autocorrelation)</a></li>
 <li><a href="#goldfeld-quandt-test-heteroskedasticity">Goldfeld-Quandt Test (Heteroskedasticity)</a></li>
-<li><a href="#breusch-pagan-lm-test-heteroskedasticity">Breusch-Pagan (LM) Test (Heteroskedasticity)</a></li>
+<li><a href="#breusch-pagan-test-heteroskedasticity">Breusch-Pagan Test (Heteroskedasticity)</a></li>
 <li><a href="#breusch-godfrey-test-autocorrelation">Breusch-Godfrey Test (Autocorrelation)</a></li>
 <li><a href="#box-pierce-test-autocorrelation">Box-Pierce Test (Autocorrelation)</a></li>
 <li><a href="#sargan-test-give-overidentification">Sargan Test (GIVE Overidentification)</a></li>
@@ -330,23 +330,31 @@ Chow test can also be used to detach groups in a cross-sectional regression.</p>
 </div>
 <div id="goldfeld-quandt-test-heteroskedasticity" class="section level2">
 <h2>Goldfeld-Quandt Test (Heteroskedasticity)</h2>
-<p>(slide 6 P20)<br />
-Assume there are two different groups in the observations, <span class="math inline">\(N_A\)</span> and <span class="math inline">\(N_B\)</span><br />
+<p>slide 6 P20</p>
+<p>Assume there are two different groups in the observations, <span class="math inline">\(N_A\)</span> and <span class="math inline">\(N_B\)</span><br />
 <span class="math display">\[\begin{aligned} GQ = \frac{s_A^2}{s_B^2} ∼F^{N_A-K}_{N_B-K}\end{aligned}\]</span>
 <span class="math inline">\(s^2_i = \frac{1}{N_i - K}e&#39;e\)</span> is the unbiased estimator for <span class="math inline">\(σ^2_i\)</span>, and <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's.</p>
 </div>
-<div id="breusch-pagan-lm-test-heteroskedasticity" class="section level2">
-<h2>Breusch-Pagan (LM) Test (Heteroskedasticity)</h2>
-<p>(textbook P109, slide 6 P20)<br />
-For <span class="math inline">\(y_i = x_i&#39;β + ε_i\)</span>, and <span class="math inline">\(z_i\)</span> (J-dimensional)<br />
-Heteroskedasticity may be generated as:<br />
-<span class="math display">\[\begin{aligned} V\{ε_i | x+i\} &amp;= σ_i^2 \\
+<div id="breusch-pagan-test-heteroskedasticity" class="section level2">
+<h2>Breusch-Pagan Test (Heteroskedasticity)</h2>
+<p>textbook P109, slide 6 P20</p>
+<ul>
+<li><a href="../../01/notes-stat1-theory/#wls-weighted-ls-estimator">Assumed form of heteroskedasticity</a></li>
+<li>Lagrange multiplier (LM) test
+<ul>
+<li>No need to estimat restricted model</li>
+<li>Auxiliary regression</li>
+</ul></li>
+</ul>
+<p>For <span class="math inline">\(y_i = x_i&#39;β + ε_i\)</span>, and <span class="math inline">\(z_i\)</span> (J-dimensional)<br />
+Heteroskedasticity:<br />
+<span class="math display">\[\begin{aligned} V\{ε_i | x_i\} &amp;= σ_i^2 \\
 &amp;= σ^2\cdot h(z_i \cdot α) \end{aligned}\]</span>
 The test:<br />
-<span class="math display">\[\begin{aligned}\text{Auxiliary regression: } e_i^2 &amp;= z_i&#39;\underbrace{α}_{\text{to be estimated}}+ \underbrace{v_i}_{\text{error}}\\
-\text{Test statistic: }LM(ξ) &amp;= N\cdot R^2 ∼^a χ^2_J \\
-H_0: \ α &amp;= 0 \\
-H_1: \ α &amp;\neq 0\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\text{Auxiliary regression} &amp;&amp; e_i^2 &amp;= z_i&#39;α+ v_i\\
+\text{Test statistic} &amp;&amp; LM(ξ) &amp;= N\cdot R^2 ∼^a χ^2_J \\
+&amp;&amp; H_0: \ α &amp;= 0 \\
+&amp;&amp; H_1: \ α &amp;\neq 0\end{aligned}\]</span>
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(R^2\)</span> is the R-quare of auxiliary regression, and <span class="math inline">\(J\)</span> is the dimension of <span class="math inline">\(z_i\)</span>.</p>
 </div>
 <div id="breusch-godfrey-test-autocorrelation" class="section level2">
