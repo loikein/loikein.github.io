@@ -109,11 +109,15 @@
 <li><a href="#j-test-non-nested-model">J Test (Non-Nested Model)</a></li>
 <li><a href="#pe-test-linear-vs-log">PE Test (Linear vs Log)</a></li>
 <li><a href="#chow-breakpoint-test">Chow (Breakpoint) Test</a></li>
-<li><a href="#durbin-watson-test-autocorrelation">Durbin-Watson Test (Autocorrelation)</a></li>
-<li><a href="#goldfeld-quandt-test-heteroskedasticity">Goldfeld-Quandt Test (Heteroskedasticity)</a></li>
-<li><a href="#breusch-pagan-test-heteroskedasticity">Breusch-Pagan Test (Heteroskedasticity)</a></li>
-<li><a href="#breusch-godfrey-test-autocorrelation">Breusch-Godfrey Test (Autocorrelation)</a></li>
-<li><a href="#box-pierce-test-autocorrelation">Box-Pierce Test (Autocorrelation)</a></li>
+<li><a href="#heteroskedasticity-test">Heteroskedasticity Test</a><ul>
+<li><a href="#goldfeld-quandt">Goldfeld-Quandt</a></li>
+<li><a href="#breusch-pagan-test">Breusch-Pagan Test</a></li>
+</ul></li>
+<li><a href="#autocorrelation-test">Autocorrelation Test</a><ul>
+<li><a href="#durbin-watson">Durbin-Watson</a></li>
+<li><a href="#breusch-godfrey">Breusch-Godfrey</a></li>
+<li><a href="#box-pierce">Box-Pierce</a></li>
+</ul></li>
 <li><a href="#sargan-test-give-overidentification">Sargan Test (GIVE Overidentification)</a></li>
 <li><a href="#durbin-wu-hausman-test-endogeneity">Durbin-Wu-Hausman Test (Endogeneity)</a></li>
 <li><a href="#df-dickey-fuller-test">DF (Dickey-Fuller) Test</a><ul>
@@ -319,28 +323,17 @@ The Chow test cannot be applied in a cross-sectional regression.</p>
 <p>False.<br />
 Chow test can also be used to detach groups in a cross-sectional regression.</p>
 </div>
-<div id="durbin-watson-test-autocorrelation" class="section level2">
-<h2>Durbin-Watson Test (Autocorrelation)</h2>
-<p>textbook P120, slide 7 P7</p>
-<ul>
-<li>(A2) all errors and independent variables are independent</li>
-<li>Non-zero intercept</li>
-<li>No lagged dependent variable (<span class="math inline">\(y_i\)</span>)</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}dw &amp;= \frac{\sum_N (e_t - e_{t-1})^2}{\sum_N e_t^2} \\
-&amp;\approx 2 - 2\hat{ρ} \\
-&amp;= 2 - 2\cdot\frac{\sum_N e_te_{t-1}}{\sum_N e_{t-1}^2}\end{aligned}\]</span>
-<span class="math inline">\(H_0\)</span>: <span class="math inline">\(ρ = 0\iff dw = 2\)</span></p>
-</div>
-<div id="goldfeld-quandt-test-heteroskedasticity" class="section level2">
-<h2>Goldfeld-Quandt Test (Heteroskedasticity)</h2>
+<div id="heteroskedasticity-test" class="section level2">
+<h2>Heteroskedasticity Test</h2>
+<div id="goldfeld-quandt" class="section level3">
+<h3>Goldfeld-Quandt</h3>
 <p>slide 6 P20</p>
 <p>Assume there are two different groups in the observations, <span class="math inline">\(N_A\)</span> and <span class="math inline">\(N_B\)</span><br />
 <span class="math display">\[\begin{aligned} GQ = \frac{s_A^2}{s_B^2} ∼F^{N_A-K}_{N_B-K}\end{aligned}\]</span>
 <span class="math inline">\(s^2_i = \frac{1}{N_i - K}e&#39;e\)</span> is the unbiased estimator for <span class="math inline">\(σ^2_i\)</span>, and <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's.</p>
 </div>
-<div id="breusch-pagan-test-heteroskedasticity" class="section level2">
-<h2>Breusch-Pagan Test (Heteroskedasticity)</h2>
+<div id="breusch-pagan-test" class="section level3">
+<h3>Breusch-Pagan Test</h3>
 <p>textbook P109, slide 6 P20</p>
 <ul>
 <li><a href="../../01/notes-stat1-theory/#wls-weighted-ls-estimator">Assumed form of heteroskedasticity</a></li>
@@ -361,17 +354,39 @@ The test:<br />
 &amp;&amp; H_1: \ α &amp;\neq 0\end{aligned}\]</span>
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(R^2\)</span> is the R-quare of auxiliary regression, and <span class="math inline">\(J\)</span> is the dimension of <span class="math inline">\(z_i\)</span>.</p>
 </div>
-<div id="breusch-godfrey-test-autocorrelation" class="section level2">
-<h2>Breusch-Godfrey Test (Autocorrelation)</h2>
-<p>(slide 7 P12)</p>
 </div>
-<div id="box-pierce-test-autocorrelation" class="section level2">
-<h2>Box-Pierce Test (Autocorrelation)</h2>
-<p>(slide 7 P12)<br />
-For <span class="math inline">\(ε_t = ρε_{t-1} + v_t\)</span>:<br />
-<span class="math display">\[Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2\]</span>
+<div id="autocorrelation-test" class="section level2">
+<h2>Autocorrelation Test</h2>
+<div id="durbin-watson" class="section level3">
+<h3>Durbin-Watson</h3>
+<p>textbook P120, slide 7 P7</p>
+<ul>
+<li>(A2) all errors and independent variables are independent</li>
+<li>Non-zero intercept</li>
+<li>No lagged dependent variable (<span class="math inline">\(y_i\)</span>)</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}dw &amp;= \frac{\sum_N (e_t - e_{t-1})^2}{\sum_N e_t^2} \\
+&amp;\approx 2 - 2\hat{ρ} \\
+&amp;= 2 - 2\cdot\frac{\sum_N e_te_{t-1}}{\sum_N e_{t-1}^2}\end{aligned}\]</span>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(ρ = 0\iff dw = 2\)</span></p>
+</div>
+<div id="breusch-godfrey" class="section level3">
+<h3>Breusch-Godfrey</h3>
+<p>slide 7 P12</p>
+<ul>
+<li>LM test</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}\text{Assumed form of error} &amp;&amp; ε_t &amp;= ρ_1 ε_{t-1} + \dots + ρ_m ε_{t-m} + v_t \\
+\text{Auxiliary regression} &amp;&amp; e_t &amp;= x_t&#39;β + \underbrace{ρ_1 e_{t-1} + \dots + ρ_m e_{t-m}}_{H_0: = 0} + v_t \\
+\text{Test statistic} &amp;&amp; LM &amp;= T\cdot R^2 ∼^a χ_m^2\end{aligned}\]</span></p>
+</div>
+<div id="box-pierce" class="section level3">
+<h3>Box-Pierce</h3>
+<p>slide 7 P12</p>
+<p><span class="math display">\[Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2\]</span>
 <span class="math inline">\(H_0\)</span>: <span class="math inline">\(Q_m ∼^a χ^2_m\)</span><br />
 <span class="math inline">\(T\)</span> is number of observations, <span class="math inline">\(m\)</span> is number of lags, and <span class="math inline">\(ρ\)</span> 's are parameters.</p>
+</div>
 </div>
 <div id="sargan-test-give-overidentification" class="section level2">
 <h2>Sargan Test (GIVE Overidentification)</h2>
