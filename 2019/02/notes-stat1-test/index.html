@@ -118,9 +118,9 @@
 <li><a href="#breusch-godfrey">Breusch-Godfrey</a></li>
 <li><a href="#box-pierce">Box-Pierce</a></li>
 </ul></li>
-<li><a href="#endogeneity-test">Endogeneity Test</a><ul>
+<li><a href="#instrumental-variable-test">Instrumental Variable Test</a><ul>
 <li><a href="#durbin-wu-hausman-test-endogeneity">Durbin-Wu-Hausman Test (Endogeneity)</a></li>
-<li><a href="#sargan-give-overidentification">Sargan (GIVE Overidentification)</a></li>
+<li><a href="#sargan-overidentification">Sargan (Overidentification)</a></li>
 </ul></li>
 <li><a href="#df-dickey-fuller-test">DF (Dickey-Fuller) Test</a><ul>
 <li><a href="#unit-root">Unit Root</a></li>
@@ -170,12 +170,12 @@ R^2_2 &amp;\geq R^2_1 \end{aligned}\]</span></p>
 <p>textbook P26, slide 3 P16</p>
 <ul>
 <li><a href="../../01/notes-stat1-theory/#normality-of-b">Normality of b</a></li>
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(b_k = β^0_k\)</span></li>
 <li><span class="math inline">\(H_0\)</span> is rejected if <span class="math inline">\(t_k\)</span> is significantly different to some critical value <span class="math inline">\(\begin{cases}\text{one-sided} &amp; t_{N-K; α} \\ \text{two-sided} &amp; t_{N-K; α/2} \end{cases}\)</span></li>
 </ul>
 <p><span class="math display">\[\begin{aligned} z &amp;= \frac{b_k - β_k}{se(b_k)} ∼ \mathcal{N}(0,1) \\
 t_k &amp;= \frac{b_k - β^0_k}{se(b_k)} \end{aligned}\]</span></p>
-<p><span class="math inline">\(H_0\)</span>: <span class="math inline">\(b_k = β^0_k\)</span>,<br />
-<span class="math inline">\(t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)\)</span><br />
+<p><span class="math inline">\(t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)\)</span><br />
 <span class="math inline">\(N\)</span> is the number of observations, <span class="math inline">\(K\)</span> is the number of <span class="math inline">\(β\)</span> 's.</p>
 <blockquote>
 <p>PS4.Q2.9<br />
@@ -390,14 +390,22 @@ The test:<br />
 <span class="math inline">\(T\)</span> is number of observations, <span class="math inline">\(m\)</span> is number of lags, and <span class="math inline">\(ρ\)</span> 's are parameters.</p>
 </div>
 </div>
-<div id="endogeneity-test" class="section level2">
-<h2>Endogeneity Test</h2>
+<div id="instrumental-variable-test" class="section level2">
+<h2>Instrumental Variable Test</h2>
 <div id="durbin-wu-hausman-test-endogeneity" class="section level3">
 <h3>Durbin-Wu-Hausman Test (Endogeneity)</h3>
 <p>textbook P154, slide 9-2 P15</p>
+<ul>
+<li>Assumption: IV is valid</li>
+<li><span class="math inline">\(H_0\)</span>: Both OLS and IV estimators are consistent <span class="math inline">\(\iff γ = 0\)</span></li>
+<li><span class="math inline">\(H_1\)</span>: OLS estimators is inconsistent, IV estimators is consistent</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}\text{Original model:} &amp;&amp; y_i &amp;= β_1x_{1i} + β_2z_{2i} + \underbrace{v_i}_{\text{As error}} \\
+\text{Regress on:} &amp;&amp; y_i &amp;= β_1x_{1i} + β_2z_{2i} + \underbrace{γ\cdot v_i}_{\text{As regressor}} + ε_i \\
+\text{Test statistic:} &amp;&amp; t &amp;= \frac{γ}{se(γ)} ∼ t\end{aligned}\]</span></p>
 </div>
-<div id="sargan-give-overidentification" class="section level3">
-<h3>Sargan (GIVE Overidentification)</h3>
+<div id="sargan-overidentification" class="section level3">
+<h3>Sargan (Overidentification)</h3>
 <p>textbook P168, slide 9-2 P14</p>
 </div>
 </div>

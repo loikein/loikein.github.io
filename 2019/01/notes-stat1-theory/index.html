@@ -139,7 +139,6 @@
 <li><a href="#reverse-causality">Reverse Causality</a></li>
 <li><a href="#iv-instrumental-variable">IV (Instrumental Variable)</a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
-<li><a href="#gmm-generalized-method-of-moments">GMM (Generalized Method of Moments)</a></li>
 </ul></li>
 <li><a href="#ml-maximum-likelihood-model">ML (Maximum Likelihood) Model</a><ul>
 <li><a href="#assumption">Assumption</a></li>
@@ -1092,14 +1091,13 @@ E[v_t \ | \ w_t] &amp;= 0\end{aligned}\]</span></li>
 <h3>IV (Instrumental Variable)</h3>
 <p>textbook P150, slide 9-1</p>
 <ul>
-<li>Consider <a href="#reverse-causality">Keynesian consumption model</a>
-<span class="math display">\[y_i = x_{1i}&#39; β_1 + x_{2i} β_2 + ε_i\]</span></li>
+<li>Consider Keynesian consumption model <span class="math display">\[y_i = β_1x_{1i} + β_2x_{2i} + ε_i\]</span></li>
 <li>Moment conditions:<br />
-<span class="math display">\[\begin{aligned} E[ε_i x_{1i}] &amp;= E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) x_{1i}\right] = 0 &amp;&amp; \text{(1)}\\
-E[ε_i x_{2i}] &amp;= E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) x_{2i}\right] = 0 &amp;&amp; \text{(2)}\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} E[ε_i x_{1i}] &amp;= E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) x_{1i}\right] = 0 &amp;&amp; \text{(1)}\\
+E[ε_i x_{2i}] &amp;= E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) x_{2i}\right] = 0 &amp;&amp; \text{(2)}\end{aligned}\]</span>
 But <span class="math inline">\(E[ε_i x_{2i}] \neq 0\)</span></li>
 <li>Find instrument variable <span class="math inline">\(z_{2i}\)</span> s.t. <span class="math inline">\(\begin{cases}E[z_{2i} ε_i] = 0 &amp; \text{(exogeneity)} \\ Cov(x_{2t},z_{2t})\neq 0 &amp; \text{(relevance)} \end{cases}\)</span><br />
-<span class="math display">\[\begin{aligned} E[ε_i z_{2i}] = E\left[ (y_i - x_{1i}&#39; β_1 + x_{2i} β_2) z_{2i}\right] = 0  &amp;&amp; \text{(3)} \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned} E[ε_i z_{2i}] = E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) z_{2i}\right] = 0  &amp;&amp; \text{(3)} \end{aligned}\]</span>
 <ul>
 <li>Solving (1) and (3) gives consistent estimator <span class="math display">\[\hat{β}_{IV} = (Z&#39;X)^{-1}Z&#39;y\]</span></li>
 <li><span class="math inline">\(Z = [x_1&#39;, z_2&#39;]\)</span> (2*K)</li>
@@ -1110,17 +1108,6 @@ But <span class="math inline">\(E[ε_i x_{2i}] \neq 0\)</span></li>
 $$\text{Auxiliary Regression: }x_{2i} = x_{1i}' π_1 + z_{2i} π_2 + v_i$$ 
 should yield $π_2 \neq 0$. 
 -->
-<blockquote>
-<p>PS5.Q1<br />
-Show that <span class="math inline">\(\hat{β}_{IV} =(X&#39;ZW_N Z&#39;X)^{−1}X&#39;ZW_N Z&#39;y\)</span> minimizes<br />
-<span class="math display">\[\begin{aligned} Q_N(β) &amp;= \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right]&#39; W_N \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right] \\
-&amp;= \left[ \frac{1}{N}Z&#39; (y - X β) \right]&#39; W_N \left[ \frac{1}{N}Z&#39; (y - X β) \right] \end{aligned}\]</span></p>
-</blockquote>
-<p><span class="math display">\[\begin{aligned} Q_N(β) &amp;=  \frac{1}{N^2}\left[ (y&#39; - β&#39;X&#39;)Z W_N (Z&#39;y - Z&#39;X β) \right]
-\\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;yβ \right] \\
-&amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - 2\left( β&#39;X&#39;Z W_N Z&#39;y \right)  + β&#39;X&#39; Z W_N Z&#39;yβ \right] \end{aligned}\]</span>
-FOC<br />
-<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\ \hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span></p>
 <blockquote>
 <p>PS5.Q2<br />
 In model <span class="math inline">\(y = Xβ+ε\)</span>,<br />
@@ -1139,8 +1126,11 @@ Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span>:<br />
 </div>
 <div id="give-generalized-iv-estimator" class="section level3">
 <h3>GIVE (Generalized IV Estimator)</h3>
-<p>(textbook P166, slide 9-2 P8)<br />
-Also known as: 2SLS (two-stage least squares) estimator</p>
+<p>textbook P166, slide 9-2 P8</p>
+<ul>
+<li>Also as: 2SLS (two-stage least squares) estimator</li>
+<li>Have more instruments than endogenous variables</li>
+</ul>
 <blockquote>
 <p>PS5.Q3<br />
 Derive the GIVE.<br />
@@ -1178,9 +1168,18 @@ Therefore<br />
 &amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span>
 Note that this is the exact same variance matrix as in PS5.Q2</p></li>
 </ol>
-</div>
-<div id="gmm-generalized-method-of-moments" class="section level3">
-<h3>GMM (Generalized Method of Moments)</h3>
+<blockquote>
+<p>PS5.Q1<br />
+Show that <span class="math inline">\(\hat{β}_{IV} =(X&#39;ZW_N Z&#39;X)^{−1}X&#39;ZW_N Z&#39;y\)</span> minimizes<br />
+<span class="math display">\[\begin{aligned} Q_N(β) &amp;= \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right]&#39; W_N \left[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \right] \\
+&amp;= \left[ \frac{1}{N}Z&#39; (y - X β) \right]&#39; W_N \left[ \frac{1}{N}Z&#39; (y - X β) \right] \end{aligned}\]</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} Q_N(β) &amp;=  \frac{1}{N^2}\left[ (y&#39; - β&#39;X&#39;)Z W_N (Z&#39;y - Z&#39;X β) \right]
+\\ &amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;yβ \right] \\
+&amp;= \frac{1}{N^2}\left[ y&#39;ZW_NZ&#39;y - 2\left( β&#39;X&#39;Z W_N Z&#39;y \right)  + β&#39;X&#39; Z W_N Z&#39;yβ \right] \end{aligned}\]</span>
+FOC<br />
+<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\ \hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span></p>
+<!-- ### GMM (Generalized Method of Moments) -->
 </div>
 </div>
 <div id="ml-maximum-likelihood-model" class="section level2">
