@@ -303,8 +303,8 @@ Just <span class="math inline">\(\log\)</span> both of them.</p>
 </div>
 <div id="chow-breakpoint-test" class="section level2">
 <h2>Chow (Breakpoint) Test</h2>
-<p>(textbook P75, slide 5 P17)<br />
-<span class="math display">\[\begin{aligned}\text{Pooled Model: } y_i &amp;= x_i&#39; β + g_i x_i&#39; γ + ε_i \\ S_R &amp;= e&#39;e \\
+<p>textbook P75, slide 5 P17</p>
+<p><span class="math display">\[\begin{aligned}\text{Pooled Model: } y_i &amp;= x_i&#39; β + g_i x_i&#39; γ + ε_i \\ S_R &amp;= e&#39;e \\
 \text{Split Models: } y_i &amp;=  x_i&#39;β_1 + ε_i &amp;&amp; i = 1, \dots, T^* \\
 y_i &amp;=  x_i&#39;β_2 + ε_i &amp;&amp; i = T^*+1, \dots, n \\
 S_{UR} &amp;= e_1&#39; e_1 + e_2&#39; e_2\end{aligned}\]</span>
@@ -321,12 +321,16 @@ Chow test can also be used to detach groups in a cross-sectional regression.</p>
 </div>
 <div id="durbin-watson-test-autocorrelation" class="section level2">
 <h2>Durbin-Watson Test (Autocorrelation)</h2>
-<p>(textbook P120, slide 7 P7)</p>
+<p>textbook P120, slide 7 P7</p>
 <ul>
 <li>(A2) all errors and independent variables are independent</li>
 <li>Non-zero intercept</li>
 <li>No lagged dependent variable (<span class="math inline">\(y_i\)</span>)</li>
 </ul>
+<p><span class="math display">\[\begin{aligned}dw &amp;= \frac{\sum_N (e_t - e_{t-1})^2}{\sum_N e_t^2} \\
+&amp;\approx 2 - 2\hat{ρ} \\
+&amp;= 2 - 2\cdot\frac{\sum_N e_te_{t-1}}{\sum_N e_{t-1}^2}\end{aligned}\]</span>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(ρ = 0\iff dw = 2\)</span></p>
 </div>
 <div id="goldfeld-quandt-test-heteroskedasticity" class="section level2">
 <h2>Goldfeld-Quandt Test (Heteroskedasticity)</h2>

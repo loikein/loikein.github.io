@@ -874,11 +874,20 @@ b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
 <ul>
 <li>Data have a time / space dimension: not randomly sampled, time series / panel</li>
 <li><span class="math inline">\(Ψ\)</span> is NOT diagonal matrix</li>
+<li>Wrong funcitonal form, omitted variable, lacking dynamics</li>
 </ul></li>
-<li>Signs</li>
+<li>Signs
+<ul>
+<li>Serial trend in scatter plot</li>
+<li>Error follows <a href="#types-of-process">AR(1)</a> <span class="math display">\[\begin{aligned}ε_t &amp;= ρε_{t-1} + v_t \\
+  E[v_t^2] &amp;= σ^2_v \\
+  Var(ε_t) &amp;= \frac{σ^2_v}{1 - ρ^2} \\
+  Cov(ε_t, ε_{t-s}) &amp;= ρ^s\cdot\frac{σ^2_v}{1 - ρ^2} \\
+  Corr(ε_t, ε_{t-s}) &amp;= ρ^s\end{aligned}\]</span></li>
+</ul></li>
 <li>Solution
 <ul>
-<li>Use another specification</li>
+<li>Use another specification: include more variables <span class="math inline">\(\implies\)</span> tests are used as mis-specification tests</li>
 <li>HAC Standard Error</li>
 <li><a href="#gls-generalized-least-squares-estimator">GLS Estimator</a></li>
 </ul></li>
@@ -1160,19 +1169,27 @@ Otherwise, <span class="math inline">\(\frac{\ln L_1}{\ln L_0}\to 0\)</span>, <s
 <ul>
 <li>White Noise: <span class="math inline">\(ε_t\)</span>
 <ul>
-<li>Zero mean, homoskedastic (<span class="math inline">\(σ^2\)</span>), no autocorrelation</li>
+<li>Zero mean, homoskedastic (<span class="math inline">\(σ^2\)</span>), zero covariance / autocorrelation</li>
 </ul></li>
-<li>MA (1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span> (always stationary)
+<li>MA (1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span>
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= (1 + α^2)σ^2 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= \begin{cases} ασ^2 &amp; k=1\\ 0 &amp; k\geq 2\end{cases} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \begin{cases} \frac{α}{1 + α^2} &amp; k=1\\ 0 &amp; k\geq 2\end{cases}\end{aligned}\]</span>
 <ul>
-<li><span class="math inline">\(E[Y_t] = μ\)</span></li>
-<li><span class="math inline">\(Var(Y_t) = (1 + α^2)σ^2\)</span></li>
-<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = \begin{cases} ασ^2 &amp; k=1\\ 0 &amp; k\geq 2\end{cases}\)</span></li>
+<li>Always stationary</li>
 </ul></li>
-<li>AR (1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span>
+<li>AR (1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span><br />
+When stationary,
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= δ + θ E[Y_{t-1}] \\
+&amp;&amp; &amp;= \frac{δ}{1-θ} \\ 
+&amp;&amp; &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= θ^2Var(Y_{t-1}) + Var(ε_t) \\
+&amp;&amp; &amp;= \frac{σ^2}{1-θ^2} \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= θ^k\frac{σ^2}{1-θ^2} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} \\
+&amp;&amp; &amp;= θ^k \end{aligned}\]</span>
 <ul>
-<li><span class="math inline">\(E[Y_t] = δ + θ E[Y_{t-1}] = \frac{δ}{1-θ} = μ\)</span> (when stationary)</li>
-<li><span class="math inline">\(Var(Y_t) = θ^2Var(Y_{t-1}) + Var(ε_t) = \frac{σ^2}{1-θ^2}\)</span> (when stationary)</li>
-<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = θ^k\frac{σ^2}{1-θ^2}\)</span> (when stationary)</li>
 <li>Let <span class="math inline">\(y_t \equiv Y_t - μ\)</span>, <span class="math inline">\(y_t = θy_{t-1} + ε_t\)</span></li>
 </ul></li>
 <li>MA (q): <span class="math inline">\(Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span>
