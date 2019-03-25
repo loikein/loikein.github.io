@@ -119,8 +119,8 @@
 <li><a href="#box-pierce">Box-Pierce</a></li>
 </ul></li>
 <li><a href="#instrumental-variable-test">Instrumental Variable Test</a><ul>
-<li><a href="#durbin-wu-hausman-test-endogeneity">Durbin-Wu-Hausman Test (Endogeneity)</a></li>
-<li><a href="#sargan-overidentification">Sargan (Overidentification)</a></li>
+<li><a href="#durbin-wu-hausman-endogeneity">Durbin-Wu-Hausman (Endogeneity)</a></li>
+<li><a href="#sargan-instrument-validity">Sargan (Instrument Validity)</a></li>
 </ul></li>
 <li><a href="#df-dickey-fuller-test">DF (Dickey-Fuller) Test</a><ul>
 <li><a href="#unit-root">Unit Root</a></li>
@@ -378,9 +378,9 @@ The test:<br />
 <ul>
 <li>LM test</li>
 </ul>
-<p><span class="math display">\[\begin{aligned}\text{Assumed form of error} &amp;&amp; ε_t &amp;= ρ_1 ε_{t-1} + \dots + ρ_m ε_{t-m} + v_t \\
-\text{Auxiliary regression} &amp;&amp; e_t &amp;= x_t&#39;β + \underbrace{ρ_1 e_{t-1} + \dots + ρ_m e_{t-m}}_{H_0: = 0} + v_t \\
-\text{Test statistic} &amp;&amp; LM &amp;= T\cdot R^2 ∼^a χ_m^2\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}\text{Assumed form of error:} &amp;&amp; ε_t &amp;= ρ_1 ε_{t-1} + \dots + ρ_m ε_{t-m} + v_t \\
+\text{Auxiliary regression:} &amp;&amp; e_t &amp;= x_t&#39;β + \underbrace{ρ_1 e_{t-1} + \dots + ρ_m e_{t-m}}_{H_0: = 0} + v_t \\
+\text{Test statistic:} &amp;&amp; LM &amp;= T\cdot R^2 ∼^a χ_m^2\end{aligned}\]</span></p>
 </div>
 <div id="box-pierce" class="section level3">
 <h3>Box-Pierce</h3>
@@ -392,8 +392,8 @@ The test:<br />
 </div>
 <div id="instrumental-variable-test" class="section level2">
 <h2>Instrumental Variable Test</h2>
-<div id="durbin-wu-hausman-test-endogeneity" class="section level3">
-<h3>Durbin-Wu-Hausman Test (Endogeneity)</h3>
+<div id="durbin-wu-hausman-endogeneity" class="section level3">
+<h3>Durbin-Wu-Hausman (Endogeneity)</h3>
 <p>textbook P154, slide 9-2 P15</p>
 <ul>
 <li>Assumption: IV is valid</li>
@@ -401,12 +401,21 @@ The test:<br />
 <li><span class="math inline">\(H_1\)</span>: OLS estimators is inconsistent, IV estimators is consistent</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}\text{Original model:} &amp;&amp; y_i &amp;= β_1x_{1i} + β_2z_{2i} + \underbrace{v_i}_{\text{As error}} \\
-\text{Regress on:} &amp;&amp; y_i &amp;= β_1x_{1i} + β_2z_{2i} + \underbrace{γ\cdot v_i}_{\text{As regressor}} + ε_i \\
+\text{Second regression:} &amp;&amp; y_i &amp;= β_1x_{1i} + β_2z_{2i} + \underbrace{γ\cdot v_i}_{\text{As regressor}} + ε_i \\
 \text{Test statistic:} &amp;&amp; t &amp;= \frac{γ}{se(γ)} ∼ t\end{aligned}\]</span></p>
 </div>
-<div id="sargan-overidentification" class="section level3">
-<h3>Sargan (Overidentification)</h3>
+<div id="sargan-instrument-validity" class="section level3">
+<h3>Sargan (Instrument Validity)</h3>
 <p>textbook P168, slide 9-2 P14</p>
+<ul>
+<li>Overspecification (<span class="math inline">\(R&gt;K\)</span>)</li>
+<li><a href="#give-generalized-iv-estimator">GIVE with optimal weighting matrix</a></li>
+<li><span class="math inline">\(H_0\)</span>: instruments are valid (sample moments are close to zero)</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}\text{Regress with GIVE:} &amp;&amp; y_i &amp;= z_i&#39;\hat{β}_{IV} + \hat{ε}_i \\
+\text{Auxiliary regression:} &amp;&amp; \hat{ε}_i &amp;= z_i&#39;\hat{β}_{IV} + v_i \\
+\text{Test statistic:} &amp;&amp; LM &amp;= N\cdot R^2 ∼^a χ_{R-K}^2 \\
+&amp;&amp; &amp;= N\cdot Q_N(\hat{β}_{IV})\end{aligned}\]</span></p>
 </div>
 </div>
 <div id="df-dickey-fuller-test" class="section level2">

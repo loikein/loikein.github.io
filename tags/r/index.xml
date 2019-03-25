@@ -17,7 +17,7 @@
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/02/notes-stat1-test/</guid>
-      <description>R^2 t-test F-test (Joint Test / Model Test) Wald Test Wald statistic F-statistic  BIC &amp;amp; AIC Nested Model Time Series  J Test (Non-Nested Model) PE Test (Linear vs Log) Chow (Breakpoint) Test Heteroskedasticity Test Goldfeld-Quandt Breusch-Pagan Test  Autocorrelation Test Durbin-Watson Breusch-Godfrey Box-Pierce  Instrumental Variable Test Durbin-Wu-Hausman Test (Endogeneity) Sargan (Overidentification)  DF (Dickey-Fuller) Test Unit Root Deterministic Trend ADF (Augmented Dickey-Fuller) Test Spurious Regression vs Cointegration  Ljung–Box (Portmanteau) Test (Residual Analysis) Hausman Test (FE vs RE) Read Regression Table   Warning: under proofreading</description>
+      <description>R^2 t-test F-test (Joint Test / Model Test) Wald Test Wald statistic F-statistic  BIC &amp;amp; AIC Nested Model Time Series  J Test (Non-Nested Model) PE Test (Linear vs Log) Chow (Breakpoint) Test Heteroskedasticity Test Goldfeld-Quandt Breusch-Pagan Test  Autocorrelation Test Durbin-Watson Breusch-Godfrey Box-Pierce  Instrumental Variable Test Durbin-Wu-Hausman (Endogeneity) Sargan (Instrument Validity)  DF (Dickey-Fuller) Test Unit Root Deterministic Trend ADF (Augmented Dickey-Fuller) Test Spurious Regression vs Cointegration  Ljung–Box (Portmanteau) Test (Residual Analysis) Hausman Test (FE vs RE) Read Regression Table   Warning: under proofreading</description>
     </item>
     
     <item>
