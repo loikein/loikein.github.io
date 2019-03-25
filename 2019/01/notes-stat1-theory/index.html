@@ -1052,7 +1052,7 @@ Therefore, two lags will be sufficient.</li>
 <li>Real model: <span class="math display">\[\begin{aligned} y_i &amp;= β_1 + β_2w_t + v_t \\
 E[v_t \ | \ w_t] &amp;= 0\end{aligned}\]</span></li>
 <li>Measurement error: <span class="math inline">\(x_t = w_t + u_t\)</span></li>
-<li>Estimated model: <span class="math display">\[y_i = β_1 + β_2x_t + \underbrace{v_t - β_2u_t}_{ε_t}\]</span>
+<li>Estimated model: <span class="math display">\[y_i = β_1 + β_2x_t + \underbrace{ε_t}_{v_t - β_2u_t}\]</span>
 <ul>
 <li><span class="math inline">\(x_t\)</span> depends on <span class="math inline">\(u_t\)</span>, <span class="math inline">\(ε_t\)</span> depends on <span class="math inline">\(u_t\implies E[x_tε_t]\neq 0\)</span></li>
 <li>Inconsistency of one estimator carries over to all other estimators
@@ -1068,10 +1068,28 @@ E[v_t \ | \ w_t] &amp;= 0\end{aligned}\]</span></li>
 <ul>
 <li>Violates ceteris paribus condition when interpreting the <a href="#statistical-model">model</a></li>
 </ul></li>
+<li>Real model: <span class="math display">\[y_i = x_{1i}&#39;β_1 + x_{2i}&#39;β_2 + u_iγ + v_i\]</span>
+<ul>
+<li>Estimated model: <span class="math display">\[\begin{aligned} y_i = β_1x_{1i} + β_2x_{2i} + \underbrace{ε_i}_{u_iγ + v_i}\end{aligned}\]</span></li>
+<li>Assume <span class="math inline">\(E[x_i v_i] = 0\)</span>, <span class="math display">\[\text{plim} (b - β) = Σ_{xx}^{-1} \cdot E[x_i u_i]\cdot \underbrace{γ}_{\neq 0}\]</span></li>
+<li><span class="math inline">\(E[x_i u_i]\neq 0\implies \text{plim} (b - β)\neq 0\)</span></li>
+</ul></li>
 </ul>
 </div>
 <div id="reverse-causality" class="section level3">
 <h3>Reverse Causality</h3>
+<ul>
+<li><span class="math inline">\(y\)</span> has impact on some of the <span class="math inline">\(x\)</span></li>
+<li>Example: Keynesian consumption function <span class="math display">\[\begin{aligned}&amp;&amp; y_t &amp;= β_1 + β_2 x_{2t} + ε_t \\
+&amp;&amp; x_{2t} &amp;= y_t + z_{2t} \\
+\text{Assume:} &amp;&amp; E[z_{2t} ε_t] &amp;= 0\end{aligned}\]</span>
+<ul>
+<li>Simultaneous equations model in structural form (structural model)</li>
+<li>Reduced form: <span class="math display">\[\begin{aligned}y_t &amp;= \frac{β_1}{1-β_2} + \frac{β_2}{1-β_2}z_{2t} +  \frac{1}{1-β_2}ε_t \\
+  x_t &amp;= \frac{β_1}{1-β_2} + \frac{1}{1-β_2}z_{2t} +  \frac{1}{1-β_2}ε_t \\
+  \text{plim} (b_2 - β_2) &amp;= (1-β_2) \frac{σ^2}{Var(z_{2t})+σ^2} \geq 0\end{aligned}\]</span></li>
+</ul></li>
+</ul>
 </div>
 <div id="gmm-generalized-method-of-moments" class="section level3">
 <h3>GMM (Generalized Method of Moments)</h3>
