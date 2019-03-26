@@ -104,7 +104,8 @@
 <li><a href="#dense">Dense</a></li>
 </ul></li>
 <li><a href="#function">Function</a><ul>
-<li><a href="#increasing-decreasing">Increasing / Decreasing</a></li>
+<li><a href="#image">Image</a></li>
+<li><a href="#injection-one-to-one-surjection-onto">Injection (One-to-one) &amp; Surjection (Onto)</a></li>
 <li><a href="#continuous">Continuous</a></li>
 <li><a href="#value-theorems">Value Theorems</a></li>
 <li><a href="#contraction">Contraction</a></li>
@@ -115,7 +116,7 @@
 <li><a href="#concave-convex">Concave &amp; Convex</a></li>
 <li><a href="#epigraph">Epigraph</a></li>
 </ul></li>
-<li><a href="#set-times-function">Set <span class="math inline">\(\times\)</span> Function</a><ul>
+<li><a href="#set-function">Set × Function</a><ul>
 <li><a href="#injection-surjection-revisited">Injection &amp; Surjection (revisited)</a></li>
 <li><a href="#finite-countable">Finite &amp; Countable</a></li>
 </ul></li>
@@ -124,11 +125,10 @@
 <li><a href="#convergent">Convergent</a></li>
 <li><a href="#limit-cluster-point">Limit &amp; Cluster Point</a></li>
 </ul></li>
-<li><a href="#set-times-sequence">Set <span class="math inline">\(\times\)</span> Sequence</a></li>
+<li><a href="#set-sequence">Set × Sequence</a></li>
 </ul>
 </div>
 
-<p>Wrote by a MSc student dying of end-of-term reviews (a.k.a. me).</p>
 <p>Words of warning:</p>
 <ul>
 <li>This post will only exist during 1st ~ 2nd exam term.<br />
@@ -164,14 +164,9 @@ Afterwards, it will be restructured and merged into <a href="https://loikein.git
 2018-1</li>
 <li><input type="checkbox" disabled="" />
 2018-2</li>
+<li><input type="checkbox" disabled="" />
+2019-1</li>
 </ul>
-<!--
-## Logic
-
-### Truth table
-
-### Direct proof
--->
 <div id="relation" class="section level2">
 <h2>Relation</h2>
 <p>Steps:</p>
@@ -197,6 +192,16 @@ Also, since <span class="math inline">\(f(x)\leq g(x)\)</span> for all <span cla
 <span class="math inline">\(\implies f(x)\geq g(y)\geq f(y)\geq g(z)\)</span><br />
 <span class="math inline">\(\implies f(x)\geq g(z)\)</span><br />
 <span class="math inline">\(\implies xRz\)</span></p>
+<blockquote>
+<p>2014.F2.Q3<br />
+Let <span class="math inline">\(U = \mathbb{R}^2\)</span> and the relation R be defined as <span class="math inline">\((x_1, y_1)R(x_2, y_2)\)</span> if and only if <span class="math inline">\(x_1\geq x_2\)</span> and <span class="math inline">\(y_1\leq y_2\)</span>.<br />
+Show that <span class="math inline">\(R\)</span> is transitive.</p>
+</blockquote>
+<p>Let <span class="math inline">\((x_1, y_1), (x_2, y_2), (x_3, y_3)\)</span> be s.t. <span class="math inline">\((x_1, y_1)R (x_2, y_2)\)</span>, <span class="math inline">\((x_2, y_2)R (x_3, y_3)\)</span><br />
+<span class="math inline">\((x_1, y_1)R (x_2, y_2)\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(x_1\geq x_2\)</span> and <span class="math inline">\(y_1\leq y_2\)</span><br />
+<span class="math inline">\((x_2, y_2)R (x_3, y_3)\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(x_2\geq x_3\)</span> and <span class="math inline">\(y_2\leq y_3\)</span><br />
+<span class="math inline">\(\implies x_1\geq x_2\geq x_3\)</span> and <span class="math inline">\(y_1\leq y_2\leq y_3\)</span><br />
+<span class="math inline">\(\implies (x_1, y_1)R(x_3, y_3)\)</span></p>
 <blockquote>
 <p>2015.F1.Q2, 2017.F1.Q1 PS1.Q6<br />
 Let <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> be two (partial) orders in some space <span class="math inline">\(U\)</span><br />
@@ -422,7 +427,7 @@ Therefore,<br />
 <h3>Proof by Deduction</h3>
 <blockquote>
 <p>2014.F1.Q1<br />
-Let <span class="math inline">\(\{A_n \ | \ n\in N\}\)</span> be a collection of sets, and <span class="math inline">\(B\)</span> a set, all in some universe <span class="math inline">\(U\)</span><br />
+Let <span class="math inline">\(\{A_n \ | \ n\in N\}\)</span> be a collection of sets, and <span class="math inline">\(B\)</span> a set, all in universe <span class="math inline">\(U\)</span><br />
 Show that <span class="math inline">\(B\cap \big( \cup_{n=1}^{\infty} A_n\big)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\cup_{n=1}^{\infty}\big( B \cap A_n\big)\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
@@ -488,6 +493,18 @@ Take <span class="math inline">\(ε = \min\big[ε(1),ε(2),\dots,ε(N)\big]\)</s
 <span class="math inline">\(\implies B_ε(x)\in \cap_{n=1}^N A_n\)</span><br />
 <span class="math inline">\(\implies x\in \text{int}\big(\cap_{n=1}^N A_n \big)\)</span></li>
 </ol>
+<blockquote>
+<p>2014.F2.Q1<br />
+Let <span class="math inline">\(\{A_n \ | \ n = 1,\dots , N\}\)</span> be a finite collection of open sets in universe <span class="math inline">\(U\)</span>.<br />
+Show that <span class="math inline">\(A = \cap^N_{n=1}A_n\)</span> is an open set.</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in A\)</span><br />
+<span class="math inline">\(\implies x\in A_n\)</span> for all <span class="math inline">\(n\)</span><br />
+Since <span class="math inline">\(A_n\)</span> are open for all <span class="math inline">\(n\)</span>,<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(ε_n\)</span> s.t. <span class="math inline">\(B_{ε_n}(x)\subset A_n\)</span> for all <span class="math inline">\(n\)</span><br />
+Take <span class="math inline">\(ε = \min\{ε_1, ε_2,\dots, ε_N\}\)</span>, <span class="math inline">\(B_{ε}(x)\subset A_n\)</span> for all <span class="math inline">\(n\)</span><br />
+<span class="math inline">\(\implies B_{ε}(x)\subset A\)</span><br />
+<span class="math inline">\(\implies A\)</span> is open</p>
 </div>
 </div>
 <div id="set" class="section level2">
@@ -509,6 +526,15 @@ For any <span class="math inline">\(x&#39; \in B_ε(x)\)</span>,<br />
 </div>
 <div id="closure-interior-boundary" class="section level3">
 <h3>Closure &amp; Interior &amp; Boundary</h3>
+<blockquote>
+<p>2014.F2.Q2, PS3.Q2<br />
+Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> be two sets, <span class="math inline">\(B\)</span> is open and <span class="math inline">\(B \subset A\)</span><br />
+Prove that <span class="math inline">\(B \subset \text{int}(A)\)</span></p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x\in B\)</span><br />
+<span class="math inline">\(B\)</span> is open <span class="math inline">\(\implies \exists ε&gt;0\)</span> s.t. <span class="math inline">\(B_ε(x) \subset B \subset A\)</span><br />
+<span class="math inline">\(\implies x \in \text{int}(A)\)</span><br />
+<span class="math inline">\(\implies B \subset \text{int}(A)\)</span></p>
 </div>
 <div id="convex" class="section level3">
 <h3>Convex</h3>
@@ -588,11 +614,17 @@ Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span> is a norm</
 </div>
 <div id="function" class="section level2">
 <h2>Function</h2>
-<!-- ### Range / Image
-
-### Injection & Surjection -->
-<div id="increasing-decreasing" class="section level3">
-<h3>Increasing / Decreasing</h3>
+<div id="image" class="section level3">
+<h3>Image</h3>
+</div>
+<div id="injection-one-to-one-surjection-onto" class="section level3">
+<h3>Injection (One-to-one) &amp; Surjection (Onto)</h3>
+</div>
+<div id="continuous" class="section level3">
+<h3>Continuous</h3>
+</div>
+<div id="value-theorems" class="section level3">
+<h3>Value Theorems</h3>
 <blockquote>
 <p>2015.F1.Q7<br />
 Let <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span><br />
@@ -615,25 +647,6 @@ By mean value theorem, exists <span class="math inline">\(x&#39;\in (x_1,x_2)\)<
 f(x_2) - f(x_1) &amp;\geq 0\end{aligned}\]</span>
 Contradicts that <span class="math inline">\(f\)</span> is not increasing</li>
 </ol>
-<blockquote>
-<p>2017.F1.Q8<br />
-Let <span class="math inline">\(\{f_i \ | \ i\in\mathcal{I}\}\)</span> be an arbitrary collection of increasing functions: <span class="math inline">\([0,1]\to [0,1]\)</span><br />
-For each <span class="math inline">\(x\in [0,1]\)</span>, define <span class="math inline">\(f(x)\equiv\sup_{i\in\mathcal{I}} f_i(x)\)</span><br />
-Prove that <span class="math inline">\(f\)</span> is increasing</p>
-</blockquote>
-<p>Take <span class="math inline">\(a\leq b\in [0,1]\)</span>, <span class="math inline">\(f(a) = \sup_{i\in\mathcal{I}} f_i(a)\)</span>, <span class="math inline">\(f(b) = \sup_{i\in\mathcal{I}} f_i(b)\)</span><br />
-Since <span class="math inline">\(f_i\)</span> is increasing for all <span class="math inline">\(i\)</span><br />
-<span class="math inline">\(\implies f_i(a)\leq f_i(b)\)</span> for all <span class="math inline">\(i\)</span><br />
-FSOC assume <span class="math inline">\(f(a) = f_j(a)\)</span>, <span class="math inline">\(f(b) = f_k(b)\)</span>, <span class="math inline">\(f(a)&gt;f(b)\)</span><br />
-<span class="math inline">\(\implies f_j(a) &gt; f_k(b)\)</span><br />
-But <span class="math inline">\(f_j(b) \geq f_j(a) &gt; f_k(b)\)</span>, contradicts that <span class="math inline">\(f_k(b)\)</span> is supremum<br />
-<span class="math inline">\(\implies f(a)\leq f(b)\)</span></p>
-</div>
-<div id="continuous" class="section level3">
-<h3>Continuous</h3>
-</div>
-<div id="value-theorems" class="section level3">
-<h3>Value Theorems</h3>
 <blockquote>
 <p>2015.F1.Q6<br />
 Let <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span> be s.t. <span class="math inline">\(f&#39;(x)\leq 1\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span><br />
@@ -789,6 +802,19 @@ $$\begin{aligned} f(x^*,y_1) &> V(y_1) - ε \\
 &\geq f(x^*,y_2)\end{aligned}$$ 
 Contradiction.  -->
 <blockquote>
+<p>2017.F1.Q8<br />
+Let <span class="math inline">\(\{f_i \ | \ i\in\mathcal{I}\}\)</span> be an arbitrary collection of increasing functions: <span class="math inline">\([0,1]\to [0,1]\)</span><br />
+For each <span class="math inline">\(x\in [0,1]\)</span>, define <span class="math inline">\(f(x)\equiv\sup_{i\in\mathcal{I}} f_i(x)\)</span><br />
+Prove that <span class="math inline">\(f\)</span> is increasing</p>
+</blockquote>
+<p>Take <span class="math inline">\(a\leq b\in [0,1]\)</span>, <span class="math inline">\(f(a) = \sup_{i\in\mathcal{I}} f_i(a)\)</span>, <span class="math inline">\(f(b) = \sup_{i\in\mathcal{I}} f_i(b)\)</span><br />
+Since <span class="math inline">\(f_i\)</span> is increasing for all <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(\implies f_i(a)\leq f_i(b)\)</span> for all <span class="math inline">\(i\)</span><br />
+FSOC assume <span class="math inline">\(f(a) = f_j(a)\)</span>, <span class="math inline">\(f(b) = f_k(b)\)</span>, <span class="math inline">\(f(a)&gt;f(b)\)</span><br />
+<span class="math inline">\(\implies f_j(a) &gt; f_k(b)\)</span><br />
+But <span class="math inline">\(f_j(b) \geq f_j(a) &gt; f_k(b)\)</span>, contradicts that <span class="math inline">\(f_k(b)\)</span> is supremum<br />
+<span class="math inline">\(\implies f(a)\leq f(b)\)</span></p>
+<blockquote>
 <p>2015.F1.Q3, PS4.Q7<br />
 Let <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be a bounded function and <span class="math inline">\(h(y) \equiv \sup_{x\geq y} \big( f(x) \big)\)</span><br />
 Show that <span class="math inline">\(h\)</span> is decreasing</p>
@@ -942,8 +968,8 @@ and <span class="math inline">\(x&#39;\)</span> be s.t. <span class="math inline
 <h3>Epigraph</h3>
 </div>
 </div>
-<div id="set-times-function" class="section level2">
-<h2>Set <span class="math inline">\(\times\)</span> Function</h2>
+<div id="set-function" class="section level2">
+<h2>Set × Function</h2>
 <div id="injection-surjection-revisited" class="section level3">
 <h3>Injection &amp; Surjection (revisited)</h3>
 </div>
@@ -1024,19 +1050,19 @@ Take arbitrary <span class="math inline">\(S_n, S_m\in (S_n)_n\)</span>, <span c
 &amp;\leq β^m\cdot\sum^{n-m}_{i=1} β^i\cdot | x_{m+i} | \\
 &amp;&lt; β^m\cdot M\cdot\sum^{n-m}_{i=1} β^i \\
 &amp;\leq β^m\cdot M\cdot\sum^{\infty}_{i=1} β^i \\
-&amp;= β^m\cdot\frac{1}{1-β}\end{aligned}\]</span>
+&amp;= β^m\cdot\frac{M}{1-β}\end{aligned}\]</span>
 <span class="math inline">\(β\in [0, 1)\implies (β^n)_n\to 0\)</span><br />
 <span class="math inline">\(\implies\)</span> exists <span class="math inline">\(N_ε\)</span> s.t. for all <span class="math inline">\(n&gt;N_ε\)</span>,<br />
-<span class="math display">\[\begin{aligned}d(S_n, S_m) &amp;&lt; β^m\cdot\frac{1}{1-β} \\
-&amp;&lt; β^{N_ε}\cdot\frac{1}{1-β} \\
+<span class="math display">\[\begin{aligned}d(S_n, S_m) &amp;&lt; β^m\cdot\frac{M}{1-β} \\
+&amp;&lt; β^{N_ε}\cdot\frac{M}{1-β} \\
 &amp;&lt; ε\end{aligned}\]</span></p>
 </div>
 <div id="limit-cluster-point" class="section level3">
 <h3>Limit &amp; Cluster Point</h3>
 </div>
 </div>
-<div id="set-times-sequence" class="section level2">
-<h2>Set <span class="math inline">\(\times\)</span> Sequence</h2>
+<div id="set-sequence" class="section level2">
+<h2>Set × Sequence</h2>
 <blockquote>
 <p>2017.F1.Q5<br />
 Let <span class="math inline">\(A,B \subset \mathbb{R}^n\)</span> be two compact and non-empty sets, <span class="math inline">\(A\cap B =\emptyset\)</span><br />
