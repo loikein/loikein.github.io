@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">19 min read</span>
+    <span class="article-duration">22 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -94,7 +94,7 @@
 </ul></li>
 <li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
 <li><a href="#proof-by-deduction">Proof by Deduction</a></li>
-<li><a href="#inclusion-of-b_">Inclusion of <span class="math inline">\(B_ε\)</span></a></li>
+<li><a href="#inclusion-of-">Inclusion of ε</a></li>
 </ul></li>
 <li><a href="#set">Set</a><ul>
 <li><a href="#close-open">Close / Open</a></li>
@@ -134,9 +134,7 @@
 <li>This post will only exist during 1st ~ 2nd exam term.<br />
 Afterwards, it will be restructured and merged into <a href="https://loikein.github.io/2019/01/notes-math-proof/">Notes on Mathematical Proofs</a>.<br />
 </li>
-<li>Sometimes I take approaches different from the solutions, or use different notations for clarity.<br />
-Buy it or not.<br />
-I am only responsible for my own grades.</li>
+<li>Sometimes I take approaches different from the solutions, or use different notations for clarity.</li>
 </ul>
 <p>~</p>
 <ul>
@@ -148,16 +146,24 @@ I am only responsible for my own grades.</li>
 <ul>
 <li><input type="checkbox" disabled="" checked="" />
 2014-1</li>
-<li>[] 2014-2</li>
+<li><input type="checkbox" disabled="" />
+2014-2</li>
 <li><input type="checkbox" disabled="" checked="" />
 2015-1</li>
-<li>[] 2015-2</li>
-<li>[] 2016-1</li>
-<li>[] 2016-2</li>
-<li>[] 2017-1</li>
-<li>[] 2017-2</li>
-<li>[] 2018-1</li>
-<li>[] 2018-2</li>
+<li><input type="checkbox" disabled="" />
+2015-2</li>
+<li><input type="checkbox" disabled="" checked="" />
+2016-1</li>
+<li><input type="checkbox" disabled="" />
+2016-2</li>
+<li><input type="checkbox" disabled="" checked="" />
+2017-1</li>
+<li><input type="checkbox" disabled="" />
+2017-2</li>
+<li><input type="checkbox" disabled="" checked="" />
+2018-1</li>
+<li><input type="checkbox" disabled="" />
+2018-2</li>
 </ul>
 <!--
 ## Logic
@@ -447,8 +453,8 @@ Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></
 <span class="math inline">\(\iff x \in A^c \cup B\)</span><br />
 <span class="math inline">\(\implies (A\backslash B)^c = A^c \cup B\)</span></p>
 </div>
-<div id="inclusion-of-b_" class="section level3">
-<h3>Inclusion of <span class="math inline">\(B_ε\)</span></h3>
+<div id="inclusion-of-" class="section level3">
+<h3>Inclusion of ε</h3>
 <blockquote>
 <p>2015.F1.Q1<br />
 Fix <span class="math inline">\(x_0\in \mathbb{R}^n\)</span><br />
@@ -691,6 +697,22 @@ Contradicts that <span class="math inline">\(x_0\)</span> is an upper bound<br /
 </li>
 <li>Therefore <span class="math inline">\(f(x_0) = 0\)</span></li>
 </ol>
+<blockquote>
+<p>2018.F1.Q2<br />
+Let <span class="math inline">\(f,g:\mathbb{R}\to\mathbb{R}\)</span> be continuous functions.<br />
+Assume that <span class="math inline">\(\lim_{x\to -\infty f(x)} = -\infty\)</span>, <span class="math inline">\(\lim_{x\to \infty f(x)} = \infty\)</span> and that <span class="math inline">\(g\)</span> is bounded.<br />
+Prove that there is some <span class="math inline">\(x^*\in\mathbb{R}\)</span> such that <span class="math inline">\(f(x^*) = g(x^*)\)</span>.<br />
+Hint: use the intermediate value theorem. You do not need to prove that <span class="math inline">\(f − g\)</span> is continuous.</p>
+</blockquote>
+<p><span class="math inline">\(g\)</span> is bounded<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(M\in\mathbb{R}\)</span> s.t. <span class="math inline">\(-M &lt; g(x) &lt; M\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span><br />
+<span class="math inline">\(\lim_{x\to -\infty f(x)} = -\infty\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(x_1\)</span> s.t. <span class="math inline">\(f(x_1) &lt; -M &lt; g(x)\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span><br />
+<span class="math inline">\(\lim_{x\to \infty f(x)} = \infty\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(x_2\)</span> s.t. <span class="math inline">\(f(x_2) &gt; M &gt; g(x)\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span><br />
+Let <span class="math inline">\(h = f - g\)</span> be continuous, for <span class="math inline">\(x\in (x_1, x_2)\)</span>,<br />
+exists some <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(h(x^*) = 0\)</span><br />
+<span class="math inline">\(\implies f(x^*) - g(x^*) = 0\)</span></p>
 </div>
 <div id="contraction" class="section level3">
 <h3>Contraction</h3>
@@ -722,6 +744,17 @@ Take limit of botht sides<br />
 \lim_{n\to\infty}\left|\frac{f(x)-f(x_n)}{x-x_n}\right| &amp;\leq λ \\
 |f&#39;(x)| &amp;\leq λ\end{aligned}\]</span>
 <span class="math inline">\(\implies f&#39;(x)\in [-λ,λ]\)</span></p>
+<blockquote>
+<p>2018.F1.Q3<br />
+Let <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span> be a function.<br />
+Assume that there is some <span class="math inline">\(β\in (0,1)\)</span> s.t. for all <span class="math inline">\(x\in\mathbb{R}\)</span> and <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(f(a+x)\in \big(f(x)−βa,f(x)+βa\big)\)</span>.<br />
+Provethat <span class="math inline">\(f\)</span> is a contraction.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned}f(a+x) &amp;\in \big(f(x)−βa,f(x)+βa\big) \\
+f(a+x) - f(x) &amp;\in (−βa, βa) \\
+d\big(f(a+x), f(x)\big) &amp;&lt; βa \\
+&amp;= d(x, a+x)\end{aligned}\]</span>
+Therefore, <span class="math inline">\(f\)</span> is a contraction for <span class="math inline">\(β\)</span></p>
 </div>
 <div id="limit-differenciation" class="section level3">
 <h3>Limit &amp; Differenciation</h3>
@@ -889,6 +922,21 @@ Since <span class="math inline">\(g\)</span> is increasing,<br />
 <span class="math display">\[\begin{aligned} g\circ f \big(λx_1 + (1-λ)x_2\big) &amp;\leq g\big( \max[a,b]\big) \\
 &amp;= \max\big[ g(a),g(b) \big] \\
 &amp;= \max\big[ g\circ f(a),g\circ f(b) \big]\end{aligned}\]</span></p>
+<blockquote>
+<p>2018.F1.Q5<br />
+Let <span class="math inline">\(f,g : \mathbb{R}^2\to\mathbb{R}\)</span> be two concave functions.<br />
+For all <span class="math inline">\(θ\)</span>, define <span class="math inline">\(A(θ)\equiv\{x\in\mathbb{R} \ | \ g(x, θ)\geq 0\}\)</span>,<br />
+assume <span class="math inline">\(V(θ) \equiv\max_{x\in A(θ)} f (x, θ)\)</span> exists for all <span class="math inline">\(θ\in\mathbb{R}\)</span>.<br />
+Prove that <span class="math inline">\(V\)</span> is concave.</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(θ, θ&#39;\in\mathbb{R}\)</span>,<br />
+Take <span class="math inline">\(x\)</span> be s.t. <span class="math inline">\(V(θ) = f(x, θ) = \max_{x\in A(θ)} f (x, θ)\)</span><br />
+and <span class="math inline">\(x&#39;\)</span> be s.t. <span class="math inline">\(V(θ&#39;) = f(x&#39;, θ&#39;) = \max_{x\in A(θ&#39;)} f (x, θ&#39;)\)</span><br />
+<span class="math display">\[\begin{aligned}V\big(λθ + (1-λ)θ&#39;\big) &amp;= \max_{x\in A\big(λθ + (1-λ)θ&#39;\big)} f \big(x, λθ + (1-λ)θ&#39;\big) \\
+&amp;\geq f\big(λx + (1-λ)x&#39;, λθ + (1-λ)θ&#39;\big) \\
+&amp;= f\big(λ(x, θ) + (1-λ)(x&#39;,θ&#39;)\big) \\
+&amp;\geq λ f(x, θ) + (1-λ)f(x&#39;,θ&#39;) \\
+&amp;= λV(θ) + (1-λ)V(θ&#39;)\end{aligned}\]</span></p>
 </div>
 <div id="epigraph" class="section level3">
 <h3>Epigraph</h3>
@@ -923,6 +971,21 @@ then <span class="math inline">\(x^*\)</span> is a steady state of the recurrenc
 Since <span class="math inline">\(f\)</span> is continuous, <span class="math inline">\(\big(f(x_n)\big)_n\to f(x^*)\)</span><br />
 <span class="math inline">\(\implies f(x^*) = x^*\)</span></p>
 <blockquote>
+<p>2018.F1.Q4<br />
+Let <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span> be a continuous function.<br />
+Prove that <span class="math inline">\(x^*\in\mathbb{R}\)</span> is a fixed point of <span class="math inline">\(f\)</span> if and only if <span class="math inline">\(x^*\)</span> is the limit of a convergent sequence <span class="math inline">\((x_n)_n\)</span> satisfying <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\)</span>.</p>
+</blockquote>
+<p>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Let <span class="math inline">\(x^*\)</span> be a fixed point of <span class="math inline">\(f\)</span><br />
+Let <span class="math inline">\((x_n)_n\)</span> be a sequence of <span class="math inline">\(x_n = x^*\)</span> for all <span class="math inline">\(n\)</span>,<br />
+<span class="math inline">\(\implies (x_n)_n\to x^*\)</span> and <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\)</span></p>
+<p>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Let <span class="math inline">\(x^*\)</span> be the limit of <span class="math inline">\((x_n)_n\)</span>, <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(N_ε\)</span> s.t. <span class="math inline">\(d(x_n, x^*) &lt; ε\)</span> for all <span class="math inline">\(n&gt;N_ε\)</span><br />
+<span class="math inline">\(\implies d(f(x_n), x^*) &lt; ε\)</span> for all <span class="math inline">\(n&gt;N_ε\)</span><br />
+<span class="math inline">\(\implies \big(f(x_n)\big)\to x^*\)</span><br />
+<span class="math inline">\(\implies f(x^*) = x^*\)</span></p>
+<blockquote>
 <p>2017.F1.Q4<br />
 Let <span class="math inline">\((x_n)_n\)</span> be a convergent sequence in <span class="math inline">\(\mathbb{R}\)</span><br />
 Define <span class="math inline">\(y_n \equiv x_{n+1} − x_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span><br />
@@ -936,6 +999,37 @@ Show that <span class="math inline">\((y_n)_n\)</span> is convergent</p>
 &amp;&lt; \frac{ε}{2} + \frac{ε}{2} \\
 &amp;= ε\end{aligned}\]</span>
 <span class="math inline">\(\implies (x_{n+1})_n \to x_n\)</span> for all <span class="math inline">\(n&gt;N(\frac{ε}{2})\)</span></p>
+<blockquote>
+<p>2018.F1.Q1<br />
+Consider two sequences <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((y_n)_n\)</span> s.t. <span class="math inline">\((x_n)_n\)</span> is bounded and <span class="math inline">\((y_n)_n\)</span> converges to 0.<br />
+Prove that the sequence of products, <span class="math inline">\((x_ny_n)_n\)</span>, converges to 0.</p>
+</blockquote>
+<p>Since <span class="math inline">\((x_n)_n\)</span> is bounded, exists <span class="math inline">\(M\in\mathbb{R}\)</span> s.t. <span class="math inline">\((x_n)_n &lt; M\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span><br />
+Since <span class="math inline">\((y_n)_n \to 0\)</span>, let <span class="math inline">\(N_ε\)</span> be s.t. <span class="math inline">\(|y_n| &lt; \frac{ε}{M}\)</span> for all <span class="math inline">\(n&gt;N_ε\)</span><br />
+<span class="math display">\[\begin{aligned}d(x_ny_n, 0) &amp;= |x_ny_n| \\ &amp;= |x_n||y_n| \\ &amp;&lt; M\cdot \frac{ε}{M} &amp;&amp; \text{for all }n&gt;N_ε \\
+&amp;= ε\end{aligned}\]</span>
+Therefore <span class="math inline">\((x_ny_n)_n\to 0\)</span></p>
+<blockquote>
+<p>2018.F1.Q6<br />
+Let <span class="math inline">\((x_n)_n\)</span> be a bounded real sequence, and let <span class="math inline">\(β\in [0, 1)\)</span> be a real number.<br />
+Show that the sequence of discounted partial sums <span class="math inline">\((S_n)_n\)</span>, with <span class="math inline">\(S_n\equiv\sum^n_{i=1} β^i\cdot x_i\)</span> for all <span class="math inline">\(n\)</span>, is convergent.</p>
+</blockquote>
+<p><span class="math inline">\((x_n)_n\)</span> is bounded<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(M\in\mathbb{R}\)</span> s.t. <span class="math inline">\(M&gt;|x_n\)</span>$ for all <span class="math inline">\(n\in\mathbb{N}\)</span><br />
+Take arbitrary <span class="math inline">\(S_n, S_m\in (S_n)_n\)</span>, <span class="math inline">\(n\geq m\)</span><br />
+<span class="math display">\[\begin{aligned}d(S_n, S_m) &amp;= |S_n - S_m| \\
+&amp;= \bigg| \sum^n_{i=1} β^i\cdot x_i - \sum^m_{i=1} β^i\cdot x_i\bigg| \\
+&amp;= \bigg| \sum^{n}_{i=m+1} β^i\cdot x_i\bigg| \\
+&amp;= \bigg| β^m\cdot\sum^{n-m}_{i=1} β^i\cdot x_{m+i}\bigg| \\
+&amp;\leq β^m\cdot\sum^{n-m}_{i=1} β^i\cdot | x_{m+i} | \\
+&amp;&lt; β^m\cdot M\cdot\sum^{n-m}_{i=1} β^i \\
+&amp;\leq β^m\cdot M\cdot\sum^{\infty}_{i=1} β^i \\
+&amp;= β^m\cdot\frac{1}{1-β}\end{aligned}\]</span>
+<span class="math inline">\(β\in [0, 1)\implies (β^n)_n\to 0\)</span><br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(N_ε\)</span> s.t. for all <span class="math inline">\(n&gt;N_ε\)</span>,<br />
+<span class="math display">\[\begin{aligned}d(S_n, S_m) &amp;&lt; β^m\cdot\frac{1}{1-β} \\
+&amp;&lt; β^{N_ε}\cdot\frac{1}{1-β} \\
+&amp;&lt; ε\end{aligned}\]</span></p>
 </div>
 <div id="limit-cluster-point" class="section level3">
 <h3>Limit &amp; Cluster Point</h3>
