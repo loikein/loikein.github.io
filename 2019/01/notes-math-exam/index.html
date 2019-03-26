@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">22 min read</span>
+    <span class="article-duration">24 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -622,6 +622,39 @@ Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span> is a norm</
 </div>
 <div id="continuous" class="section level3">
 <h3>Continuous</h3>
+<blockquote>
+<p>2014.F2.Q4<br />
+Let <span class="math inline">\(f: \mathbb{R}\to\mathbb{R}\)</span> be a continuous function.<br />
+Show that <span class="math inline">\(A\equiv \{x \ | \ f(x)&gt;0\}\)</span> is an open set.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(A = \emptyset\)</span> (trivial)</li>
+<li><span class="math inline">\(A\neq\emptyset\)</span><br />
+Take arbitrary <span class="math inline">\(x\in A\)</span>, let <span class="math inline">\(f(x) = ε &gt; 0\)</span><br />
+<span class="math inline">\(f\)</span> is continuous<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(δ\)</span> s.t. <span class="math inline">\(f\big( B_δ(x)\big)\in B_ε\big( f(x) \big)\)</span><br />
+<span class="math inline">\(\implies f\big( B_δ(x)\big)\in (0, 2ε)\)</span><br />
+<span class="math inline">\(\implies f\big( B_δ(x)\big) &gt; 0\)</span><br />
+Let <span class="math inline">\(ε&#39; = δ\)</span>, <span class="math inline">\(B_{ε&#39;}(x)\subset A\)</span><br />
+<span class="math inline">\(\implies A\)</span> is open</li>
+</ol>
+<blockquote>
+<p>2014.F2.Q6<br />
+Let <span class="math inline">\(f: \mathbb{R}\to\mathbb{R}\)</span> be a function and <span class="math inline">\(x^*\in\mathbb{R}\)</span>.<br />
+Assume there exists a real sequence <span class="math inline">\((x_n)_n\)</span> converging to <span class="math inline">\(x^*\)</span> such that <span class="math inline">\(\big(f(x_n)\big)_n\)</span> converges to <span class="math inline">\(y^*\)</span> and <span class="math inline">\(y^* &lt; f(x^*)\)</span>.<br />
+Prove that <span class="math inline">\(f\)</span> is not continuous at <span class="math inline">\(x^*\)</span>.</p>
+</blockquote>
+<p>Denote <span class="math inline">\(d\big(f(x^*), y^*\big) = f(x^*) - y^* = 2ε\)</span><br />
+FSOC assume exists some <span class="math inline">\(δ&gt;0\)</span> s.t. <span class="math inline">\(f\big(B_δ(x^*)\big)\subset B_ε\big(f(x^*)\big)\)</span><br />
+<span class="math inline">\((x_n)_n \to x^*\implies\)</span> exists <span class="math inline">\(N_x\)</span> s.t. <span class="math inline">\(d(x_n, x^*)&lt;δ\)</span> for all <span class="math inline">\(n&gt;N_x\)</span><br />
+<span class="math inline">\(\big(f(x_n)\big)_n\to y^*\implies\)</span> exists <span class="math inline">\(N_y\)</span> s.t. <span class="math inline">\(d\big(f(x^*), y^*\big)&lt;ε\)</span> for all <span class="math inline">\(n&gt;N_y\)</span><br />
+Let <span class="math inline">\(N = \max\{N_x, N_y\} + 1\)</span>, <span class="math inline">\(x_{N}\in B_δ(x^*)\)</span>,<br />
+<span class="math display">\[\begin{aligned}d\big(f(x^*), y^*\big) &amp;\leq d\big(f(x^*), f(x_N)\big) + d\big(f(x_N), y^*\big) \\
+&amp;&lt; ε + ε\\
+&amp;= d\big(f(x^*), y^*\big)\end{aligned}\]</span>
+Contradiction.<br />
+Therefore, there exists no <span class="math inline">\(δ&gt;0\)</span> s.t. <span class="math inline">\(f\big(B_δ(x^*)\big)\subset B_ε\big(f(x^*)\big)\)</span><br />
+<span class="math inline">\(\implies f\)</span> is not continuous at <span class="math inline">\(x^*\)</span></p>
 </div>
 <div id="value-theorems" class="section level3">
 <h3>Value Theorems</h3>
@@ -739,8 +772,23 @@ Show that <span class="math inline">\(h\equiv f\circ g\)</span> is a contraction
 &amp;\leq λ_f\cdot d\big( g(x), g(x&#39;)\big) \\
 &amp;\leq λ_f\cdot \big(λ_g \cdot d(x,x&#39;)\big) \\
 &amp;= (λ_f\cdot λ_g) \cdot d(x,x&#39;)\end{aligned}\]</span>
-Since <span class="math inline">\(λ_f,λ_g\in [0,1)\)</span>,<br />
+Since <span class="math inline">\(λ_f,λ_g\in [0,1)\)</span><br />
 <span class="math inline">\(\implies λ_f\cdot λ_g \in [0,1)\)</span><br />
+<span class="math inline">\(\implies h\)</span> is a contraction</p>
+<blockquote>
+<p>2014.F2.Q5<br />
+Assume that <span class="math inline">\(f,g:\mathbb{R}\to \mathbb{R}\)</span> are contractions with parameters <span class="math inline">\(λ_f\)</span> and <span class="math inline">\(λ_g\)</span>, respectively.<br />
+Show that <span class="math inline">\(h = \frac{1}{2}f + \frac{1}{2} g\)</span> is a contraction.</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x,x&#39;\in \mathbb{R}\)</span><br />
+<span class="math display">\[\begin{aligned} d\big(h(x), h(x&#39;)\big) &amp;= \bigg|\frac{1}{2}f(x) + \frac{1}{2} g(x) - \frac{1}{2}f(x&#39;) - \frac{1}{2} g(x&#39;)\bigg| \\
+&amp;= \bigg| \big(\frac{1}{2}f(x) - \frac{1}{2}f(x&#39;)\big) + \big(\frac{1}{2} g(x)  - \frac{1}{2} g(x&#39;)\big)\bigg| \\
+&amp;= \bigg| \frac{1}{2} \big(f(x) - f(x&#39;)\big) + \frac{1}{2} \big(g(x) - g(x&#39;)\big)\bigg| \\
+&amp;= \frac{1}{2} d\big(f(x), f(x&#39;)\big) + \frac{1}{2} d\big(g(x), g(x&#39;)\big) \\
+&amp;= \frac{1}{2} λ_f d(x,x&#39;) + \frac{1}{2} λ_g d(x,x&#39;) \\
+&amp;= \frac{1}{2} (λ_f+λ_g) d(x,x&#39;)\end{aligned}\]</span>
+Since <span class="math inline">\(λ_f,λ_g\in [0,1)\)</span><br />
+<span class="math inline">\(\implies \frac{1}{2} (λ_f+λ_g) \in [0,1)\)</span><br />
 <span class="math inline">\(\implies h\)</span> is a contraction</p>
 <blockquote>
 <p>2016.F1.Q4, PS9.Q3<br />
