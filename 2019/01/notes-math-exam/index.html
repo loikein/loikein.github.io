@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">25 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -106,7 +106,7 @@
 <li><a href="#function">Function</a><ul>
 <li><a href="#image">Image</a></li>
 <li><a href="#injection-one-to-one-surjection-onto">Injection (One-to-one) &amp; Surjection (Onto)</a></li>
-<li><a href="#continuous">Continuous</a></li>
+<li><a href="#continuity">Continuity</a></li>
 <li><a href="#value-theorems">Value Theorems</a></li>
 <li><a href="#contraction">Contraction</a></li>
 <li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
@@ -121,9 +121,9 @@
 <li><a href="#finite-countable">Finite &amp; Countable</a></li>
 </ul></li>
 <li><a href="#sequence">Sequence</a><ul>
-<li><a href="#un-bounded">(Un-)bounded</a></li>
 <li><a href="#convergent">Convergent</a></li>
 <li><a href="#limit-cluster-point">Limit &amp; Cluster Point</a></li>
+<li><a href="#un-bounded">(Un-)bounded</a></li>
 </ul></li>
 <li><a href="#set-sequence">Set × Sequence</a></li>
 </ul>
@@ -146,7 +146,7 @@ Afterwards, it will be restructured and merged into <a href="https://loikein.git
 <ul>
 <li><input type="checkbox" disabled="" checked="" />
 2014-1</li>
-<li><input type="checkbox" disabled="" />
+<li><input type="checkbox" disabled="" checked="" />
 2014-2</li>
 <li><input type="checkbox" disabled="" checked="" />
 2015-1</li>
@@ -620,8 +620,26 @@ Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span> is a norm</
 <div id="injection-one-to-one-surjection-onto" class="section level3">
 <h3>Injection (One-to-one) &amp; Surjection (Onto)</h3>
 </div>
-<div id="continuous" class="section level3">
-<h3>Continuous</h3>
+<div id="continuity" class="section level3">
+<h3>Continuity</h3>
+<blockquote>
+<p>2014.F2.Q9<br />
+Let <span class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span> and <span class="math inline">\(g:\mathbb{R}^n\to\mathbb{R}\)</span> be continuous.<br />
+Prove that <span class="math inline">\(f+g\)</span> is continuous.</p>
+</blockquote>
+<p>Let <span class="math inline">\(h = f+g\)</span>, take arbitrary <span class="math inline">\(x\in\mathbb{R}^n\)</span> and <span class="math inline">\(ε&gt;0\)</span><br />
+Since <span class="math inline">\(f\)</span> is continuous<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(δ_f\)</span> s.t. <span class="math inline">\(f\big( B_{δ_f} (x)\big)\in B_ε\big(f(x) \big)\)</span><br />
+Since <span class="math inline">\(g\)</span> is continuous<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(δ_g\)</span> s.t. <span class="math inline">\(g\big( B_{δ_g} (x)\big)\in B_ε\big(g(x) \big)\)</span><br />
+Let <span class="math inline">\(δ = \min\{δ_f, δ_g\}\)</span>, for all <span class="math inline">\(x&#39;\in B_{δ} (x)\)</span>,<br />
+<span class="math display">\[\begin{aligned}d\big( h(x), h(x&#39;) \big) &amp;= d\big( f(x)+g(x), f(x&#39;)+g(x&#39;) \big) \\
+&amp;= \big|f(x)+g(x) - f(x&#39;)-g(x&#39;) \big| \\
+&amp;= \Big|\big( f(x)- f(x&#39;)\big) + \big( g(x) -g(x&#39;) \big) \Big| \\
+&amp;\leq \big| f(x)- f(x&#39;)\big| + \big| g(x) -g(x&#39;) \big| \\
+&amp;\leq ε + ε = 2ε\end{aligned}\]</span>
+Let <span class="math inline">\(ε&#39; = 2ε\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(h\big(B_{δ} (x)\big) \in B_{ε&#39;}\big(h(x)\big)\)</span></p>
 <blockquote>
 <p>2014.F2.Q4<br />
 Let <span class="math inline">\(f: \mathbb{R}\to\mathbb{R}\)</span> be a continuous function.<br />
@@ -927,6 +945,30 @@ f(x^*) &amp;\geq f(x) &amp;&amp; \text{for all }x\in A\end{aligned}\]</span>
 <div id="concave-convex" class="section level3">
 <h3>Concave &amp; Convex</h3>
 <blockquote>
+<p>2014.F2.Q7<br />
+Let <span class="math inline">\(f:[0, 1]\to\mathbb{R}\)</span> be convex.<br />
+Assume that <span class="math inline">\(\frac{1}{2}\in\text{argmax}_{x\in [0,1]} f(x)\)</span>.<br />
+Show that <span class="math inline">\(f\)</span> is constant.</p>
+</blockquote>
+<p>(?)</p>
+<!-- 
+Sice $f$ is convex, for all $λ\in [0,1]$ and all $x,x'\in [0,1]$,  
+$$f\big(λx + (1-λ)x'\big) \leq λf(x) + (1-λ)f(x')$$ 
+FSOC assume exists $x^*\neq\frac{1}{2}$, $f(x^*)\neq f\big(\frac{1}{2}\big)$
+
+1. $x^*<\frac{1}{2}$  
+Take $λ\in (0,1)$ s.t. $\frac{1}{2} = λx^* + (1-λ)1$  
+$$\begin{aligned}f\big(λx^* + (1-λ)1\big) &\leq λf(x^*) + (1-λ)f(1) \\
+&\leq f\big(\frac{1}{2}\big)\end{aligned}$$
+
+
+$\frac{1}{2}\in\text{argmax}_{x} f(x)$  
+$\implies f\big(\frac{1}{2}\big) \geq f(x)$ for all $x\in [0,1]$  
+$$\begin{aligned} f\big(\frac{1}{2}\cdot 0 + \frac{1}{2}\cdot x\big) &\leq \frac{1}{2}f(0) + \frac{1}{2}f(x) \\
+&\leq \frac{1}{2}f\big(\frac{1}{2}\big) + \frac{1}{2}f\big(\frac{1}{2}\big) \\
+&= f\big(\frac{1}{2}\big)\end{aligned}$$
+ -->
+<blockquote>
 <p>2014.F1.Q5, PS7.Q7<br />
 Let <span class="math inline">\(f: \mathbb{R}\to\mathbb{R}\)</span> be strictly convex<br />
 Prove that <span class="math inline">\(f\)</span> has at most 2 zeros<br />
@@ -1027,9 +1069,6 @@ and <span class="math inline">\(x&#39;\)</span> be s.t. <span class="math inline
 </div>
 <div id="sequence" class="section level2">
 <h2>Sequence</h2>
-<div id="un-bounded" class="section level3">
-<h3>(Un-)bounded</h3>
-</div>
 <div id="convergent" class="section level3">
 <h3>Convergent</h3>
 <blockquote>
@@ -1107,6 +1146,22 @@ Take arbitrary <span class="math inline">\(S_n, S_m\in (S_n)_n\)</span>, <span c
 </div>
 <div id="limit-cluster-point" class="section level3">
 <h3>Limit &amp; Cluster Point</h3>
+</div>
+<div id="un-bounded" class="section level3">
+<h3>(Un-)bounded</h3>
+<blockquote>
+<p>2014.F2.Q8<br />
+Prove that a bounded increasing sequence <span class="math inline">\((x_n)_n\)</span> in <span class="math inline">\(\mathbb{R}\)</span> is convergent.<br />
+Note: you can use that the supremum of a bounded subset of <span class="math inline">\(\mathbb{R}\)</span> always exists.</p>
+</blockquote>
+<p>Denote <span class="math inline">\(x^* = \sup \{x_n \ | \ n\in\mathbb{N}\}\)</span><br />
+Take arbitrary <span class="math inline">\(ε &gt; 0\)</span><br />
+FSOC assume <span class="math inline">\(x_n &lt; x^* - ε\)</span> for all <span class="math inline">\(n\)</span>, contradicts that <span class="math inline">\(x^*\)</span> is supremum,<br />
+<span class="math inline">\(\implies\)</span> exist <span class="math inline">\(x_N\in (x^* - ε, x^*]\)</span> for some <span class="math inline">\(N\)</span><br />
+Since <span class="math inline">\((x_n)_n\)</span> is increasing<br />
+<span class="math inline">\(\implies x_n\in (x^* - ε, x^*]\)</span> for all <span class="math inline">\(n\geq N\)</span><br />
+<span class="math inline">\(\implies d(x_n, x^*) &lt; ε\)</span> for all <span class="math inline">\(n\geq N\)</span><br />
+<span class="math inline">\(\implies (x_n)_n\)</span> is convergent</p>
 </div>
 </div>
 <div id="set-sequence" class="section level2">
