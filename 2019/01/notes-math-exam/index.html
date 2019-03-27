@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">26 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -88,6 +88,7 @@
 
 <div id="TOC">
 <ul>
+<li><a href="#what">What</a></li>
 <li><a href="#relation">Relation</a></li>
 <li><a href="#space">Space</a><ul>
 <li><a href="#distance">Distance</a></li>
@@ -167,6 +168,30 @@ Afterwards, it will be restructured and merged into <a href="https://loikein.git
 <li><input type="checkbox" disabled="" />
 2019-1</li>
 </ul>
+<div id="what" class="section level2">
+<h2>What</h2>
+<blockquote>
+<p>2019.F1.Q1<br />
+Use induction to prove that <span class="math inline">\(\sum^N_{n=1} a_n = \frac{1−a^N}{1-a}a\)</span> for all <span class="math inline">\(N\in\mathbb{N}\)</span> and <span class="math inline">\(a\in\mathbb{R}\backslash\{1\}\)</span>.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>For <span class="math inline">\(N = 1\)</span><br />
+<span class="math display">\[\begin{aligned}\sum^1_{n=1} a_1 &amp;= a \\
+\frac{1−a^1}{1-a}a &amp;= 1\cdot a \\
+&amp;= a\end{aligned}\]</span>
+The equation holds.</li>
+<li>Assume the equation holds for all <span class="math inline">\(N&lt;\bar{N}\)</span><br />
+</li>
+<li>For <span class="math inline">\(N = \bar{N}\)</span><br />
+<span class="math display">\[\begin{aligned} \sum^{\bar{N}}_{n=1} a_n &amp;= a^{\bar{N}} + \sum^{\bar{N}-1}_{n=1} a_n \\
+&amp;= a^{\bar{N}} + \frac{1−a^{\bar{N}-1}}{1-a}a \\
+&amp;= \frac{(1-a)a^{\bar{N}}}{1-a}+ \frac{1−a^{\bar{N}-1}}{1-a}a \\
+&amp;= \frac{(1-a)a^{\bar{N}-1} + 1−a^{\bar{N}-1}}{1-a}a \\
+&amp;= \frac{a^{\bar{N}-1} - a^{\bar{N}} + 1−a^{\bar{N}-1}}{1-a}a \\
+&amp;= \frac{1- a^{\bar{N}}}{1-a}a\end{aligned}\]</span>
+The equation holds.</li>
+</ol>
+</div>
 <div id="relation" class="section level2">
 <h2>Relation</h2>
 <p>Steps:</p>
@@ -969,6 +994,15 @@ $$\begin{aligned} f\big(\frac{1}{2}\cdot 0 + \frac{1}{2}\cdot x\big) &\leq \frac
 &= f\big(\frac{1}{2}\big)\end{aligned}$$
  -->
 <blockquote>
+<p>2019.F1.Q2<br />
+Let <span class="math inline">\(\|\cdot\| : \mathbb{R}^n\to\mathbb{R}\)</span> be a norm in <span class="math inline">\(\mathbb{R}^n\)</span>.<br />
+Show that it is a convex function.</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x,y\in\mathbb{R}^n\)</span>, <span class="math inline">\(λ\in[0,1]\)</span><br />
+<span class="math display">\[\begin{aligned}\|λx + (1-λ)y\| &amp;\leq \|λx\| + \|(1-λ)y\| \\
+&amp;= λ\|x\| + (1-λ)\|y\| \end{aligned}\]</span>
+Therefore, <span class="math inline">\(\|\cdot\|\)</span> is a convex function</p>
+<blockquote>
 <p>2014.F1.Q5, PS7.Q7<br />
 Let <span class="math inline">\(f: \mathbb{R}\to\mathbb{R}\)</span> be strictly convex<br />
 Prove that <span class="math inline">\(f\)</span> has at most 2 zeros<br />
@@ -1111,7 +1145,26 @@ Show that <span class="math inline">\((y_n)_n\)</span> is convergent</p>
 <span class="math display">\[\begin{aligned} d(x_{n+1},x_n) &amp;\leq d(x_n, x^*) + d(x_{n+1}, x^*) \\
 &amp;&lt; \frac{ε}{2} + \frac{ε}{2} \\
 &amp;= ε\end{aligned}\]</span>
-<span class="math inline">\(\implies (x_{n+1})_n \to x_n\)</span> for all <span class="math inline">\(n&gt;N(\frac{ε}{2})\)</span></p>
+<span class="math inline">\(\implies |y_n - 0| &lt; ε\)</span> for all <span class="math inline">\(n&gt;N(\frac{ε}{2})\)</span><br />
+<span class="math inline">\(\implies (y_n)_n \to 0\)</span></p>
+<blockquote>
+<p>2019.F1.Q3<br />
+Let <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((y_n)_n\)</span> be two sequences in a metric space <span class="math inline">\(\langle U,d\rangle\)</span>.<br />
+Assume <span class="math inline">\((x_n)_n\)</span> is convergent.<br />
+Define, for each <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(z_n\equiv d(x_n,y_n)\)</span>.<br />
+Assume that the sequence <span class="math inline">\((z_n)_n\)</span> converges to 0.<br />
+Show that <span class="math inline">\((y_n)_n\)</span> is a convergent sequence.</p>
+</blockquote>
+<p>Let <span class="math inline">\((x_n)_n\to x^*\in\mathbb{R}\)</span>, take arbitrary <span class="math inline">\(ε&gt;0\)</span>,<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(N_x\)</span> s.t. for all <span class="math inline">\(n&gt;N_x\)</span>, <span class="math inline">\(d(x^*,x_n) &lt; \frac{ε}{2}\)</span><br />
+Since <span class="math inline">\((z_n)_n\to 0\)</span>, exists <span class="math inline">\(N_z\)</span> s.t. for all <span class="math inline">\(n&gt;N_z\)</span>,<br />
+<span class="math display">\[\begin{aligned}z_n &amp;&lt; \frac{ε}{2} \\
+d(x_n,y_n) &amp;&lt; \frac{ε}{2} \end{aligned}\]</span><br />
+Let <span class="math inline">\(N = \max\{N_x, N_z\}\)</span>, for all <span class="math inline">\(n&gt;N\)</span>,<br />
+<span class="math display">\[\begin{aligned}d(x^*,y_n) &amp;\leq d(x^*,x_n) + d(x_n,y_n) \\
+&amp;&lt; \frac{ε}{2} + \frac{ε}{2} \\
+&amp;= ε \end{aligned}\]</span>
+Therefore, <span class="math inline">\((y_n)_n\to x^*\)</span></p>
 <blockquote>
 <p>2018.F1.Q1<br />
 Consider two sequences <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((y_n)_n\)</span> s.t. <span class="math inline">\((x_n)_n\)</span> is bounded and <span class="math inline">\((y_n)_n\)</span> converges to 0.<br />
