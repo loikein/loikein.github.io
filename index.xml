@@ -64,7 +64,7 @@ Assume that potato chips are a divisible good with quantities in gram.</descript
       <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/01/notes-math-optimization-dynamics/</guid>
-      <description>Optimization Lagrange Method Kuhn-Tucker Method Dual Problem  Dynamics Backward Induction Recursive Analysis    Optimization Lagrange Method  PS11.Q1
+      <description>Optimization Lagrange Method Kuhn-Tucker Method Dual Problem  Dynamics Recursive Analysis Backward Induction    Optimization Lagrange Method  PS11.Q1
 Solve \(\max_{(x,y)\in \mathbb{R}^2} x+y\) s.t. \(x^2+y^2=2\)
  Lagrangian: \[\mathcal{L}(x,y,λ) = x+y+λ(x^2+y^2-2)\] FOC \[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = 1 + 2λx = 0 &amp;amp;&amp;amp; x &amp;amp;= -\frac{1}{2λ} \\ \frac{\partial\mathcal{L}}{\partial y} = 1 + 2λy = 0 &amp;amp;&amp;amp; y &amp;amp;= -\frac{1}{2λ} \\ x^2+y^2=2 &amp;amp;&amp;amp; \frac{1}{4λ^2} &amp;amp;= 1 \implies λ = \pm \frac{1}{2}\end{aligned}\] 1.</description>
     </item>

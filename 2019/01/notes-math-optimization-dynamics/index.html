@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">7 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Optimization and Dynamics</h1>
@@ -94,8 +94,8 @@
 <li><a href="#dual-problem">Dual Problem</a></li>
 </ul></li>
 <li><a href="#dynamics">Dynamics</a><ul>
-<li><a href="#backward-induction">Backward Induction</a></li>
 <li><a href="#recursive-analysis">Recursive Analysis</a></li>
+<li><a href="#backward-induction">Backward Induction</a></li>
 </ul></li>
 </ul>
 </div>
@@ -250,14 +250,16 @@ Since <span class="math inline">\(y_1 = \frac{4}{5} &gt; 0\)</span><br />
 <li>Set of actions (States): <span class="math inline">\(X\subset\mathbb{R}^{d}\)</span>
 <ul>
 <li>Markov state variable: <span class="math inline">\(x\in X\)</span></li>
-<li>Initial state: <span class="math inline">\(x_0\)</span></li>
+<li>Initial state: <span class="math inline">\(x_0 = x_0^*\)</span></li>
 <li>Set of actions for all periods: <span class="math inline">\(X^T\subset\mathbb{R}^{d\cdot T}\)</span></li>
 <li>Sequence of decisions (Plan / Program): <span class="math inline">\((x_t)_{t = 1}^{T} = (x_1, x_2,\dots, x_T) \in X^T\)</span></li>
 </ul></li>
 <li>Set of Feasible Sequences: <span class="math inline">\(A(x_0) \equiv \big\{ (x_t)_{t = 1}^{\infty} \ | \ x_t\in Γ(x_{t-1})\)</span> for all <span class="math inline">\(t\in\mathbb{N}\big\}\)</span>
 <ul>
 <li><span class="math inline">\(A\subset X^T\)</span></li>
-<li><span class="math inline">\(Γ: X\rightrightarrows X\)</span></li>
+<li><span class="math inline">\(Γ: X\rightrightarrows X\)</span>
+<span class="math inline">\(G\big((x_t)_{t = 0}^{T} \big)\)</span><br />
+</li>
 </ul></li>
 <li>(Terminal) Payoff (Object) Function: <span class="math inline">\(G: A\to\mathbb{R}\)</span></li>
 <li>Optimization problem: <span class="math inline">\(\max_A \ G(A)\)</span>
@@ -269,10 +271,67 @@ for an optimal plan <span class="math inline">\((x^*_t)_{t}^{\infty}\)</span>, t
 <span class="math display">\[\begin{aligned}(x^*_t)_{t = 1}^{\infty} &amp;\in \text{argmax}_{(x_t)_{t = 1}^{\infty}} &amp;&amp; G\big(x_0^*, (x_t)_{t = 1}^{\infty} \big) \\
 \implies (x^*_t)_{t = t&#39;}^{\infty} &amp;\in \text{argmax}_{(x_t)_{t = t&#39;}^{\infty}} &amp;&amp; G\big((x_t^*)_{t = 1}^{t&#39;-1}, (x_t)_{t = t&#39;}^{\infty} \big) &amp;&amp; \forall t&#39;&gt;0\end{aligned}\]</span></li>
 </ul>
+<div id="recursive-analysis" class="section level3">
+<h3>Recursive Analysis</h3>
+<p>textbook P553, slide 6 P13</p>
+<ul>
+<li>Recursive structure: <span class="math inline">\(F:X^2\to\mathbb{R}\)</span> s.t.
+<span class="math display">\[\begin{aligned}G\big((x_t)_{t = 0}^{\infty} \big) &amp;= \sum_{t=0}^{\infty} β^T\cdot \overbrace{F(x_t,x_{t+1})}^{\text{Time Payoff}} \\
+&amp;= F(x_0, x_1) + β\cdot G\big((x_t)_{t = 1}^{\infty} \big)\end{aligned}\]</span>
+<ul>
+<li>Discount Factor: <span class="math inline">\(β\in [0,1)\)</span></li>
+<li>Assign to every <span class="math inline">\(x_{t+1}\not\in Γ(x_t)\)</span> a low value of <span class="math inline">\(F(x_t,x_{t+1})\)</span></li>
+</ul></li>
+<li>Assumption
+<ul>
+<li>(A1): <span class="math inline">\(Γ(x)\neq\emptyset\)</span> for all <span class="math inline">\(x\in X\)</span></li>
+<li>(A2): <span class="math inline">\(\sum_{t=0}^{\infty} β^T\cdot \big| F(x_t,x_{t+1})\big| &lt;\infty\)</span> for all <span class="math inline">\((x_t)_{t = 1}^{\infty}\in A(x_0)\)</span></li>
+</ul></li>
+<li>SP (Sequence Problem) for each <span class="math inline">\(x_0\in X\)</span><br />
+<span class="math display">\[\begin{aligned}\max_{(x_t)_{t = 1}^{\infty}} &amp;&amp; G\big(x_0, (x_t)_{t = 1}^{\infty} \big)\end{aligned}\]</span>
+<ul>
+<li>Continuation Payoff <span class="math display">\[\begin{aligned}V^*(x_0) &amp;\equiv \sup_{(x_t)_{t = 1}^{\infty}} \ G\big(x_0, (x_t)_{t = 1}^{\infty} \big) \\
+  &amp;= G\big(x_0, (x_t^*)_{t = 1}^{\infty} \big) \\
+  \implies V^*(x_t^*) &amp;= G\big(x_t^*, (x_{t&#39;})_{t&#39; = t+ 1}^{\infty} \big) &amp;&amp; \text{for all }t\end{aligned}\]</span></li>
+</ul></li>
+<li>Bellman Equation
+<span class="math display">\[\begin{aligned}V^*(x_{t-1}^*) = \max_{x\in X} \ \ &amp;F(x_{t-1}^*, x) &amp;&amp; \text{for all }t \\
+x_t^* \in \text{argmax} \ \ &amp;F(x_{t-1}^*, x)\end{aligned}\]</span>
+<ul>
+<li>Optimality Theorem<br />
+<span class="math inline">\((x_t^*)_{t = 1}^{\infty}\)</span> is a solution of SP <span class="math inline">\(\iff\)</span> Bellman equation holds</li>
+</ul></li>
+</ul>
+<!-- 
+    $\implies \sum_{t=0}^{\infty} β^T\cdot F(x_t,x_{t+1})$ exists for all $(x_t)_{t = 1}^{\infty}\in A(x_0)$
+ -->
+<!-- 
+&= F(x_0, x_1^*) + β\cdot G\big(x_0, (x_t^*)_{t = 2}^{\infty} \big) \\
+ -->
+<blockquote>
+<p>2019.F1.Q5<br />
+Let <span class="math inline">\(F:A^2\to\mathbb{R}\)</span> and <span class="math inline">\(V:A\to\mathbb{R}\)</span> be two continuous functions, where <span class="math inline">\(A\subset\mathbb{R}^n\)</span> is a compact, non-empty set.<br />
+Let <span class="math inline">\(\bar{F}\)</span> be the maximum of <span class="math inline">\(F\)</span> on <span class="math inline">\(A^2\)</span>.<br />
+Assume also that there is some <span class="math inline">\(β\in [0, 1)\)</span> s.t. the following equation is satisfied for all <span class="math inline">\(x\in A\)</span>:<br />
+<span class="math display">\[V(x) = \max_{y\in A} \ F(x,y) + β\cdot V(y)\]</span>
+Prove that <span class="math inline">\(V(x)\leq\frac{1}{1-β}\cdot\bar{F}\)</span> for all <span class="math inline">\(x\in A\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>2019.F1.Q4<br />
+Fix a binary state space <span class="math inline">\(X\equiv\{1, 2\}\)</span> and a Markov chain.<br />
+The probability of transitioning from state 1 to state 2 is <span class="math inline">\(α\in [0, 1]\)</span>, and the probability of transitioning from state 2 to state 1 is 0.<br />
+Assume <span class="math inline">\(x_0 = 1\)</span>.<br />
+The per-period payoff in period <span class="math inline">\(t\geq 0\)</span> is <span class="math inline">\(F(x_t,x_{t+1}) = x_t\)</span>.<br />
+1. Compute the probability that the state is 1 at any time <span class="math inline">\(t\in\mathbb{N}\)</span><br />
+2. Give an expression for <span class="math inline">\(E\Big[ \sum_{t=0}^{\infty} β^t\cdot F(x_t,x_{t+1})\Big]\)</span> in terms of <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>.<br />
+Hint: use the corresponding Bellman equation.</p>
+</blockquote>
+</div>
 <div id="backward-induction" class="section level3">
 <h3>Backward Induction</h3>
+<p>textbook P554, slide 6 P9</p>
 <ul>
-<li><span class="math inline">\(T\)</span> is finite</li>
+<li>When <span class="math inline">\(T\)</span> is finite</li>
 <li>Value Function: the maximum achievable value of <span class="math inline">\(G\)</span><br />
 <span class="math display">\[\begin{aligned}\text{Last period:} &amp;&amp; V_T\big((x_t)^{T-1}_{t=0}\big) &amp;\equiv \text{max}_{x_T} &amp;&amp; G\big((x_t)_{t = 0}^{T} \big) \\
 \text{Second last period:} &amp;&amp; V_{T-1}\big((x_t)^{T-2}_{t=0}\big) &amp;\equiv \text{max}_{x_T,x_{T-1}} &amp;&amp; V\big((x_t)^{T}_{t=1}\big) \\
@@ -283,18 +342,6 @@ for an optimal plan <span class="math inline">\((x^*_t)_{t}^{\infty}\)</span>, t
 <!--
 \text{Period }t: && V_{t'}\big((x_{t'})^{t-1}_{t'=0}\big) &= \text{max}_{x_{t}} && V_{t+1}\big((x_{t'})^{t}_{t'=0}\big) \\
 -->
-</div>
-<div id="recursive-analysis" class="section level3">
-<h3>Recursive Analysis</h3>
-<p>textbook P553, slide 6 P13</p>
-<ul>
-<li>Recursive structure: <span class="math inline">\(F:X^2\to\mathbb{R}\)</span> s.t.
-<span class="math display">\[\begin{aligned}G\big((x_t)_{t = 0}^{\infty} \big) &amp;= \sum_{t=0}^{\infty} β^T\cdot \overbrace{F(x_t,x_{t+1})}^{\text{Time Payoff}} \\
-&amp;= F(x_0, x_1) + β\cdot G\big((x_t)_{t = 1}^{\infty} \big)\end{aligned}\]</span>
-<ul>
-<li>Discount Factor: <span class="math inline">\(β\in [0,1)\)</span></li>
-</ul></li>
-</ul>
 </div>
 </div>
 
