@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.54.0" />
+
+<title>Notes on Mathematics - Optimization and Dynamics - loikein</title>
+<meta property="og:title" content="Notes on Mathematics - Optimization and Dynamics - loikein">
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">6 min read</span>
+    
+
+    <h1 class="article-title">Notes on Mathematics - Optimization and Dynamics</h1>
+
+    
+    <span class="article-date">2019/01/30</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/math'>math</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#optimization">Optimization</a><ul>
+<li><a href="#lagrange-method">Lagrange Method</a></li>
+<li><a href="#kuhn-tucker-method">Kuhn-Tucker Method</a></li>
+<li><a href="#dual-problem">Dual Problem</a></li>
+</ul></li>
+<li><a href="#dynamics">Dynamics</a><ul>
+<li><a href="#backward-induction">Backward Induction</a></li>
+<li><a href="#recursive-analysis">Recursive Analysis</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="optimization" class="section level2">
+<h2>Optimization</h2>
+<div id="lagrange-method" class="section level3">
+<h3>Lagrange Method</h3>
+<blockquote>
+<p>PS11.Q1<br />
+Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} x+y\)</span>   s.t. <span class="math inline">\(x^2+y^2=2\)</span></p>
+</blockquote>
+<p>Lagrangian:
+<span class="math display">\[\mathcal{L}(x,y,λ) = x+y+λ(x^2+y^2-2)\]</span>
+FOC
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = 1 + 2λx = 0 &amp;&amp; x &amp;= -\frac{1}{2λ} \\
+\frac{\partial\mathcal{L}}{\partial y} = 1 + 2λy = 0 &amp;&amp; y &amp;= -\frac{1}{2λ} \\
+x^2+y^2=2 &amp;&amp; \frac{1}{4λ^2} &amp;= 1 \implies λ = \pm \frac{1}{2}\end{aligned}\]</span>
+1. When <span class="math inline">\(λ = \frac{1}{2}\)</span><br />
+<span class="math display">\[\begin{aligned} x &amp;= -1 \\ y &amp;= -1 \\ x+y &amp;= -2\end{aligned}\]</span>
+2. When <span class="math inline">\(λ = -\frac{1}{2}\)</span><br />
+<span class="math display">\[\begin{aligned} x &amp;= 1 \\ y &amp;= 1 \\ x+y &amp;= 2\end{aligned}\]</span>
+Therefore, <span class="math inline">\(\max x+y = 2\)</span></p>
+<blockquote>
+<p>PS11.Q4<br />
+Solve <span class="math inline">\(\max_{x,y} xy\)</span>   s.t. <span class="math inline">\(5x+2y=20\)</span></p>
+</blockquote>
+<p>Lagrangian:
+<span class="math display">\[\mathcal{L}(x,y, λ) = xy + λ(5x+2y-20)\]</span>
+FOC
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = y + 5λ = 0 &amp;&amp; y = -5λ \\
+\frac{\partial\mathcal{L}}{\partial y} = x + 2λ = 0 &amp;&amp; x = -2 λ \\
+5x+2y-20 = 0 &amp;&amp; \end{aligned}\]</span>
+Solve
+<span class="math display">\[\begin{aligned} λ &amp;= -1 \\ x &amp;= 2 \\ y &amp;= 5\end{aligned}\]</span>
+Therefore, <span class="math inline">\(\max xy = 10\)</span></p>
+</div>
+<div id="kuhn-tucker-method" class="section level3">
+<h3>Kuhn-Tucker Method</h3>
+<blockquote>
+<p>PS11.Q2<br />
+Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} -(x_1-4)^2 - (x_2-4)^2\)</span>   s.t. <span class="math inline">\(\begin{cases} x_1+x_2\leq 4 \\ 3x_1+x_2\leq 9\end{cases}\)</span></p>
+</blockquote>
+<p>Kuhn-Tucker conditions:
+<span class="math display">\[\begin{aligned} x_1+x_2\leq 4 &amp;\implies λ_1(4 - x_1 - x_2) \geq 0 \\
+3x_1+x_2\leq 9 &amp;\implies λ_2(9 - 3x_1 - x_2) \geq 0\end{aligned}\]</span>
+Lagrangian:
+<span class="math display">\[\begin{aligned} \mathcal{L}(x_1,x_2,λ_1, λ_2) = &amp;-(x_1-4)^2 - (x_2-4)^2 \\ &amp;+ λ_1(4 - x_1 - x_2) + λ_2(9 - 3x_1 - x_2) \end{aligned}\]</span>
+FOC
+<span class="math display">\[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x_1} = -2(x_1-4) - λ_1 - 3λ_2 &amp;= 0 \\
+\frac{\partial\mathcal{L}}{\partial x_2} = -2(x_2-4) - λ_1 - λ_2 &amp;= 0 \\
+λ_1(4 - x_1 - x_2) &amp;= 0 \\
+λ_2(9 - 3x_1 - x_2) &amp;= 0\end{aligned}\]</span></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(λ_1 = 0\)</span> and <span class="math inline">\(λ_2 = 0\)</span>
+<span class="math display">\[\begin{cases} -2(x_1-4) =0 \\ -2(x_2-4) =0\end{cases}\]</span>
+<span class="math inline">\(\implies x_1 = x_2 = 4\)</span><br />
+<span class="math inline">\(\implies x_1+x_2 \not\leq 4\)</span> (omitted)<br />
+</li>
+<li><span class="math inline">\(λ_1 &gt; 0\)</span> and <span class="math inline">\(λ_2 = 0\)</span>
+<span class="math display">\[\begin{cases} x_1+x_2 = 4 \\ -2(x_1-4) - λ_1 = 0 \\ -2(x_2-4) - λ_1 = 0\end{cases}\]</span>
+<span class="math inline">\(\implies \begin{cases} x_1 = x_2 = 2 \\ λ_1 = 4 &gt; 0\\ \end{cases}\)</span><br />
+<span class="math inline">\(\implies \begin{cases} x_1+x_2 = 4\leq 4 \\ 3x_1+x_2 = 8 \leq 9\\ \end{cases}\)</span><br />
+All constraints are satisfied, <span class="math inline">\(-(x_1-4)^2 - (x_2-4)^2 = -8\)</span><br />
+</li>
+<li><span class="math inline">\(λ_1 = 0\)</span> and <span class="math inline">\(λ_2 &gt; 0\)</span>
+<span class="math display">\[\begin{cases} 9 - 3x_1 - x_2 = 0 \\ -2(x_1-4) - 3λ_2 = 0 \\ -2(x_2-4)- λ_2 = 0\end{cases}\]</span>
+<span class="math inline">\(\implies \begin{cases} x_1 = -\frac{3λ_2}{2} + 4 \\ x_2 = -\frac{λ_2}{2} + 4 \\ λ_2 = \frac{7}{5} &gt; 0\end{cases}\)</span><br />
+<span class="math inline">\(\implies x_1+x_2 \not\leq 4\)</span> (omitted)<br />
+</li>
+<li><span class="math inline">\(λ_1 &gt; 0\)</span> and <span class="math inline">\(λ_2 &gt; 0\)</span>
+<span class="math display">\[\begin{cases} x_1+x_2 = 4\\ 3x_1+x_2= 9 \\ -2(x_1-4) - λ_1 - 3λ_2 = 0 \\ -2(x_2-4) - λ_1 - λ_2 = 0\end{cases}\]</span>
+<span class="math inline">\(\implies \begin{cases} x_1 = \frac{5}{2} \\ x_2 = \frac{3}{2} \\ λ_1 = 6 &gt; 0 \\ λ_2 = -1 &lt; 0\end{cases}\)</span> (omitted)</li>
+</ol>
+<p>Therefore, <span class="math inline">\(\max -(x_1-4)^2 - (x_2-4)^2 = -8\)</span></p>
+<blockquote>
+<p>PS11.Q3<br />
+Solve <span class="math inline">\(\max_{(x,y)\in \mathbb{R}^2} x_1^2 + x_2^2\)</span>   s.t. <span class="math inline">\(\begin{cases} x_1 \geq 0 \\ x_2\geq 0 \\ 3x_1+x_2\leq 9\end{cases}\)</span></p>
+</blockquote>
+<blockquote>
+<p>PS11.Q5<br />
+Solve <span class="math inline">\(\max_{x,y} xy\)</span>   s.t. <span class="math inline">\(\begin{cases} 5x+2y\leq 20 \\ x\geq 0\end{cases}\)</span></p>
+</blockquote>
+</div>
+<div id="dual-problem" class="section level3">
+<h3>Dual Problem</h3>
+<ul>
+<li>Primal Problem:
+<span class="math display">\[\begin{aligned} \max_{x\in\mathcal{A}} c^Tx &amp;&amp; \mathcal{A} = \{x\in \mathbb{R}^n \ | \ Ax \leq b, x\geq 0\} \end{aligned}\]</span></li>
+<li>Dual Problem:
+<span class="math display">\[\begin{aligned} \min_{y\in\mathcal{B}} b^Ty &amp;&amp; \mathcal{B} = \{y\in \mathbb{R}^m \ | \ A^Ty \geq c, y\geq 0\} \end{aligned}\]</span></li>
+<li>Weak Duality: <span class="math inline">\(x\)</span> is feasible <span class="math inline">\(\implies c^T x\leq b^T y\)</span> for any feasible <span class="math inline">\(y\)</span><br />
+</li>
+<li>Strong Duality: <span class="math inline">\(x^*\)</span> is optimal <span class="math inline">\(\implies y^*\)</span> is optimal, <span class="math inline">\(c^Tx^*=b^Ty^*\)</span></li>
+<li>Equilibrium Theorem: feasible <span class="math inline">\(x^*\)</span> and <span class="math inline">\(y^*\)</span> are optimal<br />
+<span class="math inline">\(\iff\)</span> <span class="math inline">\(\begin{cases} y_i^* \cdot(b_i - \sum_j^n a_{ij}x_j^*)= 0 &amp;&amp; \text{for all }i \\ x_j^* \cdot ( \sum_i^m a_{ij}y_i^* - c_j) = 0 &amp;&amp; \text{for all }j \end{cases}\)</span></li>
+</ul>
+<blockquote>
+<p>PS11.Q6<br />
+Let <span class="math inline">\(a\)</span> be a strictly positive real number.<br />
+Consider the following (primal) linear programming problem:<br />
+<span class="math inline">\(\max 2x_1+4x_2\)</span>   s.t. <span class="math inline">\(\begin{cases} 3x_1 + 5x_2 \leq a \\ x_1\geq 0 \\ x_2\geq 0\end{cases}\)</span><br />
+1. Write its associated dual problem in terms of <span class="math inline">\(y_1\)</span><br />
+2. Obtain the solution of the dual problem. Which constraints bind?<br />
+3. Show explicitly that if <span class="math inline">\((x_1,x_2)\)</span> and <span class="math inline">\(y_1\)</span> are feasible in the primal and dual problems, respectively, then <span class="math inline">\(2x_1+ 4x_2 \leq ay_1\)</span><br />
+4. Use the equilibrium theorem to find the solution of the primal problem</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Rewrite the primal problem:<br />
+<span class="math display">\[\max \begin{pmatrix} 2 \\ 4 \end{pmatrix}^T \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\]</span>
+s.t.<br />
+<span class="math display">\[\begin{cases} \begin{pmatrix} 3 &amp;&amp; 5 \end{pmatrix} \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \leq a \\
+\phantom{1234567890}\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \geq \begin{pmatrix} 0 \\ 0 \end{pmatrix}\end{cases}\]</span>
+The dual problem:<br />
+<span class="math display">\[\min a \cdot y_1\]</span>
+s.t.<br />
+<span class="math display">\[\begin{cases} \begin{pmatrix} 3 \\ 5 \end{pmatrix} \cdot y_1 \geq \begin{pmatrix} 2 \\ 4 \end{pmatrix} \\
+\phantom{123456} y_1\geq 0 \end{cases}\]</span></li>
+<li>The constraints:<br />
+<span class="math display">\[\begin{cases} 3y_1 \geq 2 \\ 5y_1\geq 4 \\ \phantom{1} y_1\geq 0 \end{cases}\]</span>
+Solve:<br />
+<span class="math display">\[\begin{aligned}y_1 &amp;= \frac{4}{5} \\ a \cdot y_1 &amp;= a\cdot \frac{4}{5}\end{aligned}\]</span>
+The binding constraint is <span class="math inline">\(5y_1\geq 4\)</span><br />
+</li>
+<li>Since <span class="math inline">\(x_1,x_2,y_1\)</span> is feasible,<br />
+<span class="math display">\[\begin{aligned} Ax &amp;\leq b \\
+y^TAx &amp;\leq y^T b\end{aligned}\]</span>
+and<br />
+<span class="math display">\[\begin{aligned} A^Ty &amp;\geq c \\
+y^T A &amp;\geq c^T \\
+y^T A x &amp;\geq c^T x\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned} c^T x &amp;\leq y^T A x \leq y^T b \\
+c^T x &amp;\leq y^T b \\
+\begin{pmatrix} 2 \\ 4 \end{pmatrix}^T \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} &amp;\leq y_1\cdot a \\
+2x_1+ 4x_2 &amp;\leq ay_1\end{aligned}\]</span></li>
+<li>Since the first constraint of the dual problem, <span class="math inline">\(3y_1 \geq 2\)</span> is not binding<br />
+<span class="math inline">\(\implies x_1 = 0\)</span><br />
+Since <span class="math inline">\(y_1 = \frac{4}{5} &gt; 0\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(\begin{pmatrix} 3 &amp;&amp; 5 \end{pmatrix} \cdot \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \leq a\)</span> is binding<br />
+<span class="math inline">\(\implies 3x_1 + 5x_2 = a\)</span><br />
+<span class="math inline">\(\implies x_2 = \frac{a}{5}\)</span><br />
+<span class="math inline">\(\implies \max 2x_1+4x_2 = \frac{4a}{5}\)</span></li>
+</ol>
+</div>
+</div>
+<div id="dynamics" class="section level2">
+<h2>Dynamics</h2>
+<p>Reference: <a href="http://web.stanford.edu/group/econ/uploads/pmwiki/Math.DynamicOptUserGuide.pdf">Dynamic Optimization user’s guide</a></p>
+<ul>
+<li>Number of periods: <span class="math inline">\(T \in\mathbb{N}\cup\{+\infty\}\)</span></li>
+<li>Set of actions (States): <span class="math inline">\(X\subset\mathbb{R}^{d}\)</span>
+<ul>
+<li>Markov state variable: <span class="math inline">\(x\in X\)</span></li>
+<li>Initial state: <span class="math inline">\(x_0\)</span></li>
+<li>Set of actions for all periods: <span class="math inline">\(X^T\subset\mathbb{R}^{d\cdot T}\)</span></li>
+<li>Sequence of decisions (Plan / Program): <span class="math inline">\((x_t)_{t = 1}^{T} = (x_1, x_2,\dots, x_T) \in X^T\)</span></li>
+</ul></li>
+<li>Set of Feasible Sequences: <span class="math inline">\(A(x_0) \equiv \big\{ (x_t)_{t = 1}^{\infty} \ | \ x_t\in Γ(x_{t-1})\)</span> for all <span class="math inline">\(t\in\mathbb{N}\big\}\)</span>
+<ul>
+<li><span class="math inline">\(A\subset X^T\)</span></li>
+<li><span class="math inline">\(Γ: X\rightrightarrows X\)</span></li>
+</ul></li>
+<li>(Terminal) Payoff (Object) Function: <span class="math inline">\(G: A\to\mathbb{R}\)</span></li>
+<li>Optimization problem: <span class="math inline">\(\max_A \ G(A)\)</span>
+<ul>
+<li>Generalization: <span class="math inline">\(A\to X^T\to X^{\infty}\)</span></li>
+</ul></li>
+<li>(Bellman’s) Priciple of Optimality<br />
+for an optimal plan <span class="math inline">\((x^*_t)_{t}^{\infty}\)</span>, the remaining decisions must be optimal starting for every state<br />
+<span class="math display">\[\begin{aligned}(x^*_t)_{t = 1}^{\infty} &amp;\in \text{argmax}_{(x_t)_{t = 1}^{\infty}} &amp;&amp; G\big(x_0^*, (x_t)_{t = 1}^{\infty} \big) \\
+\implies (x^*_t)_{t = t&#39;}^{\infty} &amp;\in \text{argmax}_{(x_t)_{t = t&#39;}^{\infty}} &amp;&amp; G\big((x_t^*)_{t = 1}^{t&#39;-1}, (x_t)_{t = t&#39;}^{\infty} \big) &amp;&amp; \forall t&#39;&gt;0\end{aligned}\]</span></li>
+</ul>
+<div id="backward-induction" class="section level3">
+<h3>Backward Induction</h3>
+<ul>
+<li><span class="math inline">\(T\)</span> is finite</li>
+<li>Value Function: the maximum achievable value of <span class="math inline">\(G\)</span><br />
+<span class="math display">\[\begin{aligned}\text{Last period:} &amp;&amp; V_T\big((x_t)^{T-1}_{t=0}\big) &amp;\equiv \text{max}_{x_T} &amp;&amp; G\big((x_t)_{t = 0}^{T} \big) \\
+\text{Second last period:} &amp;&amp; V_{T-1}\big((x_t)^{T-2}_{t=0}\big) &amp;\equiv \text{max}_{x_T,x_{T-1}} &amp;&amp; V\big((x_t)^{T}_{t=1}\big) \\
+&amp;&amp; &amp;= \text{max}_{x_{T-1}} &amp;&amp; V_T\big((x_t)^{T-1}_{t=0}\big) \\
+&amp;&amp; &amp;= \text{max}_{x_T,x_{T-1}} &amp;&amp; G\big((x_t)_{t = 0}^{T} \big) \\
+\text{First period:} &amp;&amp; V_1(x_0) &amp;= \text{max}_{(x_t)_{t=1}^T} &amp;&amp; G\big((x_t)_{t = 0}^{T} \big)\end{aligned}\]</span></li>
+</ul>
+<!--
+\text{Period }t: && V_{t'}\big((x_{t'})^{t-1}_{t'=0}\big) &= \text{max}_{x_{t}} && V_{t+1}\big((x_{t'})^{t}_{t'=0}\big) \\
+-->
+</div>
+<div id="recursive-analysis" class="section level3">
+<h3>Recursive Analysis</h3>
+<p>textbook P553, slide 6 P13</p>
+<ul>
+<li>Recursive structure: <span class="math inline">\(F:X^2\to\mathbb{R}\)</span> s.t.
+<span class="math display">\[\begin{aligned}G\big((x_t)_{t = 0}^{\infty} \big) &amp;= \sum_{t=0}^{\infty} β^T\cdot \overbrace{F(x_t,x_{t+1})}^{\text{Time Payoff}} \\
+&amp;= F(x_0, x_1) + β\cdot G\big((x_t)_{t = 1}^{\infty} \big)\end{aligned}\]</span>
+<ul>
+<li>Discount Factor: <span class="math inline">\(β\in [0,1)\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
