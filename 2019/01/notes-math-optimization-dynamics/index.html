@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">8 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Optimization and Dynamics</h1>
@@ -95,6 +95,7 @@
 </ul></li>
 <li><a href="#dynamics">Dynamics</a><ul>
 <li><a href="#recursive-analysis">Recursive Analysis</a></li>
+<li><a href="#finite-markov-chain">Finite Markov Chain</a></li>
 <li><a href="#backward-induction">Backward Induction</a></li>
 </ul></li>
 </ul>
@@ -296,11 +297,15 @@ for an optimal plan <span class="math inline">\((x^*_t)_{t}^{\infty}\)</span>, t
 </ul></li>
 <li>Bellman Equation
 <span class="math display">\[\begin{aligned}V^*(x_{t-1}^*) = \max_{x\in X} \ \ &amp;F(x_{t-1}^*, x) &amp;&amp; \text{for all }t \\
-x_t^* \in \text{argmax} \ \ &amp;F(x_{t-1}^*, x)\end{aligned}\]</span>
-<ul>
+x_t^* \in \text{argmax} \ \ &amp;F(x_{t-1}^*, x)\end{aligned}\]</span></li>
 <li>Optimality Theorem<br />
 <span class="math inline">\((x_t^*)_{t = 1}^{\infty}\)</span> is a solution of SP <span class="math inline">\(\iff\)</span> Bellman equation holds</li>
+<li>Markov solution: <span class="math inline">\((x_t)_{t = 1}^{\infty}\)</span>
+<ul>
+<li>it is a solution of SP</li>
+<li>exists optimal policy <span class="math inline">\(g:X\to X\)</span> s.t. <span class="math inline">\(x_{t+1} = g(x_t)\)</span> for all <span class="math inline">\(t\geq 0\)</span></li>
 </ul></li>
+<li>SP has unique solution <span class="math inline">\(\iff\)</span> unique Markov solution</li>
 </ul>
 <!-- 
     $\implies \sum_{t=0}^{\infty} β^T\cdot F(x_t,x_{t+1})$ exists for all $(x_t)_{t = 1}^{\infty}\in A(x_0)$
@@ -316,6 +321,33 @@ Assume also that there is some <span class="math inline">\(β\in [0, 1)\)</span>
 <span class="math display">\[V(x) = \max_{y\in A} \ F(x,y) + β\cdot V(y)\]</span>
 Prove that <span class="math inline">\(V(x)\leq\frac{1}{1-β}\cdot\bar{F}\)</span> for all <span class="math inline">\(x\in A\)</span>.</p>
 </blockquote>
+<p>Since <span class="math inline">\(V\)</span> is continuous and <span class="math inline">\(A\)</span> is compact<br />
+<span class="math inline">\(\implies\)</span> let <span class="math inline">\(\bar{V}\)</span> denote the maximum of <span class="math inline">\(V\)</span> on <span class="math inline">\(A\)</span><br />
+<span class="math display">\[\begin{aligned} F(x,y) + β\cdot V(y) &amp;\leq \bar{F} + β\cdot\bar{V} &amp;&amp; \text{for all }x,y\in A \\
+V(x) &amp;\leq \bar{F} + β\cdot\bar{V} &amp;&amp; \text{for all }x\in A \\
+\bar{V} &amp;\leq \bar{F} + β\cdot\bar{V} \\
+&amp;\leq \frac{1}{1-β}\cdot\bar{F} \\
+V(x) &amp;\leq \frac{1}{1-β}\cdot\bar{F} \end{aligned}\]</span></p>
+</div>
+<div id="finite-markov-chain" class="section level3">
+<h3>Finite Markov Chain</h3>
+<ul>
+<li>State space: <span class="math inline">\(X = \{1,\dots, N\}\)</span></li>
+<li>(Stochastic) probability Matrix: <span class="math inline">\(P\in\mathbb{R}^{N\times N}\)</span>
+<ul>
+<li><span class="math inline">\(P_{ij}\geq 0\)</span> for all <span class="math inline">\(i,j\)</span></li>
+<li><span class="math inline">\(\sum_{j = 1}^N P_{ij} = 1\)</span> for all <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(P_{ij} = Pr\)</span>( state i transitions to state j ) <span class="math inline">\(= Pr(x_{t+1} = j \ | \ x_t = i)\)</span> for any <span class="math inline">\(t\)</span></li>
+</ul></li>
+<li>If <span class="math inline">\(x_0 = i\)</span>, probability vector:
+<span class="math display">\[\begin{aligned}t = 0 &amp;&amp; p_0 &amp;= (\dots, \ 0, \underbrace{1}_{i\text{-th}}, \ 0, \ \dots)&#39; \\
+t = 1 &amp;&amp; p_1 &amp;= P&#39; \cdot p_0 \\
+&amp;&amp; &amp;= (p_{i1}, \ p_{i2}, \ \dots, \ p_{ij})&#39; \\
+t = 2 &amp;&amp; p_2 &amp;= P&#39;\cdot p_1 \\
+&amp;&amp; &amp;= (P&#39;)^2\cdot p_0 \\
+t &amp;&amp; p_t &amp;= P&#39;\cdot p_{t-1} \\
+&amp;&amp; &amp;= (P&#39;)^t \cdot p_0\end{aligned}\]</span></li>
+</ul>
 <blockquote>
 <p>2019.F1.Q4<br />
 Fix a binary state space <span class="math inline">\(X\equiv\{1, 2\}\)</span> and a Markov chain.<br />
