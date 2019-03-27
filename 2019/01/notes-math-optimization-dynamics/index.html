@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">9 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Optimization and Dynamics</h1>
@@ -358,6 +358,23 @@ The per-period payoff in period <span class="math inline">\(t\geq 0\)</span> is 
 2. Give an expression for <span class="math inline">\(E\Big[ \sum_{t=0}^{\infty} β^t\cdot F(x_t,x_{t+1})\Big]\)</span> in terms of <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>.<br />
 Hint: use the corresponding Bellman equation.</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Compute the probability that the state is 1<br />
+<span class="math display">\[\begin{aligned} P &amp;= \begin{bmatrix} 1-α &amp; α \\ 0 &amp; 1 \end{bmatrix}\\
+p_0 &amp;= \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
+p_t &amp;= (P&#39;)^t\cdot p_0 \\
+&amp;= \begin{bmatrix} 1-α &amp; 0 \\ α &amp; 1 \end{bmatrix}^t\cdot \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
+p_t^1 &amp;= \begin{bmatrix} (1-α)^t &amp; 0\end{bmatrix}\cdot \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
+&amp;= (1-α)^t\end{aligned}\]</span></li>
+<li>Let the continuation value at two states <span class="math inline">\(V_1, V_2\)</span>, respectively.<br />
+Since <span class="math inline">\(F(x_t,x_{t+1}) = x_t\)</span>,<br />
+<span class="math display">\[\begin{aligned} V_1 &amp;= 1 + β\cdot\big( (1-α)\cdot V_1 + α\cdot V_2\big) \\
+V_2 &amp;= 2 + β\cdot 1\cdot V_2 \\
+&amp;= \frac{2}{1-β} \\
+\implies V_1 &amp;= 1 + β\cdot\Big( (1-α)\cdot V_1 + α\cdot \frac{2}{1-β}\Big) \\
+&amp;= \frac{1+\frac{2αβ}{1-β}}{1-β(1-α)} \\
+&amp;= \frac{1-β+2αβ}{(1-β)^2(1-α)}\end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="backward-induction" class="section level3">
 <h3>Backward Induction</h3>
