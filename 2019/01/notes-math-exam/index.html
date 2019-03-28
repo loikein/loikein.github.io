@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">27 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -754,10 +754,21 @@ Therefore, <span class="math inline">\(f(x_3) = x_3\)</span><br />
 <blockquote>
 <p>2019.F1.Q6<br />
 Let <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span> be a function.<br />
-Assume there is some <span class="math inline">\(λ &gt; 0\)</span> such that <span class="math inline">\(\big|f&#39;(x)\big|\leq λ\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span>.<br />
-Prove <span class="math inline">\(|f (x) − f (y)| ≤ λ |x − y|\)</span> for all <span class="math inline">\(x,y \in\mathbb{R}\)</span>.<br />
+Assume there is some <span class="math inline">\(λ &gt; 0\)</span> such that <span class="math inline">\(|f&#39;(x)|\leq λ\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span>.<br />
+Prove <span class="math inline">\(|f(x) − f(y)|\leq λ |x − y|\)</span> for all <span class="math inline">\(x,y \in\mathbb{R}\)</span>.<br />
 Hint: use the mean value theorem.</p>
 </blockquote>
+<p>FSOC assume exist some <span class="math inline">\(x, y \in\mathbb{R}\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned}|f(x) − f(y)| &amp;&gt; λ|x − y| \\
+\frac{|f(x) − f(y)|}{|x − y|} &amp;&gt; λ \\
+\bigg| \frac{f(x) − f(y)}{x − y}\bigg| &amp;&gt; λ\end{aligned}\]</span>
+Since <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span><br />
+<span class="math inline">\(\implies\)</span> exists some <span class="math inline">\(z\in [x,y]\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned}f&#39;(z) &amp;= \frac{f(x) − f(y)}{x − y} \\
+|f&#39;(z)| &amp;= \bigg| \frac{f(x) − f(y)}{x − y}\bigg| \\
+&amp;&gt; λ \end{aligned}\]</span>
+Contradicts that <span class="math inline">\(|f&#39;(x)|\leq λ\)</span> for all <span class="math inline">\(x\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(|f(x) − f(y)|\leq λ |x − y|\)</span> for all <span class="math inline">\(x,y\)</span></p>
 </div>
 <div id="intermediate-value-theorem" class="section level3">
 <h3>Intermediate Value Theorem</h3>
@@ -1207,6 +1218,12 @@ Take arbitrary <span class="math inline">\(S_n, S_m\in (S_n)_n\)</span>, <span c
 <span class="math display">\[\begin{aligned}d(S_n, S_m) &amp;&lt; β^m\cdot\frac{M}{1-β} \\
 &amp;&lt; β^{N_ε}\cdot\frac{M}{1-β} \\
 &amp;&lt; ε\end{aligned}\]</span></p>
+<blockquote>
+<p>2019.F1.Q7<br />
+Let <span class="math inline">\((x_n)_n\)</span> be a bounded sequence in <span class="math inline">\(\mathbb{R}\)</span>. Assume it is not convergent.<br />
+Prove that there exist two values <span class="math inline">\(x\)</span> and <span class="math inline">\(x&#39;\)</span>, <span class="math inline">\(x\neq x&#39;\)</span>, and two subsequences of <span class="math inline">\((x_n)_n\)</span>, denoted <span class="math inline">\((x_{k_n})_n\)</span> and <span class="math inline">\((x_{j_n})_n\)</span>, such that <span class="math inline">\((x_{k_n})_n\)</span> converges to <span class="math inline">\(x\)</span> and <span class="math inline">\((x_{j_n})_n\)</span> converges to <span class="math inline">\(x&#39;\)</span>.<br />
+Hint: you can use the fact that any bounded sequence in <span class="math inline">\(\mathbb{R}\)</span> has a convergent subsequence.</p>
+</blockquote>
 </div>
 <div id="limit-cluster-point" class="section level3">
 <h3>Limit &amp; Cluster Point</h3>
