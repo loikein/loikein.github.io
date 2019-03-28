@@ -166,7 +166,7 @@ Afterwards, it will be restructured and merged into <a href="https://loikein.git
 2018-1</li>
 <li><input type="checkbox" disabled="" />
 2018-2</li>
-<li><input type="checkbox" disabled="" />
+<li><input type="checkbox" disabled="" checked="" />
 2019-1</li>
 </ul>
 <div id="what" class="section level2">
@@ -1218,15 +1218,29 @@ Take arbitrary <span class="math inline">\(S_n, S_m\in (S_n)_n\)</span>, <span c
 <span class="math display">\[\begin{aligned}d(S_n, S_m) &amp;&lt; β^m\cdot\frac{M}{1-β} \\
 &amp;&lt; β^{N_ε}\cdot\frac{M}{1-β} \\
 &amp;&lt; ε\end{aligned}\]</span></p>
+</div>
+<div id="limit-cluster-point" class="section level3">
+<h3>Limit &amp; Cluster Point</h3>
 <blockquote>
 <p>2019.F1.Q7<br />
 Let <span class="math inline">\((x_n)_n\)</span> be a bounded sequence in <span class="math inline">\(\mathbb{R}\)</span>. Assume it is not convergent.<br />
 Prove that there exist two values <span class="math inline">\(x\)</span> and <span class="math inline">\(x&#39;\)</span>, <span class="math inline">\(x\neq x&#39;\)</span>, and two subsequences of <span class="math inline">\((x_n)_n\)</span>, denoted <span class="math inline">\((x_{k_n})_n\)</span> and <span class="math inline">\((x_{j_n})_n\)</span>, such that <span class="math inline">\((x_{k_n})_n\)</span> converges to <span class="math inline">\(x\)</span> and <span class="math inline">\((x_{j_n})_n\)</span> converges to <span class="math inline">\(x&#39;\)</span>.<br />
 Hint: you can use the fact that any bounded sequence in <span class="math inline">\(\mathbb{R}\)</span> has a convergent subsequence.</p>
 </blockquote>
-</div>
-<div id="limit-cluster-point" class="section level3">
-<h3>Limit &amp; Cluster Point</h3>
+<p><a href="https://math.stackexchange.com/questions/298817/let-x-n-be-a-bounded-but-not-convergent-sequence-prove-that-x-n-has-two">Mathematics Stack Exchange</a></p>
+<p>Since <span class="math inline">\((x_n)_n\)</span> is bounded<br />
+<span class="math inline">\(\implies (x_n)_n\)</span> has a convergent subsequence, denote as <span class="math inline">\((x_{k_n})_n\to x\)</span><br />
+Since <span class="math inline">\((x_n)_n \not\to x\)</span><br />
+<span class="math inline">\(\implies\)</span> exists some <span class="math inline">\(ε&gt;0\)</span> s.t. for all <span class="math inline">\(N\in\mathbb{N}\)</span>, exists <span class="math inline">\(n &gt; N\)</span> s.t. <span class="math inline">\(d(x_n, x)\geq ε\)</span><br />
+1. for <span class="math inline">\(n=1\)</span>, let <span class="math inline">\(m_1 = \min\{n&gt;0 \ | \ d(x_n, x)\geq ε\}\)</span><br />
+2. for <span class="math inline">\(n=2\)</span>, let <span class="math inline">\(m_2 = \min\{n&gt;j_1 \ | \ d(x_n, x)\geq ε\}\)</span><br />
+3. for <span class="math inline">\(n&gt;2\)</span>, let <span class="math inline">\(m_n = \min\{n&gt;j_{n-1} \ | \ d(x_n, x)\geq ε\}\)</span><br />
+Since <span class="math inline">\((m_n)_n\)</span> is strictly increasing, <span class="math inline">\((x_{m_n})_n\)</span> is a subsequence of <span class="math inline">\((x_n)_n\)</span><br />
+<span class="math inline">\(\implies (x_{m_n})_n\)</span> is bounded<br />
+<span class="math inline">\(\implies (x_{m_n})_n\)</span> has a convergent subsequence, denote as <span class="math inline">\((x_{j_n})_n\to x&#39;\)</span><br />
+Since <span class="math inline">\(d(x_{m_n}, x)\geq ε\)</span> for all <span class="math inline">\(m_n\)</span><br />
+<span class="math inline">\(\implies (x_{m_n})_n \not\to x\)</span><br />
+<span class="math inline">\(\implies x\neq x&#39;\)</span></p>
 </div>
 <div id="un-bounded" class="section level3">
 <h3>(Un-)bounded</h3>
