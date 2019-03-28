@@ -165,7 +165,7 @@ Afterwards, it will be restructured and merged into <a href="https://loikein.git
 2017-2</li>
 <li><input type="checkbox" disabled="" checked="" />
 2018-1</li>
-<li><input type="checkbox" disabled="" />
+<li><input type="checkbox" disabled="" checked="" />
 2018-2</li>
 <li><input type="checkbox" disabled="" checked="" />
 2019-1</li>
@@ -444,6 +444,43 @@ Therefore,<br />
 &amp;\geq |f(x_3) - g(x_3) + g(x_3) - h(x_3)| \\
 &amp;= |f(x_3) - h(x_3)| \\
 &amp;= d(f,h)\end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>2018.F2.Q6<br />
+Let <span class="math inline">\(A\subset\mathbb{R}^n\)</span> be non-empty and compact, and <span class="math inline">\(\mathcal{C}(A)\)</span> be the space of continuous functions from <span class="math inline">\(A\)</span> to <span class="math inline">\(\mathbb{R}\)</span>.<br />
+Define <span class="math inline">\(d:\mathcal{C}(A)\times\mathcal{C}(A)\to\mathbb{R}\)</span> as <span class="math inline">\(d(f,g)\equiv\sup_{x\in A} \ |f(x)−g(x)|\)</span> for all <span class="math inline">\(f,g\in\mathcal{C}(A)\)</span><br />
+Prove that <span class="math inline">\(d\)</span> is a distance in <span class="math inline">\(C(A)\)</span>.<br />
+Hint: You can assume without proving it that for each <span class="math inline">\(f,g\in\mathcal{C}(A)\)</span> there is some <span class="math inline">\(x_{fg}\in A\)</span> such that <span class="math inline">\(d(f,g)=|f(x_{fg})−g(x_{fg})|\)</span>, and <span class="math inline">\(|a+b|\leq |a|+|b|\)</span> for all <span class="math inline">\(a,b\in\mathbb{R}\)</span>.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Non-negative (trivial)<br />
+</li>
+<li>Identity of Indiscernibles<br />
+(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Take arbitrary <span class="math inline">\(f\in\mathcal{C}(A)\)</span>,<br />
+<span class="math display">\[\begin{aligned}d(f,f) &amp;= \sup_{x\in A} \ |f(x)−f(x)| \\
+&amp;= \sup_{x\in A} \ 0 \\
+&amp;= 0 \end{aligned}\]</span>
+(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Take some <span class="math inline">\(f,g\in\mathcal{C}(A)\)</span> s.t.<br />
+<span class="math display">\[\begin{aligned}\sup_{x\in A} \ |f(x)−g(x)| &amp;= 0 \\
+|f(x)−g(x)| &amp;\leq 0 \\
+|f(x)−g(x)| &amp;= 0 \\
+f(x) &amp;= g(x)\end{aligned}\]</span>
+Therefore, <span class="math inline">\(f=g\)</span></li>
+<li>Symmetric<br />
+Take arbitrary <span class="math inline">\(f,g\in\mathcal{C}(A)\)</span>,<br />
+<span class="math display">\[\begin{aligned}d(f,g) &amp;= \sup_{x\in A} \ |f(x)−g(x)| \\
+&amp;= \sup_{x\in A} \ |g(x)−f(x)| \\
+&amp;= d(g,f)\end{aligned}\]</span></li>
+<li>Triangle Inequality<br />
+Take arbitrary <span class="math inline">\(f,g,h\in\mathcal{C}(A)\)</span>,<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(x_{fg}\)</span>, <span class="math inline">\(x_{fh}\)</span>, <span class="math inline">\(x_{gh}\)</span>, respectively<br />
+<span class="math display">\[\begin{aligned}d(f,g) &amp;= |f(x_{fg}) - g(x_{fg})| \\
+&amp;= |f(x_{fg}) - h(x_{fh}) + h(x_{fh}) - g(x_{fg})| \\
+&amp;\leq |f(x_{fg}) - h(x_{fh})| + |h(x_{fh}) - g(x_{fg})| \\
+&amp;\leq d(f,h) + \sup_{x\in A} |h(x) - g(x)| \\
+&amp;= d(f,h) + d(h,g)\end{aligned}\]</span></li>
 </ol>
 <!-- ### Cauchy-Schwarz Inequality -->
 </div>
