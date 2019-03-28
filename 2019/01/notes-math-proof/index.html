@@ -669,7 +669,7 @@ Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)
 <li>Maximum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(x \equiv \max(A)\)</span>, if <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x\)</span> is an upper bound of <span class="math inline">\(A\)</span><br />
 (only exists if <span class="math inline">\(A\)</span> is finite, unique)</li>
 <li>Supremum of set <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\sup(A)\)</span>, is the lowest upper bound of <span class="math inline">\(A\)</span><br />
-(always exists, <span class="math inline">\(\pm\infty\)</span> if <span class="math inline">\(A\)</span> is unbounded)
+(always exists, <span class="math inline">\(+\infty\)</span> if <span class="math inline">\(A\)</span> is unbounded)
 <ul>
 <li><span class="math inline">\(\sup(A)\in A\iff A\)</span> has maximum</li>
 </ul></li>
@@ -945,11 +945,12 @@ Take <span class="math inline">\(ε \equiv 2δ\)</span><br />
 exists some <span class="math inline">\(c \in (a, b)\)</span> s.t. <span class="math inline">\(f&#39;(c) = \frac{f(b) - f(a)}{b - a}\)</span></li>
 <li>Intermediate Value: if <span class="math inline">\(f\in\mathcal{C}^0(A,\mathbb{R})\)</span>, <span class="math inline">\(A\)</span> is connected,<br />
 exists some <span class="math inline">\(c \in (a,b)\)</span> s.t. for any <span class="math inline">\(y \in \big(f(a),f(b)\big)\)</span>, <span class="math inline">\(f(c) = y\)</span></li>
-<li>Extreme Value (Weierstrass): if <span class="math inline">\(A\)</span> is compact, <span class="math inline">\(f: A\to \mathbb{R}\)</span> is continuous,<br />
+<li>Extreme Value (Weierstrass): if <span class="math inline">\(A\neq\emptyset\)</span> is compact + convex, <span class="math inline">\(f: A\to \mathbb{R}\)</span> is continuous,<br />
 exists some <span class="math inline">\(x \in A\)</span> s.t. <span class="math inline">\(f(x) = \max \big( f(A) \big)\)</span></li>
 <li>Brouwer’s fixed point: if <span class="math inline">\(A\)</span> is compact and convex, <span class="math inline">\(f: A\to A\)</span> is continuous,<br />
-<span class="math inline">\(f\)</span> has a fixed point</li>
-<li>Kakutani’s fixed point</li>
+<span class="math inline">\(\implies f\)</span> has a fixed point</li>
+<li>Kakutani’s fixed point: if <span class="math inline">\(A\neq\emptyset\)</span> is compact + convex, <span class="math inline">\(Γ\rightrightarrows A\to\)</span> has a closed graph,<br />
+<span class="math inline">\(Γ(x)\)</span> is non-empty and convex for all <span class="math inline">\(x\in A\implies Γ\)</span> has a fixed point</li>
 </ul>
 <blockquote>
 <p>PS8.Q1<br />

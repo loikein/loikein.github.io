@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">31 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -108,8 +108,9 @@
 <li><a href="#image">Image</a></li>
 <li><a href="#injection-one-to-one-surjection-onto">Injection (One-to-one) &amp; Surjection (Onto)</a></li>
 <li><a href="#continuity">Continuity</a></li>
-<li><a href="#mean-value-theorem">Mean Value Theorem</a></li>
-<li><a href="#intermediate-value-theorem">Intermediate Value Theorem</a></li>
+<li><a href="#mean-value">Mean Value</a></li>
+<li><a href="#intermediate-value">Intermediate Value</a></li>
+<li><a href="#fix-point">Fix Point</a></li>
 <li><a href="#contraction">Contraction</a></li>
 <li><a href="#limit-differenciation">Limit &amp; Differenciation</a></li>
 <li><a href="#supremum-infimum">Supremum / Infimum</a></li>
@@ -633,6 +634,32 @@ Hint: use <span class="math inline">\(d(x, y)\equiv \|x-y\|\)</span> is a norm</
 </div>
 <div id="maximum-supremum" class="section level3">
 <h3>Maximum &amp; Supremum</h3>
+<blockquote>
+<p>2018.F2.Q4<br />
+Let <span class="math inline">\(A, B\subset\mathbb{R}^n\)</span> be two compact, non-empty sets.<br />
+Let <span class="math inline">\(d\)</span> be the Euclidean distance in <span class="math inline">\(\mathbb{R}^n\)</span>.<br />
+Define <span class="math inline">\(D(A,B)\equiv\sup_{x\in A}\inf_{y\in B} \ d(x,y)\)</span><br />
+Show that <span class="math inline">\(A\subset B\)</span> if and only if <span class="math inline">\(D(A,B)=0\)</span>.<br />
+Hint: You can use without proving it that <span class="math inline">\(d(x,\cdot):\mathbb{R}^n\to\mathbb{R}_+\)</span> is continuous for all <span class="math inline">\(x\in\mathbb{R}^n\)</span>.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Let <span class="math inline">\(A\subset B\)</span>,<br />
+<span class="math display">\[\begin{aligned} D(A,B)&amp;\equiv\sup_{x\in A}\inf_{y\in B} \ d(x,y) \\
+&amp;\leq \sup_{x\in A} \ d(x,x) \\
+&amp;= 0\end{aligned}\]</span></li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Let <span class="math inline">\(D(A,B) = 0\)</span><br />
+<span class="math display">\[\begin{aligned}\sup_{x\in A}\inf_{y\in B} \ d(x,y) &amp;= 0\\
+\inf_{y\in B} \ d(x,y) &amp;= 0 &amp;&amp; \forall x\in A\end{aligned}\]</span>
+For all <span class="math inline">\(x\in A\)</span>, since <span class="math inline">\(B\)</span> is compact and <span class="math inline">\(d(x,\cdot)\)</span> is continuous,<br />
+<span class="math inline">\(\implies \min_{y\in B} \ d(x,y)\)</span> exists<br />
+<span class="math display">\[\begin{aligned}d(x,y^*) &amp;= \min_{y\in B} \ d(x,y) &amp;&amp; \exists y^*\in B \\
+&amp;\leq \inf_{y\in B} \ d(x,y) \\
+&amp;= 0 \end{aligned}\]</span>
+<span class="math inline">\(\implies x = y^*\)</span><br />
+<span class="math inline">\(\implies A\subset B\)</span></li>
+</ol>
 </div>
 <div id="dense" class="section level3">
 <h3>Dense</h3>
@@ -700,8 +727,8 @@ Contradiction.<br />
 Therefore, there exists no <span class="math inline">\(δ&gt;0\)</span> s.t. <span class="math inline">\(f\big(B_δ(x^*)\big)\subset B_ε\big(f(x^*)\big)\)</span><br />
 <span class="math inline">\(\implies f\)</span> is not continuous at <span class="math inline">\(x^*\)</span></p>
 </div>
-<div id="mean-value-theorem" class="section level3">
-<h3>Mean Value Theorem</h3>
+<div id="mean-value" class="section level3">
+<h3>Mean Value</h3>
 <blockquote>
 <p>2015.F1.Q7<br />
 Let <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</span><br />
@@ -770,8 +797,8 @@ Since <span class="math inline">\(f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})\)</sp
 Contradicts that <span class="math inline">\(|f&#39;(x)|\leq λ\)</span> for all <span class="math inline">\(x\)</span><br />
 <span class="math inline">\(\implies\)</span> <span class="math inline">\(|f(x) − f(y)|\leq λ |x − y|\)</span> for all <span class="math inline">\(x,y\)</span></p>
 </div>
-<div id="intermediate-value-theorem" class="section level3">
-<h3>Intermediate Value Theorem</h3>
+<div id="intermediate-value" class="section level3">
+<h3>Intermediate Value</h3>
 <blockquote>
 <p>2016.F1.Q9<br />
 Prove that if <span class="math inline">\(f:[a,b]\to \mathbb{R}\)</span> is continuous for some <span class="math inline">\(a&lt;b\)</span> and <span class="math inline">\(f(a)&lt;0&lt;f(b)\)</span><br />
@@ -824,6 +851,51 @@ Hint: use the intermediate value theorem. You do not need to prove that <span cl
 Let <span class="math inline">\(h = f - g\)</span> be continuous, for <span class="math inline">\(x\in (x_1, x_2)\)</span>,<br />
 exists some <span class="math inline">\(x^*\)</span> s.t. <span class="math inline">\(h(x^*) = 0\)</span><br />
 <span class="math inline">\(\implies f(x^*) - g(x^*) = 0\)</span></p>
+</div>
+<div id="fix-point" class="section level3">
+<h3>Fix Point</h3>
+<blockquote>
+<p>2018.F2.Q5<br />
+Let <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span> be a contraction.<br />
+Show that <span class="math inline">\(F:\mathbb{R}^2\to\mathbb{R}^2\)</span>, defined by <span class="math inline">\(F(x,y)\equiv \big(f(y),f(x)\big)\)</span> for all <span class="math inline">\(x,y\in\mathbb{R}\)</span>, has a unique fixed point.<br />
+Hint: You may want to show (and use) that <span class="math inline">\(f\circ f\)</span> is a contraction.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Since <span class="math inline">\(f\)</span> is a contraction<br />
+<span class="math inline">\(\implies f\)</span> has unique fixed point <span class="math inline">\(x^*\)</span><br />
+</li>
+<li>Let <span class="math inline">\(f^2=f\circ f\)</span>, for all <span class="math inline">\(x,x&#39;\in\mathbb{R}\)</span>,<br />
+<span class="math display">\[\begin{aligned}d\big(f^2(x), f^2(x&#39;)\big) &amp;= d\Big(f\big(f(x)\big), f\big(f(x&#39;)\big) \Big) \\
+&amp;\leq λ\cdot d\big(f(x), f(x&#39;)\big) \\
+&amp;\leq λ^2\cdot d(x,x&#39;)\end{aligned}\]</span>
+Therefore, <span class="math inline">\(f^2\)</span> is a contraction<br />
+<span class="math inline">\(\implies f^2\)</span> has unique fixed point<br />
+<span class="math display">\[\begin{aligned}f^2(x^*) &amp;= f\big( f(x^*)\big) \\
+&amp;= f(x^*) \\
+&amp;= x^*\end{aligned}\]</span>
+<span class="math inline">\(\implies x^*\)</span> is the fixed point of <span class="math inline">\(f^2\)</span><br />
+<!-- 3. Let $F^2 = F\circ F$, $F^2(x,y) = F(f^2(x), f^2(y))$  
+$$\begin{aligned}F^2(x^*, x^*) &= \big(f^2(x^*),f^2(x^*)\big) \\
+&= (x^*, x^*)\end{aligned}$$
+$\implies x^*$ is a fixed point of $F^2$   --></li>
+<li>Consider <span class="math inline">\(F\)</span><br />
+<span class="math display">\[\begin{aligned}F(x^*, x^*) &amp;= \big(f(x^*),f(x^*)\big) \\
+&amp;= (x^*, x^*)\end{aligned}\]</span>
+<span class="math inline">\(\implies (x^*, x^*)\)</span> is a fixed point of <span class="math inline">\(F\)</span><br />
+</li>
+<li>FSOC assume <span class="math inline">\(F(x,y)\)</span> has another fixed point <span class="math inline">\((x&#39;,y&#39;)\neq (x^*, x^*)\)</span><br />
+<span class="math display">\[\begin{aligned} F(x&#39;,y&#39;) &amp;= \big(f(y&#39;),f(x&#39;)\big) \\
+&amp;= (x&#39;,y&#39;) \\
+x&#39; &amp;= f(y&#39;)\\
+y&#39; &amp;= f(x&#39;)\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned}f\big( f(y&#39;)\big) = f(x&#39;) = y&#39; \\
+f\big( f(x&#39;)\big) = f(y&#39;) = x&#39;\end{aligned}\]</span>
+<span class="math inline">\(\implies x&#39;,y&#39;\)</span> are fixed points of <span class="math inline">\(f^2\)</span><br />
+Since <span class="math inline">\(x^*\)</span> is the unique fixed point of <span class="math inline">\(f^2\)</span>,<br />
+<span class="math inline">\(\implies x&#39; = y&#39; = x^*\)</span>, contradiction<br />
+<span class="math inline">\(\implies (x^*, x^*)\)</span> is the unique fixed point of <span class="math inline">\(F\)</span></li>
+</ol>
 </div>
 <div id="contraction" class="section level3">
 <h3>Contraction</h3>
@@ -1189,16 +1261,19 @@ Since <span class="math inline">\(f\)</span> is continuous, <span class="math in
 Let <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span> be a continuous function.<br />
 Prove that <span class="math inline">\(x^*\in\mathbb{R}\)</span> is a fixed point of <span class="math inline">\(f\)</span> if and only if <span class="math inline">\(x^*\)</span> is the limit of a convergent sequence <span class="math inline">\((x_n)_n\)</span> satisfying <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\)</span>.</p>
 </blockquote>
-<p>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
 Let <span class="math inline">\(x^*\)</span> be a fixed point of <span class="math inline">\(f\)</span><br />
 Let <span class="math inline">\((x_n)_n\)</span> be a sequence of <span class="math inline">\(x_n = x^*\)</span> for all <span class="math inline">\(n\)</span>,<br />
-<span class="math inline">\(\implies (x_n)_n\to x^*\)</span> and <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\)</span></p>
-<p>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+<span class="math inline">\(\implies (x_n)_n\to x^*\)</span> and <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\)</span><br />
+</li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
 Let <span class="math inline">\(x^*\)</span> be the limit of <span class="math inline">\((x_n)_n\)</span>, <span class="math inline">\(x_{n+1} = f(x_n)\)</span> for all <span class="math inline">\(n\)</span><br />
 <span class="math inline">\(\implies\)</span> exists <span class="math inline">\(N_ε\)</span> s.t. <span class="math inline">\(d(x_n, x^*) &lt; ε\)</span> for all <span class="math inline">\(n&gt;N_ε\)</span><br />
 <span class="math inline">\(\implies d(f(x_n), x^*) &lt; ε\)</span> for all <span class="math inline">\(n&gt;N_ε\)</span><br />
 <span class="math inline">\(\implies \big(f(x_n)\big)\to x^*\)</span><br />
-<span class="math inline">\(\implies f(x^*) = x^*\)</span></p>
+<span class="math inline">\(\implies f(x^*) = x^*\)</span></li>
+</ol>
 <blockquote>
 <p>2017.F1.Q4<br />
 Let <span class="math inline">\((x_n)_n\)</span> be a convergent sequence in <span class="math inline">\(\mathbb{R}\)</span><br />
