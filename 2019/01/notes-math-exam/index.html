@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">27 min read</span>
+    <span class="article-duration">29 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -888,10 +888,10 @@ Therefore, <span class="math inline">\(f\)</span> is a contraction for <span cla
 <div id="supremum-infimum" class="section level3">
 <h3>Supremum / Infimum</h3>
 <blockquote>
-<p>2014.F1.Q8,
-Let <span class="math inline">\(f:\mathbb{R}^2 \to \mathbb{R}\)</span> be bounded<br />
-Assume for all <span class="math inline">\(x\in \mathbb{R}\)</span>, <span class="math inline">\(f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span><br />
-Show that <span class="math inline">\(V(y)\equiv\sup_{x\in\mathbb{R}} f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span></p>
+<p>2014.F1.Q8, PS10.Q6<br />
+Let <span class="math inline">\(f: \mathbb{R}^2 \to \mathbb{R}\)</span> be bounded<br />
+Let <span class="math inline">\(f(x,y)\)</span> be increasing in <span class="math inline">\(y\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>,<br />
+Show that <span class="math inline">\(V(y) \equiv \sup_{x\in \mathbb{R}} f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span></p>
 </blockquote>
 <p><span class="math inline">\(f\)</span> is bounded <span class="math inline">\(\implies \{ f(x) | x\geq y \}\)</span> is bounded<br />
 <span class="math inline">\(\implies V(y)\)</span> is well-defined<br />
@@ -914,6 +914,20 @@ $$\begin{aligned} f(x^*,y_1) &> V(y_1) - ε \\
 &= V(y_2) \\
 &\geq f(x^*,y_2)\end{aligned}$$ 
 Contradiction.  -->
+<blockquote>
+<p>2018.F2.Q3<br />
+Let <span class="math inline">\(V:\mathbb{R}\to\mathbb{R}\)</span> and <span class="math inline">\(F:\mathbb{R}^2\to\mathbb{R}\)</span> be two functions, and <span class="math inline">\(A\subset\mathbb{R}\)</span> a compact, non-empty set.<br />
+Assume <span class="math inline">\(F(x,y)\geq F(x&#39;,y)\)</span> for all <span class="math inline">\(x,x&#39;,y\in\mathbb{R}\)</span> such that <span class="math inline">\(x\geq x&#39;\)</span>.<br />
+Assume also that there is some <span class="math inline">\(β\in (0,1)\)</span> such that the following equation holds for all <span class="math inline">\(x\in\mathbb{R}\)</span>:<br />
+<span class="math display">\[V(x) =\sup_{y\in A} \ F(x,y) + βV(y)\]</span>
+Show that <span class="math inline">\(V\)</span> is increasing.</p>
+</blockquote>
+<p>Take arbitrary <span class="math inline">\(x&gt;x&#39;, y\in\mathbb{R}\)</span>, <span class="math inline">\(F(x,y)\geq F(x&#39;,y)\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(F(x,y) + βV(y) \geq F(x&#39;,y) + βV(y)\)</span><br />
+<span class="math inline">\(\implies\)</span> upper bound of <span class="math inline">\(F(x,y) + βV(y) \geq\)</span> upper bound of <span class="math inline">\(F(x&#39;,y) + βV(y)\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\(\sup \ F(x,y) + βV(y)\geq\sup \ F(x&#39;,y) + βV(y)\)</span><br />
+<span class="math inline">\(\implies V(x)\geq V(x&#39;)\)</span><br />
+Therefore, <span class="math inline">\(x&gt;x&#39;\implies V(x)\geq V(x&#39;)\)</span>, <span class="math inline">\(V\)</span> is increasing</p>
 <blockquote>
 <p>2017.F1.Q8<br />
 Let <span class="math inline">\(\{f_i \ | \ i\in\mathcal{I}\}\)</span> be an arbitrary collection of increasing functions: <span class="math inline">\([0,1]\to [0,1]\)</span><br />
@@ -943,6 +957,21 @@ Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <s
 </div>
 <div id="maximum" class="section level3">
 <h3>Maximum</h3>
+<blockquote>
+<p>2019.F1.Q5<br />
+Let <span class="math inline">\(F:A^2\to\mathbb{R}\)</span> and <span class="math inline">\(V:A\to\mathbb{R}\)</span> be two continuous functions, where <span class="math inline">\(A\subset\mathbb{R}^n\)</span> is a compact, non-empty set.<br />
+Let <span class="math inline">\(\bar{F}\)</span> be the maximum of <span class="math inline">\(F\)</span> on <span class="math inline">\(A^2\)</span>.<br />
+Assume also that there is some <span class="math inline">\(β\in [0, 1)\)</span> s.t. the following equation is satisfied for all <span class="math inline">\(x\in A\)</span>:<br />
+<span class="math display">\[V(x) = \max_{y\in A} \ F(x,y) + β\cdot V(y)\]</span>
+Prove that <span class="math inline">\(V(x)\leq\frac{1}{1-β}\cdot\bar{F}\)</span> for all <span class="math inline">\(x\in A\)</span>.</p>
+</blockquote>
+<p>Since <span class="math inline">\(V\)</span> is continuous and <span class="math inline">\(A\)</span> is compact<br />
+<span class="math inline">\(\implies\)</span> let <span class="math inline">\(\bar{V}\)</span> denote the maximum of <span class="math inline">\(V\)</span> on <span class="math inline">\(A\)</span><br />
+<span class="math display">\[\begin{aligned} F(x,y) + β\cdot V(y) &amp;\leq \bar{F} + β\cdot\bar{V} &amp;&amp; \text{for all }x,y\in A \\
+V(x) &amp;\leq \bar{F} + β\cdot\bar{V} &amp;&amp; \text{for all }x\in A \\
+\bar{V} &amp;\leq \bar{F} + β\cdot\bar{V} \\
+&amp;\leq \frac{1}{1-β}\cdot\bar{F} \\
+V(x) &amp;\leq \frac{1}{1-β}\cdot\bar{F} \end{aligned}\]</span></p>
 </div>
 <div id="maximizer-argmax" class="section level3">
 <h3>Maximizer &amp; Argmax</h3>
@@ -1024,6 +1053,22 @@ Show that it is a convex function.</p>
 <span class="math display">\[\begin{aligned}\|λx + (1-λ)y\| &amp;\leq \|λx\| + \|(1-λ)y\| \\
 &amp;= λ\|x\| + (1-λ)\|y\| \end{aligned}\]</span>
 Therefore, <span class="math inline">\(\|\cdot\|\)</span> is a convex function</p>
+<blockquote>
+<p>2018.F2.Q2<br />
+Let <span class="math inline">\(f: \mathbb{R}^n\to\mathbb{R}\)</span> be a convex function.<br />
+Prove that for all <span class="math inline">\(x,y,z \in\mathbb{R}^n\)</span> and <span class="math inline">\(λ, γ\in [0, 1]\)</span> s.t. <span class="math inline">\(λ + γ\leq 1\)</span> we have<br />
+<span class="math display">\[f\big( λx + γy + (1−λ−γ)z\big)\leq λf(x)+γf(y)+(1−λ−γ)f(z)\]</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(λ=1\)</span>, <span class="math inline">\(γ = 0\)</span>, <span class="math inline">\(f(x)\leq f(x)\)</span> (trivial)</li>
+<li><span class="math inline">\(λ&lt;1\)</span><br />
+Since <span class="math inline">\(f\)</span> is convex,<br />
+<span class="math display">\[\begin{aligned}f\big( λx + γy + (1−λ−γ)z\big) &amp;= f\Big( λx + (1-λ)\cdot\frac{γy + (1−λ−γ)z}{1-λ}\Big) \\
+&amp;\leq λf(x) + (1-λ)\cdot f\Big(\frac{γy + (1−λ−γ)z}{1-λ}\Big) \\
+&amp;= λf(x) + (1-λ)\cdot f\bigg(\frac{γ}{1-λ}y + \Big(1-\frac{γ}{1-λ}\Big)z\bigg) \\
+&amp;\leq λf(x) + (1-λ)\cdot\frac{γ}{1-λ}\cdot f(y) + (1-λ)\cdot\Big(1-\frac{γ}{1-λ}\Big)\cdot f(z) \\
+&amp;= λf(x)+γf(y)+(1−λ−γ)f(z)\end{aligned}\]</span></li>
+</ol>
 <blockquote>
 <p>2014.F1.Q5, PS7.Q7<br />
 Let <span class="math inline">\(f: \mathbb{R}\to\mathbb{R}\)</span> be strictly convex<br />
@@ -1197,6 +1242,20 @@ Since <span class="math inline">\((y_n)_n \to 0\)</span>, let <span class="math 
 <span class="math display">\[\begin{aligned}d(x_ny_n, 0) &amp;= |x_ny_n| \\ &amp;= |x_n||y_n| \\ &amp;&lt; M\cdot \frac{ε}{M} &amp;&amp; \text{for all }n&gt;N_ε \\
 &amp;= ε\end{aligned}\]</span>
 Therefore <span class="math inline">\((x_ny_n)_n\to 0\)</span></p>
+<blockquote>
+<p>2018.F2.Q1<br />
+Consider three real sequences <span class="math inline">\((x_n)_n\)</span>, <span class="math inline">\((y_n)_n\)</span> and <span class="math inline">\((z_n)_n\)</span> such that <span class="math inline">\(x_n\leq y_n\leq z_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.<br />
+Assume that <span class="math inline">\((x_n)_n\)</span> and <span class="math inline">\((z_n)_n\)</span> converge to 0.<br />
+Prove that <span class="math inline">\((y_n)_n\)</span> converges to 0.</p>
+</blockquote>
+<p>Since <span class="math inline">\((x_n)_n\to 0\)</span>, exists <span class="math inline">\(N_x\)</span> s.t. <span class="math inline">\(d(x_n, 0) = |x_n| &lt;ε\)</span> for all <span class="math inline">\(n&gt;N_x\)</span><br />
+Since <span class="math inline">\((z_n)_n\to 0\)</span>, exists <span class="math inline">\(N_z\)</span> s.t. <span class="math inline">\(d(z_n, 0) = |z_n| &lt;ε\)</span> for all <span class="math inline">\(n&gt;N_z\)</span><br />
+Let <span class="math inline">\(N =\max\{N_x, N_z\}\)</span>, for all <span class="math inline">\(n&gt;N\)</span>,<br />
+<span class="math display">\[\begin{aligned}-ε &lt; x_n\leq y_n\leq z_n &lt; ε \\
+-ε &lt;  y_n &lt; ε \\
+|y_n| &lt; ε \\
+d(y_n) &lt; ε \end{aligned}\]</span>
+Therefore, <span class="math inline">\((y_n)_n\to 0\)</span></p>
 <blockquote>
 <p>2018.F1.Q6<br />
 Let <span class="math inline">\((x_n)_n\)</span> be a bounded real sequence, and let <span class="math inline">\(β\in [0, 1)\)</span> be a real number.<br />

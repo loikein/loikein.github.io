@@ -1143,22 +1143,35 @@ Since <span class="math inline">\(h(y_1) = \sup_{x\geq y_1} \big( f(x) \big)\)</
 Since <span class="math inline">\(h(y_2)\)</span> is the least upper bound of <span class="math inline">\(\{ f(x)| x\geq y_2\}\)</span><br />
 <span class="math inline">\(\implies h(y_1)\geq h(y_2)\)</span></p>
 <blockquote>
-<p>PS10.Q6<br />
+<p>PS10.Q6, 2014.F1.Q8<br />
 Let <span class="math inline">\(f: \mathbb{R}^2 \to \mathbb{R}\)</span> be bounded<br />
 Let <span class="math inline">\(f(x,y)\)</span> be increasing in <span class="math inline">\(y\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>,<br />
 Show that <span class="math inline">\(V(y) \equiv \sup_{x\in \mathbb{R}} f(x,y)\)</span> is increasing in <span class="math inline">\(y\)</span></p>
 </blockquote>
-<p>Take <span class="math inline">\(y_1 &lt; y_2\in \mathbb{R}\)</span><br />
-FSOC assume <span class="math inline">\(V(y_1) &gt; V(y_2)\)</span><br />
-Let <span class="math inline">\(ε = V(y_1) - V(y_2) &gt; 0\)</span>,<br />
-<span class="math display">\[\begin{aligned} V(y_1) &amp;= V(y_2) + ε\\
-\sup f(x,y_1) = V(y_1) &amp;= V(y_2) + ε\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> exists some <span class="math inline">\(x^* \in \mathbb{R}\)</span> s.t.<br />
-<span class="math display">\[f(x^*,y_1) &gt; V(y_1) - ε = V(y_2)\]</span>
-Since <span class="math inline">\(f(x^*,y)\)</span> is increasing in <span class="math inline">\(y\)</span>,<br />
-<span class="math inline">\(\implies f(x^*,y_2) \geq f(x^*,y_1) &gt; V(y_2)\)</span><br />
-Contradicts that <span class="math inline">\(V(y_2) = \sup f(x,y^2)\)</span><br />
-<span class="math inline">\(\implies V(y_1) \leq V(y_2)\)</span></p>
+<p><span class="math inline">\(f\)</span> is bounded <span class="math inline">\(\implies \{ f(x) | x\geq y \}\)</span> is bounded<br />
+<span class="math inline">\(\implies V(y)\)</span> is well-defined<br />
+Take arbitrary <span class="math inline">\(y_1\leq y_2 \in \mathbb{R}\)</span><br />
+Since <span class="math inline">\(f\)</span> is increasing in <span class="math inline">\(y\)</span>,<br />
+<span class="math inline">\(\implies f(x,y_1)\leq f(x,y_2)\)</span> for all <span class="math inline">\(x\)</span><br />
+<span class="math inline">\(V(y_2) = \sup_{x\in\mathbb{R}} f(x,y_2)\)</span><br />
+<span class="math inline">\(\implies V(y_2)\)</span> is the least upper bound of <span class="math inline">\(f(x,y_2)\)</span><br />
+<span class="math inline">\(\implies V(y_2)\)</span> is an upper bound of <span class="math inline">\(f(x,y_1)\)</span><br />
+And <span class="math inline">\(V(y_1) = \sup_{x\in\mathbb{R}} f(x,y_1)\)</span><br />
+<span class="math inline">\(\implies V(y_1)\)</span> is the least upper bound of <span class="math inline">\(f(x,y_1)\)</span><br />
+<span class="math inline">\(\implies V(y_1)\leq V(y_2)\)</span></p>
+<!-- 
+Take $y_1 < y_2\in \mathbb{R}$  
+FSOC assume $V(y_1) > V(y_2)$  
+Let $ε = V(y_1) - V(y_2) > 0$,  
+$$\begin{aligned} V(y_1) &= V(y_2) + ε\\
+\sup f(x,y_1) = V(y_1) &= V(y_2) + ε\end{aligned}$$ 
+$\implies$ exists some $x^* \in \mathbb{R}$ s.t.  
+$$f(x^*,y_1) > V(y_1) - ε = V(y_2)$$ 
+Since $f(x^*,y)$ is increasing in $y$,  
+$\implies f(x^*,y_2) \geq f(x^*,y_1) > V(y_2)$  
+Contradicts that $V(y_2) = \sup f(x,y^2)$  
+$\implies  V(y_1) \leq V(y_2)$
+ -->
 </div>
 <div id="maximum" class="section level3">
 <h3>Maximum</h3>

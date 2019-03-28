@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">8 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Optimization and Dynamics</h1>
@@ -313,21 +313,6 @@ x_t^* \in \text{argmax} \ \ &amp;F(x_{t-1}^*, x)\end{aligned}\]</span></li>
 <!-- 
 &= F(x_0, x_1^*) + β\cdot G\big(x_0, (x_t^*)_{t = 2}^{\infty} \big) \\
  -->
-<blockquote>
-<p>2019.F1.Q5<br />
-Let <span class="math inline">\(F:A^2\to\mathbb{R}\)</span> and <span class="math inline">\(V:A\to\mathbb{R}\)</span> be two continuous functions, where <span class="math inline">\(A\subset\mathbb{R}^n\)</span> is a compact, non-empty set.<br />
-Let <span class="math inline">\(\bar{F}\)</span> be the maximum of <span class="math inline">\(F\)</span> on <span class="math inline">\(A^2\)</span>.<br />
-Assume also that there is some <span class="math inline">\(β\in [0, 1)\)</span> s.t. the following equation is satisfied for all <span class="math inline">\(x\in A\)</span>:<br />
-<span class="math display">\[V(x) = \max_{y\in A} \ F(x,y) + β\cdot V(y)\]</span>
-Prove that <span class="math inline">\(V(x)\leq\frac{1}{1-β}\cdot\bar{F}\)</span> for all <span class="math inline">\(x\in A\)</span>.</p>
-</blockquote>
-<p>Since <span class="math inline">\(V\)</span> is continuous and <span class="math inline">\(A\)</span> is compact<br />
-<span class="math inline">\(\implies\)</span> let <span class="math inline">\(\bar{V}\)</span> denote the maximum of <span class="math inline">\(V\)</span> on <span class="math inline">\(A\)</span><br />
-<span class="math display">\[\begin{aligned} F(x,y) + β\cdot V(y) &amp;\leq \bar{F} + β\cdot\bar{V} &amp;&amp; \text{for all }x,y\in A \\
-V(x) &amp;\leq \bar{F} + β\cdot\bar{V} &amp;&amp; \text{for all }x\in A \\
-\bar{V} &amp;\leq \bar{F} + β\cdot\bar{V} \\
-&amp;\leq \frac{1}{1-β}\cdot\bar{F} \\
-V(x) &amp;\leq \frac{1}{1-β}\cdot\bar{F} \end{aligned}\]</span></p>
 </div>
 <div id="finite-markov-chain" class="section level3">
 <h3>Finite Markov Chain</h3>
