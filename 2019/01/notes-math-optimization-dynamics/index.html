@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">10 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Optimization and Dynamics</h1>
@@ -300,12 +300,21 @@ for an optimal plan <span class="math inline">\((x^*_t)_{t}^{\infty}\)</span>, t
 x_t^* \in \text{argmax} \ \ &amp;F(x_{t-1}^*, x)\end{aligned}\]</span></li>
 <li>Optimality Theorem<br />
 <span class="math inline">\((x_t^*)_{t = 1}^{\infty}\)</span> is a solution of SP <span class="math inline">\(\iff\)</span> Bellman equation holds</li>
-<li>Markov solution: <span class="math inline">\((x_t)_{t = 1}^{\infty}\)</span>
+<li>Markov Solution: <span class="math inline">\((x_t)_{t = 1}^{\infty}\)</span>
 <ul>
 <li>it is a solution of SP</li>
 <li>exists optimal policy <span class="math inline">\(g:X\to X\)</span> s.t. <span class="math inline">\(x_{t+1} = g(x_t)\)</span> for all <span class="math inline">\(t\geq 0\)</span></li>
-</ul></li>
 <li>SP has unique solution <span class="math inline">\(\iff\)</span> unique Markov solution</li>
+</ul></li>
+<li>Sufficient Condition: <span class="math inline">\(\implies (x_t^*)_{t = 1}^{\infty}\)</span> is a solution of SP
+<ul>
+<li><span class="math inline">\(X\)</span> convex</li>
+<li><span class="math inline">\(Γ(x)\)</span> non-empty, compact, continuous</li>
+<li><span class="math inline">\(F(x_1,x_2)\)</span> bounded, continuous, strictly increasing in <span class="math inline">\(x_1\)</span>, strictly concave, continuously differentiable in <span class="math inline">\(\text{int}(X^2)\)</span></li>
+<li>Euler Equations <span class="math display">\[\begin{aligned}F_{x_2}(x_t^*,x_{t+1}^*) + β\cdot F_{x_1}(x_{t+1}^*,x_{t+2}^*) = 0 &amp;&amp; \forall t\geq 0\end{aligned}\]</span></li>
+<li>Transversality condition <span class="math display">\[\lim_{t\to\infty} \ β^t\cdot F_{x_1}(x_t^*,x_{t+1}^*)\cdot x_t^* = 0\]</span></li>
+<li><span class="math inline">\((x_t^*)_{t = 1}^{\infty}\in A(x_0)\)</span> is s.t. <span class="math inline">\(x_{t+1}^*\in\text{int} Γ(x_t^*)\)</span></li>
+</ul></li>
 </ul>
 <!-- 
     $\implies \sum_{t=0}^{\infty} β^T\cdot F(x_t,x_{t+1})$ exists for all $(x_t)_{t = 1}^{\infty}\in A(x_0)$
@@ -339,11 +348,31 @@ Plug in to the right hand side of Bellman equation:<br />
 <span class="math display">\[\begin{aligned}V(x_n) &amp;= F(x_n, x_{n+1}) + βV(x_{n+1}) \\
 &amp;= x_{n+1}(x_n−x_{n+1}) + \frac{3}{4}\cdot\frac{1}{3} x_{n+1}^2 \\
 &amp;= \frac{2}{3}x_n\bigg(x_n−\frac{2}{3}x_n\bigg) + \frac{3}{4}\cdot\frac{1}{3}\bigg(\frac{2}{3}x_n\bigg)^2 \\
-&amp;= \frac{1}{9}x_n^2 + \frac{1}{6}x_n^2 \\
+&amp;= \frac{2}{9}x_n^2 + \frac{1}{9}x_n^2 \\
 &amp;= \frac{1}{3} x_n^2\end{aligned}\]</span>
 Coincide with the condition.</li>
 <li>Since <span class="math inline">\(x_{n+1}^* = \frac{2}{3}x_n^*\)</span>, <span class="math inline">\(x_0 = 1\)</span>,<br />
 <span class="math inline">\(x_n^* = \big(\frac{2}{3}\big)^n\cdot x_0 = \big(\frac{2}{3}\big)^n\)</span> for all <span class="math inline">\(n\)</span></li>
+<li>Left hand side:<br />
+<span class="math display">\[\begin{aligned}V(x_0) &amp;= \frac{1}{3}\cdot x_0^2 \\
+&amp;= \frac{1}{3}\end{aligned}\]</span>
+Right hand side:<br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\sum_{n=0}^{\infty}β^n\cdot F(x_n^*, x_{n+1}^*) \\
+&amp;= \sum_{n=0}^{\infty} β^n\cdot x_{n+1}^*(x_n^*−x_{n+1}^*) \\
+&amp;= \sum_{n=0}^{\infty} \Big(\frac{3}{4}\Big)^n\Big(\frac{2}{3}\Big)^{n+1}\cdot\bigg(\Big(\frac{2}{3}\Big)^{n} - \Big(\frac{2}{3}\Big)^{n+1}\bigg) \\
+&amp;= \sum_{n=0}^{\infty} \Big(\frac{3}{4}\Big)^n\Big(\frac{2}{3}\Big)^n\cdot\frac{2}{3}\cdot\Big(\frac{2}{3}\Big)^{n}\cdot\Big(1-\frac{2}{3}\Big) \\
+&amp;= \frac{2}{3}\cdot\Big(1-\frac{2}{3}\Big)\cdot\sum_{n=0}^{\infty}\Big(\frac{3}{4}\cdot\frac{2}{3}\cdot\frac{2}{3}\Big)^n \\
+&amp;= \frac{2}{9}\cdot\frac{1}{1-\frac{1}{3}} \\
+&amp;= \frac{1}{3}\end{aligned}\]</span></li>
+<li>Take arbitrary <span class="math inline">\(n\geq 0\)</span><br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}F_2(x_n^*,x_{n+1}^*) + β\cdot F_1(x_{n+1}^*,x_{n+2}^*) \\
+&amp;= \frac{\partial}{\partial x_{n+1}^*}F(x_n^*,x_{n+1}^*) + β\cdot\frac{\partial}{\partial x_{n+1}^*}F(x_{n+1}^*,x_{n+2}^*) \\
+&amp;= (x_n^* - 2x_{x+1}^*) + β\cdot x_{x+2}^* \\
+&amp;= \Big( \frac{2}{3}\Big)^n - 2\cdot\Big( \frac{2}{3}\Big)^{n+1} + \frac{3}{4}\cdot\Big( \frac{2}{3}\Big)^{n+2} \\
+&amp;= \Big( \frac{2}{3}\Big)^n\cdot\Big(1 - 2\cdot \frac{2}{3} + \frac{3}{4}\cdot \big( \frac{2}{3}\big)^2 \Big) \\
+&amp;= 0 \end{aligned}\]</span></li>
+<li>transversality condition (tbe)</li>
+<li>Benveniste-Sheinkman envelope theorem (tbe)</li>
 </ol>
 </div>
 <div id="finite-markov-chain" class="section level3">
