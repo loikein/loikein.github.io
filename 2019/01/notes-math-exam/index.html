@@ -351,7 +351,7 @@ For any <span class="math inline">\(x\in \mathbb{R}\)</span>,<br />
 (<span class="math inline">\(\Longleftarrow\)</span>)<br />
 Assume <span class="math inline">\(d(x, y) = 0\)</span>, since <span class="math inline">\(f\)</span> is strictly increasing,<br />
 <span class="math display">\[\begin{aligned}f\big(|x − y|\big) &amp;= 0 \\
-&amp;= f(0) \\ x = y\end{aligned}\]</span></li>
+&amp;= f(0) \\ x &amp;= y\end{aligned}\]</span></li>
 <li>Symmetric<br />
 For all <span class="math inline">\(x, y\in \mathbb{R}\)</span>,<br />
 <span class="math display">\[\begin{aligned} d(x,y) &amp;= f\big(|x − y|\big) \\
@@ -367,8 +367,8 @@ Therefore, <span class="math inline">\(y-z = λ(y-x) + (1-λ) \cdot 0\)</span><b
 Since <span class="math inline">\(f\)</span> is concave,<br />
 <span class="math display">\[\begin{aligned} d(y,z) &amp;= f(|y-z|)\\ &amp;= f(y-z)\\ &amp;\geq λf(y-x) + (1-λ)f(0)\\ &amp;= λf(y-x)\end{aligned}\]</span>
 Similarly, <span class="math inline">\(z-x = (1-λ)(y-x) + λ \cdot 0\)</span><br />
-<span class="math display">\[\begin{aligned} d(z,x) &amp;= f(|z-x|)\\ &amp;= f(z-x)\\ &amp;\geq (1-λ)f(y-x) + λf(0)\\ &amp;= (1-λ)f(y-x)\end{aligned}\]</span>
-<span class="math display">\[\begin{aligned} d(y,z) + d(z,x) &amp;\geq λf(y-x) + (1-λ)f(y-x)\\ &amp;=f(y-x) = f(|y-x|)\\ &amp;= d(y,x)\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned} d(z,x) &amp;= f(|z-x|)\\ &amp;= f(z-x)\\ &amp;\geq (1-λ)f(y-x) + λf(0)\\ &amp;= (1-λ)f(y-x) \\
+ d(y,z) + d(z,x) &amp;\geq λf(y-x) + (1-λ)f(y-x)\\ &amp;=f(y-x) = f(|y-x|)\\ &amp;= d(y,x)\end{aligned}\]</span></li>
 <li><span class="math inline">\(z &lt; x\leq y\)</span><br />
 <span class="math inline">\(\implies |y-z| &gt; |x-z|\)</span><br />
 Since <span class="math inline">\(f\)</span> is strictly increasing,<br />
