@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">31 min read</span>
+    <span class="article-duration">32 min read</span>
     
 
     <h1 class="article-title">Notes on Mathematics - Past Exams</h1>
@@ -618,24 +618,29 @@ Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)
 <blockquote>
 <p>2017.F1.Q9<br />
 Let <span class="math inline">\(A\)</span> be a convex set in <span class="math inline">\(\mathbb{R}^n\)</span><br />
-Define <span class="math inline">\(C \equiv \{ z\in \mathbb{R} \ | \ z=λx, x\in A, λ\in [0,1]] \}\)</span><br />
+Define <span class="math inline">\(C \equiv \{ z\in \mathbb{R} \ | \ z=λx, x\in A, λ\in [0,1] \}\)</span><br />
 Prove that <span class="math inline">\(C\)</span> is convex</p>
 </blockquote>
 <p>Take arbitrary <span class="math inline">\(z_1,z_2\in C\)</span><br />
-<span class="math inline">\(\implies z_1 = λ_1x_1, x_1\in A\)</span>, and <span class="math inline">\(z_2 = λ_2x_2, x_2\in A\)</span><br />
-Take arbitrary <span class="math inline">\(λ\in[0,1]\)</span><br />
+<span class="math inline">\(\implies z_1 = λ_1x_1\)</span> for some <span class="math inline">\(x_1\in A\)</span>, and <span class="math inline">\(z_2 = λ_2x_2\)</span> for some <span class="math inline">\(x_2\in A\)</span><br />
+Take arbitrary <span class="math inline">\(λ\in[0,1]\)</span>, let <span class="math inline">\(z_3\)</span> be s.t.<br />
 <span class="math display">\[\begin{aligned} z_3 &amp;= λz_1 + (1-λ)z_2 \\
-&amp;= λ(λ_1x_1) + (1-λ)(λ_2x_2)\end{aligned}\]</span>
-Note that <span class="math inline">\(0\in C\)</span><br />
-<span class="math inline">\(\implies z_3\in C\)</span> when <span class="math inline">\(λ\cdot λ_1 = (1-λ)λ_2 = 0\)</span><br />
-When <span class="math inline">\(λ\cdot λ_1 + (1-λ)λ_2 &gt; 0\)</span><br />
-Take <span class="math inline">\(λ&#39;\in[0,1]\)</span> s.t.<br />
-<span class="math display">\[\begin{aligned} z_3 &amp;= \big(λ\cdot λ_1 + (1-λ)λ_2\big)\big( λ&#39; z_1 + (1-λ&#39;)z_2\big) \\
-λ&#39; &amp;= \frac{λ\cdot λ_1}{λ\cdot λ_1 + (1-λ)λ_2}\end{aligned}\]</span>
-Since <span class="math inline">\(A\)</span> is convex<br />
-<span class="math inline">\(\implies \big( λ&#39; z_1 + (1-λ&#39;)z_2\big)\in A\)</span><br />
+&amp;= λ(λ_1x_1) + (1-λ)(λ_2x_2)\end{aligned}\]</span></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(λ\cdot λ_1 + (1-λ)λ_2 = 0\)</span><br />
+<span class="math inline">\(\implies λ\cdot λ_1=0\)</span>, <span class="math inline">\((1-λ)λ_2 = 0\)</span><br />
+Since <span class="math inline">\(0\in C\)</span><br />
+<span class="math inline">\(\implies z_3\in C\)</span><br />
+</li>
+<li><span class="math inline">\(λ\cdot λ_1 + (1-λ)λ_2 &gt; 0\)</span><br />
+<span class="math display">\[\begin{aligned} z_3 &amp;= λ(λ_1x_1) + (1-λ)(λ_2x_2)\\
+&amp;= \big(λ\cdot λ_1 + (1-λ)λ_2\big)\cdot \bigg[\frac{λ}{λ\cdot λ_1 + (1-λ)λ_2}\cdot λ_1x_1 + \frac{1-λ}{λ\cdot λ_1 + (1-λ)λ_2}\cdot λ_2x_2 \bigg] \\
+&amp;= \big(λ\cdot λ_1 + (1-λ)λ_2\big)\cdot \bigg[\frac{λ\cdot λ_1}{λ\cdot λ_1 + (1-λ)λ_2}\cdot x_1 + \frac{(1-λ)λ_2}{λ\cdot λ_1 + (1-λ)λ_2}\cdot x_2 \bigg]\end{aligned}\]</span>
+Let <span class="math inline">\(λ&#39;= \frac{λ\cdot λ_1}{λ\cdot λ_1 + (1-λ)λ_2}\)</span>, <span class="math inline">\(λ&#39;\in[0,1]\)</span><br />
+<span class="math inline">\(\implies \big( λ&#39; x_1 + (1-λ&#39;)x_2\big)\in A\)</span><br />
 Since <span class="math inline">\(λ\cdot λ_1 + (1-λ)λ_2\in [0,1]\)</span><br />
-<span class="math inline">\(\implies z_3\in C\)</span></p>
+<span class="math inline">\(\implies z_3 = λ(λ_1x_1) + (1-λ)(λ_2x_2)\in C\)</span>, <span class="math inline">\(C\)</span> is convex</li>
+</ol>
 <blockquote>
 <p>2014.F1.Q9<br />
 Let <span class="math inline">\(A\subset \mathbb{R}^n\)</span> be a set<br />
