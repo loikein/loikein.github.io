@@ -6,10 +6,20 @@
     <description>Recent content on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Probability Theory</title>
+      <link>/2019/04/notes-probability-theory/</link>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/notes-probability-theory/</guid>
+      <description>Literature Measure Theory Personal Reference    Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real Analysis and Probability Probability: theory and examples An Introduction to Probability Theory and Its Applications, Vol 1
+An Introduction to Probability Theory and Its Applications, Vol 2 Probability and Random Processes Probability essentials Foundations of the Theory of Probability        Measure Theory Personal Reference 测度论入门教材推荐</description>
+    </item>
     
     <item>
       <title>Notes on Econometrics - Exercises</title>
