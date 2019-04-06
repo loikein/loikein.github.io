@@ -6,10 +6,21 @@
     <description>Recent content on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Game Theory</title>
+      <link>/2019/04/notes-game-theory/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/notes-game-theory/</guid>
+      <description>  Extensive Game, Perfect Information Bargaining   textbook: (OR) A Course in Game Theory
+Extensive Game, Perfect Information OR 6.1
+ Set of players: \(N\) Set of histories: \(H\)  History (sequence): \(h = (a^k)_{k=1}^K\) Initial history: \(\emptyset\in H\) \((a^k)_{k=1}^K\in H\), \(K&amp;gt;L\implies (a^k)_{k=1}^L\in H\) \((a^k)_{k=1}^K\in H\) for all \(K\in\mathbb{N} \implies (a^k)_{k=1}^{\infty}\in H\)  Set of terminal histories: \(Z\)  Terminal history: \((a^k)_{k=1}^K\in H\) is terminal if exists no \((a^k)_{k=1}^{K+1}\in H\)  Set of (possible) actions: \(A(h): \{ a \ | \ (h,a)\in H\)  Action: \(a\in h\) for some \(k\in K\) History of length \(k+1\): \((h,a)\)  Player function: \(P: (H\backslash Z)\to N\)  Player to move after history \(h\): \(P(h)\) Initial player: \(P(\emptyset)\) with \(a^0\in A(\emptyset)\) Second player: \(P(a^0)\) with \(a^1\in A(a^0)\)  Preference relation: \(\succsim_i\) defined on \(Z\) Extensive Game with Perfect Information: \(\langle N,H,P,(\succsim_i)\rangle\)  Finite game: \(|H|&amp;lt;\infty\) Finite horizon: \(K &amp;lt;\infty\) for all \((a^k)_{k=1}^K\in H\)    Bargaining  </description>
+    </item>
     
     <item>
       <title>Notes on Probability Theory</title>
@@ -17,8 +28,8 @@
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-probability-theory/</guid>
-      <description>Literature Measure Theory Personal Reference    Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real Analysis and Probability Probability: theory and examples An Introduction to Probability Theory and Its Applications, Vol 1
-An Introduction to Probability Theory and Its Applications, Vol 2 Probability and Random Processes Probability essentials Foundations of the Theory of Probability        Measure Theory Personal Reference 测度论入门教材推荐</description>
+      <description>Literature Personal Reference  Measure Theory   Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real Analysis and Probability Probability: theory and examples An Introduction to Probability Theory and Its Applications, Vol 1
+An Introduction to Probability Theory and Its Applications, Vol 2 Probability and Random Processes Probability essentials Foundations of the Theory of Probability Theory of probability and random processes A Probability Path</description>
     </item>
     
     <item>

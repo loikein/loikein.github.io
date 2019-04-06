@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.54.0" />
+
+<title>Notes on Game Theory - loikein</title>
+<meta property="og:title" content="Notes on Game Theory - loikein">
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Notes on Game Theory</h1>
+
+    
+    <span class="article-date">2019/04/06</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/micro'>micro</a>
+    
+    <a href='/tags/gt'>GT</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#extensive-game-perfect-information">Extensive Game, Perfect Information</a></li>
+<li><a href="#bargaining">Bargaining</a></li>
+</ul>
+</div>
+
+<p>textbook: (OR) <a href="http://gametheory.tau.ac.il/arielDocs/downloadme.asp?id=1">A Course in Game Theory</a></p>
+<div id="extensive-game-perfect-information" class="section level2">
+<h2>Extensive Game, Perfect Information</h2>
+<p>OR 6.1</p>
+<ul>
+<li>Set of players: <span class="math inline">\(N\)</span></li>
+<li>Set of histories: <span class="math inline">\(H\)</span>
+<ul>
+<li>History (sequence): <span class="math inline">\(h = (a^k)_{k=1}^K\)</span></li>
+<li>Initial history: <span class="math inline">\(\emptyset\in H\)</span></li>
+<li><span class="math inline">\((a^k)_{k=1}^K\in H\)</span>, <span class="math inline">\(K&gt;L\implies (a^k)_{k=1}^L\in H\)</span></li>
+<li><span class="math inline">\((a^k)_{k=1}^K\in H\)</span> for all <span class="math inline">\(K\in\mathbb{N} \implies (a^k)_{k=1}^{\infty}\in H\)</span></li>
+</ul></li>
+<li>Set of terminal histories: <span class="math inline">\(Z\)</span>
+<ul>
+<li>Terminal history: <span class="math inline">\((a^k)_{k=1}^K\in H\)</span> is terminal if exists no <span class="math inline">\((a^k)_{k=1}^{K+1}\in H\)</span></li>
+</ul></li>
+<li>Set of (possible) actions: <span class="math inline">\(A(h): \{ a \ | \ (h,a)\in H\)</span>
+<ul>
+<li>Action: <span class="math inline">\(a\in h\)</span> for some <span class="math inline">\(k\in K\)</span></li>
+<li>History of length <span class="math inline">\(k+1\)</span>: <span class="math inline">\((h,a)\)</span></li>
+</ul></li>
+<li>Player function: <span class="math inline">\(P: (H\backslash Z)\to N\)</span>
+<ul>
+<li>Player to move after history <span class="math inline">\(h\)</span>: <span class="math inline">\(P(h)\)</span></li>
+<li>Initial player: <span class="math inline">\(P(\emptyset)\)</span> with <span class="math inline">\(a^0\in A(\emptyset)\)</span></li>
+<li>Second player: <span class="math inline">\(P(a^0)\)</span> with <span class="math inline">\(a^1\in A(a^0)\)</span></li>
+</ul></li>
+<li>Preference relation: <span class="math inline">\(\succsim_i\)</span> defined on <span class="math inline">\(Z\)</span></li>
+<li>Extensive Game with Perfect Information: <span class="math inline">\(\langle N,H,P,(\succsim_i)\rangle\)</span>
+<ul>
+<li>Finite game: <span class="math inline">\(|H|&lt;\infty\)</span></li>
+<li>Finite horizon: <span class="math inline">\(K &lt;\infty\)</span> for all <span class="math inline">\((a^k)_{k=1}^K\in H\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="bargaining" class="section level2">
+<h2>Bargaining</h2>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
