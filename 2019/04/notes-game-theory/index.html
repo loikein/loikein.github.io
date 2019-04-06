@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">Notes on Game Theory</h1>
@@ -90,12 +90,16 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#extensive-game-perfect-information">Extensive Game, Perfect Information</a></li>
+<li><a href="#extensive-game-perfect-information">Extensive Game, Perfect Information</a><ul>
+<li><a href="#strategy">Strategy</a></li>
+<li><a href="#subgame">Subgame</a></li>
+</ul></li>
 <li><a href="#bargaining">Bargaining</a></li>
 </ul>
 </div>
 
-<p>textbook: (OR) <a href="http://gametheory.tau.ac.il/arielDocs/downloadme.asp?id=1">A Course in Game Theory</a></p>
+<p>textbook 1: (OR) <a href="http://gametheory.tau.ac.il/arielDocs/downloadme.asp?id=1">A Course in Game Theory</a><br />
+textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E08D8D422CDF09C4B6">Fun and games</a></p>
 <div id="extensive-game-perfect-information" class="section level2">
 <h2>Extensive Game, Perfect Information</h2>
 <p>OR 6.1</p>
@@ -124,12 +128,39 @@
 <li>Second player: <span class="math inline">\(P(a^0)\)</span> with <span class="math inline">\(a^1\in A(a^0)\)</span></li>
 </ul></li>
 <li>Preference relation: <span class="math inline">\(\succsim_i\)</span> defined on <span class="math inline">\(Z\)</span></li>
-<li>Extensive Game with Perfect Information: <span class="math inline">\(\langle N,H,P,(\succsim_i)\rangle\)</span>
+<li>Extensive Game with Perfect Information: <span class="math inline">\(Γ = \langle N,H,P,(\succsim_i)\rangle\)</span> or <span class="math inline">\(\langle N,H,P\rangle\)</span>
 <ul>
 <li>Finite game: <span class="math inline">\(|H|&lt;\infty\)</span></li>
 <li>Finite horizon: <span class="math inline">\(K &lt;\infty\)</span> for all <span class="math inline">\((a^k)_{k=1}^K\in H\)</span></li>
+<li>Rank of game: <span class="math inline">\(\max K\)</span> for all <span class="math inline">\((a^k)_{k=1}^K\in H\)</span></li>
 </ul></li>
 </ul>
+<div id="strategy" class="section level3">
+<h3>Strategy</h3>
+<ul>
+<li>Strategy: <span class="math inline">\(s_i: (H\backslash Z)\to A(h)\)</span> for <span class="math inline">\(P(h) = i\)</span>
+<ul>
+<li>Strategy profile: <span class="math inline">\(s = (s_i)_{i\in N}\)</span></li>
+<li>Outcome of a strategy profile: <span class="math inline">\(O(s) = (a^1,\dots, a^K)\in Z\)</span><br />
+s.t. <span class="math inline">\(s_{P(a^1,\dots, a^k)}(a^1,\dots, a^k) = a^{k+1}\)</span> for all <span class="math inline">\(k\in [0,K)\)</span></li>
+</ul></li>
+<li>Nash Equilibrium (NE)<br />
+<span class="math inline">\(s^*\)</span> s.t. <span class="math inline">\(O(s^*)\succsim_i O(s_i, s_{-i}^*)\)</span> for all <span class="math inline">\(s_i\)</span>, for all <span class="math inline">\(i\in N\)</span></li>
+<li>Zermelo’s Theorem (BM 1.7)<br />
+Let <span class="math inline">\(T\subset Z\)</span> be arbitrary set of terminal histories in a finite two-player extensive game, then either player 1 can force the outcome to be in <span class="math inline">\(T\)</span>, or player 2 can force the outcome to be in <span class="math inline">\(Z\backslash T\)</span></li>
+</ul>
+</div>
+<div id="subgame" class="section level3">
+<h3>Subgame</h3>
+<ul>
+<li>Subgame: <span class="math inline">\(Γ(h) = \langle N,H|_h,P|_h,(\succsim_i|_h)\rangle\)</span> starting from (the end node of) history <span class="math inline">\(h\in H\)</span> <!-- \backslash Z? --></li>
+<li>Subgame Perfect Nash Equilibrium (SPNE)<br />
+<span class="math inline">\(s^*\)</span> s.t. <span class="math inline">\(O_h(s^*|_h) \succsim_i|_h O_h(s_{-i}^*|_h, s_i)\)</span> for all <span class="math inline">\(s_i\)</span> in <span class="math inline">\(Γ(h)\)</span>, for all <span class="math inline">\(i\in N\)</span>, for all <span class="math inline">\(h\in H\)</span> <!-- \backslash Z? -->
+<ul>
+<li><span class="math inline">\(s^*\)</span> s.t. <span class="math inline">\(s^*|_h\)</span> is a NE of <span class="math inline">\(Γ(h)\)</span> for all <span class="math inline">\(h\in H\)</span></li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="bargaining" class="section level2">
 <h2>Bargaining</h2>
