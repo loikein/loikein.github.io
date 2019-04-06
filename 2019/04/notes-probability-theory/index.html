@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">5 min read</span>
     
 
     <h1 class="article-title">Notes on Probability Theory</h1>
@@ -123,27 +123,20 @@
 </ol>
 <div id="personal-reference" class="section level3">
 <h3>Personal Reference</h3>
-<p><a href="https://www.zhihu.com/question/50628809">测度论入门教材推荐</a><br />
-<a href="https://math.stackexchange.com/questions/380177/what-is-the-difference-between-a-ring-and-an-algebra">What is the difference between a Ring and an Algebra?</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Algebra_of_sets">Algebra of sets - Wikipedia</a><br />
+<a href="https://www.zhihu.com/question/50628809">测度论入门教材推荐</a><br />
+<a href="https://math.stackexchange.com/questions/380177/what-is-the-difference-between-a-ring-and-an-algebra">What is the difference between a Ring and an Algebra?</a><br />
+<a href="http://sparkandshine.net/algebraic-structure-primer-group-ring-field-vector-space/#4">代数结构入门：群、环、域、向量空间 - Spark &amp; Shine</a></p>
 </div>
 </div>
 <div id="measure-theory" class="section level2">
 <h2>Measure Theory</h2>
 <ul>
-<li>Universe: <span class="math inline">\(M = \mathbb{R}^n\)</span></li>
+<li>Carrier set: <span class="math inline">\(M = \mathbb{R}^n\)</span></li>
 <li>For vectors <span class="math inline">\(a=(a_1,\dots, a_n)\)</span> and <span class="math inline">\(b=(b_1,\dots, b_n) \in M\)</span>
 <ul>
 <li><span class="math inline">\(a\leq b \iff a_i\leq b_i\)</span> for all <span class="math inline">\(i\)</span></li>
 <li><span class="math inline">\(a&lt;b \iff a_i&lt; b_i\)</span> for all <span class="math inline">\(i\)</span></li>
-</ul></li>
-<li>Set of half-open intervals: <span class="math inline">\(\mathcal{I}^n:= \{]a,b] : a,b\in M, \ a\leq b \}\)</span>
-<ul>
-<li>Half-open interval: <span class="math inline">\(]a,b] = \{x\in M : a&lt;x\leq b\}\)</span></li>
-</ul></li>
-<li>Set of figures: <span class="math inline">\(\mathcal{F}^n := \{F\subset \mathbb{R}^n :\)</span> exists <span class="math inline">\(r\in\mathbb{N}\)</span>, exists <span class="math inline">\(I_1,\dots,I_r \in\mathcal{I}^n\)</span> s.t. <span class="math inline">\(F=\cup _{j=1}^r I_j \}\)</span>
-<ul>
-<li><span class="math inline">\(\emptyset =]a,a] \in\mathcal{I}^n\)</span></li>
-<li><span class="math inline">\(\mathcal{I}^n\subset \mathcal{F}^n\)</span></li>
 </ul></li>
 </ul>
 <table>
@@ -166,22 +159,22 @@
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td><span class="math inline">\(M\in α\)</span></td>
-<td><span class="math inline">\(M \in α\)</span></td>
+<td><span class="math inline">\(M\in \mathcal{A}\)</span></td>
+<td><span class="math inline">\(M \in \mathcal{A}\)</span></td>
 <td><span class="math inline">\(\emptyset \in \mathcal{R}\)</span></td>
 <td><span class="math inline">\(M\in\mathcal{D}\)</span></td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td><span class="math inline">\(A\in α\)</span> <br /><span class="math inline">\(\implies A^c \in α\)</span></td>
-<td><span class="math inline">\(A\in α\)</span> <br /><span class="math inline">\(\implies A^c \in α\)</span></td>
+<td><span class="math inline">\(A\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies A^c \in \mathcal{A}\)</span></td>
+<td><span class="math inline">\(A\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies A^c \in \mathcal{A}\)</span></td>
 <td><span class="math inline">\(A,B\in \mathcal{R}\)</span> <br /><span class="math inline">\(\implies A\cap B^c \in\mathcal{R}\)</span></td>
 <td><span class="math inline">\(D_1\subset D_2\in \mathcal{D}\)</span> <br /><span class="math inline">\(\implies D_2\cap D_1^c\in\mathcal{D}\)</span></td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td><span class="math inline">\(A_i\in α\)</span> <br /><span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i \in α​\)</span></td>
-<td><span class="math inline">\(A_i\in α\)</span> <br /><span class="math inline">\(\implies \cup_{i=1}^n A_i \in α\)</span></td>
+<td><span class="math inline">\(A_i\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i \in \mathcal{A}​\)</span></td>
+<td><span class="math inline">\(A_i\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies \cup_{i=1}^n A_i \in \mathcal{A}\)</span></td>
 <td><span class="math inline">\(A,B\in \mathcal{R}\)</span> <br /><span class="math inline">\(\implies A\cup B^c \in\mathcal{R}\)</span></td>
 <td>Disjoint <span class="math inline">\(D_i\in\mathcal{D}\)</span> <br /><span class="math inline">\(\implies\cup_{i=1}^{\infty}D_i\in\mathcal{D}\)</span></td>
 </tr>
@@ -191,70 +184,133 @@
 <div id="algebra" class="section level3">
 <h3>σ-algebra</h3>
 <p>Definition 1.1<br />
-Let <span class="math inline">\(α\)</span> be a collection of subsets of set <span class="math inline">\(M\)</span>.<br />
-<span class="math inline">\(α\)</span> is called a σ-algebra on M <span class="math inline">\(\iff\)</span><br />
-A1: <span class="math inline">\(M\in α\)</span><br />
-A2: <span class="math inline">\(A\in α\implies A^c \in α\)</span><br />
-A3: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in α\implies \cup_{i=1}^{\infty} A_i \in α\)</span></p>
+Let <span class="math inline">\(\mathcal{A}\)</span> be a collection of subsets of set <span class="math inline">\(M\)</span>, <span class="math inline">\(\mathcal{A}\)</span> is called a σ-algebra on <span class="math inline">\(M\iff\)</span><br />
+A1: <span class="math inline">\(M\in \mathcal{A}\)</span><br />
+A2: <span class="math inline">\(A\in \mathcal{A}\implies A^c \in \mathcal{A}\)</span><br />
+A3: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in \mathcal{A}\implies \cup_{i=1}^{\infty} A_i \in \mathcal{A}\)</span></p>
 <blockquote>
 <p>Remark 1.2<br />
-Let <span class="math inline">\(α\)</span> be a σ-algebra, then<br />
-a) A3’: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in α\implies \cap_{i=1}^{\infty} A_i \in α\)</span><br />
-b) For finite many sets <span class="math inline">\(A_1,\dots,A_n\in α\)</span>, <span class="math inline">\(\cup_{i=1}^n A_i \in α\)</span> and <span class="math inline">\(\cap_{i=1}^n A_i \in α\)</span></p>
+Let <span class="math inline">\(\mathcal{A}\)</span> be a σ-algebra, then<br />
+a) A3’: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in \mathcal{A}\implies \cap_{i=1}^{\infty} A_i \in \mathcal{A}\)</span><br />
+b) For finite many sets <span class="math inline">\(A_1,\dots,A_n\in \mathcal{A}\)</span>, <span class="math inline">\(\cup_{i=1}^n A_i \in \mathcal{A}\)</span> and <span class="math inline">\(\cap_{i=1}^n A_i \in \mathcal{A}\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>A3’<br />
-Let <span class="math inline">\(A_i\in α\)</span><br />
-(A2) <span class="math inline">\(\implies A_i^c\in α\)</span><br />
-(A3) <span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i^c \in α\)</span><br />
-(A2) <span class="math inline">\(\implies \big( \cup_{i=1}^{\infty} A_i^c \big) ^c = \cap_{i=1}^{\infty} A_i \in α\)</span></li>
+Let <span class="math inline">\(A_i\in \mathcal{A}\)</span><br />
+(A2) <span class="math inline">\(\implies A_i^c\in \mathcal{A}\)</span><br />
+(A3) <span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i^c \in \mathcal{A}\)</span><br />
+(A2) <span class="math inline">\(\implies \big( \cup_{i=1}^{\infty} A_i^c \big) ^c = \cap_{i=1}^{\infty} A_i \in \mathcal{A}\)</span></li>
 <li>Let <span class="math inline">\(A_n = A_{n+1} = A_{n+2} =\dots\)</span><br />
-(A3) <span class="math inline">\(\implies \cup_{i=1}^n A_i \in α\)</span><br />
-(A3’) <span class="math inline">\(\implies \cap_{i=1}^n A_i \in α\)</span></li>
+(A3) <span class="math inline">\(\implies \cup_{i=1}^n A_i \in \mathcal{A}\)</span><br />
+(A3’) <span class="math inline">\(\implies \cap_{i=1}^n A_i \in \mathcal{A}\)</span></li>
 </ol>
 <blockquote>
 <p>Example 1.3 (Reference: <a href="https://en.wikipedia.org/wiki/Sigma-algebra?oldformat=true#Simple_set-based_examples">Wikipedia</a>)<br />
 a) Power set <span class="math inline">\(\mathcal{P}(M)\)</span> is a σ-algebra on <span class="math inline">\(M\)</span><br />
-b) Let <span class="math inline">\(T\neq\emptyset\)</span> be an arbitrary index set, let <span class="math inline">\(α_t\)</span> be a σ-algebra on M for all <span class="math inline">\(t\in T\)</span>, then <span class="math inline">\(\cap_{t\in T}α_t\)</span> is a σ-algebra on <span class="math inline">\(M\)</span><br />
+b) Let <span class="math inline">\(T\neq\emptyset\)</span> be an arbitrary index set, let <span class="math inline">\(\mathcal{A}_t\)</span> be a σ-algebra on M for all <span class="math inline">\(t\in T\)</span>, then <span class="math inline">\(\cap_{t\in T}\mathcal{A}_t\)</span> is a σ-algebra on <span class="math inline">\(M\)</span><br />
 c) <span class="math inline">\(\{M,\emptyset\}\)</span> is a σ-algebra on <span class="math inline">\(M\)</span></p>
 </blockquote>
 <ol start="2" style="list-style-type: decimal">
 <li><ol style="list-style-type: decimal">
-<li><span class="math inline">\(M \in α_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
-<span class="math inline">\(\implies M\in \cap_{t\in T}α_t\)</span></li>
-<li>Let <span class="math inline">\(A\in \cap_{t\in T}α_t\)</span><br />
-<span class="math inline">\(\implies A\in α_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
-<span class="math inline">\(\implies A^c\in α_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
-<span class="math inline">\(\implies A^c\in\cap_{t\in T}α_t\)</span></li>
-<li>Let <span class="math inline">\(A_i\in \cap_{t\in T}α_t\)</span> for <span class="math inline">\(i = 1,2,\dots\)</span><br />
-<span class="math inline">\(\implies A_i\in α_t\)</span> for all <span class="math inline">\(t\in T\)</span> and all <span class="math inline">\(i = 1,2,\dots\)</span><br />
-<span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i\in α_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
-<span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i\in \cap_{t\in T}α_t\)</span></li>
+<li><span class="math inline">\(M \in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies M\in \cap_{t\in T}\mathcal{A}_t\)</span></li>
+<li>Let <span class="math inline">\(A\in \cap_{t\in T}\mathcal{A}_t\)</span><br />
+<span class="math inline">\(\implies A\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies A^c\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies A^c\in\cap_{t\in T}\mathcal{A}_t\)</span></li>
+<li>Let <span class="math inline">\(A_i\in \cap_{t\in T}\mathcal{A}_t\)</span> for <span class="math inline">\(i = 1,2,\dots\)</span><br />
+<span class="math inline">\(\implies A_i\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span> and all <span class="math inline">\(i = 1,2,\dots\)</span><br />
+<span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i\in \cap_{t\in T}\mathcal{A}_t\)</span></li>
 </ol></li>
 </ol>
 <blockquote>
 <p>Theorem 1.4<br />
-Let <span class="math inline">\(\mathcal{C}\)</span> be a collection of subsets of <span class="math inline">\(M\)</span><br />
+Let <span class="math inline">\(\mathcal{C}\)</span> be a set of subsets of <span class="math inline">\(M\)</span><br />
 Then there is a unique smallest σ-algebra <span class="math inline">\(σ(\mathcal{C})\)</span> on <span class="math inline">\(M\)</span> s.t. <span class="math inline">\(\mathcal{C}\subset σ(\mathcal{C})\)</span><br />
-Smallest: for all σ-algebra <span class="math inline">\(α\)</span> on <span class="math inline">\(M\)</span> s.t. <span class="math inline">\(\mathcal{C}\subset α\implies σ(\mathcal{C})\subset α\)</span></p>
+Smallest: for all σ-algebra <span class="math inline">\(\mathcal{A}\)</span> on <span class="math inline">\(M\)</span> s.t. <span class="math inline">\(\mathcal{C}\subset \mathcal{A}\implies σ(\mathcal{C})\subset \mathcal{A}\)</span></p>
 <p>Definition 1.5<br />
 <span class="math inline">\(σ(\mathcal{C})\)</span> is called the σ-algebra on <span class="math inline">\(M\)</span> generated by <span class="math inline">\(\mathcal{C}\)</span><br />
 <span class="math inline">\(\mathcal{C}\)</span> is called a generator of <span class="math inline">\(σ(\mathcal{C})\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Smallest<br />
-Let <span class="math inline">\(Φ\)</span> be a collection of all σ-algebras on <span class="math inline">\(M\)</span> that includes <span class="math inline">\(\mathcal{C}\)</span><br />
+Let <span class="math inline">\(Φ\)</span> be a set of all σ-algebras on <span class="math inline">\(M\)</span> that includes <span class="math inline">\(\mathcal{C}\)</span><br />
 <span class="math inline">\(\mathcal{P}(M)\in Φ\implies Φ\neq \emptyset\)</span><br />
-Let <span class="math inline">\(σ(\mathcal{C}):= \cap_{α\in Φ}α\)</span><br />
+Let <span class="math inline">\(σ(\mathcal{C}):= \cap_{\mathcal{A}\in Φ}\mathcal{A}\)</span><br />
 (Example 1.3.b) <span class="math inline">\(\implies σ(\mathcal{C})\)</span> is a σ-algebra on <span class="math inline">\(M\)</span><br />
-Since <span class="math inline">\(\mathcal{C}\subset α\)</span> for all <span class="math inline">\(α\in Φ\)</span><br />
+Since <span class="math inline">\(\mathcal{C}\subset \mathcal{A}\)</span> for all <span class="math inline">\(\mathcal{A}\in Φ\)</span><br />
 <span class="math inline">\(\implies\mathcal{C}\subset σ(\mathcal{C})\)</span><br />
-By definition of <span class="math inline">\(Φ\)</span>, <span class="math inline">\(σ(\mathcal{C})\)</span> is a smallest σ-algebra on <span class="math inline">\(M\)</span></li>
-<li>Unique</li>
+(Def of <span class="math inline">\(Φ\)</span>) <span class="math inline">\(\implies σ(\mathcal{C})\)</span> is a smallest σ-algebra on <span class="math inline">\(M\)</span></li>
+<li>Unique<br />
+Let <span class="math inline">\(\mathcal{A}&#39;\)</span> be another smallest σ-algebra on <span class="math inline">\(M\)</span><br />
+<span class="math inline">\(\implies \mathcal{A}&#39;\subset σ(\mathcal{C})\)</span> and <span class="math inline">\(σ(\mathcal{C})\subset \mathcal{A}&#39;\)</span><br />
+<span class="math inline">\(\implies \mathcal{A}&#39; = σ(\mathcal{C})\)</span></li>
 </ol>
 </div>
 <div id="ring" class="section level3">
 <h3>Ring</h3>
+<p>Definition 1.6<br />
+Let <span class="math inline">\(\mathcal{R}\)</span> be a set of subsets of a set <span class="math inline">\(M\)</span>, <span class="math inline">\(\mathcal{R}\)</span> is called a ring on <span class="math inline">\(M\iff\)</span><br />
+R1: <span class="math inline">\(\emptyset \in \mathcal{R}\)</span><br />
+R2: <span class="math inline">\(A,B\in \mathcal{R}\implies A\cap B^c \in\mathcal{R}\)</span><br />
+R3: <span class="math inline">\(A,B\in \mathcal{R}\implies A\cup B^c \in\mathcal{R}\)</span><br />
+If in addition,<br />
+R4: <span class="math inline">\(M\in\mathcal{R}\)</span><br />
+Then <span class="math inline">\(\mathcal{R}\)</span> is an algebra on <span class="math inline">\(M\)</span></p>
+<blockquote>
+<p>Remark 1.7<br />
+a) <span class="math inline">\(\mathcal{R}=\{\emptyset\}\)</span> is a ring, but not an algebra on <span class="math inline">\(M\)</span> unless <span class="math inline">\(M =\emptyset\)</span><br />
+b) Set <span class="math inline">\(\mathcal{A}\in\mathcal{P}(M)\)</span> is called an algebra on <span class="math inline">\(M\iff\)</span><br />
+A1: <span class="math inline">\(M\in \mathcal{A}\)</span><br />
+A2: <span class="math inline">\(A\in \mathcal{A}\implies A^c \in \mathcal{A}\)</span><br />
+A3’’: For finite many sets <span class="math inline">\(A_1, A_2,\dots,A_n\in \mathcal{A} \implies \cup_{i=1}^n A_i \in \mathcal{A}\)</span><br />
+c) Every σ-algebra is an algebra, the converse is not true in general</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Counterexample<br />
+Let <span class="math inline">\(M = \mathbb{N}\)</span>, let <span class="math inline">\(\mathcal{A} = \{A\subset M : |A|&lt;\infty\)</span> or <span class="math inline">\(|A^c|&lt;\infty\}\)</span><br />
+<span class="math inline">\(\mathcal{A}\)</span> is an algebra but not a σ-algebra<br />
+For example, let <span class="math inline">\(A_i = \{ (2_i)_i\}\)</span> for all <span class="math inline">\(i\in\mathbb{N}\)</span><br />
+<span class="math inline">\(\implies A_i \in\mathcal{A}\)</span> all <span class="math inline">\(i\in\mathbb{N}\)</span><br />
+But <span class="math inline">\(\cup_{i=1}^{\infty} A_i \not\in\mathcal{A}\)</span> since <span class="math inline">\(\big|\cup_{i=1}^{\infty} A_i\big| = \infty\)</span></li>
+</ol>
+<blockquote>
+<ul>
+<li>Set of half-open intervals: <span class="math inline">\(\mathcal{I}^n:= \{]a,b] : a,b\in M, \ a\leq b \}\)</span>
+<ul>
+<li>Half-open interval: <span class="math inline">\(]a,b] = \{x\in M : a&lt;x\leq b\}\)</span></li>
+</ul></li>
+<li>Set of figures: <span class="math inline">\(\mathcal{F}^n := \{F\subset \mathbb{R}^n :\)</span> exists <span class="math inline">\(r\in\mathbb{N}\)</span>, exists <span class="math inline">\(I_1,\dots,I_r \in\mathcal{I}^n\)</span> s.t. <span class="math inline">\(F=\cup _{j=1}^r I_j \}\)</span>
+<ul>
+<li><span class="math inline">\(\emptyset =]a,a] \in\mathcal{I}^n\)</span></li>
+<li><span class="math inline">\(\mathcal{I}^n\subset \mathcal{F}^n\)</span></li>
+</ul></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Lemma 1.8<br />
+a) <span class="math inline">\(I_1,I_2\in \mathcal{I}^n\implies\)</span> <span class="math inline">\(\begin{cases}I_1\cap I_2\in \mathcal{I}^n \\ I_1\cap I_2^c\in \mathcal{F}^n\end{cases}\)</span><br />
+b) <span class="math inline">\(F\in \mathcal{F}^n\implies\)</span> exists disjoint intervals <span class="math inline">\(I_1,\dots, I_r\in \mathcal{I}^n\)</span> for some <span class="math inline">\(r\in\mathbb{N}\)</span>, s.t. <span class="math inline">\(F= \cup_{j=1}^r I_j\)</span><br />
+c) <span class="math inline">\(F,G\in \mathcal{F}^n\implies F\cap G\in \mathcal{F}^n\)</span></p>
+</blockquote>
+<p>Proof: Exercise 3</p>
+<blockquote>
+<p>Theorem 1.9<br />
+<span class="math inline">\(\mathcal{F}^n\)</span> is a ring on <span class="math inline">\(M\)</span></p>
+<p>Remark 1.10<br />
+<span class="math inline">\(\mathcal{F}^n\)</span> is the ring on <span class="math inline">\(M\)</span> generated by <span class="math inline">\(\mathcal{I}^n\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\emptyset \in \mathcal{I}^n\subset \mathcal{F}^n\)</span></li>
+<li>Let <span class="math inline">\(F = \cup_{i=1}^r I_i\)</span>, <span class="math inline">\(G = \cup_{j=1}^s I_j&#39;\)</span>, <span class="math inline">\(I_i,I_j&#39; \in \mathcal{I}^n\)</span><br />
+<span class="math display">\[\begin{aligned}\implies F \cap G^c &amp;= \big( \cup_{i=1}^r I_i\big)\cap\big( \cap_{j=1}^s I_j^{&#39;c} \big) \\
+&amp;=\cup_{i=1}^r \cap_{j=1}^s \big( I_i\cap I_j^{&#39;c} \big)\end{aligned}\]</span>
+(Lemma 1.8.a) <span class="math inline">\(\implies I_i\cap I_j^{&#39;c} \in \mathcal{F}^n\)</span><br />
+(Lemma 1.8.c) <span class="math inline">\(\implies \cap_{j=1}^s \big( I_i\cap I_j^{&#39;c} \big)\in \mathcal{F}^n\)</span><br />
+(Def of <span class="math inline">\(\mathcal{F}^n\)</span>) <span class="math inline">\(\implies \cup_{i=1}^r \cap_{j=1}^s \big( I_i\cap I_j^{&#39;c} \big)\in \mathcal{F}^n\)</span></li>
+<li>Trivial by definition of <span class="math inline">\(\mathcal{F}^n\)</span></li>
+</ol>
 </div>
 <div id="dynkin-system" class="section level3">
 <h3>Dynkin System</h3>
