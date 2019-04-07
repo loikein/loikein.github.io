@@ -94,7 +94,7 @@
 <li><a href="#measure-theory">Measure Theory</a><ul>
 <li><a href="#algebra">σ-algebra</a></li>
 <li><a href="#ring">Ring</a></li>
-<li><a href="#dynkin-system">Dynkin System</a></li>
+<li><a href="#dynkin-system--system">Dynkin System (λ-system)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -125,8 +125,9 @@
 <h3>Personal Reference</h3>
 <p><a href="https://en.wikipedia.org/wiki/Algebra_of_sets">Algebra of sets - Wikipedia</a><br />
 <a href="https://www.zhihu.com/question/50628809">测度论入门教材推荐</a><br />
-<a href="https://math.stackexchange.com/questions/380177/what-is-the-difference-between-a-ring-and-an-algebra">What is the difference between a Ring and an Algebra?</a><br />
 <a href="http://sparkandshine.net/algebraic-structure-primer-group-ring-field-vector-space/#4">代数结构入门：群、环、域、向量空间 - Spark &amp; Shine</a></p>
+<p><a href="https://math.stackexchange.com/questions/2042362/union-of-sigma-algebras-is-a-pi-system">Union of σ-algebras is a π-system?</a><br />
+<a href="https://math.stackexchange.com/questions/380177/what-is-the-difference-between-a-ring-and-an-algebra">What is the difference between a Ring and an Algebra?</a></p>
 </div>
 </div>
 <div id="measure-theory" class="section level2">
@@ -183,16 +184,18 @@
 <p>Note: <span class="math inline">\(A^c = M\cap A^c\)</span></p>
 <div id="algebra" class="section level3">
 <h3>σ-algebra</h3>
+<blockquote>
 <p>Definition 1.1<br />
 Let <span class="math inline">\(\mathcal{A}\)</span> be a collection of subsets of set <span class="math inline">\(M\)</span>, <span class="math inline">\(\mathcal{A}\)</span> is called a σ-algebra on <span class="math inline">\(M\iff\)</span><br />
 A1: <span class="math inline">\(M\in \mathcal{A}\)</span><br />
 A2: <span class="math inline">\(A\in \mathcal{A}\implies A^c \in \mathcal{A}\)</span><br />
 A3: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in \mathcal{A}\implies \cup_{i=1}^{\infty} A_i \in \mathcal{A}\)</span></p>
+</blockquote>
 <blockquote>
 <p>Remark 1.2<br />
 Let <span class="math inline">\(\mathcal{A}\)</span> be a σ-algebra, then<br />
 a) A3’: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in \mathcal{A}\implies \cap_{i=1}^{\infty} A_i \in \mathcal{A}\)</span><br />
-b) For finite many sets <span class="math inline">\(A_1,\dots,A_n\in \mathcal{A}\)</span>, <span class="math inline">\(\cup_{i=1}^n A_i \in \mathcal{A}\)</span> and <span class="math inline">\(\cap_{i=1}^n A_i \in \mathcal{A}\)</span></p>
+b) For finite many sets <span class="math inline">\(A_1,\dots,A_n\in \mathcal{A}\implies\cup_{i=1}^n A_i \in \mathcal{A}\)</span> and <span class="math inline">\(\cap_{i=1}^n A_i \in \mathcal{A}\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>A3’<br />
@@ -250,14 +253,16 @@ Let <span class="math inline">\(\mathcal{A}&#39;\)</span> be another smallest σ
 </div>
 <div id="ring" class="section level3">
 <h3>Ring</h3>
+<blockquote>
 <p>Definition 1.6<br />
 Let <span class="math inline">\(\mathcal{R}\)</span> be a set of subsets of a set <span class="math inline">\(M\)</span>, <span class="math inline">\(\mathcal{R}\)</span> is called a ring on <span class="math inline">\(M\iff\)</span><br />
 R1: <span class="math inline">\(\emptyset \in \mathcal{R}\)</span><br />
 R2: <span class="math inline">\(A,B\in \mathcal{R}\implies A\cap B^c \in\mathcal{R}\)</span><br />
-R3: <span class="math inline">\(A,B\in \mathcal{R}\implies A\cup B^c \in\mathcal{R}\)</span><br />
-If in addition,<br />
+R3: <span class="math inline">\(A,B\in \mathcal{R}\implies A\cup B^c \in\mathcal{R}\)</span></p>
+<p>If in addition,<br />
 R4: <span class="math inline">\(M\in\mathcal{R}\)</span><br />
-Then <span class="math inline">\(\mathcal{R}\)</span> is an algebra on <span class="math inline">\(M\)</span></p>
+Then <span class="math inline">\(\mathcal{R}\)</span> is an <strong>algebra</strong> on <span class="math inline">\(M\)</span></p>
+</blockquote>
 <blockquote>
 <p>Remark 1.7<br />
 a) <span class="math inline">\(\mathcal{R}=\{\emptyset\}\)</span> is a ring, but not an algebra on <span class="math inline">\(M\)</span> unless <span class="math inline">\(M =\emptyset\)</span><br />
@@ -312,8 +317,28 @@ c) <span class="math inline">\(F,G\in \mathcal{F}^n\implies F\cap G\in \mathcal{
 <li>Trivial by definition of <span class="math inline">\(\mathcal{F}^n\)</span></li>
 </ol>
 </div>
-<div id="dynkin-system" class="section level3">
-<h3>Dynkin System</h3>
+<div id="dynkin-system--system" class="section level3">
+<h3>Dynkin System (λ-system)</h3>
+<blockquote>
+<p>Definition 1.11<br />
+Let <span class="math inline">\(\mathcal{D}\)</span> be a collection of subsets of <span class="math inline">\(M\)</span>. <span class="math inline">\(\mathcal{D}\)</span> is called a Dynkin system <span class="math inline">\(\iff\)</span><br />
+D1: <span class="math inline">\(M\in\mathcal{D}\)</span><br />
+D2: <span class="math inline">\(D_1\subset D_2\in\mathcal{D}\implies\)</span> <span class="math inline">\(D_2\backslash D_1 = D_2\cap D_1^c\in\mathcal{D}\)</span><br />
+D3: For every sequence <span class="math inline">\((D_1,D_2,\dots)\)</span> of disjoint sets <span class="math inline">\(D_i\in\mathcal{D}\implies \cup_{i=1}^{\infty}D_i\in\mathcal{D}\)</span></p>
+</blockquote>
+<blockquote>
+<p>Remark 1.12<br />
+<span class="math inline">\(\mathcal{A}\)</span> is a σ-algebra <span class="math inline">\(\implies\mathcal{A}\)</span> is a Dynkin system, the converse is not true in general</p>
+</blockquote>
+<p>Counterexample:<br />
+Let <span class="math inline">\(M=\{1,2,3,4\}\)</span>, <span class="math inline">\(\mathcal{D} = \{ D\subset M : D\)</span> has 0, 2 or 4 elements}<br />
+Since union of sets of 2 elements may end up have 3 elements,<br />
+<span class="math inline">\(\implies \mathcal{D}\)</span> is a Dynkin system but not a (σ-)algebra</p>
+<blockquote>
+<p>Definition 1.13<br />
+Let <span class="math inline">\(\mathcal{C}\)</span> be a collection of subsets of <span class="math inline">\(M\)</span>. <span class="math inline">\(\mathcal{C}\)</span> is called a π-system<br />
+if for all <span class="math inline">\(A_1, A_2\in\mathcal{C}\implies A_1\cap A_2\in\mathcal{C}\)</span></p>
+</blockquote>
 </div>
 </div>
 
