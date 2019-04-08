@@ -17,8 +17,9 @@
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-mechanism-social/</guid>
-      <description>Mechanism Design Problem Environment Mechanism Induced Game Implementation    Textbook: (MWG) Microeconomic Theory
-Mechanism Design Problem Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible alternatives: \(x\in X\) (\(x\) is single-valued?) Type profile: \(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)  pdf of \(θ\) over \(Θ\): \(f\) Agent \(i\)’s type: \(θ_i \in Θ_i\)  Agent \(i\)’s vNM utility function: \(u_i(x,θ)\)  Allow for selflessness?</description>
+      <description>Mechanism Design Problem Environment Mechanism Induced Game Social Choice Function &amp;amp; Implementation    Textbook: (MWG) Microeconomic Theory
+Mechanism Design Problem Reference
+Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible alternatives: \(x\in X\)  \(x\) is single-valued (MWG Definition 21.E.1)  Type profile: \(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)  pdf of \(θ\) over \(Θ\): \(f\) Agent \(i\)’s type: \(θ_i \in Θ_i\)  Agent \(i\)’s vNM utility function: \(u_i(x,θ)\)  Allow for selflessness Allow for reference  Independent private values environment assumption  Private value: \(u_i(x,θ) = u_i(x,θ_i)\) Independent type: \(f_i(θ_i)\) s.</description>
     </item>
     
     <item>
