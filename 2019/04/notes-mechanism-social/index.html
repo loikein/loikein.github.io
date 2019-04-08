@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.54.0" />
+
+<title>Notes on Mechanism Design &amp; Social Choice - loikein</title>
+<meta property="og:title" content="Notes on Mechanism Design &amp; Social Choice - loikein">
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Notes on Mechanism Design &amp; Social Choice</h1>
+
+    
+    <span class="article-date">2019/04/08</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/micro'>micro</a>
+    
+    <a href='/tags/gt'>GT</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#mechanism-design-problem">Mechanism Design Problem</a><ul>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#mechanism">Mechanism</a></li>
+<li><a href="#induced-game">Induced Game</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>Textbook: (MWG) <a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory</a></p>
+<div id="mechanism-design-problem" class="section level2">
+<h2>Mechanism Design Problem</h2>
+<div id="environment" class="section level3">
+<h3>Environment</h3>
+<ul>
+<li>Set of agents: <span class="math inline">\(i\in N = \{1,2,\dots, n\}\)</span></li>
+<li>Set of possible alternatives: <span class="math inline">\(X\)</span></li>
+<li>Type profile: <span class="math inline">\(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)</span>
+<ul>
+<li>pdf of <span class="math inline">\(θ\)</span> over <span class="math inline">\(Θ\)</span>: <span class="math inline">\(f()\)</span></li>
+<li>Agent <span class="math inline">\(i\)</span>’s type: <span class="math inline">\(θ_i \in Θ_i\)</span></li>
+</ul></li>
+<li>Agent <span class="math inline">\(i\)</span>’s vNM utility function: <span class="math inline">\(u_i(x,θ)\)</span>
+<ul>
+<li>Allow for selflessness</li>
+<li>Allow for reference</li>
+</ul></li>
+<li>Independent private values environment assumption
+<ul>
+<li>Private value: <span class="math inline">\(u_i(x,θ) = u_i(x,θ_i)\)</span></li>
+<li>Independent type: <span class="math inline">\(f_i(θ_i)\)</span> s.t. <span class="math inline">\(f(θ) = \prod_{i\in N} f_i(θ_i)\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="mechanism" class="section level3">
+<h3>Mechanism</h3>
+<ul>
+<li>Agent <span class="math inline">\(i\)</span>’s strategy: <span class="math inline">\(s_i\in S_i\)</span></li>
+<li>Outcome function: <span class="math inline">\(g: S_1\times S_2\times\dots\times S_n\to X\)</span></li>
+<li>Mechanism: <span class="math inline">\(Γ = (S_1, S_2, \dots, S_n, g)\)</span></li>
+</ul>
+</div>
+<div id="induced-game" class="section level3">
+<h3>Induced Game</h3>
+<ul>
+<li>Bayesian game induced by <span class="math inline">\(Γ\)</span>:
+<span class="math display">\[\begin{aligned}G_Γ = [ \underbrace{N}_{\text{Players}}, \underbrace{\{S_i\}_{i\in N}}_{\text{Strategy}}, \underbrace{\{\tilde{u}_i\}_{i\in N}}_{\text{Utility}}, \underbrace{Θ}_{\text{Type}}, \underbrace{f(\cdot)}_{\text{Probability}}] \end{aligned}\]</span></li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

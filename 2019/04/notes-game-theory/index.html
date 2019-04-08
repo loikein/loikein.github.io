@@ -93,14 +93,15 @@
 <li><a href="#extensive-game-perfect-information">Extensive Game, Perfect Information</a><ul>
 <li><a href="#strategy">Strategy</a></li>
 <li><a href="#subgame">Subgame</a></li>
-<li><a href="#uncertainty">Uncertainty</a></li>
+<li><a href="#chance-moves">Chance Moves</a></li>
 </ul></li>
 <li><a href="#bargaining">Bargaining</a></li>
 </ul>
 </div>
 
 <p>textbook 1: (OR) <a href="http://gametheory.tau.ac.il/arielDocs/downloadme.asp?id=1">A Course in Game Theory</a><br />
-textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E08D8D422CDF09C4B6">Fun and games</a></p>
+textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E08D8D422CDF09C4B6">Fun and games</a><br />
+<a href="http://www.econ.uiuc.edu/~hrtdmrt2/Teaching/GT_2016_19/">Reference: Carlos Hurtado’s lecture notes</a></p>
 <div id="extensive-game-perfect-information" class="section level2">
 <h2>Extensive Game, Perfect Information</h2>
 <p>OR 6.1<br />
@@ -118,7 +119,7 @@ textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E
 <ul>
 <li>Terminal history: <span class="math inline">\((a^k)_{k=1}^K\in H\)</span> is terminal if exists no <span class="math inline">\((a^k)_{k=1}^{K+1}\in H\)</span></li>
 </ul></li>
-<li>Set of (possible) actions: <span class="math inline">\(A(h): \{ a \ | \ (h,a)\in H\)</span>
+<li>Set of (possible) actions: <span class="math inline">\(A(h): \{ a \ | \ (h,a)\in H\}\)</span>
 <ul>
 <li>Action: <span class="math inline">\(a\in h\)</span> for some <span class="math inline">\(k\in K\)</span></li>
 <li>History of length <span class="math inline">\(k+1\)</span>: <span class="math inline">\((h,a)\)</span></li>
@@ -130,7 +131,8 @@ textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E
 <li>Second player: <span class="math inline">\(P(a^0)\)</span> with <span class="math inline">\(a^1\in A(a^0)\)</span></li>
 </ul></li>
 <li>Preference relation: <span class="math inline">\(\succsim_i\)</span> defined on <span class="math inline">\(Z\)</span></li>
-<li>Extensive Game with Perfect Information: <span class="math inline">\(Γ = \langle N,H,P,(\succsim_i)\rangle\)</span> or <span class="math inline">\(\langle N,H,P\rangle\)</span>
+<li>Extensive Game with Perfect Information:
+<span class="math display">\[\begin{aligned}Γ = \langle N,H,P,(\succsim_i)\rangle\text{ or }\langle N,H,P\rangle\end{aligned}\]</span>
 <ul>
 <li>Finite game: <span class="math inline">\(|H|&lt;\infty\)</span></li>
 <li>Finite horizon: <span class="math inline">\(K &lt;\infty\)</span> for all <span class="math inline">\((a^k)_{k=1}^K\in H\)</span></li>
@@ -197,12 +199,12 @@ Give an example of a infinite horizon game for which the one-step deviation prin
 Give an example of a infinite horizon game for which Kuhn theorem does not hold.</p>
 </blockquote>
 </div>
-<div id="uncertainty" class="section level3">
-<h3>Uncertainty</h3>
+<div id="chance-moves" class="section level3">
+<h3>Chance Moves</h3>
 <ul>
 <li>Player function: <span class="math inline">\(P: (H\backslash Z)\to N\cup\{c\}\)</span></li>
 <li>Probability function: <span class="math inline">\(f_c(\cdot \ | \ h): A(h)\to [0,1]\)</span> for each <span class="math inline">\(P(h) = c\)</span> and <span class="math inline">\(a\in A(h)\)</span></li>
-<li>Extensive Game with Perfect Information and Chance Moves: <span class="math inline">\(Γ = \langle N,H,P, f_c, (\succsim_i)\rangle\)</span></li>
+<li>Extensive Game with Perfect Information and Chance: <span class="math inline">\(Γ = \langle N,H,P, f_c, (\succsim_i)\rangle\)</span></li>
 </ul>
 </div>
 </div>
