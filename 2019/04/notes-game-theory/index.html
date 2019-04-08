@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">4 min read</span>
     
 
     <h1 class="article-title">Notes on Game Theory</h1>
@@ -93,6 +93,7 @@
 <li><a href="#extensive-game-perfect-information">Extensive Game, Perfect Information</a><ul>
 <li><a href="#strategy">Strategy</a></li>
 <li><a href="#subgame">Subgame</a></li>
+<li><a href="#uncertainty">Uncertainty</a></li>
 </ul></li>
 <li><a href="#bargaining">Bargaining</a></li>
 </ul>
@@ -102,7 +103,8 @@
 textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E08D8D422CDF09C4B6">Fun and games</a></p>
 <div id="extensive-game-perfect-information" class="section level2">
 <h2>Extensive Game, Perfect Information</h2>
-<p>OR 6.1</p>
+<p>OR 6.1<br />
+<a href="http://gki.informatik.uni-freiburg.de/teaching/ss13/gametheory/gametheory15.pdf">Reference</a></p>
 <ul>
 <li>Set of players: <span class="math inline">\(N\)</span></li>
 <li>Set of histories: <span class="math inline">\(H\)</span>
@@ -133,8 +135,19 @@ textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E
 <li>Finite game: <span class="math inline">\(|H|&lt;\infty\)</span></li>
 <li>Finite horizon: <span class="math inline">\(K &lt;\infty\)</span> for all <span class="math inline">\((a^k)_{k=1}^K\in H\)</span></li>
 <li>Rank of game: <span class="math inline">\(\max K\)</span> for all <span class="math inline">\((a^k)_{k=1}^K\in H\)</span></li>
+<li>Length of game: <span class="math inline">\(l(Γ)\)</span> is the length of longest history in <span class="math inline">\(Γ\)</span></li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise (slides P13)<br />
+Israel is deciding whether to invest in a new costly offensive weapon system.<br />
+The weapon system does not create any direct benefits in case of peace, on the contrary, its maintenance is costly.<br />
+Being an offensive system, it also does not affect the amount of casualties Israel would have in case of an attack from Iran once Iran develops nuclear weapons.<br />
+However, in case of an attack from Iran, it would lead to very drastic casualties for Iran’s leaders and their families.<br />
+1. How can you model Israel’s decision to invest and Iran’s decision to attack as an extensive form game?<br />
+2. Imagine Israel cares only about its own casualties.<br />
+How would your game change if you wanted to model a defensive weapon system instead?</p>
+</blockquote>
 <div id="strategy" class="section level3">
 <h3>Strategy</h3>
 <ul>
@@ -149,6 +162,16 @@ s.t. <span class="math inline">\(s_{P(a^1,\dots, a^k)}(a^1,\dots, a^k) = a^{k+1}
 <li>Zermelo’s Theorem (BM 1.7)<br />
 Let <span class="math inline">\(T\subset Z\)</span> be arbitrary set of terminal histories in a finite two-player extensive game, then either player 1 can force the outcome to be in <span class="math inline">\(T\)</span>, or player 2 can force the outcome to be in <span class="math inline">\(Z\backslash T\)</span></li>
 </ul>
+<blockquote>
+<p>Exercise (slides P16)<br />
+Can you use Zermelo’s Theorem to conclude that in chess either black has a strategy forcing a win, or white has a strategy forcing a win, or one of the players has a strategy forcing a draw?</p>
+</blockquote>
+<blockquote>
+<p>Exercise (slides P17)<br />
+Consider a game of Nim with one stack.<br />
+Use the idea in the proof of Zermelo’s theorem to decide for what initial allocations of matches player I can force a win and for which player II can force a win.<br />
+Can you construct a winning strategy?</p>
+</blockquote>
 </div>
 <div id="subgame" class="section level3">
 <h3>Subgame</h3>
@@ -159,6 +182,27 @@ Let <span class="math inline">\(T\subset Z\)</span> be arbitrary set of terminal
 <ul>
 <li><span class="math inline">\(s^*\)</span> s.t. <span class="math inline">\(s^*|_h\)</span> is a NE of <span class="math inline">\(Γ(h)\)</span> for all <span class="math inline">\(h\in H\)</span></li>
 </ul></li>
+<li>One-Step Deviation Principle (finite horizon): formalization of backward induction<br />
+<span class="math inline">\(s^*\)</span> is a SPNE <span class="math inline">\(\iff\)</span> <span class="math inline">\(O_h(s^*|_h) \succsim_i|_h O_h(s_{-i}^*|_h, s_i)\)</span> for all <span class="math inline">\(s_i\)</span> identical to <span class="math inline">\(s_i^*\)</span> except for the action immediately after <span class="math inline">\(h\)</span>, for all <span class="math inline">\(i\in N\)</span>, for all <span class="math inline">\(h\in H\)</span> s.t. <span class="math inline">\(P(h) = i\)</span></li>
+<li>One-Step Deviation Principle (infinite horizon)</li>
+<li>Kuhn’s Theorem (OR Proposition 99.2)<br />
+Every finite extensive form game with perfect information without simultaneous moves has a subgame perfect equilibrium</li>
+</ul>
+<blockquote>
+<p>Exercise (slides P23)<br />
+Give an example of a infinite horizon game for which the one-step deviation principle does not hold.</p>
+</blockquote>
+<blockquote>
+<p>Exercise (slides P26)<br />
+Give an example of a infinite horizon game for which Kuhn theorem does not hold.</p>
+</blockquote>
+</div>
+<div id="uncertainty" class="section level3">
+<h3>Uncertainty</h3>
+<ul>
+<li>Player function: <span class="math inline">\(P: (H\backslash Z)\to N\cup\{c\}\)</span></li>
+<li>Probability function: <span class="math inline">\(f_c(\cdot \ | \ h): A(h)\to [0,1]\)</span> for each <span class="math inline">\(P(h) = c\)</span> and <span class="math inline">\(a\in A(h)\)</span></li>
+<li>Extensive Game with Perfect Information and Chance Moves: <span class="math inline">\(Γ = \langle N,H,P, f_c, (\succsim_i)\rangle\)</span></li>
 </ul>
 </div>
 </div>
