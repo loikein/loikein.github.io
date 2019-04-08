@@ -17,8 +17,8 @@
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-mechanism-social/</guid>
-      <description>Mechanism Design Problem Environment Mechanism Induced Game    Textbook: (MWG) Microeconomic Theory
-Mechanism Design Problem Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible alternatives: \(X\) Type profile: \(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)  pdf of \(θ\) over \(Θ\): \(f()\) Agent \(i\)’s type: \(θ_i \in Θ_i\)  Agent \(i\)’s vNM utility function: \(u_i(x,θ)\)  Allow for selflessness Allow for reference  Independent private values environment assumption  Private value: \(u_i(x,θ) = u_i(x,θ_i)\) Independent type: \(f_i(θ_i)\) s.</description>
+      <description>Mechanism Design Problem Environment Mechanism Induced Game Implementation    Textbook: (MWG) Microeconomic Theory
+Mechanism Design Problem Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible alternatives: \(x\in X\) (\(x\) is single-valued?) Type profile: \(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)  pdf of \(θ\) over \(Θ\): \(f\) Agent \(i\)’s type: \(θ_i \in Θ_i\)  Agent \(i\)’s vNM utility function: \(u_i(x,θ)\)  Allow for selflessness?</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@ textbook 2: (BM) Fun and games
 Reference: Carlos Hurtado’s lecture notes
 Extensive Game, Perfect Information OR 6.1
 Reference
- Set of players: \(N\) Set of histories: \(H\)  History (sequence): \(h = (a^k)_{k=1}^K\) Initial history: \(\emptyset\in H\) \((a^k)_{k=1}^K\in H\), \(K&amp;gt;L\implies (a^k)_{k=1}^L\in H\) \((a^k)_{k=1}^K\in H\) for all \(K\in\mathbb{N} \implies (a^k)_{k=1}^{\infty}\in H\)  Set of terminal histories: \(Z\)  Terminal history: \((a^k)_{k=1}^K\in H\) is terminal if exists no \((a^k)_{k=1}^{K+1}\in H\)  Set of (possible) actions: \(A(h): \{ a \ | \ (h,a)\in H\}\)  Action: \(a\in h\) for some \(k\in K\) History of length \(k+1\): \((h,a)\)  Player function: \(P: (H\backslash Z)\to N\)  Player to move after history \(h\): \(P(h)\) Initial player: \(P(\emptyset)\) with \(a^0\in A(\emptyset)\) Second player: \(P(a^0)\) with \(a^1\in A(a^0)\)  Preference relation: \(\succsim_i\) defined on \(Z\) Extensive Game with Perfect Information: \[\begin{aligned}Γ = \langle N,H,P,(\succsim_i)\rangle\text{ or }\langle N,H,P\rangle\end{aligned}\]  Finite game: \(|H|&amp;lt;\infty\) Finite horizon: \(K &amp;lt;\infty\) for all \((a^k)_{k=1}^K\in H\) Rank of game: \(\max K\) for all \((a^k)_{k=1}^K\in H\) Length of game: \(l(Γ)\) is the length of longest history in \(Γ\)    Exercise (slides P13)</description>
+ Set of players: \(N\) Set of histories: \(H\)  History (sequence): \(h = (a^k)_{k=1}^K\) Initial history: \(\emptyset\in H\) \((a^k)_{k=1}^K\in H\), \(K&amp;gt;L\implies (a^k)_{k=1}^L\in H\) \((a^k)_{k=1}^K\in H\) for all \(K\in\mathbb{N} \implies (a^k)_{k=1}^{\infty}\in H\)  Set of terminal histories: \(Z\)  Terminal history: \((a^k)_{k=1}^K\in H\) is terminal if exists no \((a^k)_{k=1}^{K+1}\in H\)  Set of (possible) actions: \(A(h): \{ a \ | \ (h,a)\in H\}\)  Action: \(a\in h\) for some \(k\in K\) History of length \(k+1\): \((h,a)\)  Player function: \(P: (H\backslash Z)\to N\)  Player to move after history \(h\): \(P(h)\) Initial player: \(P(\emptyset)\) with \(a^0\in A(\emptyset)\) Second player: \(P(a^0)\) with \(a^1\in A(a^0)\)  Preference relation: \(\succsim_i\) defined on \(Z\) Extensive Game with Perfect Information: \[Γ = \langle N,H,P,(\succsim_i)\rangle\text{ or }\langle N,H,P\rangle\]  Finite game: \(|H|&amp;lt;\infty\) Finite horizon: \(K &amp;lt;\infty\) for all \((a^k)_{k=1}^K\in H\) Rank of game: \(\max K\) for all \((a^k)_{k=1}^K\in H\) Length of game: \(l(Γ)\) is the length of longest history in \(Γ\)    Exercise (slides P13)</description>
     </item>
     
   </channel>

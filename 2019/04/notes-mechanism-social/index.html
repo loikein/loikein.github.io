@@ -94,6 +94,7 @@
 <li><a href="#environment">Environment</a></li>
 <li><a href="#mechanism">Mechanism</a></li>
 <li><a href="#induced-game">Induced Game</a></li>
+<li><a href="#implementation">Implementation</a></li>
 </ul></li>
 </ul>
 </div>
@@ -105,15 +106,15 @@
 <h3>Environment</h3>
 <ul>
 <li>Set of agents: <span class="math inline">\(i\in N = \{1,2,\dots, n\}\)</span></li>
-<li>Set of possible alternatives: <span class="math inline">\(X\)</span></li>
+<li>Set of possible alternatives: <span class="math inline">\(x\in X\)</span> (<span class="math inline">\(x\)</span> is single-valued?)</li>
 <li>Type profile: <span class="math inline">\(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)</span>
 <ul>
-<li>pdf of <span class="math inline">\(θ\)</span> over <span class="math inline">\(Θ\)</span>: <span class="math inline">\(f()\)</span></li>
+<li>pdf of <span class="math inline">\(θ\)</span> over <span class="math inline">\(Θ\)</span>: <span class="math inline">\(f\)</span></li>
 <li>Agent <span class="math inline">\(i\)</span>’s type: <span class="math inline">\(θ_i \in Θ_i\)</span></li>
 </ul></li>
 <li>Agent <span class="math inline">\(i\)</span>’s vNM utility function: <span class="math inline">\(u_i(x,θ)\)</span>
 <ul>
-<li>Allow for selflessness</li>
+<li>Allow for selflessness?</li>
 <li>Allow for reference</li>
 </ul></li>
 <li>Independent private values environment assumption
@@ -126,7 +127,10 @@
 <div id="mechanism" class="section level3">
 <h3>Mechanism</h3>
 <ul>
-<li>Agent <span class="math inline">\(i\)</span>’s strategy: <span class="math inline">\(s_i\in S_i\)</span></li>
+<li>Strategy profile: <span class="math inline">\(s = (s_1, s_2,\dots, s_n)\in S = S_1\times S_2\times\dots\times S_n\)</span>
+<ul>
+<li>Agent <span class="math inline">\(i\)</span>’s strategy: <span class="math inline">\(s_i: Θ_i\to S_i\)</span> for each <span class="math inline">\(θ_i \in Θ_i\)</span></li>
+</ul></li>
 <li>Outcome function: <span class="math inline">\(g: S_1\times S_2\times\dots\times S_n\to X\)</span></li>
 <li>Mechanism: <span class="math inline">\(Γ = (S_1, S_2, \dots, S_n, g)\)</span></li>
 </ul>
@@ -135,8 +139,20 @@
 <h3>Induced Game</h3>
 <ul>
 <li>Bayesian game induced by <span class="math inline">\(Γ\)</span>:
-<span class="math display">\[\begin{aligned}G_Γ = [ \underbrace{N}_{\text{Players}}, \underbrace{\{S_i\}_{i\in N}}_{\text{Strategy}}, \underbrace{\{\tilde{u}_i\}_{i\in N}}_{\text{Utility}}, \underbrace{Θ}_{\text{Type}}, \underbrace{f(\cdot)}_{\text{Probability}}] \end{aligned}\]</span></li>
+<span class="math display">\[G_Γ = [ \underbrace{N}_{\text{Players}}, \underbrace{\{S_i\}_{i\in N}}_{\text{Strategy}}, \underbrace{\{\tilde{u}_i\}_{i\in N}}_{\text{Payoff}}, \underbrace{Θ}_{\text{Type}}, \underbrace{f(\cdot)}_{\text{Probability}}]\]</span>
+<ul>
+<li>Payoff function: <span class="math display">\[\tilde{u}_i(s,θ) := u_i\big(\underbrace{g(s)}_{=x\in X},θ\big)\]</span></li>
+</ul></li>
+<li>Dominant strategy equilibrium: (MWG Definition 8.B.3)<br />
+<span class="math inline">\(s^*\)</span> s.t. for all <span class="math inline">\(i\in N\)</span>, for all <span class="math inline">\(θ\in Θ\)</span>, for all <span class="math inline">\(s_i&#39;\in S_i\)</span> and <span class="math inline">\(s_{-i}\in S_{-i}\)</span><br />
+<span class="math display">\[\tilde{u}_i\big(s^*_i(θ_i), s_{-i},θ\big)\geq \tilde{u}_i\big(s_i&#39;, s_{-i},θ\big)\]</span></li>
+<li>Bayesian Nash equilibrium: (MWG Proposition 8.E.1)<br />
+<span class="math inline">\(s^*\)</span> s.t. for all <span class="math inline">\(i\in N\)</span>, for all <span class="math inline">\(θ_i\in Θ_i\)</span>, for all <span class="math inline">\(s_i&#39;\in S_i\)</span><br />
+<span class="math display">\[E_{θ_{-i}}\Big[\tilde{u}_i\big(s^*_i(θ_i), s^*_{-i}(θ_{-i}),θ\big) \ \Big| \ θ_i\Big]\geq E_{θ_{-i}}\Big[\tilde{u}_i\big(s_i&#39;, s^*_{-i}(θ_{-i}),θ\big) \ \Big| \ θ_i\Big]\]</span></li>
 </ul>
+</div>
+<div id="implementation" class="section level3">
+<h3>Implementation</h3>
 </div>
 </div>
 
