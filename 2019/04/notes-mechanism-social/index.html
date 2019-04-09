@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">3 min read</span>
     
 
     <h1 class="article-title">Notes on Mechanism Design &amp; Social Choice</h1>
@@ -166,6 +166,9 @@
 <span class="math display">\[\begin{aligned}u_i(x,θ)\geq u_i\big(c(θ),θ\big) &amp;&amp; \text{for all } i\in N \\
   u_i(x,θ)&gt; u_i\big(c(θ),θ\big) &amp;&amp; \text{for some } i\in N\end{aligned}\]</span></li>
 <li>Implementable if exists a mechanism that implements it</li>
+<li>Truthfully implementable (strategy-proof) if<br />
+it is the performance of an <strong>incentive compatible + direct</strong> mechanism<br />
+or <span class="math inline">\(Γ&#39; = (Θ_1,\dots, Θ_n, c)\)</span> is an incentive compatible mechanism</li>
 </ul></li>
 <li><span class="math inline">\(Γ\)</span> implements <span class="math inline">\(c\)</span> / <span class="math inline">\(c\)</span> is a performance of <span class="math inline">\(Γ\)</span> (MWG Definition 23.B.4)<br />
 if <span class="math inline">\(G_Γ\)</span> has an equilibrium <span class="math inline">\(s^*\)</span> s.t. <span class="math display">\[\begin{aligned}g\big(s^*_1(θ_1), \dots, s^*_n(θ_n)\big) = c(θ) &amp;&amp; \text{for all } θ\in Θ\end{aligned}\]</span></li>
@@ -174,7 +177,17 @@ if <span class="math inline">\(G_Γ\)</span> has an equilibrium <span class="mat
 <li>All agents reveal types as action (not necessarily truthfully) <span class="math display">\[\begin{aligned}S_i = Θ_i &amp;&amp; \text{for all } i\in N\end{aligned}\]</span></li>
 <li>Social choice made according to the self-reported types <span class="math display">\[\begin{aligned}g(s) = g(θ) = c(θ) &amp;&amp; \text{for all } θ\in Θ\end{aligned}\]</span></li>
 </ul></li>
+<li>Direct mechanism <span class="math inline">\(Γ\)</span> is incentive compatible if <span class="math inline">\(s^*\)</span> with <span class="math inline">\(s^*_i(θ_i) = θ_i\)</span> for all <span class="math inline">\(θ_i\in Θ_i\)</span>, for all <span class="math inline">\(i\in N\)</span> is an equilibrium of <span class="math inline">\(G_Γ\)</span></li>
+<li><span class="math inline">\(Γ&#39; = (Θ_1,\dots, Θ_n, c_Γ)\)</span> is an incentive compatible mechanism for any <span class="math inline">\(Γ\)</span> with performance <span class="math inline">\(c_Γ\)</span></li>
 </ul>
+<blockquote>
+<p>Prove: Revelation Principle (slide P38)<br />
+An SCE <span class="math inline">\(c\)</span> is implementable <span class="math inline">\(\iff\)</span> it is truthfully implementable</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Dominant Strategy Equilibrium</li>
+<li>Bayesian Nash Equilibrium</li>
+</ol>
 </div>
 </div>
 
