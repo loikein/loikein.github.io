@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.54.0" />
+
+<title>Notes on Institutions, Contract &amp; Information - loikein</title>
+<meta property="og:title" content="Notes on Institutions, Contract &amp; Information - loikein">
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Notes on Institutions, Contract &amp; Information</h1>
+
+    
+    <span class="article-date">2019/04/09</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/micro'>micro</a>
+    
+    <a href='/tags/gt'>GT</a>
+    
+    
+    
+    </span>
+    
+
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#literature">Literature</a></li>
+<li><a href="#adverse-selection-hidden-information">Adverse Selection (Hidden Information)</a><ul>
+<li><a href="#lemon-market">Lemon Market</a></li>
+</ul></li>
+<li><a href="#moral-hazard-hidden-action">Moral Hazard (Hidden Action)</a><ul>
+<li><a href="#benchmark">Benchmark</a></li>
+<li><a href="#limited-liability">Limited Liability</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="literature" class="section level2">
+<h2>Literature</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://93.174.95.27/book/index.php?md5=3FDF4E91C3B6926C29211A911A8A2B5B">Contract Theory</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=5FCE17D1189A9424E102E1B26A1EFEF5">Game Theory</a> (multi-stage games, not necessary if familiar with game theory)</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=8331D90128CC294F66A75BEE80DC062E">Institutions and Economic Theory</a> (very general and theoretical)</li>
+<li>Institutional Economics: An Introduction (Groenewegen, J. &amp; Spithoven, A. &amp; Van den Berg, A.)</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=2C89493D80037491355C246FCF0B5045">Firms, contracts, and financial structure</a> (incomplete contract)</li>
+<li></li>
+</ol>
+</div>
+<div id="adverse-selection-hidden-information" class="section level2">
+<h2>Adverse Selection (Hidden Information)</h2>
+<div id="lemon-market" class="section level3">
+<h3>Lemon Market</h3>
+</div>
+</div>
+<div id="moral-hazard-hidden-action" class="section level2">
+<h2>Moral Hazard (Hidden Action)</h2>
+<ul>
+<li>Contract payment: <span class="math inline">\(t\)</span></li>
+<li>Effort level: <span class="math inline">\(e\)</span> (unobservable)
+<ul>
+<li>Agent’s effort cost: <span class="math inline">\(c(e)\)</span></li>
+</ul></li>
+<li>Principle’s return: <span class="math inline">\(v\)</span> (verifiable, random)</li>
+<li>Reservation utility: <span class="math inline">\(\underline{U} = 0\)</span></li>
+</ul>
+<div id="benchmark" class="section level3">
+<h3>Benchmark</h3>
+<ul>
+<li>First best solution: <span class="math display">\[e^{FB} = \text{argmax} \ E[v \ | \ e] - c(e)\]</span>
+<ul>
+<li>Franchising contract: <span class="math inline">\(t(v) = v-a\)</span></li>
+<li>Agent’s payoff
+<span class="math display">\[\begin{aligned}E[t(v) \ | \ e] - c(e) &amp;= E[v \ | \ e] - a - c(e) \\ &amp;\geq \underline{U} \\ &amp;= 0 \end{aligned}\]</span></li>
+<li>Principle’s payoff <span class="math display">\[a = E[v \ | \ e^{FB}] - c(e^{FB})\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="limited-liability" class="section level3">
+<h3>Limited Liability</h3>
+<ul>
+<li><span class="math inline">\(e\in \{ e_H, e_L\}\)</span>
+<ul>
+<li><span class="math inline">\(c(e_H) = c\)</span> and <span class="math inline">\(c(e_L) = 0\)</span></li>
+</ul></li>
+<li><span class="math inline">\(v\in \{v_H, v_L\}\)</span></li>
+<li>First best solution
+<ul>
+<li><span class="math inline">\(e^{FB} = e_H\)</span> when
+<span class="math display">\[\begin{aligned} e_H v_H - (1-e_H )v_L - c &amp;\geq e_Lv_H + (1-e_L)v_L \\
+(e_H - e_L)(v_H - v_L) &amp;\geq c\end{aligned}\]</span></li>
+<li><span class="math inline">\(e^{FB} = e_L\)</span> otherwise</li>
+</ul></li>
+<li>Second best solution
+<ul>
+<li>Contract: <span class="math inline">\(\begin{cases}t(v_H) = t_H \\ t(v_L) = t_L \end{cases}\)</span></li>
+<li>When principle wants to implement <span class="math inline">\(e = e_H\)</span>
+<span class="math display">\[\begin{aligned}\max &amp;&amp; &amp;e_H(v_H - t_H) + (1-e_H)(v_L - t_L) \\
+  (IC) &amp;&amp; &amp;e_H t_H - (1-e_H )t_L - c \geq e_L t_H - (1-e_L )t_L - 0 \\
+  (PC) &amp;&amp; &amp;e_H t_H - (1-e_H )t_L - c \geq \underline{U} = 0 \\
+  (LL) &amp;&amp; &amp;t_H \geq 0 \\
+  &amp;&amp; &amp;t_L \geq 0\end{aligned}\]</span></li>
+<li>Lemma: <span class="math inline">\(\begin{cases}t_H = \frac{c}{e_H - e_L} \\ t_L = 0\end{cases}\)</span> is a solution</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

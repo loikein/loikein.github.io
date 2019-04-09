@@ -17,9 +17,18 @@
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-behavioural/</guid>
-      <description>Basic Ideas Neoclassical Paradigm Behavioural = Non-Standard Standard Behavioural Model    textbook 1: (DS) The foundations of behavioral economic analysis
+      <description>Basic Ideas Standard Neoclassical Model Behavioural = Non-Standard Model  Reference Dependence Endowment Effect Income Effect    textbook 1: (DS) The foundations of behavioral economic analysis
 textbook 2: (WK) An introduction to behavioral economics
-Basic Ideas Neoclassical Paradigm  Time index: \(t = 0, 1, 2,\dots\) Set of possible states: \(S_t\) Probability of \(s_t\) occurs: \(p(s_t)\) Set of consumption opportunities: \(X_t\) Utility function: \(U(x \ | \ s)\) Discounting factor: \(δ\) Agent’s problem: \(\max_{x_t} \ \sum_t δ^t( \sum_{s_t\in S_t} U(x_t \ | \ s_t)\cdot p(s_t))\)   Behavioural = Non-Standard  Preference: \(U\) and \(δ\)  Reference dependence Loss aversion Time inconsistent Self-control problem (?</description>
+Basic Ideas Standard Neoclassical Model  Time index: \(t = 0, 1, 2,\dots\) Set of possible states: \(S_t\) Probability of \(s_t\) occurs: \(p(s_t)\) Set of consumption opportunities: \(X_t\) Utility function: \(U(x \ | \ s)\) Discounting factor: \(δ\) Agent’s problem: \(\max_{x_t} \ \sum_t δ^t( \sum_{s_t\in S_t} U(x_t \ | \ s_t)\cdot p(s_t))\)   Behavioural = Non-Standard  Preference: \(U\) and \(δ\)  Reference dependence Loss aversion Time inconsistent Self-control problem (?</description>
+    </item>
+    
+    <item>
+      <title>Notes on Institutions, Contract &amp; Information</title>
+      <link>/2019/04/notes-institution/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/notes-institution/</guid>
+      <description>  Literature Adverse Selection (Hidden Information) Lemon Market  Moral Hazard (Hidden Action) Benchmark Limited Liability    Literature Contract Theory Game Theory (multi-stage games, not necessary if familiar with game theory) Institutions and Economic Theory (very general and theoretical) Institutional Economics: An Introduction (Groenewegen, J. &amp;amp; Spithoven, A. &amp;amp; Van den Berg, A.) Firms, contracts, and financial structure (incomplete contract)    Adverse Selection (Hidden Information) Lemon Market   Moral Hazard (Hidden Action)  Contract payment: \(t\) Effort level: \(e\) (unobservable)  Agent’s effort cost: \(c(e)\)  Principle’s return: \(v\) (verifiable, random) Reservation utility: \(\underline{U} = 0\)  Benchmark  First best solution: \[e^{FB} = \text{argmax} \ E[v \ | \ e] - c(e)\]  Franchising contract: \(t(v) = v-a\) Agent’s payoff \[\begin{aligned}E[t(v) \ | \ e] - c(e) &amp;amp;= E[v \ | \ e] - a - c(e) \\ &amp;amp;\geq \underline{U} \\ &amp;amp;= 0 \end{aligned}\] Principle’s payoff \[a = E[v \ | \ e^{FB}] - c(e^{FB})\]    Limited Liability  \(e\in \{ e_H, e_L\}\)  \(c(e_H) = c\) and \(c(e_L) = 0\)  \(v\in \{v_H, v_L\}\) First best solution  \(e^{FB} = e_H\) when \[\begin{aligned} e_H v_H - (1-e_H )v_L - c &amp;amp;\geq e_Lv_H + (1-e_L)v_L \\ (e_H - e_L)(v_H - v_L) &amp;amp;\geq c\end{aligned}\] \(e^{FB} = e_L\) otherwise  Second best solution  Contract: \(\begin{cases}t(v_H) = t_H \\ t(v_L) = t_L \end{cases}\) When principle wants to implement \(e = e_H\) \[\begin{aligned}\max &amp;amp;&amp;amp; &amp;amp;e_H(v_H - t_H) + (1-e_H)(v_L - t_L) \\ (IC) &amp;amp;&amp;amp; &amp;amp;e_H t_H - (1-e_H )t_L - c \geq e_L t_H - (1-e_L )t_L - 0 \\ (PC) &amp;amp;&amp;amp; &amp;amp;e_H t_H - (1-e_H )t_L - c \geq \underline{U} = 0 \\ (LL) &amp;amp;&amp;amp; &amp;amp;t_H \geq 0 \\ &amp;amp;&amp;amp; &amp;amp;t_L \geq 0\end{aligned}\] Lemma: \(\begin{cases}t_H = \frac{c}{e_H - e_L} \\ t_L = 0\end{cases}\) is a solution     </description>
     </item>
     
     <item>

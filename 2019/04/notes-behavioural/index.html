@@ -59,7 +59,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">Notes on Behavioural Economics</h1>
@@ -91,9 +91,13 @@
 <div id="TOC">
 <ul>
 <li><a href="#basic-ideas">Basic Ideas</a><ul>
-<li><a href="#neoclassical-paradigm">Neoclassical Paradigm</a></li>
+<li><a href="#standard-neoclassical-model">Standard Neoclassical Model</a></li>
 <li><a href="#behavioural-non-standard">Behavioural = Non-Standard</a></li>
-<li><a href="#standard-behavioural-model">Standard Behavioural Model</a></li>
+<li><a href="#model">Model</a></li>
+</ul></li>
+<li><a href="#reference-dependence">Reference Dependence</a><ul>
+<li><a href="#endowment-effect">Endowment Effect</a></li>
+<li><a href="#income-effect">Income Effect</a></li>
 </ul></li>
 </ul>
 </div>
@@ -102,8 +106,8 @@
 textbook 2: (WK) <a href="http://93.174.95.27/book/index.php?md5=655CA3A2EEAE166EDA31EE022012236D">An introduction to behavioral economics</a></p>
 <div id="basic-ideas" class="section level2">
 <h2>Basic Ideas</h2>
-<div id="neoclassical-paradigm" class="section level3">
-<h3>Neoclassical Paradigm</h3>
+<div id="standard-neoclassical-model" class="section level3">
+<h3>Standard Neoclassical Model</h3>
 <ul>
 <li>Time index: <span class="math inline">\(t = 0, 1, 2,\dots\)</span></li>
 <li>Set of possible states: <span class="math inline">\(S_t\)</span></li>
@@ -141,8 +145,8 @@ textbook 2: (WK) <a href="http://93.174.95.27/book/index.php?md5=655CA3A2EEAE166
 </ul></li>
 </ul>
 </div>
-<div id="standard-behavioural-model" class="section level3">
-<h3>Standard Behavioural Model</h3>
+<div id="model" class="section level3">
+<h3>Model</h3>
 <ul>
 <li>Set of alternatives: <span class="math inline">\(X\)</span></li>
 <li>Preference relation: <span class="math inline">\(\succsim\)</span> defined on <span class="math inline">\(X\)</span>
@@ -155,6 +159,56 @@ textbook 2: (WK) <a href="http://93.174.95.27/book/index.php?md5=655CA3A2EEAE166
 <li>Exists a rational <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(C_{\succsim}(A) = C(A)\iff\)</span> (<a href="../../01/notes-micro/#warp-weak-axiom-of-revealed-preference">Condition α of WARP</a>)<br />
 for all <span class="math inline">\(A_1\subset A_2\subset X\)</span>, <span class="math inline">\(C(A_2)\in A_1 \implies C(A_1) = C(A_2)\)</span></li>
 </ul></li>
+</ul>
+</div>
+</div>
+<div id="reference-dependence" class="section level2">
+<h2>Reference Dependence</h2>
+<ul>
+<li>Reference-dependent preference structure: <span class="math inline">\(\{u(\cdot \ | \ r) : X\to\mathbb{R} \ | \ r\in X\}\)</span>
+<ul>
+<li>Reference point: <span class="math inline">\(r\)</span></li>
+</ul></li>
+<li>E.g.
+<span class="math display">\[\begin{aligned}u(x \ | \ r) &amp;= m_1(x_1) + m_2(x_2) \\ &amp;+ μ\big(m_1(x_1) - m_1(r_1)\big) + μ\big(m_2(x_2) - m_2(r_2)\big) \end{aligned}\]</span>
+<ul>
+<li>Material utility: <span class="math inline">\(m_i: \mathbb{R}_+\to\mathbb{R}\)</span></li>
+<li>Gain-loss utility: <span class="math inline">\(μ: \mathbb{R}\to\mathbb{R}\)</span>, <span class="math inline">\(μ(0) = 0\)</span><br />
+<span class="math inline">\(μ = \begin{cases}η\cdot Δ &amp; Δ&gt;0 \\ λ\cdot η\cdot Δ &amp; Δ&gt;0\end{cases}\)</span> where <span class="math inline">\(η&gt;0\)</span> and <span class="math inline">\(λ&gt;1\)</span></li>
+</ul></li>
+</ul>
+<div id="endowment-effect" class="section level3">
+<h3>Endowment Effect</h3>
+<ul>
+<li>Endowment effect: the valuation for a certain good changes whether the good is one’s endowment
+<ul>
+<li>WTP (willingness to pay) &lt; WTA (willingness to accept / sell)</li>
+</ul></li>
+<li>In standard model
+<ul>
+<li>Set of goods: <span class="math inline">\(\{x_1, x_2\}\)</span></li>
+<li>Quasi-linear preference <span class="math inline">\(u(x_1,x_2) = x_1 + φ(x_2)\)</span></li>
+<li>Fixed increment: <span class="math inline">\(Δ = x_2&#39; - x_2 &gt; 0\)</span></li>
+<li>WTP and WTA are defined as
+<span class="math display">\[\begin{aligned}u\big( x_1 - WTP(x_1), x_2 + Δ) &amp;= u(x_1,x_2) \\
+  u\big( x_1 + WTA(x_1), x_2) &amp;= u(x_1,x_2+ Δ)\end{aligned}\]</span>
+With quasi-linear preference,
+<span class="math display">\[\begin{aligned}x_1 - WTP(x_1) + φ(x_2 + Δ) &amp;= x_1 + φ(x_2) \\
+  WTP(x_1) &amp;= φ(x_2 + Δ) - φ(x_2) \\
+  x_1 - WTA(x_1) + φ(x_2) &amp;= x_1 + φ(x_2 + Δ) \\
+  WTA(x_1) &amp;= φ(x_2) - φ(x_2 + Δ) \\
+  WTP(x_1) &amp;= WTA(x_1)\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="income-effect" class="section level3">
+<h3>Income Effect</h3>
+<ul>
+<li>Income effect: <span class="math inline">\(WTP&#39;(x_1)\)</span>
+<span class="math display">\[\begin{aligned}WTA(x_1) &amp;= WTP(\tilde{x_1}) \\
+&amp;= WTP\big( x_1 + WTA(x_1) \big) \\
+&amp;\approx WTP(x_1) + WTP&#39;(x_1)\cdot WTA(x_1) \\
+WTP&#39;(x_1) &amp;\approx 1 - \frac{WTP(x_1)}{WTA(x_1)}\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
