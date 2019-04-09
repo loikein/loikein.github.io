@@ -6,10 +6,21 @@
     <description>Recent content in Micro on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/micro/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Behavioural Economics</title>
+      <link>/2019/04/notes-behavioural/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/notes-behavioural/</guid>
+      <description>Basic Ideas Neoclassical Paradigm Behavioural = Non-Standard Standard Behavioural Model    textbook 1: (DS) The foundations of behavioral economic analysis
+textbook 2: (WK) An introduction to behavioral economics
+Basic Ideas Neoclassical Paradigm  Time index: \(t = 0, 1, 2,\dots\) Set of possible states: \(S_t\) Probability of \(s_t\) occurs: \(p(s_t)\) Set of consumption opportunities: \(X_t\) Utility function: \(U(x \ | \ s)\) Discounting factor: \(δ\) Agent’s problem: \(\max_{x_t} \ \sum_t δ^t( \sum_{s_t\in S_t} U(x_t \ | \ s_t)\cdot p(s_t))\)   Behavioural = Non-Standard  Preference: \(U\) and \(δ\)  Reference dependence Loss aversion Time inconsistent Self-control problem (?</description>
+    </item>
     
     <item>
       <title>Notes on Mechanism Design &amp; Social Choice</title>
