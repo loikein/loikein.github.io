@@ -15,14 +15,9 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 
-
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
 <link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
-
-
-
-
 
 
 
@@ -38,7 +33,6 @@
          height="50"
          alt="Logo">
   </a>
-
   <ul class="nav-links">
     
     <li><a href="/">Posts</a></li>
@@ -51,9 +45,7 @@
     
   </ul>
 </nav>
-
       </header>
-
 
 <main class="content" role="main">
 
@@ -95,6 +87,7 @@
 <li><a href="#lemon-market">Lemon Market</a></li>
 </ul></li>
 <li><a href="#moral-hazard-hidden-action">Moral Hazard (Hidden Action)</a><ul>
+<li><a href="#timing">Timing</a></li>
 <li><a href="#benchmark">Benchmark</a></li>
 <li><a href="#limited-liability">Limited Liability</a></li>
 </ul></li>
@@ -121,38 +114,61 @@
 <div id="moral-hazard-hidden-action" class="section level2">
 <h2>Moral Hazard (Hidden Action)</h2>
 <ul>
-<li>Contract payment: <span class="math inline">\(t\)</span></li>
-<li>Principle’s return: <span class="math inline">\(v\in \{v_H, v_L\}\)</span> (verifiable, random)</li>
-<li>Effort level: <span class="math inline">\(e\in \{ e_H, e_L\}\)</span> (unobservable)
+<li>Return: <span class="math inline">\(v\)</span></li>
+<li>Effort level: <span class="math inline">\(e\)</span>
 <ul>
-<li>Agent’s effort cost: <span class="math inline">\(c(e)\)</span></li>
-<li>Let probability that <span class="math inline">\(v\)</span> realize be <span class="math display">\[\begin{aligned}Pr( v = v_H \ | \ e = e_H ) &amp;= e_H \\ Pr( v = v_H \ | \ e=e_L ) &amp; = e_L \\ e_L &amp;&lt; eH \end{aligned}\]</span></li>
+<li>Techonology: <span class="math inline">\(F(\hat{v} \ | \ e) = Pr(v\leq \hat{v} \ | \ e)\)</span></li>
+<li>Cost: <span class="math inline">\(c(e)\)</span></li>
+</ul></li>
+<li>Contract: <span class="math inline">\(t\)</span>
+<ul>
+<li>Principle’s payoff: <span class="math inline">\(v - t\)</span></li>
+<li>Agent’s payoff: <span class="math inline">\(t - c(e)\)</span></li>
 </ul></li>
 <li>Reservation utility: <span class="math inline">\(\underline{U} = 0\)</span></li>
 <li>Incentive compatility constraint (IC): agent chooses the level of effort that maximizes their own utility</li>
 <li>Participation constraint (PC): agent accepts the contract only if the expected utility exceeds other alternatives (their reservation utility)</li>
 </ul>
+<div id="timing" class="section level3">
+<h3>Timing</h3>
+<ol style="list-style-type: decimal">
+<li>Principal offers contract</li>
+<li>Agent accepts or rejects</li>
+<li>Agent chooses <span class="math inline">\(e\)</span> (unobservable)</li>
+<li><span class="math inline">\(v\)</span> is realized (verifiable)</li>
+<li>Payment <span class="math inline">\(t\)</span> is made</li>
+</ol>
+</div>
 <div id="benchmark" class="section level3">
 <h3>Benchmark</h3>
 <ul>
-<li>First best solution: <span class="math display">\[e^{FB} = \text{argmax} \ E[v \ | \ e] - c(e)\]</span></li>
+<li>First best solution:
+<span class="math display">\[\begin{aligned}e^{FB} &amp;= \text{argmax} \ E[v \ | \ e] - c(e) \\
+&amp;= \begin{cases} p(e)\cdot v_H + \big( 1-p(e)\big) \cdot v_L &amp; v\in\{ v_L, v_H\} \\ \int_{v_L}^{v_H} v\cdot f(v|e)dv &amp; v\in [v_L, v_H]\end{cases}\end{aligned}\]</span>
+where <span class="math inline">\(p(e) = Pr(v = v_H \ | \ e)\)</span></li>
 <li>Franchising contract: <span class="math inline">\(t(v) = v-a\)</span>
 <ul>
-<li>Agent’s payoff
-<span class="math display">\[\begin{aligned}E[t(v) \ | \ e] - c(e) &amp;= E[v \ | \ e] - a - c(e) \\ &amp;\geq \underline{U} \\ &amp;= 0 \end{aligned}\]</span></li>
-<li>Principle’s payoff <span class="math display">\[a = E[v \ | \ e^{FB}] - c(e^{FB})\]</span></li>
+<li>Agent’s problem
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; E[t(v) \ | \ e] - c(e) &amp;= E[v \ | \ e] - a - c(e) \\ &amp;&amp; e^* &amp;= e^{FB} \end{aligned}\]</span></li>
+<li>Principle’s payoff
+<span class="math display">\[\begin{aligned}v-t(v) &amp;= a \\ &amp;= E[v \ | \ e^{FB}] - c(e^{FB})\end{aligned}\]</span></li>
 </ul></li>
 </ul>
 </div>
 <div id="limited-liability" class="section level3">
 <h3>Limited Liability</h3>
 <ul>
-<li>Let Agent’s effort cost be <span class="math inline">\(\begin{cases}c(e_H) = c \\ c(e_L) = 0 \end{cases}\)</span></li>
+<li>Return: <span class="math inline">\(v\in \{v_H, v_L\}\)</span></li>
+<li>Effort level: <span class="math inline">\(e\in \{ e_H, e_L\}\)</span>
+<ul>
+<li>Technology: <span class="math inline">\(\begin{cases}Pr( v = v_H \ | \ e = e_H ) = e_H \\ Pr( v = v_H \ | \ e=e_L ) = e_L \\ e_L &lt; eH \end{cases}\)</span></li>
+<li>Cost: <span class="math inline">\(\begin{cases}c(e_H) = c \\ c(e_L) = 0 \end{cases}\)</span></li>
+</ul></li>
 <li>First best solution
 <ul>
 <li><span class="math inline">\(e^{FB} = e_H\)</span> when
 <span class="math display">\[\begin{aligned} e_H v_H - (1-e_H )v_L - c &amp;\geq e_Lv_H + (1-e_L)v_L \\
-(e_H - e_L)(v_H - v_L) &amp;\geq c\end{aligned}\]</span></li>
+  (e_H - e_L)(v_H - v_L) &amp;\geq c\end{aligned}\]</span></li>
 <li><span class="math inline">\(e^{FB} = e_L\)</span> otherwise</li>
 </ul></li>
 <li>Second best solution
@@ -187,9 +203,6 @@
 </section>
 
 
-
-
-
 </main>
 
       <footer class="footer">
@@ -201,18 +214,13 @@
           <li>By loikein with love</li>
         </ul>
       </footer>
-
     </div>
     
-
     
-
     
 <script src="/js/math-code.js"></script>
 <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
     
   </body>
 </html>
-
