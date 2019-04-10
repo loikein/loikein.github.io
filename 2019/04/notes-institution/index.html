@@ -105,7 +105,7 @@
 <h2>Literature</h2>
 <ol style="list-style-type: decimal">
 <li><a href="http://93.174.95.27/book/index.php?md5=3FDF4E91C3B6926C29211A911A8A2B5B">Contract Theory</a></li>
-<li><a href="http://93.174.95.27/book/index.php?md5=5FCE17D1189A9424E102E1B26A1EFEF5">Game Theory</a> (multi-stage games, not necessary if familiar with game theory)</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=5FCE17D1189A9424E102E1B26A1EFEF5">Game Theory</a> (multi-stage games)</li>
 <li><a href="http://93.174.95.27/book/index.php?md5=8331D90128CC294F66A75BEE80DC062E">Institutions and Economic Theory</a> (very general and theoretical)</li>
 <li>Institutional Economics: An Introduction (Groenewegen, J. &amp; Spithoven, A. &amp; Van den Berg, A.)</li>
 <li><a href="http://93.174.95.27/book/index.php?md5=2C89493D80037491355C246FCF0B5045">Firms, contracts, and financial structure</a> (incomplete contract)</li>
@@ -122,19 +122,22 @@
 <h2>Moral Hazard (Hidden Action)</h2>
 <ul>
 <li>Contract payment: <span class="math inline">\(t\)</span></li>
-<li>Effort level: <span class="math inline">\(e\)</span> (unobservable)
+<li>Principle’s return: <span class="math inline">\(v\in \{v_H, v_L\}\)</span> (verifiable, random)</li>
+<li>Effort level: <span class="math inline">\(e\in \{ e_H, e_L\}\)</span> (unobservable)
 <ul>
 <li>Agent’s effort cost: <span class="math inline">\(c(e)\)</span></li>
+<li>Let probability that <span class="math inline">\(v\)</span> realize be <span class="math display">\[\begin{aligned}Pr( v = v_H \ | \ e = e_H ) &amp;= e_H \\ Pr( v = v_H \ | \ e=e_L ) &amp; = e_L \\ e_L &amp;&lt; eH \end{aligned}\]</span></li>
 </ul></li>
-<li>Principle’s return: <span class="math inline">\(v\)</span> (verifiable, random)</li>
 <li>Reservation utility: <span class="math inline">\(\underline{U} = 0\)</span></li>
+<li>Incentive compatility constraint (IC): agent chooses the level of effort that maximizes their own utility</li>
+<li>Participation constraint (PC): agent accepts the contract only if the expected utility exceeds other alternatives (their reservation utility)</li>
 </ul>
 <div id="benchmark" class="section level3">
 <h3>Benchmark</h3>
 <ul>
-<li>First best solution: <span class="math display">\[e^{FB} = \text{argmax} \ E[v \ | \ e] - c(e)\]</span>
+<li>First best solution: <span class="math display">\[e^{FB} = \text{argmax} \ E[v \ | \ e] - c(e)\]</span></li>
+<li>Franchising contract: <span class="math inline">\(t(v) = v-a\)</span>
 <ul>
-<li>Franchising contract: <span class="math inline">\(t(v) = v-a\)</span></li>
 <li>Agent’s payoff
 <span class="math display">\[\begin{aligned}E[t(v) \ | \ e] - c(e) &amp;= E[v \ | \ e] - a - c(e) \\ &amp;\geq \underline{U} \\ &amp;= 0 \end{aligned}\]</span></li>
 <li>Principle’s payoff <span class="math display">\[a = E[v \ | \ e^{FB}] - c(e^{FB})\]</span></li>
@@ -144,11 +147,7 @@
 <div id="limited-liability" class="section level3">
 <h3>Limited Liability</h3>
 <ul>
-<li><span class="math inline">\(e\in \{ e_H, e_L\}\)</span>
-<ul>
-<li><span class="math inline">\(c(e_H) = c\)</span> and <span class="math inline">\(c(e_L) = 0\)</span></li>
-</ul></li>
-<li><span class="math inline">\(v\in \{v_H, v_L\}\)</span></li>
+<li>Let Agent’s effort cost be <span class="math inline">\(\begin{cases}c(e_H) = c \\ c(e_L) = 0 \end{cases}\)</span></li>
 <li>First best solution
 <ul>
 <li><span class="math inline">\(e^{FB} = e_H\)</span> when
@@ -163,8 +162,7 @@
 <span class="math display">\[\begin{aligned}\max &amp;&amp; &amp;e_H(v_H - t_H) + (1-e_H)(v_L - t_L) \\
   (IC) &amp;&amp; &amp;e_H t_H - (1-e_H )t_L - c \geq e_L t_H - (1-e_L )t_L - 0 \\
   (PC) &amp;&amp; &amp;e_H t_H - (1-e_H )t_L - c \geq \underline{U} = 0 \\
-  (LL) &amp;&amp; &amp;t_H \geq 0 \\
-  &amp;&amp; &amp;t_L \geq 0\end{aligned}\]</span></li>
+  (LL) &amp;&amp; &amp;\begin{cases}t_H \geq 0 \\t_L \geq 0 \end{cases}\end{aligned}\]</span></li>
 <li>Lemma: <span class="math inline">\(\begin{cases}t_H = \frac{c}{e_H - e_L} \\ t_L = 0\end{cases}\)</span> is a solution</li>
 </ul></li>
 </ul>
