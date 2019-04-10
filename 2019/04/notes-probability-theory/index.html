@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 <title>Notes on Probability Theory - loikein</title>
 <meta property="og:title" content="Notes on Probability Theory - loikein">
@@ -95,6 +95,7 @@
 <li><a href="#algebra">σ-algebra</a></li>
 <li><a href="#ring">Ring</a></li>
 <li><a href="#dynkin-system--system">Dynkin System (λ-system)</a></li>
+<li><a href="#system">π-system</a></li>
 </ul></li>
 </ul>
 </div>
@@ -334,11 +335,22 @@ D3: For every sequence <span class="math inline">\((D_1,D_2,\dots)\)</span> of d
 Let <span class="math inline">\(M=\{1,2,3,4\}\)</span>, <span class="math inline">\(\mathcal{D} = \{ D\subset M : D\)</span> has 0, 2 or 4 elements}<br />
 Since union of sets of 2 elements may end up have 3 elements,<br />
 <span class="math inline">\(\implies \mathcal{D}\)</span> is a Dynkin system but not a (σ-)algebra</p>
+</div>
+<div id="system" class="section level3">
+<h3>π-system</h3>
 <blockquote>
-<p>Definition 1.13<br />
+<p>Definition 1.13.0<br />
 Let <span class="math inline">\(\mathcal{C}\)</span> be a collection of subsets of <span class="math inline">\(M\)</span>. <span class="math inline">\(\mathcal{C}\)</span> is called a π-system<br />
 if for all <span class="math inline">\(A_1, A_2\in\mathcal{C}\implies A_1\cap A_2\in\mathcal{C}\)</span></p>
+<p>Lemma 1.13<br />
+Let <span class="math inline">\(\mathcal{D}\)</span> be a π-system and a Dynkin system on set <span class="math inline">\(M\)</span><br />
+<span class="math inline">\(\implies\mathcal{D}\)</span> is a σ-algebra on <span class="math inline">\(M\)</span></p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>A1 <span class="math inline">\(\iff\)</span> D1</li>
+<li>A2</li>
+<li>A3</li>
+</ol>
 </div>
 </div>
 
