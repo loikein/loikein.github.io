@@ -274,7 +274,7 @@ Prove that followings are consistent with the loss aversion model:<br />
 Let <span class="math inline">\(m_i(x_i) = x_i\)</span><br />
 <span class="math display">\[\begin{aligned} &amp;\phantom{\ggg} u(y \ | \ t) - u( x \ | \ t ) \\
 &amp;= u(y \ | \ t) - u(y \ | \ y) + u(x \ | \ y) - u(x \ | \ t ) \\
-&amp;= \big(y_1 + y_2 + μ( y_1 - t_1) + μ(y_2 - t_2)\big) - \big(y_1 + y_2 + μ(0) + μ(0)\big) \\
+&amp;= \big(y_1 + y_2 + μ( y_1 - t_1) + μ(y_2 - t_2)\big) - \big(y_1 + y_2 + \underbrace{μ(0)}_{=0} + \underbrace{μ(0)}_{=0}\big) \\
 &amp;\phantom{\ggg} + \big(x_1 + x_2 + μ(x_1 - y_1) + μ(x_2 - y_2)\big) - \big( x_1 + x_2 + μ(x_1 - t_1) + μ(x_2 - t_2)\big) \\
 &amp;= μ(y_1 - t_1) + μ(y_2 - t_2) + μ(\underbrace{x_1 - y_1}_{=x_1 - t_1}) + μ(x_2 - y_2) - μ(\underbrace{x_1 - t_1}) - μ(x_2 - t_2) \\
 &amp;= μ(\underbrace{y_1 - t_1}_{=0}) + μ(y_2 - t_2) + μ(x_2 - y_2) - μ(\underbrace{x_2 - t_2}_{=0}) \\
@@ -307,6 +307,10 @@ For <span class="math inline">\(0&lt; Δ &lt; Δ&#39;\)</span>,
 <li>Diminishing sensitivity <span class="math display">\[\begin{cases}μ&#39;&#39;(Δ)\leq 0 &amp; Δ&gt; 0 \\ μ&#39;&#39;(Δ)\geq 0 &amp; Δ&lt; 0\end{cases}\]</span></li>
 </ul></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-behavioural--la-large-stake.png" alt="Loss aversion for large stakes" />
+<p class="caption">Loss aversion for large stakes</p>
+</div>
 </div>
 </div>
 
