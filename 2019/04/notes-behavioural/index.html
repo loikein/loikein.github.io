@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">4 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -83,8 +83,9 @@
 <li><a href="#model">Model</a></li>
 </ul></li>
 <li><a href="#reference-dependence">Reference Dependence</a><ul>
-<li><a href="#endowment-effect">Endowment Effect</a></li>
-<li><a href="#income-effect">Income Effect</a></li>
+<li><a href="#behaviour-endowment-effect">Behaviour: Endowment Effect</a></li>
+<li><a href="#theory-gainloss-utility">Theory: Gain–Loss Utility</a></li>
+<li><a href="#theory-loss-aversion">Theory: Loss-Aversion</a></li>
 </ul></li>
 </ul>
 </div>
@@ -146,26 +147,66 @@ textbook 2: (WK) <a href="http://93.174.95.27/book/index.php?md5=655CA3A2EEAE166
 <li>Exists a rational <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(C_{\succsim}(A) = C(A)\iff\)</span> (<a href="../../01/notes-micro/#warp-weak-axiom-of-revealed-preference">Condition α of WARP</a>)<br />
 for all <span class="math inline">\(A_1\subset A_2\subset X\)</span>, <span class="math inline">\(C(A_2)\in A_1 \implies C(A_1) = C(A_2)\)</span></li>
 </ul></li>
+<li>Gary Becker’s argument<br />
+<a href="../../01/notes-micro/#compensated-law-of-demand">Compensated Law of Demand (CLD)</a> is consistent with non-rational behaviour at individual level, as long as the aggregate demand is at the midpoint of <span class="math inline">\(B(\cdot)\)</span><br />
+For <span class="math inline">\(\begin{cases}p_1&#39;&gt;p_1 \\ p_2&#39; = p_2 \end{cases}\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(\begin{cases}(x_1 - x_1&#39;)(p_1 - p_1&#39;)\leq 0 \\ (x_2 - x_2&#39;)(p_2 - p_2&#39;)\leq 0 \end{cases}\)</span></li>
 </ul>
+<p><img src="/post-img/notes-behavioural--COD.png" /></p>
+<blockquote>
+<p>Lemma 1.1<br />
+Let <span class="math inline">\(C\)</span> be a choice function, there is a rational preference function <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(C_{\succsim} = C\)</span><br />
+<span class="math inline">\(\iff C\)</span> satisfies IIA</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\Longrightarrow\)</span> (trivial)</li>
+<li><span class="math inline">\(\Longleftarrow\)</span><br />
+Let <span class="math inline">\(C\)</span> satisfies IIA<br />
+:) Construct a rational <span class="math inline">\(\succsim\)</span> s.t. <span class="math inline">\(C_{\succsim} = C\)</span><br />
+Define <span class="math inline">\(\succsim\)</span> as: <span class="math inline">\(a\succsim b \iff C(\{a,b\}) = a\)</span>
+<ol style="list-style-type: decimal">
+<li>Completeness<br />
+By definition, <span class="math inline">\(C(A)\neq \emptyset\)</span> for all subsets of <span class="math inline">\(A\)</span></li>
+<li>Transitivity<br />
+Let <span class="math inline">\(a,b,c\in X\)</span>, <span class="math inline">\(C(\{a,b\}) = a\)</span>, <span class="math inline">\(C(\{b,c\}) = b\)</span><br />
+FSOC assume <span class="math inline">\(C(\{a,b,c\}) = b\)</span><br />
+(IIA) <span class="math inline">\(\implies C(\{a,b\}) = b\)</span>, contradiction<br />
+FSOC assume <span class="math inline">\(C(\{a,b,c\}) = c\)</span><br />
+(IIA) <span class="math inline">\(\implies C(\{b,c\}) = c\)</span>, contradiction<br />
+<span class="math inline">\(\implies C(\{a,b,c\}) = a\)</span><br />
+(IIA) <span class="math inline">\(\implies C(\{a,c\}) = a\)</span></li>
+<li><span class="math inline">\(C_{\succsim} = C\)</span><br />
+Let <span class="math inline">\(\{a,a&#39;\}\subset A\)</span> and <span class="math inline">\(C(A) = a\)</span><br />
+(IIA) <span class="math inline">\(\implies C(\{a,a&#39;\}) = C(A) = a\)</span><br />
+<span class="math inline">\(\implies a\succsim a&#39;\)</span></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>Exercise (Satisfycing)<br />
+Let <span class="math inline">\(X = \{ x_1,\dots,x_N\}\)</span><br />
+Let <span class="math inline">\(v_n\)</span> be the satisfycing index for each <span class="math inline">\(x_n\)</span><br />
+1. Fix a satisfycing level <span class="math inline">\(v&gt;0\)</span><br />
+<span class="math display">\[v=11\]</span>
+2. Given set <span class="math inline">\(A\)</span>, go through elements in the order of ascending sub-indices<br />
+<span class="math display">\[\begin{aligned}A = \{ &amp;&amp; x_1 &amp;&amp; x_7 &amp;&amp; x_{18} &amp;&amp; x_{21} &amp;&amp; x_{25} &amp;&amp; \} \\ v_n = \{ &amp;&amp; 0 &amp;&amp; 16 &amp;&amp; 8 &amp;&amp; 15 &amp;&amp; 20 &amp;&amp; \}\end{aligned}\]</span>
+3. pick <span class="math inline">\(x_n\)</span> with smallest <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(v_n&gt;v\)</span><br />
+<span class="math display">\[C(A) = x_{21}\]</span>
+4. If no element satisfycs, lower the satisfycing level to <span class="math inline">\(\frac{v}{2}\)</span><br />
+This procedure satisfies IIA.</p>
+</blockquote>
 </div>
 </div>
 <div id="reference-dependence" class="section level2">
 <h2>Reference Dependence</h2>
 <ul>
-<li>Reference-dependent preference structure: <span class="math inline">\(\{u(\cdot \ | \ r) : X\to\mathbb{R} \ | \ r\in X\}\)</span>
+<li>Reference-dependent preference structure <span class="math display">\[\{u(\cdot \ | \ r) : X\to\mathbb{R} \ | \ r\in X\}\]</span>
 <ul>
-<li>Reference point: <span class="math inline">\(r\)</span></li>
-</ul></li>
-<li>E.g.
-<span class="math display">\[\begin{aligned}u(x \ | \ r) &amp;= m_1(x_1) + m_2(x_2) \\ &amp;+ μ\big(m_1(x_1) - m_1(r_1)\big) + μ\big(m_2(x_2) - m_2(r_2)\big) \end{aligned}\]</span>
-<ul>
-<li>Material utility: <span class="math inline">\(m_i: \mathbb{R}_+\to\mathbb{R}\)</span></li>
-<li>Gain-loss utility: <span class="math inline">\(μ: \mathbb{R}\to\mathbb{R}\)</span>, <span class="math inline">\(μ(0) = 0\)</span><br />
-<span class="math inline">\(μ = \begin{cases}η\cdot Δ &amp; Δ&gt;0 \\ λ\cdot η\cdot Δ &amp; Δ&gt;0\end{cases}\)</span> where <span class="math inline">\(η&gt;0\)</span> and <span class="math inline">\(λ&gt;1\)</span></li>
+<li>Utility: <span class="math inline">\(u(x \ | \ r)\)</span></li>
+<li>Consumption: <span class="math inline">\(x\in X\)</span></li>
+<li>Reference point: <span class="math inline">\(r\in X\)</span></li>
 </ul></li>
 </ul>
-<div id="endowment-effect" class="section level3">
-<h3>Endowment Effect</h3>
+<div id="behaviour-endowment-effect" class="section level3">
+<h3>Behaviour: Endowment Effect</h3>
 <ul>
 <li>Endowment effect: the valuation for a certain good changes whether the good is one’s endowment
 <ul>
@@ -185,18 +226,47 @@ With quasi-linear preference,
   x_1 - WTA(x_1) + φ(x_2) &amp;= x_1 + φ(x_2 + Δ) \\
   WTA(x_1) &amp;= φ(x_2) - φ(x_2 + Δ) \\
   WTP(x_1) &amp;= WTA(x_1)\end{aligned}\]</span></li>
-</ul></li>
-</ul>
-</div>
-<div id="income-effect" class="section level3">
-<h3>Income Effect</h3>
-<ul>
 <li>Income effect: <span class="math inline">\(WTP&#39;(x_1)\)</span>
 <span class="math display">\[\begin{aligned}WTA(x_1) &amp;= WTP(\tilde{x_1}) \\
-&amp;= WTP\big( x_1 + WTA(x_1) \big) \\
-&amp;\approx WTP(x_1) + WTP&#39;(x_1)\cdot WTA(x_1) \\
-WTP&#39;(x_1) &amp;\approx 1 - \frac{WTP(x_1)}{WTA(x_1)}\end{aligned}\]</span></li>
+  &amp;= WTP\big( x_1 + WTA(x_1) \big) \\
+  &amp;\approx WTP(x_1) + WTP&#39;(x_1)\cdot WTA(x_1) \\
+  WTP&#39;(x_1) &amp;\approx 1 - \frac{WTP(x_1)}{WTA(x_1)}\end{aligned}\]</span></li>
+<li>Income elasticity:
+<span class="math display">\[\begin{aligned}WTP&#39;(x_1)\cdot\frac{x_1}{WTP(x_1)} \approx \Big( 1 - \frac{WTP(x_1)}{WTA(x_1)}\Big)\cdot\frac{x_1}{WTP(x_1)} \end{aligned}\]</span></li>
+</ul></li>
+<li>Above equation does not hold with mug experiment!</li>
 </ul>
+</div>
+<div id="theory-gainloss-utility" class="section level3">
+<h3>Theory: Gain–Loss Utility</h3>
+<ul>
+<li>Additively separable utility functiton: <span class="math inline">\(m_k:X_k\to\mathbb{R}\)</span> <span class="math display">\[m(x) = \sum_k m_k(x_k)\]</span></li>
+<li>Gain-loss function: <span class="math inline">\(μ: \mathbb{R}\to\mathbb{R}\)</span>, <span class="math inline">\(μ(0) = 0\)</span></li>
+<li>Gain–Loss utility functiton
+<span class="math display">\[\begin{aligned}u(x \ | \ r) &amp;= m(x) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \\ &amp;= \sum_k m_k(x_k) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="theory-loss-aversion" class="section level3">
+<h3>Theory: Loss-Aversion</h3>
+<ul>
+<li>Piece-wise linear gain-loss function
+<span class="math display">\[μ = \begin{cases}η\cdot Δ &amp; Δ&gt;0 \\ λ\cdot η\cdot Δ &amp; Δ&gt;0\end{cases}\]</span>
+<ul>
+<li>Emotional component: <span class="math inline">\(η&gt;0\)</span></li>
+<li>Loss-aversion: <span class="math inline">\(λ&gt;1\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-behavioural--piece–wise-linear.png" alt="Loss-aversion" />
+<p class="caption">Loss-aversion</p>
+</div>
+<blockquote>
+<p>Lemma 2.2<br />
+Let <span class="math inline">\(u(y \ | \ y) = u(x \ | \ y)\)</span><br />
+Prove that followings are consistent with the loss-aversion model:<br />
+1. <span class="math inline">\(u(y \ | \ t) &lt; u(x \ | \ t)\)</span><br />
+2. <span class="math inline">\(u(y \ | \ t) &lt; u(x \ | \ t)\)</span></p>
+</blockquote>
 </div>
 </div>
 
