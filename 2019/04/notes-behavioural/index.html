@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">4 min read</span>
+    <span class="article-duration">6 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -84,8 +84,9 @@
 </ul></li>
 <li><a href="#reference-dependence">Reference Dependence</a><ul>
 <li><a href="#behaviour-endowment-effect">Behaviour: Endowment Effect</a></li>
-<li><a href="#theory-gainloss-utility">Theory: Gain–Loss Utility</a></li>
-<li><a href="#theory-loss-aversion">Theory: Loss-Aversion</a></li>
+<li><a href="#gainloss-utility">Gain–Loss Utility</a></li>
+<li><a href="#linear-loss-aversion">Linear Loss Aversion</a></li>
+<li><a href="#non-linear-loss-aversion">Non-Linear Loss Aversion</a></li>
 </ul></li>
 </ul>
 </div>
@@ -191,7 +192,7 @@ Let <span class="math inline">\(v_n\)</span> be the satisfycing index for each <
 3. pick <span class="math inline">\(x_n\)</span> with smallest <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(v_n&gt;v\)</span><br />
 <span class="math display">\[C(A) = x_{21}\]</span>
 4. If no element satisfycs, lower the satisfycing level to <span class="math inline">\(\frac{v}{2}\)</span><br />
-This procedure satisfies IIA.</p>
+Prove this procedure satisfies IIA.</p>
 </blockquote>
 </div>
 </div>
@@ -237,23 +238,23 @@ With quasi-linear preference,
 <li>Above equation does not hold with mug experiment!</li>
 </ul>
 </div>
-<div id="theory-gainloss-utility" class="section level3">
-<h3>Theory: Gain–Loss Utility</h3>
+<div id="gainloss-utility" class="section level3">
+<h3>Gain–Loss Utility</h3>
 <ul>
 <li>Additively separable utility functiton: <span class="math inline">\(m_k:X_k\to\mathbb{R}\)</span> <span class="math display">\[m(x) = \sum_k m_k(x_k)\]</span></li>
 <li>Gain-loss function: <span class="math inline">\(μ: \mathbb{R}\to\mathbb{R}\)</span>, <span class="math inline">\(μ(0) = 0\)</span></li>
-<li>Gain–Loss utility functiton
+<li>Gain–loss utility functiton
 <span class="math display">\[\begin{aligned}u(x \ | \ r) &amp;= m(x) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \\ &amp;= \sum_k m_k(x_k) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \end{aligned}\]</span></li>
 </ul>
 </div>
-<div id="theory-loss-aversion" class="section level3">
-<h3>Theory: Loss-Aversion</h3>
+<div id="linear-loss-aversion" class="section level3">
+<h3>Linear Loss Aversion</h3>
 <ul>
-<li>Piece-wise linear gain-loss function
-<span class="math display">\[μ = \begin{cases}η\cdot Δ &amp; Δ&gt;0 \\ λ\cdot η\cdot Δ &amp; Δ&gt;0\end{cases}\]</span>
+<li>(Piecewise) linear gain-loss function
+<span class="math display">\[μ = \begin{cases}η\cdot Δ &amp; Δ&gt;0 \\ λ\cdot η\cdot Δ &amp; Δ&lt;0\end{cases}\]</span>
 <ul>
 <li>Emotional component: <span class="math inline">\(η&gt;0\)</span></li>
-<li>Loss-aversion: <span class="math inline">\(λ&gt;1\)</span></li>
+<li>Loss aversion: <span class="math inline">\(λ&gt;1\)</span></li>
 </ul></li>
 </ul>
 <div class="figure">
@@ -262,11 +263,50 @@ With quasi-linear preference,
 </div>
 <blockquote>
 <p>Lemma 2.2<br />
+<img src="/post-img/notes-behavioural--mug-game.png" alt="Mug experiment" width="329" /><br />
 Let <span class="math inline">\(u(y \ | \ y) = u(x \ | \ y)\)</span><br />
-Prove that followings are consistent with the loss-aversion model:<br />
+Prove that followings are consistent with the loss aversion model:<br />
 1. <span class="math inline">\(u(y \ | \ t) &lt; u(x \ | \ t)\)</span><br />
-2. <span class="math inline">\(u(y \ | \ t) &lt; u(x \ | \ t)\)</span></p>
+2. <span class="math inline">\(u(y \ | \ x) &lt; u(x \ | \ x)\)</span></p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>:) <span class="math inline">\(u(y \ | \ y) = u(x \ | \ y)\implies u(y \ | \ t) &lt; u(x \ | \ t)\)</span><br />
+Let <span class="math inline">\(m_i(x_i) = x_i\)</span><br />
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg} u(y \ | \ t) - u( x \ | \ t ) \\
+&amp;= u(y \ | \ t) - u(y \ | \ y) + u(x \ | \ y) - u(x \ | \ t ) \\
+&amp;= \big(y_1 + y_2 + μ( y_1 - t_1) + μ(y_2 - t_2)\big) - \big(y_1 + y_2 + μ(0) + μ(0)\big) \\
+&amp;\phantom{\ggg} + \big(x_1 + x_2 + μ(x_1 - y_1) + μ(x_2 - y_2)\big) - \big( x_1 + x_2 + μ(x_1 - t_1) + μ(x_2 - t_2)\big) \\
+&amp;= μ(y_1 - t_1) + μ(y_2 - t_2) + μ(\underbrace{x_1 - y_1}_{=x_1 - t_1}) + μ(x_2 - y_2) - μ(\underbrace{x_1 - t_1}) - μ(x_2 - t_2) \\
+&amp;= μ(\underbrace{y_1 - t_1}_{=0}) + μ(y_2 - t_2) + μ(x_2 - y_2) - μ(\underbrace{x_2 - t_2}_{=0}) \\
+&amp;= μ(y_2 - t_2) + μ(x_2 - y_2)\end{aligned}\]</span>
+Since <span class="math inline">\(x_2 = t_2 &lt; y_2\)</span>, according to loss aversion,<br />
+<span class="math display">\[\begin{aligned} y_2 - t_2 &amp;= -( x_2 - y_2 ) &gt; 0 \\
+μ( y_2 - t_2) &amp;&lt; - μ( x_2 - y_2) \\
+μ(y_2 - t_2) + μ(x_2 - y_2) &amp;&lt; 0 \\
+u(y \ | \ t) - u( x \ | \ t ) &amp;&lt; 0 \\
+u(y \ | \ t) &amp;&lt; u( x \ | \ t )\end{aligned}\]</span></li>
+<li>:) <span class="math inline">\(u(y \ | \ y) = u(x \ | \ y)\implies u(y \ | \ x) &lt; u(x \ | \ x)\)</span></li>
+</ol>
+</div>
+<div id="non-linear-loss-aversion" class="section level3">
+<h3>Non-Linear Loss Aversion</h3>
+<ul>
+<li>S-shaped gain-loss function <!-- (Kahneman & Tversky) -->
+<ul>
+<li>(Monotonic)</li>
+<li>Kink at 0</li>
+<li>Concave in gain &amp; convex in loss</li>
+</ul></li>
+<li>Let <span class="math inline">\(μ\)</span> be twice differentiable for <span class="math inline">\(Δ\neq 0\)</span>
+<ul>
+<li>Loss aversion for large stakes<br />
+For <span class="math inline">\(0&lt; Δ &lt; Δ&#39;\)</span>,
+<span class="math display">\[\begin{aligned}μ(Δ&#39;) + μ(−Δ&#39;) &amp;&lt; μ(Δ) + μ(−Δ) &lt; 0 \\
+  \Big| μ(Δ&#39;) + μ(−Δ&#39;) \Big| &amp;&gt; \Big| μ(Δ) + μ(−Δ)\Big|\end{aligned}\]</span></li>
+<li>Loss aversion for small stakes <span class="math display">\[\frac{\lim_{Δ\nearrow 0} μ&#39;(Δ)}{\lim_{Δ\searrow 0} μ&#39;(Δ)} = λ &gt; 1\]</span></li>
+<li>Diminishing sensitivity <span class="math display">\[\begin{cases}μ&#39;&#39;(Δ)\leq 0 &amp; Δ&gt; 0 \\ μ&#39;&#39;(Δ)\geq 0 &amp; Δ&lt; 0\end{cases}\]</span></li>
+</ul></li>
+</ul>
 </div>
 </div>
 
