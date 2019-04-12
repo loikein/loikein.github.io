@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">5 min read</span>
     
     <h1 class="article-title">Notes on Institutions, Contract &amp; Information</h1>
     
@@ -78,9 +78,12 @@
 <div id="TOC">
 <ul>
 <li><a href="#literature">Literature</a></li>
-<li><a href="#adverse-selection-hidden-information">Adverse Selection (Hidden Information)</a><ul>
-<li><a href="#lemon-market">Lemon Market</a></li>
+<li><a href="#lemon-market">Lemon Market</a><ul>
+<li><a href="#perfect-information">Perfect Information</a></li>
+<li><a href="#unknown-quality">Unknown Quality</a></li>
+<li><a href="#competitive-equilibrium">Competitive Equilibrium</a></li>
 </ul></li>
+<li><a href="#adverse-selection-hidden-information">Adverse Selection (Hidden Information)</a></li>
 <li><a href="#moral-hazard-hidden-action">Moral Hazard (Hidden Action)</a><ul>
 <li><a href="#timing">Timing</a></li>
 <li><a href="#benchmark">Benchmark</a></li>
@@ -101,11 +104,76 @@
 <li></li>
 </ol>
 </div>
+<div id="lemon-market" class="section level2">
+<h2>Lemon Market</h2>
+<ul>
+<li>Quality of car: <span class="math inline">\(s\)</span>
+<ul>
+<li><span class="math inline">\(s\in [0,\bar{s}]\)</span></li>
+<li>pdf: <span class="math inline">\(f(s) = α s^{α-1}\)</span></li>
+<li>cdf: <span class="math inline">\(F(s) = s^α\)</span></li>
+</ul></li>
+<li>Seller type: <span class="math inline">\(θ_1\)</span>
+<ul>
+<li>Seller’s preferences: <span class="math inline">\(\begin{cases}p &amp; \text{sell} \\ θ_1s &amp; \text{not sell} \end{cases}\)</span></li>
+</ul></li>
+<li>Buyer type: <span class="math inline">\(θ_2\)</span>
+<ul>
+<li>Consumption possibilities: 1 or 0</li>
+<li>Buyer’s preferences: <span class="math inline">\(\begin{cases}θ_2s - p &amp; \text{buy}\\ 0 &amp; \text{not buy}\end{cases}\)</span></li>
+</ul></li>
+<li>Assume <span class="math inline">\(θ_2 &gt; θ_1\)</span></li>
+</ul>
+<div id="perfect-information" class="section level3">
+<h3>Perfect Information</h3>
+<ul>
+<li>Trade is efficient since
+<span class="math display">\[\begin{aligned}θ_2 &amp;&gt; θ_1 \\
+θ_2s &amp;&gt; θ_1s \\
+p + (θ_2s - p) &amp;&gt; θ_1s + 0\end{aligned}\]</span></li>
+<li>Conditions for <span class="math inline">\(p\)</span>: <span class="math inline">\(\begin{cases}p \geq θ_1s &amp; \text{seller} \\ θ_2s - p \geq 0 &amp; \text{buyer}\end{cases}\)</span> hold with <span class="math inline">\(θ_2s \geq p\geq θ_1s\)</span></li>
+</ul>
+</div>
+<div id="unknown-quality" class="section level3">
+<h3>Unknown Quality</h3>
+<ul>
+<li>Given price <span class="math inline">\(p\)</span></li>
+<li>Seller sells if
+<span class="math display">\[\begin{aligned}θ_1s \leq p \\ s\leq \frac{p}{θ_1} \end{aligned}\]</span></li>
+<li>Buyer’s expected quality<br />
+Let <span class="math inline">\(z = \frac{p}{θ_1}\)</span>, expected quality is the center of mass of <span class="math inline">\(f(s)\)</span><br />
+<span class="math display">\[\begin{aligned}E[s \ | \ p] &amp;= E\Big[s \ \big| s\leq \frac{p}{θ_1}\Big] \\
+&amp;= E[s \ | \ s\leq z] \\
+&amp;= \frac{\int^z_0 s\cdot f(s)\, ds}{F(z)} \\
+&amp;= \frac{\int^z_0 s\cdot αs^{α-1}\, ds}{z^α} \\
+&amp;= α\cdot\frac{\int^z_0 s^α\, ds}{z^α} \\
+&amp;= α\cdot\frac{\frac{1}{α+1}s^{α+1}}{z^α} \bigg|_0^z \\
+&amp;= \frac{α}{α+1}\cdot z \\
+&amp;= \frac{α}{α+1}\cdot\frac{p}{θ_1}\end{aligned}\]</span></li>
+<li>Buyer buys if
+<span class="math display">\[\begin{aligned}θ_2\cdot E[s] - p &amp;\geq 0 \\
+θ_2\cdot\frac{α}{α+1}\cdot\frac{p}{θ_1} - p &amp;\geq 0 \\
+θ_2\cdot\frac{α}{α+1}\cdot\frac{1}{θ_1} &amp;\geq 1 \\
+θ_2 &amp;\geq θ_1\cdot\frac{α+1}{α}\end{aligned}\]</span></li>
+<li>Since <span class="math inline">\(\frac{α+1}{α}&gt;1\)</span>, the market is smaller than efficiency</li>
+</ul>
+<blockquote>
+<p>PS1.Q2<br />
+Agent 1 finds an old book in his basement and considers selling it on the flee market. Agent 1’s utility from keeping the book is <span class="math inline">\(θ_1s\)</span>, where <span class="math inline">\(s\)</span> is the quality of the book.<br />
+On the flee market, agent 2 is potentially willing to buy the book. Agent 2’s utility from buying the book is <span class="math inline">\(θ_2s − p\)</span> if he buys at price <span class="math inline">\(p\)</span>.<br />
+1. If <span class="math inline">\(s\)</span> is publicly observed, when is trade effcient?<br />
+2. Suppose now <strong>agent 1</strong> does not know the value of the book.<br />
+Agent 2 knows <span class="math inline">\(s\)</span> but agent 1 knows only that <span class="math inline">\(s\in [0, 1]\)</span> is equally likely.<br />
+Suppose that an auctioneer announces a price <span class="math inline">\(p\)</span> at which trade can occur.<br />
+What expected value of quality can agent 1 infer from the fact that trade occurs at price <span class="math inline">\(p\)</span>?</p>
+</blockquote>
+</div>
+<div id="competitive-equilibrium" class="section level3">
+<h3>Competitive Equilibrium</h3>
+</div>
+</div>
 <div id="adverse-selection-hidden-information" class="section level2">
 <h2>Adverse Selection (Hidden Information)</h2>
-<div id="lemon-market" class="section level3">
-<h3>Lemon Market</h3>
-</div>
 </div>
 <div id="moral-hazard-hidden-action" class="section level2">
 <h2>Moral Hazard (Hidden Action)</h2>
