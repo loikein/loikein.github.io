@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">8 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -81,10 +81,15 @@
 <li><a href="#lecture-contract-information">Lecture: Contract &amp; Information</a></li>
 <li><a href="#lecture-intsitution">Lecture: Intsitution</a></li>
 </ul></li>
-<li><a href="#lemon-market">Lemon Market</a><ul>
+<li><a href="#lemon-market-continuous-quality">Lemon Market: Continuous Quality</a><ul>
 <li><a href="#perfect-information">Perfect Information</a></li>
 <li><a href="#unknown-quality">Unknown Quality</a></li>
 <li><a href="#competitive-equilibrium">Competitive Equilibrium</a></li>
+</ul></li>
+<li><a href="#lemon-market-binary-quality">Lemon Market: Binary Quality</a><ul>
+<li><a href="#efficient-repair">Efficient Repair</a></li>
+<li><a href="#inefficient-repair">Inefficient Repair</a></li>
+<li><a href="#signal-timing">Signal Timing</a></li>
 </ul></li>
 <li><a href="#adverse-selection-hidden-information">Adverse Selection (Hidden Information)</a></li>
 <li><a href="#moral-hazard-hidden-action">Moral Hazard (Hidden Action)</a><ul>
@@ -117,8 +122,8 @@
 </ol>
 </div>
 </div>
-<div id="lemon-market" class="section level2">
-<h2>Lemon Market</h2>
+<div id="lemon-market-continuous-quality" class="section level2">
+<h2>Lemon Market: Continuous Quality</h2>
 <ul>
 <li>Quality of car: <span class="math inline">\(s\)</span>
 <ul>
@@ -198,13 +203,103 @@ Trade is efficient if
 Demand and supply meet at
 <span class="math display">\[\begin{aligned}\text{For sellers:} &amp;&amp; p &amp;= θ_0\cdot s  \\
 \text{For buyers:} &amp;&amp; p &amp;= θ\cdot s \end{aligned}\]</span>
-Therefore, buyers with <span class="math inline">\(θ \leq θ_0\)</span> accept trading,<br />
-Volume of trade:<br />
-<span class="math display">\[\begin{aligned}P &amp;= N\cdot G(θ_0) \\
-Q^d &amp;= N - P \\
-&amp;= N - N\cdot G(θ_0) \\
-&amp;= N\big( 1 - G(θ_0) \big)\end{aligned}\]</span></li>
+Buyers buy if
+<span class="math display">\[\begin{aligned}θ\cdot s &amp;\geq p = θ_0\cdot s \\
+θ &amp;\geq θ_0\end{aligned}\]</span>
+Demand = volume of trade:<br />
+<span class="math display">\[D = N\big[ 1 - G(θ_0) \big]\]</span></li>
+<li>Asymmetric information<br />
+Given price <span class="math inline">\(p\)</span>, buyers’ expected quality: <span class="math display">\[s^e(p) := E\Big[ s \ \big| \ s\leq \frac{p}{θ_0}\Big]\]</span>
+Buyers buy if
+<span class="math display">\[\begin{aligned} θ\cdot s^e(p) &amp;\geq p \\
+θ &amp;\geq \frac{p}{s^e(p)}\end{aligned}\]</span>
+Demand: <span class="math display">\[D(p) = N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big]\]</span>
+Market clears when
+<span class="math display">\[\begin{aligned}S(p) &amp;= D(p) \\
+N\cdot F\Big( \frac{p}{θ_0}\Big) &amp;= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big] \end{aligned}\]</span></li>
 </ul>
+</div>
+</div>
+<div id="lemon-market-binary-quality" class="section level2">
+<h2>Lemon Market: Binary Quality</h2>
+<ul>
+<li>Quality of car: <span class="math inline">\(s\in\{\underline{s},\bar{s}\}\)</span>
+<ul>
+<li>Probability that a car is <span class="math inline">\(\bar{s}\)</span>: <span class="math inline">\(α\)</span></li>
+<li>Probability that <span class="math inline">\(\bar{s}\)</span> does not need repair: <span class="math inline">\(\bar{s} = r\cdot 1 + (1-r)\cdot 0 = r\)</span></li>
+<li>Probability that <span class="math inline">\(\underline{s}\)</span> does not need repair: <span class="math inline">\(\underline{s} = q\cdot 1 + (1-q)\cdot 0 = q\)</span></li>
+<li><span class="math inline">\(r &gt; q\)</span></li>
+</ul></li>
+<li>Seller’s type: <span class="math inline">\(θ_1\)</span>
+<ul>
+<li>Seller’s preferences: <span class="math inline">\(\begin{cases}p &amp;\text{sell} \\ θ_1\cdot 1 - (1-s)\cdot c &amp;\text{repair} \\ s\cdot θ_1 &amp;\text{not repair} \end{cases}\)</span></li>
+</ul></li>
+<li>Buyers’ type: <span class="math inline">\(θ_2\)</span>, 2 buyers
+<ul>
+<li>Buyers’ preferences: <span class="math inline">\(\begin{cases}θ_2\cdot 1 - (1-s)\cdot c - p &amp;\text{repair} \\ θ_2\cdot s - p &amp;\text{not repair} \\ 0 &amp;\text{not buy} \end{cases}\)</span></li>
+</ul></li>
+<li>Assume <span class="math inline">\(θ_2 &gt; θ_1\)</span></li>
+<li>Repair cost: <span class="math inline">\(c\)</span></li>
+</ul>
+<div id="efficient-repair" class="section level3">
+<h3>Efficient Repair</h3>
+<ul>
+<li><span class="math inline">\(c \leq θ_1 &lt; θ_2\)</span>
+<ul>
+<li>Seller will repair if doesn’t sell:
+<span class="math display">\[\begin{aligned}θ_1 - (1-s)\cdot c &amp;\geq s\cdot θ_1 \\
+  θ_1 - c + s\cdot c &amp;\geq s\cdot θ_1 \\
+  (s-1)\cdot c &amp;\geq (s-1)\cdot θ_1 &amp;&amp; s-1&lt;0 \\
+  c &amp;\leq θ_1\end{aligned}\]</span></li>
+</ul></li>
+<li>Seller sells if <span class="math display">\[θ_1 - (1-s)\cdot c\leq p\]</span></li>
+<li>Buyers’ expected quality:
+<span class="math display">\[\begin{aligned} E[s] &amp;= αr + (1-α)q \\
+1 - E[s] &amp;= 1 - \big[αr + (1-α)q\big] \\
+&amp;= 1 - αr - q + αq \\
+&amp;= 1 - αr - q + αq + α - α\\
+&amp;= α(1-r) + (1-α)(1-q)\end{aligned}\]</span>
+Buyers buy if
+<span class="math display">\[\begin{aligned}θ_2\cdot 1 - \big(1-E[s]\big)\cdot c - p &amp;\geq 0 \\
+θ_2 - \big[α(1-r) + (1-α)(1-q)\big]\cdot c &amp;\geq p\end{aligned}\]</span></li>
+<li>Price for <span class="math inline">\(\bar{s}\)</span> exists if
+<span class="math display">\[\begin{aligned}θ_2 - \big[α(1-r) + (1-α)(1-q)\big]\cdot c &amp;\geq θ_1 - (1-r)\cdot c \\
+θ_2 &amp;\geq θ_1 + \big[α(1-r) + (1-α)(1-q)\big]\cdot c - (1-r)\cdot c \\
+&amp;\geq θ_1 + (1-α)(r-q)\cdot c\end{aligned}\]</span></li>
+<li>Since <span class="math inline">\((1-α)(r-q)\cdot c &gt; 0\)</span>, the market is smaller than efficiency</li>
+</ul>
+</div>
+<div id="inefficient-repair" class="section level3">
+<h3>Inefficient Repair</h3>
+<ul>
+<li><span class="math inline">\(c \geq θ_2 &gt; θ_1\)</span>
+<ul>
+<li>Seller will not repair if doesn’t sell: <span class="math inline">\(c \geq θ_1\)</span></li>
+<li>Buyer will not repair if the car needs repair:
+<span class="math display">\[\begin{aligned}θ_2\cdot 1 - (1-s)\cdot c - p &amp;\leq θ_2\cdot s - p \\
+  θ_2\cdot 1 - (1-s)\cdot c &amp;\leq θ_2\cdot s \\
+  (1-s)\cdot θ_2 &amp;\leq (1-s)\cdot c \\
+  θ_2 &amp;\leq c\end{aligned}\]</span></li>
+</ul></li>
+<li>Seller sells if <span class="math display">\[s\cdot θ_1 \leq p\]</span></li>
+<li>Buyers buy if
+<span class="math display">\[\begin{aligned}θ_2\cdot E[s] - p &amp;\geq 0 \\
+θ_2\cdot \big[αr + (1-α)q\big] &amp;\geq p \end{aligned}\]</span></li>
+<li>Price for <span class="math inline">\(\bar{s}\)</span> exists if
+<span class="math display">\[\begin{aligned}θ_2\cdot \big[αr + (1-α)q\big] &amp;\geq r\cdot θ_1 \\
+θ_2 &amp;\geq \frac{r}{αr + (1-α)q} \cdot θ_1\end{aligned}\]</span></li>
+<li>Since <span class="math inline">\(\frac{r}{αr + (1-α)q} &gt; 1\)</span>, the market is smaller than efficiency</li>
+</ul>
+</div>
+<div id="signal-timing" class="section level3">
+<h3>Signal Timing</h3>
+<ol style="list-style-type: decimal">
+<li>Nature chooses quality <span class="math inline">\(s\)</span></li>
+<li>Seller chooses whether to issue warranty <span class="math inline">\(w \in\{0,1\}\)</span></li>
+<li>Buyers propose <span class="math inline">\(p\)</span></li>
+<li>Seller chooses whether to accept <span class="math inline">\(p\)</span></li>
+<li>(If applicable) repair</li>
+</ol>
 </div>
 </div>
 <div id="adverse-selection-hidden-information" class="section level2">
