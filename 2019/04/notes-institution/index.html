@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Hugo 0.55.0" />
 
-<title>Notes on Institutions, Contract &amp; Information - loikein</title>
-<meta property="og:title" content="Notes on Institutions, Contract &amp; Information - loikein">
+<title>Notes on Institution, Contract &amp; Information - loikein</title>
+<meta property="og:title" content="Notes on Institution, Contract &amp; Information - loikein">
 
 
   
@@ -51,7 +51,7 @@
     
     <span class="article-duration">5 min read</span>
     
-    <h1 class="article-title">Notes on Institutions, Contract &amp; Information</h1>
+    <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
     <span class="article-date">2019/04/09</span>
     
@@ -77,7 +77,10 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#literature">Literature</a></li>
+<li><a href="#literature">Literature</a><ul>
+<li><a href="#lecture-contract-information">Lecture: Contract &amp; Information</a></li>
+<li><a href="#lecture-intsitution">Lecture: Intsitution</a></li>
+</ul></li>
 <li><a href="#lemon-market">Lemon Market</a><ul>
 <li><a href="#perfect-information">Perfect Information</a></li>
 <li><a href="#unknown-quality">Unknown Quality</a></li>
@@ -95,6 +98,15 @@
 
 <div id="literature" class="section level2">
 <h2>Literature</h2>
+<div id="lecture-contract-information" class="section level3">
+<h3>Lecture: Contract &amp; Information</h3>
+<ul>
+<li><a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory</a> (MWG)</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=B3C0791C9FB6308FA345C1CA21C68E45">The Theory of Industrial Organization</a></li>
+</ul>
+</div>
+<div id="lecture-intsitution" class="section level3">
+<h3>Lecture: Intsitution</h3>
 <ol style="list-style-type: decimal">
 <li><a href="http://93.174.95.27/book/index.php?md5=3FDF4E91C3B6926C29211A911A8A2B5B">Contract Theory</a></li>
 <li><a href="http://93.174.95.27/book/index.php?md5=5FCE17D1189A9424E102E1B26A1EFEF5">Game Theory</a> (multi-stage games)</li>
@@ -103,6 +115,7 @@
 <li><a href="http://93.174.95.27/book/index.php?md5=2C89493D80037491355C246FCF0B5045">Firms, contracts, and financial structure</a> (incomplete contract)</li>
 <li></li>
 </ol>
+</div>
 </div>
 <div id="lemon-market" class="section level2">
 <h2>Lemon Market</h2>
@@ -113,11 +126,11 @@
 <li>pdf: <span class="math inline">\(f(s) = α s^{α-1}\)</span></li>
 <li>cdf: <span class="math inline">\(F(s) = s^α\)</span></li>
 </ul></li>
-<li>Seller type: <span class="math inline">\(θ_1\)</span>
+<li>Seller’s type: <span class="math inline">\(θ_1\)</span>
 <ul>
 <li>Seller’s preferences: <span class="math inline">\(\begin{cases}p &amp; \text{sell} \\ θ_1s &amp; \text{not sell} \end{cases}\)</span></li>
 </ul></li>
-<li>Buyer type: <span class="math inline">\(θ_2\)</span>
+<li>Buyer’s type: <span class="math inline">\(θ_2\)</span>
 <ul>
 <li>Consumption possibilities: 1 or 0</li>
 <li>Buyer’s preferences: <span class="math inline">\(\begin{cases}θ_2s - p &amp; \text{buy}\\ 0 &amp; \text{not buy}\end{cases}\)</span></li>
@@ -170,6 +183,28 @@ What expected value of quality can agent 1 infer from the fact that trade occurs
 </div>
 <div id="competitive-equilibrium" class="section level3">
 <h3>Competitive Equilibrium</h3>
+<ul>
+<li><span class="math inline">\(s\in [\underline{s},\bar{s}]\)</span></li>
+<li><span class="math inline">\(N\)</span> sellers, <span class="math inline">\(N\)</span> buyers</li>
+<li>Sellers’ type: <span class="math inline">\(θ_0\)</span></li>
+<li>Buyers’ type: <span class="math inline">\(θ\)</span>
+<ul>
+<li>pdf: <span class="math inline">\(g(θ)\)</span></li>
+<li>cdf: <span class="math inline">\(G(θ)\)</span></li>
+</ul></li>
+<li>Perfect information<br />
+Trade is efficient if
+<span class="math display">\[\begin{aligned}θ\cdot s\geq θ_0\cdot s \\ θ\geq θ_0\end{aligned}\]</span>
+Demand and supply meet at
+<span class="math display">\[\begin{aligned}\text{For sellers:} &amp;&amp; p &amp;= θ_0\cdot s  \\
+\text{For buyers:} &amp;&amp; p &amp;= θ\cdot s \end{aligned}\]</span>
+Therefore, buyers with <span class="math inline">\(θ \leq θ_0\)</span> accept trading,<br />
+Volume of trade:<br />
+<span class="math display">\[\begin{aligned}P &amp;= N\cdot G(θ_0) \\
+Q^d &amp;= N - P \\
+&amp;= N - N\cdot G(θ_0) \\
+&amp;= N\big( 1 - G(θ_0) \big)\end{aligned}\]</span></li>
+</ul>
 </div>
 </div>
 <div id="adverse-selection-hidden-information" class="section level2">
