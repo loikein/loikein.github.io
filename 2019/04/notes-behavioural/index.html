@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">9 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -194,6 +194,80 @@ Let <span class="math inline">\(v_n\)</span> be the satisfycing index for each <
 4. If no element satisfycs, lower the satisfycing level to <span class="math inline">\(\frac{v}{2}\)</span><br />
 Prove this procedure satisfies IIA.</p>
 </blockquote>
+<blockquote>
+<p>PS1.Q1<br />
+Consider a person who likes fat food, but at the same time is on diet.<br />
+The person is not a dogmatic dieter, but seeks a compromise between his two objectives: to enjoy food and to keep his diet.<br />
+So he comes up with the behavioral rule: I won’t choose the fattest meal on the menu.<br />
+There are two restaurants with the following menus, respectively:<br />
+<span class="math display">\[\begin{cases}A_1 = \{ \text{salad}, \text{steak}, \text{burger} \} \\ A_2 = \{ \text{salad}, \text{steak}\} \end{cases}\]</span>
+Suppose that burger is fatter than steak, and steak is fatter than salad.<br />
+1. Define a choice function which is consistent with the behavioral rule and violates IIA.<br />
+2. Is there a choice function which is consistent with the behavioral rule that does not violate IIA?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(C(A_1) = \text{steak}\)</span>, <span class="math inline">\(C(A_2) = \text{salad}\)</span></li>
+<li><span class="math inline">\(C(A_1) = C(A_2) = \text{salad}\)</span></li>
+</ol>
+<blockquote>
+<p>PS1.Q2<br />
+Consider the finite set of alternatives <span class="math inline">\(X = \{x_1,\dots ,x_N\}\)</span>.<br />
+A decision maker (DM) assigns to each <span class="math inline">\(x\in X\)</span> a value <span class="math inline">\(v(x)\)</span> and uses the following procedure to choose an element from a given <span class="math inline">\(A\subset X\)</span>:<br />
+1. If the number of elements in <span class="math inline">\(A\)</span> is smaller or equal to <span class="math inline">\(N^* &lt; N\)</span>, then he goes through all alternatives <span class="math inline">\(x_i \in A\)</span> in ascending order of indices <span class="math inline">\(i\)</span> and picks the first element whose value is greater or equal to some predetermined aspiration level <span class="math inline">\(\bar{v}\in\mathbb{R}\)</span>􏰳.<br />
+If for all <span class="math inline">\(x \in A\)</span> it holds that <span class="math inline">\(v(x) &lt; \bar{v}\)</span>, then the DM picks the last element in <span class="math inline">\(A\)</span>, i.e. the element with the largest index <span class="math inline">\(i\)</span>.<br />
+2. If <span class="math inline">\(A\)</span> contains more than <span class="math inline">\(N^*\)</span> elements, he picks the element with the largest index <span class="math inline">\(i\)</span> in <span class="math inline">\(A\)</span>.<br />
+Show by an example that the DM does generally not satisfy IIA.</p>
+</blockquote>
+<p>Let <span class="math inline">\(X = \{x_1, x_2, x_3\}\)</span>, <span class="math inline">\(N^* = 2\)</span>, <span class="math inline">\(\bar{v} = 2.5\)</span>,<br />
+<span class="math inline">\(v(x_1) = 1\)</span>, <span class="math inline">\(v(x_2) = 3\)</span>, <span class="math inline">\(v(x_3) = 2\)</span>.<br />
+Let <span class="math inline">\(A_1 = \{x_1, x_2, x_3\}\)</span>, <span class="math inline">\(A_2 = \{x_2, x_3\}\)</span>,<br />
+<span class="math inline">\(\implies C(A_1) = x_3\)</span> but <span class="math inline">\(C(A_2) = x_2\)</span></p>
+<blockquote>
+<p>PS1.Q3<br />
+Let <span class="math inline">\(X\)</span> be a finite set of alternatives in 􏰳<span class="math inline">\(\mathbb{R}^2\)</span>.<br />
+We say that <span class="math inline">\(y\)</span> is dominated by <span class="math inline">\(x\)</span> if <span class="math inline">\(x_1\geq y_1\)</span> and <span class="math inline">\(x_2\geq y_2\)</span>, and one inequality is strict.<br />
+Let <span class="math inline">\(A\subset X\)</span> be a choice set.<br />
+For <span class="math inline">\(x\in A\)</span>, let <span class="math inline">\(n(x,A)\)</span> be the number of alternatives in <span class="math inline">\(A\)</span> which are dominated by <span class="math inline">\(x\)</span>.<br />
+Moreover, let <span class="math inline">\(M^*(A)\)</span> be the set of alternatives in <span class="math inline">\(A\)</span> which maximize the sum of the coordinates:<br />
+<span class="math display">\[M^*(A) = \text{argmax}_{x\in A} \ x_1 + x_2\]</span>
+Consider a DM with the following choice procedure:<br />
+1. If <span class="math inline">\(M^*(A)\)</span> contains only a single alternative, then the DM chooses this alternative.<br />
+2. If <span class="math inline">\(M^*(A)\)</span> contains more than one alternative, then:<br />
+2.1. If there is a single alternative <span class="math inline">\(x\in M^*(A)\)</span> with the highest number <span class="math inline">\(n(x,A)\)</span>, then chooses this alternative;<br />
+2.2. If there is more than one alternative in <span class="math inline">\(M^*(A)\)</span> that all have the same, highest number <span class="math inline">\(n(x,A)\)</span>, then chooses among these alternatives the one with the largest first coordinate.<br />
+a) Show by an example that the DM violates IIA.<br />
+b) Show that if instead of (2.1) and (2.2), the DM chooses the one with the largest first coordinate in <span class="math inline">\(M^*(A)\)</span>, then the DM satisfies IIA.</p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Let
+<span class="math display">\[\begin{aligned}A_1 = \{ &amp;&amp; (1,3) &amp;&amp; (2,4) &amp;&amp; (3,2) &amp;&amp; (4,2) &amp;&amp; \} \\
+n = \{ &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; \}\end{aligned}\]</span>
+Then <span class="math inline">\(M^*(A_1) = \{(2,4), (4,2)\}\)</span>,<br />
+<span class="math inline">\(\implies C(A_1) = (4,2)\)</span><br />
+However, let<br />
+<span class="math display">\[\begin{aligned}A_2 = \{ &amp;&amp; (1,3) &amp;&amp; (2,4) &amp;&amp; (4,2) &amp;&amp; \} \\
+n = \{ &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; \}\end{aligned}\]</span>
+Then <span class="math inline">\(M^*(A_2) = \{(2,4), (4,2)\}\)</span>,<br />
+<span class="math inline">\(\implies C(A_2) = (2,4)\)</span></li>
+<li>Let <span class="math inline">\(A_2\subset A_1\)</span>,<br />
+let <span class="math inline">\(C(A_1) = x^* = (x_1^*, x_2^*)\in A_1\)</span>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(M^*(A_1) = \{ x^* \}\)</span><br />
+<span class="math inline">\(\implies\)</span> <span class="math display">\[\begin{aligned} x_1^* + x_2^* &amp;&gt; \max_{x\in (A_1\backslash x^*)} \ (x_1 + x_2) \\
+ &amp;&gt; \max_{x\in (A_2\backslash x^*)} \ (x_1 + x_2)\end{aligned}\]</span>
+<span class="math inline">\(\implies M^*(A_2) = \{ x^* \}\)</span><br />
+<span class="math inline">\(\implies C(A_2) = x^*\)</span></li>
+<li><span class="math inline">\(M^*(A_1) = \{ x^*, \tilde{x}_1, \dots, \tilde{x}_n \}\)</span>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(M^*(A_2) = \{ x^* \}\)</span><br />
+<span class="math inline">\(\implies C(A_2) = x^*\)</span></li>
+<li><span class="math inline">\(M^*(A_2) = \{ x^*, \tilde{x}_a,\dots, \tilde{x}_b \}\)</span>, <span class="math inline">\(1\leq a \leq b\leq n\)</span><br />
+Since <span class="math inline">\(C(A_1) = x^*\)</span>, <span class="math inline">\(x^*\)</span> dominates <span class="math inline">\(\tilde{x}_i\)</span> for all <span class="math inline">\(i\in [1,n]\)</span><br />
+<span class="math inline">\(\implies x^*\)</span> dominates <span class="math inline">\(\tilde{x}_i\)</span> for all <span class="math inline">\(i\in [a,b]\)</span><br />
+<span class="math inline">\(\implies C(A_2) = x^*\)</span></li>
+</ol></li>
+</ol></li>
+</ol>
 </div>
 </div>
 <div id="reference-dependence" class="section level2">
