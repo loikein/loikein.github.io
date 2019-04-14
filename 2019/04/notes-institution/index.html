@@ -196,32 +196,37 @@ What expected value of quality can agent 1 infer from the fact that trade occurs
 <ul>
 <li><span class="math inline">\(s\in [\underline{s},\bar{s}]\)</span></li>
 <li><span class="math inline">\(N\)</span> sellers, <span class="math inline">\(N\)</span> buyers</li>
-<li>Sellers’ type: <span class="math inline">\(θ_0\)</span></li>
+<li>Sellers’ type: <span class="math inline">\(θ_0\)</span> (all same)</li>
 <li>Buyers’ type: <span class="math inline">\(θ\)</span>
 <ul>
 <li>pdf: <span class="math inline">\(g(θ)\)</span></li>
-<li>cdf: <span class="math inline">\(G(θ)\)</span></li>
+<li>cdf: <span class="math inline">\(G(θ)\)</span>, <span class="math inline">\(G(\hat{θ}) = Pr(θ\leq \hat{θ})\)</span></li>
 </ul></li>
 <li>Perfect information<br />
-Trade is efficient if
-<span class="math display">\[\begin{aligned}θ\cdot s\geq θ_0\cdot s \\ θ\geq θ_0\end{aligned}\]</span>
-Demand and supply meet at
-<span class="math display">\[\begin{aligned}\text{For sellers:} &amp;&amp; p &amp;= θ_0\cdot s  \\
-\text{For buyers:} &amp;&amp; p &amp;= θ\cdot s \end{aligned}\]</span>
-Buyers buy if
-<span class="math display">\[\begin{aligned}θ\cdot s &amp;\geq p = θ_0\cdot s \\
+For each seller, willingness to sell: <span class="math display">\[p(s) = θ_0\cdot s\]</span>
+For each buyer, willingness to buy: <span class="math display">\[p(θ,s) = θ\cdot s\]</span>
+Each buyer will trade with seller with car of quality <span class="math inline">\(s\)</span> if
+<span class="math display">\[\begin{aligned} p(θ,s) &amp;\geq p(s) \\
+θ\cdot s &amp;\geq θ_0\cdot s \\
 θ &amp;\geq θ_0\end{aligned}\]</span>
-Demand = volume of trade:<br />
-<span class="math display">\[D = N\big[ 1 - G(θ_0) \big]\]</span></li>
+Volume of trade:
+<span class="math display">\[\begin{aligned} D &amp;= N\cdot Pr(θ\geq θ_0) \\ &amp;= N\big[ 1 - G(θ_0) \big]\end{aligned}\]</span></li>
 <li>Asymmetric information<br />
-Given price <span class="math inline">\(p\)</span>, buyers’ expected quality: <span class="math display">\[s^e(p) := E\Big[ s \ \big| \ s\leq \frac{p}{θ_0}\Big]\]</span>
+<strong>Given price <span class="math inline">\(p\)</span></strong>, sellers sell if
+<span class="math display">\[\begin{aligned}p &amp;\geq θ_0\cdot s \\
+s &amp;\leq \frac{p}{θ_0} \\
+S(p) &amp;= N\cdot Pr\Big(s\leq \frac{p}{θ_0}\Big) \\
+&amp;= N\cdot F\Big( \frac{p}{θ_0}\Big)\end{aligned}\]</span>
+Buyers’ expected quality: <span class="math display">\[s^e(p) := E\Big[ s \ \big| \ s\leq \frac{p}{θ_0}\Big]\]</span>
 Buyers buy if
 <span class="math display">\[\begin{aligned} θ\cdot s^e(p) &amp;\geq p \\
-θ &amp;\geq \frac{p}{s^e(p)}\end{aligned}\]</span>
-Demand: <span class="math display">\[D(p) = N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big]\]</span>
+θ &amp;\geq \frac{p}{s^e(p)} \\
+D(p) &amp;= N\cdot Pr\Big(θ \geq \frac{p}{s^e(p)}\Big) \\
+&amp;= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big]\end{aligned}\]</span>
 Market clears when
 <span class="math display">\[\begin{aligned}S(p) &amp;= D(p) \\
-N\cdot F\Big( \frac{p}{θ_0}\Big) &amp;= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big] \end{aligned}\]</span></li>
+N\cdot F\Big( \frac{p}{θ_0}\Big) &amp;= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big] \\
+F\Big( \frac{p}{θ_0}\Big) &amp;= 1 - G\Big(\frac{p}{s^e(p)}\Big) \end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
