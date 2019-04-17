@@ -3,6 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2019/04/notes-time-series/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/notes/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/stat/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/gt/</loc>
     <lastmod>2019-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -19,31 +60,7 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-04-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-04-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-04-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/micro/</loc>
-    <lastmod>2019-04-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/notes/</loc>
     <lastmod>2019-04-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -70,13 +87,7 @@
   </url>
   
   <url>
-    <loc>/tags/stat/</loc>
-    <lastmod>2019-04-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/2019/03/notes-stat1-exercise/</loc>
+    <loc>/2019/03/notes-stat-exercise/</loc>
     <lastmod>2019-03-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -99,12 +110,6 @@
   <url>
     <loc>/2019/02/notes-stat-test/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

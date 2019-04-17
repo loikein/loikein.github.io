@@ -6,10 +6,19 @@
     <description>Recent content in stat on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/stat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Time Series</title>
+      <link>/2019/04/notes-time-series/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/notes-time-series/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Notes on Probability Theory</title>
@@ -23,10 +32,10 @@ An Introduction to Probability Theory and Its Applications, Vol 2 Probability an
     
     <item>
       <title>Notes on Econometrics - Exercises</title>
-      <link>/2019/03/notes-stat1-exercise/</link>
+      <link>/2019/03/notes-stat-exercise/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/03/notes-stat1-exercise/</guid>
+      <guid>/2019/03/notes-stat-exercise/</guid>
       <description>Exercise 2.1 (Regression) a b c d e f g h i j  Exercise 2.4 (Regression - True or False?) a b c d e f g h i j k l m n  Exercise 3.2 (Regression - Empirical) a b c d e f g h i  Exercise 3.4 (Regression - Empirical) Exercise 5.1 (Instrumental Variables) a b c d e f g  Exercise 5.</description>
     </item>
     
