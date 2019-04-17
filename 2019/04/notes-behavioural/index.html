@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">10 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -389,6 +389,25 @@ For <span class="math inline">\(0&lt; Δ &lt; Δ&#39;\)</span>,
 </div>
 <div id="reference-formation" class="section level3">
 <h3>Reference Formation</h3>
+<ul>
+<li>Personal equilibrium: strategy <span class="math inline">\(σ\in X\)</span> s.t.
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(r = σ\)</span></li>
+<li><span class="math inline">\(σ\)</span> is the actual choice</li>
+<li><span class="math inline">\(u(σ\ | \ σ)\geq u(x\ | \ σ)\)</span> for all <span class="math inline">\(x\in X\)</span></li>
+</ol></li>
+</ul>
+<blockquote>
+<p>Observation<br />
+With loss aversion utility, prove that the agent’s incentive to choose <span class="math inline">\(x\)</span> over <span class="math inline">\(y\)</span> when <span class="math inline">\(r=x\)</span> is larger than the incentive to choose <span class="math inline">\(x\)</span> over <span class="math inline">\(y\)</span> when <span class="math inline">\(r=y\)</span>, formally,<br />
+<span class="math display">\[u(x \ | \ x) - u(y \ | \ x) \geq u(x \ | \ y) - u(y \ | \ y)\]</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} u(x \ | \ x) - u(y \ | \ x) - \big[ u(x \ | \ y) - u(y \ | \ y) \big] \\
+&amp;= \big[ m(x)+0\big] - \Big[m(y) + \sum_k μ\big( m_k(y_k) - m_k(x_k) \big)\Big] \\
+&amp;\phantom{\ggg} - \Big[ m(x) + \sum_k μ\big( m_k(x_k) - m_k(y_k) \big)\Big] + \big[ m(y)+0 \big] \\
+&amp;= - \sum_k \Big[ μ\big( \underbrace{m_k(y_k) - m_k(x_k)}_{Δ}\big) + μ\big( \underbrace{- (m_k(y_k) - m_k(x_k))}_{-Δ}\big) \Big] \\
+&amp;= - \sum_k \big[ \underbrace{μ(Δ) + μ(-Δ)}_{&lt;0 \ \text{for all k}} \big] \\
+&amp;&gt; 0 \end{aligned}\]</span></p>
 </div>
 </div>
 
