@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">11 min read</span>
+    <span class="article-duration">13 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -91,6 +91,7 @@
 </ul></li>
 <li><a href="#choice-over-lottery">Choice over Lottery</a><ul>
 <li><a href="#expected-utility-theory">Expected Utility Theory</a></li>
+<li><a href="#behaviour-allais-paradox">Behaviour: Allais Paradox</a></li>
 <li><a href="#prospect-theory">Prospect Theory</a></li>
 </ul></li>
 </ul>
@@ -465,15 +466,51 @@ n &amp; p&gt;p_b\end{cases}\]</span></li>
 </ol>
 <blockquote>
 <p>Lemma 2.4<br />
-If the agent plays PPE <span class="math inline">\(σ\)</span>, then his utility equals his material utility, i.e. <span class="math inline">\(u(σ\ |\ σ) = m(σ)\)</span>.<br />
-Hence, his behavior is indistinguishable from that of a standard agent who only cares about material utility.</p>
+The agent plays PPE <span class="math inline">\(σ\iff σ\)</span> maximizes their material utility, i.e. <span class="math inline">\(σ\in\text{argmax}_{σ&#39;\in X} m(σ&#39;)\)</span>.<br />
+Hence, his behavior is indistinguishable from that of a standard agent who only cares about material utility.<br />
+Assume piecewise linear gain-loss function, <span class="math inline">\(η = 1\)</span>, <span class="math inline">\(λ&gt;1\)</span>.</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Let <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <span class="math inline">\(σ&#39;\in X\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>:) <span class="math inline">\(σ\)</span> is PE<br />
+<span class="math display">\[u(σ&#39;\ |\ σ) = m(σ&#39;) + \sum_k μ\big(\underbrace{m_k(σ&#39;) - m_k(σ)}_{:= Δ_k}\big)\]</span>
+Since <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <span class="math inline">\(σ&#39;\in X\)</span><br />
+<span class="math inline">\(\implies \sum_k Δ_k \leq 0\)</span><br />
+<span class="math display">\[\begin{aligned}\sum_k μ( Δ_k ) &amp;= \sum_{Δ_k &lt; 0} μ( Δ_k ) + \sum_{Δ_k\geq 0} μ( Δ_k ) \\
+ &amp;= λ\cdot\sum_{Δ_k &lt; 0} (Δ_k) + \sum_{Δ_k\geq 0} ( Δ_k) \\
+ &amp;&lt; \sum_k Δ_k \\&amp;\leq 0\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned}u(σ&#39;\ |\ σ)&amp;= m(σ&#39;) + \sum_k μ( Δ_k ) \\
+ &amp;\leq m(σ&#39;) \\ &amp;\leq m(σ) = u(σ\ |\ σ) \end{aligned}\]</span></li>
+<li>:) <span class="math inline">\(σ\)</span> is PPE<br />
+<span class="math display">\[\begin{aligned}u(σ\ |\ σ) &amp;= m(σ) \\ &amp;\geq m(σ&#39;) = u(σ&#39;\ |\ σ&#39;)\end{aligned}\]</span></li>
+</ol></li>
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Let <span class="math inline">\(σ\)</span> be PPE, FSOC assume <span class="math inline">\(m(σ) &lt; m(σ&#39;)\)</span> for some <span class="math inline">\(σ&#39;\in X\)</span><br />
+By (1), <span class="math inline">\(σ&#39;\)</span> is PPE<br />
+<span class="math inline">\(\implies σ\)</span> is not PPE, contradiction<br />
+Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <span class="math inline">\(σ&#39;\in X\)</span></li>
+</ol>
 </div>
 </div>
 <div id="choice-over-lottery" class="section level2">
 <h2>Choice over Lottery</h2>
+<ul>
+<li>Outcome: <span class="math inline">\(x_k \in X\)</span></li>
+<li>Probability: <span class="math inline">\(p_k = Pr(x_k)\)</span>, <span class="math inline">\(\sum_k^K p_k = 1\)</span></li>
+<li>Simple lottery: <span class="math inline">\(L = \begin{pmatrix}p_1 &amp; p_2 &amp; \cdots &amp; p_k &amp; \cdots &amp; p_K \\ x_1 &amp; x_2 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\)</span></li>
+<li>Compound lottery: <span class="math inline">\(αL + (1-α)L&#39;\)</span>, with probability <span class="math inline">\(α\in [0,1]\)</span>
+<ul>
+<li>Reduced simple lottery: <span class="math inline">\(\tilde{L} = \begin{pmatrix}αp_1+(1-α)p_1&#39; &amp; \cdots &amp; αp_k+(1-α)p_k&#39; &amp; \cdots &amp; αp_K+(1-α)p_K&#39; \\ x_1 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\)</span></li>
+</ul></li>
+</ul>
 <div id="expected-utility-theory" class="section level3">
 <h3>Expected Utility Theory</h3>
+</div>
+<div id="behaviour-allais-paradox" class="section level3">
+<h3>Behaviour: Allais Paradox</h3>
 </div>
 <div id="prospect-theory" class="section level3">
 <h3>Prospect Theory</h3>

@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">4 min read</span>
+    <span class="article-duration">5 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -82,7 +82,11 @@
 <li><a href="#subgame">Subgame</a></li>
 <li><a href="#chance-moves">Chance Moves</a></li>
 </ul></li>
-<li><a href="#bargaining">Bargaining</a></li>
+<li><a href="#bargaining">Bargaining</a><ul>
+<li><a href="#ultimatum-game">Ultimatum Game</a></li>
+<li><a href="#two-stage-ultimatum">Two-Stage Ultimatum</a></li>
+<li><a href="#rubinstein-game">Rubinstein Game</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -139,6 +143,52 @@ However, in case of an attack from Iran, it would lead to very drastic casualtie
 2. Imagine Israel cares only about its own casualties.<br />
 How would your game change if you wanted to model a defensive weapon system instead?</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Offensive system</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Iran</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>I-Attack, N-Attack</td>
+<td>I-Attack, N-No</td>
+<td>I-No, N-Attack</td>
+<td>I-No, N-No</td>
+</tr>
+<tr class="even">
+<td>Israel</td>
+<td>Invest System</td>
+<td>-101, -10</td>
+<td>-101, -10</td>
+<td><strong>*1, 1*</strong></td>
+<td>1, 1*</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>No System</td>
+<td><strong>*-100, 5*</strong></td>
+<td>*2,1</td>
+<td>-100, 5*</td>
+<td>*2, 1</td>
+</tr>
+</tbody>
+</table>
+<p>NE: {( Invest; I-No, N-Attack ), ( No; I-Attack, N-Attack )}<br />
+SPNE: {( Invest; No )}</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Defensive system</li>
+</ol>
 <div id="strategy" class="section level3">
 <h3>Strategy</h3>
 <ul>
@@ -161,11 +211,11 @@ Can you use Zermelo’s Theorem to conclude that in chess either black has a str
 Without loss of generality, assume <span class="math inline">\(T = T_1\cup T_3\)</span>, <span class="math inline">\(T^c = T_2\)</span>, there exist several cases:</p>
 <ol style="list-style-type: decimal">
 <li><ol style="list-style-type: decimal">
-<li>White has a strategy to force white wins or draw</li>
+<li>White has a strategy to force white wins or draw; or</li>
 <li>Black has a strategy to force black wins</li>
 </ol></li>
 <li><ol style="list-style-type: decimal">
-<li>Black has a strategy to force white wins or draw</li>
+<li>Black has a strategy to force white wins or draw; or</li>
 <li>White has a strategy to force black wins</li>
 </ol></li>
 </ol>
@@ -222,6 +272,31 @@ When will players start shooting?</p>
 </div>
 <div id="bargaining" class="section level2">
 <h2>Bargaining</h2>
+<div id="ultimatum-game" class="section level3">
+<h3>Ultimatum Game</h3>
+<ul>
+<li>Player 1 proposes: <span class="math inline">\(x\in [0,1]\)</span></li>
+<li>Player 2 chooses accept or reject</li>
+<li>Utility function: <span class="math inline">\(v: [0,1]\to\mathbb{R}\)</span>
+<ul>
+<li><span class="math inline">\(v(1) = 1\)</span>, <span class="math inline">\(v(0) = 0\)</span>, <span class="math inline">\(v&#39;&gt;0\)</span>, <span class="math inline">\(v&#39;&#39;&lt;0\)</span></li>
+<li>For player 1: <span class="math inline">\(v_1(x)\)</span> if accepted, <span class="math inline">\(v_1(0)\)</span> if rejected</li>
+<li>For player 2: <span class="math inline">\(v_2(1-x)\)</span> if accepted, <span class="math inline">\(v_2(0)\)</span> if rejected</li>
+</ul></li>
+<li>NE: many</li>
+<li>SPNE: {<span class="math inline">\(s_1 = 1\)</span>, <span class="math inline">\(s_2 =\)</span> accept everything }</li>
+</ul>
+<blockquote>
+<p>Exercise (slides P36)<br />
+What are the SPNE if the game is changed so that player 1 can only offer amounts that can be expressed in cents?</p>
+</blockquote>
+</div>
+<div id="two-stage-ultimatum" class="section level3">
+<h3>Two-Stage Ultimatum</h3>
+</div>
+<div id="rubinstein-game" class="section level3">
+<h3>Rubinstein Game</h3>
+</div>
 </div>
 
     </div>
