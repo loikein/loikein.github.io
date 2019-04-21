@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">8 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -84,7 +84,7 @@
 </ul></li>
 <li><a href="#bargaining">Bargaining</a><ul>
 <li><a href="#ultimatum-game">Ultimatum Game</a></li>
-<li><a href="#two-stage-ultimatum">Two-Stage Ultimatum</a></li>
+<li><a href="#two-round-ultimatum-game">Two-Round Ultimatum Game</a></li>
 <li><a href="#rubinstein-game">Rubinstein Game</a></li>
 </ul></li>
 </ul>
@@ -227,7 +227,7 @@ Consider a game of Nim with one stack.<br />
 Use the idea in the proof of Zermelo’s theorem to decide for what initial allocations of matches player I can force a win and for which player II can force a win.<br />
 Can you construct a winning strategy?</p>
 </blockquote>
-<p>see slides</p>
+<p>Conclusion: for games with <span class="math inline">\(4k+1\)</span> matches, player 2 has winning strategy; otherwise player 1 has winning strategy.</p>
 <table>
 <thead>
 <tr class="header">
@@ -284,6 +284,21 @@ Can you construct a winning strategy?</p>
 </tr>
 </tbody>
 </table>
+<ol start="5" style="list-style-type: decimal">
+<li><ol style="list-style-type: lower-alpha">
+<li>Player 1 takes 1 <span class="math inline">\(\implies\)</span> 4, player 2 wins</li>
+<li>Player 1 takes 2 <span class="math inline">\(\implies\)</span> 3, player 2 wins</li>
+<li>Player 1 takes 3 <span class="math inline">\(\implies\)</span> 2, player 2 wins</li>
+</ol></li>
+<li>Player 1 takes 1 <span class="math inline">\(\implies\)</span> 5, player 1 wins</li>
+<li>Player 1 takes 2 <span class="math inline">\(\implies\)</span> 5, player 1 wins</li>
+<li>Player 1 takes 3 <span class="math inline">\(\implies\)</span> 5, player 1 wins</li>
+<li><ol style="list-style-type: lower-alpha">
+<li>Player 1 takes 1 <span class="math inline">\(\implies\)</span> 8, player 2 wins</li>
+<li>Player 1 takes 2 <span class="math inline">\(\implies\)</span> 7, player 2 wins</li>
+<li>Player 1 takes 3 <span class="math inline">\(\implies\)</span> 6, player 2 wins</li>
+</ol></li>
+</ol>
 </div>
 <div id="subgame" class="section level3">
 <h3>Subgame</h3>
@@ -305,12 +320,18 @@ Every finite extensive form game with perfect information without simultaneous m
 <p>Exercise (slides P23)<br />
 Give an example of a infinite horizon game for which SPNE <span class="math inline">\(\iff\)</span> one-step deviation principle does not hold.</p>
 </blockquote>
-<p>see slides</p>
+<p>Consider <span class="math inline">\((s_n)\)</span> where <span class="math inline">\(s_1\)</span> corresponds to the start node<br />
+<span class="math inline">\(\implies s_n =\)</span> {always stop} satisfies one-step deviation but is not a SPNE</p>
+<div class="figure">
+<img src="/post-img/notes-game-theory--centipede.png" alt="Source:Game theory Centipede game" />
+<p class="caption">Source:<a href="https://math.stackexchange.com/questions/2513447/game-theory-centipede-game">Game theory Centipede game</a></p>
+</div>
 <blockquote>
 <p>Exercise (slides P26)<br />
 Give an example of a infinite horizon game for which Kuhn theorem does not hold.</p>
 </blockquote>
-<p>see slides</p>
+<p>Example of no NE or SPNE:</p>
+<p><img src="/post-img/notes-game-theory--infinite-horizon.png" width="408" /></p>
 </div>
 <div id="chance-moves" class="section level3">
 <h3>Chance Moves</h3>
@@ -319,6 +340,148 @@ Give an example of a infinite horizon game for which Kuhn theorem does not hold.
 <li>Probability function: <span class="math inline">\(f_c(\cdot \ | \ h): A(h)\to [0,1]\)</span> for each <span class="math inline">\(P(h) = c\)</span> and <span class="math inline">\(a\in A(h)\)</span></li>
 <li>Extensive Game with Perfect Information and Chance: <span class="math inline">\(Γ = \langle N,H,P, f_c, (\succsim_i)\rangle\)</span></li>
 </ul>
+<blockquote>
+<p>Example: Duel (OR 6.3.1)<br />
+Two duelists approach each other slowly starting far away from each other.<br />
+Each has one bullet in his pistol, and can shoot whenever they want.<br />
+Old-fashioned pistols weren’t really reliable at a long distance, so the chance of killing the opponent depends on the distance.<br />
+Solve the game.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let the duelists be player 1, 2, and let Nature be the third player</li>
+<li><ol style="list-style-type: lower-alpha">
+<li>For each history <span class="math inline">\(h\in H\)</span> s.t. <span class="math inline">\(P(h) = 3\)</span>, let the probability of <span class="math inline">\(a\in A(h)\)</span> be <span class="math inline">\(f_h\)</span></li>
+<li>Alernatively, let the initial distance be <span class="math inline">\(D = d_n\)</span>, assume <span class="math inline">\(n\)</span> is odd and large.<br />
+For each <span class="math inline">\(d\in[d_0,d_n]\)</span>, probability for player <span class="math inline">\(i\)</span> to kill the opponent be <span class="math inline">\(p_i(d)\)</span>.<br />
+Assume <span class="math inline">\(p_1(d) = p_2(d) = p(d)\)</span> for all <span class="math inline">\(d\)</span>.<br />
+Let <span class="math inline">\(p(D) = 0\)</span>, <span class="math inline">\(p(d_0) = 1\)</span></li>
+</ol></li>
+<li>When <span class="math inline">\(P(h) = i\)</span> at <span class="math inline">\(d\)</span>, payoff for player <span class="math inline">\(i\)</span> to shoot is <span class="math inline">\(p_i(d)\)</span>, and player <span class="math inline">\(-i\)</span> gets <span class="math inline">\(1-p_i(d)\)</span></li>
+</ol>
+<p><img src="/post-img/notes-game-theory--duel-tree.png" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Distance</th>
+<th>Player</th>
+<th>Payoff to shoot</th>
+<th>Comparison</th>
+<th>Payoff to step</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(d_0\)</span></td>
+<td>2</td>
+<td><span class="math inline">\(p(d_0) = 1\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d_1\)</span></td>
+<td>1</td>
+<td><span class="math inline">\(p(d_1)\)</span></td>
+<td><span class="math inline">\(&gt;\)</span></td>
+<td><span class="math inline">\(1-p(d_0) = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(d_2\)</span></td>
+<td>2</td>
+<td><span class="math inline">\(p(d_2)\)</span></td>
+<td>?</td>
+<td><span class="math inline">\(1-p(d_1)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d_3\)</span></td>
+<td>1</td>
+<td><span class="math inline">\(p(d_3)\)</span></td>
+<td>?</td>
+<td><span class="math inline">\(1-p(d_2)\)</span></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d_x\)</span></td>
+<td></td>
+<td><span class="math inline">\(p(d_x)\)</span></td>
+<td><span class="math inline">\(&gt;\)</span></td>
+<td><span class="math inline">\(1-p(d_{x-1})\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(d_{x+1}\)</span></td>
+<td></td>
+<td><span class="math inline">\(p(d_{x+1})\)</span></td>
+<td><span class="math inline">\(=\)</span></td>
+<td><span class="math inline">\(1-p(d_x)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d_{x+2}\)</span></td>
+<td></td>
+<td><span class="math inline">\(p(d_{x+2})\)</span></td>
+<td><span class="math inline">\(&lt;\)</span></td>
+<td><span class="math inline">\(1-p(d_{x+1})\)</span></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d_{n-2}\)</span></td>
+<td>1</td>
+<td><span class="math inline">\(p(d_{n-2})\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(d_{n-1}\)</span></td>
+<td>2</td>
+<td><span class="math inline">\(p(d_{n-1})\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d_n\)</span></td>
+<td>1</td>
+<td><span class="math inline">\(p(d_n) = 0\)</span></td>
+<td><span class="math inline">\(&lt;\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Let <span class="math inline">\(x\in\mathbb{R}\)</span> be the solution that solves
+<span class="math display">\[\begin{aligned}p(d_{x+1}) &amp;= 1-p(d_x) \\ p(d_{x+1}) + p(d_x) &amp;= 1 \end{aligned}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>At <span class="math inline">\(d_2\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>Player 2 shoots if <span class="math inline">\(d_2 \leq d_{x+1}\implies x\geq 1\)</span></li>
+<li>Player 2 steps if <span class="math inline">\(x&lt;1\)</span><br />
+<span class="math inline">\(\implies\)</span> all choices before were “step”</li>
+</ol></li>
+<li>At <span class="math inline">\(d_3\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>Player 1 shoots if <span class="math inline">\(d_3 \leq d_{x+1}\implies x\geq 2\)</span></li>
+<li>Player 1 steps if <span class="math inline">\(x&lt;2\)</span><br />
+<span class="math inline">\(\implies\)</span> all choices before were “step”</li>
+</ol></li>
+<li>At <span class="math inline">\(d_k\)</span> for arbitrary <span class="math inline">\(k\in\mathbb{N}\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>Player shoots if <span class="math inline">\(d_k \leq d_{x+1}\implies x\geq k-1\)</span></li>
+<li>Player steps if <span class="math inline">\(x&lt;k-1\)</span><br />
+</li>
+</ol></li>
+<li>Therefore, player shoots at <span class="math inline">\(d_k\)</span> if <span class="math inline">\(k-1\leq x &lt; k\)</span></li>
+</ol>
+<p>SPNE:<br />
+Player shoots whenever <span class="math inline">\(d\leq d_k\)</span>, steps whenever distance is <span class="math inline">\(d&gt; d_k\)</span>,<br />
+where <span class="math inline">\(k = \text{argmin}_{k\in\mathbb{N}} \ k &gt; x\)</span></p>
 <blockquote>
 <p>Exercise (slide P31)<br />
 We have assumed that <span class="math inline">\(p_1(x) = p_2(x)\)</span>, i.e. that both duelists are equally skilled.<br />
@@ -332,8 +495,11 @@ When will players start shooting?</p>
 <div id="ultimatum-game" class="section level3">
 <h3>Ultimatum Game</h3>
 <ul>
-<li>Player 1 proposes: <span class="math inline">\(x\in [0,1]\)</span></li>
+<li>Timing
+<ol style="list-style-type: decimal">
+<li>Player 1 proposes <span class="math inline">\(x\in [0,1]\)</span></li>
 <li>Player 2 chooses accept or reject</li>
+</ol></li>
 <li>Utility function: <span class="math inline">\(v: [0,1]\to\mathbb{R}\)</span>
 <ul>
 <li><span class="math inline">\(v(1) = 1\)</span>, <span class="math inline">\(v(0) = 0\)</span>, <span class="math inline">\(v&#39;&gt;0\)</span>, <span class="math inline">\(v&#39;&#39;&lt;0\)</span></li>
@@ -348,11 +514,21 @@ When will players start shooting?</p>
 What are the SPNE if the game is changed so that player 1 can only offer amounts that can be expressed in cents?</p>
 </blockquote>
 </div>
-<div id="two-stage-ultimatum" class="section level3">
-<h3>Two-Stage Ultimatum</h3>
+<div id="two-round-ultimatum-game" class="section level3">
+<h3>Two-Round Ultimatum Game</h3>
+<ul>
+<li>Timing
+<ol style="list-style-type: decimal">
+<li>Player 1 proposes <span class="math inline">\(x_1\in [0,1]\)</span></li>
+<li>Player 2 chooses accept or reject</li>
+<li>If player 2 rejects, player 2 proposes <span class="math inline">\(x_2\in [0,1]\)</span></li>
+<li>Player 1 chooses accept or reject</li>
+</ol></li>
+</ul>
 </div>
 <div id="rubinstein-game" class="section level3">
 <h3>Rubinstein Game</h3>
+<p>OR 7.2</p>
 </div>
 </div>
 
