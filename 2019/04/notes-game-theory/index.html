@@ -507,7 +507,7 @@ When will players start shooting?</p>
 <li>For player 2: <span class="math inline">\(v_2(1-x)\)</span> if accepted, <span class="math inline">\(v_2(0)\)</span> if rejected</li>
 </ul></li>
 <li>NE: many</li>
-<li>SPNE: {<span class="math inline">\(s_1 = 1\)</span>, <span class="math inline">\(s_2 =\)</span> accept everything }</li>
+<li>SPNE: { <span class="math inline">\(s_1=x_1 = 1\)</span>; <span class="math inline">\(s_2 =\)</span> accept everything }</li>
 </ul>
 <blockquote>
 <p>Exercise (slides P36)<br />
@@ -524,7 +524,25 @@ What are the SPNE if the game is changed so that player 1 can only offer amounts
 <li>If player 2 rejects, player 2 proposes <span class="math inline">\(x_2\in [0,1]\)</span></li>
 <li>Player 1 chooses accept or reject</li>
 </ol></li>
+<li>Utility for player 1
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(v_1(x_1)\)</span> if accepted</li>
+<li><span class="math inline">\(δ_1\cdot v_1(1-x_2)\)</span> if accepts player 2’s proposal</li>
+<li><span class="math inline">\(δ_1\cdot v_1(0) = 0\)</span> if rejects player 2’s proposal</li>
+</ol></li>
+<li>Utility for player 2
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(v_2(1-x_1)\)</span> if accepts player 1’s proposal</li>
+<li><span class="math inline">\(δ_2\cdot v_2(x_2)\)</span> if accepted</li>
+<li><span class="math inline">\(δ_2\cdot v_2(0) = 0\)</span> if rejected</li>
+</ol></li>
+<li>SPNE:
+<ul>
+<li>Player 2: <span class="math inline">\(x_2 = 1\)</span>; accept everything larger than <span class="math inline">\(δ_2\cdot v_2(1)\)</span></li>
+<li>Player 1: <span class="math inline">\(x_1=x^*\)</span> s.t. <span class="math inline">\(v_2( 1-x^* ) = δ_2\cdot v_2(1)\)</span>; accept everything</li>
+</ul></li>
 </ul>
+<p><img src="/post-img/notes-game-theory--two-round-ultimatum.png" /></p>
 </div>
 <div id="rubinstein-game" class="section level3">
 <h3>Rubinstein Game</h3>
