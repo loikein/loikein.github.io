@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">14 min read</span>
+    <span class="article-duration">16 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -96,18 +96,21 @@
 <li><a href="#separating-equilibrium">Separating Equilibrium</a></li>
 <li><a href="#pooling-equilibrium">Pooling Equilibrium</a></li>
 </ul></li>
-<li><a href="#adverse-selection-mwg-ch-13">Adverse Selection (MWG Ch 13)</a></li>
+<li><a href="#adverse-selection-mwg-ch-13">Adverse Selection (MWG Ch 13)</a><ul>
+<li><a href="#benchmark">Benchmark</a></li>
+<li><a href="#unknown-type">Unknown Type</a></li>
+</ul></li>
 <li><a href="#moral-hazard-hidden-action">Moral Hazard (Hidden Action)</a><ul>
 <li><a href="#timing-1">Timing</a></li>
-<li><a href="#benchmark">Benchmark</a></li>
+<li><a href="#benchmark-1">Benchmark</a></li>
 <li><a href="#limited-liability">Limited Liability</a></li>
 <li><a href="#agent-offers-contract">Agent Offers Contract</a></li>
 </ul></li>
 <li><a href="#moral-hazard-hidden-information">Moral Hazard (Hidden Information)</a><ul>
 <li><a href="#one-sided-timing">One-Sided Timing</a></li>
-<li><a href="#benchmark-1">Benchmark</a></li>
-<li><a href="#two-sided-timing">Two-Sided Timing</a></li>
 <li><a href="#benchmark-2">Benchmark</a></li>
+<li><a href="#two-sided-timing">Two-Sided Timing</a></li>
+<li><a href="#benchmark-3">Benchmark</a></li>
 </ul></li>
 </ul>
 </div>
@@ -136,9 +139,8 @@
 <div id="lemon-market-continuous-quality" class="section level2">
 <h2>Lemon Market: Continuous Quality</h2>
 <ul>
-<li>Quality of car: <span class="math inline">\(s\)</span>
+<li>Quality of car: <span class="math inline">\(s\in [0,\bar{s}]\)</span>
 <ul>
-<li><span class="math inline">\(s\in [0,\bar{s}]\)</span></li>
 <li>pdf: <span class="math inline">\(f(s) = α s^{α-1}\)</span></li>
 <li>cdf: <span class="math inline">\(F(s) = s^α\)</span></li>
 </ul></li>
@@ -216,7 +218,7 @@ Each buyer will trade with seller with car of quality <span class="math inline">
 θ\cdot s &amp;\geq θ_0\cdot s \\
 θ &amp;\geq θ_0\end{aligned}\]</span>
 Volume of trade:
-<span class="math display">\[\begin{aligned} D &amp;= N\cdot Pr(θ\geq θ_0) \\ &amp;= N\big[ 1 - G(θ_0) \big]\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned} D &amp;= N\cdot Pr(θ\geq θ_0) \\ &amp;= N\cdot\big[ 1 - G(θ_0) \big]\end{aligned}\]</span></li>
 <li>Asymmetric information<br />
 <strong>Given price <span class="math inline">\(p\)</span></strong>, sellers sell if
 <span class="math display">\[\begin{aligned}p &amp;\geq θ_0\cdot s \\
@@ -383,7 +385,7 @@ Solve the case of cheap (ex post effcient) repairs.</p>
 <ol style="list-style-type: decimal">
 <li>Pooling equilibrium with warranty<br />
 Buyers’ belief: <span class="math inline">\(\begin{cases}μ(1) = α \\ μ(0) \end{cases}\)</span><br />
-Buyers’ WTP:
+Buyers’ willingness to buy:
 <span class="math display">\[p = \begin{cases} θ_2 &amp; w=1 \\
 θ_2 -\big[μ(0)\cdot (1-r) + \big(1-μ(0)\big)\cdot (1-q)\big]\cdot c &amp; w=0\end{cases}\]</span>
 For <span class="math inline">\(\bar{s}\)</span> seller,
@@ -401,7 +403,7 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 <li>Pooling equilibrium with no warranty does not exist because <span class="math inline">\(\bar{s}\)</span> seller will deviate by issuing warranty</li>
 <li>Separating equilibrium<br />
 Buyers’ belief: <span class="math inline">\(\begin{cases}μ(1) = r \\ μ(0) = q \end{cases}\)</span><br />
-Buyers’ WTP: <span class="math inline">\(p = \begin{cases} θ_2 &amp; w=1 \\ θ_2 - (1-q)\cdot c &amp; w=0\end{cases}\)</span><br />
+Buyers’ willingness to buy: <span class="math inline">\(p = \begin{cases} θ_2 &amp; w=1 \\ θ_2 - (1-q)\cdot c &amp; w=0\end{cases}\)</span><br />
 For <span class="math inline">\(\bar{s}\)</span> seller,
 <span class="math display">\[\begin{aligned}(IC) &amp;&amp; \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{θ_2 - (1-q)\cdot c}_{\text{Sell w/o warranty}} \\
 \implies &amp;&amp; r &amp;\geq q \\
@@ -412,11 +414,69 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 \implies &amp;&amp; q &amp;\geq q \\
 (PC) &amp;&amp; \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/o warranty}} &amp;\geq \underbrace{θ_1 - (1-q) \cdot c}_{\text{Not sell}} \\
 \implies &amp;&amp; θ_2 &amp;\geq θ_1\end{aligned}\]</span></li>
+<li>There is no equilibrium where a <span class="math inline">\(\bar{s}\)</span> seller does not sell</li>
 </ol>
 </div>
 </div>
 <div id="adverse-selection-mwg-ch-13" class="section level2">
 <h2>Adverse Selection (MWG Ch 13)</h2>
+<p>also see <a href="#competitive-equilibrium">#Lemon Market Competitive Equilibrium</a></p>
+<ul>
+<li>Type of workers: <span class="math inline">\(θ\in [\underline{θ},\bar{θ}]\)</span>
+<ul>
+<li>pdf: <span class="math inline">\(f(θ)\)</span></li>
+<li>cdf: <span class="math inline">\(F(θ)\)</span>, <span class="math inline">\(F(\hat{θ}) = Pr(θ\leq \hat{θ})\)</span></li>
+</ul></li>
+<li><span class="math inline">\(N\)</span> workers, many firms</li>
+<li>Reservation utility: <span class="math inline">\(r(θ)\geq 0\)</span>, <span class="math inline">\(r&#39;(θ)&gt; 0\)</span></li>
+<li>Wage: <span class="math inline">\(w(θ)\)</span></li>
+</ul>
+<div id="benchmark" class="section level3">
+<h3>Benchmark</h3>
+<ul>
+<li>Existence of wage<br />
+Worker <span class="math inline">\(θ\)</span> will accept job if <span class="math inline">\(w(θ) \geq r(θ)\)</span><br />
+Firms will employ worker <span class="math inline">\(θ\)</span> if <span class="math inline">\(w(θ)\leq θ\)</span><br />
+Worker <span class="math inline">\(θ\)</span> will be employed if
+<span class="math display">\[\begin{aligned}r(θ)&amp;\leq w(θ)\leq θ \\
+r(θ) &amp;\leq θ \\
+w^*(θ) &amp;= θ\end{aligned}\]</span></li>
+<li>Social planner’s problem<br />
+Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \\ 1&amp;\text{employed} \end{cases}\)</span>,
+<span class="math display">\[\begin{aligned}\max_{I(θ)} &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big] \,dF(θ) \\
+&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big]\cdot f(θ) \,dθ \\
+&amp;&amp; &amp;I^*(θ) = \begin{cases}0 &amp; θ &lt; r(θ) \\ 1 &amp; θ \geq r(θ) \end{cases}\end{aligned}\]</span></li>
+<li>Number of employed workers: <span class="math inline">\(N\cdot\big[1 - F\big(r(θ)\big)\big]\)</span></li>
+</ul>
+</div>
+<div id="unknown-type" class="section level3">
+<h3>Unknown Type</h3>
+<ul>
+<li>Wage: <span class="math inline">\(w\)</span> for all <span class="math inline">\(θ\)</span></li>
+<li>Set of workers accept <span class="math inline">\(w\)</span>: <span class="math inline">\(Θ(w) = \{θ \ | \ r(θ)\leq w\}\)</span></li>
+<li>Firms’ belief: <span class="math inline">\(μ(w) = E[θ \ | \ r(θ)\leq w]\)</span>
+<ul>
+<li>Off-track belief: <span class="math inline">\(μ = E[θ]\)</span> when <span class="math inline">\(Θ = \emptyset\)</span></li>
+</ul></li>
+<li>Firms’ demand: <span class="math inline">\(z(w) = \begin{cases}0 &amp; μ&lt;w \\ [0, \infty) &amp; μ= w \\\infty &amp; μ&gt;w\end{cases}\)</span></li>
+<li>Equilibrium
+<span class="math display">\[\begin{aligned}\text{Workers&#39; BR} &amp;&amp; Θ^* &amp;= \{θ \ | \ r(θ)\leq w^*\} \\
+\text{Firms&#39; BR} &amp;&amp; w^* &amp;= E[θ \ | \ θ\in Θ^*] \\
+&amp;&amp; &amp;= E[θ \ | \ r(θ)\leq w^*]\end{aligned}\]</span></li>
+<li>Adverse selection arises when <span class="math inline">\(E[θ]&lt; r(\bar{θ})\)</span> (step 4 &amp; 5)
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(w&lt;r(θ)\)</span>, no worker accept</li>
+<li>When <span class="math inline">\(w=r(\underline{θ})\)</span>, only worker <span class="math inline">\(\underline{θ}\)</span> accepts</li>
+<li>In equilibrium, <span class="math inline">\(E[θ \ | \ r(θ)\leq w^*] = w^*\)</span></li>
+<li>When <span class="math inline">\(w=r(\bar{θ})\)</span>, all workers accept, <span class="math inline">\(E[θ \ | \ r(θ)\leq w] = E[θ]\)</span></li>
+<li>When <span class="math inline">\(w&gt;r(\bar{θ})\)</span>, since <span class="math inline">\(E[θ] = \text{sup} \ E[θ \ | \ r(θ)\leq w]\)</span>, the function stays constant</li>
+</ol></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-institution--adverse-selection-eq.png" alt="MWG Figure 13.B.1" width="493" />
+<p class="caption">MWG Figure 13.B.1</p>
+</div>
+</div>
 </div>
 <div id="moral-hazard-hidden-action" class="section level2">
 <h2>Moral Hazard (Hidden Action)</h2>
@@ -446,7 +506,7 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark" class="section level3">
+<div id="benchmark-1" class="section level3">
 <h3>Benchmark</h3>
 <ul>
 <li>First best solution:
@@ -589,7 +649,7 @@ Therefore, the law improves total surplus when <span class="math inline">\(\frac
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark-1" class="section level3">
+<div id="benchmark-2" class="section level3">
 <h3>Benchmark</h3>
 <ul>
 <li>Return: <span class="math inline">\(v\)</span></li>
@@ -629,7 +689,7 @@ Therefore, the law improves total surplus when <span class="math inline">\(\frac
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark-2" class="section level3">
+<div id="benchmark-3" class="section level3">
 <h3>Benchmark</h3>
 <ul>
 <li>Principal’s type (return): <span class="math inline">\(v\geq 0\)</span>

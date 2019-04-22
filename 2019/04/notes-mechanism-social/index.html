@@ -175,74 +175,76 @@ An SCE <span class="math inline">\(c\)</span> is implementable <span class="math
 <li>Dominant Strategy Equilibrium</li>
 <li>Bayesian Nash Equilibrium</li>
 </ol>
-<blockquote>
-<p>Exercise<br />
-One seller, one buyer, one good<br />
-Seller has 0 value for the good (no production costs)<br />
-Buyer’s willingness to pay is <span class="math inline">\(θ\in [\underline{θ},\bar{θ}]\)</span>, <span class="math inline">\(θ∼F\)</span><br />
-Seller doesn’t know <span class="math inline">\(θ\)</span><br />
-What’s the best the seller can do?</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Seller posts price <span class="math inline">\(p\)</span>, buyer can accept or reject</li>
-<li>Seller posts price <span class="math inline">\(p_1\)</span>, if buyer rejects, seller posts price <span class="math inline">\(p_2\)</span></li>
-<li>Buyer posts price <span class="math inline">\(p\)</span>, seller can accept or reject</li>
-<li>…</li>
-</ol>
-<p>Mechanism: a game <span class="math inline">\(Γ=(Σ_S, Σ_B, g)\)</span><br />
-<span class="math inline">\(g: Σ_S\times Σ_B\to Δ \big( \{0,1\}\times\mathbb{R}\big)\)</span></p>
-<ol style="list-style-type: decimal">
-<li>Commitment to <span class="math inline">\(Γ\)</span></li>
-<li>Seller commits to strategy <span class="math inline">\(σ_S\)</span></li>
-</ol>
-<p><span class="math inline">\(\implies\)</span> decision problem for the buyer<br />
-<span class="math inline">\(\implies\)</span> involve revelation principle<br />
-Buyer: for each <span class="math inline">\(θ\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(σ^*_B(θ)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(g\big(σ^*_B(θ) \big)\)</span><br />
-Direct mechanism: let <span class="math inline">\(g^D(θ) = g\big(σ^*_B(θ) \big)\)</span> s.t. <span class="math inline">\(σ^D_B(θ) = θ\)</span></p>
-<p><span class="math inline">\(DM = \{q(θ), t(θ)\}\)</span><br />
-where <span class="math inline">\(q(θ)\in[0,1]\)</span> is the probability of trade<br />
-and <span class="math inline">\(t(θ)\)</span> is the payment made by the buyer</p>
-<p>Seller’s problem:
-<span class="math display">\[\begin{aligned}\max_{DM} &amp;&amp; &amp;E[t(θ)] \\
-(IC) &amp;&amp; θ\cdot q(θ) - t(θ)&amp;\geq θ\cdot q(θ&#39;) - t(θ&#39;) &amp;&amp; \text{for all } θ, θ&#39; \\
-(PC) &amp;&amp; θ\cdot q(θ) - t(θ)&amp;\geq 0 &amp;&amp; \text{for all } θ \end{aligned}\]</span>
-(IC) <span class="math inline">\(\implies\)</span><br />
-<span class="math display">\[\begin{aligned} θ\cdot q(θ) - t(θ)&amp;\geq θ\cdot q(θ&#39;) - t(θ&#39;) \\
-θ&#39;\cdot q(θ&#39;) - t(θ&#39;)&amp;\geq θ&#39;\cdot q(θ) - t(θ) \\
-\implies (θ - θ&#39;)(q(θ) - q(θ&#39;)) &amp;\geq 0\end{aligned}\]</span>
-if <span class="math inline">\(θ&gt;θ&#39;\implies q(θ)&gt;q(θ&#39;)\)</span></p>
-<p>Buyer’s problem:
-<span class="math display">\[\begin{aligned}U(θ) &amp;= θq(θ) - t(θ) \\ &amp;= \max_{θ&#39;} \ θ\cdot q(θ&#39;) - t(θ&#39;)\end{aligned}\]</span>
-<span class="math inline">\(\implies U\)</span> is convex<br />
-<span class="math inline">\(U&#39; = q(θ)\in [0,1]\)</span><br />
-<span class="math display">\[\begin{aligned}q(θ) &amp;= U&#39;(θ) \\
-t(θ) &amp;= θq(θ) - U(θ)\end{aligned}\]</span></p>
-<p><span class="math inline">\(\implies DM = \{q(θ), t(θ)\}\)</span> is IC <span class="math inline">\(\iff U\)</span> is convex and <span class="math inline">\(U\in [0,1]\)</span><br />
-<span class="math display">\[\begin{aligned}U&#39;(θ) &amp;= q(θ) \\
-U(θ) &amp;= U(\underline{θ}) + \int_{\underline{θ}}^θ q(s) ds \\
-E[t(θ)] &amp;= \int_{\underline{θ}}^{\bar{θ}} t(θ) dF(θ) \\
-&amp;= \int_{\underline{θ}}^{\bar{θ}} θq(θ) - U(θ) dθ \\
-&amp;= \int_{\underline{θ}}^{\bar{θ}} \big[ θq(θ) - U(\underline{θ}) - \int_{\underline{θ}}^θ q(s) ds\big]dF(θ)\end{aligned}\]</span>
-Let <span class="math inline">\(M = q(\cdot)\)</span> weakly increasing and <span class="math inline">\(q(\cdot)\in [0,1]\)</span><br />
-<span class="math display">\[\begin{aligned}\max_{M} &amp;&amp; &amp;\phantom{\ggg}- U(\underline{θ}) + \int_{\underline{θ}}^{\bar{θ}} \big[ θq(θ)- \int_{\underline{θ}}^θ q(s) ds\big]dF(θ) \\
-s.t. &amp;&amp; &amp;\phantom{\ggg}U(\underline{θ}) = 0 \\
-\implies \max_{M} &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} \big[ θq(θ)- \int_{\underline{θ}}^θ q(s) ds\big]dF(θ) \\
-&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} θq(θ)dF(θ)ds - \int_{\underline{θ}}^{\bar{θ}}\int_{\underline{θ}}^θ q(s) ds dF(θ) \\
-&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} θq(θ)dF(θ)ds - \int_{\underline{θ}}^{\bar{θ}} \big(\frac{1-F(θ}{q&#39;(θ)}\big) q(θ) dF(θ) \\
-&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} q(θ)(θ- \frac{1-F(θ)}{q&#39;(θ)})dF(θ) \end{aligned}\]</span></p>
-<!-- 
-&& = \int_{\underline{θ}}^{\bar{θ}} \big[ θq(θ)dF(θ)- \int_{\underline{θ}}^θ q(s) dF(θ)\big] dθ\\
+<!--
+> Exercise  
+> One seller, one buyer, one good  
+> Seller has 0 value for the good (no production costs)  
+> Buyer's willingness to pay is $θ\in [\underline{θ},\bar{θ}]$, $θ∼F$  
+> Seller doesn't know $θ$  
+> What's the best the seller can do?
+
+1. Seller posts price $p$, buyer can accept or reject
+2. Seller posts price $p_1$, if buyer rejects, seller posts price $p_2$
+3. Buyer posts price $p$, seller can accept or reject
+4. …
+
+Mechanism: a game $Γ=(Σ_S, Σ_B, g)$  
+$g: Σ_S\times Σ_B\to Δ \big( \{0,1\}\times\mathbb{R}\big)$  
+
+1. Commitment to $Γ$
+2. Seller commits to strategy $σ_S$
+
+$\implies$ decision problem for the buyer  
+$\implies$ involve revelation principle  
+Buyer: for each $θ$ $\implies$ $σ^*_B(θ)$ $\implies$ $g\big(σ^*_B(θ) \big)$  
+Direct mechanism: let $g^D(θ) = g\big(σ^*_B(θ) \big)$ s.t. $σ^D_B(θ) = θ$  
+
+$DM = \{q(θ), t(θ)\}$  
+where $q(θ)\in[0,1]$ is the probability of trade  
+and $t(θ)$ is the payment made by the buyer  
+
+Seller's problem: 
+$$\begin{aligned}\max_{DM} && &E[t(θ)] \\
+(IC) && θ\cdot q(θ) - t(θ)&\geq θ\cdot q(θ') - t(θ') && \text{for all } θ, θ' \\
+(PC) && θ\cdot q(θ) - t(θ)&\geq 0 && \text{for all } θ \end{aligned}$$
+(IC) $\implies$  
+$$\begin{aligned} θ\cdot q(θ) - t(θ)&\geq θ\cdot q(θ') - t(θ') \\
+θ'\cdot q(θ') - t(θ')&\geq θ'\cdot q(θ) - t(θ) \\
+\implies (θ - θ')(q(θ) - q(θ')) &\geq 0\end{aligned}$$
+if $θ>θ'\implies q(θ)>q(θ')$
+
+Buyer's problem: 
+$$\begin{aligned}U(θ) &= θq(θ) - t(θ) \\ &= \max_{θ'} \ θ\cdot q(θ') - t(θ')\end{aligned}$$
+$\implies U$ is convex  
+$U' = q(θ)\in [0,1]$  
+$$\begin{aligned}q(θ) &= U'(θ) \\
+t(θ) &= θq(θ) - U(θ)\end{aligned}$$ 
+
+$\implies DM = \{q(θ), t(θ)\}$ is IC $\iff U$ is convex and $U\in [0,1]$  
+$$\begin{aligned}U'(θ) &= q(θ) \\
+U(θ) &= U(\underline{θ}) + \int_{\underline{θ}}^θ q(s) ds \\
+E[t(θ)] &= \int_{\underline{θ}}^{\bar{θ}} t(θ) dF(θ) \\
+&= \int_{\underline{θ}}^{\bar{θ}} θq(θ) - U(θ) dθ \\
+&= \int_{\underline{θ}}^{\bar{θ}} \big[ θq(θ) - U(\underline{θ}) - \int_{\underline{θ}}^θ q(s) ds\big]dF(θ)\end{aligned}$$ 
+Let $M = q(\cdot)$ weakly increasing and $q(\cdot)\in [0,1]$  
+$$\begin{aligned}\max_{M} && &\phantom{\ggg}- U(\underline{θ}) + \int_{\underline{θ}}^{\bar{θ}} \big[ θq(θ)- \int_{\underline{θ}}^θ q(s) ds\big]dF(θ) \\
+s.t. && &\phantom{\ggg}U(\underline{θ}) = 0 \\
+\implies \max_{M} && &\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} \big[ θq(θ)- \int_{\underline{θ}}^θ q(s) ds\big]dF(θ) \\
+&& &= \int_{\underline{θ}}^{\bar{θ}} θq(θ)dF(θ)ds - \int_{\underline{θ}}^{\bar{θ}}\int_{\underline{θ}}^θ q(s) ds dF(θ) \\
+&& &= \int_{\underline{θ}}^{\bar{θ}} θq(θ)dF(θ)ds - \int_{\underline{θ}}^{\bar{θ}} \big(\frac{1-F(θ}{q'(θ)}\big) q(θ) dF(θ) \\
+&& &= \int_{\underline{θ}}^{\bar{θ}} q(θ)(θ- \frac{1-F(θ)}{q'(θ)})dF(θ) \end{aligned}$$
+
+1. $M$ is convex and compact
+2. object lives on $M$
+
+$\implies$ optimizer is extreme point of $M$  
+$\implies$ extreme points are $q(θ\in\{0,1\})$  
+$\implies$ $θ^*$ s.t. $q(θ)=\begin{cases}1 & θ\geq θ^* \\ 0 & \text{else} \end{cases}$  
+$\implies$ $t(θ)=\begin{cases} 0 & θ< θ^* \\ θ^* & θ\geq θ^* \end{cases}$
+
+Seller's problem: 
+$$\begin{aligned}\max_p && p\cdot(1-F(p))\end{aligned}$$
 -->
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(M\)</span> is convex and compact</li>
-<li>object lives on <span class="math inline">\(M\)</span></li>
-</ol>
-<p><span class="math inline">\(\implies\)</span> optimizer is extreme point of <span class="math inline">\(M\)</span><br />
-<span class="math inline">\(\implies\)</span> extreme points are <span class="math inline">\(q(θ\in\{0,1\})\)</span><br />
-<span class="math inline">\(\implies\)</span> <span class="math inline">\(θ^*\)</span> s.t. <span class="math inline">\(q(θ)=\begin{cases}1 &amp; θ\geq θ^* \\ 0 &amp; \text{else} \end{cases}\)</span><br />
-<span class="math inline">\(\implies\)</span> <span class="math inline">\(t(θ)=\begin{cases} 0 &amp; θ&lt; θ^* \\ θ^* &amp; θ\geq θ^* \end{cases}\)</span></p>
-<p>Seller’s problem:
-<span class="math display">\[\begin{aligned}\max_p &amp;&amp; p\cdot(1-F(p))\end{aligned}\]</span></p>
 </div>
 </div>
 
