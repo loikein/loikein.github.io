@@ -428,7 +428,7 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 <li>cdf: <span class="math inline">\(F(θ)\)</span>, <span class="math inline">\(F(\hat{θ}) = Pr(θ\leq \hat{θ})\)</span></li>
 </ul></li>
 <li><span class="math inline">\(N\)</span> workers, many firms</li>
-<li>Reservation utility: <span class="math inline">\(r(θ)\geq 0\)</span>, <span class="math inline">\(r&#39;(θ)&gt; 0\)</span></li>
+<li>Reservation utility: <span class="math inline">\(r(θ)\geq 0\)</span></li>
 <li>Wage: <span class="math inline">\(w(θ)\)</span></li>
 </ul>
 <div id="benchmark" class="section level3">
@@ -452,7 +452,12 @@ Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \
 <div id="unknown-type" class="section level3">
 <h3>Unknown Type</h3>
 <ul>
-<li>Wage: <span class="math inline">\(w\)</span> for all <span class="math inline">\(θ\)</span></li>
+<li>Assumptions <span class="math inline">\(\implies E[θ]&lt; r(\bar{θ})\)</span> (adverse selection)
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(r(θ)\leq θ\)</span> for all <span class="math inline">\(θ\)</span> (efficient for all workers to be employed)</li>
+<li><span class="math inline">\(r&#39;(θ)&gt; 0\)</span></li>
+</ol></li>
+<li>Wage: (given) <span class="math inline">\(w\)</span> for all <span class="math inline">\(θ\)</span></li>
 <li>Set of workers accept <span class="math inline">\(w\)</span>: <span class="math inline">\(Θ(w) = \{θ \ | \ r(θ)\leq w\}\)</span></li>
 <li>Firms’ belief: <span class="math inline">\(μ(w) = E[θ \ | \ r(θ)\leq w]\)</span>
 <ul>
@@ -463,7 +468,7 @@ Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \
 <span class="math display">\[\begin{aligned}\text{Workers&#39; BR} &amp;&amp; Θ^* &amp;= \{θ \ | \ r(θ)\leq w^*\} \\
 \text{Firms&#39; BR} &amp;&amp; w^* &amp;= E[θ \ | \ θ\in Θ^*] \\
 &amp;&amp; &amp;= E[θ \ | \ r(θ)\leq w^*]\end{aligned}\]</span></li>
-<li>Adverse selection arises when <span class="math inline">\(E[θ]&lt; r(\bar{θ})\)</span> (step 4 &amp; 5)
+<li>Adverse selection arises in step 4 &amp; 5
 <ol style="list-style-type: decimal">
 <li>When <span class="math inline">\(w&lt;r(θ)\)</span>, no worker accept</li>
 <li>When <span class="math inline">\(w=r(\underline{θ})\)</span>, only worker <span class="math inline">\(\underline{θ}\)</span> accepts</li>
