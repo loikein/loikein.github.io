@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">0 min read</span>
+    <span class="article-duration">5 min read</span>
     
     <h1 class="article-title">Notes on Time Series</h1>
     
@@ -75,8 +75,282 @@
     <div class="article-content">
       
 
+<div id="TOC">
+<ul>
+<li><a href="#definition">Definition</a><ul>
+<li><a href="#property">Property</a></li>
+</ul></li>
+<li><a href="#analysis">Analysis</a><ul>
+<li><a href="#procedure">Procedure</a></li>
+<li><a href="#trend">Trend</a></li>
+<li><a href="#trend-seasonality">Trend &amp; Seasonality</a></li>
+</ul></li>
+<li><a href="#arma">ARMA</a><ul>
+<li><a href="#types-of-process">Types of Process</a></li>
+<li><a href="#lag-operator">Lag Operator</a></li>
+<li><a href="#difference-operator-integration">Difference Operator &amp; Integration</a></li>
+<li><a href="#deterministic-linear-trend">Deterministic (Linear) Trend</a></li>
+<li><a href="#ols-estimation">OLS Estimation</a></li>
+<li><a href="#model-selection">Model Selection</a></li>
+<li><a href="#spurious-regression">Spurious Regression</a></li>
+<li><a href="#cointegration">Cointegration</a></li>
+</ul></li>
+</ul>
+</div>
 
+<div id="definition" class="section level2">
+<h2>Definition</h2>
+<ul>
+<li>Time series: collection of observations indexed by date
+<span class="math display">\[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;= \{y_t\}_{t\in\mathbb{Z}} \\
+&amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]</span>
+<ul>
+<li>Observed sample: <span class="math inline">\(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\)</span></li>
+<li>Underlying random variables: <span class="math inline">\(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)</span></li>
+</ul></li>
+<li>Stochastic process: ordered sequence of random variables
+<span class="math display">\[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]</span>
+<ul>
+<li>Probability space: <span class="math inline">\((Ω,\mathcal{A},P)\)</span></li>
+<li>Mapping: <span class="math inline">\(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\)</span> s.t. <span class="math inline">\(\{Y_t(ω) \}_{t\in\mathbb{Z}} = \{Y_t(ω) : t\in\mathbb{Z} \}\)</span></li>
+<li>Fix <span class="math inline">\(t\)</span>, vary <span class="math inline">\(ω\implies\)</span> scalar random variable <span class="math inline">\(Y_t(ω)\)</span></li>
+<li>Fix <span class="math inline">\(ω\)</span>, vary <span class="math inline">\(t\implies\)</span><br />
+Trajectory (realization): <span class="math inline">\(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\)</span></li>
+</ul></li>
+</ul>
+<div id="property" class="section level3">
+<h3>Property</h3>
+<ul>
+<li>First moment: <span class="math inline">\(μ_t = E[Y_t]\)</span></li>
+<li>Second moments
+<ul>
+<li>Variance: <span class="math inline">\(γ_{0t} = E\big[(Y_t - μ_t)^2\big]\)</span></li>
+<li>Covariance: <span class="math inline">\(γ_{jt} = E\big[(Y_t - μ_t)(Y_{t-j} - μ_{t-j})\big]\)</span></li>
+<li><span class="math inline">\(E[Y_t^2]&lt;\infty\implies γ_{jt}&lt;\infty\)</span></li>
+</ul></li>
+<li>Weakly (Covariance) Stationary
+<span class="math display">\[\begin{cases} E[Y_t] = μ &lt; \infty &amp; \text{for all }t \\
+Var(Y_t) = γ_0 &lt; \infty &amp; \text{for all }t\\
+Cov(Y_t, Y_{t-j}) = γ_j &amp; \text{for all }t,j\end{cases}\]</span>
+<ul>
+<li><span class="math inline">\(γ_{j,t} = γ_{j,t+s}\)</span> for all <span class="math inline">\(t,s\)</span></li>
+</ul></li>
+<li>AutoCorrelation Function (ACF)
+<span class="math display">\[ρ_j = \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)} = \frac{γ_j}{γ_0}\]</span>
+<ul>
+<li>Sample ACF: <span class="math display">\[\hat{ρ}_k = \frac{\frac{1}{T-k}\sum^T_{t=k+1}(Y_t-\bar{Y})(Y_{t=k}-\bar{Y})}{\frac{1}{T}\sum^T_{t=1}(Y_t-\bar{Y})^2}\]</span></li>
+<li><span class="math inline">\(\sqrt{T}(\hat{ρ}_k-ρ_k)\to\mathcal{N}(0,\exists v_k)\)</span></li>
+</ul></li>
+<li>Ergodicity for the mean<br />
+For stationary process <span class="math inline">\(Y_t\)</span>,
+<span class="math display">\[\begin{aligned}\bar{Y}_T &amp;= \frac{1}{T}\sum_T y_t \\
+&amp;\overset{p}{\to}μ &amp;&amp; T\to\infty\end{aligned}\]</span>
+<ul>
+<li>Let <span class="math inline">\(Y_t\)</span> be s.t. <span class="math inline">\(\sum_{\infty} |γ_j|&lt;\infty\)</span>, then <span class="math inline">\(Y_t\)</span> is ergodic</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="analysis" class="section level2">
+<h2>Analysis</h2>
+<div id="procedure" class="section level3">
+<h3>Procedure</h3>
+<ol style="list-style-type: decimal">
+<li>Plot and check for
+<ul>
+<li>Trend</li>
+<li>Seasonality</li>
+<li>Abrupt changes</li>
+<li>Outliers</li>
+</ul></li>
+<li>Remove the trend and seasonality to obtain stationary residuals</li>
+<li>Choose a model to fit the residuals (ARMA, GARCH)</li>
+<li>Forecast the residuals</li>
+<li>Invert transformations to forecast the original series</li>
+</ol>
+</div>
+<div id="trend" class="section level3">
+<h3>Trend</h3>
+<ul>
+<li>Model with trend
+<span class="math display">\[\begin{aligned}Y_t &amp;= \underbrace{m_t}_{\text{Trend component}} + \underbrace{X_t}_{\text{Random noise component}} \\
+E[X_t] &amp;= 0\end{aligned}\]</span></li>
+<li>Moving average filter<br />
+For <span class="math inline">\(t = q+1, q+2,\dots, T-q\)</span>,
+<span class="math display">\[\begin{aligned}\hat{m}_t &amp;= \frac{1}{2q+1}\sum_{j=-q}^q Y_{t-j} \\
+&amp;= \frac{1}{2q+1}\sum_{j=-q}^q m_{t-j} + \frac{1}{2q+1}\sum_{j=-q}^q X_{t-j} \\
+&amp;\approx m_t \\
+Y_t - \hat{m}_t &amp;\approx X_t \end{aligned}\]</span></li>
+<li>Exponential smoothing (better for forecasting)
+<span class="math display">\[\begin{aligned}\hat{m}_1 &amp;= Y_1 \\
+\hat{m}_t &amp;= αY_t  + (1-α)\hat{m}_{t-1} \\
+&amp;= \sum_{j=0}^{t-2}α(1-α)^jY_{t-j}  + (1-α)^{t-1}Y_1\end{aligned}\]</span></li>
+<li>Polynomial fitting<br />
+Let <span class="math display">\[m_t = a_0 + a_1t+ a_2t^2\]</span>
+Choose <span class="math inline">\(a\)</span>’s as
+<span class="math display">\[\begin{aligned}(\hat{a}_0, \hat{a}_1, \hat{a}_2) &amp;= \text{argmin} \ \sum^T_{t=1}(Y_t - m_t)^2 \\
+\hat{m}_t &amp;= \hat{a}_0 + \hat{a}_1t + \hat{a}_2t^2\end{aligned}\]</span></li>
+<li>Elimination</li>
+</ul>
+</div>
+<div id="trend-seasonality" class="section level3">
+<h3>Trend &amp; Seasonality</h3>
+<ul>
+<li>Model with trend &amp; seasonality (period <span class="math inline">\(d\)</span>)
+<span class="math display">\[\begin{aligned}Y_t &amp;= m_t + \underbrace{s_t}_{\text{Seasonal component}} + X_t \\
+E[X_t] &amp;= 0 \\
+s_{t+d} &amp;= s_t \\
+\sum_{j=1}^d s_j &amp;= 0 \end{aligned}\]</span></li>
+<li>Estimation
+<ol style="list-style-type: decimal">
+<li>Estimate trend</li>
+<li>Estimate seasonal component</li>
+<li>Re-estimate trend</li>
+</ol></li>
+<li>Elimination</li>
+</ul>
+</div>
+</div>
+<div id="arma" class="section level2">
+<h2>ARMA</h2>
+<div id="types-of-process" class="section level3">
+<h3>Types of Process</h3>
+<ul>
+<li>Gaussian White Noise: <span class="math inline">\(ε_t\overset{iid.rvs}{\sim}\mathcal{N}(0,σ^2)\)</span>
+<ul>
+<li>White Noise: <span class="math inline">\(ε_t\overset{iid.rvs}{\sim}(0,σ^2)\)</span></li>
+<li>Stationary</li>
+</ul></li>
+<li>Random walk: <span class="math inline">\(Y_t = \sum_{s=1}^t ε_s\)</span>
+<ul>
+<li>Not stationary
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= 0 \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= tσ^2 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= 0 \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)}= 0\end{aligned}\]</span></li>
+</ul></li>
+<li>MA (1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span>
+<ul>
+<li>Stationary
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= (1 + α^2)σ^2 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= \begin{cases} ασ^2 &amp; k=1\\ 0 &amp; k\geq 2\end{cases} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \begin{cases} \frac{α}{1 + α^2} \leq \frac{1}{2} &amp; k=1\\ 0 &amp; k\geq 2\end{cases}\end{aligned}\]</span></li>
+</ul></li>
+<li>AR (1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span><br />
+When stationary,
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= δ + θ E[Y_{t-1}] \\
+&amp;&amp; &amp;= \frac{δ}{1-θ} \\ 
+&amp;&amp; &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= θ^2Var(Y_{t-1}) + Var(ε_t) \\
+&amp;&amp; &amp;= \frac{σ^2}{1-θ^2} \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= θ^k\frac{σ^2}{1-θ^2} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} \\
+&amp;&amp; &amp;= θ^k \end{aligned}\]</span>
+<ul>
+<li>Let <span class="math inline">\(y_t \equiv Y_t - μ\)</span>, <span class="math inline">\(y_t = θy_{t-1} + ε_t\)</span></li>
+</ul></li>
+<li>MA (q): <span class="math inline">\(Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span>
+<ul>
+<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+</ul></li>
+<li>AR (p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span></li>
+<li>ARMA (p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
+<li>For MA (q) <span class="math inline">\(ρ_k = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+<li>For AR (1): <span class="math inline">\(ρ_k = θ^k\to 0\)</span> exponentially</li>
+</ul>
+</div>
+<div id="lag-operator" class="section level3">
+<h3>Lag Operator</h3>
+<ul>
+<li><span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …</li>
+<li>Characteristic equation: <span class="math inline">\(1-θz = 0\)</span></li>
+<li>Characteristic root: <span class="math inline">\(|z|=\left|\frac{1}{θ}\right|\)</span>, <span class="math inline">\(|θ| \begin{cases}&gt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &lt;1 &amp; \text{stationary}\end{cases}\)</span></li>
+<li>For AR (1):
+<ul>
+<li><span class="math inline">\(1-θL\)</span> is invertible if <span class="math inline">\(|θ|&lt;1\)</span>
+<span class="math display">\[\begin{aligned} y_t &amp;= θLy_t + ε_t \\ (1-θL) y_t &amp;= ε_t \end{aligned}\]</span></li>
+</ul></li>
+<li>For AR (p):
+<ul>
+<li>Lag Polynomial: <span class="math display">\[\begin{aligned} θ(L) &amp;= 1 - θ_1L - θ_2L^2 -\cdots - θ_pL^p \\ y_t &amp;= θ_1Ly_t -\cdots - θ_p L^p y_t + ε_t \\ θ(L) y_t &amp;= ε_t \\ \end{aligned}\]</span></li>
+</ul></li>
+<li>AR (1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-θL\)</span> is invertible <span class="math inline">\(\iff\)</span> characteristic root <span class="math inline">\(|z| &gt; 1\)</span></li>
+</ul>
+</div>
+<div id="difference-operator-integration" class="section level3">
+<h3>Difference Operator &amp; Integration</h3>
+<ul>
+<li>Difference Operator: <span class="math inline">\(Δ \equiv 1-L\)</span>
+<ul>
+<li>First difference: <span class="math inline">\(ΔY_t = Y_t - Y_{t-1}\)</span></li>
+<li>Second difference: <span class="math inline">\(Δ^2 Y_t = ΔY_t - ΔY_{t-1}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(I(0)\)</span> denotes stationary series
+<ul>
+<li>Mean reverting</li>
+<li>Finite variance</li>
+<li>Limited memory of past behaviour</li>
+</ul></li>
+<li><span class="math inline">\(I(1)\)</span> denotes series that become stationary after first-differencing
+<ul>
+<li>Infinitely long memory</li>
+</ul></li>
+</ul>
+</div>
+<div id="deterministic-linear-trend" class="section level3">
+<h3>Deterministic (Linear) Trend</h3>
+<ul>
+<li>Another possible cause of nonstationarity: <span class="math inline">\(γ\neq 0\)</span> (even when <span class="math inline">\(|θ|&lt;1\)</span>)
+<span class="math display">\[Y_t = δ + θY_{t-1}+γ\cdot t + ε_t\]</span></li>
+<li>Trend stationary</li>
+<li>Solution:
+<ul>
+<li>Regress <span class="math inline">\(Y_t\)</span> on constant and trend and then use residuals<br />
+</li>
+<li>include <span class="math inline">\(t\)</span> as additional variable in regression</li>
+</ul></li>
+</ul>
+</div>
+<div id="ols-estimation" class="section level3">
+<h3>OLS Estimation</h3>
+<ul>
+<li>For AR (p)
+<ul>
+<li>Consistency: <span class="math inline">\(E[Y_{t-j}ε_t] = 0\)</span> for all <span class="math inline">\(j = 1,2,3,\dots,p\)</span><br />
+</li>
+<li>Small sample bias caused ((A2) violated)</li>
+</ul></li>
+<li>For MA (1) with invertible lag polynomial
+<ul>
+<li>tbe</li>
+</ul></li>
+</ul>
+<!-- ### ML Estimation
 
+tbe -->
+</div>
+<div id="model-selection" class="section level3">
+<h3>Model Selection</h3>
+<ul>
+<li>Residual analysis (Ljung–Box test)</li>
+<li>AIC &amp; BIC</li>
+<li>Overfitting: to test ARMA (p,q), estimate ARMA (p+1,q) and ARMA (p,q+1)</li>
+</ul>
+</div>
+<div id="spurious-regression" class="section level3">
+<h3>Spurious Regression</h3>
+<p>textbook P352, slide 12 P28</p>
+</div>
+<div id="cointegration" class="section level3">
+<h3>Cointegration</h3>
+<p>textbook P353, slide 12 P31<br />
+<a href="http://staff.utia.cas.cz/barunik/files/appliedecono/Lecture7.pdf">Lecture: Introduction to Cointegration - Applied Econometrics</a></p>
+<ul>
+<li>Cointegration <span class="math inline">\(\implies\)</span> not spurious</li>
+</ul>
+</div>
+</div>
 
     </div>
   </article>
@@ -108,6 +382,9 @@
     
     
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
     
   </body>
 </html>
