@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">10 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -547,6 +547,101 @@ What are the SPNE if the game is changed so that player 1 can only offer amounts
 <div id="rubinstein-game" class="section level3">
 <h3>Rubinstein Game</h3>
 <p>OR 7.2</p>
+<ul>
+<li>Timing
+<ol style="list-style-type: decimal">
+<li>Player 1 proposes <span class="math inline">\((x_1, 1-x_1) = (1-x_2, x_2)\)</span></li>
+<li>Player 2 chooses accept or reject</li>
+<li>If player 2 rejects, player 2 proposes <span class="math inline">\((y_1, 1-y_1) = (1-y_2, y_2)\)</span></li>
+<li>Player 1 chooses accept or reject</li>
+<li>If player 1 rejects, player 1 proposes <span class="math inline">\((x_1&#39;, 1-x_1&#39;)\)</span></li>
+<li>Player 2 chooses accept or reject</li>
+<li>…</li>
+</ol></li>
+<li>Utility for player 1
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(v_1(x_1)\)</span> if accepted</li>
+<li><span class="math inline">\(δ_1\cdot v_1(1-x_2)\)</span> if accepts player 2’s proposal</li>
+<li><span class="math inline">\(δ_1\cdot v_1(0) = 0\)</span> if rejects player 2’s proposal</li>
+</ol></li>
+<li>Utility for player 2
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(v_2(1-x_1)\)</span> if accepts player 1’s proposal</li>
+<li><span class="math inline">\(δ_2\cdot v_2(x_2)\)</span> if accepted</li>
+<li><span class="math inline">\(δ_2\cdot v_2(0) = 0\)</span> if rejected</li>
+</ol></li>
+</ul>
+<blockquote>
+<p>Lemma<br />
+There exists a unique pair <span class="math inline">\(x_1^*, y_1^*\in [0, 1]\)</span> that solve<br />
+<span class="math display">\[\begin{cases}δ_1\cdot v_1(x_1) = v_1(y_1) \\ δ_2\cdot v_2(1-y_1) = v_2(1-x_1) \end{cases}\]</span>
+which makes the players indifferent for every round by multiply both sides with <span class="math inline">\(δ\)</span>’s</p>
+</blockquote>
+<p>Since <span class="math inline">\(δ_1 &lt; 1\)</span>,<br />
+<span class="math display">\[\begin{aligned}δ_1\cdot v_1(x_1^*) &amp;= v_1(y_1^*) \\
+x_1^* &gt; y_1^* \end{aligned}\]</span></p>
+<blockquote>
+<p>Exercise (slideds P43)<br />
+Is the equilibrium Robinstein theorem proposes unique?</p>
+</blockquote>
+<ol start="0" style="list-style-type: decimal">
+<li>Check continuous at infinity<br />
+Consider two strategies <span class="math inline">\(s_i, s_i&#39;\)</span> of player i<br />
+that differs only after histories of length <span class="math inline">\(T = 2k\)</span><br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\big|u_i(s_i, s_{-i}) - u_i(s_i&#39;, s_{-i})\big| \\
+&amp;\leq |1\cdot δ_i^k - 0| \\
+&amp;= δ_i^k \end{aligned}\]</span></li>
+<li>Check SPNE<br />
+By one-step deviation principle,
+<ol style="list-style-type: lower-alpha">
+<li>When player 1 proposes,<br />
+If player 1 proposes any <span class="math inline">\(x_1&gt; x_1^*\)</span>, player 2 will reject and propose <span class="math inline">\(y_1^*\)</span>
+<span class="math display">\[\begin{aligned}v_1(x_1^*) &gt; δ_1\cdot v_1(y_1^*)\end{aligned}\]</span>
+If player 1 propose any <span class="math inline">\(x_1&lt;x_1^*\)</span>, player 2 will accept, but player 1 is worse-off
+<span class="math display">\[\begin{aligned} v_1( x_1^*) &gt; v_1(x_1) \end{aligned}\]</span></li>
+<li>When player 2 decides, equilibrium strategy is accepting <span class="math inline">\(\iff 1-x_1\geq x_2^*\)</span><br />
+If player 1 proposes <span class="math inline">\(x_1\)</span> then player 2 compares
+<span class="math display">\[\begin{aligned}v_2(1-x_1) &amp;&lt;&gt; δ_2\cdot v_2(y_2^*) \\
+ &amp;&lt;&gt; v_2(x_2^*) \end{aligned}\]</span></li>
+<li>When player 2 proposes,<br />
+If player 2 proposes any <span class="math inline">\(y_2&gt; y_2^*\)</span>, player 1 will reject and propose <span class="math inline">\(x_1^*\)</span>
+<span class="math display">\[\begin{aligned}δ_2\cdot v_2(y_1^*) &gt; δ_2^2\cdot v_2(x_2^*)\end{aligned}\]</span>
+If player 2 propose any <span class="math inline">\(y_2&lt; y_2^*\)</span>, player 1 will accept, but player 2 is worse-off
+<span class="math display">\[\begin{aligned}δ_2\cdot v_2( y_2^*) &gt; δ_2^2\cdot v_2(y_2) \end{aligned}\]</span></li>
+<li>When player 1 decides, equilibrium strategy is accepting <span class="math inline">\(\iff 1-y_2\geq y_1^*\)</span><br />
+If player 2 proposes <span class="math inline">\(y_2\)</span> then player 1 compares
+<span class="math display">\[\begin{aligned}δ_1 \cdot v_1(1-y_2) &amp;&lt;&gt; δ_1^2\cdot v_1(x_1^*) \\
+ v_1(1-y_2) &amp;&lt;&gt; δ_1\cdot v_1(x_1^*) \\
+ &amp;&lt;&gt; v_1(y_1^*) \\
+ 1-y_2 &amp;&lt;&gt; y_1^*\end{aligned}\]</span></li>
+</ol></li>
+<li>Check uniqueness<br />
+Assume <span class="math inline">\(v_1(x) = v_2(x) = 1\)</span><br />
+Let <span class="math inline">\(G_1\)</span> be the original game where player 1 moves first,<br />
+and <span class="math inline">\(G_2\)</span> be the same game where player 2 moves first.<br />
+Let <span class="math inline">\(M_i = \text{sup}\{ i\)</span>’s payoff in all SPNE’s of <span class="math inline">\(G_i\}\)</span><br />
+Let <span class="math inline">\(m_i = \text{inf}\{ i\)</span>’s payoff in all SPNE’s of <span class="math inline">\(G_i\}\)</span><br />
+:) <span class="math inline">\(m_1 = M_1\)</span> and <span class="math inline">\(m_2 = M_2\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>:) <span class="math inline">\(M_1\leq 1 - δ_2\cdot m_2\)</span><br />
+When player 2 decides, the game is <span class="math inline">\(G_2\)</span>,<br />
+and he accept only when payoff is at least <span class="math inline">\(δ_2\cdot m_2\)</span><br />
+<span class="math inline">\(\implies\)</span> player 1 gets at most <span class="math inline">\(1 - δ_2\cdot m_2\)</span></li>
+<li>:) <span class="math inline">\(M_2\leq 1 - δ_1\cdot m_1\)</span><br />
+</li>
+<li>:) <span class="math inline">\(m_1\geq 1-δ_2\cdot M_2\)</span><br />
+When player 1 proposes, if the payoff is <span class="math inline">\(x&lt;1-δ_2\cdot M_2\)</span>,<br />
+she can be better-off by demending <span class="math inline">\(x&lt;x&#39;&lt; -δ_2\cdot M_2\)</span><br />
+and still be accepted by player 2.</li>
+<li>:) <span class="math inline">\(m_2\geq 1-δ_1\cdot M_1\)</span><br />
+</li>
+<li>Summing up (a, b, c, d) gives
+<span class="math display">\[\begin{aligned}M_1 + M_2 + 1-δ_2\cdot M_2 + 1-δ_1\cdot M_1 &amp;\leq 1 - δ_2\cdot m_2 + 1 - δ_1\cdot m_1 + m_1 + m_2 \\
+ (1-δ_1)\cdot M_1 + (1-δ_2)\cdot M_2 &amp;\leq (1-δ_1)\cdot m_1 + (1-δ_2)\cdot m_2 \\
+ (1-δ_1)\cdot (M_1-m_1) + (1-δ_2)\cdot (M_2 - m_2)&amp;\leq 0 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(m_1=M_1\)</span>, <span class="math inline">\(m_2 = M_2\)</span>.</li>
+</ol></li>
+</ol>
 </div>
 </div>
 
