@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">6 min read</span>
     
     <h1 class="article-title">Notes on Time Series</h1>
     
@@ -87,7 +87,9 @@
 <li><a href="#lag-difference-operator">Lag &amp; Difference Operator</a></li>
 </ul></li>
 <li><a href="#arma">ARMA</a><ul>
-<li><a href="#types-of-process">Types of Process</a></li>
+<li><a href="#white-noise">White Noise</a></li>
+<li><a href="#ma">MA</a></li>
+<li><a href="#ar">AR</a></li>
 <li><a href="#characteristic-equation">Characteristic Equation</a></li>
 <li><a href="#difference-operator-integration">Difference Operator &amp; Integration</a></li>
 <li><a href="#deterministic-linear-trend">Deterministic (Linear) Trend</a></li>
@@ -139,8 +141,8 @@ Cov(Y_t, Y_{t-j}) = γ_j &amp; \text{for all }t,j\end{cases}\]</span>
 <li>AutoCorrelation Function (ACF)
 <span class="math display">\[ρ_j = \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)} = \frac{γ_j}{γ_0}\]</span>
 <ul>
-<li>Sample ACF: <span class="math display">\[\hat{ρ}_k = \frac{\frac{1}{T-k}\sum^T_{t=k+1}(Y_t-\bar{Y})(Y_{t=k}-\bar{Y})}{\frac{1}{T}\sum^T_{t=1}(Y_t-\bar{Y})^2}\]</span></li>
-<li><span class="math inline">\(\sqrt{T}(\hat{ρ}_k-ρ_k)\to\mathcal{N}(0,\exists v_k)\)</span></li>
+<li>Sample ACF: <span class="math display">\[\hat{ρ}_j = \frac{\frac{1}{T-j}\sum^T_{t=j+1}(Y_t-\bar{Y})(Y_{t=j}-\bar{Y})}{\frac{1}{T}\sum^T_{t=1}(Y_t-\bar{Y})^2}\]</span></li>
+<li><span class="math inline">\(\sqrt{T}(\hat{ρ}_j-ρ_j)\to\mathcal{N}(0,\exists v_k)\)</span></li>
 </ul></li>
 <li>Ergodicity for the mean<br />
 For stationary process <span class="math inline">\(Y_t\)</span>,
@@ -210,11 +212,25 @@ s_{t+d} &amp;= s_t \\
 \sum_{j=1}^d s_j &amp;= 0 \end{aligned}\]</span></li>
 <li>Estimation
 <ol style="list-style-type: decimal">
-<li>Estimate trend (moving average)</li>
-<li>Estimate seasonal component</li>
-<li>Re-estimate trend</li>
+<li>Estimate trend (moving average)<br />
+For <span class="math inline">\(t = q+1, q+2,\dots, T-q\)</span>, when <span class="math inline">\(d = 2q\)</span><br />
+<span class="math display">\[\begin{aligned}\hat{m} &amp;= \frac{1}{d}\Big(\frac{1}{2}Y_{t-q} + Y_{t-(q-1)} + \dots + Y_{t+(q-1)} + \frac{1}{2}Y_{t+q} \Big) \\ \end{aligned}\]</span>
+When <span class="math inline">\(d = 2q+1\)</span><br />
+<span class="math display">\[\begin{aligned}\hat{m}_t &amp;= \frac{1}{d}\sum_{j=-q}^q Y_{t-j}\end{aligned}\]</span></li>
+<li>Estimate seasonal component<br />
+For <span class="math inline">\(t = 1, 2,\dots, d\)</span><br />
+<span class="math display">\[\begin{aligned}w_t &amp;= \frac{1}{\#\{j: q&lt;t+jd \leq T-q\}}\sum_{j: q&lt;t+jd \leq T-q} (Y_{t+jd} - \hat{m}_{t+jd}) \\
+  \hat{s}_t &amp;= w_t - \frac{1}{d}\sum_{i=1}^d w_i\end{aligned}\]</span></li>
+<li>Re-estimate trend<br />
+De-seasonalized data:
+<span class="math display">\[\begin{aligned}d_t &amp;= Y_t - \hat{s}_t \\
+  \hat{X}_t &amp;= Y_t - \hat{m}_t - \hat{s}_t \end{aligned}\]</span></li>
 </ol></li>
-<li>Elimination</li>
+<li>Elimination<br />
+First liminate seasonality:
+<span class="math display">\[\begin{aligned}Δ_d Y_t &amp;= Y_t - Y_{t-d} \\
+&amp;= m_t - m_{t-d} + X_t - X_{t-d} \end{aligned}\]</span>
+Then <a href="#trend">#eliminate trend</a></li>
 </ul>
 </div>
 <div id="lag-difference-operator" class="section level3">
@@ -235,55 +251,73 @@ s_{t+d} &amp;= s_t \\
   &amp;= (1-2L +L^2)y_t \\
   &amp;= y_t - 2y_{t-1} + y_{t-2}\end{aligned}\]</span></li>
 </ul></li>
+<li>Lag-<span class="math inline">\(d\)</span> differencing operator: <span class="math inline">\(Δ_d = (1 - L^d)\)</span></li>
 </ul>
 </div>
 </div>
 <div id="arma" class="section level2">
 <h2>ARMA</h2>
-<div id="types-of-process" class="section level3">
-<h3>Types of Process</h3>
+<div id="white-noise" class="section level3">
+<h3>White Noise</h3>
 <ul>
 <li>Gaussian White Noise: <span class="math inline">\(ε_t\overset{iid.rvs}{\sim}\mathcal{N}(0,σ^2)\)</span>
 <ul>
 <li>White Noise: <span class="math inline">\(ε_t\overset{iid.rvs}{\sim}(0,σ^2)\)</span></li>
 <li>Stationary</li>
 </ul></li>
-<li>Random walk: <span class="math inline">\(Y_t = \sum_{s=1}^t ε_s\)</span>
+<li>Random walk <span class="math display">\[Y_t = \sum_{s=1}^t ε_s\]</span>
 <ul>
 <li>Not stationary
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= 0 \\
 \text{Variance:} &amp;&amp; Var(Y_t) &amp;= tσ^2 \\
-\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= 0 \\
-\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)}= 0\end{aligned}\]</span></li>
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= 0 \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)}= 0\end{aligned}\]</span></li>
 </ul></li>
-<li>MA (1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span>
+</ul>
+</div>
+<div id="ma" class="section level3">
+<h3>MA</h3>
+<ul>
+<li>MA (1) <span class="math display">\[Y_t = μ + ε_t + θε_{t-1}\]</span>
 <ul>
 <li>Stationary
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
-\text{Variance:} &amp;&amp; Var(Y_t) &amp;= (1 + α^2)σ^2 \\
-\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= \begin{cases} ασ^2 &amp; k=1\\ 0 &amp; k\geq 2\end{cases} \\
-\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \begin{cases} \frac{α}{1 + α^2} \leq \frac{1}{2} &amp; k=1\\ 0 &amp; k\geq 2\end{cases}\end{aligned}\]</span></li>
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot (1 + θ^2) \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} θσ^2 &amp; j=1\\ 0 &amp; j\geq 2\end{cases} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} \frac{θ}{1 + θ^2} \leq \frac{1}{2} &amp; j=1\\ 0 &amp; j\geq 2\end{cases}\end{aligned}\]</span></li>
 </ul></li>
-<li>AR (1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span><br />
+<li>MA (q)
+<span class="math display">\[\begin{aligned}Y_t &amp;= μ + ε_t + θ_1 ε_{t-1} +\cdots + θ_q ε_{t-q} \\
+&amp;= μ + \sum_{j=0}^q θ_j ε_{t-j}\end{aligned}\]</span>
+<ul>
+<li>Stationary
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot (1 + θ_1^2 + θ_2^2 + \dots + θ_q^2) \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} σ^2\cdot\sum_{i=0}^{q-j} θ_iθ_{i+j} &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} \frac{θ}{1 + θ^2} \leq \frac{1}{2} &amp; j=1\\ 0 &amp; j\geq 2\end{cases}\end{aligned}\]</span></li>
+<li><span class="math inline">\(Cov(Y_t,Y_{t-j}) = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+</ul></li>
+<li>For MA (q) <span class="math inline">\(ρ_k = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+</ul>
+</div>
+<div id="ar" class="section level3">
+<h3>AR</h3>
+<ul>
+<li>AR (1) <span class="math display">\[Y_t = δ + θ Y_{t-1} + ε_t\]</span>
 When stationary,
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= δ + θ E[Y_{t-1}] \\
 &amp;&amp; &amp;= \frac{δ}{1-θ} \\ 
 &amp;&amp; &amp;= μ \\
 \text{Variance:} &amp;&amp; Var(Y_t) &amp;= θ^2Var(Y_{t-1}) + Var(ε_t) \\
 &amp;&amp; &amp;= \frac{σ^2}{1-θ^2} \\
-\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= θ^k\frac{σ^2}{1-θ^2} \\
-\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= θ^k\frac{σ^2}{1-θ^2} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)} \\
 &amp;&amp; &amp;= θ^k \end{aligned}\]</span>
 <ul>
 <li>Let <span class="math inline">\(y_t \equiv Y_t - μ\)</span>, <span class="math inline">\(y_t = θy_{t-1} + ε_t\)</span></li>
 </ul></li>
-<li>MA (q): <span class="math inline">\(Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span>
-<ul>
-<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
-</ul></li>
 <li>AR (p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span></li>
 <li>ARMA (p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
-<li>For MA (q) <span class="math inline">\(ρ_k = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
 <li>For AR (1): <span class="math inline">\(ρ_k = θ^k\to 0\)</span> exponentially</li>
 </ul>
 </div>
