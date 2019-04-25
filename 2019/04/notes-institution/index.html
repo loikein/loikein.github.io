@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">19 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -526,6 +526,37 @@ where <span class="math inline">\(p(e) = Pr(v = v_h \ | \ e)\)</span></li>
 <span class="math display">\[\begin{aligned}v-t(v) &amp;= a \\ &amp;= E[v \ | \ e^{FB}] - c(e^{FB})\end{aligned}\]</span></li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise I<br />
+A principal can make a take-it-or-leave-it contract offer to an agent.<br />
+The reservation utilities are zero.<br />
+The agent can choose an unobservable effort level <span class="math inline">\(e\in [0,1]\)</span>.<br />
+The agent’s disutility of effort is given by <span class="math inline">\(c(e) = \frac{1}{2}e^2\)</span>.<br />
+The principal’s return <span class="math inline">\(v\in\{0,\frac{1}{2}\}\)</span> is verifiable, and it is <span class="math inline">\(v=\frac{1}{2}\)</span> with probability <span class="math inline">\(e\)</span>.<br />
+If the principal makes a payment t to the agent, the payoffs are:
+<span class="math display">\[\begin{aligned}\text{Principal} &amp;&amp; &amp;v - t \\\text{Agent} &amp;&amp; &amp;t - c(e)\end{aligned}\]</span>
+1. What effort level is chosen in the first-best solution?<br />
+How large is the expected total surplus in the first-best solution?<br />
+2. The principal offers a contract <span class="math inline">\(t(v)\)</span>.<br />
+How will the principal set <span class="math inline">\(t(0)\)</span> and <span class="math inline">\(t\big(\frac{1}{2}\big)\)</span>, if negative payments are feasible?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>First best<br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; E[v \ | \ e] - c(e) &amp;= e\cdot\frac{1}{2}+(1-e)\cdot 0 - \frac{1}{2}e^2\\
+&amp;&amp; &amp;= \frac{1}{2}(e-e^2) \\
+FOC &amp;&amp; e^{FB} &amp;= \frac{1}{2} \end{aligned}\]</span>
+Expected total surplus in first best:
+<span class="math display">\[\begin{aligned}E[v \ | \ e^{FB}] - c(e^{FB}) &amp;= \frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\cdot\Big(\frac{1}{2}\Big)^2 \\
+&amp;= \frac{1}{8}\end{aligned}\]</span></li>
+<li>Franchising contract can be applied when negative payments are feasible.<br />
+<span class="math display">\[\begin{aligned}t(v) &amp;= v-a \\
+a &amp;= \frac{1}{8} \\
+t(0) &amp;= 0 - \frac{1}{8} \\
+&amp;= -\frac{1}{8} \\
+t\Big(\frac{1}{2}\Big) &amp;= \frac{1}{2} - \frac{1}{8} \\
+&amp;= \frac{3}{8}\end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="limited-liability" class="section level3">
 <h3>Limited Liability</h3>
@@ -600,7 +631,7 @@ Suppose principle implements <span class="math inline">\(e = \hat{e}\)</span>, p
  (PC) &amp;&amp; &amp;\hat{e}\cdot t_1 + (1-\hat{e})\cdot t_0 - \hat{e}^2 \geq 0\\
  (LL) &amp;&amp; &amp;\begin{cases}t_1\geq 0 \\ t_0 \geq 0 \end{cases}\end{aligned}\]</span>
 (IC) <span class="math inline">\(\implies \hat{e} = \frac{t_1 - t_0}{2}\)</span>,<br />
-let <span class="math inline">\(t_0 = 0 \implies t_1 = 2\hat{e}\)</span>.<br />
+Let <span class="math inline">\(t_0 = 0 \implies t_1 = 2\hat{e}\)</span>.<br />
 Plug in back to principle’s problem,<br />
 <span class="math display">\[\begin{aligned}\max_{\hat{e}} &amp;&amp; \hat{e}\cdot(1 - 2\hat{e})&amp;\\
  FOC &amp;&amp; 1 - 4\hat{e} &amp;= 0 \\
@@ -639,6 +670,60 @@ Therefore, the law improves total surplus when <span class="math inline">\(\frac
 </ul></li>
 <li>Restrictions of contractual freedom may be welfare-enhancing</li>
 </ul>
+<blockquote>
+<p>Exercise II<br />
+Consider a principal and an agent, the agent has no wealth.<br />
+The parties are risk-neutral and the reservation utilities are zero.<br />
+The agent can choose the unobservable effort level <span class="math inline">\(e\in [0,1]\)</span>.<br />
+The agent’s disutility of effort is <span class="math inline">\(4e^2\)</span>.<br />
+The principal’s return <span class="math inline">\(v\in\{0,2\}\)</span> is verifiable; it is <span class="math inline">\(v=2\)</span> with probability <span class="math inline">\(e\)</span>.<br />
+1. What effort level is chosen in the first-best solution?<br />
+How large is the expected total surplus in the first-best solution?<br />
+2. Consider contracts that stipulate a payment <span class="math inline">\(t(v)\)</span> to the agent, where <span class="math inline">\(t_0 = t(0)\)</span> and <span class="math inline">\(t_2 = t(2)\)</span>.<br />
+First suppose that the principal can make a take-it-or-leave it contract offer to the agent.<br />
+How will <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t_2\)</span> be set by the principal?<br />
+How large are the parties’ expected payoffs in this case?<br />
+Will the first-best solution be attained?<br />
+3. Now suppose that the agent can make a take-it-or-leave it contract offer to the principal.<br />
+How will <span class="math inline">\(t_0\)</span> and <span class="math inline">\(t_2\)</span> be set by the agent?<br />
+How large are the parties’ expected payoffs in this case?<br />
+Will the first-best solution be attained?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>First best<br />
+Social planner’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; 2\cdot e + 0\cdot (1-e) - 4e^2 \\
+FOC &amp;&amp; 2 - 8e &amp;= 0 \\
+&amp;&amp; e^{FB} &amp;= \frac{1}{4} \end{aligned}\]</span>
+Expected total surplus:
+<span class="math display">\[\begin{aligned}2\cdot e^{FB} - 4(e^{FB})^2 &amp;= 2\cdot \frac{1}{4} - 4\cdot\Big(\frac{1}{4}\Big)^2 \\
+&amp;= \frac{1}{4} \end{aligned}\]</span></li>
+<li>Limited liability<br />
+Suppose principle implements <span class="math inline">\(e = \hat{e}\)</span>, principle’s problem:
+<span class="math display">\[\begin{aligned}\max_t &amp;&amp; &amp;\hat{e}\cdot(2-t_2) + (1-\hat{e})\cdot(0 - t_0) \\
+(IC) &amp;&amp; &amp;\hat{e} = \text{argmax}_e \ e\cdot t_2 + (1-e)\cdot t_0 - 4e^2 \\
+(PC) &amp;&amp; &amp;\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 \geq 0\\
+(LL) &amp;&amp; &amp;\begin{cases}t_2\geq 0 \\ t_0 \geq 0\end{cases}\end{aligned}\]</span>
+(IC) <span class="math inline">\(\implies\hat{e}=\frac{t_2 - t_0}{8}\)</span><br />
+Let <span class="math inline">\(t_0 = 0 \implies t_2 = 8\hat{e}\)</span>.<br />
+Plug in back to principle’s problem,<br />
+<span class="math display">\[\begin{aligned}\max_{\hat{e}} &amp;&amp; \hat{e}\cdot(2-8\hat{e})&amp; \\
+FOC &amp;&amp; 2 - 16\hat{e} &amp;= 0 \\
+&amp;&amp; \hat{e} &amp;= \frac{1}{8}\end{aligned}\]</span>
+Expected payoff:<br />
+<span class="math display">\[\begin{aligned}\text{Principle:} &amp;&amp; &amp;\hat{e}\cdot (2-t_2) + (1-\hat{e})\cdot 0 = \frac{1}{8} \\
+\text{Agent:} &amp;&amp; &amp;\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 = \frac{1}{16}\\
+\text{Total:} &amp;&amp; &amp;\hat{e}\cdot 2 + (1-\hat{e})\cdot 0 - 4\hat{e}^2 = \frac{3}{16}\end{aligned}\]</span>
+First best is not attained.</li>
+<li>Agent offers contract<br />
+Agent’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;e\cdot t_2 + (1-e)\cdot t_0 - 4e^2\\
+(PC) &amp;&amp; &amp;\begin{cases}2 - t_2\geq 0 \\ 0 - t_0 \geq 0\end{cases} \\
+FOC &amp;&amp; &amp;t_2 - 8e = 0 \\
+&amp;&amp; &amp;\phantom{t_2 - 8}e = \frac{t_2}{8}\end{aligned}\]</span>
+Agent offers <span class="math inline">\(t_0 = 0\)</span>, <span class="math inline">\(t_2 = 2\implies e = \frac{1}{4} = e^{FB}\)</span>
+First best is attained.</li>
+</ol>
 </div>
 </div>
 <div id="moral-hazard-hidden-information" class="section level2">

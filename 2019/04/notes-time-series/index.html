@@ -84,10 +84,11 @@
 <li><a href="#procedure">Procedure</a></li>
 <li><a href="#trend">Trend</a></li>
 <li><a href="#trend-seasonality">Trend &amp; Seasonality</a></li>
+<li><a href="#lag-difference-operator">Lag &amp; Difference Operator</a></li>
 </ul></li>
 <li><a href="#arma">ARMA</a><ul>
 <li><a href="#types-of-process">Types of Process</a></li>
-<li><a href="#lag-operator">Lag Operator</a></li>
+<li><a href="#characteristic-equation">Characteristic Equation</a></li>
 <li><a href="#difference-operator-integration">Difference Operator &amp; Integration</a></li>
 <li><a href="#deterministic-linear-trend">Deterministic (Linear) Trend</a></li>
 <li><a href="#ols-estimation">OLS Estimation</a></li>
@@ -186,11 +187,17 @@ Y_t - \hat{m}_t &amp;\approx X_t \end{aligned}\]</span></li>
 \hat{m}_t &amp;= αY_t  + (1-α)\hat{m}_{t-1} \\
 &amp;= \sum_{j=0}^{t-2}α(1-α)^jY_{t-j}  + (1-α)^{t-1}Y_1\end{aligned}\]</span></li>
 <li>Polynomial fitting<br />
-Let <span class="math display">\[m_t = a_0 + a_1t+ a_2t^2\]</span>
+Let <span class="math display">\[m_t = a_0 + a_1t+ a_2t^2 + \dots\]</span>
 Choose <span class="math inline">\(a\)</span>’s as
-<span class="math display">\[\begin{aligned}(\hat{a}_0, \hat{a}_1, \hat{a}_2) &amp;= \text{argmin} \ \sum^T_{t=1}(Y_t - m_t)^2 \\
-\hat{m}_t &amp;= \hat{a}_0 + \hat{a}_1t + \hat{a}_2t^2\end{aligned}\]</span></li>
-<li>Elimination</li>
+<span class="math display">\[\begin{aligned}(\hat{a}_0, \hat{a}_1, \hat{a}_2,\dots) &amp;= \text{argmin} \ \sum^T_{t=1}(Y_t - m_t)^2 \\
+\hat{m}_t &amp;= \hat{a}_0 + \hat{a}_1t + \hat{a}_2t^2 + \dots\end{aligned}\]</span></li>
+<li>Elimination<br />
+For polynomial trend, choose <span class="math inline">\(k\)</span> s.t.
+<span class="math display">\[\begin{aligned}m_t &amp;= a_0 + a_1t + \dots + a_kt^k \\
+Δ^km_t &amp;= k!a_k \\
+Δ^k Y_t &amp;= Δ^km_t + Δ^X_t \\
+&amp;= k!a_k + Δ^X_t \\
+E[Δ^k Y_t] &amp;= k!a_k\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="trend-seasonality" class="section level3">
@@ -203,11 +210,31 @@ s_{t+d} &amp;= s_t \\
 \sum_{j=1}^d s_j &amp;= 0 \end{aligned}\]</span></li>
 <li>Estimation
 <ol style="list-style-type: decimal">
-<li>Estimate trend</li>
+<li>Estimate trend (moving average)</li>
 <li>Estimate seasonal component</li>
 <li>Re-estimate trend</li>
 </ol></li>
 <li>Elimination</li>
+</ul>
+</div>
+<div id="lag-difference-operator" class="section level3">
+<h3>Lag &amp; Difference Operator</h3>
+<ul>
+<li>Lag operator: <span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …
+<ul>
+<li>Lag polynomial
+<span class="math display">\[\begin{aligned} θ(L) &amp;= 1 - θ_1L - θ_2L^2 -\cdots - θ_pL^p \\
+  y_t &amp;= θ_1Ly_t -\cdots - θ_p L^p y_t + ε_t \\
+  θ(L) y_t &amp;= ε_t\end{aligned}\]</span></li>
+</ul></li>
+<li>Difference operator: <span class="math inline">\(Δ=1-L\)</span>, <span class="math inline">\(Δ^k = (1-L)^k\)</span>
+<ul>
+<li>Difference polynomial
+<span class="math display">\[\begin{aligned}Δ^2 y_t &amp;= Δ(Δ y_t) \\
+  &amp;= (1-L)(1-L)y_t \\
+  &amp;= (1-2L +L^2)y_t \\
+  &amp;= y_t - 2y_{t-1} + y_{t-2}\end{aligned}\]</span></li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -260,10 +287,9 @@ When stationary,
 <li>For AR (1): <span class="math inline">\(ρ_k = θ^k\to 0\)</span> exponentially</li>
 </ul>
 </div>
-<div id="lag-operator" class="section level3">
-<h3>Lag Operator</h3>
+<div id="characteristic-equation" class="section level3">
+<h3>Characteristic Equation</h3>
 <ul>
-<li><span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …</li>
 <li>Characteristic equation: <span class="math inline">\(1-θz = 0\)</span></li>
 <li>Characteristic root: <span class="math inline">\(|z|=\left|\frac{1}{θ}\right|\)</span>, <span class="math inline">\(|θ| \begin{cases}&gt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &lt;1 &amp; \text{stationary}\end{cases}\)</span></li>
 <li>For AR (1):
