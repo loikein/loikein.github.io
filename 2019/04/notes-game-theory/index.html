@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">10 min read</span>
+    <span class="article-duration">11 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -548,38 +548,69 @@ What are the SPNE if the game is changed so that player 1 can only offer amounts
 <h3>Rubinstein Game</h3>
 <p>OR 7.2</p>
 <ul>
+<li>Utility function: <span class="math inline">\(v(\cdot):[0,1]\to\mathbb{R}\)</span>
+<ul>
+<li><span class="math inline">\(v(0) = 0\)</span>, <span class="math inline">\(v(1) = 1\)</span></li>
+<li><span class="math inline">\(v&#39;&gt;0\)</span>, <span class="math inline">\(v&#39;&#39;&lt;0\)</span></li>
+</ul></li>
+<li><span class="math inline">\(x_1+x_2 = 1\)</span>, <span class="math inline">\(y_1+y_2 = 1\)</span> for all <span class="math inline">\(x,y\)</span></li>
 <li>Timing
 <ol style="list-style-type: decimal">
-<li>Player 1 proposes <span class="math inline">\((x_1, 1-x_1) = (1-x_2, x_2)\)</span></li>
+<li>Player 1 proposes <span class="math inline">\(x = (x_1, x_2)\)</span></li>
 <li>Player 2 chooses accept or reject</li>
-<li>If player 2 rejects, player 2 proposes <span class="math inline">\((y_1, 1-y_1) = (1-y_2, y_2)\)</span></li>
+<li>If player 2 rejects, player 2 proposes <span class="math inline">\(y = (y_1, y_2)\)</span></li>
 <li>Player 1 chooses accept or reject</li>
-<li>If player 1 rejects, player 1 proposes <span class="math inline">\((x_1&#39;, 1-x_1&#39;)\)</span></li>
+<li>If player 1 rejects, player 1 proposes <span class="math inline">\(x&#39; = (x_1&#39;, x_2&#39;)\)</span></li>
 <li>Player 2 chooses accept or reject</li>
 <li>…</li>
 </ol></li>
 <li>Utility for player 1
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(v_1(x_1)\)</span> if accepted</li>
-<li><span class="math inline">\(δ_1\cdot v_1(1-x_2)\)</span> if accepts player 2’s proposal</li>
-<li><span class="math inline">\(δ_1\cdot v_1(0) = 0\)</span> if rejects player 2’s proposal</li>
+<li><span class="math inline">\(δ_1\cdot v_1(y_1)\)</span> if accepts player 2’s proposal</li>
+<li><span class="math inline">\(δ_1^2\cdot v_1(x_1&#39;)\)</span> if accepted</li>
+<li>…</li>
 </ol></li>
 <li>Utility for player 2
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(v_2(1-x_1)\)</span> if accepts player 1’s proposal</li>
-<li><span class="math inline">\(δ_2\cdot v_2(x_2)\)</span> if accepted</li>
-<li><span class="math inline">\(δ_2\cdot v_2(0) = 0\)</span> if rejected</li>
+<li><span class="math inline">\(v_2(x_2)\)</span> if accepts player 1’s proposal</li>
+<li><span class="math inline">\(δ_2\cdot v_2(y_2)\)</span> if accepted</li>
+<li><span class="math inline">\(δ_2^2\cdot v_2(x_2&#39;)\)</span> if accepts player 1’s proposal</li>
+<li>…</li>
 </ol></li>
 </ul>
+<p><img src="/post-img/notes-game-theory--rubinstein.png" /></p>
 <blockquote>
-<p>Lemma<br />
-There exists a unique pair <span class="math inline">\(x_1^*, y_1^*\in [0, 1]\)</span> that solve<br />
+<p>Lemma (OR Proposition 122.1)<br />
+There exists a unique pair <span class="math inline">\(x_1^*, y_1^*\in [0, 1]\)</span> that solves<br />
 <span class="math display">\[\begin{cases}δ_1\cdot v_1(x_1) = v_1(y_1) \\ δ_2\cdot v_2(1-y_1) = v_2(1-x_1) \end{cases}\]</span>
 which makes the players indifferent for every round by multiply both sides with <span class="math inline">\(δ\)</span>’s</p>
 </blockquote>
 <p>Since <span class="math inline">\(δ_1 &lt; 1\)</span>,<br />
 <span class="math display">\[\begin{aligned}δ_1\cdot v_1(x_1^*) &amp;= v_1(y_1^*) \\
 x_1^* &gt; y_1^* \end{aligned}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Existence<br />
+From first equation,
+<span class="math display">\[\begin{aligned}δ_1\cdot v_1(x_1) &amp;= v_1(y_1) \\
+ v_1^{-1} \big(δ_1\cdot v_1(x_1)\big) &amp;= v_1^{-1} \big( v_1(y_1)\big) \\
+ y_1 &amp;= v_1^{-1} \big(δ_1\cdot v_1(x_1)\big)\end{aligned}\]</span>
+Plug into second equation,
+<span class="math display">\[\begin{aligned}δ_2\cdot v_2(1-y_1) &amp;= v_2(1-x_1) \\
+ δ_2\cdot v_2\Big( 1 - v_1^{-1} \big(δ_1\cdot v_1(x_1)\big)\Big) &amp;= v_2( 1 - x_1 ) \\
+ δ_2\cdot v_2\Big( 1 - v_1^{-1} \big(δ_1\cdot v_1(x_1)\big)\Big) - v_2( 1 - x_1 ) &amp;= 0 \\
+ &amp;:= f(x_1)\end{aligned}\]</span>
+Plug in 0 and 1<br />
+<span class="math display">\[\begin{aligned}f(0) &amp;= δ_2\cdot v_2\Big( 1 - v_1^{-1} \big(δ_1\cdot v_1(0)\big)\Big) - v_2( 1 ) \\
+ &amp;= δ_2\cdot v_2\big( 1 - v_1^{-1} (0)\big) - 1 \\
+ &amp;= δ_2\cdot v_2( 1 - 0) - 1 \\
+ &amp;= δ_2 - 1 &lt; 0\\
+ f(1) &amp;= δ_2\cdot v_2\Big( 1 - v_1^{-1} \big(δ_1\cdot v_1(1)\big)\Big) - v_2(0 ) \\
+ &amp;= δ_2\cdot v_2\big( 1 - \underbrace{v_1^{-1} (δ_1)}_{&gt;0}\big) &gt; 0\\\end{aligned}\]</span>
+Therefore, by intermediate value theorem, exists <span class="math inline">\(x_1^*\in [0, 1]\)</span> s.t. <span class="math inline">\(f(x_1^*) = 0\)</span></li>
+<li>Uniqueness<br />
+:) <span class="math inline">\(f(x_1)\)</span> is increasing (omitted)</li>
+</ol>
 <blockquote>
 <p>Exercise (slideds P43)<br />
 Is the equilibrium Robinstein theorem proposes unique?</p>
