@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.4" />
 
 <title>Notes on Game Theory - loikein</title>
 <meta property="og:title" content="Notes on Game Theory - loikein">
@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">11 min read</span>
+    <span class="article-duration">12 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -86,7 +86,9 @@
 <li><a href="#ultimatum-game">Ultimatum Game</a></li>
 <li><a href="#two-round-ultimatum-game">Two-Round Ultimatum Game</a></li>
 <li><a href="#rubinstein-game">Rubinstein Game</a></li>
+<li><a href="#rubinstein-game-small-time-interval">Rubinstein Game (Small Time Interval)</a></li>
 </ul></li>
+<li><a href="#nash-bargaining-problem">Nash Bargaining Problem</a></li>
 </ul>
 </div>
 
@@ -578,6 +580,13 @@ What are the SPNE if the game is changed so that player 1 can only offer amounts
 <li><span class="math inline">\(δ_2^2\cdot v_2(x_2&#39;)\)</span> if accepts player 1’s proposal</li>
 <li>…</li>
 </ol></li>
+<li>Propositions of eq (OR 7.3.2)
+<ul>
+<li>Efficiency</li>
+<li>Stationarity of strategies</li>
+<li>First mover advantage</li>
+<li>Comparative statics of impatience</li>
+</ul></li>
 </ul>
 <p><img src="/post-img/notes-game-theory--rubinstein.png" /></p>
 <blockquote>
@@ -669,11 +678,36 @@ and still be accepted by player 2.</li>
 <li>Summing up (a, b, c, d) gives
 <span class="math display">\[\begin{aligned}M_1 + M_2 + 1-δ_2\cdot M_2 + 1-δ_1\cdot M_1 &amp;\leq 1 - δ_2\cdot m_2 + 1 - δ_1\cdot m_1 + m_1 + m_2 \\
  (1-δ_1)\cdot M_1 + (1-δ_2)\cdot M_2 &amp;\leq (1-δ_1)\cdot m_1 + (1-δ_2)\cdot m_2 \\
- (1-δ_1)\cdot (M_1-m_1) + (1-δ_2)\cdot (M_2 - m_2)&amp;\leq 0 \end{aligned}\]</span>
+ (1-δ_1)(M_1-m_1) + (1-δ_2)(M_2 - m_2)&amp;\leq 0 \end{aligned}\]</span>
 Therefore, <span class="math inline">\(m_1=M_1\)</span>, <span class="math inline">\(m_2 = M_2\)</span>.</li>
 </ol></li>
 </ol>
 </div>
+<div id="rubinstein-game-small-time-interval" class="section level3">
+<h3>Rubinstein Game (Small Time Interval)</h3>
+<ul>
+<li>Let <span class="math inline">\(δ_i = δ_i(ΔT) = e^{-r_i\cdot ΔT}\)</span>, <span class="math inline">\(δ_i^t(ΔT) = (e^{-r_i\cdot ΔT})^t = e^{-r_i\cdot T}\)</span><br />
+The system in lemma (OR Proposition 122.1)
+<span class="math display">\[\begin{cases}δ_1\cdot v_1(x_1) = v_1(y_1) \\ δ_2\cdot v_2(1-y_1) = v_2(1-x_1)\end{cases}\]</span>
+becomes
+<span class="math display">\[\begin{cases}e^{-r_1\cdot ΔT}\cdot v_1(x_1) = v_1(y_1) \\ e^{-r_2\cdot ΔT}\cdot v_2(1-y_1) = v_2(1-x_1)\end{cases}\\
+e^{ΔT} = \Big(\frac{v_1(y_1^*)}{v_1(x_1^*)}\Big)^{-\frac{1}{r_1}} \\
+\phantom{e^{ΔT}} = \Big(\frac{v_2(y_2^*)}{v_2(x_2^*)}\Big)^{-\frac{1}{r_2}}\]</span>
+Let <span class="math inline">\(ΔT\to 0\)</span>, <span class="math inline">\(e^{ΔT}\to 0\)</span>, <span class="math inline">\(δ_i(ΔT)\to 1\)</span>,<br />
+<span class="math display">\[\begin{aligned} v_1(y_1^*) &amp;= v_1(x_1^*)\\
+v_2(y_2^*) &amp;= v_2(x_2^*)\end{aligned}\]</span>
+Therefore, the first mover advantage vanishes</li>
+</ul>
+<blockquote>
+<p>Exercise (slides P51, OR 7.4.4)<br />
+Consider a model where impatience is not an issue; people don’t care when they get the good as long as they get it.<br />
+But instead assume that each time player i rejects an offer, there is an exogenously given probability <span class="math inline">\(1 - δ_i\)</span> that the bargaining process breaks down and both players don’t get anything.<br />
+Prove that nothing changes.</p>
+</blockquote>
+</div>
+</div>
+<div id="nash-bargaining-problem" class="section level2">
+<h2>Nash Bargaining Problem</h2>
 </div>
 
     </div>

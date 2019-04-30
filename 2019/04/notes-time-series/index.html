@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.4" />
 
 <title>Notes on Time Series - loikein</title>
 <meta property="og:title" content="Notes on Time Series - loikein">
@@ -91,9 +91,9 @@
 <li><a href="#ma">MA</a></li>
 <li><a href="#ar">AR</a></li>
 <li><a href="#characteristic-equation">Characteristic Equation</a></li>
-<li><a href="#difference-operator-integration">Difference Operator &amp; Integration</a></li>
-<li><a href="#deterministic-linear-trend">Deterministic (Linear) Trend</a></li>
+<li><a href="#integration">Integration</a></li>
 <li><a href="#ols-estimation">OLS Estimation</a></li>
+<li><a href="#ml-estimation">ML Estimation</a></li>
 <li><a href="#model-selection">Model Selection</a></li>
 <li><a href="#spurious-regression">Spurious Regression</a></li>
 <li><a href="#cointegration">Cointegration</a></li>
@@ -338,14 +338,9 @@ When stationary,
 <li>AR (1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-θL\)</span> is invertible <span class="math inline">\(\iff\)</span> characteristic root <span class="math inline">\(|z| &gt; 1\)</span></li>
 </ul>
 </div>
-<div id="difference-operator-integration" class="section level3">
-<h3>Difference Operator &amp; Integration</h3>
+<div id="integration" class="section level3">
+<h3>Integration</h3>
 <ul>
-<li>Difference Operator: <span class="math inline">\(Δ \equiv 1-L\)</span>
-<ul>
-<li>First difference: <span class="math inline">\(ΔY_t = Y_t - Y_{t-1}\)</span></li>
-<li>Second difference: <span class="math inline">\(Δ^2 Y_t = ΔY_t - ΔY_{t-1}\)</span></li>
-</ul></li>
 <li><span class="math inline">\(I(0)\)</span> denotes stationary series
 <ul>
 <li>Mean reverting</li>
@@ -357,20 +352,16 @@ When stationary,
 <li>Infinitely long memory</li>
 </ul></li>
 </ul>
-</div>
-<div id="deterministic-linear-trend" class="section level3">
-<h3>Deterministic (Linear) Trend</h3>
-<ul>
-<li>Another possible cause of nonstationarity: <span class="math inline">\(γ\neq 0\)</span> (even when <span class="math inline">\(|θ|&lt;1\)</span>)
-<span class="math display">\[Y_t = δ + θY_{t-1}+γ\cdot t + ε_t\]</span></li>
-<li>Trend stationary</li>
-<li>Solution:
-<ul>
-<li>Regress <span class="math inline">\(Y_t\)</span> on constant and trend and then use residuals<br />
-</li>
-<li>include <span class="math inline">\(t\)</span> as additional variable in regression</li>
-</ul></li>
-</ul>
+<!--
+### Deterministic (Linear) Trend
+
+- Another possible cause of nonstationarity: $γ\neq 0$ (even when $|θ|<1$) 
+$$Y_t = δ + θY_{t-1}+γ\cdot t + ε_t$$ 
+- Trend stationary
+- Solution: 
+    - Regress $Y_t$ on constant and trend and then use residuals  
+    - include $t$ as additional variable in regression
+-->
 </div>
 <div id="ols-estimation" class="section level3">
 <h3>OLS Estimation</h3>
@@ -386,9 +377,10 @@ When stationary,
 <li>tbe</li>
 </ul></li>
 </ul>
-<!-- ### ML Estimation
-
-tbe -->
+</div>
+<div id="ml-estimation" class="section level3">
+<h3>ML Estimation</h3>
+<p>tbe</p>
 </div>
 <div id="model-selection" class="section level3">
 <h3>Model Selection</h3>

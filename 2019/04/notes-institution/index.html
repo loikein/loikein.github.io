@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.4" />
 
 <title>Notes on Institution, Contract &amp; Information - loikein</title>
 <meta property="og:title" content="Notes on Institution, Contract &amp; Information - loikein">
@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">19 min read</span>
+    <span class="article-duration">20 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -772,6 +772,45 @@ First best is attained.</li>
   &amp;= E\Big[v\big(x^{FB}(c)\big) - t\big(x^{FB}(c)\big)\Big]\end{aligned}\]</span></li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise 3<br />
+A seller can make a take-it-or-leave it contract offer to a buyer.<br />
+The reservation utilities are zero.<br />
+After a contract is signed, the buyer privately learns his type <span class="math inline">\(v\)</span>.<br />
+It is commonly known that <span class="math inline">\(v\)</span> is uniformly distributed on the interval <span class="math inline">\([0,1]\)</span>.<br />
+If the verifiable quantity <span class="math inline">\(x\in \{0,1\}\)</span> is traded and the buyer makes a transfer payment <span class="math inline">\(t\)</span> to the seller, the payoffs are:<br />
+Seller: <span class="math inline">\(t - \frac{1}{2}\cdot x\)</span><br />
+Buyer: <span class="math inline">\(x\cdot v - t\)</span><br />
+1. Characterize the ex post efficient trade decision.<br />
+How large is the expected total surplus in the first-best solution?<br />
+2. Suppose the seller offers the following contract:<br />
+After the realization of <span class="math inline">\(v\)</span>, the buyer can choose a quantity <span class="math inline">\(x\)</span> and must pay <span class="math inline">\(t(x)\)</span> to the seller.<br />
+How will <span class="math inline">\(t(0)\)</span> und <span class="math inline">\(t(1)\)</span> be set by the seller?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>First best<br />
+Social planner’s problem:<br />
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; &amp;x\cdot v - \frac{1}{2}\cdot x \\
+&amp;&amp; &amp;x^{FB}(v) = \begin{cases}1 &amp; v\geq \frac{1}{2} \\ 0 &amp; v&lt;\frac{1}{2} \end{cases}\end{aligned}\]</span>
+Expected total surplus:<br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}E\Big[x^{FB}(v)\cdot v - \frac{1}{2}\cdot x^{FB}(v) \Big] \\
+&amp;= \int_{\frac{1}{2}}^1 1\cdot\Big(v - \frac{1}{2}\Big)\,dv + \underbrace{\int_0^{\frac{1}{2}} 0\cdot \Big(v - \frac{1}{2}\Big)\, dv}_{=0} \\
+&amp;= \Big[\frac{1}{2}\cdot v^2 - \frac{1}{2}v \Big]_{\frac{1}{2}}^1 \\
+&amp;= 0 - \Big(\frac{1}{8} - \frac{1}{4}) \\
+&amp;= \frac{1}{8} \end{aligned}\]</span></li>
+<li>Seller offers contract<br />
+Franchising contract, buyer’s payoff:<br />
+<span class="math display">\[\begin{aligned}x\cdot v - t(x) &amp;= x\cdot v - \frac{1}{2}\cdot x - a \\
+\frac{1}{2}\cdot x + a  &amp;= t(x) \\
+t(0) &amp;= a \\
+t(1) &amp;= a + \frac{1}{2}\end{aligned}\]</span>
+Buyer’s (PC):
+<span class="math display">\[\begin{aligned}E\Big[x\cdot v - \frac{1}{2}\cdot x - a\Big] &amp;\geq 0 \\
+a &amp;\geq \frac{1}{8}\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned}t(0) &amp;= \frac{1}{8} \\
+t(1) &amp;= \frac{5}{8} \end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="two-sided-timing" class="section level3">
 <h3>Two-Sided Timing</h3>
