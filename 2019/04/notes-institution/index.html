@@ -515,11 +515,21 @@ w_e(\hat{θ}) &amp;= r(\hat{θ})\cdot\big(\overbrace{1- F(\hat{θ})}^{&gt;0}\big
 w_e(\hat{θ}) - r(θ^*) &amp;&lt; -r(θ^*)\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
 &amp;= - r(θ^*)\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
 &amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(θ^*)\big) \\
-&amp;= F(\hat{θ})\cdot \big(\underbrace{E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]}_{&lt;0}\big) \\
+&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]\big) \\
 &amp;&lt; 0 \\
-w_e(\hat{θ}) &amp;&lt; w_e(θ^*)\end{aligned}\]</span>
-Therefore, workers who work both before and after government intervention are worse-off</li>
-<li>When <span class="math inline">\(\hat{θ} &gt; θ^*\)</span></li>
+w_e(\hat{θ}) &amp;&lt; r(θ^*) \\
+&amp;= w_e(θ^*)\end{aligned}\]</span>
+Therefore, workers who work both before and after government intervention are strictly worse-off</li>
+<li>When <span class="math inline">\(\hat{θ} &gt; θ^*\)</span><br />
+<span class="math display">\[\begin{aligned}r(\hat{θ}) &amp;&gt; r(θ^*) \\
+w_u(\hat{θ}) &amp;= -r(\hat{θ})\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&amp;&lt; -r(θ^*)\cdot \cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&amp;= -r(θ^*)\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
+&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(θ^*)\big) \\
+&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]\big) \\
+&amp;&lt; 0 = w_u(θ^*)\\
+w_u(\hat{θ}) &amp;&lt; w_u(θ^*)\end{aligned}\]</span>
+Therefore, workers who don’t work both before and after government intervention are strictly worse-off</li>
 </ul>
 </div>
 </div>
