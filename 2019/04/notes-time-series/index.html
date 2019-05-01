@@ -88,7 +88,7 @@
 </ul></li>
 <li><a href="#arma">ARMA</a><ul>
 <li><a href="#white-noise">White Noise</a></li>
-<li><a href="#ma">MA</a></li>
+<li><a href="#ma-stationary">MA (Stationary)</a></li>
 <li><a href="#ar">AR</a></li>
 <li><a href="#characteristic-equation">Characteristic Equation</a></li>
 <li><a href="#integration">Integration</a></li>
@@ -275,36 +275,40 @@ Then <a href="#trend">#eliminate trend</a></li>
 </ul></li>
 </ul>
 </div>
-<div id="ma" class="section level3">
-<h3>MA</h3>
+<div id="ma-stationary" class="section level3">
+<h3>MA (Stationary)</h3>
 <ul>
 <li>MA (1) <span class="math display">\[Y_t = μ + ε_t + θε_{t-1}\]</span>
-<ul>
-<li>Stationary
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
 \text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot (1 + θ^2) \\
 \text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} θσ^2 &amp; j=1\\ 0 &amp; j\geq 2\end{cases} \\
 \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} \frac{θ}{1 + θ^2} \leq \frac{1}{2} &amp; j=1\\ 0 &amp; j\geq 2\end{cases}\end{aligned}\]</span></li>
-</ul></li>
 <li>MA (q)
 <span class="math display">\[\begin{aligned}Y_t &amp;= μ + ε_t + θ_1 ε_{t-1} +\cdots + θ_q ε_{t-q} \\
 &amp;= μ + \sum_{j=0}^q θ_j ε_{t-j}\end{aligned}\]</span>
-<ul>
-<li>Stationary
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
 \text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot (1 + θ_1^2 + θ_2^2 + \dots + θ_q^2) \\
 \text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} σ^2\cdot\sum_{i=0}^{q-j} θ_iθ_{i+j} &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases} \\
-\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} ? \leq \frac{1}{2} &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases}\end{aligned}\]</span></li>
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} ? &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases}\end{aligned}\]</span></li>
+<li>MA (<span class="math inline">\(\infty\)</span>)
+<span class="math display">\[Y_t = μ + \sum_{j=0}^{\infty} φ_j ε_{t-j}\]</span>
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot \sum_{i=0}^{\infty} θ_i^2 = γ_0 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= σ^2\cdot\sum_{i=0}^{\infty} θ_iθ_{i+j} = γ_j \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= ?\end{aligned}\]</span>
+<ul>
+<li>Absolute summability
+<span class="math display">\[\begin{aligned}\sum_{j=0}^{\infty} |φ_j| &amp;&lt; \infty \\
+  \implies\sum_{j=0}^{\infty} |γ_j| &amp;&lt; \infty \end{aligned}\]</span></li>
+<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} φ_j^2 &lt; \infty\]</span></li>
 </ul></li>
-<li>Absolute summability</li>
-<li>Square summability</li>
 </ul>
 </div>
 <div id="ar" class="section level3">
 <h3>AR</h3>
 <ul>
-<li>AR (1) <span class="math display">\[Y_t = δ + θ Y_{t-1} + ε_t\]</span>
-When stationary,
+<li>AR (1) <span class="math display">\[Y_t = c + φ Y_{t-1} + ε_t\]</span>
+When <span class="math inline">\(|φ|&lt;1\)</span>, stationary,
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= δ + θ E[Y_{t-1}] \\
 &amp;&amp; &amp;= \frac{δ}{1-θ} \\ 
 &amp;&amp; &amp;= μ \\
