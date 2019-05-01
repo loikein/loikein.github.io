@@ -497,18 +497,28 @@ Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \
 <span class="math display">\[\begin{aligned}\text{Marginal type} &amp;&amp; &amp;w_u + r(\hat{θ}) = w_e \\
 \text{Budget balance} &amp;&amp; &amp;\underbrace{w_e\cdot F(\hat{θ})}_{\text{Total wage}} + \underbrace{w_u\cdot\big(1 - F(\hat{θ})\big)}_{\text{Total unemployment benefit}} = \underbrace{\int_θ^{\hat{θ}} θ\cdot f(θ)\, dθ}_{\text{Total productivity}}\end{aligned}\]</span>
 solving the system gives<br />
-<span class="math display">\[\begin{aligned}\big(w_u + r(\hat{θ})\big)&amp;\cdot F(\hat{θ}) + w_u\cdot\big(1 - F(\hat{θ})\big) = \int_θ^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-w_u(\hat{θ}) &amp;= - r(\hat{θ})\cdot F(\hat{θ}) + \int_θ^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+<span class="math display">\[\begin{aligned}\big(w_u + r(\hat{θ})\big)&amp;\cdot F(\hat{θ}) + w_u\cdot\big(1 - F(\hat{θ})\big) = \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+w_u(\hat{θ}) &amp;= - r(\hat{θ})\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
 &amp;= - r(\hat{θ})\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
-&amp;= F(\hat{θ})\cdot \Big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\Big) \\
-w_e(\hat{θ}) &amp;= r(\hat{θ})\cdot\big(1- F(\hat{θ}\big) + \int_θ^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-&amp;= F(\hat{θ})\cdot \Big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\Big) + r(\hat{θ})\end{aligned}\]</span></li>
+&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\big) \\
+w_e(\hat{θ}) &amp;= r(\hat{θ})\cdot\big(1- F(\hat{θ})\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\big) + r(\hat{θ})\end{aligned}\]</span></li>
 <li>When <span class="math inline">\(\hat{θ} = θ^*\)</span> in <a href="#unknown-type-competitive-equilibrium">#Unknown Type Competitive Equilibrium</a><br />
-<span class="math display">\[\begin{aligned}w_u(θ^*) &amp;= F(θ^*)\cdot \Big(E[θ \ | \ θ\leq θ^*] - r(θ^*)\Big) \\
+<span class="math display">\[\begin{aligned}w_u(θ^*) &amp;= F(θ^*)\cdot \big(E[θ \ | \ θ\leq θ^*] - r(θ^*)\big) \\
 &amp;= F(θ^*)\cdot 0 = 0 \\
-w_u(θ^*) &amp;= w_u(θ^*) + r(θ^*) \\
+w_e(θ^*) &amp;= w_u(θ^*) + r(θ^*) \\
 &amp;= r(θ^*) = w^*\end{aligned}\]</span></li>
-<li>When <span class="math inline">\(\hat{θ} &lt; θ^*\)</span></li>
+<li>When <span class="math inline">\(\hat{θ} &lt; θ^*\)</span>
+<span class="math display">\[\begin{aligned}r(\hat{θ}) &amp;&lt; r(θ^*) \\
+w_e(\hat{θ}) &amp;= r(\hat{θ})\cdot\big(\overbrace{1- F(\hat{θ})}^{&gt;0}\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&amp;&lt; r(θ^*)\cdot\big(1- F(\hat{θ})\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+w_e(\hat{θ}) - r(θ^*) &amp;&lt; -r(θ^*)\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&amp;= - r(θ^*)\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
+&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(θ^*)\big) \\
+&amp;= F(\hat{θ})\cdot \big(\underbrace{E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]}_{&lt;0}\big) \\
+&amp;&lt; 0 \\
+w_e(\hat{θ}) &amp;&lt; w_e(θ^*)\end{aligned}\]</span>
+Therefore, workers who work both before and after government intervention are worse-off</li>
 <li>When <span class="math inline">\(\hat{θ} &gt; θ^*\)</span></li>
 </ul>
 </div>
