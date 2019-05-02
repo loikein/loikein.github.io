@@ -291,16 +291,16 @@ Then <a href="#trend">#eliminate trend</a></li>
 \text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} σ^2\cdot\sum_{i=0}^{q-j} θ_iθ_{i+j} &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases} \\
 \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} ? &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases}\end{aligned}\]</span></li>
 <li>MA (<span class="math inline">\(\infty\)</span>)
-<span class="math display">\[Y_t = μ + \sum_{j=0}^{\infty} φ_j ε_{t-j}\]</span>
+<span class="math display">\[Y_t = μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\]</span>
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
-\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot \sum_{i=0}^{\infty} θ_i^2 = γ_0 \\
-\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= σ^2\cdot\sum_{i=0}^{\infty} θ_iθ_{i+j} = γ_j \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot \sum_{i=0}^{\infty} ψ_i^2 = γ_0 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= σ^2\cdot\sum_{i=0}^{\infty} ψ_iψ_{i+j} = γ_j \\
 \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= ?\end{aligned}\]</span>
 <ul>
 <li>Absolute summability
-<span class="math display">\[\begin{aligned}\sum_{j=0}^{\infty} |φ_j| &amp;&lt; \infty \\
+<span class="math display">\[\begin{aligned}\sum_{j=0}^{\infty} |ψ_j| &amp;&lt; \infty \\
   \implies\sum_{j=0}^{\infty} |γ_j| &amp;&lt; \infty \end{aligned}\]</span></li>
-<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} φ_j^2 &lt; \infty\]</span></li>
+<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} ψ_j^2 &lt; \infty\]</span></li>
 </ul></li>
 </ul>
 </div>
