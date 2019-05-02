@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">7 min read</span>
     
     <h1 class="article-title">Notes on Time Series</h1>
     
@@ -300,7 +300,9 @@ Then <a href="#trend">#eliminate trend</a></li>
 </div>
 <div id="stationarity" class="section level3">
 <h3>Stationarity</h3>
-<p>Reference: <a href="http://www.real-statistics.com/time-series-analysis/autoregressive-processes/characteristic-equation-autoregressive-processes/">Characteristic Equation AR (p) | Real Statistics Using Excel</a></p>
+<p>Reference:<br />
+<a href="http://www.real-statistics.com/time-series-analysis/autoregressive-processes/characteristic-equation-autoregressive-processes/">Characteristic Equation AR (p) | Real Statistics Using Excel</a><br />
+<a href="https://stats.stackexchange.com/questions/208656/intuition-behind-the-characteristic-equation-of-an-ar-or-ma-process">Intuition behind the characteristic equation of an AR or MA process</a></p>
 <ul>
 <li>Absolute summability
 <span class="math display">\[\begin{aligned}\sum_{j=0}^{\infty} |ψ_j| &amp;&lt; \infty \\
@@ -319,17 +321,23 @@ Then <a href="#trend">#eliminate trend</a></li>
 <span class="math display">\[|z|\begin{cases}&lt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &gt;1 &amp; \text{stationary}\end{cases}\]</span></li>
 <li>AR (1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-φL\)</span> is invertible <span class="math inline">\(\iff\)</span> characteristic root <span class="math inline">\(|z| &gt; 1\)</span><br />
 <span class="math inline">\(1-φL\)</span> is invertible <span class="math inline">\(\Longleftarrow \ |φ|&lt;1\)</span>
-<span class="math display">\[\begin{aligned} y_t &amp;= φLy_t + ε_t \\ (1-φL) y_t &amp;= ε_t \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned} y_t &amp;= φLy_t + ε_t \\
+(1-φL) y_t &amp;= ε_t \\
+1 - φ\cdot z &amp;= 0 \\
+|z| &amp;= \Bigg| \frac{1}{φ}\Bigg|&gt; 1 \\
+|φ| &amp;&lt; 1\end{aligned}\]</span></li>
 <li>AR (p) has a covariance-stationary representation<br />
 <span class="math inline">\(\iff |z|&gt;1\)</span> for all characteristic roots <span class="math inline">\(z\)</span> in <strong>characteristic equation</strong><br />
-<span class="math inline">\(\Longleftarrow \ \sum_{j=1}^p φ_j &lt;1\)</span>
-<span class="math display">\[\begin{aligned}1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \end{aligned}\]</span></li>
+<span class="math inline">\(\Longleftarrow \ \sum_{j=1}^p φ_j &lt;1\)</span><br />
+<span class="math display">\[\begin{aligned}y_t &amp;= φ_1Ly_t -\cdots - φ_p L^p y_t + ε_t \\
+φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p \\
+φ(L) y_t &amp;= ε_t \\
+1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \\
+|z| &amp;= \Big|\frac{1}{φ_1L + φ_2L^2 + \cdots + φ_pL^p}\Big| \\
+&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_jL^j}\Bigg| \\
+&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_j}\Bigg| &gt; 1 \\
+\Big|\sum_{j=1}^p φ_j\Big| &amp;&lt; 1\end{aligned}\]</span></li>
 </ul>
-<!-- 
-z\cdot (1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p) &= 0 \\
-z\cdot φ(L) &= 0 \\
-\frac{1}{|φ(L)|} &> 1
- -->
 </div>
 <div id="ar" class="section level3">
 <h3>AR</h3>
@@ -352,9 +360,7 @@ When <span class="math inline">\(|φ|&lt;1\)</span>, <span class="math inline">\
   \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= φ^j\end{aligned}\]</span></li>
 </ul></li>
 <li>AR (p)
-<span class="math display">\[Y_t = c + φ_1 Y_{t-1} +\cdots + φ_p Y_{t-p} + ε_t\]</span>
-With lag polynomial
-<span class="math display">\[\begin{aligned} φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p \\ y_t &amp;= φ_1Ly_t -\cdots - φ_p L^p y_t + ε_t \\ φ(L) y_t &amp;= ε_t \end{aligned}\]</span></li>
+<span class="math display">\[Y_t = c + φ_1 Y_{t-1} +\cdots + φ_p Y_{t-p} + ε_t\]</span></li>
 <li>ARMA (p,q)
 <span class="math display">\[Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\]</span></li>
 </ul>

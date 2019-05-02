@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">12 min read</span>
+    <span class="article-duration">14 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -88,7 +88,10 @@
 <li><a href="#rubinstein-game">Rubinstein Game</a></li>
 <li><a href="#rubinstein-game-small-time-interval">Rubinstein Game (Small Time Interval)</a></li>
 </ul></li>
-<li><a href="#nash-bargaining-problem">Nash Bargaining Problem</a></li>
+<li><a href="#nash-bargaining-problem">Nash Bargaining Problem</a><ul>
+<li><a href="#nash-axioms">Nash Axioms</a></li>
+<li><a href="#nash-bargaining-solution-nbs">Nash Bargaining Solution (NBS)</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -708,6 +711,82 @@ Prove that nothing changes.</p>
 </div>
 <div id="nash-bargaining-problem" class="section level2">
 <h2>Nash Bargaining Problem</h2>
+<ul>
+<li><span class="math inline">\((X, d)\in B\)</span>
+<ul>
+<li>Set of all Nash bargaining problems</li>
+<li>Set of players: <span class="math inline">\(k = 2\)</span></li>
+<li>Set of payoff profiles under agreement: <span class="math inline">\(X\subset \mathbb{R}^k\)</span></li>
+<li>Payoff profiles without agreement: <span class="math inline">\(d\in\mathbb{R}^k\)</span></li>
+</ul></li>
+<li>Assumptions
+<ul>
+<li><span class="math inline">\(X\)</span> is convex, closed, bounded above</li>
+<li><span class="math inline">\(d\in X\)</span></li>
+<li>If <span class="math inline">\(x\in X\)</span>, then <span class="math inline">\(x&#39;\in X\)</span> for all <span class="math inline">\(x&#39;\leq x\)</span></li>
+</ul></li>
+<li>Bargaining solution: <span class="math inline">\(F:B\to\mathbb{R}^k\)</span>
+<ul>
+<li>Payoff of each player</li>
+<li><span class="math inline">\(F(X,d)\in X\)</span></li>
+</ul></li>
+</ul>
+<div id="nash-axioms" class="section level3">
+<h3>Nash Axioms</h3>
+<ol style="list-style-type: decimal">
+<li>Scale covariance (Invariant to Affine transformation)<br />
+For <span class="math inline">\(τ_k:\mathbb{R}\to\mathbb{R}\)</span>, <span class="math inline">\(A_k&gt;0\)</span>, <span class="math inline">\(τ_k = A_k\cdot u + B_k\)</span>,<br />
+for <span class="math inline">\(τ:\mathbb{R}^k\to\mathbb{R}^k\)</span>, <span class="math inline">\(τ(x) =\big(τ_1(x_1), τ_2(x_2), \dots, τ_k(x_k)\big)\)</span>,<br />
+<span class="math inline">\(\implies F\big(τ(X), τ(d)\big) = τ\big(F(X,d)\big)\)</span></li>
+<li>Individual rationality: <span class="math inline">\(F(X,d)\geq d\)</span></li>
+<li>Pareto efficiency: For all <span class="math inline">\(y\gg F(X,d)\implies y\not\in X\)</span></li>
+<li>IIA (Independence of irrelevant alternatives)<br />
+For <span class="math inline">\((X,d),(Y,d)\in B\)</span>, <span class="math inline">\(Y\subset X\)</span>,<br />
+<span class="math inline">\(F(X,d)\in Y\implies F(X,d) = F(Y,d)\)</span></li>
+<li>Symmetry<br />
+For <span class="math inline">\(ρ:\mathbb{R}^k\to\mathbb{R}^k\)</span>, <span class="math inline">\(ρ(x_1, x_2) = (x_2, x_1)\)</span><br />
+<span class="math inline">\(\implies F\big(ρ(X), ρ(d)\big) = ρ\big(F(X,d)\big)\)</span></li>
+</ol>
+</div>
+<div id="nash-bargaining-solution-nbs" class="section level3">
+<h3>Nash Bargaining Solution (NBS)</h3>
+<ul>
+<li>Generalized (asymmetric) NBS (definition 1)<br />
+For <span class="math inline">\(F:B\to\mathbb{R}^k\)</span>, exists <span class="math inline">\(α,β\in[ 0,1]\)</span>, <span class="math inline">\(α+β = 1\)</span> s.t. <span class="math inline">\(F(X,d)\)</span> solves
+<span class="math display">\[\begin{aligned}\max_{x\in X, x\geq d} &amp;&amp; (x_1 - d_1)^α\cdot(x_2 - d_2)^β \end{aligned}\]</span>
+<ul>
+<li>Holds for <span class="math inline">\(α&#39; =\frac{α}{α+β}\)</span> and <span class="math inline">\(β&#39;=\frac{β}{α+β}\)</span></li>
+<li>Symmetric NBS: <span class="math inline">\(α = β = \frac{1}{2}\)</span></li>
+<li><span class="math inline">\(F(X,d)\in X\)</span> satisfies axioms 1-3 <span class="math inline">\(\iff\)</span> generalized NBS</li>
+<li><span class="math inline">\(F(X,d)\in X\)</span> satisfies axioms 1-4 <span class="math inline">\(\iff\)</span> symmetric NBS</li>
+</ul></li>
+<li><span class="math inline">\(F:B\to\mathbb{R}^k\)</span> is an NBS if either (definition 2)
+<ol style="list-style-type: decimal">
+<li>Exists some player <span class="math inline">\(i\)</span> s.t. <span class="math inline">\(F(X,d)\)</span> always maximizes their payoff</li>
+<li>Exists <span class="math inline">\(α,β\in[ 0,1]\)</span>, <span class="math inline">\(α+β = 1\)</span> s.t. <span class="math inline">\(F(X,d)\)</span> is on the boundary of <span class="math inline">\(X\)</span>,<br />
+and
+<span class="math display">\[\begin{aligned}r_s &amp;= (\hat{x}_1,d_2)\\
+  t_s &amp;= (d_1,\hat{x}_2) \\
+  s &amp;= α\cdot r_s + β\cdot t_s \\
+  &amp;= (α\hat{x}_1 + βd_1, \ αd_2 + β\hat{x}_2) \\
+  &amp;= F(X,d)\end{aligned}\]</span></li>
+</ol></li>
+</ul>
+<blockquote>
+<p>Lemma<br />
+Definitions 1 and 2 are equivalent</p>
+</blockquote>
+<p>:) <span class="math inline">\(s\in\text{argmax}\ (x_1 - d_1)^α\cdot(x_2 - d_2)^β\)</span></p>
+<p>For <span class="math inline">\(γ\in[0,1]\)</span>, <span class="math inline">\(γ\cdot r_s + (1-γ）\cdot t_s\)</span>,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\big(γ(\hat{x}_1 - d_1)\big)^α\cdot \big((1-γ)(\hat{x}_2 - d_2)\big)^β \\
+&amp;= γ^α\cdot (1 - γ)^β \cdot (\hat{x}_1 - d_1)^α\cdot (\hat{x}_2 - d_2)^β \end{aligned}\]</span></p>
+<blockquote>
+<p>Exercise (slides P61)<br />
+Check that the NBS in Definition 2 is well defined,<br />
+i.e. that for any problem (X, d) and <span class="math inline">\(α,β&gt;0\)</span> with <span class="math inline">\(α+β = 1\)</span>,<br />
+there is a point on the boundary of <span class="math inline">\(X\)</span> that satisfies the conditions.</p>
+</blockquote>
+</div>
 </div>
 
     </div>
