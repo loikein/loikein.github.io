@@ -321,7 +321,7 @@ Then <a href="#trend">#eliminate trend</a></li>
 &amp;\sum_{j=-\infty}^{\infty} |ψ_j| &lt; \infty\end{aligned}\]</span></li>
 <li>Characteristic root
 <span class="math display">\[|z|\begin{cases}&lt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &gt;1 &amp; \text{stationary}\end{cases}\]</span></li>
-<li>AR (1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-φL\)</span> is invertible <span class="math inline">\(\iff\)</span> <strong>characteristic root</strong> <span class="math inline">\(|z| &gt; 1\)</span><br />
+<li>AR (1) is stationary <span class="math inline">\(\iff 1-φL\)</span> is invertible <span class="math inline">\(\iff |z| &gt; 1\)</span><br />
 <span class="math inline">\(\Longleftarrow \ |φ|&lt;1\)</span>
 <span class="math display">\[\begin{aligned} y_t &amp;= φLy_t + ε_t \\
 (1-φL) y_t &amp;= ε_t \\
@@ -349,12 +349,13 @@ Then <a href="#trend">#eliminate trend</a></li>
 &amp;= c  + ε_t + φ\cdot(c + φY_{t-2} + ε_{t-1}) \\
 &amp;= c + φc + ε_t + φ ε_{t-1} + φ^2Y_{t-2} \\
 &amp;= c + φc + \dots + φ^j c \\
-&amp;\phantom{\ggg} + ε_t + φε_{t-1} +\dots + φ^jε_{t-j} + φ^{j+1}Y_{t-(j+1)}\end{aligned}\]</span>
+&amp;\phantom{\ggg} + ε_t + φε_{t-1} +\dots + φ^jε_{t-j} + φ^{j+1}Y_{t-(j+1)} \\
+&amp;= c\cdot\sum_{j=0}^{\infty} φ^j + \sum_{j=0}^{\infty} φ^j\cdot ε_{t-j}\end{aligned}\]</span>
 When <span class="math inline">\(|φ|&lt;1\)</span>, <span class="math inline">\(φ^{j+1}Y_{t-(j+1)}\to 0\)</span> as <span class="math inline">\(j\to\infty\)</span>, AR (1) becomes MA (<span class="math inline">\(\infty\)</span>)
 <ul>
 <li>Absolute summability</li>
 <li>Stationary
-<span class="math display">\[\begin{aligned}MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
+<span class="math display">\[\begin{aligned}MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j\cdot ε_{t-j} \\
   AR(1) &amp;&amp; Y_t &amp;= \frac{c}{1-φ} + \sum_{j=0}^{\infty} φ^j\cdot ε_{t-j} \\
   \text{Mean:} &amp;&amp; E[Y_t] &amp;= \frac{c}{1-φ} = μ \\
   \text{Variance:} &amp;&amp; Var(Y_t) &amp;= \frac{σ^2}{1-φ^2} = γ_0 \\

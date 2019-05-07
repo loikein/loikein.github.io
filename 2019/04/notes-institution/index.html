@@ -116,10 +116,11 @@
 </ul></li>
 <li><a href="#adverse-selection">Adverse Selection</a><ul>
 <li><a href="#one-sided-timing-1">One-Sided Timing</a></li>
-<li><a href="#benchmark-4">Benchmark</a></li>
 <li><a href="#first-best">First Best</a></li>
 <li><a href="#second-best">Second Best</a></li>
+<li><a href="#agent-offers-contract-1">Agent Offers Contract</a></li>
 <li><a href="#two-sided-timing-1">Two-Sided Timing</a></li>
+<li><a href="#benchmark-4">Benchmark</a></li>
 </ul></li>
 </ul>
 </div>
@@ -555,7 +556,7 @@ Therefore, workers who don’t work both before and after government interventio
 </ul></li>
 <li>Contract: <span class="math inline">\(t\)</span>
 <ul>
-<li>Principle’s payoff: <span class="math inline">\(v - t\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v - t\)</span></li>
 <li>Agent’s payoff: <span class="math inline">\(t - c(e)\)</span></li>
 </ul></li>
 <li>Reservation utility: <span class="math inline">\(\underline{U} = 0\)</span></li>
@@ -583,7 +584,7 @@ where <span class="math inline">\(p(e) = Pr(v = v_h \ | \ e)\)</span></li>
 <ul>
 <li>Agent’s problem
 <span class="math display">\[\begin{aligned}\max_e &amp;&amp; E[t(v) \ | \ e] - c(e) &amp;= E[v \ | \ e] - a - c(e) \\ &amp;&amp; e^* &amp;= e^{FB} \end{aligned}\]</span></li>
-<li>Principle’s payoff
+<li>Principal’s payoff
 <span class="math display">\[\begin{aligned}v-t(v) &amp;= a \\ &amp;= E[v \ | \ e^{FB}] - c(e^{FB})\end{aligned}\]</span></li>
 </ul></li>
 </ul>
@@ -640,7 +641,7 @@ t\Big(\frac{1}{2}\Big) &amp;= \frac{1}{2} - \frac{1}{8} \\
 <ul>
 <li>Contract: <span class="math inline">\(\begin{cases}t(v_h) = t_h \\ t(v_l) = t_l \end{cases}\)</span></li>
 </ul></li>
-<li>When principle implements <span class="math inline">\(e = e_h\)</span>
+<li>When principal implements <span class="math inline">\(e = e_h\)</span>
 <span class="math display">\[\begin{aligned}\max &amp;&amp; &amp;e_h(v_h - t_h) + (1-e_h)(v_l - t_l) \\
 (IC) &amp;&amp; &amp;e_h t_h + (1-e_h )t_l - c \geq e_l t_h + (1-e_l )t_l - 0 \\
 (PC) &amp;&amp; &amp;e_h t_h + (1-e_h )t_l - c \geq \underline{U} = 0 \\
@@ -649,26 +650,26 @@ t\Big(\frac{1}{2}\Big) &amp;= \frac{1}{2} - \frac{1}{8} \\
 <li>Lemma: <span class="math inline">\(\begin{cases}t_h = \frac{c}{e_h - e_l} \\ t_l = 0\end{cases}\)</span> is a solution</li>
 <li>Agent’s expected payoff (LL rent):
 <span class="math display">\[\begin{aligned}e_h t_h + (1-e_h )t_l - c &amp;= e_h \cdot \frac{c}{e_h - e_l} - c\\ &amp;= \frac{e_lc}{e_h - e_l}\end{aligned}\]</span></li>
-<li>Principle’s expected payoff:
+<li>Principal’s expected payoff:
 <span class="math display">\[\begin{aligned}e_h (v_h - t_h) + (1-e_h )(v_l - t_l) &amp;= e_h (v_h - t_h) + (1-e_h )v_l \\
   &amp;= e_h v_h - e_ht_h + (1-e_h )(v_l - t_l) \\
   &amp;= e_h v_h - \frac{e_hc}{e_h - e_l} + (1-e_h )v_l \end{aligned}\]</span></li>
 </ul></li>
-<li>When principle implements <span class="math inline">\(e = e_l\)</span>
+<li>When principal implements <span class="math inline">\(e = e_l\)</span>
 <ul>
 <li>Contract: <span class="math inline">\(t_h = t_l = 0\)</span></li>
 <li>Agent’s expected payoff: 0</li>
-<li>Principle’s expected payoff: <span class="math inline">\(e_l v_h + (1-e_l )v_l\)</span></li>
+<li>Principal’s expected payoff: <span class="math inline">\(e_l v_h + (1-e_l )v_l\)</span></li>
 </ul></li>
-<li>Principle wants to implement <span class="math inline">\(e = e_h\)</span> when
+<li>Principal wants to implement <span class="math inline">\(e = e_h\)</span> when
 <span class="math display">\[\begin{aligned} e_h v_h  - \frac{e_hc}{e_h - e_l} + (1-e_h )v_l &amp;\geq e_l v_h + (1-e_l )v_l\\
 (e_h - e_l)(v_h - v_l) &amp;\geq \frac{e_hc}{e_h - e_l}\end{aligned}\]</span></li>
-<li>When <span class="math inline">\(c\leq (e_h - e_l)(v_h - v_l) &lt; \frac{e_hc}{e_h - e_l}\)</span>, <span class="math inline">\(e = e_h\)</span> is first best solution but not chosen by the principle</li>
+<li>When <span class="math inline">\(c\leq (e_h - e_l)(v_h - v_l) &lt; \frac{e_hc}{e_h - e_l}\)</span>, <span class="math inline">\(e = e_h\)</span> is first best solution but not chosen by the principal</li>
 </ul>
 <blockquote>
 <p>Application: Workplace surveillance<br />
-The principle can decide <span class="math inline">\(x\in\{0,1\}\)</span>, when <span class="math inline">\(x=1\)</span>, a surveillance technology costing <span class="math inline">\(k&gt;0\)</span> is used, and agents’ effort level becomes verifiable.<br />
-Principle’s payoff: <span class="math inline">\(v\in\{0,1\}\)</span>.<br />
+The principal can decide <span class="math inline">\(x\in\{0,1\}\)</span>, when <span class="math inline">\(x=1\)</span>, a surveillance technology costing <span class="math inline">\(k&gt;0\)</span> is used, and agents’ effort level becomes verifiable.<br />
+Principal’s payoff: <span class="math inline">\(v\in\{0,1\}\)</span>.<br />
 Agent’s effort cost: <span class="math inline">\(c(e) = e^2\)</span>, reservation utility is zero, and chooses <span class="math inline">\(e\in[0,1] = Pr(v=1|e)\)</span>.<br />
 1. Calculate the first best and the second best.<br />
 2. Consider a privacy protection law that forbids workplace surveillance. How does the law impact on total surplus?</p>
@@ -683,9 +684,9 @@ FOC &amp;&amp; 1 - 2e &amp;= 0 \\
 Expected total surplus: <span class="math display">\[e^{FB} - (e^{FB})^2 - x^{FB}\cdot k = \frac{1}{4}\]</span></li>
 <li>Second best
 <ol style="list-style-type: lower-alpha">
-<li>Suppose principle chooses <span class="math inline">\(x = 0\)</span><br />
+<li>Suppose principal chooses <span class="math inline">\(x = 0\)</span><br />
 Contract: <span class="math inline">\(t(v=1) = t_1\)</span>, <span class="math inline">\(t(v=0) = t_0\)</span><br />
-Suppose principle implements <span class="math inline">\(e = \hat{e}\)</span>, principle’s problem:<br />
+Suppose principal implements <span class="math inline">\(e = \hat{e}\)</span>, principal’s problem:<br />
 <span class="math display">\[\begin{aligned}\max_{\hat{e}} &amp;&amp; &amp;\phantom{\ggg}\hat{e}\cdot(v_1 - t_1) + (1 - \hat{e})\cdot(v_0 - t_0) \\
  &amp;&amp; &amp;= \hat{e}\cdot(1 - t_1) - t_0\cdot(1 - \hat{e})\\
  (IC) &amp;&amp; &amp;\hat{e} = \text{argmax}_e \ e\cdot t_1 + (1-e)\cdot t_0 - e^2 \\
@@ -693,28 +694,28 @@ Suppose principle implements <span class="math inline">\(e = \hat{e}\)</span>, p
  (LL) &amp;&amp; &amp;\begin{cases}t_1\geq 0 \\ t_0 \geq 0 \end{cases}\end{aligned}\]</span>
 (IC) <span class="math inline">\(\implies \hat{e} = \frac{t_1 - t_0}{2}\)</span>,<br />
 Let <span class="math inline">\(t_0 = 0 \implies t_1 = 2\hat{e}\)</span>.<br />
-Plug in back to principle’s problem,<br />
+Plug in back to principal’s problem,<br />
 <span class="math display">\[\begin{aligned}\max_{\hat{e}} &amp;&amp; \hat{e}\cdot(1 - 2\hat{e})&amp;\\
  FOC &amp;&amp; 1 - 4\hat{e} &amp;= 0 \\
  &amp;&amp; \hat{e} &amp;= \frac{1}{4} \end{aligned}\]</span>
 Expected payoff:<br />
-<span class="math display">\[\begin{aligned}\text{Principle:} &amp;&amp; &amp;\hat{e}\cdot(1 - 2\hat{e}) = \frac{1}{8} \\
+<span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;\hat{e}\cdot(1 - 2\hat{e}) = \frac{1}{8} \\
  \text{Agent:} &amp;&amp; &amp;\hat{e}\cdot t_1 - \hat{e}^2 = \frac{1}{16} \\
  \text{Total:} &amp;&amp; &amp;\hat{e} - \hat{e}^2 = \frac{3}{16}\end{aligned}\]</span></li>
-<li>Suppose principle chooses <span class="math inline">\(x = 1\)</span><br />
-Principle enforces <span class="math inline">\(e = e^{FB} = \frac{1}{2}\)</span><br />
+<li>Suppose principal chooses <span class="math inline">\(x = 1\)</span><br />
+Principal enforces <span class="math inline">\(e = e^{FB} = \frac{1}{2}\)</span><br />
 Contract: <span class="math inline">\(t(e^{FB}) = \frac{1}{4}\)</span><br />
 Expected payoff:<br />
-<span class="math display">\[\begin{aligned}\text{Principle:} &amp;&amp; &amp;e\cdot 1 + (1-e)\cdot 0 - t - k = \frac{1}{4} - k \\
+<span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;e\cdot 1 + (1-e)\cdot 0 - t - k = \frac{1}{4} - k \\
  \text{Agent:} &amp;&amp; &amp;- c + t = 0\\
  \text{Total:} &amp;&amp; &amp;e\cdot 1 + (1-e)\cdot 0 - c - k = \frac{1}{4} - k\end{aligned}\]</span></li>
 <li>Comparison<br />
-Principle chooses <span class="math inline">\(x = 1\)</span> when
+Principal chooses <span class="math inline">\(x = 1\)</span> when
 <span class="math display">\[\begin{aligned} \frac{1}{8} &amp;\leq \frac{1}{4} - k\\
  k &amp;\leq \frac{1}{8}\end{aligned}\]</span></li>
 </ol></li>
 <li>Privacy protection law<br />
-The law improves total surplus when principle prefers to choose <span class="math inline">\(x = 1\)</span> and<br />
+The law improves total surplus when principal prefers to choose <span class="math inline">\(x = 1\)</span> and<br />
 <span class="math display">\[\begin{aligned}\frac{3}{16} &amp;&gt; \frac{1}{4} - k \\
 k &amp;&gt; \frac{1}{16} \end{aligned}\]</span>
 Therefore, the law improves total surplus when <span class="math inline">\(\frac{1}{16} &lt; k &lt; \frac{1}{8}\)</span></li>
@@ -727,7 +728,7 @@ Therefore, the law improves total surplus when <span class="math inline">\(\frac
 <li>First best solution is attained
 <ul>
 <li>Agent’s expected payoff: <span class="math inline">\(e_h v_h + (1-e_h )v_l\)</span></li>
-<li>Principle’s expected payoff: 0</li>
+<li>Principal’s expected payoff: 0</li>
 </ul></li>
 <li>Restrictions of contractual freedom may be welfare-enhancing</li>
 </ul>
@@ -760,19 +761,19 @@ Expected total surplus:
 <span class="math display">\[\begin{aligned}2\cdot e^{FB} - 4(e^{FB})^2 &amp;= 2\cdot \frac{1}{4} - 4\cdot\Big(\frac{1}{4}\Big)^2 \\
 &amp;= \frac{1}{4} \end{aligned}\]</span></li>
 <li>Limited liability<br />
-Suppose principle implements <span class="math inline">\(e = \hat{e}\)</span>, principle’s problem:
+Suppose principal implements <span class="math inline">\(e = \hat{e}\)</span>, principal’s problem:
 <span class="math display">\[\begin{aligned}\max_t &amp;&amp; &amp;\hat{e}\cdot(2-t_2) + (1-\hat{e})\cdot(0 - t_0) \\
 (IC) &amp;&amp; &amp;\hat{e} = \text{argmax}_e \ e\cdot t_2 + (1-e)\cdot t_0 - 4e^2 \\
 (PC) &amp;&amp; &amp;\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 \geq 0\\
 (LL) &amp;&amp; &amp;\begin{cases}t_2\geq 0 \\ t_0 \geq 0\end{cases}\end{aligned}\]</span>
 (IC) <span class="math inline">\(\implies\hat{e}=\frac{t_2 - t_0}{8}\)</span><br />
 Let <span class="math inline">\(t_0 = 0 \implies t_2 = 8\hat{e}\)</span>.<br />
-Plug in back to principle’s problem,<br />
+Plug in back to principal’s problem,<br />
 <span class="math display">\[\begin{aligned}\max_{\hat{e}} &amp;&amp; \hat{e}\cdot(2-8\hat{e})&amp; \\
 FOC &amp;&amp; 2 - 16\hat{e} &amp;= 0 \\
 &amp;&amp; \hat{e} &amp;= \frac{1}{8}\end{aligned}\]</span>
 Expected payoff:<br />
-<span class="math display">\[\begin{aligned}\text{Principle:} &amp;&amp; &amp;\hat{e}\cdot (2-t_2) + (1-\hat{e})\cdot 0 = \frac{1}{8} \\
+<span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;\hat{e}\cdot (2-t_2) + (1-\hat{e})\cdot 0 = \frac{1}{8} \\
 \text{Agent:} &amp;&amp; &amp;\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 = \frac{1}{16}\\
 \text{Total:} &amp;&amp; &amp;\hat{e}\cdot 2 + (1-\hat{e})\cdot 0 - 4\hat{e}^2 = \frac{3}{16}\end{aligned}\]</span>
 First best is not attained.</li>
@@ -814,7 +815,7 @@ First best is attained.</li>
 </ul></li>
 <li>Contract: <span class="math inline">\(t\)</span>
 <ul>
-<li>Principle’s payoff: <span class="math inline">\(v(x) - t\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v(x) - t\)</span></li>
 <li>Agent’s payoff: <span class="math inline">\(t - c\cdot x\)</span></li>
 </ul></li>
 <li>First-best solution: <span class="math display">\[x^{FB}(c) = \text{argmax} \ v(x) - c\cdot x\]</span></li>
@@ -823,7 +824,7 @@ First best is attained.</li>
 <li>Agent’s problem
 <span class="math display">\[\begin{aligned}\max_x &amp;&amp; t(x) - c\cdot x &amp;= v(x)-a - c\cdot x \\
   &amp;&amp; x^* &amp;= x^{FB}(c) \end{aligned}\]</span></li>
-<li>Principle’s payoff
+<li>Principal’s payoff
 <span class="math display">\[\begin{aligned}v(x)-t(x) &amp;= a \\
   &amp;= E\Big[v\big(x^{FB}(c)\big) - t\big(x^{FB}(c)\big)\Big]\end{aligned}\]</span></li>
 </ul></li>
@@ -873,7 +874,7 @@ t(1) &amp;= \frac{5}{8} \end{aligned}\]</span></li>
 <ol style="list-style-type: decimal">
 <li>Principal offers contract: <span class="math inline">\((t, x)\)</span></li>
 <li>Agent accepts or rejects</li>
-<li>Agent learns their type <span class="math inline">\(c\)</span>, principle learns their type <span class="math inline">\(v\)</span><br />
+<li>Agent learns their type <span class="math inline">\(c\)</span>, principal learns their type <span class="math inline">\(v\)</span><br />
 (unobservable by the other party)</li>
 <li>Agent chooses <span class="math inline">\(x\)</span></li>
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
@@ -895,13 +896,13 @@ t(1) &amp;= \frac{5}{8} \end{aligned}\]</span></li>
 <li>Quantity: <span class="math inline">\(x\in\{0,1\}\)</span></li>
 <li>Technology: <span class="math inline">\(v = c\cdot x\)</span></li>
 <li>Payment: <span class="math inline">\(t(x)\)</span></li>
-<li>Principle’s payoff: <span class="math inline">\(v\cdot x - t\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v\cdot x - t\)</span></li>
 <li>Agent’s payoff: <span class="math inline">\(t - c\cdot x\)</span></li>
 </ul></li>
 <li>First-best solution:
 <span class="math display">\[\begin{aligned} x^{FB}(c,v) &amp;= \text{argmax} \ v\cdot x - c\cdot x \\
 &amp;= \begin{cases}1 &amp; v\geq c \\ 0 &amp; v\leq c \end{cases}\end{aligned}\]</span></li>
-<li>Contract: principle annouces some <span class="math inline">\(\hat{v}\)</span> at day 3.5
+<li>Contract: principal annouces some <span class="math inline">\(\hat{v}\)</span> at day 3.5
 <span class="math display">\[\begin{aligned}t(\hat{v}, x) &amp;= \hat{v}\cdot x- E\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
 &amp;= \begin{cases}\hat{v}\cdot x - \hat{v} + c &amp; \hat{v}\geq c \\
 \hat{v}\cdot x &amp; \hat{v}\leq c \end{cases}\end{aligned}\]</span>
@@ -911,14 +912,14 @@ Agent’s problem
 &amp;&amp; &amp;= (\hat{v}-c)\cdot x - (\hat{v} - c)\cdot x^{FB}(c,\hat{v}) \\
 &amp;&amp; &amp;= (\hat{v}-c)\cdot \big(x - x^{FB}(c,\hat{v})\big) \\
 &amp;&amp; &amp;x^* = x^{FB}(c,\hat{v}) \end{aligned}\]</span>
-Principle’s problem
+Principal’s problem
 <span class="math display">\[\begin{aligned}\max_{\hat{v}} &amp;&amp; &amp;\phantom{\ggg}v\cdot x - t \\
 &amp;&amp; &amp;= v\cdot E\big[x^{FB}(c,\hat{v})\big] - \hat{v}\cdot E\big[x^{FB}(c,\hat{v})\big] + E\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
 &amp;&amp; &amp;= E\big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + (\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
 &amp;&amp; &amp;= E\big[(v-c)\cdot x^{FB}(c,\hat{v})\big] \\
 &amp;&amp; &amp;\hat{v}^* = v\end{aligned}\]</span>
 Expected payoff:<br />
-<span class="math display">\[\begin{aligned}\text{Principle:} &amp;&amp; &amp;\phantom{\ggg}v\cdot x -t \\
+<span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;\phantom{\ggg}v\cdot x -t \\
 &amp;&amp; &amp;=E\big[(v-c)\cdot x^{FB}(c,v)\big] \\
 \text{Agent:} &amp;&amp; &amp;\phantom{\ggg}t - c\cdot x \\
 &amp;&amp; &amp;= (v-c)\cdot \big(x^{FB}(c,v) - x^{FB}(c,v)\big) = 0\\
@@ -933,15 +934,15 @@ Expected payoff:<br />
 <div id="one-sided-timing-1" class="section level3">
 <h3>One-Sided Timing</h3>
 <ol start="0" style="list-style-type: decimal">
-<li>Agent learns his type <span class="math inline">\(c\)</span></li>
-<li>Principal offers contract: <span class="math inline">\(t\)</span></li>
+<li>Agent learns their type <span class="math inline">\(c\)</span></li>
+<li>Principal offers contract <span class="math inline">\(t\)</span></li>
 <li>Agent accepts or rejects</li>
 <li>Agent chooses quantity <span class="math inline">\(x\)</span> (verifiable)</li>
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark-4" class="section level3">
-<h3>Benchmark</h3>
+<div id="first-best" class="section level3">
+<h3>First Best</h3>
 <ul>
 <li>Return: <span class="math inline">\(v\)</span>
 <ul>
@@ -955,34 +956,29 @@ Expected payoff:<br />
 </ul></li>
 <li>Contract: <span class="math inline">\(t\)</span>
 <ul>
-<li>Principle’s payoff: <span class="math inline">\(v(x) - t\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v(x) - t\)</span></li>
 <li>Agent’s payoff: <span class="math inline">\(t - c\cdot x\)</span></li>
 </ul></li>
-</ul>
-</div>
-<div id="first-best" class="section level3">
-<h3>First Best</h3>
-<ul>
-<li>First-best solution:
+<li>First-best solution
 <span class="math display">\[\begin{aligned}\max_x &amp;&amp; v(x) &amp;- c\cdot x\\
 FOC &amp;&amp; v&#39;\big(x^{FB}(c) \big) &amp;= c \\
 &amp;&amp; x^{FB}(c_l) &amp;&gt; x^{FB}(c_h)\end{aligned}\]</span></li>
 <li>Game induced by mechanism
 <ul>
-<li>Principle’s strategy: <span class="math inline">\(s_p\in S_p\)</span></li>
+<li>Principal’s strategy: <span class="math inline">\(s_p\in S_p\)</span></li>
 <li>Agent’s strategy: <span class="math inline">\(s_a(c)\in S_a\)</span></li>
-<li>Principle’s payoff: <span class="math inline">\(v\Big(X\big(s_a(c), s_p\big)\Big) - T\big(s_a(c), s_p\big)\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v\Big(X\big(s_a(c), s_p\big)\Big) - T\big(s_a(c), s_p\big)\)</span></li>
 <li>Agent’s payoff: <span class="math inline">\(T\big(s_a(c), s_p\big) - c\cdot X\big(s_a(c), s_p\big)\)</span></li>
 <li>Equilibrium
-<span class="math display">\[\begin{aligned}s_p^* &amp;= \text{argmax}_{s_p} \ \Big(X\big(s_a^*(c), s_p\big)\Big) - T\big(s_a^*(c), s_p\big) \\
+<span class="math display">\[\begin{aligned}s_p^* &amp;= \text{argmax}_{s_p} \ v\Big(X\big(s_a^*(c), s_p\big)\Big) - T\big(s_a^*(c), s_p\big) \\
   s_a^* &amp;= \text{argmax}_{s_a} \ T\big(s_a(c), s_p^*\big) - c\cdot X\big(s_a(c), s_p^*\big)\end{aligned}\]</span></li>
 </ul></li>
 <li>Game induced by <a href="../notes-mechanism-social/#social-choice-function-implementation">direct mechanism</a><br />
 By revelation principle, implementable = truthfully implementable
 <ul>
-<li>Principle’s strategy: <span class="math inline">\(t(c)!= T\big(s_a^*(c), s_p^*\big)\)</span></li>
-<li>Agent’s strategy: <span class="math inline">\(x(c) != X\big(s_a^*(c), s_p^*\big)\)</span></li>
-<li>Principle’s payoff: <span class="math inline">\(v\big(x(c)\big) - t(c)\)</span></li>
+<li>Principal’s strategy: <span class="math inline">\(t(c) = T\big(s_a^*(c), s_p^*\big)\)</span></li>
+<li>Agent’s strategy: <span class="math inline">\(x(c) = X\big(s_a^*(c), s_p^*\big)\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v\big(x(c)\big) - t(c)\)</span></li>
 <li>Agent’s payoff: <span class="math inline">\(t(c) - c\cdot x(c)\)</span></li>
 </ul></li>
 </ul>
@@ -990,8 +986,8 @@ By revelation principle, implementable = truthfully implementable
 <div id="second-best" class="section level3">
 <h3>Second Best</h3>
 <ul>
-<li>Contract: <span class="math inline">\(\begin{cases}x_l = x(c_l) \\ t_l = x(c_l)\end{cases}\)</span>, <span class="math inline">\(\begin{cases}x_h = x(c_h) \\ t_h = x(c_h)\end{cases}\)</span></li>
-<li>Principle’s problem
+<li>Contract: <span class="math inline">\(\begin{cases}x_l = x(c_l) \\ t_l = t(c_l)\end{cases}\)</span>, <span class="math inline">\(\begin{cases}x_h = x(c_h) \\ t_h = t(c_h)\end{cases}\)</span></li>
+<li>Principal’s problem
 <span class="math display">\[\begin{aligned}\max_{x_l, x_h, t_l, t_h} &amp;&amp; p\cdot\big( v(x_l) - t_l\big) &amp;+ (1-p)\cdot\big( v(x_h) - t_h\big) \\
 (IC_l) &amp;&amp; t_l - c_l\cdot x_l&amp;\geq t_h - c_l\cdot x_h\\
 \implies &amp;&amp; t_l - c_l\cdot x_l&amp;= t_h - c_l\cdot x_h \\
@@ -1004,7 +1000,7 @@ Therefore,
 t_l &amp;= c_l\cdot x_l + t_h - c_l\cdot x_h \\
 &amp;= c_l\cdot x_l + c_h\cdot x_h - c_l\cdot x_h \\
 &amp;= c_l\cdot x_l + \underbrace{x_h\cdot( c_h - c_l)}_{\text{Information rent}}\end{aligned}\]</span>
-Plug back into principle’s problem
+Plug back into Principal’s problem
 <span class="math display">\[\begin{aligned}\max_{x_l, x_h} &amp;&amp; p&amp;\cdot\big( v(x_l) - c_l\cdot x_l - x_h\cdot( c_h - c_l)\big) \\
 &amp;&amp; &amp;+ (1-p)\cdot\big( v(x_h) - c_h\cdot x_h) \\
 FOC &amp;&amp; \frac{\partial}{\partial x_l} &amp;= p\cdot\big( v&#39;(x_l) -c_l\big) \\
@@ -1021,8 +1017,61 @@ t_l - c_h\cdot x_l &amp;= c_l\cdot x_l + x_h\cdot( c_h - c_l) - c_h\cdot x_l \\
 \implies t_h - c_h\cdot x_h&amp;&lt; t_l - c_h\cdot x_l\end{aligned}\]</span></li>
 </ul>
 </div>
+<div id="agent-offers-contract-1" class="section level3">
+<h3>Agent Offers Contract</h3>
+<ul>
+<li>First best solution is attained</li>
+</ul>
+</div>
 <div id="two-sided-timing-1" class="section level3">
 <h3>Two-Sided Timing</h3>
+<ol start="0" style="list-style-type: decimal">
+<li>Agent learns their type <span class="math inline">\(c\)</span>, principal learns their type <span class="math inline">\(v\)</span></li>
+<li>Principal offers contract <span class="math inline">\(t\)</span></li>
+<li>Agent accepts or rejects</li>
+<li>Agent chooses quantity <span class="math inline">\(x\)</span> (verifiable)</li>
+<li>Payment <span class="math inline">\(t\)</span> is made</li>
+</ol>
+</div>
+<div id="benchmark-4" class="section level3">
+<h3>Benchmark</h3>
+<ul>
+<li>Principal’s type: <span class="math inline">\(v\)</span>
+<ul>
+<li>cdf: <span class="math inline">\(G(v)\)</span></li>
+</ul></li>
+<li>Agent’s cost: <span class="math inline">\(c\)</span>
+<ul>
+<li>cdf: <span class="math inline">\(F(c)\)</span></li>
+<li>Reservation utility: <span class="math inline">\(\underline{U} = 0\)</span></li>
+</ul></li>
+<li>Contract: <span class="math inline">\(t\)</span>
+<ul>
+<li>Quantity: <span class="math inline">\(x\in\{0,1\}\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v\cdot x - t\)</span></li>
+<li>Agent’s payoff: <span class="math inline">\(t - c\cdot x\)</span></li>
+</ul></li>
+<li>First-best solution
+<span class="math display">\[\begin{aligned} x^{FB}(c,v) &amp;= \text{argmax} \ v\cdot x - c\cdot x \\
+&amp;= \begin{cases}1 &amp; v\geq c \\ 0 &amp; v\leq c \end{cases}\end{aligned}\]</span></li>
+<li>Game induced by mechanism
+<ul>
+<li>Principal’s strategy: <span class="math inline">\(s_p(v)\in S_p\)</span></li>
+<li>Agent’s strategy: <span class="math inline">\(s_a(c)\in S_a\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(v\cdot X\big(s_a(c), s_p(v)\big) - T\big(s_a(c), s_p(v)\big)\)</span></li>
+<li>Agent’s payoff: <span class="math inline">\(T\big(s_a(c), s_p(v)\big) - c\cdot X\big(s_a(c), s_p(v)\big)\)</span></li>
+<li>Bayesian equilibrium
+<span class="math display">\[\begin{aligned}s_p^*(v) &amp;= \text{argmax}_{s_p} \ E_c\Big[ v\cdot X\big(s_a^*(c), s_p\big) - T\big(s_a^*(c), s_p\big)\Big] \\
+  s_a^*(c) &amp;= \text{argmax}_{s_a} \ E_v\Big[ T\big(s_a, s_p^*(v)\big) - c\cdot X\big(s_a, s_p^*(v)\big)\Big]\end{aligned}\]</span></li>
+</ul></li>
+<li>Game induced by direct mechanism
+<ul>
+<li>Principal’s strategy: <span class="math inline">\(t(c,v) = T\big(s_a^*(c), s_p^*(v)\big)\)</span></li>
+<li>Agent’s strategy: <span class="math inline">\(x(c,v) = X\big(s_a^*(c), s_p^*(v)\big)\)</span></li>
+<li>Principal’s payoff: <span class="math inline">\(E_c\big[ v\cdot x(c,v) - t(c,v)\big]\)</span></li>
+<li>Agent’s payoff: <span class="math inline">\(E_v\big[ t(c,v) - c\cdot x(c,v)\big]\)</span></li>
+</ul></li>
+</ul>
 </div>
 </div>
 
