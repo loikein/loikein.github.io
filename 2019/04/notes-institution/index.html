@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">27 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -1017,6 +1017,36 @@ t_l - c_h\cdot x_l &amp;= c_l\cdot x_l + x_h\cdot( c_h - c_l) - c_h\cdot x_l \\
 &amp;= (x_h - x_l)( c_h - c_l) &lt; 0 \\
 \implies t_h - c_h\cdot x_h&amp;&lt; t_l - c_h\cdot x_l\end{aligned}\]</span></li>
 </ul>
+<blockquote>
+<p>Exercise 4<br />
+Consider the following variant of the basic adverse selection model:<br />
+At date 0 the agent learns his type <span class="math inline">\(c\in\{c_L, c_H\}\)</span>.<br />
+Suppose <span class="math inline">\(c_L = \frac{1}{2}\)</span> and <span class="math inline">\(c_H = 1\)</span>.<br />
+It is commonly known that the distribution of the random variable <span class="math inline">\(c\)</span> is given by <span class="math inline">\(Pr(c= \frac{1}{2}) = Pr(c=1) = \frac{1}{2}\)</span>.<br />
+At date 1 the principal offers a contract.<br />
+If the agent rejects, the parties get their reservation utilities zero.<br />
+If the agent signs the contract, then subsequently a verifiable decision <span class="math inline">\(x\geq 0\)</span> is made and the principal makes a payment <span class="math inline">\(t\)</span> to the agent.<br />
+The payoffs are:<br />
+<span class="math display">\[\begin{aligned}\text{Principal} &amp;&amp; \sqrt{x} - t \\ \text{Agent} &amp;&amp; t - xc - F\end{aligned}\]</span>
+Suppose the (commonly known) fix costs <span class="math inline">\(F\)</span> of the agent satisfy <span class="math inline">\(0\leq F&lt;\frac{1}{4}\)</span><br />
+1. Characterize the first-best solution.<br />
+2. The principal offers a direct revelation mechanism <span class="math inline">\((t_L, x_L, t_H, x_H)\)</span> to the agent.<br />
+What is the principal’s objective function?<br />
+What are the incentive compatibility constraints (ICL) and (ICH)?<br />
+What are the participation constraints (PCL) and (PCH), which must be satisfied if the principal wants to ensure that both types of the agent sign the contract?<br />
+3. Solve the principal’s maximization problem described in part b).<br />
+What is the principal’s expected profit?
+4. Now suppose the principal wants to ensure the participation of the good type <span class="math inline">\(c = \frac{1}{2}\)</span> only.<br />
+What contract will the principal offer? What is his expected profit in this case?<br />
+Hence, for which values of <span class="math inline">\(F\)</span> will the principal dispense with the participation of the bad type <span class="math inline">\(c=1\)</span>?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{x} &amp;&amp; \sqrt{x} - xc - F&amp; \\
+FOC &amp;&amp; \frac{1}{2}x^{-\frac{1}{2}} - c &amp;= 0 \\
+&amp;&amp; x^{FB}(c) &amp;= \frac{1}{4c^2} \\
+&amp;&amp; &amp;=\begin{cases}1 &amp; c=\frac{1}{2} \\ \frac{1}{4} &amp; c=1 \end{cases}\end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="agent-offers-contract-1" class="section level3">
 <h3>Agent Offers Contract</h3>
@@ -1090,8 +1120,21 @@ x^{FB}(c_h,v_l) &amp;= 0 \end{aligned}\]</span></li>
 <li>Direct mechanism: <span class="math inline">\([t(c,v),x^{FB}(c,v)]\)</span></li>
 <li>Contract: <span class="math inline">\(t_{ij} = t(c_i, v_j)\)</span>
 <ul>
-<li>(PC) and (IC) for all four types (8 constraints in total)</li>
 <li>Conclusion: can not satisfy all constraints simultaneously</li>
+<li>Constraints for agent
+<span class="math display">\[\begin{aligned} (PC)c_l &amp;&amp; E_v\big[ t(c_l,v) - c_l\cdot x^{FB}(c_l,v) \big] &amp;\geq 0 \\
+  (IC)c_l &amp;&amp; E_v\big[ t(c_l,v) - c_l\cdot x^{FB}(c_l,v) \big] &amp;\geq E_v\big[ t(c_h,v) - c_l\cdot x^{FB}(c_h,v) \big] \\
+  &amp;&amp; \frac{1}{2} (t_{lh} - c_l) + \frac{1}{2} (t_{ll} - c_l) &amp;\geq \frac{1}{2}(t_{hh} - c_l) + \frac{1}{2}(t_{hl} - 0\cdot c_l)\\
+  (PC) c_h &amp;&amp; E_v\big[ t(c_h,v) - c_h\cdot x^{FB}(c_h,v) \big] &amp;\geq 0\\
+  &amp;&amp; \frac{1}{2} (t_{hh} - c_h) + \frac{1}{2}(t_{hl} - 0\cdot c_h) &amp;\geq 0\\
+  (IC)c_h &amp;&amp; E_v\big[ t(c_h,v) - c_h\cdot x^{FB}(c_h,v) \big] &amp;\geq E_v\big[ t(c_l,v) - c_h\cdot x^{FB}(c_l,v) \big]\end{aligned}\]</span></li>
+<li>Constraints for principal
+<span class="math display">\[\begin{aligned}(PC) v_l &amp;&amp; E_c\big[v_l\cdot x^{FB}(c,v_l) - t(c, v_l)\big] &amp;\geq 0 \\
+  &amp;&amp; \frac{1}{2}(v_l - t_{ll}) + \frac{1}{2}(0\cdot v_l - t_{hl}) &amp;\geq 0\\
+  (IC) v_l &amp;&amp; E_c\big[v_l\cdot x^{FB}(c,v_l) - t(c, v_l)\big] &amp;\geq E_c\big[v_l\cdot x^{FB}(c,v_h) - t(c, v_h)\big] \\
+  (PC) v_h &amp;&amp; E_c\big[v_h\cdot x^{FB}(c,v_h) - t(c, v_h)\big] &amp;\geq 0 \\
+  (IC) v_h &amp;&amp; E_c\big[v_h\cdot x^{FB}(c,v_h) - t(c, v_h)\big] &amp;\geq E_c\big[v_h\cdot x^{FB}(c,v_l) - t(c, v_l)\big] \\
+  &amp;&amp; \frac{1}{2}(v_h - t_{lh}) + \frac{1}{2}(v_h - t_{hh}) &amp;\geq \frac{1}{2}(v_h - t_{ll}) + \frac{1}{2}(0\cdot v_h - t_{hl})\end{aligned}\]</span></li>
 </ul></li>
 </ul>
 </div>

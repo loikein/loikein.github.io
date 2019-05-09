@@ -96,7 +96,9 @@
 <li><a href="#non-expected-utility-theory">Non-Expected Utility Theory</a></li>
 <li><a href="#behaviour-attachment-effect-comparison-effect">Behaviour: Attachment Effect &amp; Comparison Effect</a></li>
 </ul></li>
-<li><a href="#time-preference">Time Preference</a></li>
+<li><a href="#time-preference">Time Preference</a><ul>
+<li><a href="#saving-and-consumption">Saving and Consumption</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -609,7 +611,12 @@ Salience of certainty: <span class="math inline">\(π(1) = 1\)</span></li>
 <ul>
 <li>Geometric (exponential): <span class="math inline">\(f(s) = δ^s\)</span>, <span class="math inline">\(δ\in [0,1)\)</span></li>
 <li>Hyperbolic: <span class="math inline">\(f(s) =(1+αs)^{-\frac{γ}{α}}\)</span>, <span class="math inline">\(α,γ&gt;0\)</span></li>
-<li>Quasi-hyperbolic: <span class="math inline">\(\begin{cases}f(0) = 1 &amp; s=0 \\ f(s) = β\cdot δ^s &amp; s&gt;0 \end{cases}\)</span>, <span class="math inline">\(δ\in [0,1]\)</span>, <span class="math inline">\(β\in [0,1)\)</span></li>
+<li>Quasi-hyperbolic (β-δ): <span class="math inline">\(\begin{cases}f(0) = 1 &amp; s=0 \\ f(s) = β\cdot δ^s &amp; s&gt;0 \end{cases}\)</span>, <span class="math inline">\(δ\in [0,1]\)</span>, <span class="math inline">\(β\in [0,1)\)</span></li>
+</ul></li>
+<li>Discount rate: <span class="math inline">\(\frac{f(s+1)}{f(s)}\)</span>
+<ul>
+<li>Evidence: increasing</li>
+<li>Geometric: <span class="math inline">\(δ\)</span> (constant)</li>
 </ul></li>
 </ul>
 <blockquote>
@@ -627,6 +634,31 @@ Let <span class="math inline">\(f(s) = δ^s\)</span><br />
 &amp;= δ^{τ-t}\cdot U_τ(u)\end{aligned}\]</span>
 Therefore, preferences in <span class="math inline">\(t\)</span> and <span class="math inline">\(τ\)</span> only differ by a positive factor</li>
 </ol>
+<div id="saving-and-consumption" class="section level3">
+<h3>Saving and Consumption</h3>
+<ul>
+<li>Utility function: <span class="math inline">\(u_t = u(c_t)\)</span>
+<ul>
+<li>Consumption: <span class="math inline">\(c_t\)</span></li>
+</ul></li>
+<li>Exogenous income: <span class="math inline">\(y_t\)</span></li>
+<li>Investment return rate: <span class="math inline">\(R\)</span>
+<ul>
+<li>Invest in liquid asset: <span class="math inline">\(x_t\)</span></li>
+<li>Invest in illiquid asset: <span class="math inline">\(z_t\)</span></li>
+</ul></li>
+<li>Timing
+<ol start="0" style="list-style-type: decimal">
+<li>Does not consume: <span class="math inline">\(c_0 = 0\)</span><br />
+Investment constraint: <span class="math inline">\(IC_0: x_0 + z_0 = y_0\)</span></li>
+<li>Consume from income and return of liquid asset<br />
+Liquidity constraint: <span class="math inline">\(LC_1: c_1\leq y_1 + R\cdot x_0\)</span><br />
+Budget constraint: <span class="math inline">\(BC_1: c_1 + x_1 + z_1 = y_1 + R\cdot x_0 + R\cdot z_0\)</span></li>
+<li>Does not invest (retires)<br />
+Liquidity constraint: <span class="math inline">\(LC_2: c_2\leq y_2 + R\cdot x_1\)</span></li>
+</ol></li>
+</ul>
+</div>
 </div>
 
     </div>
