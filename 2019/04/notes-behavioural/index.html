@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">15 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -87,14 +87,16 @@
 <li><a href="#gainloss-utility">Gain–Loss Utility</a></li>
 <li><a href="#linear-loss-aversion">Linear Loss Aversion</a></li>
 <li><a href="#non-linear-loss-aversion">Non-Linear Loss Aversion</a></li>
-<li><a href="#reference-formation">Reference Formation</a></li>
+<li><a href="#endogenous-reference-formation">Endogenous Reference Formation</a></li>
 </ul></li>
 <li><a href="#choice-over-lottery">Choice over Lottery</a><ul>
 <li><a href="#expected-utility-theory">Expected Utility Theory</a></li>
 <li><a href="#behaviour-allais-paradox">Behaviour: Allais Paradox</a></li>
 <li><a href="#prospect-theory">Prospect Theory</a></li>
+<li><a href="#non-expected-utility-theory">Non-Expected Utility Theory</a></li>
 <li><a href="#behaviour-attachment-effect-comparison-effect">Behaviour: Attachment Effect &amp; Comparison Effect</a></li>
 </ul></li>
+<li><a href="#time-preference">Time Preference</a></li>
 </ul>
 </div>
 
@@ -340,7 +342,7 @@ With quasi-linear preference,
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-behavioural--piece–wise-linear.png" alt="Loss-aversion" />
+<img src="/post-img/notes-behavioural--piece–wise-linear.png" alt="Loss-aversion" width="447" />
 <p class="caption">Loss-aversion</p>
 </div>
 <blockquote>
@@ -390,12 +392,12 @@ For <span class="math inline">\(0&lt; Δ &lt; Δ&#39;\)</span>,
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-behavioural--la-large-stake.png" alt="Loss aversion for large stakes" />
+<img src="/post-img/notes-behavioural--la-large-stake.png" alt="Loss aversion for large stakes" width="427" />
 <p class="caption">Loss aversion for large stakes</p>
 </div>
 </div>
-<div id="reference-formation" class="section level3">
-<h3>Reference Formation</h3>
+<div id="endogenous-reference-formation" class="section level3">
+<h3>Endogenous Reference Formation</h3>
 <ul>
 <li>Personal equilibrium (PE): strategy <span class="math inline">\(σ\in X\)</span> s.t.
 <ol style="list-style-type: decimal">
@@ -515,8 +517,16 @@ Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <s
 <li>Axioms
 <ol style="list-style-type: decimal">
 <li>Compound lottery is equivalent to reduced simple lottery</li>
-<li><span class="math inline">\(L_1\succsim L_2\iff\)</span></li>
-</ol></li>
+<li><span class="math inline">\(L_1\succsim L_2\iff αL_1 + (1 − α)M \succsim αL_2 + (1 − α)M\)</span>, <span class="math inline">\(α\in (0,1)\)</span></li>
+</ol>
+<ul>
+<li><span class="math inline">\(\implies\)</span> Agent’s preferences over lotteries can be represented in expected form</li>
+</ul></li>
+<li>Von Neumann utility function (vNM): <span class="math inline">\(U(L) = \sum_k u(x_k)\cdot p_k\)</span>
+<ul>
+<li>Bernoulli utility function: <span class="math inline">\(u(x_k)\)</span></li>
+<li>Indifference curves are straight, parallel lines</li>
+</ul></li>
 </ul>
 <blockquote>
 <p>Example (unit demand with random price)</p>
@@ -524,15 +534,99 @@ Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <s
 </div>
 <div id="behaviour-allais-paradox" class="section level3">
 <h3>Behaviour: Allais Paradox</h3>
+<ul>
+<li>Problem 1: choose between <span class="math inline">\(L_A\)</span> and <span class="math inline">\(L_B\)</span>
+<span class="math display">\[\begin{aligned}L_A = \begin{pmatrix}0.33 &amp; 0.66 &amp; 0.01 \\ 2500 &amp; 2400 &amp; 0\end{pmatrix} &amp;&amp; L_B = \begin{pmatrix}0 &amp; 1 &amp; 0 \\ 2500 &amp; 2400 &amp; 0\end{pmatrix} \end{aligned}\]</span>
+<ul>
+<li>82% of subjects prefer <span class="math inline">\(L_B\succsim L_A\)</span>
+<span class="math display">\[\begin{aligned}L_B &amp;\succsim L_A \\
+  u(2400) &amp;\geq 0.33\cdot u(2500) + 0.66\cdot u(2400) \\
+  0.34\cdot u(2400) &amp;\geq 0.33\cdot u(2500)\end{aligned}\]</span></li>
+</ul></li>
+<li>Problem 2: choose between <span class="math inline">\(L_A&#39;\)</span> and <span class="math inline">\(L_B&#39;\)</span>
+<span class="math display">\[\begin{aligned}L_A&#39; = \begin{pmatrix}0.33 &amp; 0 &amp; 0.67 \\ 2500 &amp; 2400 &amp; 0\end{pmatrix} &amp;&amp; L_B&#39; = \begin{pmatrix}0 &amp; 0.34 &amp; 0.66 \\ 2500 &amp; 2400 &amp; 0\end{pmatrix}\end{aligned}\]</span>
+<ul>
+<li>83% of subjects prefer <span class="math inline">\(L_A&#39;\succsim L_B&#39;\)</span>
+<span class="math display">\[\begin{aligned}L_A&#39; &amp;\succsim L_B&#39; \\
+  0.33\cdot u(2500) &amp;\geq 0.34\cdot u(2400)\end{aligned}\]</span></li>
+</ul></li>
+<li>Overweighting of certainty effect
+<ul>
+<li>Risk aversion in gain</li>
+<li>Risk loving in loss</li>
+</ul></li>
+</ul>
 </div>
 <div id="prospect-theory" class="section level3">
 <h3>Prospect Theory</h3>
-<!-- ### Non-Expected Theory -->
+<ul>
+<li>Editing phase
+<ul>
+<li>Rounding possibilities</li>
+<li>Deleting dominated lottery</li>
+</ul></li>
+<li>Evaluation phase
+<span class="math display">\[V(L) = \sum_k μ(x_k - r_k) \cdot π(p_k)\]</span>
+<ul>
+<li>Gain-loss function: <span class="math inline">\(μ(\cdot)\)</span><br />
+Loss averse, diminishing sensitivity</li>
+<li>Reference point: <span class="math inline">\(r\)</span></li>
+<li>Probability weighting: <span class="math inline">\(π(\cdot)\)</span><br />
+Salience of certainty: <span class="math inline">\(π(1) = 1\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-behavioural--prospect-weighting.png" alt="Probability weighting function" width="352" />
+<p class="caption">Probability weighting function</p>
+</div>
+</div>
+<div id="non-expected-utility-theory" class="section level3">
+<h3>Non-Expected Utility Theory</h3>
+<ul>
+<li><span class="math inline">\(U(L) = \sum_k u(x_k)\cdot\frac{g(x_k)\cdot p_k}{\sum_l g(x_l)\cdot p_l}\)</span></li>
+<li>Allows for straight, non-parallel indifference curves</li>
+</ul>
 <!-- ### Regret Theory -->
 </div>
 <div id="behaviour-attachment-effect-comparison-effect" class="section level3">
 <h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
 </div>
+</div>
+<div id="time-preference" class="section level2">
+<h2>Time Preference</h2>
+<ul>
+<li>Time: <span class="math inline">\(t = 0,1,2,\dots, T\)</span></li>
+<li>Utility vector: <span class="math inline">\(u\in\mathbb{R}^{T+1}\)</span>, <span class="math inline">\(u = (u_0, u_1,\dots, u_T)\)</span>
+<ul>
+<li>Instantaneous utility: <span class="math inline">\(u_t\in\mathbb{R}\)</span></li>
+</ul></li>
+<li>Time preference: <span class="math inline">\(u_{\text{an action}} \succsim_t u_{\text{another action}}\)</span></li>
+<li>Time consistency: for all <span class="math inline">\(t\)</span>, for all <span class="math inline">\(τ&gt;t\)</span>, for all <span class="math inline">\(u, u&#39;\)</span>,<br />
+<span class="math display">\[\begin{aligned}(0,\dots, 0, u_τ,\dots,u_T)&amp;\succsim_t (0,\dots, 0, u_τ&#39;,\dots,u_T&#39;) \\
+\iff (0,\dots, 0, u_τ,\dots,u_T)&amp;\succsim_τ (0,\dots, 0, u_τ&#39;,\dots,u_T&#39;) \end{aligned}\]</span></li>
+<li>Sum representation <span class="math display">\[U_t(u) = u_t + \sum_{s=1}^{T-t} f(s)\cdot u_{t+s}\]</span></li>
+<li>Discount function: <span class="math inline">\(f(s)\)</span>
+<ul>
+<li>Geometric (exponential): <span class="math inline">\(f(s) = δ^s\)</span>, <span class="math inline">\(δ\in [0,1)\)</span></li>
+<li>Hyperbolic: <span class="math inline">\(f(s) =(1+αs)^{-\frac{γ}{α}}\)</span>, <span class="math inline">\(α,γ&gt;0\)</span></li>
+<li>Quasi-hyperbolic: <span class="math inline">\(\begin{cases}f(0) = 1 &amp; s=0 \\ f(s) = β\cdot δ^s &amp; s&gt;0 \end{cases}\)</span>, <span class="math inline">\(δ\in [0,1]\)</span>, <span class="math inline">\(β\in [0,1)\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Lemma 3.1<br />
+A agent is time–consistent <span class="math inline">\(\iff f(s)\)</span> is geometric.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\Longrightarrow\)</span><br />
+By counterexample</li>
+<li><span class="math inline">\(\Longleftarrow\)</span><br />
+Consider <span class="math inline">\(u = (0,\dots, 0, u_τ,\dots,u_T)\)</span>, <span class="math inline">\(t&lt;τ\)</span>,<br />
+Let <span class="math inline">\(f(s) = δ^s\)</span><br />
+<span class="math display">\[\begin{aligned}U_t(u) &amp;= 0 + \dots + 0 + δ^{τ-t}\cdot u_τ + δ^{(τ+1)-t}\cdot u_{τ+1} +\dots + δ^{T-t}\cdot u_{T} \\
+&amp;= δ^{τ-t}\cdot(u_τ + δ\cdot u_{τ+1} +\dots + δ^{T-τ}\cdot u_{T}) \\
+&amp;= δ^{τ-t}\cdot U_τ(u)\end{aligned}\]</span>
+Therefore, preferences in <span class="math inline">\(t\)</span> and <span class="math inline">\(τ\)</span> only differ by a positive factor</li>
+</ol>
 </div>
 
     </div>

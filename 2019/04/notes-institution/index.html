@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">25 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -121,6 +121,7 @@
 <li><a href="#agent-offers-contract-1">Agent Offers Contract</a></li>
 <li><a href="#two-sided-timing-1">Two-Sided Timing</a></li>
 <li><a href="#benchmark-4">Benchmark</a></li>
+<li><a href="#impossible-case">Impossible Case</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1070,6 +1071,27 @@ t_l - c_h\cdot x_l &amp;= c_l\cdot x_l + x_h\cdot( c_h - c_l) - c_h\cdot x_l \\
 <li>Agent’s strategy: <span class="math inline">\(x(c,v) = X\big(s_a^*(c), s_p^*(v)\big)\)</span></li>
 <li>Principal’s payoff: <span class="math inline">\(E_c\big[ v\cdot x(c,v) - t(c,v)\big]\)</span></li>
 <li>Agent’s payoff: <span class="math inline">\(E_v\big[ t(c,v) - c\cdot x(c,v)\big]\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="impossible-case" class="section level3">
+<h3>Impossible Case</h3>
+<ul>
+<li>Principal’s type: <span class="math inline">\(v\in\{v_l, v_h\}\)</span> (uniform)</li>
+<li>Agent’s cost: <span class="math inline">\(c\in\{c_l, c_h\}\)</span> (uniform)
+<ul>
+<li><span class="math inline">\(0&lt;c_l&lt;v_l&lt;c_h&lt;v_h\)</span></li>
+</ul></li>
+<li>First-best solution
+<span class="math display">\[x^{FB}(c,v) = \begin{cases}1 &amp; v\geq c \\ 0 &amp; v\leq c\end{cases}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned}\left.\begin{aligned}x^{FB}(c_l,v_l)\\ x^{FB}(c_l,v_h)\\ x^{FB}(c_h,v_h)\end{aligned}\right\} &amp;= 1 \\
+x^{FB}(c_h,v_l) &amp;= 0 \end{aligned}\]</span></li>
+<li>Direct mechanism: <span class="math inline">\([t(c,v),x^{FB}(c,v)]\)</span></li>
+<li>Contract: <span class="math inline">\(t_{ij} = t(c_i, v_j)\)</span>
+<ul>
+<li>(PC) and (IC) for all four types (8 constraints in total)</li>
+<li>Conclusion: can not satisfy all constraints simultaneously</li>
 </ul></li>
 </ul>
 </div>
