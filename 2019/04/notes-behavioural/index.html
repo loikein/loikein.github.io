@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">15 min read</span>
+    <span class="article-duration">17 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -91,10 +91,11 @@
 </ul></li>
 <li><a href="#choice-over-lottery">Choice over Lottery</a><ul>
 <li><a href="#expected-utility-theory">Expected Utility Theory</a></li>
+<li><a href="#endogenous-reference-formation-with-risk">Endogenous Reference Formation with Risk</a></li>
+<li><a href="#behaviour-attachment-effect-comparison-effect">Behaviour: Attachment Effect &amp; Comparison Effect</a></li>
 <li><a href="#behaviour-allais-paradox">Behaviour: Allais Paradox</a></li>
 <li><a href="#prospect-theory">Prospect Theory</a></li>
 <li><a href="#non-expected-utility-theory">Non-Expected Utility Theory</a></li>
-<li><a href="#behaviour-attachment-effect-comparison-effect">Behaviour: Attachment Effect &amp; Comparison Effect</a></li>
 </ul></li>
 <li><a href="#time-preference">Time Preference</a><ul>
 <li><a href="#saving-and-consumption">Saving and Consumption</a></li>
@@ -530,9 +531,71 @@ Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <s
 <li>Indifference curves are straight, parallel lines</li>
 </ul></li>
 </ul>
+</div>
+<div id="endogenous-reference-formation-with-risk" class="section level3">
+<h3>Endogenous Reference Formation with Risk</h3>
+<ul>
+<li>Utility function (without risk): <span class="math inline">\(u(x\ |\ r) = m(x)+ μ\big(m(x)-m(r)\big)\)</span></li>
+<li>Lottery
+<span class="math display">\[L = \begin{pmatrix}p_1 &amp; p_2 &amp; \cdots &amp; p_k &amp; \cdots &amp; p_K \\ x_1 &amp; x_2 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\]</span></li>
+<li>Reference lottery
+<span class="math display">\[R = \begin{pmatrix}q_1 &amp; q_2 &amp; \cdots &amp; q_n &amp; \cdots &amp; q_N \\ r_1 &amp; r_2 &amp; \cdots &amp; r_n &amp; \cdots &amp; r_N \end{pmatrix}\]</span></li>
+<li>Expected utility function:
+<span class="math display">\[U(L\ |\ R) = \sum_k\sum_n u(x_k\ |\ r_n)\cdot p_k\cdot q_n\]</span></li>
+<li>Personal equilibrium (PE): lottery <span class="math inline">\(L\in\mathcal{L}\)</span> s.t.<br />
+<span class="math inline">\(U(L\ |\ L)\geq U(L&#39;\ |\ L)\)</span> for all <span class="math inline">\(L&#39;\in\mathcal{L}\)</span></li>
+<li>Preferred personal equilibrium (PPE): PE <span class="math inline">\(L\in\mathcal{L}\)</span> s.t.<br />
+<span class="math inline">\(U(L\ |\ L)\geq U(L&#39;\ |\ L&#39;)\)</span> for all PE <span class="math inline">\(L&#39;\in\mathcal{L}\)</span></li>
+</ul>
 <blockquote>
-<p>Example (unit demand with random price)</p>
+<p>Example (unit demand with random price)<br />
+A buyer contemplates buying one unit of a good or not.<br />
+The good has a material consumption value of <span class="math inline">\(v\)</span>.<br />
+Price distribution (lottery): <span class="math inline">\(P = \begin{pmatrix}0.5 &amp; 0.5\\ p_l &amp; p_h\end{pmatrix}\)</span><br />
+There are two actions: <span class="math inline">\(b\)</span> (buy) and <span class="math inline">\(n\)</span> (not buy).<br />
+<span class="math inline">\(b\)</span> gives bundle <span class="math inline">\((v,-p)\)</span>, and <span class="math inline">\(n\)</span> gives bundle <span class="math inline">\((0,0)\)</span>.<br />
+Assume piecewise linear gain-loss function, <span class="math inline">\(η = 1\)</span>, <span class="math inline">\(λ&gt;1\)</span>.<br />
+Find all the personal equilibria.</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Let the plan be <span class="math inline">\((n,n)\)</span><br />
+Induced reference lottery: <span class="math inline">\(R(n,n) = \begin{pmatrix}1\\ (0,0)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 1\cdot\big[λ(-p_l-0) + (v-0)\big] \\
+U(n,p_l\ |\ R) &amp;= 0 - 0 + 1\cdot\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 1\cdot\big[λ(-p_h-0) + (v-0)\big] \\
+U(n,p_h\ |\ R) &amp;= 0 - 0 + 1\cdot\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((n,n)\)</span> is a PE.<br />
+</li>
+<li>Let the plan be <span class="math inline">\((b,n)\)</span><br />
+Induced reference lottery: <span class="math inline">\(R(b,n) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (0,0)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 0.5\cdot\big[(-p_l-(-p_l)) + (v-v)\big] + 0.5\cdot\big[λ(-p_l-0) + (v-0)\big] \\
+U(n,p_l\ |\ R) &amp;= 0 - 0 + 0.5\cdot\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\cdot\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 0.5\cdot\big[λ(-p_h-(-p_l)) + (v-v)\big] + 0.5\cdot\big[λ(-p_h-0) + (v-0)\big] \\
+U(n,p_h\ |\ R) &amp;= 0 - 0 + 0.5\cdot\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\cdot\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.<br />
+</li>
+<li>Let the plan be <span class="math inline">\((b,b)\)</span><br />
+</li>
+<li>Let the plan be <span class="math inline">\((n,b)\)</span></li>
+</ol>
+</div>
+<div id="behaviour-attachment-effect-comparison-effect" class="section level3">
+<h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
+<ul>
+<li>Attachment effect: higher probability of small price increases WTP at medium price</li>
+<li>Comparison effect: larger price difference decreases WTP</li>
+<li>Price distribution: <span class="math inline">\(P = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ p_l &amp; p_m &amp; p_h\end{pmatrix}\)</span>
+<ul>
+<li><span class="math inline">\(p_l &lt; p_m &lt; p_h\)</span></li>
+<li>Consumer always buys at <span class="math inline">\(p_l\)</span>, never buys at <span class="math inline">\(p_h\)</span><br />
+When plan is <span class="math inline">\((b, b, n)\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R) &amp;= \end{aligned}\]</span></li>
+</ul></li>
+</ul>
 </div>
 <div id="behaviour-allais-paradox" class="section level3">
 <h3>Behaviour: Allais Paradox</h3>
@@ -589,9 +652,6 @@ Salience of certainty: <span class="math inline">\(π(1) = 1\)</span></li>
 <li>Allows for straight, non-parallel indifference curves</li>
 </ul>
 <!-- ### Regret Theory -->
-</div>
-<div id="behaviour-attachment-effect-comparison-effect" class="section level3">
-<h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
 </div>
 </div>
 <div id="time-preference" class="section level2">
