@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">14 min read</span>
+    <span class="article-duration">16 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -91,6 +91,8 @@
 <li><a href="#nash-bargaining-problem">Nash Bargaining Problem</a><ul>
 <li><a href="#nash-axioms">Nash Axioms</a></li>
 <li><a href="#nash-bargaining-solution-nbs">Nash Bargaining Solution (NBS)</a></li>
+<li><a href="#cournot-collusion">Cournot / Collusion</a></li>
+<li><a href="#kalai-smorodinsky-bs">Kalai-Smorodinsky BS</a></li>
 </ul></li>
 </ul>
 </div>
@@ -806,6 +808,65 @@ Check that the NBS in Definition 2 is well defined,<br />
 i.e. that for any problem (X, d) and <span class="math inline">\(α,β&gt;0\)</span> with <span class="math inline">\(α+β = 1\)</span>,<br />
 there is a point on the boundary of <span class="math inline">\(X\)</span> that satisfies the conditions.</p>
 </blockquote>
+</div>
+<div id="cournot-collusion" class="section level3">
+<h3>Cournot / Collusion</h3>
+<ul>
+<li>Profit function: <span class="math inline">\(π_i(q_i, q_{-i}) = (K - q_i - q_{-i})\cdot q_i - c_i\cdot q_i\)</span>
+<ul>
+<li><span class="math inline">\(K&gt;2 c_i\)</span> for all <span class="math inline">\(i\)</span></li>
+</ul></li>
+<li>Cournot NE: <span class="math inline">\(q_i = \frac{1}{3}\cdot(K - 2c_i + c_{-i})\)</span>
+<ul>
+<li>Profit: <span class="math inline">\(π_i = \frac{1}{9}\cdot(K - 2c_i + c_{-i})^2\)</span></li>
+</ul></li>
+<li>No transfer collusion
+<ul>
+<li>Disagreement payoff: <span class="math display">\[d = \Big(\underbrace{\frac{1}{9}\cdot(K - 2c_1 + c_2)^2}_{d_1},\ \underbrace{\frac{1}{9}\cdot(K - 2c_2 + c_1)^2}_{d_2} \Big)\]</span></li>
+<li>Agreement payoff:
+<span class="math display">\[X = \{(u_1, u_2)\ |\ \text{Exists } q_1,q_2 \text{ s.t. }u_1\leq π_1(q_1,q_2), u_2\leq π_2(q_1,q_2)\}\]</span></li>
+<li>Symmetric NBS: solving
+<span class="math display">\[\begin{aligned}\max_{u_1,u_2} &amp;&amp; &amp;(u_1 - d_1)\cdot (u_2 - d_2) \\
+  \max_{q_1, q_2} &amp;&amp; &amp;\big(π_1(q_1,q_2) - d_1\big)\cdot\big(π_2(q_1,q_2) - d_2 \big) \\
+  \text{s.t.} &amp;&amp; &amp;π_1(q_1,q_2)\geq d_1 \\
+  &amp;&amp; &amp;π_2(q_1,q_2) \geq d_2\end{aligned}\]</span></li>
+</ul></li>
+<li>With transfer collusion
+<ul>
+<li>Assume <span class="math inline">\(c_1&lt; c_2\)</span></li>
+<li>Let firm 1 produce <span class="math inline">\(q_1 = q\)</span>, firm 2 receives payment from firm 1</li>
+<li>Industry’s problem:
+<span class="math display">\[\begin{aligned}\max_q &amp;&amp; &amp;(K-q)\cdot q - c_1\cdot q\\
+  FOC &amp;&amp; &amp;q^* = \frac{K-c_1}{2}\end{aligned}\]</span></li>
+<li>Industry profit: <span class="math inline">\(π(q^*) = \frac{1}{4}\cdot(K-c_1)^2\)</span></li>
+<li>Disagreement payoff: same as no transfer</li>
+<li>Agreement payoff:
+<span class="math display">\[X = \{(u_1, u_2)\ |\ u_1+u_2 \leq\frac{1}{4}\cdot(K-c_1)^2\}\]</span></li>
+<li>Symmetric NBS: solving
+<span class="math display">\[\begin{aligned}\max_{u_1,u_2} &amp;&amp; &amp;\phantom{\ggg}(u_1 - d_1)\cdot (u_2 - d_2) \\
+  &amp;&amp; &amp;= (u_1 - d_1)\cdot\Big[\Big(\frac{1}{4}\cdot(K-c_1)^2 - u_1\Big)\cdot d_2\Big] \\
+  \text{s.t.} &amp;&amp; &amp;u_1\geq d_1 \\
+  &amp;&amp; &amp;u_2 \geq d_2\end{aligned}\]</span>
+gives
+<span class="math display">\[\begin{aligned}u_1^* &amp;= \frac{1}{2}\cdot\Big(\frac{1}{4}\cdot(K-c_1)^2-d_2+d_1 \Big)\\
+  u_2^* &amp;= \frac{1}{2}\cdot\Big(\frac{1}{4}\cdot(K-c_1)^2+d_2-d_1 \Big)\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="kalai-smorodinsky-bs" class="section level3">
+<h3>Kalai-Smorodinsky BS</h3>
+<ul>
+<li>Disagreement payoff: <span class="math inline">\(d\in Y\subset X\)</span></li>
+<li>Axioms
+<ul>
+<li>Nash 1, 2, 3, 5 (<del>IIA</del>)</li>
+<li>Kalai-Smorodinsky: <span class="math inline">\(\max_{x\in X; x\geq d} \ x_i = \max_{x\in Y; x\geq d} \ x_i\)</span><br />
+therefore, both players are better-off from more choice:
+<span class="math display">\[\begin{aligned}F_1(X, d) &amp;\geq F_1(Y, d) \\
+  F_2(X,d) &amp;\geq F_2(Y,d)\end{aligned}\]</span></li>
+</ul></li>
+<li>Exists unique solution <span class="math inline">\(K(X,d)\)</span> s.t. axioms Nash 1, 2, 3, 5 and Kalai-Smorodinsky are satisfied</li>
+</ul>
 </div>
 </div>
 

@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">18 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -561,21 +561,21 @@ Find all the personal equilibria.</p>
 <li>Let the plan be <span class="math inline">\((n,n)\)</span><br />
 Induced reference lottery: <span class="math inline">\(R(n,n) = \begin{pmatrix}1\\ (0,0)\end{pmatrix}\)</span><br />
 When price is <span class="math inline">\(p_l\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 1\cdot\big[λ(-p_l-0) + (v-0)\big] \\
-U(n,p_l\ |\ R) &amp;= 0 - 0 + 1\cdot\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 1\big[λ(-p_l-0) + (v-0)\big] \\
+U(n,p_l\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
 When price is <span class="math inline">\(p_h\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 1\cdot\big[λ(-p_h-0) + (v-0)\big] \\
-U(n,p_h\ |\ R) &amp;= 0 - 0 + 1\cdot\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 1\big[λ(-p_h-0) + (v-0)\big] \\
+U(n,p_h\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
 Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((n,n)\)</span> is a PE.<br />
 </li>
 <li>Let the plan be <span class="math inline">\((b,n)\)</span><br />
 Induced reference lottery: <span class="math inline">\(R(b,n) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (0,0)\end{pmatrix}\)</span><br />
 When price is <span class="math inline">\(p_l\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 0.5\cdot\big[(-p_l-(-p_l)) + (v-v)\big] + 0.5\cdot\big[λ(-p_l-0) + (v-0)\big] \\
-U(n,p_l\ |\ R) &amp;= 0 - 0 + 0.5\cdot\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\cdot\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 0.5\big[(-p_l-(-p_l)) + (v-v)\big] + 0.5\big[λ(-p_l-0) + (v-0)\big] \\
+U(n,p_l\ |\ R) &amp;= 0 - 0 + 0.5\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
 When price is <span class="math inline">\(p_h\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 0.5\cdot\big[λ(-p_h-(-p_l)) + (v-v)\big] + 0.5\cdot\big[λ(-p_h-0) + (v-0)\big] \\
-U(n,p_h\ |\ R) &amp;= 0 - 0 + 0.5\cdot\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\cdot\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] + 0.5\big[λ(-p_h-0) + (v-0)\big] \\
+U(n,p_h\ |\ R) &amp;= 0 - 0 + 0.5\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
 Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.<br />
 </li>
 <li>Let the plan be <span class="math inline">\((b,b)\)</span><br />
@@ -592,8 +592,37 @@ Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</s
 <ul>
 <li><span class="math inline">\(p_l &lt; p_m &lt; p_h\)</span></li>
 <li>Consumer always buys at <span class="math inline">\(p_l\)</span>, never buys at <span class="math inline">\(p_h\)</span><br />
-When plan is <span class="math inline">\((b, b, n)\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R) &amp;= \end{aligned}\]</span></li>
+</li>
+<li>When plan is <span class="math inline">\((b, b, n)\)</span>,<br />
+<span class="math display">\[R(b, b, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (v,-p_m) &amp; (0,0)\end{pmatrix}\]</span>
+Utility at <span class="math inline">\(p_m\)</span>:
+<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R) &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
+  &amp;\phantom{\ggg}+ q_m\big[(v-v)+(-p_m-(-p_m))\big] + q_h\big[(v-0)+λ(-p_m - 0)\big]\\
+  U(n,p_m\ |\ R) &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
+  &amp;\phantom{\ggg}+ q_m\big[λ(0-v)+(0-(-p_m))\big] + q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
+<li>When plan is <span class="math inline">\((b, n, n)\)</span>,<br />
+<span class="math display">\[R&#39;(b, n, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (0,0) &amp; (0,0)\end{pmatrix}\]</span>
+Utility at <span class="math inline">\(p_m\)</span>:
+<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R&#39;) &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
+  &amp;\phantom{\ggg}+ q_m\big[(v-0)+λ(-p_m-0)\big] + q_h\big[(v-0)+λ(-p_m - 0)\big]\\
+  U(n,p_m\ |\ R&#39;) &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
+  &amp;\phantom{\ggg}+ q_m\big[(0-0)+(0-0)\big] + q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(q_m\to 0\)</span>, <span class="math inline">\(q_h \approx 1-q_l\)</span>,
+<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R)&amp;\approx U(b,p_m\ |\ R&#39;)\\
+  U(b,p_m) &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big]+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
+  &amp;= v-p_m + q_l\cdot λ(-p_m + p_l)+ q_h\big[v +λ(-p_m)\big]\\
+  &amp;= 2v -(λ+1)p_m + q_l\cdot (λp_l - v)\\
+  U(n,p_m\ |\ R)&amp;\approx U(n,p_m\ |\ R&#39;) \\
+  U(n,p_m) &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] + q_h\big[(0-0)+(0 - 0)\big] \\
+  &amp;= q_l\big[λ(-v) + p_l\big] \end{aligned}\]</span></li>
+<li>Agent’s willingness to buy at <span class="math inline">\(p_m\)</span>:
+<span class="math display">\[\begin{aligned}WTP &amp;= U(b,p_m) - U(n,p_m) \\
+  &amp;= 2v -(λ+1)p_m + q_l\cdot (λp_l - v) - q_l\big[λ(-v) + p_l\big] \\
+  &amp;= 2v -(λ+1)p_m + q_l\cdot (λ-1)(p_l + v) \end{aligned}\]</span></li>
+<li>Attachment effect:
+<span class="math display">\[\begin{aligned}\frac{\partial WTP}{\partial q_l} &amp;= (λ-1)(p_l + v) \\ &amp;&gt; 0 \end{aligned}\]</span></li>
+<li>Comparison effect:
+<span class="math display">\[\begin{aligned}\frac{\partial WTP}{\partial p_l} &amp;= q_l\cdot (λ-1) \\ &amp;&gt; 0 \end{aligned}\]</span></li>
 </ul></li>
 </ul>
 </div>
