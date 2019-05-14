@@ -46,12 +46,9 @@ Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible altern
       <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-game-theory/</guid>
-      <description>Extensive Game, Perfect Information Strategy Subgame Chance Moves  Bargaining Ultimatum Game Two-Round Ultimatum Game Rubinstein Game Rubinstein Game (Small Time Interval)  Nash Bargaining Problem Nash Axioms Nash Bargaining Solution (NBS) Cournot / Collusion Kalai-Smorodinsky BS    textbook 1: (OR) A Course in Game Theory
+      <description>Extensive Game, Perfect Information Strategy Subgame Chance Moves  Bargaining Ultimatum Game Two-Round Ultimatum Game Rubinstein Game Rubinstein Game (Small Time Interval)  Nash Bargaining Problem Nash Axioms Nash Bargaining Solution (NBS) Cournot / Collusion Kalai-Smorodinsky BS  Coalitional Game Core Analogy with Walreasian Equilibrium With Transferable Payoffs    textbook 1: (OR) A Course in Game Theory
 textbook 2: (BM) Fun and games
-Reference: Carlos Hurtado’s lecture notes
-Extensive Game, Perfect Information OR 6.1
-Reference
- Set of players: \(N\) Set of histories: \(H\)  History (sequence): \(h = (a^k)_{k=1}^K\) Initial history: \(\emptyset\in H\) \((a^k)_{k=1}^K\in H\), \(K&amp;gt;L\implies (a^k)_{k=1}^L\in H\) \((a^k)_{k=1}^K\in H\) for all \(K\in\mathbb{N} \implies (a^k)_{k=1}^{\infty}\in H\)  Set of terminal histories: \(Z\)  Terminal history: \((a^k)_{k=1}^K\in H\) is terminal if exists no \((a^k)_{k=1}^{K+1}\in H\)  Set of (possible) actions: \(A(h): \{ a \ | \ (h,a)\in H\}\)  Action: \(a\in h\) for some \(k\in K\) History of length \(k+1\): \((h,a)\)  Player function: \(P: (H\backslash Z)\to N\)  Player to move after history \(h\): \(P(h)\) Initial player: \(P(\emptyset)\) with \(a^0\in A(\emptyset)\) Second player: \(P(a^0)\) with \(a^1\in A(a^0)\)  Preference relation: \(\succsim_i\) defined on \(Z\) Extensive Game with Perfect Information: \[Γ = \langle N,H,P,(\succsim_i)\rangle\text{ or }\langle N,H,P\rangle\]  Finite game: \(|H|&amp;lt;\infty\) Finite horizon: \(K &amp;lt;\infty\) for all \((a^k)_{k=1}^K\in H\) Rank of game: \(\max K\) for all \((a^k)_{k=1}^K\in H\) Length of game: \(l(Γ)\) is the length of longest history in \(Γ\)  Continuous in infinity:</description>
+Reference: Carlos Hurtado’s lecture notes</description>
     </item>
     
     <item>

@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">27 min read</span>
+    <span class="article-duration">28 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -1035,9 +1035,10 @@ What is the principal’s objective function?<br />
 What are the incentive compatibility constraints (ICL) and (ICH)?<br />
 What are the participation constraints (PCL) and (PCH), which must be satisfied if the principal wants to ensure that both types of the agent sign the contract?<br />
 3. Solve the principal’s maximization problem described in part b).<br />
-What is the principal’s expected profit?
+What is the principal’s expected profit?<br />
 4. Now suppose the principal wants to ensure the participation of the good type <span class="math inline">\(c = \frac{1}{2}\)</span> only.<br />
-What contract will the principal offer? What is his expected profit in this case?<br />
+What contract will the principal offer?<br />
+What is his expected profit in this case?<br />
 Hence, for which values of <span class="math inline">\(F\)</span> will the principal dispense with the participation of the bad type <span class="math inline">\(c=1\)</span>?</p>
 </blockquote>
 <ol style="list-style-type: decimal">
@@ -1046,6 +1047,53 @@ Hence, for which values of <span class="math inline">\(F\)</span> will the princ
 FOC &amp;&amp; \frac{1}{2}x^{-\frac{1}{2}} - c &amp;= 0 \\
 &amp;&amp; x^{FB}(c) &amp;= \frac{1}{4c^2} \\
 &amp;&amp; &amp;=\begin{cases}1 &amp; c=\frac{1}{2} \\ \frac{1}{4} &amp; c=1 \end{cases}\end{aligned}\]</span></li>
+<li>Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; &amp;\phantom{\ggg}E[\sqrt{x} - t(x)] \\
+&amp;&amp; &amp;= \frac{1}{2}(\sqrt{x_l} - t_l) + \frac{1}{2}(\sqrt{x_h} - t_h) \\
+(IC_l) &amp;&amp; &amp;t_l - x_l\cdot c_l - F\geq t_h - x_h\cdot c_l - F \\
+(PC_l) &amp;&amp; &amp;t_l - x_l\cdot c_l - F\geq 0 \\
+(IC_h) &amp;&amp; &amp;t_h - x_h\cdot c_h - F\geq t_l - x_l\cdot c_h - F \\
+(PC_h) &amp;&amp; &amp;t_h - x_h\cdot c_h - F\geq 0\end{aligned}\]</span></li>
+<li><span class="math inline">\((PC_l)\)</span> is redundant<br />
+<span class="math inline">\((PC_h)\implies t_h = F + x_h\cdot c_h\)</span><br />
+<span class="math inline">\((IC_l)\implies\)</span>
+<span class="math display">\[\begin{aligned}t_l &amp;= t_h - x_h\cdot c_l + x_l\cdot c_l \\
+&amp;= F + x_h\cdot c_h - x_h\cdot c_l + x_l\cdot c_l \\
+&amp;= F + x_l\cdot c_l + \underbrace{x_h\cdot( c_h -c_l)}_{\text{Information rent}}\end{aligned}\]</span>
+<span class="math inline">\((IC_h)\implies\)</span>
+<span class="math display">\[\begin{aligned} 0 &amp;\geq (x_h -x_l)(c_h-c_l) \\
+x_h -x_l &amp;\leq 0 \\
+x_h &amp;\leq x_l\end{aligned}\]</span>
+Plug back to principal’s problem:
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}\big(\sqrt{x_l} - F - x_l\cdot c_l - x_h\cdot( c_h -c_l)\big) &amp;+ \frac{1}{2}(\sqrt{x_h} - F - x_h\cdot c_h) \\
+FOC &amp;&amp; \frac{1}{2}\Big(\frac{1}{2}x_l^{-\frac{1}{2}}-c_l\Big) &amp;= 0 \\
+&amp;&amp; x_l^{SB} &amp;= \frac{1}{4c_l^2} \\
+&amp;&amp; &amp;= 1 = x_l^{FB}\\
+&amp;&amp; \frac{1}{2}\Big(-(c_h-c_h)+\frac{1}{2}x_h^{-\frac{1}{2}}-c_h\Big) &amp;= 0 \\
+&amp;&amp; x_h^{SB} &amp;= \frac{1}{(4c_h-2c_l)^2} \\
+&amp;&amp; &amp;= \frac{1}{9} &lt; x_h^{FB}\end{aligned}\]</span>
+Therefore, <span class="math display">\[\begin{aligned}t_h &amp;= F + x_h\cdot c_h \\ &amp;= F + \frac{1}{9} \\ t_l &amp;= F + x_l\cdot c_l + x_h\cdot( c_h -c_l) \\ &amp;= F + \frac{5}{9}\end{aligned}\]</span>
+Principal’s expected profit:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(\sqrt{x_l} - t_l) + \frac{1}{2}(\sqrt{x_h} - t_h) \\
+&amp;= \frac{1}{3} - F\end{aligned}\]</span></li>
+<li>Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; \frac{1}{2}(\sqrt{x_l} - t_l)&amp; \\
+(PC_l) &amp;&amp; t_l - x_l\cdot c_l - F &amp;\geq 0 \\
+(PC_h) &amp;&amp; t_h - x_h\cdot c_h - F &amp;&lt; 0 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(t_l = F + x_l\cdot c_l\)</span><br />
+Plug back to principal’s problem<br />
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}(\sqrt{x_l} - F - x_l\cdot c_l)&amp; \\
+FOC &amp;&amp; \frac{1}{2}\Big(\frac{1}{2}x_l^{-\frac{1}{2}}-c_l\Big) &amp;= 0 \\
+&amp;&amp; x_l^{SB} &amp;= \frac{1}{4c_l^2} \\
+&amp;&amp; &amp;= 1\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}t_l &amp;= F + x_l\cdot c_l \\
+&amp;= F + \frac{1}{2} \end{aligned}\]</span>
+Principal’s expected profit:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(\sqrt{x_l} - t_l) \\
+&amp;= \frac{1}{4} - \frac{1}{2}F\end{aligned}\]</span>
+Therefore, principal dispenses with the participation of high type if
+<span class="math display">\[\begin{aligned}\frac{1}{4} - \frac{1}{2}F &amp;\geq \frac{1}{3} - F\\
+F &amp;\geq \frac{1}{6} \end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="agent-offers-contract-1" class="section level3">

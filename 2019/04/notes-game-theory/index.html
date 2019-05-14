@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">17 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -93,6 +93,11 @@
 <li><a href="#nash-bargaining-solution-nbs">Nash Bargaining Solution (NBS)</a></li>
 <li><a href="#cournot-collusion">Cournot / Collusion</a></li>
 <li><a href="#kalai-smorodinsky-bs">Kalai-Smorodinsky BS</a></li>
+</ul></li>
+<li><a href="#coalitional-game">Coalitional Game</a><ul>
+<li><a href="#core">Core</a></li>
+<li><a href="#analogy-with-walreasian-equilibrium">Analogy with <span>Walreasian Equilibrium</span></a></li>
+<li><a href="#with-transferable-payoffs">With Transferable Payoffs</a></li>
 </ul></li>
 </ul>
 </div>
@@ -866,6 +871,70 @@ therefore, both players are better-off from more choice:
   F_2(X,d) &amp;\geq F_2(Y,d)\end{aligned}\]</span></li>
 </ul></li>
 <li>Exists unique solution <span class="math inline">\(K(X,d)\)</span> s.t. axioms Nash 1, 2, 3, 5 and Kalai-Smorodinsky are satisfied</li>
+</ul>
+</div>
+</div>
+<div id="coalitional-game" class="section level2">
+<h2>Coalitional Game</h2>
+<ul>
+<li>Coalitional game: <span class="math inline">\(\big(N, V, X, (\succsim_i)_{i\in N}\big)\)</span></li>
+<li>Set of players: <span class="math inline">\(N\)</span>
+<ul>
+<li>Set of coalition: <span class="math inline">\(S\subset N\)</span>, <span class="math inline">\(S\neq\emptyset\)</span></li>
+</ul></li>
+<li>Set of outcomes: <span class="math inline">\(X\)</span>
+<ul>
+<li>Set of coalition outcomes: <span class="math inline">\(V(S)\subset X\)</span></li>
+</ul></li>
+<li>Preference relation: <span class="math inline">\(\succsim_i\)</span> over <span class="math inline">\(X\)</span></li>
+</ul>
+<div id="core" class="section level3">
+<h3>Core</h3>
+<ul>
+<li>Core: set of all outcomes <span class="math inline">\(x\in V(N)\)</span> where there is no blocking coalitions</li>
+<li>Blocking coalition: <span class="math inline">\(S\)</span> s.t. exists <span class="math inline">\(y\in V(S)\)</span>, <span class="math inline">\(y\succ_i x\)</span> for all <span class="math inline">\(i\in S\)</span></li>
+</ul>
+</div>
+<div id="analogy-with-walreasian-equilibrium" class="section level3">
+<h3>Analogy with <a href="../../01/notes-micro/#general-equilibrium-exchange">Walreasian Equilibrium</a></h3>
+<ul>
+<li>Exchange economy
+<ul>
+<li>Set of consumers: <span class="math inline">\(N\)</span></li>
+<li>Number of commodities: <span class="math inline">\(l\)</span></li>
+<li>Individual endowment vector: <span class="math inline">\(ω_n\in [0,\infty^l)\)</span> s.t. <span class="math inline">\(\sum_N ω_n \gg 0\)</span></li>
+<li>Utility function: <span class="math inline">\(u_n: [0,\infty^l)\to \mathbb{R}\)</span><br />
+non-decreasing, continuous, concave</li>
+</ul></li>
+<li>Allocation: <span class="math inline">\(x_n\in [0,\infty^l)\)</span> s.t. <span class="math inline">\(\sum_N x_n = \sum_N ω_n\)</span>
+<ul>
+<li>Competitive allocation: <span class="math inline">\((x^*, p^*)\)</span><br />
+s.t. <span class="math inline">\(p^*\cdot x^*\leq p^*\cdot ω_n\)</span><br />
+and <span class="math inline">\(x^*\in\text{argmax} \ u_n(x_n)\)</span> for all <span class="math inline">\(n\in N\)</span></li>
+</ul></li>
+<li>Coalitional game
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(X\)</span> be the set of all allocations,<br />
+</li>
+<li><span class="math inline">\(V(S) = \{ x\in X: \sum_S x_i = \sum_S ω_i\)</span>, and <span class="math inline">\(x_i = ω_i\)</span> for <span class="math inline">\(i\in N\backslash S\}\)</span><br />
+</li>
+<li><span class="math inline">\(x\succsim_i y\iff u_i(x)\geq u_i(y)\)</span></li>
+</ol></li>
+</ul>
+</div>
+<div id="with-transferable-payoffs" class="section level3">
+<h3>With Transferable Payoffs</h3>
+<ul>
+<li>Set of players: <span class="math inline">\(N\)</span>
+<ul>
+<li>Set of coalition: <span class="math inline">\(S\subset N\)</span>, <span class="math inline">\(S\neq\emptyset\)</span></li>
+</ul></li>
+<li>Set of outcomes: <span class="math inline">\(X = \mathbb{R}^N\)</span>
+<ul>
+<li>Set of coalition outcomes: <span class="math inline">\(V(S)\subset X\)</span></li>
+</ul></li>
+<li>Preference relation: <span class="math inline">\(x \succsim_i x\iff x_i &lt; y_i\)</span></li>
+<li>Value function: <span class="math inline">\(v(S)\in [0,\infty)\)</span> s.t. <span class="math inline">\(V(S) = \{ x\in X: \sum_S x_i = v(S)\}\)</span></li>
 </ul>
 </div>
 </div>
