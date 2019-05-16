@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">28 min read</span>
+    <span class="article-duration">32 min read</span>
     
     <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
     
@@ -592,8 +592,8 @@ Therefore, workers who don’t work both before and after government interventio
 <ul>
 <li>First best solution:
 <span class="math display">\[\begin{aligned}e^{FB} &amp;= \text{argmax} \ E[v \ | \ e] - c(e) \\
-&amp;= \begin{cases} p(e)\cdot v_h + \big( 1-p(e)\big) \cdot v_l &amp; v\in\{ v_l, v_h\} \\ \int_{v_l}^{v_h} v\cdot f(v|e)dv &amp; v\in [v_l, v_h]\end{cases}\end{aligned}\]</span>
-where <span class="math inline">\(p(e) = Pr(v = v_h \ | \ e)\)</span></li>
+&amp;= \begin{cases} p(e)\cdot v_H + \big( 1-p(e)\big) \cdot v_L &amp; v\in\{ v_L, v_H\} \\ \int_{v_L}^{v_H} v\cdot f(v|e)dv &amp; v\in [v_L, v_H]\end{cases}\end{aligned}\]</span>
+where <span class="math inline">\(p(e) = Pr(v = v_H \ | \ e)\)</span></li>
 <li>Franchising contract: <span class="math inline">\(t(v) = v-a\)</span> (may be positive or negative)
 <ul>
 <li>Agent’s problem
@@ -638,47 +638,47 @@ t\Big(\frac{1}{2}\Big) &amp;= \frac{1}{2} - \frac{1}{8} \\
 <h3>Limited Liability</h3>
 <ul>
 <li>Limited liability: <span class="math inline">\(t\geq 0\)</span></li>
-<li>Return: <span class="math inline">\(v\in \{v_h, v_l\}\)</span></li>
-<li>Effort level: <span class="math inline">\(e\in \{ e_h, e_l\}\)</span>
+<li>Return: <span class="math inline">\(v\in \{v_H, v_L\}\)</span></li>
+<li>Effort level: <span class="math inline">\(e\in \{ e_H, e_L\}\)</span>
 <ul>
-<li>Technology: <span class="math inline">\(\begin{cases}Pr( v = v_h \ | \ e = e_h ) = e_h \\ Pr( v = v_h \ | \ e=e_l ) = e_l \\ e_l &lt; e_h \end{cases}\)</span></li>
-<li>Cost: <span class="math inline">\(\begin{cases}c(e_h) = c \\ c(e_l) = 0 \end{cases}\)</span></li>
+<li>Technology: <span class="math inline">\(\begin{cases}Pr( v = v_H \ | \ e = e_H ) = e_H \\ Pr( v = v_H \ | \ e=e_L ) = e_L \\ e_L &lt; e_H \end{cases}\)</span></li>
+<li>Cost: <span class="math inline">\(\begin{cases}c(e_H) = c \\ c(e_L) = 0 \end{cases}\)</span></li>
 </ul></li>
 <li>First best solution
 <ul>
-<li><span class="math inline">\(e^{FB} = e_h\)</span> when
-<span class="math display">\[\begin{aligned} e_h v_h + (1-e_h )v_l - c &amp;\geq e_lv_h + (1-e_l)v_l - 0 \\
-  (e_h - e_l)(v_h - v_l) &amp;\geq c\end{aligned}\]</span></li>
-<li><span class="math inline">\(e^{FB} = e_l\)</span> otherwise</li>
+<li><span class="math inline">\(e^{FB} = e_H\)</span> when
+<span class="math display">\[\begin{aligned} e_H v_H + (1-e_H )v_L - c &amp;\geq e_Lv_H + (1-e_L)v_L - 0 \\
+  (e_H - e_L)(v_H - v_L) &amp;\geq c\end{aligned}\]</span></li>
+<li><span class="math inline">\(e^{FB} = e_L\)</span> otherwise</li>
 </ul></li>
 <li>Second best solution
 <ul>
-<li>Contract: <span class="math inline">\(\begin{cases}t(v_h) = t_h \\ t(v_l) = t_l \end{cases}\)</span></li>
+<li>Contract: <span class="math inline">\(\begin{cases}t(v_H) = t_H \\ t(v_L) = t_L \end{cases}\)</span></li>
 </ul></li>
-<li>When principal implements <span class="math inline">\(e = e_h\)</span>
-<span class="math display">\[\begin{aligned}\max &amp;&amp; &amp;e_h(v_h - t_h) + (1-e_h)(v_l - t_l) \\
-(IC) &amp;&amp; &amp;e_h t_h + (1-e_h )t_l - c \geq e_l t_h + (1-e_l )t_l - 0 \\
-(PC) &amp;&amp; &amp;e_h t_h + (1-e_h )t_l - c \geq \underline{U} = 0 \\
-(LL) &amp;&amp; &amp;\begin{cases}t_h \geq 0 \\t_l \geq 0 \end{cases}\end{aligned}\]</span>
+<li>When principal implements <span class="math inline">\(e = e_H\)</span>
+<span class="math display">\[\begin{aligned}\max &amp;&amp; &amp;e_H(v_H - t_H) + (1-e_H)(v_L - t_L) \\
+(IC) &amp;&amp; &amp;e_H t_H + (1-e_H )t_L - c \geq e_L t_H + (1-e_L )t_L - 0 \\
+(PC) &amp;&amp; &amp;e_H t_H + (1-e_H )t_L - c \geq \underline{U} = 0 \\
+(LL) &amp;&amp; &amp;\begin{cases}t_H \geq 0 \\t_L \geq 0 \end{cases}\end{aligned}\]</span>
 <ul>
-<li>Lemma: <span class="math inline">\(\begin{cases}t_h = \frac{c}{e_h - e_l} \\ t_l = 0\end{cases}\)</span> is a solution</li>
+<li>Lemma: <span class="math inline">\(\begin{cases}t_H = \frac{c}{e_H - e_L} \\ t_L = 0\end{cases}\)</span> is a solution</li>
 <li>Agent’s expected payoff (LL rent):
-<span class="math display">\[\begin{aligned}e_h t_h + (1-e_h )t_l - c &amp;= e_h \cdot \frac{c}{e_h - e_l} - c\\ &amp;= \frac{e_lc}{e_h - e_l}\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}e_H t_H + (1-e_H )t_L - c &amp;= e_H \cdot \frac{c}{e_H - e_L} - c\\ &amp;= \frac{e_Lc}{e_H - e_L}\end{aligned}\]</span></li>
 <li>Principal’s expected payoff:
-<span class="math display">\[\begin{aligned}e_h (v_h - t_h) + (1-e_h )(v_l - t_l) &amp;= e_h (v_h - t_h) + (1-e_h )v_l \\
-  &amp;= e_h v_h - e_ht_h + (1-e_h )(v_l - t_l) \\
-  &amp;= e_h v_h - \frac{e_hc}{e_h - e_l} + (1-e_h )v_l \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}e_H (v_H - t_H) + (1-e_H )(v_L - t_L) &amp;= e_H (v_H - t_H) + (1-e_H )v_L \\
+  &amp;= e_H v_H - e_Ht_H + (1-e_H )(v_L - t_L) \\
+  &amp;= e_H v_H - \frac{e_Hc}{e_H - e_L} + (1-e_H )v_L \end{aligned}\]</span></li>
 </ul></li>
-<li>When principal implements <span class="math inline">\(e = e_l\)</span>
+<li>When principal implements <span class="math inline">\(e = e_L\)</span>
 <ul>
-<li>Contract: <span class="math inline">\(t_h = t_l = 0\)</span></li>
+<li>Contract: <span class="math inline">\(t_H = t_L = 0\)</span></li>
 <li>Agent’s expected payoff: 0</li>
-<li>Principal’s expected payoff: <span class="math inline">\(e_l v_h + (1-e_l )v_l\)</span></li>
+<li>Principal’s expected payoff: <span class="math inline">\(e_L v_H + (1-e_L )v_L\)</span></li>
 </ul></li>
-<li>Principal wants to implement <span class="math inline">\(e = e_h\)</span> when
-<span class="math display">\[\begin{aligned} e_h v_h  - \frac{e_hc}{e_h - e_l} + (1-e_h )v_l &amp;\geq e_l v_h + (1-e_l )v_l\\
-(e_h - e_l)(v_h - v_l) &amp;\geq \frac{e_hc}{e_h - e_l}\end{aligned}\]</span></li>
-<li>When <span class="math inline">\(c\leq (e_h - e_l)(v_h - v_l) &lt; \frac{e_hc}{e_h - e_l}\)</span>, <span class="math inline">\(e = e_h\)</span> is first best solution but not chosen by the principal</li>
+<li>Principal wants to implement <span class="math inline">\(e = e_H\)</span> when
+<span class="math display">\[\begin{aligned} e_H v_H  - \frac{e_Hc}{e_H - e_L} + (1-e_H )v_L &amp;\geq e_L v_H + (1-e_L )v_L\\
+(e_H - e_L)(v_H - v_L) &amp;\geq \frac{e_Hc}{e_H - e_L}\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(c\leq (e_H - e_L)(v_H - v_L) &lt; \frac{e_Hc}{e_H - e_L}\)</span>, <span class="math inline">\(e = e_H\)</span> is first best solution but not chosen by the principal</li>
 </ul>
 <blockquote>
 <p>Application: Workplace surveillance<br />
@@ -738,10 +738,10 @@ Therefore, the law improves total surplus when <span class="math inline">\(\frac
 <div id="agent-offers-contract" class="section level3">
 <h3>Agent Offers Contract</h3>
 <ul>
-<li>Contract: <span class="math inline">\(\begin{cases}t_h = v_h \\ t_l = v_l \end{cases}\)</span></li>
+<li>Contract: <span class="math inline">\(\begin{cases}t_H = v_H \\ t_L = v_L \end{cases}\)</span></li>
 <li>First best solution is attained
 <ul>
-<li>Agent’s expected payoff: <span class="math inline">\(e_h v_h + (1-e_h )v_l\)</span></li>
+<li>Agent’s expected payoff: <span class="math inline">\(e_H v_H + (1-e_H )v_L\)</span></li>
 <li>Principal’s expected payoff: 0</li>
 </ul></li>
 <li>Restrictions of contractual freedom may be welfare-enhancing</li>
@@ -963,9 +963,9 @@ Expected payoff:<br />
 <li><span class="math inline">\(v&#39;(x)&gt;0\)</span>, <span class="math inline">\(v&#39;&#39;(x)&lt;0\)</span></li>
 <li><span class="math inline">\(v&#39;(0) = \infty\)</span>, <span class="math inline">\(\lim_{x\to\infty} \ v&#39;(x) = 0\)</span></li>
 </ul></li>
-<li>Agent’s cost: <span class="math inline">\(c\in\{ c_l, c_h\}\)</span>
+<li>Agent’s cost: <span class="math inline">\(c\in\{ c_L, c_H\}\)</span>
 <ul>
-<li>Probability: <span class="math inline">\(Pr(c= c_l) = p\)</span></li>
+<li>Probability: <span class="math inline">\(Pr(c= c_L) = p\)</span></li>
 <li>Reservation utility: <span class="math inline">\(\underline{U} = 0\)</span></li>
 </ul></li>
 <li>Contract: <span class="math inline">\(t\)</span>
@@ -976,7 +976,7 @@ Expected payoff:<br />
 <li>First-best solution
 <span class="math display">\[\begin{aligned}\max_x &amp;&amp; v(x) &amp;- c\cdot x\\
 FOC &amp;&amp; v&#39;\big(x^{FB}(c) \big) &amp;= c \\
-&amp;&amp; x^{FB}(c_l) &amp;&gt; x^{FB}(c_h)\end{aligned}\]</span></li>
+&amp;&amp; x^{FB}(c_L) &amp;&gt; x^{FB}(c_H)\end{aligned}\]</span></li>
 <li>Game induced by mechanism
 <ul>
 <li>Principal’s strategy: <span class="math inline">\(s_p\in S_p\)</span></li>
@@ -1000,35 +1000,35 @@ By revelation principle, implementable = truthfully implementable
 <div id="second-best" class="section level3">
 <h3>Second Best</h3>
 <ul>
-<li>Contract: <span class="math inline">\(\begin{cases}x_l = x(c_l) \\ t_l = t(c_l)\end{cases}\)</span>, <span class="math inline">\(\begin{cases}x_h = x(c_h) \\ t_h = t(c_h)\end{cases}\)</span></li>
+<li>Contract: <span class="math inline">\(\begin{cases}x_L = x(c_L) \\ t_L = t(c_L)\end{cases}\)</span>, <span class="math inline">\(\begin{cases}x_H = x(c_H) \\ t_H = t(c_H)\end{cases}\)</span></li>
 <li>Principal’s problem
-<span class="math display">\[\begin{aligned}\max_{x_l, x_h, t_l, t_h} &amp;&amp; p\cdot\big( v(x_l) - t_l\big) &amp;+ (1-p)\cdot\big( v(x_h) - t_h\big) \\
-(IC_l) &amp;&amp; t_l - c_l\cdot x_l&amp;\geq t_h - c_l\cdot x_h\\
-\implies &amp;&amp; t_l - c_l\cdot x_l&amp;= t_h - c_l\cdot x_h \\
-(IC_h) &amp;&amp; t_h - c_h\cdot x_h&amp;\geq t_l - c_h\cdot x_l\\
-(PC_l) &amp;&amp; t_l - c_l\cdot x_l&amp;\geq \underline{U} = 0\\
-(PC_h) &amp;&amp; t_h - c_h\cdot x_h&amp;\geq \underline{U} = 0 \\
-\implies &amp;&amp; t_h - c_h\cdot x_h &amp;= 0\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_{x_L, x_H, t_L, t_H} &amp;&amp; p\cdot\big( v(x_L) - t_L\big) &amp;+ (1-p)\cdot\big( v(x_H) - t_H\big) \\
+(IC_L) &amp;&amp; t_L - c_L\cdot x_L&amp;\geq t_H - c_L\cdot x_H\\
+\implies &amp;&amp; t_L - c_L\cdot x_L&amp;= t_H - c_L\cdot x_H \\
+(IC_H) &amp;&amp; t_H - c_H\cdot x_H&amp;\geq t_L - c_H\cdot x_L\\
+(PC_L) &amp;&amp; t_L - c_L\cdot x_L&amp;\geq \underline{U} = 0\\
+(PC_H) &amp;&amp; t_H - c_H\cdot x_H&amp;\geq \underline{U} = 0 \\
+\implies &amp;&amp; t_H - c_H\cdot x_H &amp;= 0\end{aligned}\]</span>
 Therefore,
-<span class="math display">\[\begin{aligned}t_h &amp;= c_h\cdot x_h \\
-t_l &amp;= c_l\cdot x_l + t_h - c_l\cdot x_h \\
-&amp;= c_l\cdot x_l + c_h\cdot x_h - c_l\cdot x_h \\
-&amp;= c_l\cdot x_l + \underbrace{x_h\cdot( c_h - c_l)}_{\text{Information rent}}\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}t_H &amp;= c_H\cdot x_H \\
+t_L &amp;= c_L\cdot x_L + t_H - c_L\cdot x_H \\
+&amp;= c_L\cdot x_L + c_H\cdot x_H - c_L\cdot x_H \\
+&amp;= c_L\cdot x_L + \underbrace{x_H\cdot( c_H - c_L)}_{\text{Information rent}}\end{aligned}\]</span>
 Plug back into Principal’s problem
-<span class="math display">\[\begin{aligned}\max_{x_l, x_h} &amp;&amp; p&amp;\cdot\big( v(x_l) - c_l\cdot x_l - x_h\cdot( c_h - c_l)\big) \\
-&amp;&amp; &amp;+ (1-p)\cdot\big( v(x_h) - c_h\cdot x_h) \\
-FOC &amp;&amp; \frac{\partial}{\partial x_l} &amp;= p\cdot\big( v&#39;(x_l) -c_l\big) \\
-&amp;&amp; v&#39;(x_l^{SB}) &amp;= c_l \\
-&amp;&amp; x_l^{SB} &amp;= x^{FB}(c_l)\implies\text{No distortion at the top}\\
-&amp;&amp; \frac{\partial}{\partial x_h} &amp;= -p\cdot (c_h - c_l) + (1- p)\cdot\big( v&#39;(x_h) -\cdot c_h) \\
-&amp;&amp; v&#39;(x_h^{SB}) &amp;= c_h + \frac{p}{1-p}\cdot(c_h - c_l) \\
-&amp;&amp; x_h^{SB} &amp;&lt; x^{FB}(c_h)\implies\text{Downward distortion}\end{aligned}\]</span>
-Check <span class="math inline">\((IC_h)\)</span>
-<span class="math display">\[\begin{aligned}t_h - c_h\cdot x_h &amp;= c_h\cdot x_h - c_h\cdot x_h = 0 \\
-t_l - c_h\cdot x_l &amp;= c_l\cdot x_l + x_h\cdot( c_h - c_l) - c_h\cdot x_l \\
-&amp;= x_h\cdot( c_h - c_l) - x_l\cdot( c_h - c_l) \\
-&amp;= (x_h - x_l)( c_h - c_l) &lt; 0 \\
-\implies t_h - c_h\cdot x_h&amp;&lt; t_l - c_h\cdot x_l\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_{x_L, x_H} &amp;&amp; p&amp;\cdot\big( v(x_L) - c_L\cdot x_L - x_H\cdot( c_H - c_L)\big) \\
+&amp;&amp; &amp;+ (1-p)\cdot\big( v(x_H) - c_H\cdot x_H) \\
+FOC &amp;&amp; \frac{\partial}{\partial x_L} &amp;= p\cdot\big( v&#39;(x_L) -c_L\big) \\
+&amp;&amp; v&#39;(x_L^{SB}) &amp;= c_L \\
+&amp;&amp; x_L^{SB} &amp;= x^{FB}(c_L)\implies\text{No distortion at the top}\\
+&amp;&amp; \frac{\partial}{\partial x_H} &amp;= -p\cdot (c_H - c_L) + (1- p)\cdot\big( v&#39;(x_H) -\cdot c_H) \\
+&amp;&amp; v&#39;(x_H^{SB}) &amp;= c_H + \frac{p}{1-p}\cdot(c_H - c_L) \\
+&amp;&amp; x_H^{SB} &amp;&lt; x^{FB}(c_H)\implies\text{Downward distortion}\end{aligned}\]</span>
+Check <span class="math inline">\((IC_H)\)</span>
+<span class="math display">\[\begin{aligned}t_H - c_H\cdot x_H &amp;= c_H\cdot x_H - c_H\cdot x_H = 0 \\
+t_L - c_H\cdot x_L &amp;= c_L\cdot x_L + x_H\cdot( c_H - c_L) - c_H\cdot x_L \\
+&amp;= x_H\cdot( c_H - c_L) - x_L\cdot( c_H - c_L) \\
+&amp;= (x_H - x_L)( c_H - c_L) &lt; 0 \\
+\implies t_H - c_H\cdot x_H&amp;&lt; t_L - c_H\cdot x_L\end{aligned}\]</span></li>
 </ul>
 <blockquote>
 <p>Exercise 4<br />
@@ -1062,47 +1062,47 @@ FOC &amp;&amp; \frac{1}{2}x^{-\frac{1}{2}} - c &amp;= 0 \\
 &amp;&amp; &amp;=\begin{cases}1 &amp; c=\frac{1}{2} \\ \frac{1}{4} &amp; c=1 \end{cases}\end{aligned}\]</span></li>
 <li>Principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; &amp;\phantom{\ggg}E[\sqrt{x} - t(x)] \\
-&amp;&amp; &amp;= \frac{1}{2}(\sqrt{x_l} - t_l) + \frac{1}{2}(\sqrt{x_h} - t_h) \\
-(IC_l) &amp;&amp; &amp;t_l - x_l\cdot c_l - F\geq t_h - x_h\cdot c_l - F \\
-(PC_l) &amp;&amp; &amp;t_l - x_l\cdot c_l - F\geq 0 \\
-(IC_h) &amp;&amp; &amp;t_h - x_h\cdot c_h - F\geq t_l - x_l\cdot c_h - F \\
-(PC_h) &amp;&amp; &amp;t_h - x_h\cdot c_h - F\geq 0\end{aligned}\]</span></li>
-<li><span class="math inline">\((PC_l)\)</span> is redundant<br />
-<span class="math inline">\((PC_h)\implies t_h = F + x_h\cdot c_h\)</span><br />
-<span class="math inline">\((IC_l)\implies\)</span>
-<span class="math display">\[\begin{aligned}t_l &amp;= t_h - x_h\cdot c_l + x_l\cdot c_l \\
-&amp;= F + x_h\cdot c_h - x_h\cdot c_l + x_l\cdot c_l \\
-&amp;= F + x_l\cdot c_l + \underbrace{x_h\cdot( c_h -c_l)}_{\text{Information rent}}\end{aligned}\]</span>
-<span class="math inline">\((IC_h)\implies\)</span>
-<span class="math display">\[\begin{aligned} 0 &amp;\geq (x_h -x_l)(c_h-c_l) \\
-x_h -x_l &amp;\leq 0 \\
-x_h &amp;\leq x_l\end{aligned}\]</span>
+&amp;&amp; &amp;= \frac{1}{2}(\sqrt{x_L} - t_L) + \frac{1}{2}(\sqrt{x_H} - t_H) \\
+(IC_L) &amp;&amp; &amp;t_L - x_L\cdot c_L - F\geq t_H - x_H\cdot c_L - F \\
+(PC_L) &amp;&amp; &amp;t_L - x_L\cdot c_L - F\geq 0 \\
+(IC_H) &amp;&amp; &amp;t_H - x_H\cdot c_H - F\geq t_L - x_L\cdot c_H - F \\
+(PC_H) &amp;&amp; &amp;t_H - x_H\cdot c_H - F\geq 0\end{aligned}\]</span></li>
+<li><span class="math inline">\((PC_L)\)</span> is redundant<br />
+<span class="math inline">\((PC_H)\implies t_H = F + x_H\cdot c_H\)</span><br />
+<span class="math inline">\((IC_L)\implies\)</span>
+<span class="math display">\[\begin{aligned}t_L &amp;= t_H - x_H\cdot c_L + x_L\cdot c_L \\
+&amp;= F + x_H\cdot c_H - x_H\cdot c_L + x_L\cdot c_L \\
+&amp;= F + x_L\cdot c_L + \underbrace{x_H\cdot( c_H -c_L)}_{\text{Information rent}}\end{aligned}\]</span>
+<span class="math inline">\((IC_H)\implies\)</span>
+<span class="math display">\[\begin{aligned} 0 &amp;\geq (x_H -x_L)(c_H-c_L) \\
+x_H -x_L &amp;\leq 0 \\
+x_H &amp;\leq x_L\end{aligned}\]</span>
 Plug back to principal’s problem:
-<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}\big(\sqrt{x_l} - F - x_l\cdot c_l - x_h\cdot( c_h -c_l)\big) &amp;+ \frac{1}{2}(\sqrt{x_h} - F - x_h\cdot c_h) \\
-FOC &amp;&amp; \frac{1}{2}\Big(\frac{1}{2}x_l^{-\frac{1}{2}}-c_l\Big) &amp;= 0 \\
-&amp;&amp; x_l^{SB} &amp;= \frac{1}{4c_l^2} \\
-&amp;&amp; &amp;= 1 = x_l^{FB}\\
-&amp;&amp; \frac{1}{2}\Big(-(c_h-c_h)+\frac{1}{2}x_h^{-\frac{1}{2}}-c_h\Big) &amp;= 0 \\
-&amp;&amp; x_h^{SB} &amp;= \frac{1}{(4c_h-2c_l)^2} \\
-&amp;&amp; &amp;= \frac{1}{9} &lt; x_h^{FB}\end{aligned}\]</span>
-Therefore, <span class="math display">\[\begin{aligned}t_h &amp;= F + x_h\cdot c_h \\ &amp;= F + \frac{1}{9} \\ t_l &amp;= F + x_l\cdot c_l + x_h\cdot( c_h -c_l) \\ &amp;= F + \frac{5}{9}\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}\big(\sqrt{x_L} - F - x_L\cdot c_L - x_H\cdot( c_H -c_L)\big) &amp;+ \frac{1}{2}(\sqrt{x_H} - F - x_H\cdot c_H) \\
+FOC &amp;&amp; \frac{1}{2}\Big(\frac{1}{2}x_L^{-\frac{1}{2}}-c_L\Big) &amp;= 0 \\
+&amp;&amp; x_L^{SB} &amp;= \frac{1}{4c_L^2} \\
+&amp;&amp; &amp;= 1 = x_L^{FB}\\
+&amp;&amp; \frac{1}{2}\Big(-(c_H-c_H)+\frac{1}{2}x_H^{-\frac{1}{2}}-c_H\Big) &amp;= 0 \\
+&amp;&amp; x_H^{SB} &amp;= \frac{1}{(4c_H-2c_L)^2} \\
+&amp;&amp; &amp;= \frac{1}{9} &lt; x_H^{FB}\end{aligned}\]</span>
+Therefore, <span class="math display">\[\begin{aligned}t_H &amp;= F + x_H\cdot c_H \\ &amp;= F + \frac{1}{9} \\ t_L &amp;= F + x_L\cdot c_L + x_H\cdot( c_H -c_L) \\ &amp;= F + \frac{5}{9}\end{aligned}\]</span>
 Principal’s expected profit:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(\sqrt{x_l} - t_l) + \frac{1}{2}(\sqrt{x_h} - t_h) \\
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(\sqrt{x_L} - t_L) + \frac{1}{2}(\sqrt{x_H} - t_H) \\
 &amp;= \frac{1}{3} - F\end{aligned}\]</span></li>
 <li>Principal’s problem:
-<span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; \frac{1}{2}(\sqrt{x_l} - t_l)&amp; \\
-(PC_l) &amp;&amp; t_l - x_l\cdot c_l - F &amp;\geq 0 \\
-(PC_h) &amp;&amp; t_h - x_h\cdot c_h - F &amp;&lt; 0 \end{aligned}\]</span>
-Therefore, <span class="math inline">\(t_l = F + x_l\cdot c_l\)</span><br />
+<span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; \frac{1}{2}(\sqrt{x_L} - t_L)&amp; \\
+(PC_L) &amp;&amp; t_L - x_L\cdot c_L - F &amp;\geq 0 \\
+(PC_H) &amp;&amp; t_H - x_H\cdot c_H - F &amp;&lt; 0 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(t_L = F + x_L\cdot c_L\)</span><br />
 Plug back to principal’s problem<br />
-<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}(\sqrt{x_l} - F - x_l\cdot c_l)&amp; \\
-FOC &amp;&amp; \frac{1}{2}\Big(\frac{1}{2}x_l^{-\frac{1}{2}}-c_l\Big) &amp;= 0 \\
-&amp;&amp; x_l^{SB} &amp;= \frac{1}{4c_l^2} \\
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}(\sqrt{x_L} - F - x_L\cdot c_L)&amp; \\
+FOC &amp;&amp; \frac{1}{2}\Big(\frac{1}{2}x_L^{-\frac{1}{2}}-c_L\Big) &amp;= 0 \\
+&amp;&amp; x_L^{SB} &amp;= \frac{1}{4c_L^2} \\
 &amp;&amp; &amp;= 1\end{aligned}\]</span>
-<span class="math display">\[\begin{aligned}t_l &amp;= F + x_l\cdot c_l \\
+<span class="math display">\[\begin{aligned}t_L &amp;= F + x_L\cdot c_L \\
 &amp;= F + \frac{1}{2} \end{aligned}\]</span>
 Principal’s expected profit:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(\sqrt{x_l} - t_l) \\
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(\sqrt{x_L} - t_L) \\
 &amp;= \frac{1}{4} - \frac{1}{2}F\end{aligned}\]</span>
 Therefore, principal dispenses with the participation of high type if
 <span class="math display">\[\begin{aligned}\frac{1}{4} - \frac{1}{2}F &amp;\geq \frac{1}{3} - F\\
@@ -1168,36 +1168,120 @@ F &amp;\geq \frac{1}{6} \end{aligned}\]</span></li>
 <div id="impossible-case" class="section level3">
 <h3>Impossible Case</h3>
 <ul>
-<li>Principal’s type: <span class="math inline">\(v\in\{v_l, v_h\}\)</span> (uniform)</li>
-<li>Agent’s cost: <span class="math inline">\(c\in\{c_l, c_h\}\)</span> (uniform)
+<li>Principal’s type: <span class="math inline">\(v\in\{v_L, v_H\}\)</span> (uniform)</li>
+<li>Agent’s cost: <span class="math inline">\(c\in\{c_L, c_H\}\)</span> (uniform)
 <ul>
-<li><span class="math inline">\(0&lt;c_l&lt;v_l&lt;c_h&lt;v_h\)</span></li>
+<li><span class="math inline">\(0&lt;c_L&lt;v_L&lt;c_H&lt;v_H\)</span></li>
 </ul></li>
 <li>First-best solution
 <span class="math display">\[x^{FB}(c,v) = \begin{cases}1 &amp; v\geq c \\ 0 &amp; v\leq c\end{cases}\]</span>
 Therefore,
-<span class="math display">\[\begin{aligned}\left.\begin{aligned}x^{FB}(c_l,v_l)\\ x^{FB}(c_l,v_h)\\ x^{FB}(c_h,v_h)\end{aligned}\right\} &amp;= 1 \\
-x^{FB}(c_h,v_l) &amp;= 0 \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\left.\begin{aligned}x^{FB}(c_L,v_L)\\ x^{FB}(c_L,v_H)\\ x^{FB}(c_H,v_H)\end{aligned}\right\} &amp;= 1 \\
+x^{FB}(c_H,v_L) &amp;= 0 \end{aligned}\]</span></li>
 <li>Direct mechanism: <span class="math inline">\([t(c,v),x^{FB}(c,v)]\)</span></li>
 <li>Contract: <span class="math inline">\(t_{ij} = t(c_i, v_j)\)</span>
 <ul>
 <li>Conclusion: can not satisfy all constraints simultaneously</li>
 <li>Constraints for agent
-<span class="math display">\[\begin{aligned} (PC)c_l &amp;&amp; E_v\big[ t(c_l,v) - c_l\cdot x^{FB}(c_l,v) \big] &amp;\geq 0 \\
-  (IC)c_l &amp;&amp; E_v\big[ t(c_l,v) - c_l\cdot x^{FB}(c_l,v) \big] &amp;\geq E_v\big[ t(c_h,v) - c_l\cdot x^{FB}(c_h,v) \big] \\
-  &amp;&amp; \frac{1}{2} (t_{lh} - c_l) + \frac{1}{2} (t_{ll} - c_l) &amp;\geq \frac{1}{2}(t_{hh} - c_l) + \frac{1}{2}(t_{hl} - 0\cdot c_l)\\
-  (PC) c_h &amp;&amp; E_v\big[ t(c_h,v) - c_h\cdot x^{FB}(c_h,v) \big] &amp;\geq 0\\
-  &amp;&amp; \frac{1}{2} (t_{hh} - c_h) + \frac{1}{2}(t_{hl} - 0\cdot c_h) &amp;\geq 0\\
-  (IC)c_h &amp;&amp; E_v\big[ t(c_h,v) - c_h\cdot x^{FB}(c_h,v) \big] &amp;\geq E_v\big[ t(c_l,v) - c_h\cdot x^{FB}(c_l,v) \big]\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned} (PC) c_L &amp;&amp; E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &amp;\geq 0 \\
+  (IC) c_L &amp;&amp; E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &amp;\geq E_v\big[ t(c_H,v) - c_L\cdot x^{FB}(c_H,v) \big] \\
+  &amp;&amp; \frac{1}{2} (t_{LH} - c_L) + \frac{1}{2} (t_{LL} - c_L) &amp;\geq \frac{1}{2}(t_{HH} - c_L) + \frac{1}{2}(t_{HL} - 0\cdot c_L)\\
+  (PC) c_H &amp;&amp; E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &amp;\geq 0\\
+  &amp;&amp; \frac{1}{2} (t_{HH} - c_H) + \frac{1}{2}(t_{HL} - 0\cdot c_H) &amp;\geq 0\\
+  (IC) c_H &amp;&amp; E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &amp;\geq E_v\big[ t(c_L,v) - c_H\cdot x^{FB}(c_L,v) \big]\end{aligned}\]</span></li>
 <li>Constraints for principal
-<span class="math display">\[\begin{aligned}(PC) v_l &amp;&amp; E_c\big[v_l\cdot x^{FB}(c,v_l) - t(c, v_l)\big] &amp;\geq 0 \\
-  &amp;&amp; \frac{1}{2}(v_l - t_{ll}) + \frac{1}{2}(0\cdot v_l - t_{hl}) &amp;\geq 0\\
-  (IC) v_l &amp;&amp; E_c\big[v_l\cdot x^{FB}(c,v_l) - t(c, v_l)\big] &amp;\geq E_c\big[v_l\cdot x^{FB}(c,v_h) - t(c, v_h)\big] \\
-  (PC) v_h &amp;&amp; E_c\big[v_h\cdot x^{FB}(c,v_h) - t(c, v_h)\big] &amp;\geq 0 \\
-  (IC) v_h &amp;&amp; E_c\big[v_h\cdot x^{FB}(c,v_h) - t(c, v_h)\big] &amp;\geq E_c\big[v_h\cdot x^{FB}(c,v_l) - t(c, v_l)\big] \\
-  &amp;&amp; \frac{1}{2}(v_h - t_{lh}) + \frac{1}{2}(v_h - t_{hh}) &amp;\geq \frac{1}{2}(v_h - t_{ll}) + \frac{1}{2}(0\cdot v_h - t_{hl})\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}(PC) v_L &amp;&amp; E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &amp;\geq 0 \\
+  &amp;&amp; \frac{1}{2}(v_L - t_{LL}) + \frac{1}{2}(0\cdot v_L - t_{HL}) &amp;\geq 0\\
+  (IC) v_L &amp;&amp; E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &amp;\geq E_c\big[v_L\cdot x^{FB}(c,v_H) - t(c, v_H)\big] \\
+  (PC) v_H &amp;&amp; E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &amp;\geq 0 \\
+  (IC) v_H &amp;&amp; E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &amp;\geq E_c\big[v_H\cdot x^{FB}(c,v_L) - t(c, v_L)\big] \\
+  &amp;&amp; \frac{1}{2}(v_H - t_{LH}) + \frac{1}{2}(v_H - t_{HH}) &amp;\geq \frac{1}{2}(v_H - t_{LL}) + \frac{1}{2}(0\cdot v_H - t_{HL})\end{aligned}\]</span></li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise 5<br />
+A seller and a buyer can make a verifiable decision <span class="math inline">\(x\in \{0,1\}\)</span>, where <span class="math inline">\(x = 1\)</span> means that a good is exchanged.<br />
+When the buyer makes a transfer payment <span class="math inline">\(t\)</span> to the seller, then the parties’ payoffs are:
+<span class="math display">\[\begin{aligned}\text{Buyer} &amp;&amp; x\cdot v - t \\ \text{Seller} &amp;&amp; t - x\cdot c\end{aligned}\]</span>
+The cost <span class="math inline">\(c\in\{c_L,c_H\}\)</span> is private information of the seller, the valuation <span class="math inline">\(v\in\{v_L,v_H\}\)</span> is private information of the buyer.<br />
+It is commonly known that <span class="math inline">\(c\)</span> and <span class="math inline">\(v\)</span> are independently distributed random variables with <span class="math inline">\(Pr(c = c_L) = Pr(v = v_H) = \frac{1}{3}\)</span> and <span class="math inline">\(0 &lt; c_L &lt; v_L &lt; v_H &lt; c_H\)</span>.<br />
+The parties’ reservation utilities are zero.<br />
+1. What is the ex post efficient decision rule, which maximizes the parties’ total surplus (first- best solution)?<br />
+From an ex ante point of view (i.e., before the random variables are realized), what is the expected total surplus when the ex post efficient decision rule will be applied?<br />
+2. What are the four incentive compatibility constraints that a direct mechanism must satisfy when the ex post efficient decision rule is to be implemented?<br />
+3. Suppose the parties are privately informed at the contracting stage already (“adverse selection”).<br />
+Please provide all participation constraints.<br />
+Can the ex post efficient decision rule be implemented when bargaining over the contract is voluntary?<br />
+If so, provide a direct mechanism that satisfies all incentive compatibility and participation constraints.<br />
+4. Suppose the parties learn their private information only after a contract has been signed (“hidden information”).<br />
+What are the participation constraints?<br />
+Can the ex post efficient decision rule be implemented when bargaining over the contract is voluntary?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; &amp;x\cdot v - x\cdot c \\
+&amp;&amp; &amp;x^{FB}(c_L) = 1\\
+&amp;&amp; &amp;x^{FB}(c_H) = 0 \end{aligned}\]</span>
+Total surplus:
+<span class="math display">\[\begin{aligned}E^{FB}[x\cdot v - x\cdot c] &amp;= \frac{2}{9}\cdot (v_L - c_L) + \frac{1}{9}\cdot(v_H - c_L) + \frac{6}{9}\cdot 0\\
+&amp;= \frac{2}{9}\cdot v_L + \frac{1}{9}\cdot v_H + \frac{1}{3}\cdot c_L\end{aligned}\]</span></li>
+<li>Direct mechanism: <span class="math inline">\(\big( t(c,v), x^{FB}(c,v)\big)\)</span><br />
+Let <span class="math inline">\(t_{ij} = t(c_i, v_j)\)</span>,<br />
+Incentive compatibility constraints for seller:
+<span class="math display">\[\begin{aligned}
+(IC) c_L &amp;&amp; E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &amp;\geq E_v\big[ t(c_H,v) - c_L\cdot x^{FB}(c_H,v) \big] \\
+&amp;&amp; \frac{1}{3} (t_{LH} - c_L) + \frac{2}{3} (t_{LL} - c_L) &amp;\geq \frac{1}{3}(t_{HH} - 0\cdot c_L) + \frac{2}{3}(t_{HL} - 0\cdot c_L)\\
+(IC) c_H &amp;&amp; E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &amp;\geq E_v\big[ t(c_L,v) - c_H\cdot x^{FB}(c_L,v) \big] \\
+&amp;&amp; \frac{1}{3} (t_{HH} - 0\cdot c_H) + \frac{2}{3} (t_{HL} - 0\cdot c_H) &amp;\geq \frac{1}{3}(t_{LH} - c_H) + \frac{2}{3}(t_{LL} - c_H) \end{aligned}\]</span>
+For buyer:
+<span class="math display">\[\begin{aligned}
+(IC) v_L &amp;&amp; E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &amp;\geq E_c\big[v_L\cdot x^{FB}(c,v_H) - t(c, v_H)\big] \\
+&amp;&amp; \frac{1}{3}(v_L - t_{LL}) + \frac{2}{3}(0\cdot v_L - t_{HL}) &amp;\geq \frac{1}{3}(v_L - t_{LH}) + \frac{2}{3}(0\cdot v_L - t_{HH}) \\
+(IC) v_H &amp;&amp; E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &amp;\geq E_c\big[v_H\cdot x^{FB}(c,v_L) - t(c, v_L)\big] \\
+&amp;&amp; \frac{1}{3}(v_H - t_{LH}) + \frac{2}{3}(0\cdot v_H - t_{HH}) &amp;\geq \frac{1}{3}(v_H - t_{LL}) + \frac{2}{3}(0\cdot v_H - t_{HL})\end{aligned}\]</span></li>
+<li>Participate constraints for seller:
+<span class="math display">\[\begin{aligned}
+(PC) c_L &amp;&amp; E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &amp;\geq 0 \\
+&amp;&amp; \frac{1}{3} (t_{LH} - c_L) + \frac{2}{3} (t_{LL} - c_L) &amp;\geq 0 \\
+(PC) c_H &amp;&amp; E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &amp;\geq 0 \\
+&amp;&amp; \frac{1}{3} (t_{HH} - 0\cdot c_H) + \frac{2}{3} (t_{HL} - 0\cdot c_H) &amp;\geq 0\end{aligned}\]</span>
+For buyer:
+<span class="math display">\[\begin{aligned}
+(PC) v_L &amp;&amp; E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &amp;\geq 0 \\
+&amp;&amp; \frac{1}{3}(v_L - t_{LL}) + \frac{2}{3}(0\cdot v_L - t_{HL}) &amp;\geq 0 \\
+(PC) v_H &amp;&amp; E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &amp;\geq 0 \\
+&amp;&amp; \frac{1}{3}(v_H - t_{LH}) + \frac{2}{3}(0\cdot v_H - t_{HH}) &amp;\geq \end{aligned}\]</span>
+It is possible to satisfy all constraints simultaneously, for example:
+<span class="math display">\[\begin{aligned}
+&amp;\begin{cases}x^{FB}(c_L) = 1\\x^{FB}(c_H) = 0 \end{cases} \\
+&amp;\begin{cases}t_{LH} = t_{LL} = p\\ t_{HH} = t_{HL} = 0 \end{cases} \\
+&amp;p \in( c_L, v_L)\end{aligned}\]</span></li>
+<li>Participate constraints for seller:
+<span class="math display">\[\begin{aligned} E_v\big[ t(c,v) - c\cdot x^{FB}(c,v) \big] &amp;\geq 0 \\
+\frac{1}{9} (t_{LH} - c_L) + \frac{2}{9} (t_{LL} - c_L) +\frac{2}{9} (t_{HH} - 0\cdot c_H) + \frac{4}{9} (t_{HL} - 0\cdot c_H) &amp;\geq 0 \end{aligned}\]</span>
+For buyer:
+<span class="math display">\[\begin{aligned}
+E_c\big[v_\cdot x^{FB}(c,v) - t(c, v)\big] &amp;\geq 0 \\
+\frac{1}{9}(v_H - t_{LH}) + \frac{2}{9}(v_L - t_{LL}) + \frac{2}{9}(0\cdot v_H - t_{HH})+ \frac{4}{9}(0\cdot v_H - t_{HL}) &amp;\geq 0\end{aligned}\]</span>
+It is possible to satisfy all constraints simultaneously with the mechanism and price provided in (3).</li>
+</ol>
+<!-- 
+> Exercise 7  
+> Consider the following variant of the "Property Rights" model:  
+> At date 0, parties A and B agree on an ownership structure $o\in \{A,B,J\}$.  
+> At date 1, party A chooses an investment level $a\geq 0$ at costs $\frac{1}{2}a^2$, and party B simultaneously chooses an investment level $b\geq 0$ at costs $\frac{1}{2}b^2$.  
+> At date 2, the parties bargain about whether or not to collaborate.  
+> If the parties agree on collaboration, together they can generate the date-2 surplus $a+b$.  
+> If the parties do not reach an agreement, then depending on the ownership structure $o$, the default payoffs $D^o_A$ of party A and $D^o_B$ of party B are:
+> 
+> |       | $D_A^o$ | $D_B^o$ |
+> | ----- | ------- | ------- |
+> | $o=A$ | $a+εb$  | 0       |
+> | $o=B$ | 0       | $λa+b$  |
+> | $o=J$ | 0       | 0       |
+> 
+> Suppose $0 < ε < λ < 1$.  
+>  -->
 </div>
 </div>
 
