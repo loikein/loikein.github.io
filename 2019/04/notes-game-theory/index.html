@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">19 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -500,6 +500,41 @@ We have assumed that <span class="math inline">\(p_1(x) = p_2(x)\)</span>, i.e.�
 Go through the above analysis for the case where the that is not the case.<br />
 When will players start shooting?</p>
 </blockquote>
+<p>Let <span class="math inline">\(p_i(D)= 0\)</span>, <span class="math inline">\(p_i = 1\)</span>, <span class="math inline">\(p_i&#39;\leq 0\)</span>, <span class="math inline">\(p_1\geq p_2\)</span></p>
+<ol start="0" style="list-style-type: decimal">
+<li>At <span class="math inline">\(d_0\)</span>, player 2 shoots</li>
+<li>Player 1<br />
+Let <span class="math inline">\(x_1\in\mathbb{R}\)</span> be the solution that solves
+<span class="math display">\[\begin{aligned}p_1(x+\frac{D}{n}) + p_2(x) &amp;= 1 \end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>At <span class="math inline">\(d_1\)</span>, player 1 shoots if<br />
+<span class="math display">\[\begin{aligned}p_1(d_1) &amp;&gt; 1-p_2(d_0) \\
+ p_1(d_1) + p_2(d_0) &amp;&gt; 1 \\
+ p_1(d_0 + \frac{D}{n}) + p_2(d_0) &amp;&gt; 1  \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> player 1 shoots if <span class="math inline">\(d_0&lt;d_{x_1}\)</span></li>
+<li>At <span class="math inline">\(d_k\)</span><br />
+Assume player 2 shoots at next step (<span class="math inline">\(d_{k-1}\)</span>)
+Player 1 shoots if
+<span class="math display">\[\begin{aligned}p_1(d_k) &amp;\geq 1-p_2(d_{k-1}) \\
+ p_1(d_{k-1}+\frac{D}{n}) + p_2(d_{k-1}) &amp;\geq 1\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> player 1 shoots if <span class="math inline">\(d_{k-1}\leq x_1\)</span></li>
+</ol></li>
+<li>Player 2<br />
+Let <span class="math inline">\(x_1\in\mathbb{R}\)</span> be the solution that solves
+<span class="math display">\[\begin{aligned}p_2(x+\frac{D}{n}) + p_1(x) &amp;= 1 \end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>At <span class="math inline">\(d_k\)</span>, player 2 shoots if<br />
+<span class="math display">\[\begin{aligned}p_2(d_k) &amp;\geq 1-p_1(d_{k-1}) \\
+ p_2(d_{k-1}+\frac{D}{n}) + p_1(d_{k-1}) &amp;\geq 1\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> player 2 shoots if <span class="math inline">\(d_{k-1}\leq x_2\)</span></li>
+</ol></li>
+<li>Therefore, player i shoots at distantce <span class="math inline">\(d_k\)</span> if
+<span class="math display">\[\begin{cases}d_{k-1}\leq x_i \\ x_{k+1}&gt;x_i \end{cases}\]</span>
+When each step is really small, player i shoots at <span class="math inline">\(x_i\)</span> when
+<span class="math display">\[\begin{aligned}\frac{D}{n} &amp;\to 0 \\
+p_i(x_i) + p_j(x_i) &amp;\approx 1 \\
+p_i(x_i) &amp;\approx 1-p_j(x_i)\end{aligned}\]</span></li>
+</ol>
 </div>
 </div>
 <div id="bargaining" class="section level2">
@@ -525,6 +560,14 @@ When will players start shooting?</p>
 <p>Exercise (slides P36)<br />
 What are the SPNE if the game is changed so that player 1 can only offer amounts that can be expressed in cents?</p>
 </blockquote>
+<ol start="0" style="list-style-type: decimal">
+<li>In any SPNE, player 2 plays A after demands where player demand less than 100 cents.<br />
+</li>
+<li>Check player 2 always plays A<br />
+Equilibrium: <span class="math inline">\((100; A)\)</span></li>
+<li>Check player 2 plays R at 100 but plays A otherwise<br />
+Equilibrium: <span class="math inline">\((99; R|_{100}, A|_{&lt;100})\)</span></li>
+</ol>
 </div>
 <div id="two-round-ultimatum-game" class="section level3">
 <h3>Two-Round Ultimatum Game</h3>
@@ -631,8 +674,10 @@ Therefore, by intermediate value theorem, exists <span class="math inline">\(x_1
 :) <span class="math inline">\(f(x_1)\)</span> is increasing (omitted)</li>
 </ol>
 <blockquote>
-<p>Exercise (slideds P43)<br />
-Is the equilibrium Robinstein theorem proposes unique?</p>
+<p>Theorem (Rubinstein)<br />
+The Rubinstein bargaining game has an equilibrium in which player 1 always proposes <span class="math inline">\(x_1^*\)</span> and accepts any offer where he gets at least <span class="math inline">\(y_1^*\)</span>,<br />
+and player 2 always proposes <span class="math inline">\(y_2^*\)</span> and accepts any division where he gets at least <span class="math inline">\(x_2^*\)</span>.<br />
+Moreover, the equilibrium payoffs are the same in all SPNE.</p>
 </blockquote>
 <ol start="0" style="list-style-type: decimal">
 <li>Check continuous at infinity<br />
@@ -694,6 +739,47 @@ and still be accepted by player 2.</li>
 Therefore, <span class="math inline">\(m_1=M_1\)</span>, <span class="math inline">\(m_2 = M_2\)</span>.</li>
 </ol></li>
 </ol>
+<blockquote>
+<p>Exercise (slideds P43)<br />
+Is the equilibrium Robinstein theorem proposes unique?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>For player 2
+<span class="math display">\[\begin{aligned}\text{Accept} &amp;&amp; &amp;v_2(1-x_1) \\
+\text{Reject} &amp;&amp; &amp;δ_2 \cdot v_2(y_2^*) = v_2(1-x_1^*) \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Rejects if <span class="math inline">\(x_1&gt;x_1^*\)</span> and accepts if <span class="math inline">\(x_1\leq x_1^*\)</span></li>
+<li>For player 1<br />
+Does not demand <span class="math inline">\(x_1&gt;x_1^*\)</span> since player 2 will reject, and gets
+<span class="math display">\[\begin{aligned}δ_1\cdot v_1(y_1^*) &amp;= δ_1^2\cdot v_1(x_1^*) \\
+&amp;&lt;v_1(x_1^*)\end{aligned}\]</span>
+Does not demand <span class="math inline">\(x_1&lt;x_1^*\)</span> since then they are worse-off</li>
+<li>So in SPNE, player 1 must demand <span class="math inline">\(x_1^*\)</span> and is accepted by player 2<br />
+Therefore, the SPNE is unique</li>
+</ol>
+<blockquote>
+<p>Exercise (slides P50-51, OR 7.4.4)<br />
+Consider a model where impatience is not an issue; people don’t care when they get the good as long as they get it.<br />
+But instead assume that each time player i rejects an offer, there is an exogenously given probability <span class="math inline">\(1 - δ_i\)</span> that the bargaining process breaks down and both players don’t get anything.<br />
+Prove that nothing changes.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>For player 1,<br />
+Does not demand <span class="math inline">\(x_1&lt;x_1^*\)</span> since then they are worse-off<br />
+Does player 1 want to demand <span class="math inline">\(x_1&gt;x_1^*\)</span>?
+<span class="math display">\[\begin{aligned}\text{Propose }x_1^* &amp;&amp; &amp;v_1(x_1^*) \\
+\text{Propose }x_1 &amp;&amp; &amp;\phantom{\ggg}(1-δ_2)\cdot 0 + δ_1\cdot v_1(y_1^*) \\
+&amp;&amp; &amp;= δ_2\cdot v_1(y_1^*) \\
+&amp;&amp; &amp;= δ_2\cdot d_1\cdot v_1(x_1^*) \\
+&amp;&amp; &amp;&lt; v_1(x_1^*) \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> player 1 does not demand <span class="math inline">\(x_1&gt;x_1^*\)</span></li>
+<li>For player 2,
+<span class="math display">\[\begin{aligned}\text{Accept} &amp;&amp; &amp;v_2(1-x_1) \\
+\text{Reject} &amp;&amp; &amp;\phantom{\ggg}(1-δ_2)\cdot 0 + δ_2\cdot (1-y_1^*) \\
+&amp;&amp; &amp;= δ_2\cdot v_2(1-y_1^*) \\
+&amp;&amp; &amp;= v_2(1-x_1^*)\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> player 2 accepts if <span class="math inline">\(x_1\leq x_1^*\)</span>, rejects if <span class="math inline">\(x_1&gt;x_1^*\)</span></li>
+<li>Therefore, the results are the same in Theorem (Rubinstein)</li>
+</ol>
 </div>
 <div id="rubinstein-game-small-time-interval" class="section level3">
 <h3>Rubinstein Game (Small Time Interval)</h3>
@@ -710,12 +796,6 @@ Let <span class="math inline">\(ΔT\to 0\)</span>, <span class="math inline">\(e
 v_2(y_2^*) &amp;= v_2(x_2^*)\end{aligned}\]</span>
 Therefore, the first mover advantage vanishes</li>
 </ul>
-<blockquote>
-<p>Exercise (slides P51, OR 7.4.4)<br />
-Consider a model where impatience is not an issue; people don’t care when they get the good as long as they get it.<br />
-But instead assume that each time player i rejects an offer, there is an exogenously given probability <span class="math inline">\(1 - δ_i\)</span> that the bargaining process breaks down and both players don’t get anything.<br />
-Prove that nothing changes.</p>
-</blockquote>
 </div>
 </div>
 <div id="nash-bargaining-problem" class="section level2">
