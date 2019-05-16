@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">18 min read</span>
+    <span class="article-duration">23 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -99,6 +99,8 @@
 </ul></li>
 <li><a href="#time-preference">Time Preference</a><ul>
 <li><a href="#saving-and-consumption">Saving and Consumption</a></li>
+<li><a href="#windfall-spending">Windfall Spending</a></li>
+<li><a href="#doing-task-now-or-later">Doing Task Now or Later</a></li>
 </ul></li>
 </ul>
 </div>
@@ -742,11 +744,180 @@ Therefore, preferences in <span class="math inline">\(t\)</span> and <span class
 Investment constraint: <span class="math inline">\(IC_0: x_0 + z_0 = y_0\)</span></li>
 <li>Consume from income and return of liquid asset<br />
 Liquidity constraint: <span class="math inline">\(LC_1: c_1\leq y_1 + R\cdot x_0\)</span><br />
-Budget constraint: <span class="math inline">\(BC_1: c_1 + x_1 + z_1 = y_1 + R\cdot x_0 + R\cdot z_0\)</span></li>
+Budget constraint: <span class="math inline">\(BC_1: c_1 + x_1 + z_1 = y_1 + R\cdot(x_0 + z_0)\)</span></li>
 <li>Does not invest (retires)<br />
 Liquidity constraint: <span class="math inline">\(LC_2: c_2\leq y_2 + R\cdot x_1\)</span></li>
 </ol></li>
+<li>Since there is no period 3, <span class="math inline">\(c_2 = y_2 + R\cdot x_1\)</span> <span class="math inline">\(\implies z_1 = 0\)</span></li>
+<li>Benchmark: no illiquid asset, <span class="math inline">\(z_0 = 0\)</span><br />
+Therefore, <span class="math inline">\(LC_1\)</span> is redundant, <span class="math inline">\(BC_1\implies\)</span>
+<span class="math display">\[\begin{aligned}x_1 &amp;= y_1 + R\cdot x_0 - c_1 \\
+c_2 &amp;= y_2 + R\cdot x_1 \\
+&amp;= y_2 + R\cdot (y_1 + R\cdot x_0 - c_1)\\
+&amp;= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\
+\frac{\partial c_2}{\partial c_1} &amp;= -R\end{aligned}\]</span>
+In <span class="math inline">\(t=1\)</span>, agent’s problem:
+<span class="math display">\[\begin{aligned}\max_{c_1, c_2} &amp;&amp; &amp;u(c_1) + βδu(c_2) \\
+s.t. &amp;&amp; &amp;\begin{cases}c_2= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\x_0 = y_0 \end{cases}\\
+FOC &amp;&amp; &amp;-\frac{u&#39;(c_1^*)}{βδu&#39;(c_2^*)} = -R\end{aligned}\]</span>
+In <span class="math inline">\(t=0\)</span>, agent’s problem:
+<span class="math display">\[\begin{aligned}\max_{c_1,c_2} &amp;&amp; &amp;βδ\cdot \big(u(c_1) + δu(c_2)\big) \\
+s.t. &amp;&amp; c_2&amp;= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\
+FOC &amp;&amp; -\frac{u&#39;(\hat{c}_1)}{δu&#39;(\hat{c}_2)} &amp;= -R\\
+&amp;&amp; \hat{c}_1 &amp;&lt; c_1^* \\
+&amp;&amp; \hat{c}_2 &amp;&gt; c_2^*\end{aligned}\]</span></li>
+<li>Illiquid asset available,<br />
+<span class="math inline">\(LC_1\implies c_1\leq y_1 + R\cdot x_0\)</span><br />
+<span class="math inline">\(BC_1\implies\)</span>
+<span class="math display">\[\begin{aligned}x_1 &amp;= y_1 + R\cdot (x_0+z_0) - c_1 \\
+c_2 &amp;= y_2 + R\cdot x_1 \\
+&amp;= y_2 + R\cdot \big(y_1 + R\cdot (x_0+z_0) - c_1\big)\\
+&amp;= y_2 + R^2\cdot (x_0+z_0) + R\cdot (y_1 -c_1) \\
+\frac{\partial c_2}{\partial c_1} &amp;= -R \end{aligned}\]</span>
+In <span class="math inline">\(t=1\)</span>, agent’s problem:
+<span class="math display">\[\begin{aligned}\max_{c_1, c_2} &amp;&amp; &amp;u(c_1) + βδu(c_2) \\
+s.t. &amp;&amp; &amp;\begin{cases}c_2= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\c_1 \leq y_1 + R\cdot x_0 \end{cases}\end{aligned}\]</span>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(y_1 + R\cdot x_0 \geq c_1^*\)</span><br />
+Agent chooses <span class="math inline">\((c_1^*, c_2^*)\)</span></li>
+<li><span class="math inline">\(y_1 + R\cdot x_0 &lt; c_1^*\)</span><br />
+Agent chooses <span class="math inline">\(c_1^{*\prime} =y_1 + R\cdot x_0\)</span>
+In <span class="math inline">\(t=0\)</span>, agent can choose <span class="math inline">\(x_0\)</span> s.t. <span class="math inline">\(c_1^{*\prime} = \hat{c}_1\)</span><br />
+Agent’s problem:
+<span class="math display">\[\begin{aligned}\max_{c_1,c_2,x_0} &amp;&amp; &amp;βδ\cdot \big(u(c_1) + δu(c_2)\big) \\
+s.t. &amp;&amp; &amp;\begin{cases}c_2= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\c_1 \leq y_1 + R\cdot x_0 \\x_0 + z_0 = y_0\end{cases}\\
+\implies &amp;&amp; y_1 + R\cdot x_0^* &amp;= \hat{c}_1 \end{aligned}\]</span></li>
+</ol></li>
 </ul>
+</div>
+<div id="windfall-spending" class="section level3">
+<h3>Windfall Spending</h3>
+<ul>
+<li>Windfall at <span class="math inline">\(t=1\)</span>: <span class="math inline">\(Δ\)</span></li>
+<li>Constraints
+<span class="math display">\[\begin{aligned}(IC_0) &amp;&amp; x_0 + z_0 &amp;= y_0 \\
+(LC_1) &amp;&amp; c_1&amp;\leq y_1 + R\cdot x_0 + Δ\\
+(BC_1) &amp;&amp; c_1 + x_1 + z_1 &amp;= y_1 + R\cdot (x_0 + z_0) + Δ \\
+(LC_2) &amp;&amp; c_2 &amp;\leq y_2 + R\cdot x_1\end{aligned}\]</span></li>
+<li>Since there is no period 3, <span class="math inline">\(c_2 = y_2 + R\cdot x_1\)</span> <span class="math inline">\(\implies z_1 = 0\)</span></li>
+</ul>
+</div>
+<div id="doing-task-now-or-later" class="section level3">
+<h3>Doing Task Now or Later</h3>
+<ul>
+<li>Time: <span class="math inline">\(t = 1,\dots, T\)</span></li>
+<li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_T)\)</span>, <span class="math inline">\(s_t\in\begin{cases}\{ Y, N\} &amp; t&lt;T \\ \{ Y\} &amp; t=T \end{cases}\)</span></li>
+<li>Payoff
+<ul>
+<li>Choose Y in <span class="math inline">\(t\)</span>: <span class="math inline">\((v_t, c_t)\)</span></li>
+<li>Choose N in <span class="math inline">\(t\)</span>: <span class="math inline">\((0,0)\)</span></li>
+</ul></li>
+<li>Utility function: <span class="math inline">\(U_t = u_t + β\cdot\sum_{s=1}^{T-t} δ^s \cdot u_{t+s}\)</span>
+<ul>
+<li>Assume <span class="math inline">\(δ=1\)</span></li>
+</ul></li>
+<li>Immediate cost: cost in the period, reward later<br />
+In period t, utility from doing the task in period <span class="math inline">\(τ\geq t\)</span>:
+<span class="math display">\[\begin{aligned}τ=t &amp;&amp; U_t(τ) &amp;=  β\cdot v_t - c_t \\
+τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ-c_τ) \end{aligned}\]</span></li>
+<li>Immediate reward: cost in the period, reward later
+In period t, utility from doing the task in period <span class="math inline">\(τ\geq t\)</span>:
+<span class="math display">\[\begin{aligned}τ=t &amp;&amp; U_t(τ) &amp;= v_t - β\cdot c_t\\
+τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ -c_τ) \end{aligned}\]</span></li>
+<li>Time-consistent agent: <span class="math inline">\(U_t(τ)\)</span> is constant for all <span class="math inline">\(τ\)</span> <span class="math inline">\(\implies β=1\)</span>
+<ul>
+<li>Do the task in period t if
+<span class="math display">\[v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\]</span></li>
+<li>Optimal strategy: <span class="math inline">\(s^{TC}\)</span></li>
+</ul></li>
+<li>Time-inconsistent agent
+<ul>
+<li>Sophisticated: have correct expectations about future selves’ behaviour<br />
+Optimal strategy: <span class="math inline">\(s^{S}\)</span></li>
+<li>Naive: believe future selves will behave like a time-consistent agent<br />
+Optimal strategy: <span class="math inline">\(s^{N}\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Example (Immediate cost)<br />
+Fixed reward: <span class="math inline">\(v_t = \bar{v}\)</span><br />
+Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 5 \\ c_3 &amp;= 8 \\ c_4 &amp;= 13\end{aligned}\]</span>
+Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3,<br />
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= \bar{v} - 8 \\ &gt; U_3(4) &amp;= \bar{v} - 13\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 3</li>
+<li>In period 2,<br />
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= \bar{v} - 5 \\ &gt; U_2(3) &amp;= \bar{v} - 8\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 2</li>
+<li>In period 1,<br />
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= \bar{v} - 3 \\ &gt; U_1(2) &amp;= \bar{v} - 5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 1<br />
+<span class="math inline">\(\implies s^{TC} = (Y,Y,Y,Y)\)</span></li>
+</ol></li>
+<li>Sophisticated agent
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= β\cdot\bar{v} - 8 = \frac{\bar{v}}{2} - 8 \\
+ &gt; U_3(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5\\
+ -8 &amp;&gt; -6.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
+<li>In period 2,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot\bar{v} - 5 = \frac{\bar{v}}{2} - 5\\
+ &gt; U_2(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
+ -5 &amp;&gt; -6.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 2</li>
+<li>In period 1,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
+ &gt; U_1(2) &amp;= β\cdot(\bar{v} - 5) = \frac{\bar{v}}{2} - 2.5 \\
+ -3 &amp;&gt; -2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{S} = (N,Y,N,Y)\)</span></li>
+</ol></li>
+<li>Naive agent
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= β\cdot\bar{v} - 8 = \frac{\bar{v}}{2} - 8 \\
+ &gt; U_3(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5\\
+ -8 &amp;&gt; -6.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
+<li>In period 2,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot\bar{v} - 5 = \frac{\bar{v}}{2} - 5\\
+ &gt; U_2(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
+ -5 &amp;&gt; -6.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot\bar{v} - 5 = \frac{\bar{v}}{2} - 5\\
+ &gt; U_2(3) &amp;= β\cdot(\bar{v} - 8) = \frac{\bar{v}}{2} - 4 \\
+ -5 &amp;&gt; -4\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
+<li>In period 1,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
+ &gt; U_1(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
+ -3 &amp;&gt; -6.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
+ &gt; U_1(3) &amp;= β\cdot(\bar{v} - 8) = \frac{\bar{v}}{2} - 4 \\
+ -3 &amp;&gt; -4\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
+ &gt; U_1(2) &amp;= β\cdot(\bar{v} - 5) = \frac{\bar{v}}{2} - 2.5 \\
+ -3 &amp;&gt; -2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{N} = (N,N,N,Y)\)</span></li>
+</ol></li>
+</ol>
 </div>
 </div>
 
