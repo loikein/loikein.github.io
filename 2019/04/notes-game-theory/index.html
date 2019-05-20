@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.55.4" />
+<meta name="generator" content="Hugo 0.55.5" />
 
 <title>Notes on Game Theory - loikein</title>
 <meta property="og:title" content="Notes on Game Theory - loikein">
@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">19 min read</span>
+    <span class="article-duration">20 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -95,9 +95,9 @@
 <li><a href="#kalai-smorodinsky-bs">Kalai-Smorodinsky BS</a></li>
 </ul></li>
 <li><a href="#coalitional-game">Coalitional Game</a><ul>
-<li><a href="#core">Core</a></li>
 <li><a href="#analogy-with-walreasian-equilibrium">Analogy with <span>Walreasian Equilibrium</span></a></li>
 <li><a href="#with-transferable-payoffs">With Transferable Payoffs</a></li>
+<li><a href="#core">Core</a></li>
 </ul></li>
 </ul>
 </div>
@@ -968,13 +968,6 @@ therefore, both players are better-off from more choice:
 </ul></li>
 <li>Preference relation: <span class="math inline">\(\succsim_i\)</span> over <span class="math inline">\(X\)</span></li>
 </ul>
-<div id="core" class="section level3">
-<h3>Core</h3>
-<ul>
-<li>Core: set of all outcomes <span class="math inline">\(x\in V(N)\)</span> where there is no blocking coalitions</li>
-<li>Blocking coalition: <span class="math inline">\(S\)</span> s.t. exists <span class="math inline">\(y\in V(S)\)</span>, <span class="math inline">\(y\succ_i x\)</span> for all <span class="math inline">\(i\in S\)</span></li>
-</ul>
-</div>
 <div id="analogy-with-walreasian-equilibrium" class="section level3">
 <h3>Analogy with <a href="../../01/notes-micro/#general-equilibrium-exchange">Walreasian Equilibrium</a></h3>
 <ul>
@@ -1016,6 +1009,66 @@ and <span class="math inline">\(x^*\in\text{argmax} \ u_n(x_n)\)</span> for all 
 <li>Preference relation: <span class="math inline">\(x \succsim_i x\iff x_i &lt; y_i\)</span></li>
 <li>Value function: <span class="math inline">\(v(S)\in [0,\infty)\)</span> s.t. <span class="math inline">\(V(S) = \{ x\in X: \sum_S x_i = v(S)\}\)</span></li>
 </ul>
+</div>
+<div id="core" class="section level3">
+<h3>Core</h3>
+<ul>
+<li>Core: set of all outcomes <span class="math inline">\(x\in V(N)\)</span> where there is no blocking coalitions</li>
+<li>Blocking coalition: <span class="math inline">\(S\)</span> s.t. exists <span class="math inline">\(y\in V(S)\)</span>, <span class="math inline">\(y\succ_i x\)</span> for all <span class="math inline">\(i\in S\)</span></li>
+<li>Balanced collection of weights: For each coalition <span class="math inline">\(S\neq\emptyset\)</span>,<br />
+assign non-negative weights <span class="math inline">\((λ_S)\)</span> s.t. <span class="math inline">\(\sum_{i\in S} λ_S = 1\)</span></li>
+<li>Balanced game: for every balanced collection of weights <span class="math inline">\((λ_S)\)</span>,<br />
+<span class="math inline">\(\sum_S λ_S\cdot v(S) \leq v(N)\)</span></li>
+</ul>
+<blockquote>
+<p>Bondareve-Shapley theorem (OR proposition 262.1)<br />
+a coalitional game with transferable payoffs has a non-empty core <span class="math inline">\(\iff\)</span> it is balanced<br />
+<span class="math inline">\(\implies\)</span> a coalitional game with transferable payoffs has empty core <span class="math inline">\(\iff\)</span> it is not balanced</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
+Assume <span class="math inline">\(x\)</span> is in core, <span class="math inline">\(v(N)&gt;0\)</span><br />
+Let <span class="math inline">\(y = \Big( \frac{x_1}{v(N)}, \frac{x_2}{v(N)}, \dots, \frac{x_n}{v(N)}\big)\)</span><br />
+Note that <span class="math inline">\(\sum_i y_i = 1\)</span><br />
+<span class="math inline">\(x\in\)</span> core <span class="math inline">\(\iff\)</span> for all <span class="math inline">\(S\)</span>,
+<span class="math display">\[\begin{aligned}\sum_{i\in S} x_i &amp;\geq v(S) \\
+\sum_{i\in S} y_i \cdot v(N)&amp;\geq v(S) \end{aligned}\]</span>
+Let <span class="math inline">\((λ_S)\)</span> be a balanced collection of weights, <span class="math inline">\(\sum_i λ_S = 1\)</span><br />
+For all <span class="math inline">\(S\)</span>,<br />
+<span class="math display">\[\begin{aligned}v(S) &amp;\leq \sum_{i\in S} y_i \cdot v(N)\\
+\sum_S λ_S\cdot v(S) &amp;\leq \sum_S\big(λ_S\cdot\sum_{i\in S} y_i \cdot v(N)\big) \\
+&amp;= v(N)\cdot\sum_S\sum_{i\in S} λ_S\cdot y_i \\
+&amp;= v(N)\cdot \sum_i \big(y_i\cdot\sum_{i\in S} λ_S\big) \\
+&amp;= v(N)\cdot \sum_i y_i\cdot 1 \\
+&amp;= v(N)\end{aligned}\]</span></li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)</li>
+</ol>
+<blockquote>
+<p>Exercise (slides P95)<br />
+An expedition of <span class="math inline">\(n\)</span> pirates has found a huge number of treasure chests.<br />
+Each pair can carry one chest.<br />
+A coalitional game modeling this situation is given by
+<span class="math display">\[v(S) = \begin{cases}\frac{|S|}{2} &amp; |S| \text{ is even} \\\frac{|S|-1}{2} &amp; |S| \text{ is odd} \end{cases}\]</span><br />
+Assume <span class="math inline">\(n\geq 4\)</span>.<br />
+Show that if <span class="math inline">\(n\)</span> is even, then the core consists of a single payoff profile <span class="math inline">\(\big( \frac{1}{2},\frac{1}{2},\dots, \frac{1}{2})\)</span>, and if <span class="math inline">\(n\)</span> is odd, the core is empty.</p>
+</blockquote>
+<p>Let <span class="math inline">\(n=5\)</span>, <span class="math inline">\(v(N) = 2\)</span>,<br />
+<span class="math inline">\(λ_{(1,2)} = λ_{(2,3)} =λ_{(1,3)} =\frac{1}{2}\)</span>, <span class="math inline">\(λ_{(4,5)} = 1\)</span>, <span class="math inline">\(λ_S = 0\)</span> otherwise.</p>
+<ol style="list-style-type: decimal">
+<li>Check weights are balanced<br />
+For 1, <span class="math inline">\(\sum_{i\in S} λ_S = λ_{(1,2)} + λ_{(1,3)} = 1\)</span><br />
+For 2, <span class="math inline">\(\sum_{i\in S} λ_S = λ_{(1,2)} + λ_{(2,3)} = 1\)</span><br />
+For 3, <span class="math inline">\(\sum_{i\in S} λ_S = λ_{(1,3)} + λ_{(2,3)} = 1\)</span><br />
+For 4 and 5, <span class="math inline">\(\sum_{i\in S} λ_S = λ_{(4,5)} = 1\)</span><br />
+</li>
+<li>Check the game is balanced
+<span class="math display">\[\begin{aligned} \sum_S λ_S\cdot v(S) &amp;= λ_{(1,2)}\cdot 1 + λ_{(2,3)}\cdot 1 + λ_{(1,3)}\cdot 1 + λ_{(4,5)}\cdot 1 \\
+&amp;= \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + 1 \\
+&amp;= \frac{5}{2} \\
+&amp;&gt; v(N) = 2\end{aligned}\]</span>
+Therefore, the game is not balanced<br />
+<span class="math inline">\(\implies\)</span> the core is empty</li>
+</ol>
 </div>
 </div>
 
