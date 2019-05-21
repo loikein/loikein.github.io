@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">8 min read</span>
     
     <h1 class="article-title">Notes on Time Series</h1>
     
@@ -91,6 +91,12 @@
 <li><a href="#ma">MA</a></li>
 <li><a href="#stationarity">Stationarity</a></li>
 <li><a href="#ar">AR</a></li>
+</ul></li>
+<li><a href="#arch-garch">ARCH &amp; GARCH</a><ul>
+<li><a href="#arch">ARCH</a></li>
+<li><a href="#arch-stationarity">ARCH Stationarity</a></li>
+<li><a href="#garch">GARCH</a></li>
+<li><a href="#garch-stationarity">GARCH Stationarity</a></li>
 </ul></li>
 <li><a href="#old-stuff">Old Stuff</a><ul>
 <li><a href="#integration">Integration</a></li>
@@ -377,6 +383,66 @@ $$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
 \text{ACF:} && Corr(Y_t,Y_{t-j}) &= \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)} \\
 && &= θ^k \end{aligned}$$
  -->
+</div>
+</div>
+<div id="arch-garch" class="section level2">
+<h2>ARCH &amp; GARCH</h2>
+<div id="arch" class="section level3">
+<h3>ARCH</h3>
+<ul>
+<li>AutoRegressive Conditional Heteroskedasticity
+<ul>
+<li><span class="math inline">\(σ_t^2\neq σ_ε^2\)</span></li>
+</ul></li>
+<li>ARCH (p):
+<span class="math display">\[\begin{aligned}Y_t &amp;= σ_t\cdot ε_t \\
+σ_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(ε_t\overset{iid}{\sim}(0,1)\)</span></li>
+<li><span class="math inline">\(ω&gt;0\)</span>, <span class="math inline">\(α_i\geq 0\)</span>, <span class="math inline">\(p\in\mathbb{N}\)</span></li>
+<li>If <span class="math inline">\(α_i=0\)</span> for all <span class="math inline">\(i\implies\)</span> white noise</li>
+</ul></li>
+</ul>
+</div>
+<div id="arch-stationarity" class="section level3">
+<h3>ARCH Stationarity</h3>
+<ul>
+<li><span class="math inline">\(0\leq \sum_p α_i &lt;1\)</span> <span class="math inline">\(\implies\)</span> stationary, causal <span class="math inline">\(\{Y_t\}\)</span></li>
+<li>For ARCH (1): <span class="math inline">\(E[Y_t^4]&lt;\infty\iff\)</span> <span class="math inline">\(α_1&lt;\frac{1}{\sqrt{3}}\)</span></li>
+<li>For ARCH (p): <span class="math inline">\(E[Y_t^4]=c&lt;\infty\)</span>, then
+<span class="math display">\[\begin{aligned}
+\text{ARCH (1)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2 + η_t \\
+\text{Error}&amp;&amp; η_t &amp;= σ_t^2(ε_t^2 - 1) \\
+\text{AR (p)} &amp;&amp; Y_t &amp;= c + \sum_{i=1}^p φ_i Y_{t-i} + ε_t\end{aligned}\]</span>
+<span class="math inline">\(η_t\)</span> is zero-mean, stationary, uncorrelated error</li>
+</ul>
+</div>
+<div id="garch" class="section level3">
+<h3>GARCH</h3>
+<ul>
+<li>Generalized ARCH</li>
+<li>GARCH (p,q):
+<span class="math display">\[\begin{aligned}Y_t &amp;= σ_t\cdot ε_t \\
+σ_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2 + \sum_{j=1}^p β_j\cdot σ_{t-j}^2\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(ε_t\overset{iid}{\sim}(0,1)\)</span></li>
+<li><span class="math inline">\(ω&gt;0\)</span>, <span class="math inline">\(α_i\geq 0\)</span>, <span class="math inline">\(β_j\geq 0\)</span>, <span class="math inline">\(p,q\in\mathbb{N}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="garch-stationarity" class="section level3">
+<h3>GARCH Stationarity</h3>
+<ul>
+<li><span class="math inline">\(0\leq \sum_p α_i + \sum_q β_j&lt;1\)</span> <span class="math inline">\(\implies\)</span> stationary, causal <span class="math inline">\(\{Y_t\}\)</span></li>
+<li>For GARCH (1,1):</li>
+<li>For GARCH (p): <span class="math inline">\(E[Y_t^4]=c&lt;\infty\)</span>, then
+<span class="math display">\[\begin{aligned}
+\text{ARCH (1)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^{\tilde{p}} \tilde{α}_i\cdot Y_{t-i}^2 + \sum_{j=1}^q β_j\cdot η_{t-j} +η_t \\
+\text{Error}&amp;&amp; η_t &amp;= σ_t^2(ε_t^2 - 1) \\
+&amp;&amp; \tilde{α}_i&amp;= α_i + β_i \\
+\text{AR (p)} &amp;&amp; Y_t &amp;= c + \sum_{i=1}^p φ_i Y_{t-i} + ε_t\end{aligned}\]</span>
+<span class="math inline">\(η_t\)</span> is zero-mean, stationary, uncorrelated error</li>
+</ul>
 </div>
 </div>
 <div id="old-stuff" class="section level2">

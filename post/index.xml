@@ -17,7 +17,7 @@
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-time-series/</guid>
-      <description>Definition Property  Analysis Procedure Trend Trend &amp;amp; Seasonality Lag &amp;amp; Difference Operator  ARMA White Noise MA Stationarity AR  Old Stuff Integration OLS Estimation ML Estimation Model Selection Spurious Regression Cointegration    Definition  Time series: collection of observations indexed by date \[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;amp;= \{y_t\}_{t\in\mathbb{Z}} \\ &amp;amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]  Observed sample: \(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\) Underlying random variables: \(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)  Stochastic process: ordered sequence of random variables \[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]  Probability space: \((Ω,\mathcal{A},P)\) Mapping: \(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\) s.</description>
+      <description>Definition Property  Analysis Procedure Trend Trend &amp;amp; Seasonality Lag &amp;amp; Difference Operator  ARMA White Noise MA Stationarity AR  ARCH &amp;amp; GARCH ARCH ARCH Stationarity GARCH GARCH Stationarity  Old Stuff Integration OLS Estimation ML Estimation Model Selection Spurious Regression Cointegration    Definition  Time series: collection of observations indexed by date \[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;amp;= \{y_t\}_{t\in\mathbb{Z}} \\ &amp;amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]  Observed sample: \(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\) Underlying random variables: \(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)  Stochastic process: ordered sequence of random variables \[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]  Probability space: \((Ω,\mathcal{A},P)\) Mapping: \(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\) s.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-behavioural/</guid>
-      <description>Basic Ideas Standard Neoclassical Model Behavioural = Non-Standard Model  Reference Dependence Behaviour: Endowment Effect Gain–Loss Utility Linear Loss Aversion Non-Linear Loss Aversion Endogenous Reference Formation  Choice over Lottery Expected Utility Theory Endogenous Reference Formation with Risk Behaviour: Attachment Effect &amp;amp; Comparison Effect Behaviour: Allais Paradox Prospect Theory Non-Expected Utility Theory  Time Preference Saving and Consumption Windfall Spending Doing Task Now or Later    textbook 1: (DS) The foundations of behavioral economic analysis</description>
+      <description>Basic Ideas Standard Neoclassical Model Behavioural = Non-Standard Model  Reference Dependence Behaviour: Endowment Effect Gain–Loss Utility Linear Loss Aversion Non-Linear Loss Aversion Endogenous Reference Formation  Choice over Lottery Expected Utility Theory Endogenous Reference Formation with Risk Behaviour: Attachment Effect &amp;amp; Comparison Effect Behaviour: Allais Paradox Prospect Theory Non-Expected Utility Theory  Time Preference Saving and Consumption Windfall Spending Sophisticated / Naive Agent Sophistication effect Welfare Effect Procrastination in Infinite Time    textbook 1: (DS) The foundations of behavioral economic analysis</description>
     </item>
     
     <item>

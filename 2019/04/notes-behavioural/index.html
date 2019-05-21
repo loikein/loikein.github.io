@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">23 min read</span>
+    <span class="article-duration">27 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -100,7 +100,10 @@
 <li><a href="#time-preference">Time Preference</a><ul>
 <li><a href="#saving-and-consumption">Saving and Consumption</a></li>
 <li><a href="#windfall-spending">Windfall Spending</a></li>
-<li><a href="#doing-task-now-or-later">Doing Task Now or Later</a></li>
+<li><a href="#sophisticated-naive-agent">Sophisticated / Naive Agent</a></li>
+<li><a href="#sophistication-effect">Sophistication effect</a></li>
+<li><a href="#welfare-effect">Welfare Effect</a></li>
+<li><a href="#procrastination-in-infinite-time">Procrastination in Infinite Time</a></li>
 </ul></li>
 </ul>
 </div>
@@ -802,11 +805,14 @@ s.t. &amp;&amp; &amp;\begin{cases}c_2= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\
 <li>Since there is no period 3, <span class="math inline">\(c_2 = y_2 + R\cdot x_1\)</span> <span class="math inline">\(\implies z_1 = 0\)</span></li>
 </ul>
 </div>
-<div id="doing-task-now-or-later" class="section level3">
-<h3>Doing Task Now or Later</h3>
+<div id="sophisticated-naive-agent" class="section level3">
+<h3>Sophisticated / Naive Agent</h3>
 <ul>
 <li>Time: <span class="math inline">\(t = 1,\dots, T\)</span></li>
-<li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_T)\)</span>, <span class="math inline">\(s_t\in\begin{cases}\{ Y, N\} &amp; t&lt;T \\ \{ Y\} &amp; t=T \end{cases}\)</span></li>
+<li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_T)\)</span>
+<ul>
+<li>Strategy: <span class="math inline">\(s_t\in\begin{cases}\{ Y, N\} &amp; t&lt;T \\ \{ Y\} &amp; t=T \end{cases}\)</span></li>
+</ul></li>
 <li>Payoff
 <ul>
 <li>Choose Y in <span class="math inline">\(t\)</span>: <span class="math inline">\((v_t, c_t)\)</span></li>
@@ -829,13 +835,22 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <li>Do the task in period t if
 <span class="math display">\[v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\]</span></li>
 <li>Optimal strategy: <span class="math inline">\(s^{TC}\)</span></li>
+<li>First action: <span class="math inline">\(τ^{TC}\)</span></li>
 </ul></li>
 <li>Time-inconsistent agent
 <ul>
 <li>Sophisticated: have correct expectations about future selves’ behaviour<br />
-Optimal strategy: <span class="math inline">\(s^{S}\)</span></li>
+Optimal strategy: <span class="math inline">\(s^{S}\)</span><br />
+First action: <span class="math inline">\(τ^{S}\)</span></li>
 <li>Naive: believe future selves will behave like a time-consistent agent<br />
-Optimal strategy: <span class="math inline">\(s^{N}\)</span></li>
+Optimal strategy: <span class="math inline">\(s^{N}\)</span><br />
+First action: <span class="math inline">\(τ^{N}\)</span></li>
+</ul></li>
+<li>Lemma
+<ul>
+<li><span class="math inline">\(τ^{S}\leq τ^{N}\)</span></li>
+<li>With immediate cost, <span class="math inline">\(τ^{N}\geq τ^{TC}\)</span></li>
+<li>With immediate reward, <span class="math inline">\(τ^{N}\leq τ^{TC}\)</span></li>
 </ul></li>
 </ul>
 <blockquote>
@@ -848,76 +863,287 @@ Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent ag
 <li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
 <ol style="list-style-type: decimal">
 <li>In period 4, act</li>
-<li>In period 3,<br />
-<span class="math display">\[\begin{aligned}U_3(3) &amp;= \bar{v} - 8 \\ &gt; U_3(4) &amp;= \bar{v} - 13\end{aligned}\]</span>
+<li>In period 3, act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= \bar{v} - 8 \\ \geq U_3(4) &amp;= \bar{v} - 13\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Act in period 3</li>
-<li>In period 2,<br />
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= \bar{v} - 5 \\ &gt; U_2(3) &amp;= \bar{v} - 8\end{aligned}\]</span>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= \bar{v} - 5 \\ \geq U_2(3) &amp;= \bar{v} - 8\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Act in period 2</li>
-<li>In period 1,<br />
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= \bar{v} - 3 \\ &gt; U_1(2) &amp;= \bar{v} - 5\end{aligned}\]</span>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= \bar{v} - 3 \\ \geq U_1(2) &amp;= \bar{v} - 5\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Act in period 1<br />
 <span class="math inline">\(\implies s^{TC} = (Y,Y,Y,Y)\)</span></li>
 </ol></li>
 <li>Sophisticated agent
 <ol style="list-style-type: decimal">
 <li>In period 4, act</li>
-<li>In period 3,<br />
-Act if
+<li>In period 3, act if
 <span class="math display">\[\begin{aligned}U_3(3) &amp;= β\cdot\bar{v} - 8 = \frac{\bar{v}}{2} - 8 \\
- &gt; U_3(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5\\
- -8 &amp;&gt; -6.5\end{aligned}\]</span>
+ \geq U_3(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5\\
+ -8 &amp;\geq -6.5\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
-<li>In period 2,<br />
-Act if
+<li>In period 2, act if
 <span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot\bar{v} - 5 = \frac{\bar{v}}{2} - 5\\
- &gt; U_2(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
- -5 &amp;&gt; -6.5\end{aligned}\]</span>
+ \geq U_2(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
+ -5 &amp;\geq -6.5\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Act in period 2</li>
-<li>In period 1,<br />
-Act if
+<li>In period 1, act if
 <span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
- &gt; U_1(2) &amp;= β\cdot(\bar{v} - 5) = \frac{\bar{v}}{2} - 2.5 \\
- -3 &amp;&gt; -2.5\end{aligned}\]</span>
+ \geq U_1(2) &amp;= β\cdot(\bar{v} - 5) = \frac{\bar{v}}{2} - 2.5 \\
+ -3 &amp;\geq -2.5\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
 <span class="math inline">\(\implies s^{S} = (N,Y,N,Y)\)</span></li>
 </ol></li>
 <li>Naive agent
 <ol style="list-style-type: decimal">
 <li>In period 4, act</li>
-<li>In period 3,<br />
-Act if
+<li>In period 3, act if
 <span class="math display">\[\begin{aligned}U_3(3) &amp;= β\cdot\bar{v} - 8 = \frac{\bar{v}}{2} - 8 \\
- &gt; U_3(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5\\
- -8 &amp;&gt; -6.5\end{aligned}\]</span>
+ \geq U_3(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5\\
+ -8 &amp;\geq -6.5\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
-<li>In period 2,<br />
-Act if
+<li>In period 2, act if
 <span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot\bar{v} - 5 = \frac{\bar{v}}{2} - 5\\
- &gt; U_2(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
- -5 &amp;&gt; -6.5\end{aligned}\]</span>
+ \geq U_2(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
+ -5 &amp;\geq -6.5\end{aligned}\]</span>
 and
 <span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot\bar{v} - 5 = \frac{\bar{v}}{2} - 5\\
- &gt; U_2(3) &amp;= β\cdot(\bar{v} - 8) = \frac{\bar{v}}{2} - 4 \\
- -5 &amp;&gt; -4\end{aligned}\]</span>
+ \geq U_2(3) &amp;= β\cdot(\bar{v} - 8) = \frac{\bar{v}}{2} - 4 \\
+ -5 &amp;\geq -4\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
 <li>In period 1,<br />
 Act if
 <span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
- &gt; U_1(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
- -3 &amp;&gt; -6.5\end{aligned}\]</span>
+ \geq U_1(4) &amp;= β\cdot(\bar{v} - 13) = \frac{\bar{v}}{2} - 6.5 \\
+ -3 &amp;\geq -6.5\end{aligned}\]</span>
 and
 <span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
- &gt; U_1(3) &amp;= β\cdot(\bar{v} - 8) = \frac{\bar{v}}{2} - 4 \\
- -3 &amp;&gt; -4\end{aligned}\]</span>
+ \geq U_1(3) &amp;= β\cdot(\bar{v} - 8) = \frac{\bar{v}}{2} - 4 \\
+ -3 &amp;\geq -4\end{aligned}\]</span>
 and
 <span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot\bar{v} - 3 = \frac{\bar{v}}{2} - 3\\
- &gt; U_1(2) &amp;= β\cdot(\bar{v} - 5) = \frac{\bar{v}}{2} - 2.5 \\
- -3 &amp;&gt; -2.5\end{aligned}\]</span>
+ \geq U_1(2) &amp;= β\cdot(\bar{v} - 5) = \frac{\bar{v}}{2} - 2.5 \\
+ -3 &amp;\geq -2.5\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
 <span class="math inline">\(\implies s^{N} = (N,N,N,Y)\)</span></li>
 </ol></li>
 </ol>
+</div>
+<div id="sophistication-effect" class="section level3">
+<h3>Sophistication effect</h3>
+<ul>
+<li>With immediate or zero cost, <span class="math inline">\(τ^{S}\leq τ^{TC}\)</span></li>
+</ul>
+<blockquote>
+<p>Example (Immediate reward)<br />
+No cost<br />
+Increasing reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 3 \\ v_2 &amp;= 5 \\ v_3 &amp;= 8 \\ v_4 &amp;= 13\end{aligned}\]</span>
+Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3, act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\ \geq U_3(4) &amp;= 13\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5 \\ \geq U_2(3) &amp;= 8\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3 \\ \geq U_1(2) &amp;= 5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{TC} = (N,N,N,Y)\)</span>, <span class="math inline">\(τ^{TC} = 4\)</span></li>
+</ol></li>
+<li>Sophisticated agent
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\
+ \geq U_3(4) &amp;= β\cdot v = 6.5\\
+ 8 &amp;\geq 6.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 3</li>
+<li>In period 2,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5\\
+ \geq U_2(3) &amp;= β\cdot v = 4 \\
+ 5 &amp;\geq 4\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 2</li>
+<li>In period 1,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(2) &amp;= β\cdot v = 2.5 \\
+ 3&amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 1<br />
+<span class="math inline">\(\implies s^{S} = (Y,Y,Y,Y)\)</span>, <span class="math inline">\(τ^{S} = 1\)</span>, sophistication effect</li>
+</ol></li>
+<li>Naive agent
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3, act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\
+ \geq U_3(4) &amp;= β\cdot v = 6.5\\
+ 8 &amp;\geq 6.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 3</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;=  5 \\
+ \geq U_2(4) &amp;= β\cdot v = 6.5 \\
+ 5 &amp;\geq 6.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5\\
+ \geq U_2(3) &amp;= β\cdot v =4 \\
+ 5 &amp;\geq 4\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(4) &amp;= β\cdot v = 6.5 \\
+ 3 &amp;\geq 6.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(3) &amp;= β\cdot v= 4 \\
+ 3 &amp;\geq 4\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(2) &amp;= β\cdot v= 2.5 \\
+ 3 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{N} = (N,N,Y,Y)\)</span>, <span class="math inline">\(τ^{N} = 3\)</span></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>Example (Immediate cost 2)<br />
+Reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 12 \\ v_2 &amp;= 18 \\ v_3 &amp;= 18 \end{aligned}\]</span>
+Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 8 \\ c_3 &amp;= 13\end{aligned}\]</span>
+Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
+<ol style="list-style-type: decimal">
+<li>In period 3, act</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 18 - 8 = 10 \\ \geq U_2(3) &amp;= 18 - 13 = 5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 3</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 12 - 3 = 9\\ \geq U_1(2) &amp;= 18 - 5 = 13\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{TC} = (N,Y,Y)\)</span>, <span class="math inline">\(τ^{TC} = 2\)</span></li>
+</ol></li>
+<li>Sophisticated agent
+<ol style="list-style-type: decimal">
+<li>In period 3, act</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot 18 - 8 = 1 \\
+ \geq U_2(3) &amp;= β\cdot(18 - 13) = 2.5\\
+ 1 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
+ \geq U_1(3) &amp;= β\cdot(18-13) = 2.5 \\
+ 3 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 1<br />
+<span class="math inline">\(\implies s^{S} = (Y,N,Y)\)</span>, <span class="math inline">\(τ^{S} = 1\)</span>, sophistication effect</li>
+</ol></li>
+<li>Naive agent
+<ol style="list-style-type: decimal">
+<li>In period 3, act</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot 18 - 8 = 1 \\
+ \geq U_2(3) &amp;= β\cdot(18 - 13) = 2.5\\
+ 1 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
+<li>In period 1,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
+ \geq U_1(3) &amp;= β\cdot(18 - 13) = 2.5 \\
+ 3 &amp;\geq 2.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
+ \geq U_1(2) &amp;= β\cdot(18 - 8) = 5 \\
+ 3 &amp;\geq 5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{N} = (N,N,Y)\)</span>, <span class="math inline">\(τ^{N} = 3\)</span></li>
+</ol></li>
+</ol>
+</div>
+<div id="welfare-effect" class="section level3">
+<h3>Welfare Effect</h3>
+<ul>
+<li>Welfare from nothing: 0</li>
+</ul>
+<blockquote>
+<p>Example (Immediate cost 3)<br />
+Fixed reward: <span class="math inline">\(v_t = \bar{v}\)</span><br />
+Increasing cost: <span class="math inline">\(c_t = \bar{c} + t\cdot ε\)</span><br />
+Let <span class="math inline">\(β\leq\frac{\bar{c}}{\bar{c}+ε}\)</span> for time-inconsistent agent</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Time-consistent agent: <span class="math inline">\(β=1\)</span><br />
+For any period t, act if
+<span class="math display">\[\begin{aligned}\bar{v} -c_t&amp;\geq \bar{v} -c_{t+1} \\
+-t\cdot ε &amp;\geq -(t+1) \cdot ε \end{aligned}\]</span>
+<span class="math inline">\(\implies s^{TC} = (Y,\dots, Y)\)</span>, <span class="math inline">\(τ^{TC} = 1\)</span></li>
+<li>Time-inconsistent agent assume:
+<span class="math display">\[\begin{aligned}β\cdot \bar{v} - c_t&amp;\leq β\cdot(\bar{v} -c_{t+1}) \\
+-c_t &amp;\leq -β\cdot c_{t+1} \\
+\bar{c}+t\cdot ε &amp;\geq β\cdot\big( \bar{c} +(t+1)\cdot ε\big)\\
+β &amp;\leq \frac{\bar{c}+t\cdot ε}{\bar{c}+(t+1)\cdot ε} \\
+&amp;\leq \frac{\bar{c}}{\bar{c}+ ε} &amp;&amp; (t=0)\end{aligned}\]</span></li>
+<li>Naive agent<br />
+For any period t, act if
+<span class="math display">\[β\cdot \bar{v} -c_t \geq β\cdot(\bar{v} -c_{t+1})\]</span>
+<span class="math inline">\(\implies s^N = (N,\dots,N, Y)\)</span>, <span class="math inline">\(τ^{N} = T\)</span><br />
+Welfare loss: <span class="math inline">\(T\cdot ε\)</span></li>
+<li>Sophisticated agent</li>
+</ol>
+<blockquote>
+<p>Example (Immediate reward 2)<br />
+Fixed cost: <span class="math inline">\(c_t = \bar{c}\)</span><br />
+Increasing reward: <span class="math inline">\(v_t = \bar{v} + t\cdot ε\)</span><br />
+Let <span class="math inline">\(β\leq\frac{\bar{v}}{\bar{v}+ε}\)</span> for time-inconsistent agent</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Time-consistent agent: <span class="math inline">\(β=1\)</span><br />
+For any period t, act if
+<span class="math display">\[\begin{aligned}v_t - \bar{c}&amp;\geq v_{t+1} - \bar{c}\\
+t\cdot ε &amp;\geq (t+1) \cdot ε \end{aligned}\]</span>
+<span class="math inline">\(\implies s^{TC} = (N,\dots,N, Y)\)</span>, <span class="math inline">\(τ^{TC} = T\)</span></li>
+<li>Time-inconsistent agent assume:
+<span class="math display">\[\begin{aligned}v_t - β\cdot \bar{c} &amp;\geq β\cdot(v_{t+1} - \bar{c}) \\
+\bar{v} + t\cdot ε &amp;\geq β\cdot \big( \bar{v} + (t+1) \cdot ε\big) \\
+β &amp;\leq \frac{\bar{v}+t\cdot ε}{\bar{v}+(t+1)\cdot ε} \\
+&amp;\leq \frac{\bar{v}}{\bar{v}+ ε} &amp;&amp; (t=0)\end{aligned}\]</span></li>
+<li>Sophisticated agent<br />
+For any period t, act if
+<span class="math display">\[β\cdot \bar{v} -c_t \geq β\cdot(\bar{v} -c_{t+1})\]</span>
+<span class="math inline">\(\implies s^N = (Y,\dots, Y)\)</span>, <span class="math inline">\(τ^{N} = 1\)</span><br />
+Welfare loss: <span class="math inline">\(T\cdot ε\)</span></li>
+<li>Naive agent</li>
+</ol>
+</div>
+<div id="procrastination-in-infinite-time" class="section level3">
+<h3>Procrastination in Infinite Time</h3>
+<ul>
+<li>Time: <span class="math inline">\(t = 1,\dots\)</span></li>
+<li>Discount rate: <span class="math inline">\(δ\in[0,1)\)</span>
+<ul>
+<li>s.t. some task has positive discounted value
+<span class="math display">\[\begin{aligned}-c + βδ\cdot\sum_{s=0}^{\infty}δ^{s}\cdot v &amp;&gt; 0 \\
+  -c + βδ\cdot\frac{v}{1-δ} &amp;&gt; 0\end{aligned}\]</span></li>
+</ul></li>
+<li>Set of tasks: <span class="math inline">\(X\)</span>, <span class="math inline">\(|X|&lt;\infty\)</span>
+<ul>
+<li>Task: <span class="math inline">\(x = (c,v)\)</span></li>
+</ul></li>
+<li>Strategy profile: <span class="math inline">\(s = (a_1,a_2,\dots)\)</span>
+<ul>
+<li>Strategy: <span class="math inline">\(a_t\in X\cup \{\emptyset\}\)</span></li>
+<li>If chooses <span class="math inline">\(a_t = \emptyset\)</span>, move to <span class="math inline">\(t+1\)</span></li>
+<li>If chooses <span class="math inline">\(a_t\in X\)</span>, the game ends, enjoys <span class="math inline">\(v\)</span> in all future periods</li>
+<li>Doing nothing at all: <span class="math inline">\(s^{\emptyset} = (\emptyset, \emptyset,\dots)\)</span></li>
+</ul></li>
+<li></li>
+</ul>
 </div>
 </div>
 
