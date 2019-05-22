@@ -21,12 +21,21 @@
     </item>
     
     <item>
-      <title>Notes on Institution, Contract &amp; Information</title>
+      <title>Notes on Contract &amp; Information</title>
+      <link>/2019/04/notes-contract/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/04/notes-contract/</guid>
+      <description>Literature Lemon Market: Continuous Quality Perfect Information Unknown Quality Competitive Equilibrium  Lemon Market: Binary Quality Cheap Repair Expensive Repair  Lemon Market: Signalling Timing Strategy Separating Equilibrium Pooling Equilibrium  Adverse Selection (MWG Ch 13) Benchmark Unknown Type Competitive Equilibrium Constrained Pareto Optimum Signalling  Competitive Car Insurance Market Benchmark Hidden Type  Non-Linear Pricing Price Distrimination with Perfect Information Asymmetric Information    Literature  Microeconomic Theory (MWG) The Theory of Industrial Organization A Primer in Game Theory   Lemon Market: Continuous Quality  Quality of car: \(s\in [0,\bar{s}]\)  pdf: \(f(s) = α s^{α-1}\) cdf: \(F(s) = s^α\)  Seller’s type: \(θ_1\)  Seller’s preferences: \(\begin{cases}p &amp;amp; \text{sell} \\ θ_1s &amp;amp; \text{not sell} \end{cases}\)  Buyer’s type: \(θ_2\)  Consumption possibilities: 1 or 0 Buyer’s preferences: \(\begin{cases}θ_2s - p &amp;amp; \text{buy}\\ 0 &amp;amp; \text{not buy}\end{cases}\)  Assume \(θ_2 &amp;gt; θ_1\)  Perfect Information  Trade is efficient since \[\begin{aligned}θ_2 &amp;amp;&amp;gt; θ_1 \\ θ_2s &amp;amp;&amp;gt; θ_1s \\ p + (θ_2s - p) &amp;amp;&amp;gt; θ_1s + 0\end{aligned}\] Conditions for \(p\): \(\begin{cases}p \geq θ_1s &amp;amp; \text{(seller)} \\ θ_2s - p \geq 0 &amp;amp; \text{(buyer)}\end{cases}\) hold with \(θ_2s \geq p\geq θ_1s\)   Unknown Quality  Given price \(p\) Seller sells if \[\begin{aligned}θ_1s \leq p \\ s\leq \frac{p}{θ_1} \end{aligned}\] Buyer’s expected quality</description>
+    </item>
+    
+    <item>
+      <title>Notes on Institution</title>
       <link>/2019/04/notes-institution/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-institution/</guid>
-      <description>Literature Lecture: Contract &amp;amp; Information Lecture: Intsitution  Lemon Market: Continuous Quality Perfect Information Unknown Quality Competitive Equilibrium  Lemon Market: Binary Quality Cheap Repair Expensive Repair  Lemon Market: Signalling Timing Strategy Separating Equilibrium Pooling Equilibrium  Adverse Selection (MWG Ch 13) Benchmark Unknown Type Competitive Equilibrium Constrained Pareto Optimum Signalling  Car Insurance Market Benchmark Hidden Type  Moral Hazard (Hidden Action) Timing Benchmark Limited Liability Agent Offers Contract  Moral Hazard (Hidden Information) One-Sided Timing Benchmark Two-Sided Timing Benchmark  Adverse Selection One-Sided Timing First Best Second Best Agent Offers Contract Two-Sided Timing Benchmark Impossible Case    Literature Lecture: Contract &amp;amp; Information  Microeconomic Theory (MWG) The Theory of Industrial Organization A Primer in Game Theory   Lecture: Intsitution Contract Theory Game Theory (multi-stage games) Institutions and Economic Theory (very general and theoretical) Institutional Economics: An Introduction (Groenewegen, J.</description>
+      <description>Literature Moral Hazard (Hidden Action) Timing Benchmark Limited Liability Agent Offers Contract  Moral Hazard (Hidden Information) One-Sided Timing Benchmark Two-Sided Timing Benchmark  Adverse Selection One-Sided Timing First Best Second Best Agent Offers Contract Two-Sided Timing Benchmark Impossible Case    Literature Contract Theory Game Theory (multi-stage games) Institutions and Economic Theory (very general and theoretical) Institutional Economics: An Introduction (Groenewegen, J. &amp;amp; Spithoven, A. &amp;amp; Van den Berg, A.</description>
     </item>
     
     <item>

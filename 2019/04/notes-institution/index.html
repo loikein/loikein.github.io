@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Hugo 0.55.5" />
 
-<title>Notes on Institution, Contract &amp; Information - loikein</title>
-<meta property="og:title" content="Notes on Institution, Contract &amp; Information - loikein">
+<title>Notes on Institution - loikein</title>
+<meta property="og:title" content="Notes on Institution - loikein">
 
 
   
@@ -49,9 +49,9 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">22 min read</span>
     
-    <h1 class="article-title">Notes on Institution, Contract &amp; Information</h1>
+    <h1 class="article-title">Notes on Institution</h1>
     
     <span class="article-date">2019/04/09</span>
     
@@ -77,46 +77,18 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#literature">Literature</a><ul>
-<li><a href="#lecture-contract-information">Lecture: Contract &amp; Information</a></li>
-<li><a href="#lecture-intsitution">Lecture: Intsitution</a></li>
-</ul></li>
-<li><a href="#lemon-market-continuous-quality">Lemon Market: Continuous Quality</a><ul>
-<li><a href="#perfect-information">Perfect Information</a></li>
-<li><a href="#unknown-quality">Unknown Quality</a></li>
-<li><a href="#competitive-equilibrium">Competitive Equilibrium</a></li>
-</ul></li>
-<li><a href="#lemon-market-binary-quality">Lemon Market: Binary Quality</a><ul>
-<li><a href="#cheap-repair">Cheap Repair</a></li>
-<li><a href="#expensive-repair">Expensive Repair</a></li>
-</ul></li>
-<li><a href="#lemon-market-signalling">Lemon Market: Signalling</a><ul>
-<li><a href="#timing">Timing</a></li>
-<li><a href="#strategy">Strategy</a></li>
-<li><a href="#separating-equilibrium">Separating Equilibrium</a></li>
-<li><a href="#pooling-equilibrium">Pooling Equilibrium</a></li>
-</ul></li>
-<li><a href="#adverse-selection-mwg-ch-13">Adverse Selection (MWG Ch 13)</a><ul>
-<li><a href="#benchmark">Benchmark</a></li>
-<li><a href="#unknown-type-competitive-equilibrium">Unknown Type Competitive Equilibrium</a></li>
-<li><a href="#constrained-pareto-optimum">Constrained Pareto Optimum</a></li>
-<li><a href="#signalling">Signalling</a></li>
-</ul></li>
-<li><a href="#car-insurance-market">Car Insurance Market</a><ul>
-<li><a href="#benchmark-1">Benchmark</a></li>
-<li><a href="#hidden-type">Hidden Type</a></li>
-</ul></li>
+<li><a href="#literature">Literature</a></li>
 <li><a href="#moral-hazard-hidden-action">Moral Hazard (Hidden Action)</a><ul>
-<li><a href="#timing-1">Timing</a></li>
-<li><a href="#benchmark-2">Benchmark</a></li>
+<li><a href="#timing">Timing</a></li>
+<li><a href="#benchmark">Benchmark</a></li>
 <li><a href="#limited-liability">Limited Liability</a></li>
 <li><a href="#agent-offers-contract">Agent Offers Contract</a></li>
 </ul></li>
 <li><a href="#moral-hazard-hidden-information">Moral Hazard (Hidden Information)</a><ul>
 <li><a href="#one-sided-timing">One-Sided Timing</a></li>
-<li><a href="#benchmark-3">Benchmark</a></li>
+<li><a href="#benchmark-1">Benchmark</a></li>
 <li><a href="#two-sided-timing">Two-Sided Timing</a></li>
-<li><a href="#benchmark-4">Benchmark</a></li>
+<li><a href="#benchmark-2">Benchmark</a></li>
 </ul></li>
 <li><a href="#adverse-selection">Adverse Selection</a><ul>
 <li><a href="#one-sided-timing-1">One-Sided Timing</a></li>
@@ -124,7 +96,7 @@
 <li><a href="#second-best">Second Best</a></li>
 <li><a href="#agent-offers-contract-1">Agent Offers Contract</a></li>
 <li><a href="#two-sided-timing-1">Two-Sided Timing</a></li>
-<li><a href="#benchmark-5">Benchmark</a></li>
+<li><a href="#benchmark-3">Benchmark</a></li>
 <li><a href="#impossible-case">Impossible Case</a></li>
 </ul></li>
 </ul>
@@ -132,16 +104,6 @@
 
 <div id="literature" class="section level2">
 <h2>Literature</h2>
-<div id="lecture-contract-information" class="section level3">
-<h3>Lecture: Contract &amp; Information</h3>
-<ul>
-<li><a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory</a> (MWG)</li>
-<li><a href="http://93.174.95.27/book/index.php?md5=B3C0791C9FB6308FA345C1CA21C68E45">The Theory of Industrial Organization</a></li>
-<li><a href="http://93.174.95.27/book/index.php?md5=4DC53E7CCAD53B6356429F6CE80F442B">A Primer in Game Theory</a></li>
-</ul>
-</div>
-<div id="lecture-intsitution" class="section level3">
-<h3>Lecture: Intsitution</h3>
 <ol style="list-style-type: decimal">
 <li><a href="http://93.174.95.27/book/index.php?md5=3FDF4E91C3B6926C29211A911A8A2B5B">Contract Theory</a></li>
 <li><a href="http://93.174.95.27/book/index.php?md5=5FCE17D1189A9424E102E1B26A1EFEF5">Game Theory</a> (multi-stage games)</li>
@@ -150,414 +112,6 @@
 <li><a href="http://93.174.95.27/book/index.php?md5=2C89493D80037491355C246FCF0B5045">Firms, contracts, and financial structure</a> (incomplete contract)</li>
 <li></li>
 </ol>
-</div>
-</div>
-<div id="lemon-market-continuous-quality" class="section level2">
-<h2>Lemon Market: Continuous Quality</h2>
-<ul>
-<li>Quality of car: <span class="math inline">\(s\in [0,\bar{s}]\)</span>
-<ul>
-<li>pdf: <span class="math inline">\(f(s) = α s^{α-1}\)</span></li>
-<li>cdf: <span class="math inline">\(F(s) = s^α\)</span></li>
-</ul></li>
-<li>Seller’s type: <span class="math inline">\(θ_1\)</span>
-<ul>
-<li>Seller’s preferences: <span class="math inline">\(\begin{cases}p &amp; \text{sell} \\ θ_1s &amp; \text{not sell} \end{cases}\)</span></li>
-</ul></li>
-<li>Buyer’s type: <span class="math inline">\(θ_2\)</span>
-<ul>
-<li>Consumption possibilities: 1 or 0</li>
-<li>Buyer’s preferences: <span class="math inline">\(\begin{cases}θ_2s - p &amp; \text{buy}\\ 0 &amp; \text{not buy}\end{cases}\)</span></li>
-</ul></li>
-<li>Assume <span class="math inline">\(θ_2 &gt; θ_1\)</span></li>
-</ul>
-<div id="perfect-information" class="section level3">
-<h3>Perfect Information</h3>
-<ul>
-<li>Trade is efficient since
-<span class="math display">\[\begin{aligned}θ_2 &amp;&gt; θ_1 \\
-θ_2s &amp;&gt; θ_1s \\
-p + (θ_2s - p) &amp;&gt; θ_1s + 0\end{aligned}\]</span></li>
-<li>Conditions for <span class="math inline">\(p\)</span>: <span class="math inline">\(\begin{cases}p \geq θ_1s &amp; \text{(seller)} \\ θ_2s - p \geq 0 &amp; \text{(buyer)}\end{cases}\)</span> hold with <span class="math inline">\(θ_2s \geq p\geq θ_1s\)</span></li>
-</ul>
-</div>
-<div id="unknown-quality" class="section level3">
-<h3>Unknown Quality</h3>
-<ul>
-<li>Given price <span class="math inline">\(p\)</span></li>
-<li>Seller sells if
-<span class="math display">\[\begin{aligned}θ_1s \leq p \\ s\leq \frac{p}{θ_1} \end{aligned}\]</span></li>
-<li>Buyer’s expected quality<br />
-Let <span class="math inline">\(z = \frac{p}{θ_1}\)</span>, expected quality is the center of mass of <span class="math inline">\(f(s)\)</span><br />
-<span class="math display">\[\begin{aligned}E[s \ | \ p] &amp;= E\Big[s \ \big| s\leq \frac{p}{θ_1}\Big] \\
-&amp;= E[s \ | \ s\leq z] \\
-&amp;= \frac{\int^z_0 s\cdot f(s)\, ds}{F(z)} \\
-&amp;= \frac{\int^z_0 s\cdot αs^{α-1}\, ds}{z^α} \\
-&amp;= α\cdot\frac{\int^z_0 s^α\, ds}{z^α} \\
-&amp;= α\cdot\frac{\frac{1}{α+1}s^{α+1}}{z^α} \bigg|_0^z \\
-&amp;= \frac{α}{α+1}\cdot z \\
-&amp;= \frac{α}{α+1}\cdot\frac{p}{θ_1}\end{aligned}\]</span></li>
-<li>Buyer buys if
-<span class="math display">\[\begin{aligned}θ_2\cdot E[s] - p &amp;\geq 0 \\
-θ_2\cdot\frac{α}{α+1}\cdot\frac{p}{θ_1} - p &amp;\geq 0 \\
-θ_2\cdot\frac{α}{α+1}\cdot\frac{1}{θ_1} &amp;\geq 1 \\
-θ_2 &amp;\geq θ_1\cdot\frac{α+1}{α}\end{aligned}\]</span></li>
-<li>Since <span class="math inline">\(\frac{α+1}{α}&gt;1\)</span>, the market is smaller than efficiency</li>
-</ul>
-<blockquote>
-<p>PS1.Q2<br />
-Agent 1 finds an old book in his basement and considers selling it on the flee market. Agent 1’s utility from keeping the book is <span class="math inline">\(θ_1s\)</span>, where <span class="math inline">\(s\)</span> is the quality of the book.<br />
-On the flee market, agent 2 is potentially willing to buy the book. Agent 2’s utility from buying the book is <span class="math inline">\(θ_2s − p\)</span> if he buys at price <span class="math inline">\(p\)</span>.<br />
-1. If <span class="math inline">\(s\)</span> is publicly observed, when is trade effcient?<br />
-2. Suppose now <strong>agent 1</strong> does not know the value of the book.<br />
-Agent 2 knows <span class="math inline">\(s\)</span> but agent 1 knows only that <span class="math inline">\(s\in [0, 1]\)</span> is equally likely.<br />
-Suppose that an auctioneer announces a price <span class="math inline">\(p\)</span> at which trade can occur.<br />
-What expected value of quality can agent 1 infer from the fact that trade occurs at price <span class="math inline">\(p\)</span>?</p>
-</blockquote>
-</div>
-<div id="competitive-equilibrium" class="section level3">
-<h3>Competitive Equilibrium</h3>
-<ul>
-<li><span class="math inline">\(s\in [\underline{s},\bar{s}]\)</span></li>
-<li><span class="math inline">\(N\)</span> sellers, <span class="math inline">\(N\)</span> buyers</li>
-<li>Sellers’ type: <span class="math inline">\(θ_0\)</span> (all same)</li>
-<li>Buyers’ type: <span class="math inline">\(θ\)</span>
-<ul>
-<li>pdf: <span class="math inline">\(g(θ)\)</span></li>
-<li>cdf: <span class="math inline">\(G(θ)\)</span>, <span class="math inline">\(G(\hat{θ}) = Pr(θ\leq \hat{θ})\)</span></li>
-</ul></li>
-<li>Perfect information<br />
-For each seller, willingness to sell: <span class="math display">\[p(s) = θ_0\cdot s\]</span>
-For each buyer, willingness to buy: <span class="math display">\[p(θ,s) = θ\cdot s\]</span>
-Each buyer will trade with seller with car of quality <span class="math inline">\(s\)</span> if
-<span class="math display">\[\begin{aligned} p(θ,s) &amp;\geq p(s) \\
-θ\cdot s &amp;\geq θ_0\cdot s \\
-θ &amp;\geq θ_0\end{aligned}\]</span>
-Volume of trade:
-<span class="math display">\[\begin{aligned} D &amp;= N\cdot Pr(θ\geq θ_0) \\ &amp;= N\cdot\big[ 1 - G(θ_0) \big]\end{aligned}\]</span></li>
-<li>Asymmetric information<br />
-<strong>Given price <span class="math inline">\(p\)</span></strong>, sellers sell if
-<span class="math display">\[\begin{aligned}p &amp;\geq θ_0\cdot s \\
-s &amp;\leq \frac{p}{θ_0} \\
-S(p) &amp;= N\cdot Pr\Big(s\leq \frac{p}{θ_0}\Big) \\
-&amp;= N\cdot F\Big( \frac{p}{θ_0}\Big)\end{aligned}\]</span>
-Buyers’ expected quality: <span class="math display">\[s^e(p) := E\Big[ s \ \big| \ s\leq \frac{p}{θ_0}\Big]\]</span>
-Buyers buy if
-<span class="math display">\[\begin{aligned} θ\cdot s^e(p) &amp;\geq p \\
-θ &amp;\geq \frac{p}{s^e(p)} \\
-D(p) &amp;= N\cdot Pr\Big(θ \geq \frac{p}{s^e(p)}\Big) \\
-&amp;= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big]\end{aligned}\]</span>
-Market clears when
-<span class="math display">\[\begin{aligned}S(p) &amp;= D(p) \\
-N\cdot F\Big( \frac{p}{θ_0}\Big) &amp;= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big] \\
-F\Big( \frac{p}{θ_0}\Big) &amp;= 1 - G\Big(\frac{p}{s^e(p)}\Big) \end{aligned}\]</span></li>
-<li>Locally increasing demand exists when
-<span class="math display">\[\begin{aligned}D&#39;(p) = -N\cdot\underbrace{g\Big(\frac{p}{s^e(p)}\Big)}_{&gt;0}\cdot\frac{\partial}{\partial p} \Big(\frac{p}{s^e(p)}\Big) &amp; &gt; 0 \\
--\frac{\partial}{\partial p} \Big(\frac{p}{s^e(p)}\Big) &amp;&gt; 0 \\
-\frac{s^e(p) - \frac{\partial s^e(p)}{\partial p}\cdot p}{s^e(p)^2} &amp;&lt; 0 \\
-s^e(p) - \frac{\partial s^e(p)}{\partial p}\cdot p &amp;&lt; 0 \\
-\frac{\partial s^e(p)}{\partial p}\cdot\frac{p}{s^e(p)} &amp;&gt; 1 \\
-\frac{\partial s^e(p) / s^e(p)}{\partial p / p} &amp;&gt; 1 \\
-\text{Elasticity of expected quality} &amp;&gt; 1\end{aligned}\]</span></li>
-</ul>
-</div>
-</div>
-<div id="lemon-market-binary-quality" class="section level2">
-<h2>Lemon Market: Binary Quality</h2>
-<ul>
-<li>Quality of car: <span class="math inline">\(s\in\{\underline{s},\bar{s}\}\)</span>
-<ul>
-<li>Probability that a car is <span class="math inline">\(\bar{s}\)</span>: <span class="math inline">\(α\)</span></li>
-<li>Probability that <span class="math inline">\(\bar{s}\)</span> does not need repair: <span class="math inline">\(\bar{s} = r\cdot 1 + (1-r)\cdot 0 = r\)</span></li>
-<li>Probability that <span class="math inline">\(\underline{s}\)</span> does not need repair: <span class="math inline">\(\underline{s} = q\cdot 1 + (1-q)\cdot 0 = q\)</span></li>
-<li><span class="math inline">\(r &gt; q\)</span></li>
-</ul></li>
-<li>Seller’s type: <span class="math inline">\(θ_1\)</span>
-<ul>
-<li>Seller’s preferences: <span class="math inline">\(\begin{cases}p &amp;\text{sell} \\ θ_1\cdot 1 - (1-s)\cdot c &amp;\text{repair} \\ s\cdot θ_1 &amp;\text{not repair} \end{cases}\)</span></li>
-</ul></li>
-<li>Buyers’ type: <span class="math inline">\(θ_2\)</span>, 2 buyers
-<ul>
-<li>Buyers’ preferences: <span class="math inline">\(\begin{cases}θ_2\cdot 1 - (1-s)\cdot c - p &amp;\text{repair} \\ θ_2\cdot s - p &amp;\text{not repair} \\ 0 &amp;\text{not buy} \end{cases}\)</span></li>
-</ul></li>
-<li>Assume <span class="math inline">\(θ_2 &gt; θ_1\)</span></li>
-<li>Repair cost: <span class="math inline">\(c\)</span></li>
-</ul>
-<div id="cheap-repair" class="section level3">
-<h3>Cheap Repair</h3>
-<ul>
-<li><span class="math inline">\(c \leq θ_1 &lt; θ_2\)</span>
-<ul>
-<li>Seller will repair if doesn’t sell:
-<span class="math display">\[\begin{aligned}θ_1 - (1-s)\cdot c &amp;\geq s\cdot θ_1 \\
-  θ_1 - c + s\cdot c &amp;\geq s\cdot θ_1 \\
-  (s-1)\cdot c &amp;\geq (s-1)\cdot θ_1 &amp;&amp; (s-1&lt;0) \\
-  c &amp;\leq θ_1\end{aligned}\]</span></li>
-</ul></li>
-<li>Seller sells if <span class="math display">\[θ_1 - (1-s)\cdot c\leq p\]</span></li>
-<li>Buyers’ expected quality:
-<span class="math display">\[\begin{aligned} E[s] &amp;= αr + (1-α)q \\
-1 - E[s] &amp;= 1 - \big[αr + (1-α)q\big] \\
-&amp;= 1 - αr - q + αq \\
-&amp;= 1 - αr - q + αq + α - α\\
-&amp;= α(1-r) + (1-α)(1-q)\end{aligned}\]</span>
-Buyers buy if
-<span class="math display">\[\begin{aligned}θ_2\cdot 1 - \big(1-E[s]\big)\cdot c - p &amp;\geq 0 \\
-θ_2 - \big[α(1-r) + (1-α)(1-q)\big]\cdot c &amp;\geq p\end{aligned}\]</span></li>
-<li>Price for <span class="math inline">\(\bar{s}\)</span> exists if
-<span class="math display">\[\begin{aligned}θ_2 - \big[α(1-r) + (1-α)(1-q)\big]\cdot c &amp;\geq θ_1 - (1-r)\cdot c \\
-θ_2 &amp;\geq θ_1 + \big[α(1-r) + (1-α)(1-q)\big]\cdot c - (1-r)\cdot c \\
-&amp;\geq θ_1 + (1-α)(r-q)\cdot c\end{aligned}\]</span></li>
-<li>Since <span class="math inline">\((1-α)(r-q)\cdot c &gt; 0\)</span>, the market is smaller than efficiency</li>
-</ul>
-</div>
-<div id="expensive-repair" class="section level3">
-<h3>Expensive Repair</h3>
-<ul>
-<li><span class="math inline">\(c \geq θ_2 &gt; θ_1\)</span>
-<ul>
-<li>Seller will not repair if doesn’t sell: <span class="math inline">\(c \geq θ_1\)</span></li>
-<li>Buyer will not repair if the car needs repair:
-<span class="math display">\[\begin{aligned}θ_2\cdot 1 - (1-s)\cdot c - p &amp;\leq θ_2\cdot s - p \\
-  θ_2\cdot 1 - (1-s)\cdot c &amp;\leq θ_2\cdot s \\
-  (1-s)\cdot θ_2 &amp;\leq (1-s)\cdot c \\
-  θ_2 &amp;\leq c\end{aligned}\]</span></li>
-</ul></li>
-<li>Seller sells if <span class="math display">\[s\cdot θ_1 \leq p\]</span></li>
-<li>Buyers buy if
-<span class="math display">\[\begin{aligned}θ_2\cdot E[s] - p &amp;\geq 0 \\
-θ_2\cdot \big[αr + (1-α)q\big] &amp;\geq p \end{aligned}\]</span></li>
-<li>Price for <span class="math inline">\(\bar{s}\)</span> exists if
-<span class="math display">\[\begin{aligned}θ_2\cdot \big[αr + (1-α)q\big] &amp;\geq r\cdot θ_1 \\
-θ_2 &amp;\geq \frac{r\cdot θ_1}{αr + (1-α)q} \end{aligned}\]</span></li>
-<li>Since <span class="math inline">\(\frac{r}{αr + (1-α)q} &gt; 1\)</span>, the market is smaller than efficiency</li>
-</ul>
-</div>
-</div>
-<div id="lemon-market-signalling" class="section level2">
-<h2>Lemon Market: Signalling</h2>
-<div id="timing" class="section level3">
-<h3>Timing</h3>
-<ol style="list-style-type: decimal">
-<li>Nature chooses quality <span class="math inline">\(s\)</span></li>
-<li>Seller chooses whether to issue warranty <span class="math inline">\(w\)</span></li>
-<li>Buyers propose <span class="math inline">\(p\)</span></li>
-<li>Seller chooses to accept buyer 1, buyer 2 or nobody</li>
-<li>(If applicable) repair</li>
-</ol>
-</div>
-<div id="strategy" class="section level3">
-<h3>Strategy</h3>
-<ul>
-<li>Seller’s strategy
-<ul>
-<li>Warranty: <span class="math inline">\(w(s): \{\underline{s},\bar{s}\} \to \{0,1\}\)</span></li>
-<li>Acceptance: <span class="math inline">\(a(s,w,p_1,p_2): \{\underline{s},\bar{s}\}\times\{0,1\}\times\mathbb{R}^2 \to \{0,1,2\}\)</span></li>
-</ul></li>
-<li>Buyers’ strategy: <span class="math inline">\(p(w): \{0,1\}\to\mathbb{R}\)</span></li>
-<li>Buyers’ belief: <span class="math inline">\(μ(w): \{0,1\}\to [0,1]\)</span></li>
-</ul>
-</div>
-<div id="separating-equilibrium" class="section level3">
-<h3>Separating Equilibrium</h3>
-<ul>
-<li>Assumptions
-<ul>
-<li>Expensive repair: <span class="math inline">\(c \geq θ_2 &gt; θ_1\)</span></li>
-<li>Price for <span class="math inline">\(\bar{s}\)</span> does not exist <span class="math display">\[θ_2 &lt; \frac{r\cdot θ_1}{αr + (1-α)q}\]</span></li>
-</ul></li>
-<li>For <span class="math inline">\(\bar{s}\)</span> seller,
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{q\cdot θ_2}_{\text{Sell w/o warranty}} \\
-\implies &amp;&amp; c &amp;\leq \frac{1-q}{1-r}θ_2 \\
-(PC) &amp;&amp; \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{r\cdot θ_1}_{\text{Not sell}} \\
-\implies &amp;&amp; c &amp;\leq \frac{θ_2 - r\cdot θ_1}{1-r}\end{aligned}\]</span></li>
-<li>For <span class="math inline">\(\underline{s}\)</span> seller,
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/ warranty}} &amp;\leq \underbrace{q\cdot θ_2}_{\text{Sell w/o warranty}} \\
-\implies &amp;&amp; c&amp;\geq θ_2 \\
-(PC) &amp;&amp; \underbrace{q\cdot θ_2}_{\text{Sell w/o warranty}} &amp;\geq \underbrace{q\cdot θ_1}_{\text{Not sell}} \\
-\implies &amp;&amp; θ_2 &amp;\geq θ_1\end{aligned}\]</span></li>
-<li>Equilibrium when <span class="math inline">\(c\leq \frac{θ_2 - r\cdot θ_1}{1-r}\)</span><br />
-<span class="math inline">\(\begin{cases} w(\bar{s}) = 1 \\ w(\underline{s}) = 0\end{cases}\)</span>, <span class="math inline">\(\begin{cases}μ(1) = 1 \\ μ(0) = 0 \end{cases}\)</span>, <span class="math inline">\(\begin{cases}p(1) = θ_2 \\ p(0) = q\cdot θ_2 \end{cases}\)</span><br />
-</li>
-<li>When <span class="math inline">\(c&gt; \frac{θ_2 - r\cdot θ_1}{1-r}\)</span>, <span class="math inline">\(\bar{s}\)</span> seller never sells</li>
-</ul>
-</div>
-<div id="pooling-equilibrium" class="section level3">
-<h3>Pooling Equilibrium</h3>
-<ul>
-<li>Pooling equilibrium with no warranty violates the assumption that market is inefficient without warranty</li>
-<li>Pooling equilibrium with warranty violates the assumption that repair is expensive</li>
-</ul>
-<blockquote>
-<p>Exercise<br />
-Solve the case of cheap (ex post effcient) repairs.</p>
-</blockquote>
-<p>Assumptions:</p>
-<ol style="list-style-type: decimal">
-<li>Cheap repair: <span class="math inline">\(c \leq θ_1 &lt; θ_2\)</span></li>
-<li>Price for <span class="math inline">\(\bar{s}\)</span> does not exist <span class="math inline">\(θ_2 &lt; θ_1 + (1-α)(r-q)\cdot c\)</span></li>
-</ol>
-<p>Results:</p>
-<ol style="list-style-type: decimal">
-<li>Pooling equilibrium with warranty<br />
-Buyers’ belief: <span class="math inline">\(\begin{cases}μ(1) = α \\ μ(0) \end{cases}\)</span><br />
-Buyers’ willingness to buy:
-<span class="math display">\[p = \begin{cases} θ_2 &amp; w=1 \\
-θ_2 -\big[μ(0)\cdot (1-r) + \big(1-μ(0)\big)\cdot (1-q)\big]\cdot c &amp; w=0\end{cases}\]</span>
-For <span class="math inline">\(\bar{s}\)</span> seller,
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{θ_2 -\big[μ(0)\cdot (1-r) + \big(1-μ(0)\big)\cdot (1-q)\big]\cdot c}_{\text{Sell w/o warranty}} \\
-\implies &amp;&amp; \big(1-μ(0)\big)(r-q) &amp;\geq 0 \ \text{(always holds)} \\
-(PC) &amp;&amp; \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{θ_1 - (1-r) \cdot c}_{\text{Not sell}} \\
-\implies &amp;&amp; θ_2&amp;\geq θ_1\end{aligned}\]</span>
-For <span class="math inline">\(\underline{s}\)</span> seller,
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{θ_2 -\big[μ(0)\cdot (1-r) + \big(1-μ(0)\big)\cdot (1-q)\big]\cdot c}_{\text{Sell w/o warranty}} \\
-\implies &amp;&amp; μ(0)(q-r) &amp;\geq 0 \\
-&amp;&amp; μ(0) &amp;\leq 0 \\
-&amp;&amp; μ(0) &amp;= 0 \\
-(PC) &amp;&amp; \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/o warranty}} &amp;\geq \underbrace{θ_1 - (1-q) \cdot c}_{\text{Not sell}} \\
-\implies &amp;&amp; θ_2 &amp;\geq θ_1\end{aligned}\]</span></li>
-<li>Pooling equilibrium with no warranty does not exist because <span class="math inline">\(\bar{s}\)</span> seller will deviate by issuing warranty</li>
-<li>Separating equilibrium<br />
-Buyers’ belief: <span class="math inline">\(\begin{cases}μ(1) = r \\ μ(0) = q \end{cases}\)</span><br />
-Buyers’ willingness to buy: <span class="math inline">\(p = \begin{cases} θ_2 &amp; w=1 \\ θ_2 - (1-q)\cdot c &amp; w=0\end{cases}\)</span><br />
-For <span class="math inline">\(\bar{s}\)</span> seller,
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{θ_2 - (1-q)\cdot c}_{\text{Sell w/o warranty}} \\
-\implies &amp;&amp; r &amp;\geq q \\
-(PC) &amp;&amp; \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &amp;\geq \underbrace{θ_1 - (1-r) \cdot c}_{\text{Not sell}} \\
-\implies &amp;&amp; θ_2&amp;\geq θ_1\end{aligned}\]</span>
-For <span class="math inline">\(\underline{s}\)</span> seller,
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/ warranty}} &amp;\leq \underbrace{θ_2 - (1-q)\cdot c}_{\text{Sell w/o warranty}} \\
-\implies &amp;&amp; q &amp;\geq q \\
-(PC) &amp;&amp; \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/o warranty}} &amp;\geq \underbrace{θ_1 - (1-q) \cdot c}_{\text{Not sell}} \\
-\implies &amp;&amp; θ_2 &amp;\geq θ_1\end{aligned}\]</span></li>
-<li>There is no equilibrium where a <span class="math inline">\(\bar{s}\)</span> seller does not sell</li>
-</ol>
-</div>
-</div>
-<div id="adverse-selection-mwg-ch-13" class="section level2">
-<h2>Adverse Selection (MWG Ch 13)</h2>
-<p>also see <a href="#competitive-equilibrium">#Lemon Market Competitive Equilibrium</a></p>
-<ul>
-<li>Type of workers: <span class="math inline">\(θ\in [\underline{θ},\bar{θ}]\)</span>
-<ul>
-<li>pdf: <span class="math inline">\(f(θ)\)</span></li>
-<li>cdf: <span class="math inline">\(F(θ)\)</span>, <span class="math inline">\(F(\hat{θ}) = Pr(θ\leq \hat{θ})\)</span></li>
-</ul></li>
-<li><span class="math inline">\(N\)</span> workers, many firms</li>
-<li>Reservation utility: <span class="math inline">\(r(θ)\geq 0\)</span></li>
-<li>Wage: <span class="math inline">\(w(θ)\)</span></li>
-</ul>
-<div id="benchmark" class="section level3">
-<h3>Benchmark</h3>
-<ul>
-<li>Existence of wage<br />
-Worker <span class="math inline">\(θ\)</span> will accept job if <span class="math inline">\(w(θ) \geq r(θ)\)</span><br />
-Firms will employ worker <span class="math inline">\(θ\)</span> if <span class="math inline">\(w(θ)\leq θ\)</span><br />
-Worker <span class="math inline">\(θ\)</span> will be employed if
-<span class="math display">\[\begin{aligned}r(θ)&amp;\leq w(θ)\leq θ \\
-r(θ) &amp;\leq θ \\
-w^*(θ) &amp;= θ\end{aligned}\]</span></li>
-<li>Social planner’s problem<br />
-Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \\ 1&amp;\text{employed} \end{cases}\)</span>,
-<span class="math display">\[\begin{aligned}\max_{I(θ)} &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big] \,dF(θ) \\
-&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big]\cdot f(θ) \,dθ \\
-&amp;&amp; &amp;I^*(θ) = \begin{cases}0 &amp; θ &lt; r(θ) \\ 1 &amp; θ \geq r(θ) \end{cases}\end{aligned}\]</span></li>
-<li>Number of employed workers: <span class="math inline">\(N\cdot\big[1 - F\big(r(θ)\big)\big]\)</span></li>
-</ul>
-</div>
-<div id="unknown-type-competitive-equilibrium" class="section level3">
-<h3>Unknown Type Competitive Equilibrium</h3>
-<ul>
-<li>Assumptions <span class="math inline">\(\implies E[θ]&lt; r(\bar{θ})\)</span> (adverse selection)
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(r(θ)\leq θ\)</span> for all <span class="math inline">\(θ\)</span> (efficient for all workers to be employed)</li>
-<li><span class="math inline">\(1 &lt; r&#39;(θ) &lt; 0\)</span></li>
-</ol></li>
-<li>Wage: (given) <span class="math inline">\(w\)</span> for all <span class="math inline">\(θ\)</span></li>
-<li>Set of workers accept <span class="math inline">\(w\)</span>: <span class="math inline">\(Θ(w) = \{θ \ | \ r(θ)\leq w\}\)</span></li>
-<li>Firms’ belief: <span class="math inline">\(μ(w) = E[θ \ | \ r(θ)\leq w]\)</span>
-<ul>
-<li>Off-track belief: <span class="math inline">\(μ = E[θ]\)</span> when <span class="math inline">\(Θ = \emptyset\)</span></li>
-</ul></li>
-<li>Firms’ demand: <span class="math inline">\(z(w) = \begin{cases}0 &amp; μ&lt;w \\ [0, \infty) &amp; μ= w \\\infty &amp; μ&gt;w\end{cases}\)</span></li>
-<li>Equilibrium
-<span class="math display">\[\begin{aligned}\text{Workers&#39; BR} &amp;&amp; Θ^* &amp;= \{θ \ | \ r(θ)\leq w^*\} \\
-\text{Firms&#39; BR} &amp;&amp; w^* &amp;= E[θ \ | \ θ\in Θ^*] \\
-&amp;&amp; &amp;= E[θ \ | \ r(θ)\leq w^*]\end{aligned}\]</span></li>
-<li>Adverse selection arises in step 4 &amp; 5
-<ol style="list-style-type: decimal">
-<li>When <span class="math inline">\(w&lt;r(θ)\)</span>, no worker accept</li>
-<li>When <span class="math inline">\(w=r(\underline{θ})\)</span>, only worker <span class="math inline">\(\underline{θ}\)</span> accepts</li>
-<li>In equilibrium, <span class="math inline">\(E[θ \ | \ r(θ)\leq w^*] = w^*\)</span></li>
-<li>When <span class="math inline">\(w=r(\bar{θ})\)</span>, all workers accept, <span class="math inline">\(E[θ \ | \ r(θ)\leq w] = E[θ]\)</span></li>
-<li>When <span class="math inline">\(w&gt;r(\bar{θ})\)</span>, since <span class="math inline">\(E[θ] = \text{sup} \ E[θ \ | \ r(θ)\leq w]\)</span>, the function stays constant</li>
-</ol></li>
-</ul>
-<div class="figure">
-<img src="/post-img/notes-institution--adverse-selection-eq.png" alt="MWG Figure 13.B.1" width="493" />
-<p class="caption">MWG Figure 13.B.1</p>
-</div>
-</div>
-<div id="constrained-pareto-optimum" class="section level3">
-<h3>Constrained Pareto Optimum</h3>
-<ul>
-<li>Government (social planner) intervention
-<ul>
-<li>Wage: <span class="math inline">\(w_e\)</span></li>
-<li>Unemployment benefit: <span class="math inline">\(w_u\)</span></li>
-<li>Set of workers accept <span class="math inline">\(w_e\)</span>: <span class="math inline">\(Θ = \{θ \ | \ w_u+r(θ)\leq w_e\}\)</span></li>
-</ul></li>
-<li>Assume social planner wants to let <span class="math inline">\(Θ\leq\hat{θ}\)</span> accept the job<br />
-<span class="math display">\[\begin{aligned}\text{Marginal type} &amp;&amp; &amp;w_u + r(\hat{θ}) = w_e \\
-\text{Budget balance} &amp;&amp; &amp;\underbrace{w_e\cdot F(\hat{θ})}_{\text{Total wage}} + \underbrace{w_u\cdot\big(1 - F(\hat{θ})\big)}_{\text{Total unemployment benefit}} = \underbrace{\int_θ^{\hat{θ}} θ\cdot f(θ)\, dθ}_{\text{Total productivity}}\end{aligned}\]</span>
-solving the system gives<br />
-<span class="math display">\[\begin{aligned}\big(w_u + r(\hat{θ})\big)&amp;\cdot F(\hat{θ}) + w_u\cdot\big(1 - F(\hat{θ})\big) = \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-w_u(\hat{θ}) &amp;= - r(\hat{θ})\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-&amp;= - r(\hat{θ})\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
-&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\big) \\
-w_e(\hat{θ}) &amp;= r(\hat{θ})\cdot\big(1- F(\hat{θ})\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\big) + r(\hat{θ})\end{aligned}\]</span></li>
-<li>When <span class="math inline">\(\hat{θ} = θ^*\)</span> in <a href="#unknown-type-competitive-equilibrium">#Unknown Type Competitive Equilibrium</a><br />
-<span class="math display">\[\begin{aligned}w_u(θ^*) &amp;= F(θ^*)\cdot \big(E[θ \ | \ θ\leq θ^*] - r(θ^*)\big) \\
-&amp;= F(θ^*)\cdot 0 = 0 \\
-w_e(θ^*) &amp;= w_u(θ^*) + r(θ^*) \\
-&amp;= r(θ^*) = w^*\end{aligned}\]</span></li>
-<li>When <span class="math inline">\(\hat{θ} &lt; θ^*\)</span>
-<span class="math display">\[\begin{aligned}r(\hat{θ}) &amp;&lt; r(θ^*) \\
-w_e(\hat{θ}) &amp;= r(\hat{θ})\cdot\big(\overbrace{1- F(\hat{θ})}^{&gt;0}\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-&amp;&lt; r(θ^*)\cdot\big(1- F(\hat{θ})\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-w_e(\hat{θ}) - r(θ^*) &amp;&lt; -r(θ^*)\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-&amp;= - r(θ^*)\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
-&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(θ^*)\big) \\
-&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]\big) \\
-&amp;&lt; 0 \\
-w_e(\hat{θ}) &amp;&lt; r(θ^*) \\
-&amp;= w_e(θ^*)\end{aligned}\]</span>
-Therefore, workers who work both before and after government intervention are strictly worse-off</li>
-<li>When <span class="math inline">\(\hat{θ} &gt; θ^*\)</span><br />
-<span class="math display">\[\begin{aligned}r(\hat{θ}) &amp;&gt; r(θ^*) \\
-w_u(\hat{θ}) &amp;= -r(\hat{θ})\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-&amp;&lt; -r(θ^*)\cdot \cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
-&amp;= -r(θ^*)\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
-&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(θ^*)\big) \\
-&amp;= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]\big) \\
-&amp;&lt; 0 = w_u(θ^*)\\
-w_u(\hat{θ}) &amp;&lt; w_u(θ^*)\end{aligned}\]</span>
-Therefore, workers who don’t work both before and after government intervention are strictly worse-off</li>
-</ul>
-</div>
-<div id="signalling" class="section level3">
-<h3>Signalling</h3>
-</div>
-</div>
-<div id="car-insurance-market" class="section level2">
-<h2>Car Insurance Market</h2>
-<div id="benchmark-1" class="section level3">
-<h3>Benchmark</h3>
-</div>
-<div id="hidden-type" class="section level3">
-<h3>Hidden Type</h3>
-</div>
 </div>
 <div id="moral-hazard-hidden-action" class="section level2">
 <h2>Moral Hazard (Hidden Action)</h2>
@@ -577,7 +131,7 @@ Therefore, workers who don’t work both before and after government interventio
 <li>Incentive compatibility constraint (IC): agent chooses the level of effort that maximizes their own utility</li>
 <li>Participation constraint (PC): agent accepts the contract only if the expected utility exceeds other alternatives (their reservation utility)</li>
 </ul>
-<div id="timing-1" class="section level3">
+<div id="timing" class="section level3">
 <h3>Timing</h3>
 <ol style="list-style-type: decimal">
 <li>Principal offers contract: <span class="math inline">\(t\)</span></li>
@@ -587,7 +141,7 @@ Therefore, workers who don’t work both before and after government interventio
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark-2" class="section level3">
+<div id="benchmark" class="section level3">
 <h3>Benchmark</h3>
 <ul>
 <li>First best solution:
@@ -815,7 +369,7 @@ First best is attained.</li>
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark-3" class="section level3">
+<div id="benchmark-1" class="section level3">
 <h3>Benchmark</h3>
 <ul>
 <li>Return: <span class="math inline">\(v\)</span></li>
@@ -894,7 +448,7 @@ t(1) &amp;= \frac{5}{8} \end{aligned}\]</span></li>
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark-4" class="section level3">
+<div id="benchmark-2" class="section level3">
 <h3>Benchmark</h3>
 <ul>
 <li>Principal’s type (return): <span class="math inline">\(v\geq 0\)</span>
@@ -1125,7 +679,7 @@ F &amp;\geq \frac{1}{6} \end{aligned}\]</span></li>
 <li>Payment <span class="math inline">\(t\)</span> is made</li>
 </ol>
 </div>
-<div id="benchmark-5" class="section level3">
+<div id="benchmark-3" class="section level3">
 <h3>Benchmark</h3>
 <ul>
 <li>Principal’s type: <span class="math inline">\(v\)</span>
