@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">12 min read</span>
+    <span class="article-duration">13 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -551,7 +551,8 @@ Therefore, workers who don’t work both before and after government interventio
 (PC1) &amp;&amp; &amp;θ_1\cdot V(s_1) - T_1 \geq 0 \\
 (PC2) &amp;&amp; &amp;θ_2\cdot V(s_2) - T_2 \geq 0\end{aligned}\]</span>
 Plug in
-<span class="math display">\[\begin{aligned}FOC &amp;&amp; \frac{\partial}{\partial s_i}θ_i\cdot V(s_i)- c\cdot s_i &amp;= 0 \\
+<span class="math display">\[\begin{aligned}\max_{s_1,s_2} &amp;&amp; λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &amp;+ (1-λ)\cdot(θ_2\cdot V(s_2) - c\cdot s_2) \\
+FOC &amp;&amp; \frac{\partial}{\partial s_i}θ_i\cdot V(s_i)- c\cdot s_i &amp;= 0 \\
 &amp;&amp; \underbrace{θ_i\cdot V&#39;(s_i^*)}_{MU} &amp;= \underbrace{c}_{MC} \\
 &amp;&amp; T^* &amp;= θ_i\cdot V(s_i^*)\end{aligned}\]</span></li>
 </ul>
@@ -564,7 +565,26 @@ Plug in
 (PC1) &amp;&amp; &amp;θ_1\cdot V(s_1) - T_1 \geq 0 \\
 (PC2) &amp;&amp; &amp;θ_2\cdot V(s_2) - T_2 \geq 0 \\
 (IC1) &amp;&amp; &amp;θ_1\cdot V(s_1) - T_1 \geq θ_1\cdot V(s_2) - T_2 \\
-(IC2) &amp;&amp; &amp;θ_2\cdot V(s_2) - T_2 \geq θ_2\cdot V(s_1) - T_1 \end{aligned}\]</span></li>
+(IC2) &amp;&amp; &amp;θ_2\cdot V(s_2) - T_2 \geq θ_2\cdot V(s_1) - T_1 \end{aligned}\]</span>
+(PC1) is binding<br />
+(IC2) is binding since <span class="math inline">\(θ_2\)</span> type is tempted to choose <span class="math inline">\((s_1, T_1)\)</span><br />
+(IC2) <span class="math inline">\(\implies\)</span>
+<span class="math display">\[\begin{aligned}θ_2\cdot V(s_2) - T_2 &amp;\geq θ_2\cdot V(s_1) - T_1 \\
+&amp;\geq \underbrace{(θ_2-θ_1)\cdot V(s_1)}_{\geq 0} + \underbrace{θ_1\cdot V(s_1)- T_1}_{(PC1)} \\
+&amp;\geq 0\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> (PC2) is redundant, therefore,
+<span class="math display">\[\begin{aligned}θ_1\cdot V(s_1) - T_1 &amp;= 0 \\
+T_1 &amp;= θ_1\cdot V(s_1) \implies\text{No rent at the bottom} \\
+θ_2\cdot V(s_2) - T_2 &amp;= θ_2\cdot V(s_1) - T_1 \\
+&amp;= θ_2\cdot V(s_1) - θ_1\cdot V(s_1) \\
+&amp;= (θ_2 - θ_1)\cdot V(s_1) \\
+T_2 &amp;= θ_2\cdot V(s_2) - \underbrace{(θ_2 - θ_1)\cdot V(s_1)}_{\text{Information rent}}\end{aligned}\]</span>
+Plug back into monopolist’s problem
+<span class="math display">\[\begin{aligned}\max_{s_1,s_2} &amp;&amp; λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &amp;+ (1-λ)\cdot\big(θ_2\cdot V(s_2)- (θ_2 - θ_1)\cdot V(s_1) - c\cdot s_2\big) \\
+FOC &amp;&amp; \frac{\partial}{\partial s_2}θ_2\cdot V(s_2)- c\cdot s_2 &amp;= 0 \\
+&amp;&amp; θ_2\cdot V&#39;(s_2^*) &amp;= c \implies\text{No distortion at the top} \\
+&amp;&amp; \frac{\partial}{\partial s_1} λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &amp;+ (1-λ)\cdot\big(-(θ_2 - θ_1)\cdot V(s_1)\big) = 0\\
+&amp;&amp; θ_1\cdot V&#39;(s_2^*) &amp;= \frac{c}{1-\frac{1-λ}{λ}\cdot\frac{θ_2 - θ_1}{θ_1}} \implies\text{Distortion below the top}\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
