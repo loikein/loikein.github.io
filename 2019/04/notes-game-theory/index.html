@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">20 min read</span>
+    <span class="article-duration">22 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -1004,26 +1004,31 @@ and <span class="math inline">\(x^*\in\text{argmax} \ u_n(x_n)\)</span> for all 
 </ul></li>
 <li>Set of outcomes: <span class="math inline">\(X = \mathbb{R}^N\)</span>
 <ul>
-<li>Set of coalition outcomes: <span class="math inline">\(V(S)\subset X\)</span></li>
+<li>Set of coalition outcomes without transfers: <span class="math inline">\(V(S)\subset X\)</span></li>
 </ul></li>
 <li>Preference relation: <span class="math inline">\(x \succsim_i x\iff x_i &lt; y_i\)</span></li>
-<li>Value function: <span class="math inline">\(v(S)\in [0,\infty)\)</span> s.t. <span class="math inline">\(V(S) = \{ x\in X: \sum_S x_i = v(S)\}\)</span></li>
+<li>Value (worth) function: <span class="math inline">\(v(S)\in [0,\infty)\)</span> s.t. <span class="math inline">\(V(S) = \{ x\in X: \sum_S x_i = v(S)\}\)</span></li>
 </ul>
 </div>
 <div id="core" class="section level3">
 <h3>Core</h3>
 <ul>
-<li>Core: set of all outcomes <span class="math inline">\(x\in V(N)\)</span> where there is no blocking coalitions</li>
+<li>Core: <span class="math inline">\(C(V)\)</span>
+<ul>
+<li>Element in core: outcome <span class="math inline">\(x\in V(N)\)</span> s.t. no blocking coalition exist</li>
+</ul></li>
 <li>Blocking coalition: <span class="math inline">\(S\)</span> s.t. exists <span class="math inline">\(y\in V(S)\)</span>, <span class="math inline">\(y\succ_i x\)</span> for all <span class="math inline">\(i\in S\)</span></li>
 <li>Balanced collection of weights: For each coalition <span class="math inline">\(S\neq\emptyset\)</span>,<br />
 assign non-negative weights <span class="math inline">\((λ_S)\)</span> s.t. <span class="math inline">\(\sum_{i\in S} λ_S = 1\)</span></li>
-<li>Balanced game: for every balanced collection of weights <span class="math inline">\((λ_S)\)</span>,<br />
-<span class="math inline">\(\sum_S λ_S\cdot v(S) \leq v(N)\)</span></li>
+<li>Balanced game: for every balanced collection of weights <span class="math inline">\((λ_S)\)</span>,
+<span class="math display">\[\sum_S λ_S\cdot v(S) \leq v(N)\]</span></li>
 </ul>
 <blockquote>
 <p>Bondareve-Shapley theorem (OR proposition 262.1)<br />
-a coalitional game with transferable payoffs has a non-empty core <span class="math inline">\(\iff\)</span> it is balanced<br />
-<span class="math inline">\(\implies\)</span> a coalitional game with transferable payoffs has empty core <span class="math inline">\(\iff\)</span> it is not balanced</p>
+a coalitional game with transferable payoffs has a non-empty core<br />
+<span class="math inline">\(\iff\)</span> it is balanced<br />
+<span class="math inline">\(\implies\)</span> a coalitional game with transferable payoffs has empty core<br />
+<span class="math inline">\(\iff\)</span> it is not balanced</p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
@@ -1041,7 +1046,63 @@ For all <span class="math inline">\(S\)</span>,<br />
 &amp;= v(N)\cdot \sum_i \big(y_i\cdot\sum_{i\in S} λ_S\big) \\
 &amp;= v(N)\cdot \sum_i y_i\cdot 1 \\
 &amp;= v(N)\end{aligned}\]</span></li>
-<li>(<span class="math inline">\(\Longleftarrow\)</span>)</li>
+<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
+Note: <span class="math inline">\(x\in C(v)\iff \sum_{i\in S} x_i\geq v(S)\)</span> for all S<br />
+Note: Separating hyperplane theorem
+<ol style="list-style-type: lower-alpha">
+<li>Define <span class="math inline">\(w_S\in\mathbb{R}^{|N|+1}\)</span> as <span class="math inline">\(w_S = \big(1_S, v(S)\big)\)</span><br />
+where <span class="math inline">\(1_S\in\mathbb{R}^{|N|}\)</span>, <span class="math inline">\(1_{S,i}=\begin{cases}1 &amp; i\in S \\ 0 &amp; i\not\in S\end{cases}\)</span><br />
+Since
+<span class="math display">\[\begin{aligned}(x,-1)\cdot w_S &amp;\geq 0 \\
+ \iff \sum_{i\in S}x_i - 1\cdot v(S) &amp;\geq 0 \\
+ \iff \sum_{i\in S} x_i &amp;\geq v(S) \end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned}(x,-1)\cdot w_S &amp;\geq 0 &amp;&amp;\text{for all }S \\
+ \iff x &amp;\in C(v) \end{aligned}\]</span>
+Let
+<span class="math display">\[\begin{aligned}A &amp;= \{(1_N, \ v(N) + ε): ε&gt;0 \} \\
+ B &amp;= \{ y\in\mathbb{R}^{|N|+1} : y= \textstyle{\sum_S}\, λ_S\cdot w_S, λ_S\geq 0\}\end{aligned}\]</span></li>
+<li>Show <span class="math inline">\(A\cap B =\emptyset\)</span><br />
+Assume exists <span class="math inline">\((1_N, v(N)+ε)\in B\)</span> for some <span class="math inline">\(ε&gt;0\)</span><br />
+<span class="math inline">\(\implies (1_N, v(N)+ε) = \sum_S\, λ_S\cdot w_S\)</span> for some <span class="math inline">\(λ_S\geq 0\)</span><br />
+Therefore, <span class="math inline">\(1 = \sum_{S:i\in S}\, λ_S\)</span> for all <span class="math inline">\(i\in [1, |N|]\)</span><br />
+and <span class="math inline">\(v(N)+ε = \sum_{S}\, λ_S\cdot v(S)\)</span><br />
+Since <span class="math inline">\(λ_S\)</span> is balanced, <span class="math inline">\(\sum_S λ_S\cdot v(S) \leq v(N)\)</span>, contradiction</li>
+<li>By separating hyperplane theorem,<br />
+exists <span class="math inline">\(v\neq 0\)</span> s.t. <span class="math inline">\(v\cdot b\geq v\cdot a\)</span> for all <span class="math inline">\(b\in B\)</span> and <span class="math inline">\(a\in A\)</span><br />
+Define <span class="math inline">\(α_N\)</span> s.t. <span class="math inline">\(v =(α_Ν, α)\)</span><br />
+FSOC assume exists <span class="math inline">\(b\in B\)</span> s.t. <span class="math inline">\(v\cdot b &lt;0\)</span>,<br />
+Since <span class="math inline">\(B\)</span> is a cone, <span class="math inline">\(v\cdot\underbrace{K\cdot b}_{\in B}\)</span> can be arbitrarily small, contradiction<br />
+<span class="math inline">\(\implies\min_{b\in B}\ v\cdot b = 0\)</span><br />
+<span class="math inline">\(\implies v\cdot b\geq 0\geq v\cdot a\)</span><br />
+Since
+<span class="math display">\[\begin{aligned} (α_Ν, α)\cdot \big(1_N, v(N)\big) &amp;\geq (α_Ν, α)\cdot \big(1_N, v(N)+ ε\big) \\
+ 0&amp;\geq (α_Ν, α)\cdot (0,0,\dots,0,ε) \\
+ &amp;\geq ε\cdot α\end{aligned}\]</span>
+<span class="math inline">\(\implies α\leq 0\)</span><br />
+FSOC assume <span class="math inline">\(α_{N,i}&lt;0\)</span> for some i,<br />
+<span class="math inline">\(\implies\)</span>
+<span class="math display">\[\begin{aligned}(α_N, α)\cdot w_{S=\{i\}} &amp;= (α_N, α)\cdot (0, 0,\dots, \underbrace{1}_{\text{i-th}}, \dots,0) \\
+ &amp;= α_{N,i} + α\cdot v(S=\{i\}) &lt; 0\end{aligned}\]</span>
+But <span class="math inline">\(w_{S=\{i\}}\in B\)</span>, contradiction
+<span class="math inline">\(\implies α_N\geq 0\)</span><br />
+FSOC assume <span class="math inline">\(α=0\)</span>,<br />
+<span class="math display">\[\begin{aligned}(α_N, α)\cdot \big(w_N + (0,\dots,0,ε)\big) &amp;= \sum_i (α_N)_i \\
+ &amp;&gt; 0 \end{aligned}\]</span>
+contradiction<br />
+<span class="math inline">\(\implies α&lt; 0\)</span><br />
+Let <span class="math inline">\(x=\frac{α_N}{-α}\)</span>, for all <span class="math inline">\(a\in A\)</span> and <span class="math inline">\(b\in B\)</span>,
+<span class="math display">\[\begin{aligned}(x, -1 )\cdot b &amp;\geq 0 \geq (x,-1)\cdot a\\
+ \frac{α_N + α}{-α}\cdot b &amp;\geq 0 \\
+ (α_N + α) \cdot b &amp;\geq 0 \end{aligned}\]</span></li>
+<li>Check <span class="math inline">\(x\)</span> is an allocation<br />
+Since <span class="math inline">\(x\geq 0\)</span>,<br />
+<span class="math display">\[\begin{aligned}0 &amp;\geq (x,-1)\cdot \big(1,\dots, 1,v(N)+ε\big) \\
+ &amp;= \sum_i x_i - v(N) - ε \\
+ 0 &amp;\geq (x,-1)\cdot \big(1,\dots, 1,v(N)\big) \\
+ &amp;= \sum_i x_i - v(N) \\
+ v(N) &amp;\geq \sum_i x_i \end{aligned}\]</span></li>
+</ol></li>
 </ol>
 <blockquote>
 <p>Exercise (slides P95)<br />
