@@ -411,7 +411,7 @@ $$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
 <li>For ARCH (1): <span class="math inline">\(E[Y_t^4]&lt;\infty\iff\)</span> <span class="math inline">\(α_1&lt;\frac{1}{\sqrt{3}}\)</span></li>
 <li>For ARCH (p): <span class="math inline">\(E[Y_t^4]=c&lt;\infty\)</span>, then
 <span class="math display">\[\begin{aligned}
-\text{ARCH (1)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2 + η_t \\
+\text{ARCH (p)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2 + η_t \\
 \text{Error}&amp;&amp; η_t &amp;= σ_t^2(ε_t^2 - 1) \\
 \text{AR (p)} &amp;&amp; Y_t &amp;= c + \sum_{i=1}^p φ_i Y_{t-i} + ε_t\end{aligned}\]</span>
 <span class="math inline">\(η_t\)</span> is zero-mean, stationary, uncorrelated error</li>
@@ -421,6 +421,9 @@ $$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
 <h3>GARCH</h3>
 <ul>
 <li>Generalized ARCH</li>
+<li>GARCH (1,1) <span class="math inline">\(\implies\)</span> ARCH(∞)
+<span class="math display">\[\begin{aligned}Y_t &amp;= σ_t\cdot ε_t \\
+σ_t^2 &amp;= ω + α\cdot Y_{t-1}^2 + β\cdot σ_{t-1}^2\end{aligned}\]</span></li>
 <li>GARCH (p,q):
 <span class="math display">\[\begin{aligned}Y_t &amp;= σ_t\cdot ε_t \\
 σ_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2 + \sum_{j=1}^p β_j\cdot σ_{t-j}^2\end{aligned}\]</span>
@@ -435,12 +438,13 @@ $$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
 <ul>
 <li><span class="math inline">\(0\leq \sum_p α_i + \sum_q β_j&lt;1\)</span> <span class="math inline">\(\implies\)</span> stationary, causal <span class="math inline">\(\{Y_t\}\)</span></li>
 <li>For GARCH (1,1):</li>
-<li>For GARCH (p): <span class="math inline">\(E[Y_t^4]=c&lt;\infty\)</span>, then
+<li>For GARCH (p,q): <span class="math inline">\(E[Y_t^4]=c&lt;\infty\)</span>, then
 <span class="math display">\[\begin{aligned}
-\text{ARCH (1)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^{\tilde{p}} \tilde{α}_i\cdot Y_{t-i}^2 + \sum_{j=1}^q β_j\cdot η_{t-j} +η_t \\
-\text{Error}&amp;&amp; η_t &amp;= σ_t^2(ε_t^2 - 1) \\
+\text{GARCH (p,q)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^{\tilde{p}} \tilde{α}_i\cdot Y_{t-i}^2 + \sum_{j=1}^q β_j\cdot η_{t-j} +η_t \\
+&amp;&amp; \tilde{p} &amp;= \max\{p,q\} \\
 &amp;&amp; \tilde{α}_i&amp;= α_i + β_i \\
-\text{AR (p)} &amp;&amp; Y_t &amp;= c + \sum_{i=1}^p φ_i Y_{t-i} + ε_t\end{aligned}\]</span>
+\text{Error}&amp;&amp; η_t &amp;= σ_t^2(ε_t^2 - 1) \\
+\text{ARMA } (\tilde{p},q) &amp;&amp; Y_t &amp;= \sum_{i=1}^{\tilde{p}}θ_iY_{t-i} + \sum_{j=i}^{q} α_jε_{t-j} + ε_t\end{aligned}\]</span>
 <span class="math inline">\(η_t\)</span> is zero-mean, stationary, uncorrelated error</li>
 </ul>
 </div>

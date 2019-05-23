@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">22 min read</span>
+    <span class="article-duration">25 min read</span>
     
     <h1 class="article-title">Notes on Institution</h1>
     
@@ -98,6 +98,12 @@
 <li><a href="#two-sided-timing-1">Two-Sided Timing</a></li>
 <li><a href="#benchmark-3">Benchmark</a></li>
 <li><a href="#impossible-case">Impossible Case</a></li>
+</ul></li>
+<li><a href="#hold-up">Hold-Up</a><ul>
+<li><a href="#first-best-1">First Best</a></li>
+<li><a href="#observable-non-verifiable-information">Observable &amp; Non-Verifiable Information</a></li>
+<li><a href="#private-information-self-investment">Private Information &amp; Self-Investment</a></li>
+<li><a href="#private-information-cross-investment">Private Information &amp; Cross-Investment</a></li>
 </ul></li>
 </ul>
 </div>
@@ -819,6 +825,145 @@ E_c\big[v\cdot x^{FB}(c,v) - t(c, v)\big] &amp;\geq 0 \\
 \frac{1}{9}(v_H - t_{LH}) + \frac{2}{9}(v_L - t_{LL}) + \frac{2}{9}(0\cdot v_H - t_{HH})+ \frac{4}{9}(0\cdot v_H - t_{HL}) &amp;\geq 0\end{aligned}\]</span>
 It is possible to satisfy all constraints simultaneously with the mechanism and price provided in (3).</li>
 </ol>
+</div>
+</div>
+<div id="hold-up" class="section level2">
+<h2>Hold-Up</h2>
+<ul>
+<li>Timing
+<ol start="0" style="list-style-type: decimal">
+<li>Buyer and seller draft contract <span class="math inline">\(t\)</span></li>
+<li>Seller invests <span class="math inline">\(e\)</span> (hidden)</li>
+<li>Buyer observes <span class="math inline">\(v\)</span>, seller observes <span class="math inline">\(c\)</span></li>
+<li>Trade <span class="math inline">\(x\)</span>, payment <span class="math inline">\(t\)</span> is made</li>
+</ol></li>
+<li>Seller
+<ul>
+<li>Investment: <span class="math inline">\(e\)</span></li>
+<li>Cost of investmentt: <span class="math inline">\(k(e)\)</span></li>
+<li>Cost of trade: <span class="math inline">\(c\)</span></li>
+<li>Payoff: <span class="math inline">\(t-x\cdot c - k(e)\)</span></li>
+</ul></li>
+<li>Buyer
+<ul>
+<li>Valuation of good: <span class="math inline">\(v\)</span></li>
+<li>Payoff: <span class="math inline">\(x\cdot v - t\)</span></li>
+</ul></li>
+</ul>
+<div id="first-best-1" class="section level3">
+<h3>First Best</h3>
+<ul>
+<li>Trade level: <span class="math inline">\(x^{FB}(c,v) = \begin{cases}1 &amp; c\leq v \\ 0 &amp; \text{Otherwise} \end{cases}\)</span></li>
+<li>Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; E_e\big[ (v-c)&amp;\cdot x^{FB}(c,v)\big] - k(e)\end{aligned}\]</span></li>
+<li>When no contract is signed, according to Coase Theorem,<br />
+both parties will agree on <span class="math inline">\(x^{FB}\)</span> at time 3
+<ul>
+<li>Seller has bargaining power: <span class="math inline">\(e = e^{FB}\)</span></li>
+<li>Buyer has bargaining power: <span class="math inline">\(e = 0\)</span>, hold-up problem (fully underinvestment)</li>
+<li>With equal bargaining power, seller considers
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; \frac{1}{2}\cdot E_e\big[ (v-c)&amp;\cdot x^{FB}(c,v)\big] - k(e)\end{aligned}\]</span>
+<span class="math inline">\(\implies \hat{e}&lt;e^{FB}\)</span>, underinvestment</li>
+</ul></li>
+</ul>
+</div>
+<div id="observable-non-verifiable-information" class="section level3">
+<h3>Observable &amp; Non-Verifiable Information</h3>
+<ul>
+<li>At time 2, buyer and seller observes <span class="math inline">\(c,v\)</span></li>
+<li>Not verifiable on the court</li>
+<li>Option contract (Fill in the price)
+<ul>
+<li>At time 2.5, seller announces price <span class="math inline">\(p\)</span></li>
+<li>At time 3, buyer has the option to buy at <span class="math inline">\(p\)</span></li>
+</ul></li>
+<li>Backward induction
+<ul>
+<li>Buyer buys when <span class="math inline">\(v\geq p\)</span><br />
+<span class="math inline">\(\implies\)</span> seller announces <span class="math inline">\(p\geq c\)</span><br />
+<span class="math inline">\(\implies\)</span> if <span class="math inline">\(v\geq c\)</span>, buyer will exercise the option</li>
+<li>Equilibrium: <span class="math inline">\(x = x^{FB}(c,v)\)</span></li>
+<li>Seller’s payoff: <span class="math inline">\(E_e\big[ (v-c)\cdot x^{FB}(c,v)\big] - k(e)\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="private-information-self-investment" class="section level3">
+<h3>Private Information &amp; Self-Investment</h3>
+<ul>
+<li>At time 2, buyer only observes <span class="math inline">\(v\)</span>, seller only observes <span class="math inline">\(c\)</span></li>
+<li>Contract:
+<ul>
+<li>At time 2.5, seller announces <span class="math inline">\(\hat{c}\)</span></li>
+<li>At time 3, buyer chooses <span class="math inline">\(x\)</span> and pays <span class="math inline">\(t\)</span><br />
+<span class="math display">\[t=\hat{c}\cdot x + E_v\big[ (v-\hat{c})\cdot x^{FB}(\hat{c}, v)]\]</span></li>
+</ul></li>
+<li>Backward induction
+<ul>
+<li>Buyer’s problem:
+<span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; &amp;\phantom{\ggg} v\cdot x - t \\
+  &amp;&amp; &amp;= (v-\hat{c})\cdot x - E_v\big[ (v-\hat{c})\cdot x^{FB}(\hat{c}, v)] \\
+  &amp;&amp; &amp;x = x^{FB}(\hat{c},v)\end{aligned}\]</span></li>
+<li>Seller considers announcement:
+<span class="math display">\[\begin{aligned}\max_{\hat{c}} &amp;&amp; &amp;\phantom{\ggg} E[t-x\cdot c] - k(e) \\
+  &amp;&amp; &amp;= E_v\big[ (\hat{c}-c)\cdot x^{FB}(\hat{c}, v) + (v-\hat{c})\cdot x^{FB}(\hat{c}, v)] - k(e) \\
+  &amp;&amp; &amp;= E_v\big[ (v-c)\cdot x^{FB}(\hat{c}, v)] - k(e) \\
+  &amp;&amp; &amp;\hat{c} = c\end{aligned}\]</span></li>
+<li>Seller’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;E_e\big[ (v-c)\cdot x^{FB}(c,v)\big] - k(e) \\
+  &amp;&amp; &amp;e = e^{FB}(c,v) \end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="private-information-cross-investment" class="section level3">
+<h3>Private Information &amp; Cross-Investment</h3>
+<ul>
+<li>At time 1, seller chooses <span class="math inline">\(e\in [0,1]\)</span>, <span class="math inline">\(k(e) = \frac{1}{2}\cdot e^2\)</span></li>
+<li>At time 2, only buyer observes <span class="math inline">\(v\in\{v_H,v_L\}\)</span>, everyone observes <span class="math inline">\(c\)</span>
+<ul>
+<li><span class="math inline">\(Pr(v=v_H) = e\)</span></li>
+</ul></li>
+<li>When <span class="math inline">\(v_L &lt; c &lt; v_H\)</span>
+<ul>
+<li>First best: <span class="math inline">\(\begin{cases}x^{FB}(v_L) = 0 \\ x^{FB}(v_H) = 1 \end{cases}\)</span><br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;\phantom{\ggg}E_e\big[ (v-c)\cdot x^{FB}(c,v)] - k(e) \\
+  &amp;&amp; &amp;= e\cdot(v_H-c) - \frac{1}{2}\cdot e^2
+  FOC &amp;&amp; &amp;v_H-c - e = 0 \\
+  &amp;&amp; e^{FB}(c,v) = v_H - c\end{aligned}\]</span></li>
+<li>Option contract: at time 3, buyer has the option to buy at <span class="math inline">\(p=v_H\)</span></li>
+<li>Backward induction:<br />
+Buyer buys when <span class="math inline">\(v=v_H\)</span><br />
+Seller’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;\phantom{\ggg}E_e\big[ (p-c)\cdot x^{FB}(c,v)]-k(e) \\
+  &amp;&amp; &amp;= e\cdot(p-c) - \frac{1}{2}\cdot e^2 \\
+  FOC &amp;&amp; &amp;p-c - e = 0 \\
+  &amp;&amp; e = e^{FB}(c,v) \end{aligned}\]</span></li>
+</ul></li>
+<li>When <span class="math inline">\(c&lt;v_L\)</span>
+<ul>
+<li>First best: <span class="math inline">\(x^{FB} = 1\)</span><br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;\phantom{\ggg}E_e\big[ (v-c)\cdot x^{FB}(c,v)] - k(e) \\
+  &amp;&amp; &amp;= e\cdot(v_H-c) + (1-e)\cdot(v_L - c) - \frac{1}{2}\cdot e^2 \\
+  FOC &amp;&amp; &amp;v_H-v_L - e = 0 \\
+  &amp;&amp; &amp;e^{FB}(c,v) = v_H - v_L\end{aligned}\]</span></li>
+<li>Direct mechanism contract: let <span class="math inline">\(\begin{cases}x(v_L) =x_L \\ x(v_H) = x_H \end{cases}\)</span>, <span class="math inline">\(\begin{cases}t(v_L) =t_L \\ t(v_H) = t_H \end{cases}\)</span><br />
+Buyer truthfully reveals if
+<span class="math display">\[\begin{aligned}(IC)_H &amp;&amp; v_H\cdot x_H - t_H &amp;\geq v_H\cdot x_L - t_L \\
+  \implies &amp;&amp; v_H\cdot (x_H -x_L) &amp;\geq t_H - t_L \\
+  (IC)_L &amp;&amp; v_L\cdot x_L - t_L &amp;\geq v_L\cdot x_H - t_H \\
+  \implies &amp;&amp; t_H - t_L &amp;\geq v_L\cdot (x_H-x_L)\end{aligned}\]</span>
+Since <span class="math inline">\(x^{FB}(v_L) = x^{FB}(v_H)=1\)</span>,<br />
+<span class="math inline">\((IC)\implies 0\leq t_H - t_L\leq 0\)</span><br />
+<span class="math inline">\(\implies t_H = t_L = t\)</span><br />
+Seller’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;\phantom{\ggg}E_e\big[t-c\cdot x^{FB}(c,v)]-k(e) \\
+  &amp;&amp; &amp;= E_e[ T-c] - k(e) \\
+  &amp;&amp; &amp;= T-c - \frac{1}{2}\cdot e^2 \\
+  FOC &amp;&amp; e= 0\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> first best solution will not be attained</li>
+</ul></li>
+</ul>
 <!-- 
 > Exercise 7  
 > Consider the following variant of the "Property Rights" model:  
