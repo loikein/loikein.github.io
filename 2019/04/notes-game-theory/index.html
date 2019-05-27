@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">22 min read</span>
+    <span class="article-duration">23 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -98,6 +98,7 @@
 <li><a href="#analogy-with-walreasian-equilibrium">Analogy with <span>Walreasian Equilibrium</span></a></li>
 <li><a href="#with-transferable-payoffs">With Transferable Payoffs</a></li>
 <li><a href="#core">Core</a></li>
+<li><a href="#shapley-value">Shapley Value</a></li>
 </ul></li>
 </ul>
 </div>
@@ -957,14 +958,14 @@ therefore, both players are better-off from more choice:
 <div id="coalitional-game" class="section level2">
 <h2>Coalitional Game</h2>
 <ul>
-<li>Coalitional game: <span class="math inline">\(\big(N, V, X, (\succsim_i)_{i\in N}\big)\)</span></li>
+<li>Coalitional game: <span class="math inline">\(\big(N, v, X, (\succsim_i)_{i\in N}\big)\)</span></li>
 <li>Set of players: <span class="math inline">\(N\)</span>
 <ul>
 <li>Set of coalition: <span class="math inline">\(S\subset N\)</span>, <span class="math inline">\(S\neq\emptyset\)</span></li>
 </ul></li>
 <li>Set of outcomes: <span class="math inline">\(X\)</span>
 <ul>
-<li>Set of coalition outcomes: <span class="math inline">\(V(S)\subset X\)</span></li>
+<li>Set of coalition outcomes: <span class="math inline">\(v(S)\subset X\)</span></li>
 </ul></li>
 <li>Preference relation: <span class="math inline">\(\succsim_i\)</span> over <span class="math inline">\(X\)</span></li>
 </ul>
@@ -1130,6 +1131,39 @@ For 4 and 5, <span class="math inline">\(\sum_{i\in S} λ_S = λ_{(4,5)} = 1\)</
 Therefore, the game is not balanced<br />
 <span class="math inline">\(\implies\)</span> the core is empty</li>
 </ol>
+</div>
+<div id="shapley-value" class="section level3">
+<h3>Shapley Value</h3>
+<ul>
+<li>Value function: <span class="math inline">\(φ(v) = \big(φ_1(v), \dots, φ_{|N|}(v)\big)\in\mathbb{R}^{|N|}\)</span>
+<ul>
+<li>Object game: <span class="math inline">\((N, v)\)</span></li>
+<li>Coalition: <span class="math inline">\(S\)</span></li>
+</ul></li>
+<li>Marginal contribution: <span class="math inline">\(v^i(S) = v(S\cup\{i\}) - v(S)\)</span></li>
+<li>Axioms
+<ol style="list-style-type: decimal">
+<li>Efficiency / Feasibility: <span class="math inline">\(\sum_{i\in N} φ_i(v) = v(N)\)</span></li>
+<li>Symmetry: let <span class="math inline">\(π: N\to N\)</span>, <span class="math inline">\(w(S) = v\big(π(S)\big)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ^i(w) = φ^{π(i)}(v)\)</span></li>
+<li>Dummy: <span class="math inline">\(v^i(S) = 0\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ_i(v) = 0\)</span></li>
+<li>Additivity: for <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span> with same players, <span class="math inline">\(φ_i(v+w) = φ_i(v) + φ_i(w)\)</span></li>
+</ol></li>
+<li>Shapley value<br />
+<span class="math display">\[φ_i(v) = \frac{1}{|N|!}\sum_{γ\in Γ} v^i\big(S_i(γ)\big)\]</span>
+<ul>
+<li>Ordering of players: <span class="math inline">\(γ: N\to N\)</span>, <span class="math inline">\(Γ = (γ_1, \dots, γ_{|N|})\)</span>, <span class="math inline">\(|Γ|= |N|!\)</span></li>
+</ul></li>
+<li>Theorem (OR Proposition 291.3): Shapley value is the unique function <span class="math inline">\(φ(v)\)</span> s.t. axioms 1-4 are satisfied</li>
+</ul>
+<blockquote>
+<p>Example<br />
+Let <span class="math inline">\(N =\{1,2,3\}\)</span>, <span class="math inline">\(v(\{1,2,3\}) = 1\)</span>, <span class="math inline">\(v(\{1,2\}) = \frac{2}{3}\)</span>, <span class="math inline">\(v(S)=0\)</span> otherwise</p>
+</blockquote>
+<p><span class="math inline">\(Γ = \{(1,2,3), (1,3,2), (2,1,3),(2,3,1), (3,1,2),(3,2,1)\}\)</span><br />
+<span class="math inline">\(|Γ| = |N|! = 6\)</span><br />
+<span class="math display">\[\begin{aligned}φ_2(v) &amp;= \frac{1}{6}\cdot\big(v^2(\{1\}) + v^2(\{1,3\}) + v^2(\{\emptyset\}) + v^2(\{\emptyset\}) + v^2(\{3,1\})+v^2(\{3\}) \big) \\
+&amp;= \frac{1}{6}\cdot\bigg( \Big(\frac{2}{3}-0\Big) + (1-0) + 0 + 0 + (1-0) + 0\bigg) \\
+&amp;= \frac{4}{9}\end{aligned}\]</span></p>
 </div>
 </div>
 
