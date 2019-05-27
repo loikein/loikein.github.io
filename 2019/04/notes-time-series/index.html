@@ -89,8 +89,10 @@
 <li><a href="#arma">ARMA</a><ul>
 <li><a href="#white-noise">White Noise</a></li>
 <li><a href="#ma">MA</a></li>
-<li><a href="#stationarity">Stationarity</a></li>
+<li><a href="#ma-stationarity">MA Stationarity</a></li>
 <li><a href="#ar">AR</a></li>
+<li><a href="#ar-1-stationarity">AR (1) Stationarity</a></li>
+<li><a href="#ar-p-stationarity">AR (p) Stationarity</a></li>
 </ul></li>
 <li><a href="#arch-garch">ARCH &amp; GARCH</a><ul>
 <li><a href="#arch">ARCH</a></li>
@@ -306,45 +308,18 @@ Then <a href="#trend">#eliminate trend</a></li>
 \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= ?\end{aligned}\]</span></li>
 </ul>
 </div>
-<div id="stationarity" class="section level3">
-<h3>Stationarity</h3>
-<p>Reference:<br />
-<a href="http://www.real-statistics.com/time-series-analysis/autoregressive-processes/characteristic-equation-autoregressive-processes/">Characteristic Equation AR (p) | Real Statistics Using Excel</a><br />
-<a href="https://stats.stackexchange.com/questions/208656/intuition-behind-the-characteristic-equation-of-an-ar-or-ma-process">Intuition behind the characteristic equation of an AR or MA process</a></p>
+<div id="ma-stationarity" class="section level3">
+<h3>MA Stationarity</h3>
+<ul>
+<li>Any MA (q) process is stationary</li>
+<li>Any MA (∞) process is stationary
 <ul>
 <li>Absolute summability
-<span class="math display">\[\begin{aligned}\sum_{j=0}^{\infty} |ψ_j| &amp;&lt; \infty \\
-\implies\sum_{j=0}^{\infty} |γ_j| &amp;&lt; \infty \end{aligned}\]</span></li>
-<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} ψ_j^2 &lt; \infty\]</span></li>
-<li>Causal form <span class="math inline">\(ε_t\)</span><br />
-<span class="math inline">\(\iff \{Y_t\}\)</span> has a covariance-stationary representation
-<span class="math display">\[\begin{aligned}&amp;Y_t = μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
-&amp;\sum_{j=0}^{\infty} |ψ_j| &lt; \infty\end{aligned}\]</span></li>
-<li>Linear process<br />
-<span class="math inline">\(\{ε_t\}\)</span> is stationary <span class="math inline">\(\implies\{Y_t\}\)</span> is stationary
-<span class="math display">\[\begin{aligned}Y_t &amp;= μ + \sum_{j=-\infty}^{\infty} ψ_j ε_{t-j} \\
-&amp;ψ = 1 \\
-&amp;\sum_{j=-\infty}^{\infty} |ψ_j| &lt; \infty\end{aligned}\]</span></li>
-<li>Characteristic root
-<span class="math display">\[|z|\begin{cases}&lt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &gt;1 &amp; \text{stationary}\end{cases}\]</span></li>
-<li>AR (1) is stationary <span class="math inline">\(\iff 1-φL\)</span> is invertible <span class="math inline">\(\iff |z| &gt; 1\)</span><br />
-<span class="math inline">\(\Longleftarrow \ |φ|&lt;1\)</span>
-<span class="math display">\[\begin{aligned} y_t &amp;= φLy_t + ε_t \\
-(1-φL) y_t &amp;= ε_t \\
-1 - φ\cdot z &amp;= 0 \\
-|z| &amp;= \Bigg| \frac{1}{φ}\Bigg|&gt; 1 \\
-|φ| &amp;&lt; 1\end{aligned}\]</span></li>
-<li>AR (p) has a covariance-stationary representation<br />
-<span class="math inline">\(\iff |z|&gt;1\)</span> for all characteristic roots <span class="math inline">\(z\)</span> in <strong>characteristic equation</strong><br />
-<span class="math inline">\(\Longleftarrow \ \sum_{j=1}^p φ_j &lt;1\)</span><br />
-<span class="math display">\[\begin{aligned}y_t &amp;= φ_1Ly_t -\cdots - φ_p L^p y_t + ε_t \\
-φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p \\
-φ(L) y_t &amp;= ε_t \\
-1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \\
-|z| &amp;= \Big|\frac{1}{φ_1L + φ_2L^2 + \cdots + φ_pL^p}\Big| \\
-&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_jL^j}\Bigg| \\
-&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_j}\Bigg| &gt; 1 \\
-\Big|\sum_{j=1}^p φ_j\Big| &amp;&lt; 1\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}&amp;\sum_{j=0}^{\infty} |θ_j| &lt; \infty \\
+  &amp;γ_k = σ^2\cdot\sum_{j=0}^{\infty} θ_jθ_{j+k} \\
+  \implies &amp;\sum_{j=0}^{\infty} |γ_j| &lt; \infty\end{aligned}\]</span></li>
+<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} θ_j^2 &lt; \infty\]</span></li>
+</ul></li>
 </ul>
 </div>
 <div id="ar" class="section level3">
@@ -383,6 +358,57 @@ $$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
 \text{ACF:} && Corr(Y_t,Y_{t-j}) &= \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)} \\
 && &= θ^k \end{aligned}$$
  -->
+</div>
+<div id="ar-1-stationarity" class="section level3">
+<h3>AR (1) Stationarity</h3>
+<p>Reference:<br />
+<a href="http://www.real-statistics.com/time-series-analysis/autoregressive-processes/characteristic-equation-autoregressive-processes/">Characteristic Equation AR (p) | Real Statistics Using Excel</a><br />
+<a href="https://stats.stackexchange.com/questions/208656/intuition-behind-the-characteristic-equation-of-an-ar-or-ma-process">Intuition behind the characteristic equation of an AR or MA process</a></p>
+<ul>
+<li>AR (1) with <strong>characteristic equation</strong>
+<span class="math display">\[\begin{aligned} Y_t &amp;= c + φLY_t + ε_t \\
+φ(L) &amp;= 1 - φL \\
+φ(L) \cdot Y_t &amp;= (1 - φL)\cdot Y_t \\
+&amp;= c + ε_t \end{aligned}\]</span></li>
+<li>Characteristic root
+<span class="math display">\[|z|\begin{cases}&lt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &gt;1 &amp; \text{stationary}\end{cases}\]</span></li>
+<li>AR (1) is stationary <span class="math inline">\(\iff φ(L)\)</span> is invertible<br />
+<span class="math inline">\(\iff |z| &gt; 1\)</span> <span class="math inline">\(\implies |φ|&lt;1\)</span>
+<span class="math display">\[\begin{aligned}1 - φ\cdot z &amp;= 0 \\
+|z| &amp;= \Bigg| \frac{1}{φ}\Bigg|&gt; 1 \\
+|φ| &amp;&lt; 1\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}AR (1) &amp;&amp; Y_t &amp;= \frac{c + ε_t}{φ(L)} \\
+&amp;&amp; &amp;= \frac{c}{1-φL} + \frac{ε_t}{1-φL}\\
+&amp;&amp; &amp;= \frac{c}{1-φL} + (ε_t + φLε_t + φ^2 L^2 ε_t + \dots )\\
+&amp;&amp; &amp;= \frac{c}{1-φ} + \sum_{j=0}^{\infty} φ^j\cdot ε_{t-j} \\
+MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="ar-p-stationarity" class="section level3">
+<h3>AR (p) Stationarity</h3>
+<ul>
+<li>A process is <strong>causal form <span class="math inline">\(ε_t\)</span></strong><br />
+<span class="math inline">\(\iff \{Y_t\}\)</span> has a covariance-stationary representation<br />
+<span class="math inline">\(\iff \{Y_t\}\)</span> is stationary
+<span class="math display">\[\begin{cases}Y_t = μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
+\sum_{j=0}^{\infty} |ψ_j| &lt; \infty\end{cases}\]</span></li>
+<li>Some <strong>linear processes</strong> are not a causal form <span class="math inline">\(ε_t\)</span><br />
+but <span class="math inline">\(\{ε_t\}\)</span> is stationary <span class="math inline">\(\implies\{Y_t\}\)</span> is stationary
+<span class="math display">\[\begin{cases}Y_t = μ + \sum_{j=-\infty}^{\infty} ψ_j ε_{t-j} \\
+ψ_0 = 1 \\
+\sum_{j=-\infty}^{\infty} |ψ_j| &lt; \infty\end{cases}\]</span></li>
+<li>AR (p) has a covariance-stationary representation<br />
+<span class="math inline">\(\iff |z|&gt;1\)</span> for all <span class="math inline">\(z\)</span> <span class="math inline">\(\implies\sum_{j=1}^p φ_j &lt;1\)</span><br />
+<span class="math display">\[\begin{aligned}y_t &amp;= φ_1Ly_t -\cdots - φ_p L^p y_t + ε_t \\
+φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p \\
+φ(L) y_t &amp;= ε_t \\
+1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \\
+|z| &amp;= \Big|\frac{1}{φ_1L + φ_2L^2 + \cdots + φ_pL^p}\Big| \\
+&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_jL^j}\Bigg| \\
+&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_j}\Bigg| &gt; 1 \\
+\Big|\sum_{j=1}^p φ_j\Big| &amp;&lt; 1\end{aligned}\]</span></li>
+</ul>
 </div>
 </div>
 <div id="arch-garch" class="section level2">
