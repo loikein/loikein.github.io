@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">9 min read</span>
     
     <h1 class="article-title">Notes on Time Series</h1>
     
@@ -315,10 +315,10 @@ Then <a href="#trend">#eliminate trend</a></li>
 <li>Any MA (∞) process is stationary
 <ul>
 <li>Absolute summability
-<span class="math display">\[\begin{aligned}&amp;\sum_{j=0}^{\infty} |θ_j| &lt; \infty \\
-  &amp;γ_k = σ^2\cdot\sum_{j=0}^{\infty} θ_jθ_{j+k} \\
+<span class="math display">\[\begin{aligned}&amp;\sum_{j=0}^{\infty} |ψ_j| &lt; \infty \\
+  &amp;γ_k = σ^2\cdot\sum_{j=0}^{\infty} ψ_jψ_{j+k} \\
   \implies &amp;\sum_{j=0}^{\infty} |γ_j| &lt; \infty\end{aligned}\]</span></li>
-<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} θ_j^2 &lt; \infty\]</span></li>
+<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} ψ_j^2 &lt; \infty\]</span></li>
 </ul></li>
 </ul>
 </div>
@@ -393,21 +393,53 @@ MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\end{alig
 <span class="math inline">\(\iff \{Y_t\}\)</span> is stationary
 <span class="math display">\[\begin{cases}Y_t = μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
 \sum_{j=0}^{\infty} |ψ_j| &lt; \infty\end{cases}\]</span></li>
-<li>Some <strong>linear processes</strong> are not a causal form <span class="math inline">\(ε_t\)</span><br />
+<li>Some <strong>linear processes</strong> are not causal form <span class="math inline">\(ε_t\)</span><br />
 but <span class="math inline">\(\{ε_t\}\)</span> is stationary <span class="math inline">\(\implies\{Y_t\}\)</span> is stationary
 <span class="math display">\[\begin{cases}Y_t = μ + \sum_{j=-\infty}^{\infty} ψ_j ε_{t-j} \\
 ψ_0 = 1 \\
 \sum_{j=-\infty}^{\infty} |ψ_j| &lt; \infty\end{cases}\]</span></li>
+<li>AR (p) with characteristic equation
+<span class="math display">\[\begin{aligned}Y_t &amp;= c + φ_1LY_t + \cdots + φ_p L^p Y_t + ε_t \\
+φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p \\
+φ(L) Y_t &amp;= c + ε_t \end{aligned}\]</span></li>
 <li>AR (p) has a covariance-stationary representation<br />
 <span class="math inline">\(\iff |z|&gt;1\)</span> for all <span class="math inline">\(z\)</span> <span class="math inline">\(\implies\sum_{j=1}^p φ_j &lt;1\)</span><br />
-<span class="math display">\[\begin{aligned}y_t &amp;= φ_1Ly_t -\cdots - φ_p L^p y_t + ε_t \\
-φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p \\
-φ(L) y_t &amp;= ε_t \\
-1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \\
+<span class="math display">\[\begin{aligned}1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \\
 |z| &amp;= \Big|\frac{1}{φ_1L + φ_2L^2 + \cdots + φ_pL^p}\Big| \\
 &amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_jL^j}\Bigg| \\
 &amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_j}\Bigg| &gt; 1 \\
-\Big|\sum_{j=1}^p φ_j\Big| &amp;&lt; 1\end{aligned}\]</span></li>
+\Big|\sum_{j=1}^p φ_j\Big| &amp;&lt; 1\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}AR (p) &amp;&amp;Y_t &amp;= \big(φ(L)\big)^{-1}\cdot (c + ε_t) \\
+&amp;&amp; &amp;= \big(φ(L)\big)^{-1}\cdot c + \big(φ(L)\big)^{-1}\cdot ε_t \\
+MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\end{aligned}\]</span></li>
+<li>Compare coefficients<br />
+When <span class="math inline">\(c = μ = 0\)</span>,
+<span class="math display">\[\begin{aligned}φ(L) Y_t &amp;= ε_t \\
+Y_t &amp;= \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
+&amp;= ψ(L) ε_t\\
+φ(L)ψ(L) ε_t &amp;= ε_t \\
+φ(L)ψ(L) &amp;= 1 \end{aligned}\]</span>
+for AR (2),
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}(1 - φ_1L - φ_2L^2)\cdot (ψ_0 + ψ_1L + ψ_2L^2 + ψ_3L^3 + \dots) = 1\\
+&amp;= ψ_0 + ψ_1L + ψ_2L^2 + ψ_3L^3 + \dots \\
+&amp;\phantom{\ggg} - φ_1L(ψ_0 + ψ_1L + ψ_2L^2 + \dots) \\
+&amp;\phantom{\ggg} - φ_2L^2(ψ_0 + ψ_1L + ψ_2L^2 + \dots) \\
+&amp;= ψ_0 + L(ψ_1 - φ_1ψ_0) + L^2(ψ_2 - φ_1ψ_1 - φ_2ψ_0) \\
+&amp;\phantom{\ggg} + L^3(ψ_3 - φ_1ψ_2 - φ_2ψ_1) + \dots\end{aligned}\]</span>
+matching powers of <span class="math inline">\(L\)</span> gives
+<span class="math display">\[\begin{aligned}
+ψ_0 &amp;= 1 \\
+ψ_1 - φ_1ψ_0 &amp;= 0 \\
+ψ_2 - φ_1ψ_1 - φ_2ψ_0 &amp;= 0 \\
+ψ_3 - φ_1ψ_2 - φ_2ψ_1 &amp;= 0 \\
+&amp;\cdots \end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}ψ_0 &amp;= 1 \\
+ψ_1 &amp;= φ_1 \\
+ψ_2 &amp;= φ_1^2 + φ_2 \\
+ψ_3 &amp;= φ_1^3 + φ_1φ_2 + φ_2 \\
+&amp;\cdots \end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
