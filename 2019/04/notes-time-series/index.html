@@ -93,6 +93,7 @@
 <li><a href="#ar">AR</a></li>
 <li><a href="#ar-1-stationarity">AR (1) Stationarity</a></li>
 <li><a href="#ar-p-stationarity">AR (p) Stationarity</a></li>
+<li><a href="#impulse-response-analysis">Impulse Response Analysis</a></li>
 </ul></li>
 <li><a href="#arch-garch">ARCH &amp; GARCH</a><ul>
 <li><a href="#arch">ARCH</a></li>
@@ -413,6 +414,11 @@ therefore,
 <span class="math display">\[\begin{aligned}AR (p) &amp;&amp;Y_t &amp;= \big(φ(L)\big)^{-1}\cdot (c + ε_t) \\
 &amp;&amp; &amp;= \big(φ(L)\big)^{-1}\cdot c + \big(φ(L)\big)^{-1}\cdot ε_t \\
 MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="impulse-response-analysis" class="section level3">
+<h3>Impulse Response Analysis</h3>
+<ul>
 <li>Compare coefficients<br />
 When <span class="math inline">\(c = μ = 0\)</span>,
 <span class="math display">\[\begin{aligned}φ(L) Y_t &amp;= ε_t \\
@@ -422,8 +428,7 @@ Y_t &amp;= \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
 φ(L)ψ(L) &amp;= 1 \end{aligned}\]</span>
 for AR (2),
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}(1 - φ_1L - φ_2L^2)\cdot (ψ_0 + ψ_1L + ψ_2L^2 + ψ_3L^3 + \dots) = 1\\
-&amp;= ψ_0 + ψ_1L + ψ_2L^2 + ψ_3L^3 + \dots \\
-&amp;\phantom{\ggg} - φ_1L(ψ_0 + ψ_1L + ψ_2L^2 + \dots) \\
+&amp;= (ψ_0 + ψ_1L + ψ_2L^2 + ψ_3L^3 + \dots ) - φ_1L(ψ_0 + ψ_1L + ψ_2L^2 + \dots) \\
 &amp;\phantom{\ggg} - φ_2L^2(ψ_0 + ψ_1L + ψ_2L^2 + \dots) \\
 &amp;= ψ_0 + L(ψ_1 - φ_1ψ_0) + L^2(ψ_2 - φ_1ψ_1 - φ_2ψ_0) \\
 &amp;\phantom{\ggg} + L^3(ψ_3 - φ_1ψ_2 - φ_2ψ_1) + \dots\end{aligned}\]</span>

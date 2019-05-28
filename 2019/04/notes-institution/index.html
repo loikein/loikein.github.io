@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">27 min read</span>
     
     <h1 class="article-title">Notes on Institution</h1>
     
@@ -163,7 +163,7 @@ where <span class="math inline">\(p(e) = Pr(v = v_H \ | \ e)\)</span></li>
 </ul></li>
 </ul>
 <blockquote>
-<p>Exercise I<br />
+<p>Exercise 1<br />
 A principal can make a take-it-or-leave-it contract offer to an agent.<br />
 The reservation utilities are zero.<br />
 The agent can choose an unobservable effort level <span class="math inline">\(e\in [0,1]\)</span>.<br />
@@ -307,7 +307,7 @@ Therefore, the law improves total surplus when <span class="math inline">\(\frac
 <li>Restrictions of contractual freedom may be welfare-enhancing</li>
 </ul>
 <blockquote>
-<p>Exercise II<br />
+<p>Exercise 2<br />
 Consider a principal and an agent, the agent has no wealth.<br />
 The parties are risk-neutral and the reservation utilities are zero.<br />
 The agent can choose the unobservable effort level <span class="math inline">\(e\in [0,1]\)</span>.<br />
@@ -960,10 +960,62 @@ Seller’s problem:
 <span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;\phantom{\ggg}E_e\big[t-c\cdot x^{FB}(c,v)]-k(e) \\
   &amp;&amp; &amp;= E_e[ T-c] - k(e) \\
   &amp;&amp; &amp;= T-c - \frac{1}{2}\cdot e^2 \\
-  FOC &amp;&amp; &amp;e= 0\end{aligned}\]</span>
+  FOC &amp;&amp; e&amp;= 0\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> first best solution will not be attained</li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise 6<br />
+A buyer and a seller can choose the verifiable level of trade <span class="math inline">\(x\in [0,1]\)</span> at date 3.<br />
+At date 0, the parties can write a binding contract.<br />
+At date 1 the seller chooses an unobservable effort level <span class="math inline">\(e\in [0,1]\)</span>.<br />
+The seller’s investment costs are <span class="math inline">\(k(e) = \frac{e^2}{2}\)</span>.<br />
+When the buyer makes a transfer payment t to the seller, the parties’ payoffs are:
+<span class="math display">\[\begin{aligned}\text{Seller} &amp;&amp; &amp;t-\frac{1}{2}\cdot xq - k(e) \\\text{Buyer} &amp;&amp; &amp;xq -t \end{aligned}\]</span>
+The quality <span class="math inline">\(q\in\{q_L,q_H\}\)</span> is realized at date 2 and is private information of the seller.<br />
+Suppose that <span class="math inline">\(q_L=\frac{1}{2}\)</span>, <span class="math inline">\(q_H =1\)</span> and <span class="math inline">\(Pr(q = q_H) = e\)</span>.<br />
+1. What are the trade level (as a function of <span class="math inline">\(q\)</span>) and the effort level in the first-best solution?<br />
+What is the expected total surplus of the buyer and the seller in the first-best solution?<br />
+2. Consider a direct mechanism <span class="math inline">\(\big[t(q), x(q)\big]\)</span>.<br />
+What are the incentive compatibility constraints that ensure that the seller will reveal the quality truthfully?<br />
+What are the investment incentives of the seller if the mechanism is ex post efficient?<br />
+Will the first-best solution be attained?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>First best<br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{x,e} &amp;&amp; xq &amp;-\frac{1}{2}\cdot xq - k(e) \\
+FOC &amp;&amp; \frac{\partial}{\partial x} &amp;= \frac{1}{2}\cdot q &gt;0\\
+&amp;&amp; x^{FB} &amp;= 1\end{aligned}\]</span>
+Plug in back
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; &amp;\phantom{\ggg}E\Big[xq -\frac{1}{2}\cdot xq - k(e) \Big] \\
+&amp;&amp; &amp;= E[\frac{1}{2}\cdot q - k(e)] \\
+&amp;&amp; &amp;= e\cdot q_H\cdot \frac{1}{2} + (1-e)\cdot q_L\cdot \frac{1}{2} - \frac{e^2}{2} \\
+FOC &amp;&amp;  &amp;q_H - q_L - e = 0 \\
+&amp;&amp; &amp;\phantom{0000000}e^{FB} = \frac{1}{4}\end{aligned}\]</span>
+Expected total surplus:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}E\Big[xq -\frac{xq}{2} - k(e) \Big] \\
+&amp;= e^{FB}\cdot q_H\cdot \frac{1}{2} + (1-e^{FB})\cdot q_L\cdot \frac{1}{2} - \frac{e^2}{2} \\
+&amp;= \frac{1}{8}+\frac{3}{16} - \frac{1}{32}\\
+&amp;= \frac{9}{32}\end{aligned}\]</span></li>
+<li>Direct mechanism<br />
+Let <span class="math inline">\(\begin{cases}t(q_L) = t_L \\ t(q_H) = t_H \end{cases}\)</span>, <span class="math inline">\(\begin{cases}x(q_L) = x_L \\ x(q_H) = x_H \end{cases}\)</span><br />
+Seller reveals truthfully if
+<span class="math display">\[\begin{aligned}(IC)_H &amp;&amp; t_H - \frac{1}{2}\cdot x_H q_H &amp;\geq t_L - \frac{1}{2}\cdot x_L q_H\\
+\implies &amp;&amp; t_H - t_L &amp;\geq \frac{1}{2}\cdot q_H (x_H - x_L) \\
+(IC)_L &amp;&amp; t_L - \frac{1}{2}\cdot x_L q_L &amp;\geq t_H - \frac{1}{2}\cdot x_H q_L \\
+\implies &amp;&amp; t_H - t_L &amp;\leq \frac{1}{2}\cdot q_L (x_H - x_L) \\\end{aligned}\]</span>
+To attain first best, since <span class="math inline">\(x^{FB} = 1\)</span>,<br />
+<span class="math inline">\((IC)\implies 0\leq t_H - t_L \leq 0\)</span>, <span class="math inline">\(t_H = t_L = T\)</span><br />
+Seller’s problem:
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; &amp;\phantom{\ggg}E\Big[ t-\frac{1}{2}\cdot xq - k(e)\Big]\\
+&amp;&amp; &amp;= T -k(e)- E\Big[-\frac{1}{2}\cdot xq\Big] \\
+&amp;&amp; &amp;= T - \frac{e^2}{2} - \frac{1}{2}\cdot\big(e\cdot q_L + (1-e)\cdot q_H \big)\\
+&amp;&amp; &amp;= T - \frac{e^2}{2} - \frac{e}{4} + \frac{1-e}{2}\\
+FOC &amp;&amp; &amp;-e - \frac{1}{4} - \frac{1}{2} = 0 \\
+&amp;&amp; &amp;\phantom{00000000000}e = -\frac{3}{4} \end{aligned}\]</span>
+therefore, seller chooses <span class="math inline">\(e=0\)</span>, the first best is not attained</li>
+</ol>
 <!-- 
 > Exercise 7  
 > Consider the following variant of the "Property Rights" model:  
