@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">10 min read</span>
     
     <h1 class="article-title">Notes on Time Series</h1>
     
@@ -93,7 +93,8 @@
 <li><a href="#ar">AR</a></li>
 <li><a href="#ar-1-stationarity">AR (1) Stationarity</a></li>
 <li><a href="#ar-p-stationarity">AR (p) Stationarity</a></li>
-<li><a href="#impulse-response-analysis">Impulse Response Analysis</a></li>
+<li><a href="#ar-p-as-ma">AR (p) as MA (∞)</a></li>
+<li><a href="#yule-walker-equations">Yule-Walker Equations</a></li>
 </ul></li>
 <li><a href="#arch-garch">ARCH &amp; GARCH</a><ul>
 <li><a href="#arch">ARCH</a></li>
@@ -250,8 +251,8 @@ Then <a href="#trend">#eliminate trend</a></li>
 <li>Lag operator: <span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …
 <ul>
 <li>Lag polynomial
-<span class="math display">\[\begin{aligned} θ(L) &amp;= 1 - θ_1L - θ_2L^2 -\cdots - θ_pL^p \\
-  y_t &amp;= θ_1Ly_t -\cdots - θ_p L^p y_t + ε_t \\
+<span class="math display">\[\begin{aligned} θ(L) &amp;= 1 - θ_1L - θ_2L^2 -\dots - θ_pL^p \\
+  y_t &amp;= θ_1Ly_t -\dots - θ_p L^p y_t + ε_t \\
   θ(L) y_t &amp;= ε_t\end{aligned}\]</span></li>
 </ul></li>
 <li>Difference operator: <span class="math inline">\(Δ=1-L\)</span>, <span class="math inline">\(Δ^k = (1-L)^k\)</span>
@@ -295,7 +296,7 @@ Then <a href="#trend">#eliminate trend</a></li>
 \text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} θσ^2 &amp; j=1\\ 0 &amp; j\geq 2\end{cases} \\
 \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} \frac{θ}{1 + θ^2} \leq \frac{1}{2} &amp; j=1\\ 0 &amp; j\geq 2\end{cases}\end{aligned}\]</span></li>
 <li>MA (q)
-<span class="math display">\[\begin{aligned}Y_t &amp;= μ + ε_t + θ_1 ε_{t-1} +\cdots + θ_q ε_{t-q} \\
+<span class="math display">\[\begin{aligned}Y_t &amp;= μ + ε_t + θ_1 ε_{t-1} +\dots + θ_q ε_{t-q} \\
 &amp;= μ + \sum_{j=0}^q θ_j ε_{t-j}\end{aligned}\]</span>
 <span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
 \text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot (1 + θ_1^2 + θ_2^2 + \dots + θ_q^2) \\
@@ -345,9 +346,9 @@ When <span class="math inline">\(|φ|&lt;1\)</span>, <span class="math inline">\
   \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= φ^j\end{aligned}\]</span></li>
 </ul></li>
 <li>AR (p)
-<span class="math display">\[Y_t = c + φ_1 Y_{t-1} +\cdots + φ_p Y_{t-p} + ε_t\]</span></li>
+<span class="math display">\[Y_t = c + φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t\]</span></li>
 <li>ARMA (p,q)
-<span class="math display">\[Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\]</span></li>
+<span class="math display">\[Y_t = θ_1Y_{t-1} +\dots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\dots + α_q ε_{t-q}\]</span></li>
 </ul>
 <!-- 
 $$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
@@ -400,13 +401,14 @@ but <span class="math inline">\(\{ε_t\}\)</span> is stationary <span class="mat
 ψ_0 = 1 \\
 \sum_{j=-\infty}^{\infty} |ψ_j| &lt; \infty\end{cases}\]</span></li>
 <li>AR (p) with characteristic equation
-<span class="math display">\[\begin{aligned}Y_t &amp;= c + φ_1LY_t + \cdots + φ_p L^p Y_t + ε_t \\
-φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\cdots - φ_pL^p \\
+<span class="math display">\[\begin{aligned}Y_t &amp;= c + φ_1LY_t + \dots + φ_p L^p Y_t + ε_t \\
+φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\dots - φ_pL^p \\
 φ(L) Y_t &amp;= c + ε_t \end{aligned}\]</span></li>
 <li>AR (p) has a covariance-stationary representation<br />
-<span class="math inline">\(\iff |z|&gt;1\)</span> for all <span class="math inline">\(z\)</span> <span class="math inline">\(\implies\sum_{j=1}^p φ_j &lt;1\)</span><br />
+<span class="math inline">\(\iff |z|&gt;1\)</span> for all <span class="math inline">\(z\)</span> (outside the unit circle)<br />
+<span class="math inline">\(\implies\sum_{j=1}^p φ_j &lt;1\)</span><br />
 <span class="math display">\[\begin{aligned}1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \\
-|z| &amp;= \Big|\frac{1}{φ_1L + φ_2L^2 + \cdots + φ_pL^p}\Big| \\
+|z| &amp;= \Big|\frac{1}{φ_1L + φ_2L^2 + \dots + φ_pL^p}\Big| \\
 &amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_jL^j}\Bigg| \\
 &amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_j}\Bigg| &gt; 1 \\
 \Big|\sum_{j=1}^p φ_j\Big| &amp;&lt; 1\end{aligned}\]</span>
@@ -416,8 +418,8 @@ therefore,
 MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\end{aligned}\]</span></li>
 </ul>
 </div>
-<div id="impulse-response-analysis" class="section level3">
-<h3>Impulse Response Analysis</h3>
+<div id="ar-p-as-ma" class="section level3">
+<h3>AR (p) as MA (∞)</h3>
 <ul>
 <li>Compare coefficients<br />
 When <span class="math inline">\(c = μ = 0\)</span>,
@@ -438,13 +440,41 @@ matching powers of <span class="math inline">\(L\)</span> gives
 ψ_1 - φ_1ψ_0 &amp;= 0 \\
 ψ_2 - φ_1ψ_1 - φ_2ψ_0 &amp;= 0 \\
 ψ_3 - φ_1ψ_2 - φ_2ψ_1 &amp;= 0 \\
-&amp;\cdots \end{aligned}\]</span>
+&amp;\dots \end{aligned}\]</span>
 therefore,
 <span class="math display">\[\begin{aligned}ψ_0 &amp;= 1 \\
 ψ_1 &amp;= φ_1 \\
 ψ_2 &amp;= φ_1^2 + φ_2 \\
 ψ_3 &amp;= φ_1^3 + φ_1φ_2 + φ_2 \\
-&amp;\cdots \end{aligned}\]</span></li>
+&amp;\dots \end{aligned}\]</span></li>
+<li>Impulse response function (IRF)
+<span class="math display">\[\begin{aligned}MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
+FOC &amp;&amp; \frac{\partial Y_t}{\partial ε_{t-j}} &amp;= ψ_j \\
+&amp;&amp; \frac{\partial Y_{t+j}}{\partial ε_{t}} &amp;= ψ_j\end{aligned}\]</span></li>
+<li>Permanent effect: AR (1)
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\lim_{j\to\infty} \Big(\frac{\partial Y_{t+j}}{\partial ε_{t}} + \frac{\partial Y_{t+j}}{\partial ε_{t+1}} + \dots + \frac{\partial Y_{t+j}}{\partial ε_{t+j}}\Big) \\
+&amp;= \lim_{j\to\infty} (φ^j + φ^{j-1} + \dots + φ^{0}) \\
+&amp;= \frac{1}{1-φ} \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="yule-walker-equations" class="section level3">
+<h3>Yule-Walker Equations</h3>
+<ul>
+<li>Take expectation of AR (p)
+<span class="math display">\[\begin{aligned}Y_t &amp;= c + φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t \\
+E[Y_t] &amp;= E[c + φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t] \\
+μ &amp;= c + φ_1 μ +\dots + φ_p μ + 0 \\
+&amp;= \frac{c}{1-φ_1 -\dots - φ_p}\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned} 
+Y_t &amp;= μ\cdot(1-φ_1 -\dots - φ_p)+ φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t \\
+Y_t - μ &amp;= μ\cdot(-φ_1 -\dots - φ_p)+ φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t \\
+&amp;= φ_1 (Y_{t-1}-μ) +\dots + φ_p (Y_{t-p}-μ) + ε_t \\
+(Y_t - μ)(Y_{t-j} - μ) &amp;= φ_1 (Y_{t-1}-μ)(Y_{t-j} - μ) +\dots + φ_p (Y_{t-p}-μ)(Y_{t-j} - μ) + ε_t(Y_{t-j} - μ)\end{aligned}\]</span>
+take expectation
+<span class="math display">\[\begin{aligned}γ_j &amp;= E\big[ (Y_t - μ)(Y_{t-j} - μ)\big] \\
+&amp;= \begin{cases} φ_1γ_{1} + φ_2γ_{2} + \dots + φ_pγ_{p} + σ^2 &amp; j=0\\
+φ_1γ_{j-1} + φ_2γ_{j-2} + \dots + φ_pγ_{j-p} &amp; j&gt;0\end{cases}\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
