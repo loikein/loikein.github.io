@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">10 min read</span>
+    <span class="article-duration">11 min read</span>
     
     <h1 class="article-title">Notes on Time Series</h1>
     
@@ -459,6 +459,9 @@ FOC &amp;&amp; \frac{\partial Y_t}{\partial ε_{t-j}} &amp;= ψ_j \\
 </div>
 <div id="yule-walker-equations" class="section level3">
 <h3>Yule-Walker Equations</h3>
+<p>Reference:<br />
+<a href="http://www-stat.wharton.upenn.edu/~steele/Courses/956/Resource/YWSourceFiles/YW-Eshel.pdf">The Yule Walker Equations for the AR Coefficients by Gidon Eshel</a><br />
+<a href="https://www.coursera.org/lecture/practical-time-series-analysis/yule-walker-equations-in-matrix-form-yw0tb">Yule-Walker Equations in Matrix Form | Coursera</a></p>
 <ul>
 <li>Take expectation of AR (p)
 <span class="math display">\[\begin{aligned}Y_t &amp;= c + φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t \\
@@ -476,6 +479,34 @@ take expectation
 <span class="math display">\[\begin{aligned}γ_j &amp;= E\big[ (Y_t - μ)(Y_{t-j} - μ)\big] \\
 &amp;= \begin{cases} φ_1γ_{1} + φ_2γ_{2} + \dots + φ_pγ_{p} + σ^2 &amp; j=0\\
 φ_1γ_{j-1} + φ_2γ_{j-2} + \dots + φ_pγ_{j-p} &amp; j&gt;0\end{cases}\end{aligned}\]</span></li>
+<li>Matrix representation<br />
+<!-- 
+Let $\underset{(p+1)\times 1}{γ} = \begin{pmatrix}γ_0 \\ γ_1 \\ \vdots \\ γ_p \end{pmatrix}$, $\underset{(p+1)\times 1}{r} = \begin{pmatrix}σ^2 \\ 0 \\ \vdots \\ 0\end{pmatrix}$,  
+therefore,
+$$\underset{(p+1)\times (p+1)}{Γ_1} = \begin{pmatrix}1 & 0 & 0 & \cdots & 0\\ -φ_1 & 1 & 0 &\cdots &0 \\-φ_2 & -φ_1 & \ddots & \ddots & \vdots \\\vdots & \vdots &\ddots & \ddots & 0\\-φ_p & -φ_{p-1} &\cdots &-φ_1 & 1\end{pmatrix}$$
+and
+$$\underset{(p+1)\times (p+1)}{Γ_2} = \begin{pmatrix}0 & -φ_1 & -φ_2 & \cdots & -φ_p \\ 0 & -φ_2 & \cdots & -φ_p & 0 \\ \vdots & \vdots &\iddots &\iddots &\vdots \\ 0 & -φ_p & 0 &\cdots & 0 \\ 0 & 0 & \cdots & \cdots & 0\end{pmatrix}$$
+Let 
+$$\begin{aligned}Γ &= Γ_1 + Γ_2 \\
+Γ\cdot γ &= r \\
+γ &= Γ^{-1}\cdot r\end{aligned}$$ -->
+Collect all equations for <span class="math inline">\(j&gt;0\)</span>
+<span class="math display">\[\begin{cases}γ_1 = φ_1γ_{0} + φ_2γ_{1} + \dots + φ_pγ_{p-1} \\
+γ_2 = φ_1γ_{1} + φ_2γ_{2} + \dots + φ_pγ_{p-2} \\
+\phantom{=}\cdots \\
+γ_p = φ_1γ_{p-1} + φ_2γ_{p-2} + \dots + φ_pγ_{0}\end{cases}\]</span>
+devide both sides by <span class="math inline">\(γ_0\)</span>
+<span class="math display">\[\begin{cases}ρ_1 = φ_1ρ_{0} + φ_2ρ_{1} + \dots + φ_pρ_{p-1} \\
+ρ_2 = φ_1ρ_{1} + φ_2ρ_{2} + \dots + φ_pρ_{p-2} \\
+\phantom{=}\cdots \\
+ρ_p = φ_1ρ_{p-1} + φ_2ρ_{p-2} + \dots + φ_pρ_{0}\end{cases}\]</span>
+rewrite as matrix, since <span class="math inline">\(ρ_0=1\)</span>,
+<span class="math display">\[\begin{aligned}
+\underbrace{\begin{pmatrix}ρ_1\\ρ_2\\\vdots\\ ρ_{p-1} \\ ρ_p\end{pmatrix}}_{ρ}
+&amp;=\underbrace{\begin{pmatrix}1 &amp; ρ_1 &amp; ρ_2 &amp; \cdots &amp; ρ_{p-1}\\ ρ_1 &amp; 1 &amp; ρ_1 &amp; \cdots &amp; ρ_{p-2}\\ \vdots &amp; &amp; \ddots &amp;\ddots &amp; \vdots\\ ρ_{p-2} &amp; ρ_{p-3} &amp; \cdots &amp; 1 &amp;ρ_1 \\ρ_{p-1} &amp; ρ_{p-2} &amp; \cdots &amp; ρ_1 &amp; 1\end{pmatrix}}_{Ρ}
+\cdot \underbrace{\begin{pmatrix}φ_1\\φ_2\\\vdots\\φ_{p-1} \\ φ_p \end{pmatrix}}_{Φ} \\
+ρ &amp;= Ρ\cdot Φ \\
+Φ &amp;= Ρ^{-1}\cdot ρ\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
