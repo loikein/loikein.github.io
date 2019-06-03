@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">23 min read</span>
+    <span class="article-duration">24 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -995,6 +995,14 @@ and <span class="math inline">\(x^*\in\text{argmax} \ u_n(x_n)\)</span> for all 
 <li><span class="math inline">\(x\succsim_i y\iff u_i(x)\geq u_i(y)\)</span></li>
 </ol></li>
 </ul>
+<blockquote>
+<p>Exercise (slides P84)<br />
+Consider an exchange economy with two agents and two goods.<br />
+Utilities of both agents are <span class="math inline">\(u_i(x^A,x^B) = x^A_i\cdot x^B_i\)</span>, <span class="math inline">\(x^A_i\)</span> and <span class="math inline">\(x^B_i\)</span> are the amount of good A and B consurned by agent i.<br />
+Assume agent 1 has 10 units of good A and 90 of good B and agent 2 has 90 units of good A and 10 of good B.<br />
+Calculate the core allocations for this economy.<br />
+Calculate the Walreasian equilibria for this econorny.</p>
+</blockquote>
 </div>
 <div id="with-transferable-payoffs" class="section level3">
 <h3>With Transferable Payoffs</h3>
@@ -1010,6 +1018,11 @@ and <span class="math inline">\(x^*\in\text{argmax} \ u_n(x_n)\)</span> for all 
 <li>Preference relation: <span class="math inline">\(x \succsim_i x\iff x_i &lt; y_i\)</span></li>
 <li>Value (worth) function: <span class="math inline">\(v(S)\in [0,\infty)\)</span> s.t. <span class="math inline">\(V(S) = \{ x\in X: \sum_S x_i = v(S)\}\)</span></li>
 </ul>
+<blockquote>
+<p>Exercise (slides P90)<br />
+Show that the core of the production economy is
+<span class="math display">\[\Big\{ x\in X: 0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\}\]</span></p>
+</blockquote>
 </div>
 <div id="core" class="section level3">
 <h3>Core</h3>
@@ -1154,6 +1167,13 @@ Therefore, the game is not balanced<br />
 <li>Ordering of players: <span class="math inline">\(γ: N\to N\)</span>, <span class="math inline">\(Γ = (γ_1, \dots, γ_{|N|})\)</span>, <span class="math inline">\(|Γ|= |N|!\)</span></li>
 </ul></li>
 <li>Theorem (OR Proposition 291.3): Shapley value is the unique function <span class="math inline">\(φ(v)\)</span> s.t. axioms 1-4 are satisfied</li>
+<li>Young (1985) Axioms:
+<ol style="list-style-type: decimal">
+<li>Efficiency</li>
+<li>Symmetry</li>
+<li>Marginal contribution: if <span class="math inline">\(v^i(S) = w^i(S)\)</span> for all <span class="math inline">\(S\)</span> not containing <span class="math inline">\(i\)</span>, then <span class="math inline">\(φ_i(v) = φ_i(w)\)</span></li>
+</ol></li>
+<li>Theorem (Young): Shapley value is the unique function <span class="math inline">\(ψ(v)\)</span> s.t. axioms 1-3 are satisfied</li>
 </ul>
 <blockquote>
 <p>Example<br />
@@ -1164,6 +1184,45 @@ Let <span class="math inline">\(N =\{1,2,3\}\)</span>, <span class="math inline"
 <span class="math display">\[\begin{aligned}φ_2(v) &amp;= \frac{1}{6}\cdot\big(v^2(\{1\}) + v^2(\{1,3\}) + v^2(\{\emptyset\}) + v^2(\{\emptyset\}) + v^2(\{3,1\})+v^2(\{3\}) \big) \\
 &amp;= \frac{1}{6}\cdot\bigg( \Big(\frac{2}{3}-0\Big) + (1-0) + 0 + 0 + (1-0) + 0\bigg) \\
 &amp;= \frac{4}{9}\end{aligned}\]</span></p>
+<blockquote>
+<p>Lemma<br />
+For any game <span class="math inline">\(v\)</span> with <span class="math inline">\(N\)</span> can be written as<br />
+<span class="math display">\[v = \sum_{T\neq\emptyset, T\subset N} α_T\cdot v_T\]</span>
+where <span class="math inline">\(α_T\in\mathbb{R}\)</span>, and there is unique <span class="math inline">\((α_T)\)</span> for each game</p>
+</blockquote>
+<p>Let <span class="math inline">\(v_T(S) =\begin{cases}1 &amp; T\subset S \\ 0 &amp;\text{Otherwise} \end{cases}\)</span><br />
+Rewrite the game <span class="math inline">\(v\)</span>:
+<span class="math display">\[\begin{aligned}v &amp;= \big( v(S_1), v(S_2),\dots, v(S_{2^{|N|}-1}) \\
+&amp;\in \mathbb{R}^{2^{|N|}-1} \end{aligned}\]</span>
+:) <span class="math inline">\(B = \{ v_T: T\neq\emptyset, T\subset N\}\)</span> is a basis for vector space <span class="math inline">\(\mathbb{R}^{2^{|N|}-1}\)</span><br />
+<span class="math inline">\(\iff B\)</span> are linearly independent<br />
+<span class="math inline">\(\iff \sum_T β_T\cdot v_T = 0\)</span> <span class="math inline">\(\implies β_T = 0\)</span> for all <span class="math inline">\(T\)</span><br />
+FSOC let <span class="math inline">\(\sum_S β_S\cdot v_S = 0\)</span>, where <span class="math inline">\(β_T \neq 0\)</span> for some <span class="math inline">\(T\)</span><br />
+Let <span class="math inline">\(S\)</span> be s.t. for all <span class="math inline">\(S\subsetneq S&#39;\)</span>, <span class="math inline">\(β_{S&#39;} = 0\)</span><br />
+<span class="math display">\[\begin{aligned}0 &amp;= \sum_T β_T\cdot v_T(S) \\
+&amp;= \sum_{T\subsetneq S} \underbrace{β_T}_{!= 0}\cdot \underbrace{v_T(S)}_{= 1} + \underbrace{β_S}_{!\neq 0}\cdot\underbrace{v_S(S)}_{=1} + \sum_{T\not\subset S} β_T\cdot \underbrace{v_T(S)}_{0} \\
+&amp;\neq 0\end{aligned}\]</span>
+Contradiction!</p>
+<blockquote>
+<p>Exercise (slides P102)<br />
+Calculate the Shapley value for games with transferable payoffs.</p>
+</blockquote>
+<p>Majority game:<br />
+100 seats in parliament, decision by 51 seats<br />
+party 1 has 35 seats, party 2-6 has 13 seats each<br />
+<span class="math inline">\(v(S) = \begin{cases}1 &amp; S \text{ has seats}\geq 51 \\ 0 &amp; \text{Otherwise}\end{cases}\)</span><br />
+Consider party 1:<br />
+<span class="math display">\[\begin{aligned}v^1\big( S_1 (γ)\big) &amp;= \begin{cases}0 &amp; γ = (1,\dots) \\0 &amp; γ = (a, 1,\dots) \\1 &amp; γ=(a,b,1,\dots) \\1 &amp; γ=(a,b,c,1,\dots) \\ 0 &amp; γ=(a,b,c,d,1,\dots) \\ 0 &amp; γ=(a,b,c,d,e,1)\end{cases} \\
+ψ_1(v) &amp;= \frac{1}{|N|!} \sum_γ v^1\big( S_1 (γ)\big) \\
+&amp;= \frac{1}{|N|!} \sum_{\text{Party 1 is 3rd or 4th}} 1 \\
+&amp;= \frac{1}{|N|!}\cdot\big( (|N|-1)\cdot (|N|-2)\cdot 1 \cdot (|N|-3)\cdot(|N|-4)\cdot (|N|-5) \\
+&amp;\phantom{\ggg}+ (|N|-1)\cdot (|N|-2)\cdot (|N|-3)\cdot 1 \cdot (|N|-4)\cdot (|N|-5)\big) \\
+&amp;= \frac{2\cdot (|N|-1)!}{|N|!} \\
+&amp;= \frac{2}{|N|} \\
+&amp;= \frac{1}{3}\end{aligned}\]</span>
+Since symmetric, consider party 2-6:
+<span class="math display">\[\begin{aligned}ψ_{-1}(v) &amp;= \Big( 1-\frac{1}{3})\cdot\frac{1}{5} \\
+&amp;= \frac{2}{15} \end{aligned}\]</span></p>
 </div>
 </div>
 
