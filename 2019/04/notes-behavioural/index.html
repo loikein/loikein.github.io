@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">33 min read</span>
+    <span class="article-duration">35 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -106,7 +106,9 @@
 <li><a href="#procrastination-in-infinite-time">Procrastination in Infinite Time</a></li>
 <li><a href="#monopolistic-market">Monopolistic Market</a></li>
 <li><a href="#competitive-market">Competitive Market</a></li>
+<li><a href="#shrouded-attributes">Shrouded Attributes</a></li>
 </ul></li>
+<li><a href="#social-preference">Social Preference</a></li>
 </ul>
 </div>
 
@@ -1322,13 +1324,109 @@ Since <span class="math inline">\(π=0\)</span>,
 <span class="math display">\[\begin{aligned}π(L,p) &amp;= 0\\ &amp;= δ\cdot\big[ L-K + \underbrace{\int_0^{βδ\cdot b - p} (p-α)\, dF(c)}_{=0}\big] \\
   L &amp;= K \end{aligned}\]</span></li>
 <li>Sophisticated agent: <span class="math inline">\(β&lt;1\)</span>
-<span class="math display">\[\begin{aligned}π(L,p) &amp;= 0\\ &amp;= \\
-  L &amp;= K - \int_0^{βδ\cdot b - p} (p-α)\, dF(c) \\
+<span class="math display">\[\begin{aligned}π(L,p^S) &amp;= 0\\
+  &amp;= δ\cdot\big[ L-K+\int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big]\\
+  L^S &amp;= K - \int_0^{βδ\cdot b - p} (p-α)\, dF(c) \\
   &amp;= K - \int_0^{βδ\cdot b - p} \big(α - (1-β)δ\cdot b - α\big)\, dF(c) \\
   &amp;= K + \int_0^{βδ\cdot b - p} (1-β)δ\cdot b\, dF(c)\end{aligned}\]</span></li>
+<li>Naive agent: <span class="math inline">\(β&lt;1\)</span>,
+<span class="math display">\[\begin{aligned}L^N &amp;= K - \int_0^{βδ\cdot b - p^N} (p-α)\, dF(c) \\
+  p^N &amp;&lt; p^S \\
+  \implies L^N &amp;&gt;L^S \\
+  \implies u^N&amp; &lt;u^S\end{aligned}\]</span></li>
 </ul></li>
 </ul>
 </div>
+<div id="shrouded-attributes" class="section level3">
+<h3>Shrouded Attributes</h3>
+<ul>
+<li>Timing
+<ol style="list-style-type: decimal">
+<li>Firms choose <span class="math inline">\(p_i\)</span>, <span class="math inline">\(\hat{p}_i\)</span>, shroud or not</li>
+<li>Consumers observe <span class="math inline">\(p_i\)</span><br />
+If unshrouded, sophisticaed consumers observe <span class="math inline">\(\hat{p}_i\)</span></li>
+<li>Sophisticaed consumers choose whether to by add-on or to substitute<br />
+Myoptic consumers buy add-on</li>
+</ol></li>
+<li>Firms: <span class="math inline">\(i=1,2\)</span>
+<ul>
+<li>Zero production cost</li>
+<li>Base good: <span class="math inline">\(p_i\)</span></li>
+<li>Add-on good: <span class="math inline">\(\hat{p}_i\)</span></li>
+</ul></li>
+<li>Firms’ strategy (add-on good is necessary)
+<ul>
+<li>Unshroud (reveal)</li>
+<li>Shroud (conceal)</li>
+</ul></li>
+<li>Consumer
+<ul>
+<li>Valuation for combo: <span class="math inline">\(v\)</span></li>
+<li>Maximum WTP for add-on after base good: <span class="math inline">\(\bar{p}\)</span><br />
+<span class="math inline">\(\implies \hat{p}\leq\bar{p}\)</span></li>
+</ul></li>
+<li>Sophisticaed consumer
+<ul>
+<li><span class="math inline">\(Pr=1-α\)</span></li>
+<li>Cost to substitute add-on: <span class="math inline">\(e\)</span></li>
+<li>Expected add-on price: <span class="math inline">\(\hat{p}_i^E\)</span><br />
+In period 3, buy add-on if <span class="math display">\[\hat{p}_i^E&lt;e\]</span>
+In period 2, buy base good from firm i if <span class="math display">\[-p_i -\min\{e,\hat{p}_i^E \}&gt; -p_j -\min\{e,\hat{p}_j^E \}\]</span><br />
+if same, buy base good from each firm with <span class="math inline">\(Pr=\frac{1}{2}\)</span></li>
+</ul></li>
+<li>Myoptic consumer
+<ul>
+<li><span class="math inline">\(Pr=α\)</span></li>
+<li>If both firms shroud, unaware of add-on</li>
+<li>If one firm unshrouds, become sophisticated
+In period 2, buy base good from firm i if <span class="math display">\[-p_i &gt;d -p_j\]</span></li>
+</ul></li>
+<li>Property of equilibrium
+<ul>
+<li>Inefficient</li>
+<li>Base good is subsidised by myoptic consumers</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Lemma 3.4<br />
+1. If <span class="math inline">\(α\geq \frac{e}{\bar{p}}\)</span>, exists an equilibrium where both firms shroud, and sophisticated consumers substitute<br />
+<span class="math display">\[\begin{aligned}p^* &amp;= -α\bar{p} \\ \hat{p}^* &amp;=\bar{p} \end{aligned}\]</span>
+2. If <span class="math inline">\(α&lt; \frac{e}{\bar{p}}\)</span>, exists an equilibrium where both firms unshroud, and consumers are indifferent<br />
+<span class="math display">\[\begin{aligned}p^* &amp;= -e \\ \hat{p}^* &amp;= e \end{aligned}\]</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Each firm’s profit:
+<span class="math display">\[\begin{aligned}π &amp;= \frac{1}{2}\cdot(1-α)\cdot p^* + \frac{1}{2}\cdot α\cdot (p^*+\hat{p}^*)\\
+&amp;= \frac{1}{2}\cdot (p^* + α\cdot\hat{p}^*) \\
+&amp;= 0 \end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>FSOC assume firm i can lower price and remain shrouding<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(p&#39;&lt;p^*\)</span><br />
+Profit of deviation:
+<span class="math display">\[\begin{aligned}π&#39; &amp;= (1-α)\cdot p&#39; + α\cdot (p&#39; + \hat{p}^*)\\
+ &amp;= p&#39; + α\cdot\hat{p}^* \\
+ &amp;&lt; p^* + α\cdot\hat{p}^* \\
+ &amp;= 0\end{aligned}\]</span>
+Therefore this is not profitable</li>
+<li>FSOC assume firm i can lower price and unshroud<br />
+<span class="math inline">\(\implies\)</span> all consumers become sophisticated<br />
+Consumer’s utility from buying from firm j is
+<span class="math display">\[\begin{aligned}u &amp;= v - p_j^* - \min\{e,\hat{p}_j^E\} \\
+ &amp;= v + α\bar{p} - \underbrace{e}_{\text{Substitute}} \end{aligned}\]</span>
+<span class="math inline">\(\implies p&#39; + \hat{p}&#39; &lt; e-α\bar{p}\)</span><br />
+However, <span class="math inline">\(α\geq \frac{e}{\bar{p}}\implies e-α\bar{p}\leq 0\)</span><br />
+<span class="math inline">\(\implies p&#39; + \hat{p}&#39; &lt;0\)</span></li>
+<li>Confirm sophisticated consumers do substitute<br />
+<span class="math display">\[\begin{aligned}α &amp;\geq \frac{e}{\bar{p}} \\
+ e &amp;\leq α\bar{p} \\
+ &amp;&lt; \bar{p}\end{aligned}\]</span></li>
+</ol></li>
+<li></li>
+</ol>
+</div>
+</div>
+<div id="social-preference" class="section level2">
+<h2>Social Preference</h2>
 </div>
 
     </div>
