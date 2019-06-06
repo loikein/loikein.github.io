@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">25 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -99,6 +99,10 @@
 <li><a href="#with-transferable-payoffs">With Transferable Payoffs</a></li>
 <li><a href="#core">Core</a></li>
 <li><a href="#shapley-value">Shapley Value</a></li>
+</ul></li>
+<li><a href="#repeated-game">Repeated Game</a><ul>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#perfect-monitoring">Perfect Monitoring</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1223,6 +1227,96 @@ Consider party 1:<br />
 Since symmetric, consider party 2-6:
 <span class="math display">\[\begin{aligned}ψ_{-1}(v) &amp;= \Big( 1-\frac{1}{3})\cdot\frac{1}{5} \\
 &amp;= \frac{2}{15} \end{aligned}\]</span></p>
+</div>
+</div>
+<div id="repeated-game" class="section level2">
+<h2>Repeated Game</h2>
+<ul>
+<li>Stage (strategic form) game: <span class="math inline">\(G = (I, (A_i)_{i\in I}, (g_i)_{i\in I})\)</span>
+<ul>
+<li>Set of histories: <span class="math inline">\(H = \{\emptyset\}\cup\big(\cup_{t=1}^{\infty} A^t\big) \cup A^{\mathbb{N}}\)</span></li>
+<li>Set of terminal histories: <span class="math inline">\(Z\)</span> there is no longer history</li>
+</ul></li>
+<li>Set of players: <span class="math inline">\(I\)</span>
+<ul>
+<li>Set of action series for player i: <span class="math inline">\(A_i\)</span>, <span class="math inline">\(A = \prod_{i\in I} A_i\)</span></li>
+<li>Set of strategies: <span class="math inline">\(S_i\)</span></li>
+<li>Strategy: <span class="math inline">\(s_i: H\backslash Z \to A_i\)</span></li>
+<li>Utility function: <span class="math inline">\(g_i: A\to\mathbb{R}\)</span></li>
+</ul></li>
+<li>Strategy profile: <span class="math inline">\(s = (s_i)_{i\in I}\)</span>
+<ul>
+<li>Action profiles: <span class="math display">\[a^t(s) = \big( s_1(a^1,a^2,\dots,a^{t-1}), s_2(a^1,a^2,\dots,a^{t-1}),\dots, s_I(a^1,a^2,\dots,a^{t-1})\big)\]</span></li>
+</ul></li>
+<li>Discount rate: <span class="math inline">\(δ\in [0,1)\)</span>
+<ul>
+<li>Payoff of player i: <span class="math display">\[\hat{u}_i(s) = \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i(a^t)\]</span></li>
+<li>Average discounted payoff:
+<span class="math display">\[\begin{aligned}u_i(s) &amp;= (1-δ)\cdot \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i(a^t)\\
+  &amp;= \sum_{t=1}^{\infty} \frac{δ^{t-1}}{1+δ+δ^2+\dots}\cdot g_i(a^t)\end{aligned}\]</span></li>
+</ul></li>
+<li><span class="math inline">\(s\)</span> is NE <span class="math inline">\(\iff\)</span> for all <span class="math inline">\(i\in I\)</span>, for all <span class="math inline">\(s_i&#39;\)</span> for player i, <span class="math display">\[u_i(s)\geq u_i(s_i&#39;, s_{-i})\]</span></li>
+</ul>
+<div id="examples" class="section level3">
+<h3>Examples</h3>
+<ul>
+<li>Battle of Sexes</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>F</th>
+<th>O</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>*3, 1*</td>
+<td>0, 0</td>
+</tr>
+<tr class="even">
+<td>O</td>
+<td>0, 0</td>
+<td>*1, 3*</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Prisoner’s Dilemma
+<ul>
+<li>Strictly dominant strategy: D</li>
+<li>Strictly dominated strategy: C</li>
+<li>Unique NE: (D, D)</li>
+<li>Propersition: for <span class="math inline">\(T\in\mathbb{N}\)</span>, in any NE of repeated PD <span class="math inline">\(G^T\)</span>, only (D, D) is played along the equilibrium path <span class="math inline">\((a^1,a^2,\dots,a^T)\)</span></li>
+<li>Propersition: for sufficiently large <span class="math inline">\(δ\)</span>, for infinitely repeated PD <span class="math inline">\(G^{\infty}\)</span>, exists an SPNE where (C, C) is played along the equilibrium path</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C</td>
+<td>0, 0</td>
+<td>-2, 1*</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>*1, -2</td>
+<td>*-1, -1*</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="perfect-monitoring" class="section level3">
+<h3>Perfect Monitoring</h3>
 </div>
 </div>
 
