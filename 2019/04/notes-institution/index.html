@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">28 min read</span>
+    <span class="article-duration">29 min read</span>
     
     <h1 class="article-title">Notes on Institution</h1>
     
@@ -99,7 +99,7 @@
 <li><a href="#benchmark-3">Benchmark</a></li>
 <li><a href="#impossible-case">Impossible Case</a></li>
 </ul></li>
-<li><a href="#hold-up">Hold-Up</a><ul>
+<li><a href="#hold-up-problem">Hold-Up Problem</a><ul>
 <li><a href="#first-best-1">First Best</a></li>
 <li><a href="#observable-non-verifiable-information">Observable &amp; Non-Verifiable Information</a></li>
 <li><a href="#private-information-self-investment">Private Information &amp; Self-Investment</a></li>
@@ -107,6 +107,7 @@
 </ul></li>
 <li><a href="#property-rights">Property Rights</a><ul>
 <li><a href="#vertical-integration">Vertical Integration</a></li>
+<li><a href="#joint-venture">Joint Venture</a></li>
 </ul></li>
 </ul>
 </div>
@@ -186,7 +187,7 @@ Social planner’s problem:
 &amp;&amp; &amp;= \frac{1}{2}(e-e^2) \\
 FOC &amp;&amp; e^{FB} &amp;= \frac{1}{2} \end{aligned}\]</span>
 Expected total surplus in first best:
-<span class="math display">\[\begin{aligned}E[v \ | \ e^{FB}] - c(e^{FB}) &amp;= \frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\cdot\Big(\frac{1}{2}\Big)^2 \\
+<span class="math display">\[\begin{aligned}E[v \ | \ e^{FB}] - c(e^{FB}) &amp;= \frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\Big(\frac{1}{2}\Big)^2 \\
 &amp;= \frac{1}{8}\end{aligned}\]</span></li>
 <li>Franchising contract can be applied when negative payments are feasible.<br />
 <span class="math display">\[\begin{aligned}t(v) &amp;= v-a \\
@@ -830,8 +831,8 @@ It is possible to satisfy all constraints simultaneously with the mechanism and 
 </ol>
 </div>
 </div>
-<div id="hold-up" class="section level2">
-<h2>Hold-Up</h2>
+<div id="hold-up-problem" class="section level2">
+<h2>Hold-Up Problem</h2>
 <ul>
 <li>Timing
 <ol start="0" style="list-style-type: decimal">
@@ -1013,7 +1014,7 @@ To attain first best, since <span class="math inline">\(x^{FB} = 1\)</span>,<br 
 Seller’s problem:
 <span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; &amp;\phantom{\ggg}E\Big[ t-\frac{1}{2}\cdot xq - k(e)\Big]\\
 &amp;&amp; &amp;= T -k(e)- E\Big[-\frac{1}{2}\cdot xq\Big] \\
-&amp;&amp; &amp;= T - \frac{e^2}{2} - \frac{1}{2}\cdot\big(e\cdot q_L + (1-e)\cdot q_H \big)\\
+&amp;&amp; &amp;= T - \frac{e^2}{2} - \frac{1}{2}\big(e\cdot q_L + (1-e)\cdot q_H \big)\\
 &amp;&amp; &amp;= T - \frac{e^2}{2} - \frac{e}{4} + \frac{1-e}{2}\\
 FOC &amp;&amp; &amp;-e - \frac{1}{4} - \frac{1}{2} = 0 \\
 &amp;&amp; &amp;\phantom{00000000000}e = -\frac{3}{4} \end{aligned}\]</span>
@@ -1046,7 +1047,7 @@ therefore, seller chooses <span class="math inline">\(e=0\)</span>, the first be
 <li>Provider of intermediate product with some asset</li>
 <li>Cost of trading: <span class="math inline">\(c(b)\)</span></li>
 <li><span class="math inline">\(c&#39;(b)&lt;0\)</span>, <span class="math inline">\(c&#39;&#39;(b)&gt;0\)</span></li>
-<li><span class="math inline">\(c&#39;(0)&lt;-2\)</span>, <span class="math inline">\(\lim_{b\to\infty}c&#39;(b)=0\)</span></li>
+<li><span class="math inline">\(-c&#39;(0)&gt;2\)</span>, <span class="math inline">\(\lim_{b\to\infty}c&#39;(b)=0\)</span></li>
 </ul></li>
 <li>Ownership structures
 <ul>
@@ -1088,21 +1089,69 @@ therefore, seller chooses <span class="math inline">\(e=0\)</span>, the first be
 </tbody>
 </table>
 <ul>
-<li>First best<br />
+<li>Day2: trade (first best)<br />
 Social planner’s problem:
 <span class="math display">\[\begin{aligned}\max_{a,b} &amp;&amp; v(a) &amp;- c(b) - a - b \\
 FOC &amp;&amp; v&#39;(a^{FB}) &amp;= 1 \\
-&amp;&amp; c&#39;(b^{FB}) &amp;= -1 \end{aligned}\]</span></li>
-<li>Second best
+&amp;&amp; -c&#39;(b^{FB}) &amp;= 1 \end{aligned}\]</span></li>
+<li>Day2: trade (second best)
 <ul>
 <li>Incomplete contract: can only specify <span class="math inline">\(o=A,B,J\)</span></li>
-<li>Renegotiation at day 2: split the difference (<a href="../notes-game-theory/#nash-bargaining-solution-nbs">NBS</a>)<br />
-<span class="math display">\[\begin{aligned}\text{Surplus} &amp;&amp; &amp;\big( v(a)-c(b)\big)-(D^o_A + D^o_B)\\
-  \text{A&#39;s payoff} &amp;&amp; &amp;U_A^o(a,b) = D^o_A - a +\frac{1}{2}\cdot\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
-  &amp;&amp; &amp;a^o = \text{argmax}_{a} \ U_A^o(a,b) \\
-  \text{B&#39;s payoff} &amp;&amp; &amp;U_B^o(a,b) = D^o_B - b +\frac{1}{2}\cdot\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
-  &amp;&amp; &amp;b^o = \text{argmax}_{b} \ U_B^o(a,b)\end{aligned}\]</span></li>
+<li>Renegotiation at day 2: split the surplus (<a href="../notes-game-theory/#nash-bargaining-solution-nbs">NBS</a>)<br />
+<span class="math display">\[\begin{aligned}\text{Total surplus} &amp;&amp; &amp;\big( v(a)-c(b)\big)-(D^o_A + D^o_B)\\
+  \text{A&#39;s payoff} &amp;&amp; U_A^o(a,b) &amp;= D^o_A - a +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
+  &amp;&amp; a^o &amp;= \text{argmax}_{a} \ U_A^o(a,b) \\
+  \text{B&#39;s payoff} &amp;&amp; U_B^o(a,b) &amp;= D^o_B - b +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
+  &amp;&amp; b^o &amp;= \text{argmax}_{b} \ U_B^o(a,b)\end{aligned}\]</span></li>
 </ul></li>
+<li>Day 1: investment level
+<ul>
+<li><span class="math inline">\(o=A\)</span><br />
+A’s payoff:
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=A}(a,b) &amp;= d_A(a)-a + \frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
+  &amp;&amp; &amp;= -a + \frac{1}{2}\big( v(a)-c(b)+ d_A(a)\big) \\
+  FOC &amp;&amp; \frac{1}{2}&amp;\big( v&#39;(a^A) + d_A&#39;(a^A)\big) = 1 \end{aligned}\]</span>
+B’s payoff:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=A}(a,b) &amp;= 0-b +\frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
+  &amp;&amp; &amp;= -b + \frac{1}{2}\big( v(a)-c(b)- d_A(a)\big)\\
+  FOC &amp;&amp; \frac{1}{2}&amp;\big( -c&#39;(b^A)\big) = 1\end{aligned}\]</span></li>
+<li><span class="math inline">\(o=B\)</span><br />
+A’s payoff:
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=B}(a,b) &amp;= 0 - a + \frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
+  &amp;&amp; &amp;= -a + \frac{1}{2}\big( v(a)-c(b)- d_B(b)\big) \\
+  FOC &amp;&amp; \frac{1}{2}&amp;\big( v&#39;(a^B)\big) = 1 \end{aligned}\]</span>
+B’s payoff:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=B}(a,b) &amp;= d_B(b) -b +\frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
+  &amp;&amp; &amp;= -b + \frac{1}{2}\big( v(a)-c(b) + d_B(b)\big)\\
+  FOC &amp;&amp; \frac{1}{2}&amp;\big(-c&#39;(b^B) + d_B&#39;(b)\big) = 1\end{aligned}\]</span></li>
+<li><span class="math inline">\(o=J\)</span><br />
+A’s payoff:
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=J}(a,b) &amp;= 0 - a + \frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
+  &amp;&amp; &amp;= -a + \frac{1}{2}\big( v(a)-c(b)\big) \\
+  FOC &amp;&amp; \frac{1}{2}&amp;\big( v&#39;(a^J)\big) = 1 \end{aligned}\]</span>
+B’s payoff:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=J}(a,b) &amp;= 0 -b +\frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
+  &amp;&amp; &amp;= -b + \frac{1}{2}\big( v(a)-c(b)\big)\\
+  FOC &amp;&amp; \frac{1}{2}&amp;\big(-c&#39;(b^J)\big) = 1\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-institution--integration-a.png" />
+<img src="/post-img/notes-institution--integration-b.png" /></p>
+<ul>
+<li>Day 0: ownership structure
+<span class="math display">\[\begin{aligned}\text{Total surplus} &amp;&amp; v(a^o) - c(b^o) - a^o - b^o\\\end{aligned}\]</span>
+Since <span class="math inline">\(\begin{cases}o^A\succ_A o^J \\ o_A\sim_B o^J \end{cases}\)</span> and <span class="math inline">\(\begin{cases}o^B\succ_B o^J \\ o_B\sim_A o^J \end{cases}\)</span>,<br />
+<span class="math inline">\(\implies o=J\)</span> is not optimal
+<ul>
+<li>If <span class="math inline">\(d^o_{-i} \equiv 0\)</span>, then <span class="math inline">\(i\)</span> should be the owner</li>
+<li>If only one of the parties has the investment decision, then it should be the owner</li>
+</ul></li>
+</ul>
+</div>
+<div id="joint-venture" class="section level3">
+<h3>Joint Venture</h3>
+<ul>
+<li></li>
 </ul>
 <!-- 
 > Exercise 7  
