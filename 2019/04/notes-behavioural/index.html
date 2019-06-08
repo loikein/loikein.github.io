@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">36 min read</span>
+    <span class="article-duration">38 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -958,23 +958,79 @@ Since (BC) is binding,
 c_3 &amp;= y - c_1 - c_2 \end{aligned}\]</span>
 plug back into agent’s problem
 <span class="math display">\[\begin{aligned}\max_{c_1,c_2} &amp;&amp; u_1^{TC} &amp;= -\exp(-c_1) - δ\exp(-c_2) - δ^2\exp(-y + c_1 + c_2) \\
-FOC &amp;&amp; \frac{\partial u_1^{TC}}{\partial c_1} &amp;= \exp(-c_1) - δ^2\exp(-y + c_1 + c_2) != 0 \\
+FOC &amp;&amp; \frac{\partial u_1^{TC}}{\partial c_1} &amp;= \exp(-c_1) - δ^2\exp(-y + c_1 + c_2) \overset{!}{=} 0 \\
 &amp;&amp; -c_1 &amp;= 2\ln(δ) + (-y + c_1 + c_2) \\
-&amp;&amp; \frac{\partial u_1^{TC}}{\partial c_2} &amp;= δ\exp(-c_2) - δ^2\exp(-y + c_1 + c_2) != 0 \\
+&amp;&amp; \frac{\partial u_1^{TC}}{\partial c_2} &amp;= δ\exp(-c_2) - δ^2\exp(-y + c_1 + c_2) \overset{!}{=} 0 \\
 &amp;&amp; \ln(δ) - c_2 &amp;= 2\ln(δ) + (-y + c_1 + c_2) \end{aligned}\]</span>
 Solving
 <span class="math display">\[\begin{cases}-c_1 = 2\ln(δ) + (-y + c_1 + c_2) \\ \ln(δ) - c_2 = 2\ln(δ) + (-y + c_1 + c_2) \end{cases}\]</span>
 yields
-<span class="math display">\[\begin{aligned}c_1 &amp;= \frac{y}{3}-\ln(δ) \\
-c_2 &amp;= \frac{y}{3} \\
-c_3 &amp;= \frac{y}{3}+\ln(δ)\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}c_1^{TC} &amp;= \frac{y}{3}-\ln(δ) \\
+c_2^{TC} &amp;= \frac{y}{3} \\
+c_3^{TC} &amp;= \frac{y}{3}+\ln(δ)\end{aligned}\]</span></li>
 <li>For sophisticated agent, in period 2,
-<span class="math display">\[\begin{aligned}\max_{c_2} &amp;&amp; &amp;\phantom{\ggg}u_2^S \\
-&amp;&amp; &amp;= \exp(-c_2) - βδ\exp(-y + c_1 + c_2) \\
-FOC &amp;&amp; \frac{\partial u_2^{S}}{\partial c_2} &amp;= \exp(-c_2) - βδ\exp(-y + c_1 + c_2) != 0\\
-&amp;&amp; \exp(-c_2) &amp;= βδ\exp(-y + c_1 + c_2) \\
+<span class="math display">\[\begin{aligned}\max_{c_2} &amp;&amp; u_2^S &amp;= -\exp(-c_2) - βδ\exp(-y + c_1 + c_2) \\
+FOC &amp;&amp; \frac{\partial u_2^{S}}{\partial c_2} &amp;= \exp(-c_2) - βδ\exp(-y + c_1 + c_2) \overset{!}{=} 0\\
+\implies &amp;&amp; \exp(-c_2) &amp;= βδ\exp(-c_3) \\
+&amp;&amp; c_2 &amp;= c_3 -\ln(βδ) \\
+FOC &amp;&amp; \exp(-c_2) &amp;= βδ\exp(-y + c_1 + c_2) \\
 &amp;&amp; -c_2 &amp;= \ln(βδ) + (-y + c_1 + c_2) \\
-&amp;&amp; c_2 &amp;= \frac{1}{2}(y - c_1 - \ln(βδ)) \end{aligned}\]</span></li>
+&amp;&amp; c_2 &amp;= \frac{1}{2}\big(y - c_1 - \ln(βδ)\big) \\
+&amp;&amp; c_3 &amp;= \frac{1}{2}\big(y - c_1 + \ln(βδ)\big) \end{aligned}\]</span>
+In period 1,
+<span class="math display">\[\begin{aligned}\max_{c_1} &amp;&amp; u_1^S &amp;= -\exp(-c_1) - βδ\exp(-c_2) - βδ^2\exp(-y + c_1 + c_2) \\
+&amp;&amp; &amp;= -\exp(-c_1) - βδ\exp\Big(-\frac{1}{2}\big(y - c_1 - \ln(βδ)\big)\Big) \\
+&amp;&amp; &amp;\phantom{\ggg}- βδ^2\exp\Big(-y + c_1 + \frac{1}{2}\big(y - c_1 - \ln(βδ)\big)\Big) \\
+FOC &amp;&amp; \frac{\partial u_1^{S}}{\partial c_1} &amp;= \exp(-c_1) - βδ\exp\Big(-\frac{1}{2}\big(y - c_1 - \ln(βδ)\Big)\cdot \frac{1}{2}\\
+&amp;&amp; &amp;\phantom{\ggg}- βδ^2\exp\Big(-\frac{1}{2}\big(y - c_1 + \ln(βδ)\Big)\cdot \frac{1}{2} \overset{!}{=} 0 \\
+\implies &amp;&amp; \exp(-c_1) &amp;= \frac{1}{2}\cdot βδ\exp(-c_2) + \frac{1}{2}\cdot βδ^2\exp(-c_3)\end{aligned}\]</span>
+Solving
+<span class="math display">\[\begin{cases}\exp(-c_2) = βδ\exp(-c_3) \\
+\exp(-c_1) = \frac{1}{2}\cdot βδ\exp(-c_2) + \frac{1}{2}\cdot βδ^2\exp(-c_3)\end{cases}\]</span>
+yields
+<span class="math display">\[\begin{aligned}\exp(-c_1)&amp;= \frac{1}{2}\cdot βδ\cdot βδ\exp(-c_3) + \frac{1}{2}\cdot βδ^2\exp(-c_3) \\
+&amp;= \frac{1}{2}\cdot βδ\cdot(βδ + δ)\cdot\exp(-c_3) \\
+-c_1 &amp;= \ln\Big(\frac{1}{2}\cdot βδ\cdot(βδ + δ)\Big) - \frac{1}{2}\big(y - c_1 + \ln(βδ)\big) \\
+c_1^S &amp;= \frac{1}{3}y + \frac{1}{3}\ln(βδ) - \frac{2}{3}\ln\Big(\frac{1}{2}\cdot βδ\cdot(βδ + δ)\Big) \\
+c_2^S &amp;= \frac{1}{3}y - \frac{2}{3}\ln(βδ) + \frac{1}{3}\ln\Big(\frac{1}{2}\cdot βδ\cdot(βδ + δ)\Big) \\
+c_3^S &amp;= \frac{1}{3}y + \frac{1}{3}\ln(βδ) + \frac{1}{3}\ln\Big(\frac{1}{2}\cdot βδ\cdot(βδ + δ)\Big) \end{aligned}\]</span>
+For a hypothetical period 0,
+<span class="math display">\[\begin{aligned}u_0^S &amp;= -βδ\exp(-c_1) - βδ^2\exp(-c_2) - βδ^3\exp(-c_3) \\
+&amp;= -βδ\cdot\frac{1}{2}\cdot βδ\exp(-c_2) -βδ\cdot\frac{1}{2}\cdot βδ^2\exp(-c_3) - βδ^2\exp(-c_2) - βδ^3\exp(-c_3) \\
+&amp;= \Big(-\frac{1}{2}β^2δ^2 - βδ^2 \Big)\exp(-c_2) + \Big(-\frac{1}{2}β^2δ^3 - βδ^3)\exp(-c_3) \\
+&amp;= \Big(-\frac{1}{2}β^3δ^3 - β^2δ^3 -\frac{1}{2}β^2δ^3 - βδ^3 \Big)\exp(-c_3) \\
+\frac{\partial u_0^S}{\partial c_1} &amp;= \frac{\partial u_0^S}{\partial c_3}\cdot \frac{\partial c_3}{\partial c_1} \\
+&amp;= -\Big(\underbrace{-\frac{1}{2}β^3δ^3 - β^2δ^3 -\frac{1}{2}β^2δ^3 - βδ^3}_{&lt;0}\Big)\cdot\underbrace{\exp(-c_3)}_{&gt;0}\cdot\Big(\underbrace{-\frac{1}{2}}_{&lt;0}\Big) \\
+&amp;&lt; 0\end{aligned}\]</span>
+<!-- notes:
+$$\begin{aligned}\frac{\partial c_1^S}{\partial β} &= \frac{1}{3}\cdot\frac{1}{β} - \frac{2}{3}\cdot\frac{1}{\frac{1}{2}\cdot βδ\cdot(βδ + δ)}\cdot\Big(\frac{1}{2}\cdot 2βδ^2 + \frac{1}{2}δ^2\Big) \\
+&= \frac{1}{3β} - \frac{2}{3}\cdot\frac{2(βδ^2 + \frac{1}{2}δ^2)}{βδ\cdot(βδ + δ)} \\
+&= \frac{δ\cdot(βδ + δ) - 2\cdot 2(βδ^2 + \frac{1}{2}δ^2)}{3βδ\cdot(βδ + δ)} \\
+&= \frac{βδ^2 + δ^2 - 4βδ^2 - 2δ^2}{3βδ\cdot(βδ + δ)} \\
+&= \frac{-3βδ^2 - δ^2}{3βδ\cdot(βδ + δ)} < 0\end{aligned}$$ -->
+<span class="math inline">\(\implies\)</span> overconsumption in period 1</li>
+<li>If the agent consumes <span class="math inline">\((c_1^S − ε, c_2^S − ε, c_3^S + 2ε)\)</span>, in period 1,
+<span class="math display">\[\begin{aligned}u_1^S &amp;= -\exp(-c_1 + ε) - βδ\exp(-c_2 + ε) - βδ^2\exp(-c_3 - 2ε) \\
+\frac{\partial u_1^S}{\partial ε} &amp;= -\exp(-c_1 + ε) - βδ\exp(-c_2 + ε) + 2βδ^2\exp(-c_3 - 2ε) \\
+\frac{\partial u_1^S}{\partial ε}\Big|_{ε=0} &amp;= -\exp(-c_1) - βδ\exp(-c_2) + 2βδ^2\exp(-c_3) \\
+&amp;= -\frac{1}{2} βδ\exp(-c_2) - \frac{1}{2}βδ^2\exp(-c_3) - βδ\exp(-c_2) + 2βδ^2\exp(-c_3) \\
+&amp;= -\frac{3}{2} βδ\exp(-c_2) + \frac{3}{2}βδ^2\exp(-c_3) \\
+&amp;= -\frac{3}{2} β^2δ^2\exp(-c_3) + \frac{3}{2}βδ^2\exp(-c_3)\\
+&amp;= \frac{3}{2} βδ^2(1-β)\exp(-c_3) &gt; 0\end{aligned}\]</span>
+In period 2,
+<span class="math display">\[\begin{aligned}u_2^S &amp;= -\exp(-c_2 + ε) - βδ\exp(-c_3 - 2ε) \\
+\frac{\partial u_2^S}{\partial ε} &amp;= - \exp(-c_2 + ε) + 2βδ\exp(-c_3 - 2ε) \\
+\frac{\partial u_2^S}{\partial ε}\Big|_{ε=0} &amp;= - \exp(-c_2) + 2βδ\exp(-c_3) \\
+&amp;= -βδ\exp(-c_3) + 2βδ\exp(-c_3) \\
+&amp;= βδ\exp(-c_3) &gt; 0\end{aligned}\]</span>
+In period 3,
+<span class="math display">\[\begin{aligned}u_3^S &amp;= -\exp(-c_3 - 2ε) \\
+\frac{\partial u_3^S}{\partial ε} &amp;= 2\exp(-c_3 - 2ε) \\
+\frac{\partial u_3^S}{\partial ε}\Big|_{ε=0} &amp;= 2\exp(-c_3) &gt; 0\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> all selves <span class="math inline">\(t = 1, 2, 3\)</span> are better off with <span class="math inline">\(ε&gt;0\)</span>
+However, since <span class="math inline">\(\frac{\partial c_2^S}{\partial c_1^S} = -\frac{1}{2}&lt; 0\)</span>,<br />
+<span class="math inline">\(\implies\)</span> agent has incentive to increase <span class="math inline">\(c_2^S\)</span> if <span class="math inline">\(ε&gt;0\)</span> in <span class="math inline">\(c_1^S = c_1^S-ε\)</span><br />
+<span class="math inline">\(\implies\)</span> agent does not choose this path in order to avoid overconsumption in period 2</li>
 </ol>
 </div>
 <div id="sophistication-effect" class="section level3">
@@ -1284,7 +1340,7 @@ Plug back into firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(L,p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b -c - α)\, dF(c)\big] \\
   &amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
   FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
-  &amp;&amp; &amp;= -\big( δ\cdot b - (\underbrace{δ\cdot b - p}_{c}) -α\big) != 0 \\
+  &amp;&amp; &amp;= -\big( δ\cdot b - (\underbrace{δ\cdot b - p}_{c}) -α\big) \overset{!}{=} 0 \\
   &amp;&amp; p^{TC} &amp;= α \end{aligned}\]</span></li>
 <li>Price = marginal cost</li>
 </ul></li>
@@ -1309,7 +1365,7 @@ Plug back into firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(L,p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c - α)\, dF(c)\big] \\
   &amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
   FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
-  &amp;&amp; &amp;= -\big( δ\cdot b - (βδ\cdot b - p) -α\big) != 0 \\
+  &amp;&amp; &amp;= -\big( δ\cdot b - (βδ\cdot b - p) -α\big) \overset{!}{=} 0 \\
   &amp;&amp; p^{S} &amp;= α - \underbrace{(1-β)δ\cdot b}_{\text{Commitment value}} \end{aligned}\]</span></li>
 <li>Price &lt; marginal cost (but still efficient)</li>
 <li>Firm sells commitment: <span class="math inline">\(L\)</span> is chosen s.t. (PC) is binding</li>
