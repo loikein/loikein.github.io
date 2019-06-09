@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">41 min read</span>
+    <span class="article-duration">43 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -1062,22 +1062,22 @@ Therefore, <span class="math inline">\(s^{TC} = \{N,N,Y\}\)</span></li>
 In period 3, must buy C<br />
 In period 2, buy B if
 <span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
-&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot 2 = 1 \end{aligned}\]</span>
+&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0)  = 1 \end{aligned}\]</span>
 In period 1, buy A if
 <span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
-&gt; u_1(B) &amp;= 1\cdot\frac{1}{2}\cdot( 30 - 50) = -10 \end{aligned}\]</span>
+&gt; u_1(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \end{aligned}\]</span>
 Therefore, <span class="math inline">\(s^S = \{Y, Y, Y\}\)</span>
 For naive agent,<br />
 In period 3, must buy C<br />
 In period 2, buy B if
 <span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
-&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot 2 = 1 \end{aligned}\]</span>
+&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0)  = 1 \end{aligned}\]</span>
 In period 1, buy A if
 <span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
-&gt; u_1(B) &amp;= 1\cdot\frac{1}{2}\cdot( 30 - 50) = -10 \end{aligned}\]</span>
+&gt; u_1(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \end{aligned}\]</span>
 and
 <span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
-&gt; u_1(C) &amp;= 1\cdot\frac{1}{2}\cdot( 2) = 1 \end{aligned}\]</span>
+&gt; u_1(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0) = 1 \end{aligned}\]</span>
 Therefore, <span class="math inline">\(s^N = \{Y, Y, Y\}\)</span></li>
 <li>Since time-consistent agent never chooses dominated option, and naive agent believes that they never chooses dominated option, only sophisticated agent has the incentive to cancel a purchase because of present bias</li>
 <li>For sophisticated agent, in period 0,
@@ -1086,7 +1086,8 @@ u_0(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \\
 u_0(C) &amp;= \frac{1}{2}\cdot 1\cdot( 2-0) = 1 \end{aligned}\]</span>
 Therefore, the agent chooses to cancel both A and B<br />
 The maximum price they will accept is
-<span class="math display">\[\begin{aligned}x &amp;= \min\{ u_0(C) - u_0(A), u_0(C) - u_0(B) \}\\
+<span class="math display">\[\begin{aligned}x &amp;= u_1(A) - u_1(C)\\
+&amp;= 6 - 1\\
 &amp;= 5 \end{aligned}\]</span></li>
 </ol>
 </div>
@@ -1346,6 +1347,42 @@ Let <span class="math inline">\(β=0.6\)</span>, agent is naive<br />
 <li>Agent procrastinates</li>
 <li>Agent procrastinates</li>
 <li>Agent completes task <span class="math inline">\(x_2&#39;&#39;\)</span> immediately</li>
+</ol>
+<blockquote>
+<p>PS4.Q3<br />
+An employer hires a worker who can exert an effort <span class="math inline">\(e \geq 0\)</span> to do a certain task.<br />
+Effort is observable so that the worker’s wage may depend directly on the chosen effort.<br />
+Consider a setup where the worker is quasi-hyperbolic discounter with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = \frac{3}{4}\)</span> and the firm is time-consistent with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = 1\)</span>.<br />
+The timing is as follows:</p>
+<ol style="list-style-type: decimal">
+<li>At <span class="math inline">\(t = 1\)</span> the employer offers the wage profile <span class="math inline">\(w(e)=F+αe\)</span>.<br />
+The worker decides whether to accept or reject the contract.<br />
+If she rejects the contract, she gets reservation utility <span class="math inline">\(u = 0\)</span> that she will enjoy at <span class="math inline">\(t = 3\)</span>.</li>
+<li>At <span class="math inline">\(t = 2\)</span>, if the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>, she chooses an effort level <span class="math inline">\(e\in [0, 1]\)</span> and bears an immediate cost of effort <span class="math inline">\(-\frac{1}{2}e^2\)</span>.<br />
+If the worker has rejected the contract at <span class="math inline">\(t = 1\)</span>, nothing happens.</li>
+<li>At <span class="math inline">\(t = 3\)</span>, if the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>, she enjoys the wage <span class="math inline">\(w(e)\)</span>.<br />
+If the worker has rejected the contract at <span class="math inline">\(t = 1\)</span>, she enjoys the reservation utility <span class="math inline">\(\bar{u}\)</span>, the firm makes zero profit.<br />
+If the worker has accepted the contract at <span class="math inline">\(t = 1\)</span> the firm earns <span class="math inline">\(e\)</span> and pays cost <span class="math inline">\(w(e)\)</span>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Assume the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>.<br />
+What is the optimal effort <span class="math inline">\(e^N\)</span> and <span class="math inline">\(e^S\)</span> in <span class="math inline">\(t = 2\)</span> if the agent is naive and sophisticated, respectively?<br />
+What is the optimal effort <span class="math inline">\(e^{TC}\)</span> of a time-consistent worker in <span class="math inline">\(t = 2\)</span>?</li>
+<li>For a given <span class="math inline">\(α\)</span>, determine the smallest <span class="math inline">\(F\)</span> so that the naive worker still accepts the contract.<br />
+Determine the corresponding values of <span class="math inline">\(F\)</span> for the sophisticated and the time-consistent worker.</li>
+<li>Determine the optimal contract <span class="math inline">\(F, α\)</span> for the firm when it faces a naive worker under the constraint that the worker accepts the contract.<br />
+Show that the naive agent gets less than her reservation utility under this contract.</li>
+<li>Would a sophisticated agent accept the optimal contract under (c)? Explain why or why not.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Assume the worker accepts contract. At period 2, worker’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; u_2 &amp;= -\frac{1}{2}e^2 + βδ\cdot w(e) \\
+&amp;&amp; &amp;= -\frac{1}{2}e^2 + β\cdot(F+αe) \\
+FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + βα\overset{!}{=} 0 \\
+&amp;&amp; e^{TC} &amp;= α \\
+&amp;&amp; e^{S,N} &amp;= \frac{3}{4}α \end{aligned}\]</span></li>
+<li></li>
 </ol>
 </div>
 <div id="monopolistic-market" class="section level3">
