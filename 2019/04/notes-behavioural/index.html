@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">38 min read</span>
+    <span class="article-duration">41 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -1031,6 +1031,63 @@ In period 3,
 However, since <span class="math inline">\(\frac{\partial c_2^S}{\partial c_1^S} = -\frac{1}{2}&lt; 0\)</span>,<br />
 <span class="math inline">\(\implies\)</span> agent has incentive to increase <span class="math inline">\(c_2^S\)</span> if <span class="math inline">\(ε&gt;0\)</span> in <span class="math inline">\(c_1^S = c_1^S-ε\)</span><br />
 <span class="math inline">\(\implies\)</span> agent does not choose this path in order to avoid overconsumption in period 2</li>
+</ol>
+<blockquote>
+<p>PS4.Q2<br />
+An agent is confronted with several consumption opportunities using his/her credit card.<br />
+The benefits of shopping are immediate and occur at the moment of the purchase, while the costs are delayed.<br />
+At <span class="math inline">\(t = 1\)</span> the agent can buy good A that gives immediate benefit 20 and delayed cost 28.<br />
+At <span class="math inline">\(t = 2\)</span>, the agent can buy good B that gives immediate benefit 30 and delayed cost 50.<br />
+At <span class="math inline">\(t = 3\)</span>, the agent can buy good C that gives immediate benefit 2 and delayed cost 0.<br />
+If the agent buys a good at times <span class="math inline">\(t = 1, 2\)</span>, the game ends, otherwise he/she continues to the next period.<br />
+If the agent has not consumed at <span class="math inline">\(t = 1, 2\)</span> then he/she has to consume at time <span class="math inline">\(t = 3\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Determine the optimal strategy of a time-consistent agent with <span class="math inline">\(δ = 1\)</span>.</li>
+<li>Assume the agent is a <span class="math inline">\(β − δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = \frac{1}{2}\)</span>.<br />
+Determine the optimal strategies of a naive and a sophisticated agent.</li>
+<li>Assume now that a firm offers a product at time <span class="math inline">\(t = 0\)</span> at a price <span class="math inline">\(x\)</span> to be paid immediately, that allows the consumer to cancel some of the consumption options.<br />
+In particular, the consumer can decide to cancel option A, option B, or both.<br />
+Think of it as a temporary block on the credit card.<br />
+Argue, intuitively, why only the sophisticated agent will consider buying such a product.</li>
+<li>Determine whether the sophisticated consumer cancels any of the options and determine the maximum price the consumer is willing to pay for such a product.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>For time-consistent agent, utility from buying each good is
+<span class="math display">\[\begin{aligned}u(A) &amp;= 20 - 28 = -8 \\
+u(B) &amp;= 30 - 50 = -20 \\
+u(C) &amp;= 2 - 0 = 2 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(s^{TC} = \{N,N,Y\}\)</span></li>
+<li>For sophisticated agent,<br />
+In period 3, must buy C<br />
+In period 2, buy B if
+<span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
+&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot 2 = 1 \end{aligned}\]</span>
+In period 1, buy A if
+<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
+&gt; u_1(B) &amp;= 1\cdot\frac{1}{2}\cdot( 30 - 50) = -10 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(s^S = \{Y, Y, Y\}\)</span>
+For naive agent,<br />
+In period 3, must buy C<br />
+In period 2, buy B if
+<span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
+&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot 2 = 1 \end{aligned}\]</span>
+In period 1, buy A if
+<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
+&gt; u_1(B) &amp;= 1\cdot\frac{1}{2}\cdot( 30 - 50) = -10 \end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
+&gt; u_1(C) &amp;= 1\cdot\frac{1}{2}\cdot( 2) = 1 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(s^N = \{Y, Y, Y\}\)</span></li>
+<li>Since time-consistent agent never chooses dominated option, and naive agent believes that they never chooses dominated option, only sophisticated agent has the incentive to cancel a purchase because of present bias</li>
+<li>For sophisticated agent, in period 0,
+<span class="math display">\[\begin{aligned}u_0(A) &amp;= \frac{1}{2}\cdot 1\cdot( 20 - 28) = -4 \\
+u_0(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \\
+u_0(C) &amp;= \frac{1}{2}\cdot 1\cdot( 2-0) = 1 \end{aligned}\]</span>
+Therefore, the agent chooses to cancel both A and B<br />
+The maximum price they will accept is
+<span class="math display">\[\begin{aligned}x &amp;= \min\{ u_0(C) - u_0(A), u_0(C) - u_0(B) \}\\
+&amp;= 5 \end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="sophistication-effect" class="section level3">
