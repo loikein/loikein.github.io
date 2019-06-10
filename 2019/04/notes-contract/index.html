@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">18 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -96,7 +96,8 @@
 <li><a href="#adverse-selection-mwg-ch-13">Adverse Selection (MWG Ch 13)</a><ul>
 <li><a href="#benchmark">Benchmark</a></li>
 <li><a href="#unknown-type-competitive-equilibrium">Unknown Type Competitive Equilibrium</a></li>
-<li><a href="#constrained-pareto-optimum">Constrained Pareto Optimum</a></li>
+<li><a href="#spne">SPNE</a></li>
+<li><a href="#constrained-second-best-pareto-optimum">Constrained (Second-Best) Pareto Optimum</a></li>
 <li><a href="#signalling">Signalling</a></li>
 </ul></li>
 <li><a href="#competitive-car-insurance-market">Competitive Car Insurance Market</a><ul>
@@ -410,7 +411,7 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 <li>cdf: <span class="math inline">\(F(θ)\)</span>, <span class="math inline">\(F(\hat{θ}) = Pr(θ\leq \hat{θ})\)</span></li>
 </ul></li>
 <li><span class="math inline">\(N\)</span> workers, many firms</li>
-<li>Reservation utility: <span class="math inline">\(r(θ)\geq 0\)</span></li>
+<li>Reservation wage: <span class="math inline">\(r(θ)\geq 0\)</span></li>
 <li>Wage: <span class="math inline">\(w(θ)\)</span></li>
 </ul>
 <div id="benchmark" class="section level3">
@@ -423,12 +424,13 @@ Worker <span class="math inline">\(θ\)</span> will be employed if
 <span class="math display">\[\begin{aligned}r(θ)&amp;\leq w(θ)\leq θ \\
 r(θ) &amp;\leq θ \\
 w^*(θ) &amp;= θ\end{aligned}\]</span></li>
-<li>Social planner’s problem<br />
-Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \\ 1&amp;\text{employed} \end{cases}\)</span>,
+<li>First best: social planner’s problem<br />
+Since firms’ profit is always zero under competition, total surplus equals workers’ surplus.<br />
+Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \\ 1&amp;\text{employed} \end{cases}\)</span>
 <span class="math display">\[\begin{aligned}\max_{I(θ)} &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big] \,dF(θ) \\
 &amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big]\cdot f(θ) \,dθ \\
 &amp;&amp; &amp;I^*(θ) = \begin{cases}0 &amp; θ &lt; r(θ) \\ 1 &amp; θ \geq r(θ) \end{cases}\end{aligned}\]</span></li>
-<li>Number of employed workers: <span class="math inline">\(N\cdot\big[1 - F\big(r(θ)\big)\big]\)</span></li>
+<li>Number of employed workers: <span class="math inline">\(N\cdot\big[\underbrace{1 - \overbarce{F\big(r(θ)\big)}^{Pr\big(θ\leq r(θ)\big)}}_{Pr\big(θ\geq r(θ)\big)}\big]\)</span></li>
 </ul>
 </div>
 <div id="unknown-type-competitive-equilibrium" class="section level3">
@@ -436,16 +438,16 @@ Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \
 <ul>
 <li>Assumptions <span class="math inline">\(\implies E[θ]&lt; r(\bar{θ})\)</span> (adverse selection)
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(r(θ)\leq θ\)</span> for all <span class="math inline">\(θ\)</span> (efficient for all workers to be employed)</li>
-<li><span class="math inline">\(1 &lt; r&#39;(θ) &lt; 0\)</span></li>
+<li><span class="math inline">\(r(θ)\leq θ\)</span> for all <span class="math inline">\(θ \implies\)</span> efficient to employ all workers</li>
+<li><span class="math inline">\(1 &lt; r&#39;(θ) &lt; 0 \implies\)</span> strictly increasing reservation wage</li>
 </ol></li>
-<li>Wage: (given) <span class="math inline">\(w\)</span> for all <span class="math inline">\(θ\)</span></li>
+<li>Fixed wage: <span class="math inline">\(w\)</span> for all <span class="math inline">\(θ\)</span></li>
 <li>Set of workers accept <span class="math inline">\(w\)</span>: <span class="math inline">\(Θ(w) = \{θ \ | \ r(θ)\leq w\}\)</span></li>
 <li>Firms’ belief: <span class="math inline">\(μ(w) = E[θ \ | \ r(θ)\leq w]\)</span>
 <ul>
 <li>Off-track belief: <span class="math inline">\(μ = E[θ]\)</span> when <span class="math inline">\(Θ = \emptyset\)</span></li>
 </ul></li>
-<li>Firms’ demand: <span class="math inline">\(z(w) = \begin{cases}0 &amp; μ&lt;w \\ [0, \infty) &amp; μ= w \\\infty &amp; μ&gt;w\end{cases}\)</span></li>
+<li>Firms’ demand for labour: <span class="math display">\[z(w) = \begin{cases}0 &amp; μ&lt;w \\ [0, \infty) &amp; μ= w \\\infty &amp; μ&gt;w\end{cases}\]</span></li>
 <li>Equilibrium
 <span class="math display">\[\begin{aligned}\text{Workers&#39; BR} &amp;&amp; Θ^* &amp;= \{θ \ | \ r(θ)\leq w^*\} \\
 \text{Firms&#39; BR} &amp;&amp; w^* &amp;= E[θ \ | \ θ\in Θ^*] \\
@@ -464,16 +466,45 @@ Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \
 <p class="caption">MWG Figure 13.B.1</p>
 </div>
 </div>
-<div id="constrained-pareto-optimum" class="section level3">
-<h3>Constrained Pareto Optimum</h3>
+<div id="spne" class="section level3">
+<h3>SPNE</h3>
 <ul>
+<li>Common knowledge: <span class="math inline">\(F(\cdot)\)</span>, <span class="math inline">\(r(\cdot)\)</span> (strictly increasing)</li>
+<li>Timing
+<ol style="list-style-type: decimal">
+<li>2 firms announce fixed wages separately</li>
+<li>Workers decide which firm to work for, randomize if indifferent</li>
+</ol></li>
+<li>Proposition 13.B.1
+<ul>
+<li><span class="math inline">\(w^*&gt;r(\underline{θ})\)</span> and exists <span class="math inline">\(ε&gt;0\)</span> s.t. <span class="math inline">\(E\big[ θ|r(θ)\leq w&#39;]\)</span> for all <span class="math inline">\(w&#39;\in( w^*-ε,w^*)\)</span><br />
+<span class="math inline">\(\implies\)</span> unique pure strategy SPNE: <span class="math inline">\(w=w^*\)</span>, <span class="math inline">\(Θ(w^*) = \big\{θ: r(θ)\leq w^*\big\}\)</span></li>
+<li><span class="math inline">\(w^*=r(\underline{θ})\)</span><br />
+<span class="math inline">\(\implies\)</span> multiple pure strategy SPNE, workers enjoy utility par to highest competitive outcome</li>
+<li>Firms have zero profit under any SPNE
+&lt;!–</li>
+</ul></li>
+<li>When <span class="math inline">\(w^*&gt;r(\underline{θ})\)</span><br />
+Let some SPNE be <span class="math inline">\(\big| Θ(\bar{w})\big| = M\)</span>,<br />
+FSOC assume the sum of firms’ profit be
+<span class="math display">\[\begin{aligned}Π &amp;= M\cdot \big( E[θ | r(θ)\leq \bar{w}] - \bar{w}\big) \geq 0 \\
+M &amp;\geq 0 \\
+\bar{w} &amp;\geq r(θ) &amp;&amp; \text{for some }θ\\
+&amp;\geq r(\underline{θ}) \end{aligned}\]</span>
+–&gt;</li>
+</ul>
+</div>
+<div id="constrained-second-best-pareto-optimum" class="section level3">
+<h3>Constrained (Second-Best) Pareto Optimum</h3>
+<ul>
+<li>First best <span class="math inline">\(\subset\)</span> second best</li>
 <li>Government (social planner) intervention
 <ul>
 <li>Wage: <span class="math inline">\(w_e\)</span></li>
 <li>Unemployment benefit: <span class="math inline">\(w_u\)</span></li>
 <li>Set of workers accept <span class="math inline">\(w_e\)</span>: <span class="math inline">\(Θ = \{θ \ | \ w_u+r(θ)\leq w_e\}\)</span></li>
 </ul></li>
-<li>Assume social planner wants to let <span class="math inline">\(Θ\leq\hat{θ}\)</span> accept the job<br />
+<li>Assume social planner wants to let <span class="math inline">\(θ\leq\hat{θ}\)</span> accept the job<br />
 <span class="math display">\[\begin{aligned}\text{Marginal type} &amp;&amp; &amp;w_u + r(\hat{θ}) = w_e \\
 \text{Budget balance} &amp;&amp; &amp;\underbrace{w_e\cdot F(\hat{θ})}_{\text{Total wage}} + \underbrace{w_u\cdot\big(1 - F(\hat{θ})\big)}_{\text{Total unemployment benefit}} = \underbrace{\int_θ^{\hat{θ}} θ\cdot f(θ)\, dθ}_{\text{Total productivity}}\end{aligned}\]</span>
 solving the system gives<br />
