@@ -411,8 +411,8 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 <li>cdf: <span class="math inline">\(F(θ)\)</span>, <span class="math inline">\(F(\hat{θ}) = Pr(θ\leq \hat{θ})\)</span></li>
 </ul></li>
 <li><span class="math inline">\(N\)</span> workers, many firms</li>
-<li>Reservation wage: <span class="math inline">\(r(θ)\geq 0\)</span></li>
 <li>Wage: <span class="math inline">\(w(θ)\)</span></li>
+<li>Reservation wage: <span class="math inline">\(r(θ)\geq 0\)</span></li>
 </ul>
 <div id="benchmark" class="section level3">
 <h3>Benchmark</h3>
@@ -481,18 +481,18 @@ Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \
 <span class="math inline">\(\implies\)</span> unique pure strategy SPNE: <span class="math inline">\(w=w^*\)</span>, <span class="math inline">\(Θ(w^*) = \big\{θ: r(θ)\leq w^*\big\}\)</span></li>
 <li><span class="math inline">\(w^*=r(\underline{θ})\)</span><br />
 <span class="math inline">\(\implies\)</span> multiple pure strategy SPNE, workers enjoy utility par to highest competitive outcome</li>
-<li>Firms have zero profit under any SPNE
-&lt;!–</li>
+<li>Firms have zero profit under any SPNE</li>
 </ul></li>
-<li>When <span class="math inline">\(w^*&gt;r(\underline{θ})\)</span><br />
-Let some SPNE be <span class="math inline">\(\big| Θ(\bar{w})\big| = M\)</span>,<br />
-FSOC assume the sum of firms’ profit be
-<span class="math display">\[\begin{aligned}Π &amp;= M\cdot \big( E[θ | r(θ)\leq \bar{w}] - \bar{w}\big) \geq 0 \\
-M &amp;\geq 0 \\
-\bar{w} &amp;\geq r(θ) &amp;&amp; \text{for some }θ\\
-&amp;\geq r(\underline{θ}) \end{aligned}\]</span>
-–&gt;</li>
 </ul>
+<!--
+- When $w^*>r(\underline{θ})$  
+Let some SPNE be $\big| Θ(\bar{w})\big| = M$,  
+FSOC assume the sum of firms' profit be 
+$$\begin{aligned}Π &= M\cdot \big( E[θ | r(θ)\leq \bar{w}] - \bar{w}\big) \geq 0 \\
+M &\geq 0 \\
+\bar{w} &\geq r(θ) && \text{for some }θ\\
+&\geq r(\underline{θ}) \end{aligned}$$
+-->
 </div>
 <div id="constrained-second-best-pareto-optimum" class="section level3">
 <h3>Constrained (Second-Best) Pareto Optimum</h3>
@@ -545,6 +545,23 @@ Therefore, workers who don’t work both before and after government interventio
 </div>
 <div id="signalling" class="section level3">
 <h3>Signalling</h3>
+<ul>
+<li>Type of workers: <span class="math inline">\(\{θ_H, θ_L\}\)</span>
+<ul>
+<li><span class="math inline">\(Pr(θ = θ_H) = λ\)</span></li>
+</ul></li>
+<li>Education (signal): <span class="math inline">\(e\geq 0\)</span>
+<ul>
+<li>Cost of education: <span class="math inline">\(c(e,θ)\)</span></li>
+<li><span class="math inline">\(c(0, θ)=0\)</span> for all θ</li>
+<li><span class="math inline">\(c_e(e,θ)&gt;0\)</span>, <span class="math inline">\(c_{ee}(e,θ)&gt;0\)</span></li>
+<li><span class="math inline">\(c_θ(e,θ)&lt;0\)</span>, <span class="math inline">\(c_{eθ}(e,θ)&lt;0\)</span><br />
+<span class="math inline">\(\implies\)</span> cost &amp; marginal cost are lower for high type</li>
+</ul></li>
+<li>Wage: <span class="math inline">\(w\)</span></li>
+<li>Utility function: <span class="math inline">\(u(w,e\ |\ θ) = w - c(e,θ)\)</span></li>
+<li>Reservation wage: <span class="math inline">\(r(θ)\geq 0\)</span></li>
+</ul>
 <blockquote>
 <p>PS3.Q1<br />
 Consider the following the signalling model where workers choose education levels to signal their productivity.<br />
