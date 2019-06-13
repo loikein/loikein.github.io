@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">18 min read</span>
+    <span class="article-duration">20 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -98,7 +98,12 @@
 <li><a href="#unknown-type-competitive-equilibrium">Unknown Type Competitive Equilibrium</a></li>
 <li><a href="#spne">SPNE</a></li>
 <li><a href="#constrained-second-best-pareto-optimum">Constrained (Second-Best) Pareto Optimum</a></li>
-<li><a href="#signalling">Signalling</a></li>
+</ul></li>
+<li><a href="#job-market-signalling">Job Market Signalling</a><ul>
+<li><a href="#pooling-equilibria">Pooling Equilibria</a></li>
+<li><a href="#separating-equilibrium-1">Separating Equilibrium</a></li>
+<li><a href="#hybrid-equilibrium">Hybrid Equilibrium</a></li>
+<li><a href="#equilibrium-refinements">Equilibrium Refinements</a></li>
 </ul></li>
 <li><a href="#competitive-car-insurance-market">Competitive Car Insurance Market</a><ul>
 <li><a href="#benchmark-1">Benchmark</a></li>
@@ -543,25 +548,107 @@ w_u(\hat{θ}) &amp;&lt; w_u(θ^*)\end{aligned}\]</span>
 Therefore, workers who don’t work both before and after government intervention are strictly worse-off</li>
 </ul>
 </div>
-<div id="signalling" class="section level3">
-<h3>Signalling</h3>
+</div>
+<div id="job-market-signalling" class="section level2">
+<h2>Job Market Signalling</h2>
 <ul>
-<li>Type of workers: <span class="math inline">\(\{θ_H, θ_L\}\)</span>
+<li>Type of workers: <span class="math inline">\(η\in\{H, L\}\)</span>
 <ul>
-<li><span class="math inline">\(Pr(θ = θ_H) = λ\)</span></li>
+<li>Utility function: <span class="math inline">\(u(w,e\ |\ θ) = w - c(η,e)\)</span></li>
+<li>Reservation wage: <span class="math inline">\(r(θ)\geq 0\)</span></li>
+<li><span class="math inline">\(Pr(η = H) = q\)</span></li>
 </ul></li>
 <li>Education (signal): <span class="math inline">\(e\geq 0\)</span>
 <ul>
-<li>Cost of education: <span class="math inline">\(c(e,θ)\)</span></li>
-<li><span class="math inline">\(c(0, θ)=0\)</span> for all θ</li>
-<li><span class="math inline">\(c_e(e,θ)&gt;0\)</span>, <span class="math inline">\(c_{ee}(e,θ)&gt;0\)</span></li>
-<li><span class="math inline">\(c_θ(e,θ)&lt;0\)</span>, <span class="math inline">\(c_{eθ}(e,θ)&lt;0\)</span><br />
+<li>Cost of education: <span class="math inline">\(c(η,e)\)</span></li>
+<li><span class="math inline">\(c(η,0)=0\)</span> for all η</li>
+<li><span class="math inline">\(c_e&gt;0\)</span>, <span class="math inline">\(c_{ee}&gt;0\)</span></li>
+<li><span class="math inline">\(c_η&lt;0 \implies c(L,e)&gt;c(H,e)\)</span><br />
+<span class="math inline">\(c_{ηe}&lt;0 \implies c_e(L,e)&gt;c_e(H,e)\)</span><br />
 <span class="math inline">\(\implies\)</span> cost &amp; marginal cost are lower for high type</li>
 </ul></li>
-<li>Wage: <span class="math inline">\(w\)</span></li>
-<li>Utility function: <span class="math inline">\(u(w,e\ |\ θ) = w - c(e,θ)\)</span></li>
-<li>Reservation wage: <span class="math inline">\(r(θ)\geq 0\)</span></li>
+<li>Firms’ productivity: <span class="math inline">\(y(η, e)\)</span>
+<ul>
+<li>Belief: <span class="math inline">\(μ(e)=Pr(η = H \ | \ e)\)</span><br />
+</li>
+<li>Optimal wage:
+<span class="math display">\[w(e) = μ(e)\cdot y(H,e) + \big( 1-μ(e)\big)\cdot y(L,e)\]</span></li>
+</ul></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-indiff-curves.png" alt="Workers’ indifference curves: single-crossing" width="335" />
+<p class="caption">Workers’ indifference curves: <strong>single-crossing</strong></p>
+</div>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-isoprofit.png" alt="Firms’ isoprofit lines" width="440" />
+<p class="caption">Firms’ isoprofit lines</p>
+</div>
+<ul>
+<li>First best (types are observable)<br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;\phantom{\ggg}\big(y(η, e) - w\big) + \big( w - c(η,e)\big) \\
+&amp;&amp; &amp;= y(η, e) - c(η,e) \\
+FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\partial e} - \frac{\partial c(η,e)}{\partial e}\overset{!}{=} 0 \\
+&amp;&amp; e^* &amp;= e^*(η)\end{aligned}\]</span>
+<ul>
+<li>No envy case
+<span class="math display">\[\begin{aligned}\text{Type L} &amp;&amp; e^*(L) \succsim_L e^*(H) \\
+  \text{Type H} &amp;&amp; e^*(H) \succsim_H e^*(L)\end{aligned}\]</span>
+<img src="/post-img/notes-contract--job-signal-no-envy.png" width="469" /></li>
+<li>Envy case
+<span class="math display">\[\begin{aligned}\text{Type L} &amp;&amp; e^*(L) \succsim_L e^*(H) \\
+  \text{Type H} &amp;&amp; e^*(H) \succsim_H e^*(L)\end{aligned}\]</span>
+<img src="/post-img/notes-contract--job-signal-envy.png" width="439" /></li>
+</ul></li>
+</ul>
+<div id="pooling-equilibria" class="section level3">
+<h3>Pooling Equilibria</h3>
+<ul>
+<li>Strategy profile: <span class="math inline">\(\{e_p, w(e), μ(e)\}\)</span></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>One possible equilibrium</li>
+</ol>
+<ul>
+<li>Firms’ belief: <span class="math inline">\(μ(e)= \begin{cases}0 &amp; e&lt;e_p \\ q &amp; e=e_p \\ 0 &amp; e&gt; e_p \end{cases}\)</span></li>
+<li>Optimal wage:
+<span class="math display">\[\begin{aligned}w(e) &amp;= μ(e)\cdot y(H,e) + \big( 1-μ(e)\big)\cdot y(L,e)\\
+&amp;= \begin{cases}w_p &amp; e=e_p \\ y(L,e) &amp; e\neq e_p \end{cases}\end{aligned}\]</span></li>
+<li>Workers’ problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w(e) - c(η,e) \end{aligned}\]</span>
+<ul>
+<li>Let <span class="math inline">\((w&#39;,e&#39;)\sim_L \big(w^*(L),e^*(L)\big)\)</span></li>
+<li>Low type chooses <span class="math inline">\(e = e_p\)</span> when <span class="math inline">\(e_p &lt; e&#39;\)</span></li>
+<li>High type chooses <span class="math inline">\(e = e_p\)</span> since <span class="math inline">\(μ(e&gt; e_p)=0\)</span></li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-contract--job-signal-pooling.png" width="547" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Another possible equilibrium</li>
+</ol>
+<ul>
+<li>Firms’ belief: <span class="math inline">\(μ(e)= \begin{cases}0 &amp; e&lt;e_p \\ q &amp; e=e_p \\ 0 &amp; e\in(e_p,e&#39;&#39;] \\q &amp; e&gt;e&#39;&#39;\end{cases}\)</span></li>
+<li>Optimal wage:
+<span class="math display">\[w(e) = \begin{cases}y(L,e) &amp; e&lt;e_p \\ w_p &amp; e=e_p \\ y(L,e) &amp; e\in(e_p,e&#39;&#39;] \\ w_p &amp; e&gt;e&#39;&#39;\end{cases}\]</span></li>
+<li>Workers
+<ul>
+<li>Let <span class="math inline">\((w&#39;,e&#39;)\sim_L \big(w^*(L),e^*(L)\big)\)</span><br />
+<span class="math inline">\((w&#39;&#39;,e&#39;&#39;)\sim_H (w_p,e_p)\)</span><br />
+</li>
+<li>Low type chooses <span class="math inline">\(e = e_p\)</span> when <span class="math inline">\(e^*(L)\leq e_p \leq e&#39;\)</span></li>
+<li>High type chooses <span class="math inline">\(e = e_p\)</span> since <span class="math inline">\(μ(e&gt; e&#39;&#39;)=q\)</span></li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-contract--job-signal-pooling-2.png" width="520" /></p>
+</div>
+<div id="separating-equilibrium-1" class="section level3">
+<h3>Separating Equilibrium</h3>
+</div>
+<div id="hybrid-equilibrium" class="section level3">
+<h3>Hybrid Equilibrium</h3>
+</div>
+<div id="equilibrium-refinements" class="section level3">
+<h3>Equilibrium Refinements</h3>
 <blockquote>
 <p>PS3.Q1<br />
 Consider the following the signalling model where workers choose education levels to signal their productivity.<br />
