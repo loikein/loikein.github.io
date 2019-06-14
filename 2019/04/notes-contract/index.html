@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">20 min read</span>
+    <span class="article-duration">21 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -101,8 +101,8 @@
 </ul></li>
 <li><a href="#job-market-signalling">Job Market Signalling</a><ul>
 <li><a href="#pooling-equilibria">Pooling Equilibria</a></li>
-<li><a href="#separating-equilibrium-1">Separating Equilibrium</a></li>
-<li><a href="#hybrid-equilibrium">Hybrid Equilibrium</a></li>
+<li><a href="#separating-equilibria-envy-case">Separating Equilibria: Envy Case</a></li>
+<li><a href="#hybrid-mixed-equilibrium">Hybrid (Mixed) Equilibrium</a></li>
 <li><a href="#equilibrium-refinements">Equilibrium Refinements</a></li>
 </ul></li>
 <li><a href="#competitive-car-insurance-market">Competitive Car Insurance Market</a><ul>
@@ -607,7 +607,7 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <li>Strategy profile: <span class="math inline">\(\{e_p, w(e), μ(e)\}\)</span></li>
 </ul>
 <ol style="list-style-type: decimal">
-<li>One possible equilibrium</li>
+<li>One possibility</li>
 </ol>
 <ul>
 <li>Firms’ belief: <span class="math inline">\(μ(e)= \begin{cases}0 &amp; e&lt;e_p \\ q &amp; e=e_p \\ 0 &amp; e&gt; e_p \end{cases}\)</span></li>
@@ -622,9 +622,9 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <li>High type chooses <span class="math inline">\(e = e_p\)</span> since <span class="math inline">\(μ(e&gt; e_p)=0\)</span></li>
 </ul></li>
 </ul>
-<p><img src="/post-img/notes-contract--job-signal-pooling.png" width="547" /></p>
+<p><img src="/post-img/notes-contract--job-signal-pooling-1.png" width="521" /></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Another possible equilibrium</li>
+<li>Another possibility</li>
 </ol>
 <ul>
 <li>Firms’ belief: <span class="math inline">\(μ(e)= \begin{cases}0 &amp; e&lt;e_p \\ q &amp; e=e_p \\ 0 &amp; e\in(e_p,e&#39;&#39;] \\q &amp; e&gt;e&#39;&#39;\end{cases}\)</span></li>
@@ -639,13 +639,53 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <li>High type chooses <span class="math inline">\(e = e_p\)</span> since <span class="math inline">\(μ(e&gt; e&#39;&#39;)=q\)</span></li>
 </ul></li>
 </ul>
-<p><img src="/post-img/notes-contract--job-signal-pooling-2.png" width="520" /></p>
+<p><img src="/post-img/notes-contract--job-signal-pooling-2.png" width="516" /></p>
 </div>
-<div id="separating-equilibrium-1" class="section level3">
-<h3>Separating Equilibrium</h3>
+<div id="separating-equilibria-envy-case" class="section level3">
+<h3>Separating Equilibria: Envy Case</h3>
+<ul>
+<li>Strategy profile: <span class="math inline">\(\{L:e^*(L), H:e_s, w(e), μ(e)\}\)</span></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>One possibility</li>
+</ol>
+<ul>
+<li>Firms’ belief: <span class="math inline">\(μ(e) = \begin{cases}0 &amp; e&lt;e_s \\ 1 &amp; e\geq e_s \end{cases}\)</span></li>
+<li>Contraints
+<span class="math display">\[\begin{aligned}(IC)_L &amp;&amp; w^*(L) - c\big(L, e^*(L)\big) &amp;\geq w(e_s) - c(L, e_s) \\
+(PC)_H &amp;&amp; w(e_s) - c(H, e_s) &amp;\geq 0 \\
+\text{Firm} &amp;&amp; w(e_s) &amp;= y(H, e_s)\end{aligned}\]</span></li>
+<li>Optimal wage:
+<span class="math display">\[w(e) = \begin{cases}y(L,e) &amp; e&lt;e_s \\ y(H,e) &amp; e\geq e_s \end{cases}\]</span></li>
+<li>Workers
+<ul>
+<li>Let <span class="math inline">\(\big(w(e_s), e_s\big)\sim_L \big(w^*(L),e^*(L)\big)\)</span></li>
+<li>Low type chooses <span class="math inline">\(e = e^*(L)\)</span> when <span class="math inline">\((IC)_L\)</span> holds</li>
+<li>High type chooses <span class="math inline">\(e = e_s\)</span> since <span class="math inline">\(μ(e&lt;e_s) = 0\)</span></li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-contract--job-signal-separate-1.png" width="433" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Another possibility</li>
+</ol>
+<ul>
+<li>Firms’ belief: <span class="math inline">\(μ(e) = \begin{cases}0 &amp; e\leq e^*(H) \\ ε &amp; e\in\big(e^*(H), e_s\big) \\ 1 &amp; e\geq e_s \end{cases}\)</span></li>
+</ul>
 </div>
-<div id="hybrid-equilibrium" class="section level3">
-<h3>Hybrid Equilibrium</h3>
+<div id="hybrid-mixed-equilibrium" class="section level3">
+<h3>Hybrid (Mixed) Equilibrium</h3>
+<ul>
+<li>Strategy profile: <span class="math inline">\(\{L: π\cdot e_h+(1-π)\cdot e^*(L), H: e_h, w(e), μ(e)\}\)</span></li>
+<li>Firms’ belief: <span class="math inline">\(μ(e) = \begin{cases}0 &amp; e&lt;e_h \\ r &amp; e\geq e_h\end{cases}\)</span>
+<span class="math display">\[\begin{aligned}r &amp;= \frac{q}{q+(1-q)π} \\
+r-q &amp;= \frac{q - q^2 - (1-q)qπ}{q + (1-q) π} \\
+&amp;= \frac{q(1-π) - q^2( 1-π)}{q + (1-q) π} \\
+&amp;= \frac{q(1-q)(1-π)}{q + (1-q) π} &gt; 0 \\
+\implies r&gt; q &amp;\end{aligned}\]</span></li>
+<li>Optimal wage:
+<span class="math display">\[w(e) = \begin{cases}y(L,e) &amp; e&lt;e_h \\ r\cdot y(H,e_h) + (1-r)y(L,e_h) &amp; e\geq e_h \end{cases}\]</span></li>
+</ul>
+<p><img src="/post-img/notes-contract--job-signal-hybrid.png" width="617" /></p>
 </div>
 <div id="equilibrium-refinements" class="section level3">
 <h3>Equilibrium Refinements</h3>
