@@ -103,6 +103,7 @@
 <li><a href="#pooling-equilibria">Pooling Equilibria</a></li>
 <li><a href="#separating-equilibria-envy-case">Separating Equilibria: Envy Case</a></li>
 <li><a href="#hybrid-mixed-equilibrium">Hybrid (Mixed) Equilibrium</a></li>
+<li><a href="#perfect-bayesian-equilibrium-pbe">Perfect Bayesian Equilibrium (PBE)</a></li>
 <li><a href="#equilibrium-refinements">Equilibrium Refinements</a></li>
 </ul></li>
 <li><a href="#competitive-car-insurance-market">Competitive Car Insurance Market</a><ul>
@@ -121,7 +122,7 @@
 <ul>
 <li><a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory</a> (MWG)</li>
 <li><a href="http://93.174.95.27/book/index.php?md5=B3C0791C9FB6308FA345C1CA21C68E45">The Theory of Industrial Organization</a></li>
-<li><a href="http://93.174.95.27/book/index.php?md5=4DC53E7CCAD53B6356429F6CE80F442B">A Primer in Game Theory</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=4DC53E7CCAD53B6356429F6CE80F442B">A Primer in Game Theory</a> (PGT)</li>
 </ul>
 </div>
 <div id="lemon-market-continuous-quality" class="section level2">
@@ -687,8 +688,25 @@ r-q &amp;= \frac{q - q^2 - (1-q)qπ}{q + (1-q) π} \\
 </ul>
 <p><img src="/post-img/notes-contract--job-signal-hybrid.png" width="617" /></p>
 </div>
+<div id="perfect-bayesian-equilibrium-pbe" class="section level3">
+<h3>Perfect Bayesian Equilibrium (PBE)</h3>
+</div>
 <div id="equilibrium-refinements" class="section level3">
 <h3>Equilibrium Refinements</h3>
+<p>MWG 13.C, PGT 4.4</p>
+<ul>
+<li>Requirement 5<br />
+If possible, each player’s beliefs off the equilibrium path should place zero probability on nodes that are reached only if another player plays a strategy that is strictly dominated beginning at some information set.</li>
+<li>Signalling requirement 5<br />
+If the information set following <span class="math inline">\(m_j\)</span> is off the equilibrium path and <span class="math inline">\(m_j\)</span> is dominated for type <span class="math inline">\(t_i\)</span>, then (if possible) the Receiver’s belief <span class="math inline">\(μ(t_i\ |\ m_j)\)</span> should place zero probability on type <span class="math inline">\(t_i\)</span>.<br />
+Possible provided <span class="math inline">\(m_j\)</span> is not dominated for all the types in T.</li>
+<li>Equilibrium-dominated<br />
+Given a PBE in a signaling game, the message <span class="math inline">\(m_j\in M\)</span> is equilibrium-dominated for type <span class="math inline">\(t_i\in T\)</span>, from T if <span class="math inline">\(t_i\)</span>’s equilibrium payoff <span class="math inline">\(U^*(t_i)\)</span> is greater than <span class="math inline">\(t_i\)</span>’s highest possible payoff from <span class="math inline">\(m_j\)</span><br />
+<span class="math display">\[U^*(t_i) &gt; \max_{a_k\in A} \ U_S(t_i, m_j, a_k)\]</span></li>
+<li>Sigalling requirement 6 (Intuitive criterion)<br />
+If the information set following <span class="math inline">\(m_j\)</span> is off the eqiulibrium path, and <span class="math inline">\(m_j\)</span> is equilibrium-dominated for type <span class="math inline">\(t_i\)</span>, then (if possible) the Receiver’s belief <span class="math inline">\(μ(t_i\ |\ m_j)\)</span> should place zero probability on type <span class="math inline">\(t_i\)</span>.<br />
+Possible provided <span class="math inline">\(m_j\)</span> is not equilibrium-dominated for all the types</li>
+</ul>
 <blockquote>
 <p>PS3.Q1<br />
 Consider the following the signalling model where workers choose education levels to signal their productivity.<br />
