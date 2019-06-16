@@ -3,30 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2019/04/notes-time-series/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <loc>/2019/06/intro-python/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <loc>/tags/programming/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/2019/04/notes-time-series/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
     <lastmod>2019-04-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -102,14 +119,14 @@
   </url>
   
   <url>
-    <loc>/tags/javascript/</loc>
+    <loc>/2019/02/intro-js/</loc>
     <lastmod>2019-02-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/2019/02/notes-intro-js/</loc>
+    <loc>/tags/javascript/</loc>
     <lastmod>2019-02-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -170,7 +187,7 @@
   </url>
   
   <url>
-    <loc>/2018/05/notes-intro-c-rmd/</loc>
+    <loc>/2018/05/intro-c-rmd/</loc>
     <lastmod>2018-05-24T00:00:00+00:00</lastmod>
   </url>
   
