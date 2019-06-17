@@ -181,6 +181,11 @@
   </url>
   
   <url>
+    <loc>/test/</loc>
+    <lastmod>2018-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/c/</loc>
     <lastmod>2018-05-24T00:00:00+00:00</lastmod>
     <priority>0</priority>

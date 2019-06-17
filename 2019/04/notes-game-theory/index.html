@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">26 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -101,8 +101,9 @@
 <li><a href="#shapley-value">Shapley Value</a></li>
 </ul></li>
 <li><a href="#repeated-game">Repeated Game</a><ul>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#perfect-monitoring">Perfect Monitoring</a></li>
+<li><a href="#battle-of-sexes">Battle of Sexes</a></li>
+<li><a href="#prisoners-dilemma">Prisoner’s Dilemma</a></li>
+<li><a href="#folk-theorems">Folk Theorems</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1257,11 +1258,8 @@ Since symmetric, consider party 2-6:
 </ul></li>
 <li><span class="math inline">\(s\)</span> is NE <span class="math inline">\(\iff\)</span> for all <span class="math inline">\(i\in I\)</span>, for all <span class="math inline">\(s_i&#39;\)</span> for player i, <span class="math display">\[u_i(s)\geq u_i(s_i&#39;, s_{-i})\]</span></li>
 </ul>
-<div id="examples" class="section level3">
-<h3>Examples</h3>
-<ul>
-<li>Battle of Sexes</li>
-</ul>
+<div id="battle-of-sexes" class="section level3">
+<h3>Battle of Sexes</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1283,15 +1281,15 @@ Since symmetric, consider party 2-6:
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Prisoner’s Dilemma
+</div>
+<div id="prisoners-dilemma" class="section level3">
+<h3>Prisoner’s Dilemma</h3>
 <ul>
 <li>Strictly dominant strategy: D</li>
 <li>Strictly dominated strategy: C</li>
 <li>Unique NE: (D, D)</li>
-<li>Propersition: for <span class="math inline">\(T\in\mathbb{N}\)</span>, in any NE of repeated PD <span class="math inline">\(G^T\)</span>, only (D, D) is played along the equilibrium path <span class="math inline">\((a^1,a^2,\dots,a^T)\)</span></li>
-<li>Propersition: for sufficiently large <span class="math inline">\(δ\)</span>, for infinitely repeated PD <span class="math inline">\(G^{\infty}\)</span>, exists an SPNE where (C, C) is played along the equilibrium path</li>
-</ul></li>
+<li>Preposition: for <span class="math inline">\(T\in\mathbb{N}\)</span>, in any NE of repeated PD <span class="math inline">\(G^T\)</span>, only (D, D) is played along the equilibrium path <span class="math inline">\((a^1,a^2,\dots,a^T)\)</span></li>
+<li>Preposition: for sufficiently large <span class="math inline">\(δ\in[0,1)\)</span>, for infinitely repeated PD <span class="math inline">\(G^{\infty}\)</span>, exists an SPNE where (C, C) is played along the equilibrium path</li>
 </ul>
 <table>
 <thead>
@@ -1314,9 +1312,39 @@ Since symmetric, consider party 2-6:
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Exercise (slides P119)<br />
+In the above derivation we did not use the one-step deviation principle.<br />
+How would the argument simplify if we had used it?</p>
+</blockquote>
 </div>
-<div id="perfect-monitoring" class="section level3">
-<h3>Perfect Monitoring</h3>
+<div id="folk-theorems" class="section level3">
+<h3>Folk Theorems</h3>
+<p>OR 8.5</p>
+<ul>
+<li>Game: <span class="math inline">\(G^{\infty} = \big(I, (A_i)_{i\in I}, (g_i)_{i\in I}\big)\)</span></li>
+<li>Convex hull of payoffs: <span class="math inline">\(V = \Big\{\big( g_1(a),\dots, g_n(a) \big) : a\in A \Big\}\)</span>
+<ul>
+<li><span class="math inline">\(A = A_1\times \dots\times A_n\)</span></li>
+</ul></li>
+<li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_n)\)</span>
+<ul>
+<li>Average discounted payoffs:
+<span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=0}^{\infty} \frac{δ^t}{1+δ + δ^2 + \dots}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
+  &amp;= \sum_{t=0}^{\infty} \underbrace{δ^t (1-δ)}_{\sum = 1}\cdot \underbrace{\big(g_1(a^t) ,\dots, g_n(a^t)\big)}_{\in V} \\
+  &amp;\in V \end{aligned}\]</span></li>
+</ul></li>
+<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{τ_{-i} = a_{-i}\in A_{-i}} \ \max_{τ_i = a_i\in A_i} \ u_i(a_{-i}, a_i)\]</span>
+<ul>
+<li><span class="math inline">\(V^* = \{ v\in V:v_i \geq\underline{v}_i \}\)</span>, <span class="math inline">\(V^*\subset V\)</span></li>
+<li>Preposition: in any NE of <span class="math inline">\(G^{\infty}(δ)\)</span>, each player gets an anverage discounted payoff of at least <span class="math inline">\(\underline{v}_i\)</span><br />
+<span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span></li>
+</ul></li>
+<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 145.2)<br />
+If <span class="math inline">\(\dim (V^*) = |I| = n\)</span>,<br />
+then for any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>,<br />
+exists an SPNE for <span class="math inline">\(G^{\infty}(δ)\)</span> with average discounted payoffs in <span class="math inline">\(B_ε(v)\)</span></li>
+</ul>
 </div>
 </div>
 
