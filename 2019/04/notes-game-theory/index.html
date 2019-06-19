@@ -103,9 +103,9 @@
 <li><a href="#repeated-game">Repeated Game</a><ul>
 <li><a href="#stage-game">Stage Game</a></li>
 <li><a href="#repetition">Repetition</a></li>
+<li><a href="#folk-theorems">Folk Theorems</a></li>
 <li><a href="#example-battle-of-sexes-bos">Example: Battle of Sexes (BoS)</a></li>
 <li><a href="#example-prisoners-dilemma-pd">Example: Prisoner’s Dilemma (PD)</a></li>
-<li><a href="#folk-theorems">Folk Theorems</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1263,7 +1263,7 @@ Since symmetric, consider party 2-6:
 <div id="repetition" class="section level3">
 <h3>Repetition</h3>
 <ul>
-<li>Infinitely repeated game:
+<li>Infinitely repeated game (with discounting preference):
 <span class="math display">\[G^{\infty}(δ) = \big\langle I, (S_i)_{i\in I}, (u_i)_{i\in I}\big\rangle\]</span></li>
 <li>Set of histories: <span class="math inline">\(H = \{\emptyset\}\cup\big(\cup_{t=1}^{\infty} A^t\big) \cup A^{\mathbb{N}}\)</span>
 <ul>
@@ -1289,6 +1289,36 @@ Since symmetric, consider party 2-6:
 <li>Finitely repeated game:
 <span class="math display">\[\begin{aligned}G^T(δ) &amp;= \big\langle I, (S_i)_{i\in I}, (u_i)_{i\in I}\big\rangle \\
 H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="folk-theorems" class="section level3">
+<h3>Folk Theorems</h3>
+<p>OR 8.5</p>
+<ul>
+<li>Game: <span class="math inline">\(G^{\infty} = \big(I, (A_i)_{i\in I}, (g_i)_{i\in I}\big)\)</span></li>
+<li>Set of feasible payoffs (convex hull of payoff profile): <span class="math display">\[V = \Big\{α\cdot\big( g_1(a),\dots, g_n(a) \big) : a\in A, \textstyle{\sum}_n α_i =1 \Big\}\]</span>
+<ul>
+<li>Payoff profile: <span class="math inline">\(v\in\mathbb{R}^N\)</span>, exists <span class="math inline">\(a\)</span> s.t. <span class="math inline">\(v = \big( g_1(a),\dots, g_n(a) \big)\)</span></li>
+<li>Feasible payoff profile: <span class="math inline">\(v\in V\)</span></li>
+</ul></li>
+<li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_n)\)</span>
+<ul>
+<li>Average discounted payoffs:
+<span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=1}^{\infty} \underbrace{δ^{t-1} (1-δ)}_{\sum = 1}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
+  &amp;\in V \end{aligned}\]</span></li>
+</ul></li>
+<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{τ_{-i} = a_{-i}\in A_{-i}} \ \max_{τ_i = a_i\in A_i} \ u_i(a_{-i}, a_i)\]</span>
+<ul>
+<li>Set of enforceable payoff profiles:
+<span class="math display">\[\begin{aligned}V^* &amp;= \{ v\in V:v_i \geq\underline{v}_i \}\\
+  V^* &amp;\subset V \end{aligned}\]</span></li>
+<li>Preposition: in any NE of <span class="math inline">\(G^{\infty}(δ)\)</span>, each player gets an anverage discounted payoff of at least <span class="math inline">\(\underline{v}_i\)</span><br />
+<span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span></li>
+</ul></li>
+<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 145.2)<br />
+If <span class="math inline">\(\dim (V^*) = |I| = n\)</span>,<br />
+then for any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>,<br />
+exists an SPNE for <span class="math inline">\(G^{\infty}(δ)\)</span> with average discounted payoffs in <span class="math inline">\(B_ε(v)\)</span></li>
 </ul>
 </div>
 <div id="example-battle-of-sexes-bos" class="section level3">
@@ -1350,30 +1380,6 @@ H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 In the above derivation we did not use the one-step deviation principle.<br />
 How would the argument simplify if we had used it?</p>
 </blockquote>
-</div>
-<div id="folk-theorems" class="section level3">
-<h3>Folk Theorems</h3>
-<p>OR 8.5</p>
-<ul>
-<li>Game: <span class="math inline">\(G^{\infty} = \big(I, (A_i)_{i\in I}, (g_i)_{i\in I}\big)\)</span></li>
-<li>Convex hull of payoffs: <span class="math inline">\(V = \Big\{α\cdot\big( g_1(a),\dots, g_n(a) \big) : a\in A, \textstyle{\sum}_n α_i =1 \Big\}\)</span></li>
-<li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_n)\)</span>
-<ul>
-<li>Average discounted payoffs:
-<span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=1}^{\infty} \underbrace{δ^{t-1} (1-δ)}_{\sum = 1}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
-  &amp;\in V \end{aligned}\]</span></li>
-</ul></li>
-<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{τ_{-i} = a_{-i}\in A_{-i}} \ \max_{τ_i = a_i\in A_i} \ u_i(a_{-i}, a_i)\]</span>
-<ul>
-<li><span class="math inline">\(V^* = \{ v\in V:v_i \geq\underline{v}_i \}\)</span>, <span class="math inline">\(V^*\subset V\)</span></li>
-<li>Preposition: in any NE of <span class="math inline">\(G^{\infty}(δ)\)</span>, each player gets an anverage discounted payoff of at least <span class="math inline">\(\underline{v}_i\)</span><br />
-<span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span></li>
-</ul></li>
-<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 145.2)<br />
-If <span class="math inline">\(\dim (V^*) = |I| = n\)</span>,<br />
-then for any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>,<br />
-exists an SPNE for <span class="math inline">\(G^{\infty}(δ)\)</span> with average discounted payoffs in <span class="math inline">\(B_ε(v)\)</span></li>
-</ul>
 </div>
 </div>
 

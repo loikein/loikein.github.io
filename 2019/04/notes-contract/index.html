@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">21 min read</span>
+    <span class="article-duration">23 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -113,6 +113,13 @@
 <li><a href="#non-linear-pricing">Non-Linear Pricing</a><ul>
 <li><a href="#price-distrimination-with-perfect-information">Price Distrimination with Perfect Information</a></li>
 <li><a href="#asymmetric-information">Asymmetric Information</a></li>
+</ul></li>
+<li><a href="#moral-hazard">Moral Hazard</a><ul>
+<li><a href="#first-best">First Best</a></li>
+<li><a href="#second-best">Second Best</a></li>
+<li><a href="#risk-neutral-parties-unlimited-liability">Risk Neutral Parties &amp; Unlimited Liability</a></li>
+<li><a href="#risk-neutral-parties-limited-liability">Risk Neutral Parties &amp; Limited Liability</a></li>
+<li><a href="#constant-absolute-risk-averse-cara">Constant Absolute Risk Averse (CARA)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -889,6 +896,112 @@ Plug into firm’s problem
  &amp;&amp; &amp;= 0\end{aligned}\]</span></li>
 </ol></li>
 </ol>
+</div>
+</div>
+<div id="moral-hazard" class="section level2">
+<h2>Moral Hazard</h2>
+<p>Bolton a Dewatripont’s Contract Theory, Ch4</p>
+<ul>
+<li>Outcome: <span class="math inline">\(q\in\{0,1\}\)</span>
+<ul>
+<li><span class="math inline">\(Pr(q=1\ |\ a) = p(a)\)</span></li>
+<li><span class="math inline">\(p(0)=0\)</span>, <span class="math inline">\(p(\infty)=1\)</span></li>
+<li><span class="math inline">\(p&#39;&gt;0\)</span>, <span class="math inline">\(p&#39;&#39;&lt;0\)</span></li>
+</ul></li>
+<li>Principle’s utility: <span class="math inline">\(V(q-w)\)</span>
+<ul>
+<li><span class="math inline">\(V&#39;&gt;0\)</span>, <span class="math inline">\(V&#39;&#39;\leq 0\)</span></li>
+</ul></li>
+<li>Agent’s utility: <span class="math inline">\(u(w) - a\)</span></li>
+</ul>
+<div id="first-best" class="section level3">
+<h3>First Best</h3>
+<ul>
+<li>Assumption: <span class="math inline">\(a\)</span> is observable<br />
+<span class="math inline">\(\implies\)</span> can write contract on effort</li>
+<li>Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;p(a)\cdot V(1-w_1) + \big(1-p(a)\big)\cdot V(0-w_0) \\
+(PC) &amp;&amp; &amp;p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a\geq 0\end{aligned}\]</span>
+let (PC) be binding, Lagrangian function:
+<span class="math display">\[\begin{aligned}\mathcal{L} &amp;= p(a)\cdot V(1-w_1) + \big(1-p(a)\big)\cdot V(0-w_0) \\
+&amp;\phantom{\ggg} +λ\Big(p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a \Big) \\
+\frac{\partial\mathcal{L}}{\partial w_1} &amp;= p(a)\cdot V&#39;(1-w_1)\cdot (-1) + λ\cdot p(a)\cdot u&#39;(w_1) \overset{!}{=} 0 \\
+\frac{\partial\mathcal{L}}{\partial w_0} &amp;= \big(1-p(a)\big)\cdot V&#39;(-w_0)\cdot (-1) + λ\cdot\big(1-p(a)\big)\cdot u&#39;(w_0) \overset{!}{=} 0 \\
+\frac{\partial\mathcal{L}}{\partial a} &amp;= p&#39;(a)\cdot\big(V(1-w_1) - V(-w_0) \big) + λ\Big(p&#39;(a)\cdot\big(u(w_1) - u(w_0)\big) - 1\Big)\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}V&#39;(1-w_1) &amp;= λ\cdot u&#39;(w_1) \\
+V&#39;(-w_0) &amp;= λ\cdot u&#39;(w_0) \\
+λ &amp;= \frac{V&#39;(1-w_1)}{u&#39;(w_1)} = \frac{V&#39;(-w_0)}{u&#39;(w_0)}\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="second-best" class="section level3">
+<h3>Second Best</h3>
+<ul>
+<li>Assumption: <span class="math inline">\(a\)</span> is unobservable</li>
+<li>Agent’s problem:
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; &amp;p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a \\
+FOC &amp;&amp; &amp;p&#39;(a)\cdot \big( u(w_1) -u(w_0)\big) \overset{!}{=} 1 \\
+\implies &amp;&amp; &amp;(IC)\end{aligned}\]</span>
+Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{w_i} &amp;&amp; &amp;p(\hat{a})\cdot V(1-w_1) + \big(1-p(\hat{a})\big)\cdot V(0-w_0) \\
+(PC) &amp;&amp; &amp;p(\hat{a})\cdot u(w_1) + \big(1-p(\hat{a})\big)\cdot u(w_0) - \hat{a}\geq 0 \\
+(IC) &amp;&amp; &amp;p&#39;(\hat{a})\cdot \big( u(w_1) -u(w_0)\big) = 1\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="risk-neutral-parties-unlimited-liability" class="section level3">
+<h3>Risk Neutral Parties &amp; Unlimited Liability</h3>
+<ul>
+<li>RN assumptions: <span class="math inline">\(V(x) = x\)</span>, <span class="math inline">\(u(w) = w\)</span></li>
+<li>Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;p(a)\cdot (1-w_1) + \big(1-p(a)\big)\cdot (0-w_0) \\
+(PC) &amp;&amp; &amp;p(a)\cdot w_1 + \big(1-p(a)\big)\cdot w_0 - a = 0 \end{aligned}\]</span>
+plug in
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; &amp;p(a) - a \\
+FOC &amp;&amp; p&#39;(a) -1 \overset{!}{=} 0 \\ \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> FB solution<br />
+since (IC): <span class="math inline">\(p&#39;(a^*)\cdot (w_1 - w_0) = 1\)</span><br />
+<span class="math inline">\(\implies w_1 - w_0 = 1\)</span><br />
+plugin back to (PC)
+<span class="math display">\[\begin{aligned}p(a^*)\cdot (w_0+1) + \big(1-p(a^*)\big)\cdot w_0 &amp;= a^* \\
+p(a^*) + w_0 &amp;= a^* \\
+\underbrace{p(a^*) - a^*}_{\text{Social surplus}} &amp;= -w_0 \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> franchise contract with fee <span class="math inline">\(w_0\)</span></li>
+</ul>
+</div>
+<div id="risk-neutral-parties-limited-liability" class="section level3">
+<h3>Risk Neutral Parties &amp; Limited Liability</h3>
+<ul>
+<li>RN assumptions: <span class="math inline">\(V(x) = x\)</span>, <span class="math inline">\(u(w) = w\)</span></li>
+<li>LL assumptions: <span class="math inline">\(w_1\geq w_0\geq 0\)</span>
+<ul>
+<li><span class="math inline">\(w_0=0\)</span></li>
+</ul></li>
+<li>Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,w_1} &amp;&amp; &amp;p(a)(1-w_1) \\
+(IC) &amp;&amp; &amp;p&#39;(a)\cdot w_1 = 1 \end{aligned}\]</span>
+where (PC): <span class="math inline">\(p(a)\cdot w_1-a\geq 0\)</span> is satisfied under (IC)<br />
+FB effort will not be achieved since <span class="math inline">\(p&#39;(a^{FB}) =1 \implies w_1^{FB}=1\)</span><br />
+plug in
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; p(a)\Big(1-\frac{1}{p&#39;(a)}\Big)&amp; \\
+FOC &amp;&amp; p&#39;(a) - \frac{\big(p&#39;(a)\big)^2 - p&#39;&#39;(a)\cdot p(a)}{\big(p&#39;(a)\big)^2} &amp;\overset{!}{=} 0 \\
+&amp;&amp; p&#39;(a) = 1-\frac{p&#39;&#39;(a)\cdot p(a)}{\big(p&#39;(a)\big)^2} &amp;&lt; 1\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="constant-absolute-risk-averse-cara" class="section level3">
+<h3>Constant Absolute Risk Averse (CARA)</h3>
+<ul>
+<li>Assumption: <span class="math inline">\(q=a+ε\)</span>
+<ul>
+<li><span class="math inline">\(ε\sim\mathcal{N}(0,σ^2)\)</span></li>
+</ul></li>
+<li>Principal’s utility: (RN) <span class="math inline">\(V(x) = x\)</span></li>
+<li>Agent’s utility: <span class="math display">\[u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)\]</span>
+<ul>
+<li>Cost of effort: <span class="math inline">\(g(a) = \frac{c}{2}a^2\)</span></li>
+<li>Risk aversion coefficient: <span class="math inline">\(r=-\frac{u&#39;&#39;}{u&#39;}\)</span></li>
+</ul></li>
+<li>Linear contract: <span class="math inline">\(w = β + αq\)</span></li>
+</ul>
 </div>
 </div>
 
