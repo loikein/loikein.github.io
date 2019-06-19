@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">32 min read</span>
     
     <h1 class="article-title">Notes on Institution</h1>
     
@@ -108,6 +108,7 @@
 <li><a href="#property-rights">Property Rights</a><ul>
 <li><a href="#vertical-integration">Vertical Integration</a></li>
 <li><a href="#joint-venture">Joint Venture</a></li>
+<li><a href="#privatization">Privatization</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1044,7 +1045,7 @@ therefore, seller chooses <span class="math inline">\(e=0\)</span>, the first be
 <li>Party B
 <ul>
 <li>Supplier of intermediate product</li>
-<li>Provider of intermediate product with some asset</li>
+<li>Provider of intermediate product with some physical asset</li>
 <li>Cost of trading: <span class="math inline">\(c(b)\)</span></li>
 <li><span class="math inline">\(c&#39;(b)&lt;0\)</span>, <span class="math inline">\(c&#39;&#39;(b)&gt;0\)</span></li>
 <li><span class="math inline">\(-c&#39;(0)&gt;2\)</span>, <span class="math inline">\(\lim_{b\to\infty}c&#39;(b)=0\)</span></li>
@@ -1097,8 +1098,8 @@ FOC &amp;&amp; v&#39;(a^{FB}) &amp;= 1 \\
 <li>Day2: trade (second best)
 <ul>
 <li>Incomplete contract: can only specify <span class="math inline">\(o=A,B,J\)</span></li>
-<li>Renegotiation at day 2: split the surplus (<a href="../notes-game-theory/#nash-bargaining-solution-nbs">NBS</a>)<br />
-<span class="math display">\[\begin{aligned}\text{Total surplus} &amp;&amp; &amp;\big( v(a)-c(b)\big)-(D^o_A + D^o_B)\\
+<li>Re-negotiation at day 2: split the surplus (<a href="../notes-game-theory/#nash-bargaining-solution-nbs">NBS</a>)<br />
+<span class="math display">\[\begin{aligned}\text{Re-negotiation surplus} &amp;&amp; &amp;\big( v(a)-c(b)\big)-(D^o_A + D^o_B)\\
   \text{A&#39;s payoff} &amp;&amp; U_A^o(a,b) &amp;= D^o_A - a +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
   &amp;&amp; a^o &amp;= \text{argmax}_{a} \ U_A^o(a,b) \\
   \text{B&#39;s payoff} &amp;&amp; U_B^o(a,b) &amp;= D^o_B - b +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
@@ -1139,7 +1140,7 @@ B’s payoff:
 <img src="/post-img/notes-institution--integration-b.png" /></p>
 <ul>
 <li>Day 0: ownership structure
-<span class="math display">\[\begin{aligned}\text{Total surplus} &amp;&amp; v(a^o) - c(b^o) - a^o - b^o\\\end{aligned}\]</span>
+Total surplus: <span class="math inline">\(v(a^o) - c(b^o) - a^o - b^o\)</span><br />
 Since <span class="math inline">\(\begin{cases}o^A\succ_A o^J \\ o_A\sim_B o^J \end{cases}\)</span> and <span class="math inline">\(\begin{cases}o^B\succ_B o^J \\ o_B\sim_A o^J \end{cases}\)</span>,<br />
 <span class="math inline">\(\implies o=J\)</span> is not optimal
 <ul>
@@ -1151,10 +1152,13 @@ Since <span class="math inline">\(\begin{cases}o^A\succ_A o^J \\ o_A\sim_B o^J \
 <div id="joint-venture" class="section level3">
 <h3>Joint Venture</h3>
 <ul>
-<li>Investments are for physical assets</li>
+<li>Investments are for physical assets
+<ul>
 <li>Party A’s investment cost: <span class="math inline">\(\frac{1}{2}a^2\)</span></li>
 <li>Party B’s investment cost: <span class="math inline">\(\frac{1}{2}b^2\)</span></li>
+</ul></li>
 <li>When <span class="math inline">\(x=1\)</span>, total surplus: <span class="math inline">\(a+b\)</span></li>
+<li>Default payment from <span class="math inline">\(x=0\)</span>:</li>
 </ul>
 <table>
 <thead>
@@ -1182,23 +1186,169 @@ Since <span class="math inline">\(\begin{cases}o^A\succ_A o^J \\ o_A\sim_B o^J \
 </tr>
 </tbody>
 </table>
-<!-- 
-> Exercise 7  
-> Consider the following variant of the "Property Rights" model:  
-> At date 0, parties A and B agree on an ownership structure $o\in \{A,B,J\}$.  
-> At date 1, party A chooses an investment level $a\geq 0$ at costs $\frac{1}{2}a^2$, and party B simultaneously chooses an investment level $b\geq 0$ at costs $\frac{1}{2}b^2$.  
-> At date 2, the parties bargain about whether or not to collaborate.  
-> If the parties agree on collaboration, together they can generate the date-2 surplus $a+b$.  
-> If the parties do not reach an agreement, then depending on the ownership structure $o$, the default payoffs $D^o_A$ of party A and $D^o_B$ of party B are:
-> 
-> |       | $D_A^o$ | $D_B^o$ |
-> | ----- | ------- | ------- |
-> | $o=A$ | $a+εb$  | 0       |
-> | $o=B$ | 0       | $λa+b$  |
-> | $o=J$ | 0       | 0       |
-> 
-> Suppose $0 < ε < λ < 1$.  
->  -->
+<ul>
+<li>First best
+<ul>
+<li><span class="math inline">\(x^{FB}=1\)</span></li>
+<li>Social planner’s problem
+<span class="math display">\[\begin{aligned}\max_{a,b} &amp;&amp; a+b &amp;-\frac{1}{2}a^2-\frac{1}{2}b^2 \\
+  FOC &amp;&amp; a^{FB} &amp;= 1\\
+  &amp;&amp; b^{FB} &amp;= 1 \end{aligned}\]</span>
+Total surplus: <span class="math inline">\(1+1 - \frac{1}{2}- \frac{1}{2} = 1\)</span></li>
+</ul></li>
+<li>Second best: day 2: negotiations (NBS)
+<span class="math display">\[\begin{aligned}\text{Re-negotiation surplus} &amp;&amp; &amp;( a+b)-(D^o_A + D^o_B)\\
+  \text{A&#39;s payoff} &amp;&amp; U_A^o(a,b) &amp;= D^o_A -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^o_A - D^o_B) \\
+  &amp;&amp; a^o &amp;= \text{argmax}_{a} \ U_A^o(a,b) \\
+  \text{B&#39;s payoff} &amp;&amp; U_B^o(a,b) &amp;= D^o_B -\frac{1}{2}b^2+\frac{1}{2}(a+b - D^o_A - D^o_B) \\
+  &amp;&amp; b^o &amp;= \text{argmax}_{b} \ U_B^o(a,b)\end{aligned}\]</span></li>
+<li>Day 1: investment level
+<ul>
+<li><span class="math inline">\(o=A\)</span><br />
+A’s investment:
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=A}(a,b) &amp;= D^A_A -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^A_A - D^A_B) \\
+  &amp;&amp; &amp;= (a+b)ε -\frac{1}{2}a^2 + \frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\
+  FOC &amp;&amp; ε - a + \frac{1}{2}(1-ε) &amp;= 0 \\
+  &amp;&amp; a^A &amp;= \frac{1}{2}(1+ε)\end{aligned}\]</span>
+B’s investment:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=A}(a,b) &amp;= D^A_B -\frac{1}{2}b^2+\frac{1}{2}(a+b - D^A_A - D^A_B) \\
+  &amp;&amp; &amp;= 0 -\frac{1}{2}b^2+\frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\\\
+  FOC &amp;&amp; -b + \frac{1}{2}(1-ε) &amp;= 0 \\
+  &amp;&amp; b^A &amp;= \frac{1}{2}(1-ε)\end{aligned}\]</span></li>
+<li><span class="math inline">\(o=B\)</span><br />
+By symmetry, <span class="math inline">\(a^B = \frac{1}{2}(1-ε)\)</span>, <span class="math inline">\(b^B = \frac{1}{2}(1+ε)\)</span></li>
+<li><span class="math inline">\(o=J\)</span><br />
+A’s investment:
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=J}(a,b) &amp;= D^J_A -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
+  &amp;&amp; &amp;= 0 -\frac{1}{2}a^2 + \frac{1}{2}(a+b - 0 - 0) \\
+  FOC &amp;&amp; -a + \frac{1}{2} &amp;= 0 \\
+  &amp;&amp; a^J &amp;= \frac{1}{2} \end{aligned}\]</span>
+B’s investment:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=J}(a,b) &amp;= D^J_B -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
+  &amp;&amp; &amp;= 0 -\frac{1}{2}b^2 + \frac{1}{2}(a+b - 0 - 0) \\
+  FOC &amp;&amp; -b + \frac{1}{2} &amp;= 0 \\
+  &amp;&amp; b^J &amp;= \frac{1}{2} \end{aligned}\]</span></li>
+</ul></li>
+<li>Day 0: ownership structure
+Total surplus: <span class="math inline">\(a^o + b^o - \frac{1}{2}(a^o)^2 - \frac{1}{2}(b^o)^2\)</span>
+<ul>
+<li><span class="math inline">\(o=A\)</span>
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(1+ε) + \frac{1}{2}(1-ε) - \frac{1}{2}\cdot\Big(\frac{1}{2}(1+ε)\Big)^2 - \frac{1}{2}\cdot\Big(\frac{1}{2}(1-ε)\Big)^2 \\
+  &amp;= \frac{3}{4}-\frac{1}{4}ε^2\end{aligned}\]</span></li>
+<li><span class="math inline">\(o=B\)</span><br />
+By symmetry, total surplus: <span class="math inline">\(\frac{3}{4}-\frac{1}{4}ε^2\)</span></li>
+<li><span class="math inline">\(o=J\)</span>
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\frac{1}{2} + \frac{1}{2} - \frac{1}{2}\cdot\Big( \frac{1}{2}\Big)^2 - \frac{1}{2}\cdot\Big( \frac{1}{2}\Big)^2\\
+  &amp;= \frac{3}{4} \end{aligned}\]</span>
+Therefore, <span class="math inline">\(o=J\)</span> is optimal</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Exercise 7<br />
+Consider the following variant of the “Property Rights” model:<br />
+At date 0, parties A and B agree on an ownership structure <span class="math inline">\(o\in \{A,B,J\}\)</span>.<br />
+At date 1, party A chooses an investment level <span class="math inline">\(a\geq 0\)</span> at costs <span class="math inline">\(\frac{1}{2}a^2\)</span>, and party B simultaneously chooses an investment level <span class="math inline">\(b\geq 0\)</span> at costs <span class="math inline">\(\frac{1}{2}b^2\)</span>.<br />
+At date 2, the parties bargain about whether or not to collaborate.<br />
+If the parties agree on collaboration, together they can generate the date-2 surplus <span class="math inline">\(a+b\)</span>.<br />
+If the parties do not reach an agreement, then depending on the ownership structure <span class="math inline">\(o\)</span>, the default payoffs <span class="math inline">\(D^o_A\)</span> of party A and <span class="math inline">\(D^o_B\)</span> of party B are:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(D_A^o\)</span></th>
+<th><span class="math inline">\(D_B^o\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(o=A\)</span></td>
+<td><span class="math inline">\(a+εb\)</span></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(o=B\)</span></td>
+<td>0</td>
+<td><span class="math inline">\(λa+b\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(o=J\)</span></td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose <span class="math inline">\(0 &lt; ε &lt; λ &lt; 1\)</span>.</p>
+</blockquote>
+</div>
+<div id="privatization" class="section level3">
+<h3>Privatization</h3>
+<ul>
+<li>Timing
+<ol start="0" style="list-style-type: decimal">
+<li>Parties agree on ownership structure <span class="math inline">\(o\in\{G,M\}\)</span></li>
+<li>M invests <span class="math inline">\(e\in[0,1]\)</span></li>
+<li>Bargin over trading of intermediate good <span class="math inline">\(x\in\{0,1\}\)</span></li>
+</ol></li>
+<li>Party G(overnment / public)
+<ul>
+<li>Surplus from <span class="math inline">\(x=1\)</span>: <span class="math inline">\(2-xεe\)</span></li>
+<li><span class="math inline">\(v&#39;(a)&gt;0\)</span>, <span class="math inline">\(v&#39;&#39;(a)&lt;0\)</span></li>
+<li><span class="math inline">\(v&#39;(0)&gt;2\)</span>, <span class="math inline">\(\lim_{a\to\infty}v&#39;(a)=0\)</span></li>
+</ul></li>
+<li>Party M(anager / firm)
+<ul>
+<li>Cost of investment <span class="math inline">\(e\)</span>: <span class="math inline">\(\frac{1}{2}e^2\)</span></li>
+<li>Cost of provision: <span class="math inline">\(1-xe\)</span></li>
+<li><span class="math inline">\(c&#39;(b)&lt;0\)</span>, <span class="math inline">\(c&#39;&#39;(b)&gt;0\)</span></li>
+<li><span class="math inline">\(-c&#39;(0)&gt;2\)</span>, <span class="math inline">\(\lim_{b\to\infty}c&#39;(b)=0\)</span></li>
+</ul></li>
+<li>First best
+<span class="math display">\[\begin{aligned}\max_{x,e} &amp;&amp; &amp;2-xεe -(1-xe) -\frac{1}{2}e^2 \\
+FOC &amp;&amp; \frac{\partial}{\partial x} &amp;= -εe + e &gt;0 \\
+&amp;&amp; x^{FB} &amp;= 1\\
+&amp;&amp; \frac{\partial}{\partial e} &amp;= -xε + x - e \overset{!}{=} 0\\
+&amp;&amp; e^{FB} &amp;= -xε + x \\
+&amp;&amp; &amp;= 1-ε \end{aligned}\]</span></li>
+<li>Second best: day 2: negotiations (NBS)
+<ul>
+<li><span class="math inline">\(o=M\)</span><br />
+In case of disagreement, M chooses <span class="math inline">\(x=1\)</span><br />
+Default payoff:
+<span class="math display">\[\begin{aligned}\text{M&#39;s payoff} &amp;&amp; D^M_M &amp;= -(1-e) \\
+  \text{G&#39;s payoff} &amp;&amp; D^M_G &amp;= 2-εe \end{aligned}\]</span></li>
+<li><span class="math inline">\(o=G\)</span>
+In case of disagreement, G chooses <span class="math inline">\(x=0\)</span><br />
+Default payoff:
+<span class="math display">\[\begin{aligned}\text{Re-negotiation surplus} &amp;&amp; &amp;1+(1-ε)e - 2 + 1\\
+  \text{M&#39;s payoff} &amp;&amp; D^G_M &amp;= -1 + \frac{1}{2}\big(1+(1-ε)e - 2 + 1 \big) \\
+  \text{G&#39;s payoff} &amp;&amp; D^G_G &amp;= 2 + \frac{1}{2}\big(1+(1-ε)e - 2 + 1 \big) \end{aligned}\]</span></li>
+</ul></li>
+<li>Day 1: investment level
+<ul>
+<li><span class="math inline">\(o=M\)</span>
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; -(1-e) &amp;- \frac{1}{2}e^2 \\
+  FOC &amp;&amp; 1 - e &amp;= 0 \\
+  &amp;&amp; e^M &amp;= 1 \end{aligned}\]</span></li>
+<li><span class="math inline">\(o=G\)</span>
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; -1 &amp;+ \frac{1}{2}\big(1+(1-ε)e - 2 + 1 \big) - \frac{1}{2}e^2 \\
+  FOC &amp;&amp;  \\
+  &amp;&amp; e^G &amp;= \frac{1}{2}(1-ε) \end{aligned}\]</span></li>
+<li><span class="math inline">\(\implies e^G &lt; e^{FB} &lt; e^M\)</span></li>
+</ul></li>
+<li>Day 0: ownership structure<br />
+Total surplus: <span class="math inline">\(1+(1-ε)e^o - \frac{1}{2}(e^o)^2\)</span>
+<ul>
+<li><span class="math inline">\(o=M\)</span>
+<span class="math display">\[\begin{aligned}1 + (1-ε) - \frac{1}{2} &amp;= \frac{3}{2} - ε \end{aligned}\]</span></li>
+<li><span class="math inline">\(o=G\)</span>
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}1+(1-ε)\cdot\frac{1}{2}(1-ε) - \frac{1}{2}\Big(\frac{1}{2}(1-ε) \Big)^2 \\
+  &amp;= \\
+  &amp;= 1+\frac{3}{8}(1-ε)^2 \end{aligned}\]</span></li>
+<li>Choose <span class="math inline">\(o=M\)</span> if
+<span class="math display">\[\begin{aligned} \frac{3}{2} - ε &amp;&gt; 1+\frac{3}{8}(1-ε)^2 \\
+  ε &amp;&lt;\frac{1}{3}\end{aligned}\]</span></li>
+</ul></li>
+</ul>
 </div>
 </div>
 

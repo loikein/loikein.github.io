@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">43 min read</span>
+    <span class="article-duration">44 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -108,7 +108,10 @@
 <li><a href="#competitive-market">Competitive Market</a></li>
 <li><a href="#shrouded-attributes">Shrouded Attributes</a></li>
 </ul></li>
-<li><a href="#social-preference">Social Preference</a></li>
+<li><a href="#social-preference">Social Preference</a><ul>
+<li><a href="#distributional-model">Distributional Model</a></li>
+<li><a href="#inequity-aversion">Inequity Aversion</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -1381,8 +1384,34 @@ Show that the naive agent gets less than her reservation utility under this cont
 &amp;&amp; &amp;= -\frac{1}{2}e^2 + β\cdot(F+αe) \\
 FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + βα\overset{!}{=} 0 \\
 &amp;&amp; e^{TC} &amp;= α \\
-&amp;&amp; e^{S,N} &amp;= \frac{3}{4}α \end{aligned}\]</span></li>
-<li></li>
+&amp;&amp; e^S = e^N &amp;= αβ \\
+&amp;&amp; &amp;= \frac{3}{4}α \end{aligned}\]</span></li>
+<li>Agent accepts if
+<span class="math display">\[\begin{aligned}(PC) &amp;&amp; F + α\cdot e - \frac{1}{2}e^2 &amp;\geq 0 \\
+\text{Time consistent} &amp;&amp; F + α^2 - \frac{1}{2}α^2 &amp;\geq 0 \\
+&amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
+\text{Naive} &amp;&amp; F + α^2 - \frac{1}{2}α^2 &amp;\geq 0 \\
+&amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
+\text{Sophisticated} &amp;&amp; F + βα^2- \frac{1}{2}(αβ)^2 &amp;\geq 0 \\
+&amp;&amp; F &amp;= \frac{1}{2}(αβ)^2 - βα^2 \\
+&amp;&amp; &amp;= -\frac{15}{32}α^2\end{aligned}\]</span></li>
+<li>Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{α,F} &amp;&amp; &amp;\phantom{\ggg}e^N - (F+αe^N) \\
+&amp;&amp; &amp;= αβ - (F+α^2β)\\
+(PC) &amp;&amp; &amp;F = - \frac{1}{2}α^2 \end{aligned}\]</span>
+plug in
+<span class="math display">\[\begin{aligned}\max_{α} &amp;&amp; αβ &amp;- \Big(- \frac{1}{2}α^2+α^2β\Big) \\
+FOC &amp;&amp; \frac{\partial}{\partial α} &amp;= β - (-α + 2αβ )\overset{!}{=} 0\\
+&amp;&amp; &amp;= \frac{3}{4} + α - \frac{3}{2}α \\
+&amp;&amp; α^N &amp;= \frac{3}{2} \\
+&amp;&amp; F^N &amp;= -\frac{9}{8} \end{aligned}\]</span>
+:) Naive agent actually ends up with less than <span class="math inline">\(\bar{u} =0\)</span><br />
+<span class="math display">\[\begin{aligned}u(e^N) &amp;= F + βα^2- \frac{1}{2}(αβ)^2 \\
+&amp;= -\frac{9}{8} + \frac{3}{4}\Big( \frac{3}{2}\Big)^2 - \frac{1}{2}\Big( \frac{3}{2}\cdot \frac{3}{4}\Big)^2 \\
+&amp;= -\frac{9}{128} &lt;0 \end{aligned}\]</span></li>
+<li>No.<br />
+The sophisticated agent would require <span class="math inline">\(F^S&gt;F^N\)</span> for (PC).<br />
+<span class="math inline">\(F = \frac{1}{2}(αβ)^2 - βα^2\)</span>?</li>
 </ol>
 </div>
 <div id="monopolistic-market" class="section level3">
@@ -1621,6 +1650,68 @@ However, <span class="math inline">\(α\geq \frac{e}{\bar{p}}\implies e-α\bar{p
 </div>
 <div id="social-preference" class="section level2">
 <h2>Social Preference</h2>
+<ul>
+<li>Ultimatum game
+<ul>
+<li>Negative reciprocity</li>
+</ul></li>
+<li>Dictator game
+<ul>
+<li>Altruism / inequality aversion</li>
+<li>Fear that receiver may reject</li>
+</ul></li>
+<li>Gift exchange game
+<ul>
+<li>Positive reciprocity</li>
+</ul></li>
+<li>Charitable giving
+<ul>
+<li>Altruism / inequality aversion</li>
+<li>Guilt aversion</li>
+</ul></li>
+<li>Intrinsic concerns vs instrumental concerns</li>
+</ul>
+<div id="distributional-model" class="section level3">
+<h3>Distributional Model</h3>
+<ul>
+<li>Agents: <span class="math inline">\(i=1,\dots, I\)</span></li>
+<li>Allocation: <span class="math inline">\(\underline{x} = (x_1,\dots, x_I)\)</span>
+<ul>
+<li>Monetary payoff: <span class="math inline">\(x_i\in\mathbb{R}_+\)</span></li>
+</ul></li>
+<li>Utility function
+<span class="math display">\[u_i(\underline{x}) = x_i + \sum_{j\neq i} λ_{ij}\cdot( x_i - x_j)\cdot x_j\]</span>
+<ul>
+<li>Weighting (attitude) function: <span class="math inline">\(λ_{ij}:\mathbb{R}\to\mathbb{R}\)</span></li>
+<li>Constant <span class="math inline">\(λ_{ij}\)</span>:
+Altruism: <span class="math inline">\(λ_{ij}&gt;0\)</span><br />
+Envy: <span class="math inline">\(λ_{ij}&lt;0\)</span></li>
+<li>Specification:<br />
+Altruism: <span class="math inline">\(x_i&gt;x_j\)</span>, <span class="math inline">\(λ_{ij}(x_i-x_j)&gt;0\)</span><br />
+Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline">\(λ_{ij}(x_i-x_j)&lt;0\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="inequity-aversion" class="section level3">
+<h3>Inequity Aversion</h3>
+<ul>
+<li>Utility function
+<span class="math display">\[\begin{aligned}u_i(\underline{x}) = x_i &amp;- α_i\cdot\frac{1}{I-1}\cdot\sum_{j\neq i}\max\{x_j-x_i, 0\} &amp;&amp; \text{Envy} \\
+&amp;- β_i\cdot\frac{1}{I-1}\cdot\sum_{j\neq i}\max\{x_i-x_j, 0\} &amp;&amp; \text{Altruism}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(α_i\geq β_i\)</span></li>
+<li><span class="math inline">\(0\leq β_i\leq 1\)</span></li>
+</ul></li>
+<li>2 player case
+<ul>
+<li>Utility function <span class="math display">\[u_i(\underline{x}) = - α_i\cdot\max\{x_j-x_i, 0\} - β_i\cdot\max\{x_i-x_j, 0\}\]</span></li>
+<li><span class="math inline">\(α_i\geq β_i\)</span>: advantageous inequality is preferred</li>
+<li><span class="math inline">\(0\leq β_i\)</span>: being better-off per se gives no utility</li>
+<li><span class="math inline">\(β_i\leq 1\)</span>: not willing to throw away when at advantage<br />
+<img src="/post-img/notes-behavioural--inequality-aversion.png" width="470" /></li>
+</ul></li>
+</ul>
+</div>
 </div>
 
     </div>
