@@ -1304,14 +1304,15 @@ H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 <li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_n)\)</span>
 <ul>
 <li>Average discounted payoffs:
-<span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=1}^{\infty} \underbrace{δ^{t-1} (1-δ)}_{\sum = 1}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
+<span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=1}^{\infty} \overbrace{δ^{t-1} (1-δ)}^{\sum = 1}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
   &amp;\in V \end{aligned}\]</span></li>
 </ul></li>
-<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{τ_{-i} = a_{-i}\in A_{-i}} \ \max_{τ_i = a_i\in A_i} \ u_i(a_{-i}, a_i)\]</span>
+<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{a_{-i}\in A_{-i}} \ \max_{a_i\in A_i} \ u_i(a_{-i}, a_i)\]</span>
 <ul>
 <li>Set of enforceable payoff profiles:
 <span class="math display">\[\begin{aligned}V^* &amp;= \{ v\in V:v_i \geq\underline{v}_i \}\\
   V^* &amp;\subset V \end{aligned}\]</span></li>
+<li>Enforceable outcome: <span class="math inline">\(a\in A\)</span> is an outcome of G, <span class="math inline">\(u(a)\in V^*\)</span></li>
 <li>Preposition: in any NE of <span class="math inline">\(G^{\infty}(δ)\)</span>, each player gets an anverage discounted payoff of at least <span class="math inline">\(\underline{v}_i\)</span><br />
 <span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span></li>
 </ul></li>
