@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">26 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -743,22 +743,29 @@ therefore, the expected productivity is
 w_L &amp;= E[ θ\ |\ θ&lt;θ&#39;] \\
 &amp;= \frac{θ&#39;}{2} \end{aligned}\]</span>
 For <span class="math inline">\(θ\in [θ&#39;,1]\)</span>, workers’ problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w(e) - \frac{e^2}{θ}&amp; \\
-FOC &amp;&amp; w&#39;(e) - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w_H - \frac{e^2}{θ}&amp; \\
+FOC &amp;&amp; w_H&#39; - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \end{aligned}\]</span>
 Since firms make zero profit,
 <span class="math display">\[\begin{aligned}π &amp;= θ-w = 0 \\
-w(e) &amp;= w\big( e(θ)\big) \\
+w_H &amp;= w\big( e(θ)\big) \\
 &amp;= θ\end{aligned}\]</span>
 plug in FOC
-<span class="math display">\[\begin{aligned}w&#39;(e) - 2\cdot\frac{e}{w(e)} &amp;= 0 \\
-w&#39;(e)\cdot w(e) &amp;= 2e \\
-w(e) &amp;= \sqrt{2} e\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}w_H&#39; - 2\cdot\frac{e}{w_H} &amp;= 0 \\
+w_H&#39;\cdot w_H &amp;= 2e \\
+w_H &amp;= \sqrt{2} e\end{aligned}\]</span>
 plug in
 <span class="math display">\[\begin{aligned}\max_e &amp;&amp; \sqrt{2} e - \frac{e^2}{θ}&amp; \\
 FOC &amp;&amp; \sqrt{2} - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \\
 &amp;&amp; e^*(θ) &amp;= \frac{θ}{\sqrt{2}} \\
+&amp;&amp; w_H &amp;= θ \\
 &amp;&amp; u &amp;= w - \frac{e^2}{θ} \\
-&amp;&amp; &amp;= \frac{θ}{2}\end{aligned}\]</span></p>
+&amp;&amp; &amp;= \frac{θ}{2}\end{aligned}\]</span>
+(IC) for low type:
+<span class="math display">\[\begin{aligned}w_L - 0 &amp;\overset{!}{\geq} w_H - \frac{e^2}{θ} \\
+\frac{θ&#39;}{2} &amp;\overset{!}{\geq} θ - \frac{(θ/\sqrt{2})^2}{θ} \\
+\frac{θ&#39;}{2} &amp;\overset{!}{\geq} \frac{θ}{2}\end{aligned}\]</span>
+this holds for workers with <span class="math inline">\(θ\in [0, θ&#39;)\)</span>,<br />
+and holds equal (indifference) for workers with <span class="math inline">\(θ = θ&#39;\)</span>.</p>
 </div>
 </div>
 <div id="competitive-car-insurance-market" class="section level2">
@@ -934,18 +941,24 @@ Since (PC)1 and (IC)2 are binding,
 <span class="math display">\[\begin{aligned}f_1 &amp;= S_1(p_1) \\
  f_2 &amp;= S_2(p_2) - S_2(p_1) + f_1 \\
  &amp;= S_2(p_2) - \big( \underbrace{S_2(p_1) - S_1(p_1)}_{\text{Rent}}\big)\end{aligned}\]</span>
-<span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span> are:
-<span class="math display">\[\begin{aligned}S_1(p_1) &amp;= \frac{(2-p)^2}{2\cdot 3} - f_1 - p_1\cdot D_1(p_1) \\
- &amp;= \frac{(2-p)^2}{6} - S_1(p_1) - p_1\cdot\frac{2 - p}{3} \\
- &amp;= \frac{4-8p-3p^2}{12} \\
- S_2(p_2) &amp;= \frac{(2-p)^2}{2\cdot 1} - f_2 - p_2\cdot D_2(p_2) \\
- &amp;= \frac{(2-p)^2}{2} - S_2(p_2) + \big(S_2(p_1) - S_1(p_1) \big)- p_2\cdot (2 - p) \\
- &amp;=  \end{aligned}\]</span>
+<!--     $S_1$ and $S_2$ are:
+ $$\begin{aligned}S_1(p_1) &= \frac{(2-p)^2}{2\cdot 3} - f_1 - p_1\cdot D_1(p_1) \\
+ &= \frac{(2-p)^2}{6} - S_1(p_1) - p_1\cdot\frac{2 - p}{3} \\
+ &= \frac{4-8p-3p^2}{12} \\
+ S_2(p_2) &= \frac{(2-p)^2}{2\cdot 1} - f_2 - p_2\cdot D_2(p_2) \\
+ &= \frac{(2-p)^2}{2} - S_2(p_2) + \big(S_2(p_1) - S_1(p_1) \big)- p_2\cdot (2 - p) \\
+ &=  \end{aligned}$$ -->
 Plug into firm’s problem
-<span class="math display">\[\begin{aligned}\max_{p_1,p_2} &amp;&amp; S_1(p_1) &amp;+ p_1\cdot D_1(p_1) + S_2(p_2) - \big(S_2(p_1) - S_1(p_1)\big) + p_2\cdot D_2(p_2)\\
- FOC &amp;&amp; \frac{\partial}{\partial p_1} &amp;= S_1&#39;(p_1) + D_1(p_1) + p_1D_1&#39;(p_1) - S_2&#39;(p_1) + S_1&#39;(p_1) \overset{!}{=} 0 \\
- &amp;&amp; &amp;\implies\text{Distortion below the top} \\
- &amp;&amp; \frac{\partial}{\partial p_2} &amp;= S_2&#39;(p_2) + D_2(p_2) + p_2D_2&#39;(p_2)\overset{!}{=} 0\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_{p_1,p_2} &amp;&amp; &amp;\phantom{\ggg}S_1(p_1) + p_1\cdot D_1(p_1) + S_2(p_2) - \big(S_2(p_1) - S_1(p_1)\big) + p_2\cdot D_2(p_2)\\
+ &amp;&amp; &amp;= \frac{(2-p_1)^2}{2\cdot 3} + p_1\cdot \frac{2 - p_1}{3}  \\
+ &amp;&amp; &amp;\phantom{\ggg}+ \frac{(2-p_2)^2}{2\cdot 1} - \Big(\frac{(2-p_1)^2}{2\cdot 1} - \frac{(2-p_1)^2}{2\cdot 3} \Big) + p_2\cdot (2 - p_2) \\
+ &amp;&amp; &amp;= \frac{2(2-p_1)}{3} - \frac{(2-p_1)^2}{2} + \frac{(2-p_2)^2}{2} + p_2\cdot (2 - p_2) \\
+ FOC &amp;&amp; \frac{\partial}{\partial p_1} &amp;= \frac{2}{3}\cdot(-1) +\frac{1}{2}\cdot 2(2-p_1)(-1)\overset{!}{=} 0 \\
+ &amp;&amp; p_1^* &amp;= \frac{4}{3} \\
+ &amp;&amp; &amp;\implies\text{Too little below the top} \\
+ &amp;&amp; \frac{\partial}{\partial p_2} &amp;= \frac{1}{2}\cdot 2(2-p_2)(-1) + (2-p_2) + p_2\cdot(-1)\overset{!}{=} 0 \\
+ &amp;&amp; p_2^* &amp;= 0 \\
+ &amp;&amp; &amp;\implies\text{No distortion at the top} \\\end{aligned}\]</span></li>
 </ol></li>
 </ol>
 </div>
@@ -1042,17 +1055,52 @@ FOC &amp;&amp; p&#39;(a) - \frac{\big(p&#39;(a)\big)^2 - p&#39;&#39;(a)\cdot p(a
 <div id="constant-absolute-risk-averse-cara" class="section level3">
 <h3>Constant Absolute Risk Averse (CARA)</h3>
 <ul>
-<li>Assumption: <span class="math inline">\(q=a+ε\)</span>
-<ul>
-<li><span class="math inline">\(ε\sim\mathcal{N}(0,σ^2)\)</span></li>
-</ul></li>
 <li>Principal’s utility: (RN) <span class="math inline">\(V(x) = x\)</span></li>
-<li>Agent’s utility: <span class="math display">\[u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)\]</span>
+<li>Agent’s utility: (RA) <span class="math display">\[u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)\]</span>
 <ul>
 <li>Cost of effort: <span class="math inline">\(g(a) = \frac{c}{2}a^2\)</span></li>
 <li>Risk aversion coefficient: <span class="math inline">\(r=-\frac{u&#39;&#39;}{u&#39;}\)</span></li>
+<li>Effort: <span class="math inline">\(a\)</span></li>
+<li>Performance: <span class="math inline">\(q=a+ε\)</span><br />
+<span class="math inline">\(ε\sim\mathcal{N}(0,σ^2)\implies q\sim\mathcal{N}(a,σ^2)\)</span></li>
 </ul></li>
-<li>Linear contract: <span class="math inline">\(w = β + αq\)</span></li>
+<li>Linear contract: <span class="math inline">\(w = β + αq\)</span>
+<ul>
+<li>Efficient incentive: <span class="math inline">\(α = 1\)</span></li>
+<li>Efficient risk-sharing: <span class="math inline">\(α = 0\)</span></li>
+</ul></li>
+<li>Agent’s problem:
+<span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}E\bigg[-\exp\Big(-r\cdot\big(β + αq - \frac{c}{2}a^2\big)\Big) \bigg] \\
+&amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + αq - \frac{a^2c}{2}\big)\Big)\bigg] \\
+&amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + rαa + αε - \frac{a^2c}{2}\big)\Big)\bigg] \\
+&amp;&amp; &amp;= -E\big[\exp(-r\cdot αε)\big]\cdot\exp\Big(-r\cdot\big(β + αa - \frac{a^2c}{2}\big)\Big) \\
+&amp;&amp; &amp;= -\exp\Big(\frac{r^2α^2σ^2}{2}\Big)\cdot\exp\Big(-r\cdot\big(β + αa - \frac{a^2c}{2}\big)\Big) \\
+&amp;&amp; &amp;= -\exp\Big(-r\cdot\big(\frac{-rα^2σ^2 - a^2c}{2}+β +αa\big)\Big) \end{aligned}\]</span>
+since <span class="math inline">\(-\exp(\cdot)\)</span> is decreasing, let
+<span class="math display">\[\begin{aligned}f(a) &amp;= \frac{-rα^2σ^2 - a^2c}{2}+β +αa \\
+f&#39;(a) &amp;= -\frac{1}{2}\cdot 2ac + α \overset{!}{=} 0 \\
+a^* &amp;= \frac{α}{c} \end{aligned}\]</span></li>
+<li>Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{a, α,β} &amp;&amp; &amp;\phantom{\ggg}E\big[q - (β + αq) \big] \\
+&amp;&amp; &amp;= E\big[(1-α)q - β\big] \\
+&amp;&amp; &amp;= a(1-α) - β\end{aligned}\]</span>
+where (PC) is:
+<span class="math display">\[\begin{aligned}E\bigg[-\exp\Big(-r\cdot\big(β + αq - \frac{c}{2}a^2\big)\Big) \bigg]&amp;\geq -\exp(-r\cdot 0) \\
+-\exp\Big(-r\cdot\big(\frac{-rα^2σ^2 - a^2c}{2}+β +αa\big)\Big) &amp;\geq -\exp(-r\cdot 0) \\
+-r\cdot\big(\frac{-rα^2σ^2 - a^2c}{2}+β +αa\big) &amp;\leq -r\cdot 0 \\
+\frac{-rα^2σ^2 - a^2c}{2}+β +αa &amp;\geq 0 \end{aligned}\]</span>
+let (PC) be binding,
+<span class="math display">\[\begin{aligned}\frac{-rα^2σ^2 - a^2c}{2}+β +αa &amp;= 0 \\
+\frac{-rα^2σ^2 - a^2c}{2} +αa &amp;= -β \end{aligned}\]</span>
+plug in (PC)
+<span class="math display">\[\begin{aligned}\max_{a, α} &amp;&amp; &amp;\phantom{\ggg}a(1-α) - β\\
+&amp;&amp; &amp;= a(1-α) + \frac{-rα^2σ^2 - a^2c}{2} +αa \\
+&amp;&amp; &amp;= a + \frac{-rα^2σ^2 - a^2c}{2} \end{aligned}\]</span>
+plug in <span class="math inline">\(a^*\)</span>
+<span class="math display">\[\begin{aligned}\max_{α} &amp;&amp; &amp;\phantom{\ggg}\frac{α}{c} + \frac{-rα^2σ^2 - (\frac{α}{c})^2c}{2} \\
+&amp;&amp; &amp;= \frac{α}{c} - \frac{α^2}{2c} - \frac{rα^2σ^2}{2} \\
+FOC &amp;&amp; &amp;\frac{1}{c} - 2\cdot\frac{α}{2c} - 2\cdot\frac{rασ^2}{2}\overset{!}{=} 0 \\
+&amp;&amp; &amp;α^* = \frac{1}{1+crσ^2} &lt; 1\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
