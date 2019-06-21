@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">23 min read</span>
+    <span class="article-duration">25 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -725,7 +725,8 @@ If a worker (with a positive <span class="math inline">\(θ\)</span>) gets hired
 Likewise, the utility of type zero is either <span class="math inline">\(w -K\)</span> or just <span class="math inline">\(w\)</span>, depending on whether <span class="math inline">\(e = 0\)</span> or <span class="math inline">\(e &gt; 0\)</span>.<br />
 Assume that <span class="math inline">\(θ\)</span> is drawn from the unit interval [0; 1]; moreover, <span class="math inline">\(θ\)</span> is distributed uniformly over the interval.<br />
 If a firm hires a worker of productivity <span class="math inline">\(θ\)</span>; the the firm’s profit is <span class="math inline">\(π = θ-w\)</span>.<br />
-Derive a perfect Bayesian equilibrium, where workers below some critical type <span class="math inline">\(θ&#39;\)</span> pool and workers in <span class="math inline">\(θ\in[θ&#39;,1]\)</span> separate.</p>
+Derive a perfect Bayesian equilibrium, where workers below some critical type <span class="math inline">\(θ&#39;\)</span> pool and workers in <span class="math inline">\(θ\in[θ&#39;,1]\)</span> separate.
+Hints:</p>
 <ol style="list-style-type: decimal">
 <li>Construct an equilibrium where the low types pool on <span class="math inline">\(e = 0\)</span>;</li>
 <li>For the high types (<span class="math inline">\(θ\in[θ&#39;,1]\)</span>), more precisely, for the education levels that these types choose), assume that there is a differentiable and concave wage function<br />
@@ -735,6 +736,29 @@ so their profits must be zero type by type over a range where workers separate.<
 <li>Verify that type <span class="math inline">\(θ&#39;\)</span> is indifferent between separating and pooling with the low types.</li>
 </ol>
 </blockquote>
+<p>From hint 1:<br />
+Let all workers with <span class="math inline">\(θ\in [0, θ&#39;)\)</span> choose <span class="math inline">\(e=0\)</span><br />
+therefore, the expected productivity is
+<span class="math display">\[\begin{aligned}E[ θ\ |\ θ&lt;θ&#39;] &amp;= \frac{θ&#39;}{2} \\
+w_L &amp;= E[ θ\ |\ θ&lt;θ&#39;] \\
+&amp;= \frac{θ&#39;}{2} \end{aligned}\]</span>
+For <span class="math inline">\(θ\in [θ&#39;,1]\)</span>, workers’ problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w(e) - \frac{e^2}{θ}&amp; \\
+FOC &amp;&amp; w&#39;(e) - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \end{aligned}\]</span>
+Since firms make zero profit,
+<span class="math display">\[\begin{aligned}π &amp;= θ-w = 0 \\
+w(e) &amp;= w\big( e(θ)\big) \\
+&amp;= θ\end{aligned}\]</span>
+plug in FOC
+<span class="math display">\[\begin{aligned}w&#39;(e) - 2\cdot\frac{e}{w(e)} &amp;= 0 \\
+w&#39;(e)\cdot w(e) &amp;= 2e \\
+w(e) &amp;= \sqrt{2} e\end{aligned}\]</span>
+plug in
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; \sqrt{2} e - \frac{e^2}{θ}&amp; \\
+FOC &amp;&amp; \sqrt{2} - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \\
+&amp;&amp; e^*(θ) &amp;= \frac{θ}{\sqrt{2}} \\
+&amp;&amp; u &amp;= w - \frac{e^2}{θ} \\
+&amp;&amp; &amp;= \frac{θ}{2}\end{aligned}\]</span></p>
 </div>
 </div>
 <div id="competitive-car-insurance-market" class="section level2">
@@ -753,7 +777,7 @@ Some buyers derive a relatively high value from consuming additional space on th
 Other travellers derive a relatively low utility from consuming space on an airplane. Their utility from consuming <span class="math inline">\(s\)</span> units of space and paying an airfare of <span class="math inline">\(T\)</span> is given by <span class="math inline">\(2\sqrt{s} - T\)</span>.<br />
 The companies cost of producing <span class="math inline">\(s\)</span> units of space is equal to <span class="math inline">\(s\)</span>; thus, there are no fixed costs and the marginal cost of producing space is equal to one.<br />
 The total mass of consumers is unity.<br />
-A fraction derives a high marginal utility from consuming additional space, a fraction <span class="math inline">\(1-γ\)</span> derives a low marginal utility from consuming additional space.<br />
+A fraction <span class="math inline">\(γ\)</span> derives a high marginal utility from consuming additional space, a fraction <span class="math inline">\(1-γ\)</span> derives a low marginal utility from consuming additional space.<br />
 The company cannot observe which customer has a high or a low demand; it wishes to offer two optimal bundles <span class="math inline">\(\{\underline{s},\underline{T}\}\)</span> and <span class="math inline">\(\{\bar{s},\bar{T}\}\)</span> to the two customer groups.</p>
 <ol style="list-style-type: decimal">
 <li>Write down the firm’s maximization problem, including the relevant constraints.<br />
@@ -775,8 +799,19 @@ Explain why this change occurs.</li>
 \bar{T} &amp;= 8\sqrt{\bar{s}} - 8\sqrt{\underline{s}} + \underline{T} \\
 &amp;= 8\sqrt{\bar{s}} - \big(\underbrace{8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}}_{\text{Rent}}\big)\end{aligned}\]</span>
 plug into firm’s problem
-<span class="math display">\[\begin{aligned}\max_{\underline{s},\bar{s}} &amp;&amp; &amp;γ\cdot(8\sqrt{\bar{s}} - \big(8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}\big)-\bar{s}) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
-FOC &amp;&amp; \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_{\underline{s},\bar{s}} &amp;&amp; &amp;\phantom{\ggg}γ\cdot\Big(8\sqrt{\bar{s}} - \big(8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}\big)-\bar{s}\Big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
+&amp;&amp; &amp;= γ\cdot\big(8\sqrt{\bar{s}}-\bar{s} - 6\sqrt{\underline{s}}\big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
+FOC &amp;&amp; \frac{\partial}{\partial\bar{s}} &amp;= γ\cdot\big(8\cdot\frac{1}{2}\cdot\bar{s}^{\frac{1}{2}} - 1\big) \overset{!}{=} 0\\
+&amp;&amp; \bar{s}^* &amp;= 16 \implies\text{No distortion at top} \\
+&amp;&amp; \frac{\partial}{\partial\underline{s}} &amp;= -6γ\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}} + (1-γ)\cdot\Big( 2\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}}-1\Big) \overset{!}{=} 0 \\
+&amp;&amp; \underline{s}^* &amp;= \Big(\frac{1-4γ}{1-γ}\Big)^2 \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(\underline{s}\)</span> exists,
+<span class="math display">\[\begin{aligned}\sqrt{\underline{s}} &amp;\geq 0 \\
+\frac{1-4γ}{1-γ} &amp;\geq 0 \\
+(1-4γ)(1-γ) &amp;\geq 0 \\
+γ &amp;\leq\frac{1}{4} \end{aligned}\]</span>
+therefore, when <span class="math inline">\(γ&gt;\frac{1}{4}\)</span>, low types are excluded from the menu.<br />
+<span class="math inline">\(\implies\)</span> downwards distortion below the top</li>
 </ol>
 </div>
 </div>
@@ -846,7 +881,7 @@ FOC &amp;&amp; \frac{\partial}{\partial s_2}θ_2\cdot V(s_2)- c\cdot s_2 &amp;= 
 <blockquote>
 <p>PS3.Q2<br />
 Consider a market with two buyers.<br />
-Preferences of buyer 1 can be described by an inverse demand equal to <span class="math inline">\(p(q) = 2 -3q\)</span> and those of buyer 2 by <span class="math inline">\(p(q) = 2-q\)</span>.<br />
+Preferences of buyer 1 can be described by an inverse demand equal to <span class="math inline">\(p(q_1) = 2 -3q\)</span> and those of buyer 2 by <span class="math inline">\(p(q_2) = 2-q\)</span>.<br />
 Note that prices can not be negative, so if <span class="math inline">\(q &gt; 2\)</span> for consumer 1 the price is still 0, while similar argument applies to consumer 2 for <span class="math inline">\(q &gt; 2\)</span>.<br />
 Suppose there is a single seller with marginal cost equal to 0.</p>
 <ol style="list-style-type: decimal">
@@ -856,7 +891,7 @@ Determine the optimal price <span class="math inline">\(p^*\)</span> the seller 
 </li>
 <li>Suppose now that the seller knows the buyersíidentity and that he can offer a two part tariff contract <span class="math inline">\(T_i + p_iq\)</span> to each buyer (so he can perfectly discriminate).<br />
 A buyer will accept a contract if it gives him a positive net surplus.<br />
-The net surplus of a buyer with a linear demand is <span class="math inline">\(S_i(T; p) = \frac{(a-p)^2}{2b} - T\)</span> (see 2.b) when the inverse demand function is given by <span class="math inline">\(p = a\)</span>.
+The net surplus of a buyer with a linear demand is <span class="math inline">\(S_i(T, p) = \frac{(a-p)^2}{2b} - T\)</span> (see 2.b) when the inverse demand function is given by <span class="math inline">\(p = a\)</span>.
 <ol style="list-style-type: lower-alpha">
 <li>Write down the seller’s problem with the relevant constraints.<br />
 </li>
@@ -869,7 +904,19 @@ If yes, who would that be?</li>
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>see slides</li>
+<li>Aggregate demand:
+<span class="math display">\[\begin{aligned}p(q_1) &amp;= 2 - 3q \\
+D_1(p) &amp;= \frac{2 - p}{3} \\
+p(q_2) &amp;= 2 - q \\
+D_2(p) &amp;= 2 - p \\
+\hat{D}(p) &amp;= D_1(p) + D_2(p) \\
+&amp;= \frac{8}{3} - \frac{4}{3}p \\
+p(\hat{D}) &amp;=  2 - \frac{3}{4}\hat{D}\end{aligned}\]</span>
+<img src="/post-img/notes-contract--ps3q2.png" width="339" /><br />
+Seller’s problem:
+<span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; \Big( \frac{8}{3} - \frac{4}{3}p\Big)\cdot p &amp; \\
+FOC &amp;&amp; \frac{8}{3} - \frac{4}{3}\cdot 2\cdot p &amp;\overset{!}{=} 0 \\
+&amp;&amp; p^* &amp;= 1\end{aligned}\]</span></li>
 <li>Let the contract be <span class="math inline">\(T_i = f_i + p_i\cdot q\)</span> for <span class="math inline">\(i=1,2\)</span><br />
 Notice that <span class="math inline">\((f_1-f_2)(p_1-p_2)&lt;0\)</span>, otherwise both consumers will choose the same contract.
 <ol style="list-style-type: lower-alpha">
@@ -879,7 +926,7 @@ Firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{f_1,f_2,p_1,p_2} &amp;&amp; &amp;f_1 + p_1\cdot D_1(p_1) + f_2 + p_2\cdot D_2(p_2) \\
  (PC)_1 &amp;&amp; &amp;S_1(p_1) - f_1\geq 0 \\
  (PC)_2 &amp;&amp; &amp;S_2(p_2) - f_2\geq 0 \end{aligned}\]</span></li>
-<li></li>
+<li>(Omitted)</li>
 <li>When the seller were unable to distinguish consumers,
 <span class="math display">\[\begin{aligned}(IC)_1 &amp;&amp; &amp;S_1(p_1) - f_1\geq S_1(p_2) - f_2 \\
  (IC)_2 &amp;&amp; &amp;S_2(p_2) - f_2\geq S_2(p_1) - f_1\end{aligned}\]</span>
@@ -887,13 +934,18 @@ Since (PC)1 and (IC)2 are binding,
 <span class="math display">\[\begin{aligned}f_1 &amp;= S_1(p_1) \\
  f_2 &amp;= S_2(p_2) - S_2(p_1) + f_1 \\
  &amp;= S_2(p_2) - \big( \underbrace{S_2(p_1) - S_1(p_1)}_{\text{Rent}}\big)\end{aligned}\]</span>
+<span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span> are:
+<span class="math display">\[\begin{aligned}S_1(p_1) &amp;= \frac{(2-p)^2}{2\cdot 3} - f_1 - p_1\cdot D_1(p_1) \\
+ &amp;= \frac{(2-p)^2}{6} - S_1(p_1) - p_1\cdot\frac{2 - p}{3} \\
+ &amp;= \frac{4-8p-3p^2}{12} \\
+ S_2(p_2) &amp;= \frac{(2-p)^2}{2\cdot 1} - f_2 - p_2\cdot D_2(p_2) \\
+ &amp;= \frac{(2-p)^2}{2} - S_2(p_2) + \big(S_2(p_1) - S_1(p_1) \big)- p_2\cdot (2 - p) \\
+ &amp;=  \end{aligned}\]</span>
 Plug into firm’s problem
 <span class="math display">\[\begin{aligned}\max_{p_1,p_2} &amp;&amp; S_1(p_1) &amp;+ p_1\cdot D_1(p_1) + S_2(p_2) - \big(S_2(p_1) - S_1(p_1)\big) + p_2\cdot D_2(p_2)\\
- FOC &amp;&amp; \frac{\partial}{\partial p_1} &amp;= S_1&#39;(p_1) + D_1(p_1) + p_1D_1&#39;(p_1) - S_2&#39;(p_1) + S_1&#39;(p_1) \\
- &amp;&amp; &amp;= 0 \\
+ FOC &amp;&amp; \frac{\partial}{\partial p_1} &amp;= S_1&#39;(p_1) + D_1(p_1) + p_1D_1&#39;(p_1) - S_2&#39;(p_1) + S_1&#39;(p_1) \overset{!}{=} 0 \\
  &amp;&amp; &amp;\implies\text{Distortion below the top} \\
- &amp;&amp; \frac{\partial}{\partial p_2} &amp;= S_2&#39;(p_2) + D_2(p_2) + p_2D_2&#39;(p_2) \\
- &amp;&amp; &amp;= 0\end{aligned}\]</span></li>
+ &amp;&amp; \frac{\partial}{\partial p_2} &amp;= S_2&#39;(p_2) + D_2(p_2) + p_2D_2&#39;(p_2)\overset{!}{=} 0\end{aligned}\]</span></li>
 </ol></li>
 </ol>
 </div>
