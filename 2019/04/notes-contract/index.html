@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">27 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -1066,8 +1066,8 @@ FOC &amp;&amp; p&#39;(a) - \frac{\big(p&#39;(a)\big)^2 - p&#39;&#39;(a)\cdot p(a
 </ul></li>
 <li>Linear contract: <span class="math inline">\(w = β + αq\)</span>
 <ul>
-<li>Efficient incentive: <span class="math inline">\(α = 1\)</span></li>
-<li>Efficient risk-sharing: <span class="math inline">\(α = 0\)</span></li>
+<li>Efficient incentive (all risk on agent): <span class="math inline">\(α = 1\)</span></li>
+<li>Efficient risk-sharing (all risk on principal, flat wage): <span class="math inline">\(α = 0\)</span></li>
 </ul></li>
 <li>Agent’s problem:
 <span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}E\bigg[-\exp\Big(-r\cdot\big(β + αq - \frac{c}{2}a^2\big)\Big) \bigg] \\
@@ -1100,7 +1100,21 @@ plug in <span class="math inline">\(a^*\)</span>
 <span class="math display">\[\begin{aligned}\max_{α} &amp;&amp; &amp;\phantom{\ggg}\frac{α}{c} + \frac{-rα^2σ^2 - (\frac{α}{c})^2c}{2} \\
 &amp;&amp; &amp;= \frac{α}{c} - \frac{α^2}{2c} - \frac{rα^2σ^2}{2} \\
 FOC &amp;&amp; &amp;\frac{1}{c} - 2\cdot\frac{α}{2c} - 2\cdot\frac{rασ^2}{2}\overset{!}{=} 0 \\
-&amp;&amp; &amp;α^* = \frac{1}{1+crσ^2} &lt; 1\end{aligned}\]</span></li>
+&amp;&amp; &amp;α^* = \frac{1}{1+crσ^2} &lt; 1\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> less than efficient incentive</li>
+<li>When effort is observable (<span class="math inline">\(q=a\)</span>),<br />
+principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{a, α,β} &amp;&amp; &amp;\phantom{\ggg} a - (β + αa) \\
+&amp;&amp; &amp;= (1-α)a - β \\
+(PC) &amp;&amp; &amp;\frac{-rα^2 - a^2c}{2}+β +αa = 0\end{aligned}\]</span>
+plug in
+<span class="math display">\[\begin{aligned}\max_{a, α} &amp;&amp; &amp;\phantom{\ggg} (1-α)a + \frac{-rα^2 - a^2c}{2} +αa \\
+&amp;&amp; &amp;= a + \frac{-rα^2 - a^2c}{2} \\
+FOC &amp;&amp; &amp;\frac{\partial}{\partial a} = 1 - 2\cdot \frac{ca}{2}\overset{!}{=} 0 \\
+&amp;&amp; &amp;a^{**} = \frac{1}{c} \\
+&amp;&amp; &amp;\frac{\partial}{\partial α} = -2\cdot\frac{rα}{2}\overset{!}{=} 0 \\
+&amp;&amp; &amp;α^{**} = 0\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> efficient risk-sharing</li>
 </ul>
 </div>
 </div>
