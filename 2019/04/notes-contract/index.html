@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">27 min read</span>
+    <span class="article-duration">28 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -443,7 +443,7 @@ Let <span class="math inline">\(I(θ) =\begin{cases}0 &amp;\text{not employed} \
 <span class="math display">\[\begin{aligned}\max_{I(θ)} &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big] \,dF(θ) \\
 &amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big]\cdot f(θ) \,dθ \\
 &amp;&amp; &amp;I^*(θ) = \begin{cases}0 &amp; θ &lt; r(θ) \\ 1 &amp; θ \geq r(θ) \end{cases}\end{aligned}\]</span></li>
-<li>Number of employed workers: <span class="math inline">\(N\cdot\big[\underbrace{1 - \overbarce{F\big(r(θ)\big)}^{Pr\big(θ\leq r(θ)\big)}}_{Pr\big(θ\geq r(θ)\big)}\big]\)</span></li>
+<li>Number of employed workers: <span class="math inline">\(N\cdot\big[\underbrace{1 - \underbrace{F\big(r(θ)\big)}^{Pr\big(θ\leq r(θ)\big)}}_{Pr\big(θ\geq r(θ)\big)}\big]\)</span></li>
 </ul>
 </div>
 <div id="unknown-type-competitive-equilibrium" class="section level3">
@@ -584,12 +584,12 @@ Therefore, workers who don’t work both before and after government interventio
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-contract--job-signal-indiff-curves.png" alt="Workers’ indifference curves: single-crossing" width="335" />
-<p class="caption">Workers’ indifference curves: <strong>single-crossing</strong></p>
+<img src="/post-img/notes-contract--job-signal-indiff-curves.png" alt="PGT Figure 4.2.3 Workers’ indifference curves: single-crossing" width="335" />
+<p class="caption">PGT Figure 4.2.3 Workers’ indifference curves: <strong>single-crossing</strong></p>
 </div>
 <div class="figure">
-<img src="/post-img/notes-contract--job-signal-isoprofit.png" alt="Firms’ isoprofit lines" width="440" />
-<p class="caption">Firms’ isoprofit lines</p>
+<img src="/post-img/notes-contract--job-signal-isoprofit.png" alt="PGT Figure 4.2.4 Firms’ isoprofit lines" width="440" />
+<p class="caption">PGT Figure 4.2.4 Firms’ isoprofit lines</p>
 </div>
 <ul>
 <li>First best (types are observable)<br />
@@ -602,11 +602,11 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <li>No envy case
 <span class="math display">\[\begin{aligned}\text{Type L} &amp;&amp; e^*(L) \succsim_L e^*(H) \\
   \text{Type H} &amp;&amp; e^*(H) \succsim_H e^*(L)\end{aligned}\]</span>
-<img src="/post-img/notes-contract--job-signal-no-envy.png" width="469" /></li>
+<img src="/post-img/notes-contract--job-signal-no-envy.png" alt="PGT Figure 4.2.5" width="469" /></li>
 <li>Envy case
 <span class="math display">\[\begin{aligned}\text{Type L} &amp;&amp; e^*(L) \succsim_L e^*(H) \\
   \text{Type H} &amp;&amp; e^*(H) \succsim_H e^*(L)\end{aligned}\]</span>
-<img src="/post-img/notes-contract--job-signal-envy.png" width="439" /></li>
+<img src="/post-img/notes-contract--job-signal-envy.png" alt="PGT Figure 4.2.6" width="439" /></li>
 </ul></li>
 </ul>
 <div id="pooling-equilibria" class="section level3">
@@ -630,7 +630,10 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <li>High type chooses <span class="math inline">\(e = e_p\)</span> since <span class="math inline">\(μ(e&gt; e_p)=0\)</span></li>
 </ul></li>
 </ul>
-<p><img src="/post-img/notes-contract--job-signal-pooling-1.png" width="521" /></p>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-pooling-1.png" alt="PGT Figure 4.2.7" width="521" />
+<p class="caption">PGT Figure 4.2.7</p>
+</div>
 <ol start="2" style="list-style-type: decimal">
 <li>Another possibility</li>
 </ol>
@@ -647,7 +650,10 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <li>High type chooses <span class="math inline">\(e = e_p\)</span> since <span class="math inline">\(μ(e&gt; e&#39;&#39;)=q\)</span></li>
 </ul></li>
 </ul>
-<p><img src="/post-img/notes-contract--job-signal-pooling-2.png" width="516" /></p>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-pooling-2.png" alt="PGT Figure 4.2.8" width="516" />
+<p class="caption">PGT Figure 4.2.8</p>
+</div>
 </div>
 <div id="separating-equilibria-envy-case" class="section level3">
 <h3>Separating Equilibria: Envy Case</h3>
@@ -672,7 +678,10 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <li>High type chooses <span class="math inline">\(e = e_s\)</span> since <span class="math inline">\(μ(e&lt;e_s) = 0\)</span></li>
 </ul></li>
 </ul>
-<p><img src="/post-img/notes-contract--job-signal-separate-1.png" width="433" /></p>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-separate-1.png" alt="PGT Figure 4.2.8" width="433" />
+<p class="caption">PGT Figure 4.2.8</p>
+</div>
 <ol start="2" style="list-style-type: decimal">
 <li>Another possibility</li>
 </ol>
@@ -693,17 +702,104 @@ r-q &amp;= \frac{q - q^2 - (1-q)qπ}{q + (1-q) π} \\
 <li>Optimal wage:
 <span class="math display">\[w(e) = \begin{cases}y(L,e) &amp; e&lt;e_h \\ r\cdot y(H,e_h) + (1-r)y(L,e_h) &amp; e\geq e_h \end{cases}\]</span></li>
 </ul>
-<p><img src="/post-img/notes-contract--job-signal-hybrid.png" width="617" /></p>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-hybrid.png" alt="PGT Figure 4.2.9" width="617" />
+<p class="caption">PGT Figure 4.2.9</p>
+</div>
 </div>
 <div id="perfect-bayesian-equilibrium-pbe" class="section level3">
 <h3>Perfect Bayesian Equilibrium (PBE)</h3>
+<p>MWG 9, 13.C, PGT 4.1</p>
+<ul>
+<li>On the equilibrium path<br />
+An information set that will be readied with <span class="math inline">\(Pr&gt;0\)</span> if the game is played according to the equilibrium strategies</li>
+<li>Off the equilibrium path<br />
+An information set that is not to be reached</li>
+<li>PBE: strategies and beliefs satisfying Requirements 1 ~ 4</li>
+<li>Requirement 1<br />
+Player at each information set must have a <strong>belief</strong>, aka a probability distribution over the following nodes
+<!-- At each information set, the player with the move must have a __belief__ about which node in the information set has been reached by the play of the game.  
+For a nonsingleton information set, a belief is a probability distribution over the nodes in the information set;  
+for a singleton information set, the player's belief puts probability one on the single decision node. --></li>
+<li>Requirement 2<br />
+Players’ strategies must be <strong>sequentially rational</strong>, aka optimal, given their beliefs and other player’s strategies at each information set
+<!-- Given their beliefs, the players' strategies must be __sequentially rational__,  
+At each information set the action taken by the player with the move (and the player's subsequent strategy) must be optimal given the player's belief at that information set and the other players' subsequent strategies.  
+A subsequent strategy is a complete plan of action covering every contingency that might arise after the given information set has been reached). --></li>
+<li>Requirement 3 &amp; 4<br />
+Beliefs are determined by <strong>Bayesian rule</strong> and the players’ equilibrium strategies at information sets
+<!-- At information sets on the equilibrium path, beliefs are determined by Bayesian rule and the players' equilibrium strategies.
+- Requirement 4  
+At information sets off the equilibrium path, beliefs are determined by Bayesian rule and the players' equilibrium strategies when possible. --></li>
+<li>Example 1:
+<ul>
+<li>Player 1 chooses an action which player 2 doesn’t know</li>
+<li>Player 2 assigns <span class="math inline">\(Pr(L) = p\)</span></li>
+<li>SPNE: <span class="math inline">\(\{(L,L&#39;), (R,R&#39;)\}\)</span></li>
+<li>Requirement 1 &amp; 2 eliminates <span class="math inline">\((R,R&#39;)\)</span> as PBE since <span class="math inline">\(R&#39;\)</span> is not optimal given <span class="math inline">\(p\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-bayesian-1.png" alt="PGT Figure 4.1.3" width="390" />
+<p class="caption">PGT Figure 4.1.3</p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>P2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>L’</td>
+<td>R’</td>
+</tr>
+<tr class="even">
+<td>P1</td>
+<td>L</td>
+<td>*2, 1*</td>
+<td>0, 0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>M</td>
+<td>0, 2*</td>
+<td>0, 1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>R</td>
+<td>1, 3*</td>
+<td>*1, 3*</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Example 2:
+<ul>
+<li>Player 2 chooses an action which player 3 doesn’t know</li>
+<li>Player 3 assigns <span class="math inline">\(Pr(L) = p\)</span></li>
+<li>NE: <span class="math inline">\(\{(D,L,R&#39;,p=1), (A,L,L&#39;,p=0)\}\)</span></li>
+<li>Requirement 4 eliminates <span class="math inline">\((A,L,L&#39;,p=0)\)</span> as PBE since <span class="math inline">\(p=0\)</span> does not coincide with <span class="math inline">\(L\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-bayesian-2.png" alt="PGT Figure 4.1.4" width="393" />
+<p class="caption">PGT Figure 4.1.4</p>
+</div>
 </div>
 <div id="equilibrium-refinements" class="section level3">
 <h3>Equilibrium Refinements</h3>
-<p>MWG 13.C, PGT 4.4</p>
+<p>MWG 13.C, 13.Appendix, PGT 4.4</p>
 <ul>
 <li>Requirement 5<br />
-If possible, each player’s beliefs off the equilibrium path should place zero probability on nodes that are reached only if another player plays a strategy that is strictly dominated beginning at some information set.</li>
+<strong>Off-the-path beliefs</strong> should give <span class="math inline">\(Pr=0\)</span> on strictly dominated strategies
+<!-- If possible, each player's beliefs off the equilibrium path should place zero probability on nodes that are reached only if another player plays a strategy that is strictly dominated beginning at some information set. --></li>
 <li>Signalling requirement 5<br />
 If the information set following <span class="math inline">\(m_j\)</span> is off the equilibrium path and <span class="math inline">\(m_j\)</span> is dominated for type <span class="math inline">\(t_i\)</span>, then (if possible) the Receiver’s belief <span class="math inline">\(μ(t_i\ |\ m_j)\)</span> should place zero probability on type <span class="math inline">\(t_i\)</span>.<br />
 Possible provided <span class="math inline">\(m_j\)</span> is not dominated for all the types in T.</li>
@@ -714,6 +810,10 @@ Given a PBE in a signaling game, the message <span class="math inline">\(m_j\in 
 If the information set following <span class="math inline">\(m_j\)</span> is off the eqiulibrium path, and <span class="math inline">\(m_j\)</span> is equilibrium-dominated for type <span class="math inline">\(t_i\)</span>, then (if possible) the Receiver’s belief <span class="math inline">\(μ(t_i\ |\ m_j)\)</span> should place zero probability on type <span class="math inline">\(t_i\)</span>.<br />
 Possible provided <span class="math inline">\(m_j\)</span> is not equilibrium-dominated for all the types</li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-bayesian-3.png" alt="PGT Figure 4.4.1" width="463" />
+<p class="caption">PGT Figure 4.4.1</p>
+</div>
 <blockquote>
 <p>PS3.Q1<br />
 Consider the following the signalling model where workers choose education levels to signal their productivity.<br />
