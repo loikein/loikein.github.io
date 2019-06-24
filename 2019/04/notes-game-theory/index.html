@@ -1296,6 +1296,13 @@ H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 <p>OR 8.5</p>
 <ul>
 <li>Game: <span class="math inline">\(G^{\infty} = \big(I, (A_i)_{i\in I}, (g_i)_{i\in I}\big)\)</span></li>
+<li>The set of NE outcomes of an infinitely repeated game<br />
+includes outcomes that are not repetitions of NE of the stage game<br />
+that cannot be established without punishment
+<ul>
+<li>Trigger strategy: deviation leads to a punitive action that lasts forever</li>
+<li>All players uses trigger strategy</li>
+</ul></li>
 <li>Set of feasible payoffs (convex hull of payoff profile): <span class="math display">\[V = \Big\{α\cdot\big( g_1(a),\dots, g_n(a) \big) : a\in A, \textstyle{\sum}_n α_i =1 \Big\}\]</span>
 <ul>
 <li>Payoff profile: <span class="math inline">\(v\in\mathbb{R}^N\)</span>, exists <span class="math inline">\(a\)</span> s.t. <span class="math inline">\(v = \big( g_1(a),\dots, g_n(a) \big)\)</span></li>
@@ -1307,19 +1314,21 @@ H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 <span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=1}^{\infty} \overbrace{δ^{t-1} (1-δ)}^{\sum = 1}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
   &amp;\in V \end{aligned}\]</span></li>
 </ul></li>
-<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{a_{-i}\in A_{-i}} \ \max_{a_i\in A_i} \ u_i(a_{-i}, a_i)\]</span>
+<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{a_{-i}\in A_{-i}} \ \max_{a_i\in A_i} \ g_i(a_{-i}, a_i)\]</span>
 <ul>
 <li>Set of enforceable payoff profiles:
 <span class="math display">\[\begin{aligned}V^* &amp;= \{ v\in V:v_i \geq\underline{v}_i \}\\
   V^* &amp;\subset V \end{aligned}\]</span></li>
 <li>Enforceable outcome: <span class="math inline">\(a\in A\)</span> is an outcome of G, <span class="math inline">\(u(a)\in V^*\)</span></li>
 <li>Preposition: in any NE of <span class="math inline">\(G^{\infty}(δ)\)</span>, each player gets an anverage discounted payoff of at least <span class="math inline">\(\underline{v}_i\)</span><br />
-<span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span></li>
+<span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span>
+<!-- - OR Proposition 145.2  
+Let w be a strictly enforceable feasible payoff profile of G = ⟨N,(Ai), (ui)⟩. Forallε>0thereexistsδ<1suchthatif δ>δthentheδ- discounted infinitely repeated game of G has a Nash equilibrium whose payoff profile w′ satisfies |w′ − w| < ε. --></li>
 </ul></li>
-<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 145.2)<br />
+<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)<br />
 If <span class="math inline">\(\dim (V^*) = |I| = n\)</span>,<br />
-then for any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>,<br />
-exists an SPNE for <span class="math inline">\(G^{\infty}(δ)\)</span> with average discounted payoffs in <span class="math inline">\(B_ε(v)\)</span></li>
+then for any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span><br />
+s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, exists an SPNE for <span class="math inline">\(G^{\infty}(δ)\)</span> with average discounted payoffs in <span class="math inline">\(B_ε(v)\)</span></li>
 </ul>
 </div>
 <div id="example-battle-of-sexes-bos" class="section level3">
