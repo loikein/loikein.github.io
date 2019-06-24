@@ -106,11 +106,11 @@
 <li><a href="#perfect-bayesian-equilibrium-pbe">Perfect Bayesian Equilibrium (PBE)</a></li>
 <li><a href="#equilibrium-refinements">Equilibrium Refinements</a></li>
 </ul></li>
-<li><a href="#competitive-car-insurance-market">Competitive Car Insurance Market</a><ul>
+<li><a href="#screening-competitive-insurance-market">Screening: Competitive Insurance Market</a><ul>
 <li><a href="#benchmark-1">Benchmark</a></li>
 <li><a href="#hidden-type">Hidden Type</a></li>
 </ul></li>
-<li><a href="#non-linear-pricing">Non-Linear Pricing</a><ul>
+<li><a href="#screening-non-linear-pricing">Screening: Non-Linear Pricing</a><ul>
 <li><a href="#price-distrimination-with-perfect-information">Price Distrimination with Perfect Information</a></li>
 <li><a href="#asymmetric-information">Asymmetric Information</a></li>
 </ul></li>
@@ -128,8 +128,8 @@
 <h2>Literature</h2>
 <ul>
 <li><a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory</a> (MWG)</li>
-<li><a href="http://93.174.95.27/book/index.php?md5=B3C0791C9FB6308FA345C1CA21C68E45">The Theory of Industrial Organization</a></li>
 <li><a href="http://93.174.95.27/book/index.php?md5=4DC53E7CCAD53B6356429F6CE80F442B">A Primer in Game Theory</a> (PGT)</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=B3C0791C9FB6308FA345C1CA21C68E45">The Theory of Industrial Organization</a> (TIO)</li>
 </ul>
 </div>
 <div id="lemon-market-continuous-quality" class="section level2">
@@ -688,6 +688,58 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <ul>
 <li>Firms’ belief: <span class="math inline">\(μ(e) = \begin{cases}0 &amp; e\leq e^*(H) \\ ε &amp; e\in\big(e^*(H), e_s\big) \\ 1 &amp; e\geq e_s \end{cases}\)</span></li>
 </ul>
+<blockquote>
+<p>PS3.Q1<br />
+Consider the following the signalling model where workers choose education levels to signal their productivity.<br />
+Suppose workers have a type <span class="math inline">\(θ\in [0,1]\)</span>.<br />
+A worker’s type determines his cost of acquiring education, e.<br />
+For a worker of type <span class="math inline">\(θ &gt; 0\)</span>, the cost of education is given by <span class="math inline">\(c(θ,e) = \frac{e^2}{θ}\)</span>.<br />
+For a worker of type <span class="math inline">\(θ = 0\)</span>; the cost of any positive level of education is equal to some (extremely) high level <span class="math inline">\(K\)</span>, and the cost of zero education to that worker is zero.<br />
+If a worker (with a positive <span class="math inline">\(θ\)</span>) gets hired at wage <span class="math inline">\(w\)</span> and chooses education level <span class="math inline">\(e\)</span>, then his utility is <span class="math inline">\(u=w-\frac{e^2}{θ}\)</span>.<br />
+Likewise, the utility of type zero is either <span class="math inline">\(w -K\)</span> or just <span class="math inline">\(w\)</span>, depending on whether <span class="math inline">\(e = 0\)</span> or <span class="math inline">\(e &gt; 0\)</span>.<br />
+Assume that <span class="math inline">\(θ\)</span> is drawn from the unit interval [0; 1]; moreover, <span class="math inline">\(θ\)</span> is distributed uniformly over the interval.<br />
+If a firm hires a worker of productivity <span class="math inline">\(θ\)</span>; the the firm’s profit is <span class="math inline">\(π = θ-w\)</span>.<br />
+Derive a perfect Bayesian equilibrium, where workers below some critical type <span class="math inline">\(θ&#39;\)</span> pool and workers in <span class="math inline">\(θ\in[θ&#39;,1]\)</span> separate.
+Hints:</p>
+<ol style="list-style-type: decimal">
+<li>Construct an equilibrium where the low types pool on <span class="math inline">\(e = 0\)</span>;</li>
+<li>For the high types (<span class="math inline">\(θ\in[θ&#39;,1]\)</span>), more precisely, for the education levels that these types choose), assume that there is a differentiable and concave wage function<br />
+and then find this wage function assuming that workers optimize and firms compete,<br />
+so their profits must be zero type by type over a range where workers separate.</li>
+<li>Compute the equilibrium wage for types below <span class="math inline">\(θ&#39;\)</span>, that is, the value for the wage function at <span class="math inline">\(e = 0\)</span></li>
+<li>Verify that type <span class="math inline">\(θ&#39;\)</span> is indifferent between separating and pooling with the low types.</li>
+</ol>
+</blockquote>
+<p>From hint 1:<br />
+Let all workers with <span class="math inline">\(θ\in [0, θ&#39;)\)</span> choose <span class="math inline">\(e=0\)</span><br />
+therefore, the expected productivity is
+<span class="math display">\[\begin{aligned}E[ θ\ |\ θ&lt;θ&#39;] &amp;= \frac{θ&#39;}{2} \\
+w_L &amp;= E[ θ\ |\ θ&lt;θ&#39;] \\
+&amp;= \frac{θ&#39;}{2} \end{aligned}\]</span>
+For <span class="math inline">\(θ\in [θ&#39;,1]\)</span>, workers’ problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w_H - \frac{e^2}{θ}&amp; \\
+FOC &amp;&amp; w_H&#39; - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \end{aligned}\]</span>
+Since firms make zero profit,
+<span class="math display">\[\begin{aligned}π &amp;= θ-w = 0 \\
+w_H &amp;= w\big( e(θ)\big) \\
+&amp;= θ\end{aligned}\]</span>
+plug in FOC
+<span class="math display">\[\begin{aligned}w_H&#39; - 2\cdot\frac{e}{w_H} &amp;= 0 \\
+w_H&#39;\cdot w_H &amp;= 2e \\
+w_H &amp;= \sqrt{2} e\end{aligned}\]</span>
+plug in
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; \sqrt{2} e - \frac{e^2}{θ}&amp; \\
+FOC &amp;&amp; \sqrt{2} - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \\
+&amp;&amp; e^*(θ) &amp;= \frac{θ}{\sqrt{2}} \\
+&amp;&amp; w_H &amp;= θ \\
+&amp;&amp; u &amp;= w - \frac{e^2}{θ} \\
+&amp;&amp; &amp;= \frac{θ}{2}\end{aligned}\]</span>
+(IC) for low type:
+<span class="math display">\[\begin{aligned}w_L - 0 &amp;\overset{!}{\geq} w_H - \frac{e^2}{θ} \\
+\frac{θ&#39;}{2} &amp;\overset{!}{\geq} θ - \frac{(θ/\sqrt{2})^2}{θ} \\
+\frac{θ&#39;}{2} &amp;\overset{!}{\geq} \frac{θ}{2}\end{aligned}\]</span>
+this holds for workers with <span class="math inline">\(θ\in [0, θ&#39;)\)</span>,<br />
+and holds equal (indifference) for workers with <span class="math inline">\(θ = θ&#39;\)</span>.</p>
 </div>
 <div id="hybrid-mixed-equilibrium" class="section level3">
 <h3>Hybrid (Mixed) Equilibrium</h3>
@@ -887,62 +939,31 @@ Possible provided $m_j$ is not equilibrium-dominated for all the types  --></li>
 <img src="/post-img/notes-contract--job-signal-bayesian-5.png" alt="PGT Figure 4.4.3" width="605" />
 <p class="caption">PGT Figure 4.4.3</p>
 </div>
-<blockquote>
-<p>PS3.Q1<br />
-Consider the following the signalling model where workers choose education levels to signal their productivity.<br />
-Suppose workers have a type <span class="math inline">\(θ\in [0,1]\)</span>.<br />
-A worker’s type determines his cost of acquiring education, e.<br />
-For a worker of type <span class="math inline">\(θ &gt; 0\)</span>, the cost of education is given by <span class="math inline">\(c(θ,e) = \frac{e^2}{θ}\)</span>.<br />
-For a worker of type <span class="math inline">\(θ = 0\)</span>; the cost of any positive level of education is equal to some (extremely) high level <span class="math inline">\(K\)</span>, and the cost of zero education to that worker is zero.<br />
-If a worker (with a positive <span class="math inline">\(θ\)</span>) gets hired at wage <span class="math inline">\(w\)</span> and chooses education level <span class="math inline">\(e\)</span>, then his utility is <span class="math inline">\(u=w-\frac{e^2}{θ}\)</span>.<br />
-Likewise, the utility of type zero is either <span class="math inline">\(w -K\)</span> or just <span class="math inline">\(w\)</span>, depending on whether <span class="math inline">\(e = 0\)</span> or <span class="math inline">\(e &gt; 0\)</span>.<br />
-Assume that <span class="math inline">\(θ\)</span> is drawn from the unit interval [0; 1]; moreover, <span class="math inline">\(θ\)</span> is distributed uniformly over the interval.<br />
-If a firm hires a worker of productivity <span class="math inline">\(θ\)</span>; the the firm’s profit is <span class="math inline">\(π = θ-w\)</span>.<br />
-Derive a perfect Bayesian equilibrium, where workers below some critical type <span class="math inline">\(θ&#39;\)</span> pool and workers in <span class="math inline">\(θ\in[θ&#39;,1]\)</span> separate.
-Hints:</p>
-<ol style="list-style-type: decimal">
-<li>Construct an equilibrium where the low types pool on <span class="math inline">\(e = 0\)</span>;</li>
-<li>For the high types (<span class="math inline">\(θ\in[θ&#39;,1]\)</span>), more precisely, for the education levels that these types choose), assume that there is a differentiable and concave wage function<br />
-and then find this wage function assuming that workers optimize and firms compete,<br />
-so their profits must be zero type by type over a range where workers separate.</li>
-<li>Compute the equilibrium wage for types below <span class="math inline">\(θ&#39;\)</span>, that is, the value for the wage function at <span class="math inline">\(e = 0\)</span></li>
-<li>Verify that type <span class="math inline">\(θ&#39;\)</span> is indifferent between separating and pooling with the low types.</li>
-</ol>
-</blockquote>
-<p>From hint 1:<br />
-Let all workers with <span class="math inline">\(θ\in [0, θ&#39;)\)</span> choose <span class="math inline">\(e=0\)</span><br />
-therefore, the expected productivity is
-<span class="math display">\[\begin{aligned}E[ θ\ |\ θ&lt;θ&#39;] &amp;= \frac{θ&#39;}{2} \\
-w_L &amp;= E[ θ\ |\ θ&lt;θ&#39;] \\
-&amp;= \frac{θ&#39;}{2} \end{aligned}\]</span>
-For <span class="math inline">\(θ\in [θ&#39;,1]\)</span>, workers’ problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w_H - \frac{e^2}{θ}&amp; \\
-FOC &amp;&amp; w_H&#39; - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \end{aligned}\]</span>
-Since firms make zero profit,
-<span class="math display">\[\begin{aligned}π &amp;= θ-w = 0 \\
-w_H &amp;= w\big( e(θ)\big) \\
-&amp;= θ\end{aligned}\]</span>
-plug in FOC
-<span class="math display">\[\begin{aligned}w_H&#39; - 2\cdot\frac{e}{w_H} &amp;= 0 \\
-w_H&#39;\cdot w_H &amp;= 2e \\
-w_H &amp;= \sqrt{2} e\end{aligned}\]</span>
-plug in
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; \sqrt{2} e - \frac{e^2}{θ}&amp; \\
-FOC &amp;&amp; \sqrt{2} - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \\
-&amp;&amp; e^*(θ) &amp;= \frac{θ}{\sqrt{2}} \\
-&amp;&amp; w_H &amp;= θ \\
-&amp;&amp; u &amp;= w - \frac{e^2}{θ} \\
-&amp;&amp; &amp;= \frac{θ}{2}\end{aligned}\]</span>
-(IC) for low type:
-<span class="math display">\[\begin{aligned}w_L - 0 &amp;\overset{!}{\geq} w_H - \frac{e^2}{θ} \\
-\frac{θ&#39;}{2} &amp;\overset{!}{\geq} θ - \frac{(θ/\sqrt{2})^2}{θ} \\
-\frac{θ&#39;}{2} &amp;\overset{!}{\geq} \frac{θ}{2}\end{aligned}\]</span>
-this holds for workers with <span class="math inline">\(θ\in [0, θ&#39;)\)</span>,<br />
-and holds equal (indifference) for workers with <span class="math inline">\(θ = θ&#39;\)</span>.</p>
 </div>
 </div>
-<div id="competitive-car-insurance-market" class="section level2">
-<h2>Competitive Car Insurance Market</h2>
+<div id="screening-competitive-insurance-market" class="section level2">
+<h2>Screening: Competitive Insurance Market</h2>
+<p>TIO Ch3, <a href="https://www.uh.edu/~bsorense/Rothschild&amp;Stiglitz.pdf">Rothschild and Stiglitz (1976)</a></p>
+<ul>
+<li>Wealth: <span class="math inline">\(W\)</span>
+<ul>
+<li>Cost of accident: <span class="math inline">\(d\)</span></li>
+</ul></li>
+<li>Probability of accident: <span class="math inline">\(p\)</span></li>
+<li>Insurance contract: <span class="math inline">\(α = (α_1, α_2)\)</span>
+<ul>
+<li>Price: <span class="math inline">\(α_1\)</span></li>
+<li>Payment: <span class="math inline">\(α_1 + α_2\)</span></li>
+<li>Wealth with insurance (no accident): <span class="math inline">\(W_1 = W-α_1\)</span></li>
+<li>Wealth with insurance (accident): <span class="math inline">\(W_2 = W - d + α_2\)</span></li>
+</ul></li>
+<li>Expected utility
+<span class="math display">\[\begin{aligned}\hat{V}(p,W_1,W_2) = (1-p)\cdot U(W_1) + p\cdot U(W_2) \end{aligned}\]</span></li>
+<li>Value of contract
+<span class="math display">\[\begin{aligned}V(p,α) &amp;= \hat{V}(p,W_1,W_2) \\
+&amp;= \hat{V}(p, W-α_1, W - d + α_2)\end{aligned}\]</span>
+(PC): <span class="math inline">\(V(p,α) \geq V\big(p,(0,0)\big)\)</span></li>
+</ul>
 <div id="benchmark-1" class="section level3">
 <h3>Benchmark</h3>
 </div>
@@ -995,8 +1016,8 @@ therefore, when <span class="math inline">\(γ&gt;\frac{1}{4}\)</span>, low type
 </ol>
 </div>
 </div>
-<div id="non-linear-pricing" class="section level2">
-<h2>Non-Linear Pricing</h2>
+<div id="screening-non-linear-pricing" class="section level2">
+<h2>Screening: Non-Linear Pricing</h2>
 <ul>
 <li>Drivers type: <span class="math inline">\(θ\in\{θ_1, θ_2\}\)</span>, <span class="math inline">\(θ_1&lt;θ_2\)</span>
 <ul>
