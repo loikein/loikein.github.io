@@ -731,12 +731,12 @@ Beliefs are determined by <strong>Bayesian rule</strong> and the players’ equi
 <!-- At information sets on the equilibrium path, beliefs are determined by Bayesian rule and the players' equilibrium strategies.
 - Requirement 4  
 At information sets off the equilibrium path, beliefs are determined by Bayesian rule and the players' equilibrium strategies when possible. --></li>
-<li>Example 1:
+<li>Example 1
 <ul>
 <li>Player 1 chooses an action which player 2 doesn’t know</li>
 <li>Player 2 assigns <span class="math inline">\(Pr(L) = p\)</span></li>
-<li>SPNE: <span class="math inline">\(\{(L,L&#39;), (R,R&#39;)\}\)</span></li>
-<li>Requirement 1 &amp; 2 eliminates <span class="math inline">\((R,R&#39;)\)</span> as PBE since <span class="math inline">\(R&#39;\)</span> is not optimal given <span class="math inline">\(p\)</span></li>
+<li>(SP)NE: <span class="math inline">\(\{(L,L&#39;), (R,R&#39;)\}\)</span></li>
+<li>Requirement 1 &amp; 2 eliminates <span class="math inline">\((R,R&#39;)\)</span> as PBE since <span class="math inline">\(L\succ_2 R&#39;\)</span> for any value of <span class="math inline">\(p\)</span></li>
 </ul></li>
 </ul>
 <div class="figure">
@@ -780,7 +780,7 @@ At information sets off the equilibrium path, beliefs are determined by Bayesian
 </tbody>
 </table>
 <ul>
-<li>Example 2:
+<li>Example 2
 <ul>
 <li>Player 2 chooses an action which player 3 doesn’t know</li>
 <li>Player 3 assigns <span class="math inline">\(Pr(L) = p\)</span></li>
@@ -797,22 +797,95 @@ At information sets off the equilibrium path, beliefs are determined by Bayesian
 <h3>Equilibrium Refinements</h3>
 <p>MWG 13.C, 13.Appendix, PGT 4.4</p>
 <ul>
+<li>Signalling dominated strategy<br />
+<span class="math inline">\(m_j\in M\)</span> is dominated for type <span class="math inline">\(t_i\)</span> if exists <span class="math inline">\(m_j&#39;\in M\)</span> s.t. <span class="math display">\[\min_{a_k\in A} U_S(t_i, m_j&#39;, a_k)&gt;\max_{a_k\in A} U_S(t_i, m_j, a_k)\]</span></li>
+<li>Signalling equilibrium-dominated strategy<br />
+<span class="math inline">\(m_j\in M\)</span> is equilibrium-dominated for type <span class="math inline">\(t_i\)</span> if <span class="math display">\[\underbrace{U^*(t_i)}_{\text{Equilibrium payoff}} &gt; \max_{a_k\in A} \ U_S(t_i, m_j, a_k)\]</span>
+<!-- Given a PBE in a signaling game, message $m_j\in M$ is equilibrium-dominated for type $t_i\in T$ if $t_i$'s equilibrium payoff $U^*(t_i)$ is greater than $t_i$'s highest possible payoff from $m_j$  --></li>
 <li>Requirement 5<br />
-<strong>Off-the-path beliefs</strong> should give <span class="math inline">\(Pr=0\)</span> on strictly dominated strategies
+<strong>Off-path beliefs</strong> should give <span class="math inline">\(Pr=0\)</span> on strictly dominated strategies at any information set
 <!-- If possible, each player's beliefs off the equilibrium path should place zero probability on nodes that are reached only if another player plays a strategy that is strictly dominated beginning at some information set. --></li>
 <li>Signalling requirement 5<br />
-If the information set following <span class="math inline">\(m_j\)</span> is off the equilibrium path and <span class="math inline">\(m_j\)</span> is dominated for type <span class="math inline">\(t_i\)</span>, then (if possible) the Receiver’s belief <span class="math inline">\(μ(t_i\ |\ m_j)\)</span> should place zero probability on type <span class="math inline">\(t_i\)</span>.<br />
-Possible provided <span class="math inline">\(m_j\)</span> is not dominated for all the types in T.</li>
-<li>Equilibrium-dominated<br />
-Given a PBE in a signaling game, the message <span class="math inline">\(m_j\in M\)</span> is equilibrium-dominated for type <span class="math inline">\(t_i\in T\)</span>, from T if <span class="math inline">\(t_i\)</span>’s equilibrium payoff <span class="math inline">\(U^*(t_i)\)</span> is greater than <span class="math inline">\(t_i\)</span>’s highest possible payoff from <span class="math inline">\(m_j\)</span><br />
-<span class="math display">\[U^*(t_i) &gt; \max_{a_k\in A} \ U_S(t_i, m_j, a_k)\]</span></li>
-<li>Sigalling requirement 6 (Intuitive criterion)<br />
-If the information set following <span class="math inline">\(m_j\)</span> is off the eqiulibrium path, and <span class="math inline">\(m_j\)</span> is equilibrium-dominated for type <span class="math inline">\(t_i\)</span>, then (if possible) the Receiver’s belief <span class="math inline">\(μ(t_i\ |\ m_j)\)</span> should place zero probability on type <span class="math inline">\(t_i\)</span>.<br />
-Possible provided <span class="math inline">\(m_j\)</span> is not equilibrium-dominated for all the types</li>
+If off-path, belief <span class="math inline">\(μ(t_i\ |\ m_j)\overset{!}{=}0\)</span> for type <span class="math inline">\(t_i\)</span> playing dominated strategy <span class="math inline">\(m_j\)</span>
+<!-- If the information set following $m_j$ is off the equilibrium path and $m_j$ is dominated for type $t_i$, then (if possible) the Receiver's belief $μ(t_i\ |\ m_j)$ should place zero probability on type $t_i$.  
+Possible provided $m_j$ is not dominated for all the types in T.--></li>
+<li>Signalling requirement 6 (Intuitive criterion)<br />
+If off-path, belief <span class="math inline">\(μ(t_i\ |\ m_j)\overset{!}{=}0\)</span> for type <span class="math inline">\(t_i\)</span> playing equilibrium-dominated strategy <span class="math inline">\(m_j\)</span>
+<!-- If the information set following $m_j$ is off the eqiulibrium path, and $m_j$ is equilibrium-dominated for type $t_i$, then (if possible) the Receiver's belief $μ(t_i\ |\ m_j)$ should place zero probability on type $t_i$.  
+Possible provided $m_j$ is not equilibrium-dominated for all the types  --></li>
+<li>Example 3
+<ul>
+<li>Player 1 chooses an action which player 2 doesn’t know</li>
+<li>Player 2 assigns <span class="math inline">\(Pr(L) = p\)</span></li>
+<li>PBE: <span class="math inline">\(\{(L,L&#39;,p=1), (R,R&#39;,p\leq\frac{1}{2})\}\)</span></li>
+<li>Requirement 5 eliminates <span class="math inline">\((R,R&#39;,p\leq\frac{1}{2})\)</span> since <span class="math inline">\(M\)</span> is strictly dominated for player 1, therefore <span class="math inline">\(1-p\overset{!}{=}0\)</span></li>
+</ul></li>
 </ul>
 <div class="figure">
 <img src="/post-img/notes-contract--job-signal-bayesian-3.png" alt="PGT Figure 4.4.1" width="463" />
 <p class="caption">PGT Figure 4.4.1</p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>P2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>L’</td>
+<td>R’</td>
+</tr>
+<tr class="even">
+<td>P1</td>
+<td>L</td>
+<td>*3, 1*</td>
+<td>0, 0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>M</td>
+<td>1, 0</td>
+<td>0, 1*</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>R</td>
+<td>2, 2*</td>
+<td>*2, 2*</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Example 4
+<ul>
+<li>Sender: <span class="math inline">\(t\in\{t_1,t_2\}\)</span>, <span class="math inline">\(Pr(t_1) = 0.5\)</span></li>
+<li>Signal: chooses <span class="math inline">\(m\in\{L,R\}\)</span>, <span class="math inline">\(Pr(t_1 : L)=p\)</span>, <span class="math inline">\(Pr(t_1 : R)=q\)</span></li>
+<li>Pooling PBE: <span class="math inline">\(\big[(L,L), (u,d),p=\frac{1}{2}, q\geq\frac{1}{2}\big]\)</span></li>
+<li>Signalling requirement 5 eliminates this since <span class="math inline">\(R\)</span> is strictly dominated for <span class="math inline">\(t_1\)</span>, therefore <span class="math inline">\(q\overset{!}{=}0\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-bayesian-4.png" alt="PGT Figure 4.4.2" width="574" />
+<p class="caption">PGT Figure 4.4.2</p>
+</div>
+<ul>
+<li>Example 5
+<ul>
+<li>Sender: <span class="math inline">\(t\in\{ w, s \}\)</span>, <span class="math inline">\(Pr(w)=0.1\)</span></li>
+<li>Signal: chooses <span class="math inline">\(m\in\{Q,B\}\)</span>, <span class="math inline">\(Pr(w : Q)=p\)</span>, <span class="math inline">\(Pr(w : B)=q\)</span></li>
+<li>Pooling PBE: <span class="math inline">\(\big[(Q, Q), (n, d), p=0.1, q\geq\frac{1}{2} \big]\)</span></li>
+<li>Signalling requirement 6 eliminates this since <span class="math inline">\(B\)</span> is equilibrium-dominated for <span class="math inline">\(w\)</span>, therefore <span class="math inline">\(q\overset{!}{=}0\)</span></li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-contract--job-signal-bayesian-5.png" alt="PGT Figure 4.4.3" width="605" />
+<p class="caption">PGT Figure 4.4.3</p>
 </div>
 <blockquote>
 <p>PS3.Q1<br />
