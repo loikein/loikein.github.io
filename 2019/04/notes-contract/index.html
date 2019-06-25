@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">28 min read</span>
+    <span class="article-duration">29 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -945,7 +945,7 @@ Possible provided $m_j$ is not equilibrium-dominated for all the types  --></li>
 <h2>Screening: Competitive Insurance Market</h2>
 <p>TIO Ch3, <a href="https://www.uh.edu/~bsorense/Rothschild&amp;Stiglitz.pdf">Rothschild and Stiglitz (1976)</a></p>
 <ul>
-<li>Wealth: <span class="math inline">\(W\)</span>
+<li>Consumer’s wealth: <span class="math inline">\(W\)</span>
 <ul>
 <li>Cost of accident: <span class="math inline">\(d\)</span></li>
 </ul></li>
@@ -957,18 +957,55 @@ Possible provided $m_j$ is not equilibrium-dominated for all the types  --></li>
 <li>Wealth with insurance (no accident): <span class="math inline">\(W_1 = W-α_1\)</span></li>
 <li>Wealth with insurance (accident): <span class="math inline">\(W_2 = W - d + α_2\)</span></li>
 </ul></li>
-<li>Expected utility
+<li>Consumer’s expected utility
 <span class="math display">\[\begin{aligned}\hat{V}(p,W_1,W_2) = (1-p)\cdot U(W_1) + p\cdot U(W_2) \end{aligned}\]</span></li>
-<li>Value of contract
-<span class="math display">\[\begin{aligned}V(p,α) &amp;= \hat{V}(p,W_1,W_2) \\
-&amp;= \hat{V}(p, W-α_1, W - d + α_2)\end{aligned}\]</span>
-(PC): <span class="math inline">\(V(p,α) \geq V\big(p,(0,0)\big)\)</span></li>
+<li>Firm’s expected profit:
+<span class="math display">\[\begin{aligned}π(p, α) &amp;= (1-p)\cdot α_1 - p\cdot α_2 \\
+&amp;= α_1 - p(α_1 + α_2)\end{aligned}\]</span>
+(PC) for consumer: <span class="math inline">\(V(p,α) \geq V\big(p,(0,0)\big)\)</span></li>
+<li>Equilibrium
+<ul>
+<li>Consumer maximizes expected utility</li>
+<li>All contracts in the equilibrium makes non-negative profit</li>
+<li>All contracts outside the equilibrium makes negative profit</li>
+</ul></li>
 </ul>
+<!-- &= (1-p)\cdot (W - W_1) + p\cdot (W - W_2 - d)\\ &= W - pd - (1-p) W_1 - p\cdot W_2 -->
 <div id="benchmark-1" class="section level3">
 <h3>Benchmark</h3>
+<ul>
+<li>1 type of consumers</li>
+<li>Consumer’s problem:
+<span class="math display">\[\begin{aligned}\max_{W_1, W_2} &amp;&amp; V(p,α) &amp;= \hat{V}(p,W_1,W_2) \\
+&amp;&amp; &amp;= \hat{V}(p, W-α_1, W - d + α_2) \\
+(PC) &amp;&amp; π &amp;= α_1 - p(α_1 + α_2) \\
+&amp;&amp; &amp;= W - p\cdot d - (1-p)\cdot W_1 - p\cdot W_2 \end{aligned}\]</span>
+Lagrangian:
+<span class="math display">\[\begin{aligned}\mathcal{L} &amp;= (1-p)U(W_1) + p\cdot U(W_2) \\
+&amp;\phantom{\ggg} + λ\big( W - p\cdot d - (1-p)\cdot W_1 - p\cdot W_2 - π\big) \\
+\frac{\partial\mathcal{L}}{\partial W_1} &amp;= (1-p)U&#39;(W_1) - (1-p)λ \overset{!}{=} 0 \\
+\frac{\partial\mathcal{L}}{\partial W_2} &amp;= p\cdot U&#39;(W_2) - p\cdot λ \overset{!}{=} 0 \\
+U&#39;(W_1) - λ &amp;= U&#39;(W_2) - λ \\
+U&#39;(W_1) &amp;= U&#39;(W_2)\end{aligned}\]</span></li>
+<li>Perfect competition gives zero profit
+<span class="math display">\[\begin{aligned}π &amp;= α_1 - p(α_1 + α_2)\\
+&amp;= W - p\cdot d - (1-p)\cdot W_1 - p\cdot W_2 \\
+&amp;= 0 \end{aligned}\]</span></li>
+</ul>
+<div class="figure">
+<img src="/post-img/notes-contract--insurance-benchmark.png" alt="RS(1976) Figure 1" width="621" />
+<p class="caption">RS(1976) Figure 1</p>
+</div>
 </div>
 <div id="hidden-type" class="section level3">
 <h3>Hidden Type</h3>
+<ul>
+<li>Types of consumers: <span class="math inline">\(p\in\{ p_H, p_L\}\)</span>
+<ul>
+<li><span class="math inline">\(Pr(p = p_H) = λ\)</span></li>
+<li>Average type: <span class="math inline">\(\bar{p} = λ\cdot p_H + (1-λ)p_L\)</span></li>
+</ul></li>
+</ul>
 <blockquote>
 <p>PS3.Q3<br />
 An airline wishes to determine optimal prices for business class and economy class tickets.<br />
