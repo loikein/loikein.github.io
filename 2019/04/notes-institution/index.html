@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">35 min read</span>
     
     <h1 class="article-title">Notes on Institution</h1>
     
@@ -1249,6 +1249,7 @@ Consider the following variant of the “Property Rights” model:<br />
 At date 0, parties A and B agree on an ownership structure <span class="math inline">\(o\in \{A,B,J\}\)</span>.<br />
 At date 1, party A chooses an investment level <span class="math inline">\(a\geq 0\)</span> at costs <span class="math inline">\(\frac{1}{2}a^2\)</span>, and party B simultaneously chooses an investment level <span class="math inline">\(b\geq 0\)</span> at costs <span class="math inline">\(\frac{1}{2}b^2\)</span>.<br />
 At date 2, the parties bargain about whether or not to collaborate.<br />
+Suppose <span class="math inline">\(0 &lt; ε &lt; λ &lt; 1\)</span>.<br />
 If the parties agree on collaboration, together they can generate the date-2 surplus <span class="math inline">\(a+b\)</span>.<br />
 If the parties do not reach an agreement, then depending on the ownership structure <span class="math inline">\(o\)</span>, the default payoffs <span class="math inline">\(D^o_A\)</span> of party A and <span class="math inline">\(D^o_B\)</span> of party B are:</p>
 <table>
@@ -1277,8 +1278,79 @@ If the parties do not reach an agreement, then depending on the ownership struct
 </tr>
 </tbody>
 </table>
-<p>Suppose <span class="math inline">\(0 &lt; ε &lt; λ &lt; 1\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Characterize the first-best solution.</li>
+<li>Which investment levels ao and bo will the parties A and B choose at date 1 in the three cases <span class="math inline">\(o=A\)</span>, <span class="math inline">\(o=B\)</span>, and <span class="math inline">\(o=J\)</span>, when they anticipate the date-2 Nash bargaining solution?<br />
+Hence, what are the investment levels <span class="math inline">\(a^A\)</span>, <span class="math inline">\(a^B\)</span>, <span class="math inline">\(a^J\)</span>, <span class="math inline">\(a^{FB}\)</span>, and how can they be ranked?<br />
+What are the investment levels <span class="math inline">\(b^A\)</span>, <span class="math inline">\(b^B\)</span>, <span class="math inline">\(b^J\)</span>, <span class="math inline">\(b^{FB}\)</span>, and how can they be ranked?</li>
+<li>On which ownership structure <span class="math inline">\(o\in\{A,B,J\}\)</span> will the parties agree at date 0?</li>
+</ol>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>First best<br />
+Since <span class="math inline">\(a+b&gt;D_A^o + D_B^o\)</span>, collaboration is always good<br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,b} &amp;&amp; &amp;a+b &amp;- \frac{1}{2}a^2 - \frac{1}{2}b^2\\
+FOC &amp;&amp; a^{FB} &amp;= 1\\
+&amp;&amp; b^{FB}&amp;=1 \end{aligned}\]</span>
+Total surplus:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}a+b - \frac{1}{2}a^2 - \frac{1}{2}b^2 \\
+&amp;= 1 + 1 - \frac{1}{2} - \frac{1}{2} \\
+&amp;= 1\end{aligned}\]</span></li>
+<li>NBS:
+<span class="math display">\[\begin{aligned}\text{A&#39;s payoff} &amp;&amp; D_A^o + \frac{1}{2}(a+b - D_A^o - D_B^o) \\
+\text{B&#39;s payoff} &amp;&amp; D_B^o + \frac{1}{2}(a+b - D_A^o - D_B^o)\end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(o=A\)</span><br />
+A’s problem:
+<span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}-\frac{1}{2}a^2 + D_A^A + \frac{1}{2}(a+b - D_A^A - D_B^A)\\
+ &amp;&amp; &amp;= -\frac{1}{2}a^2 + a+εb + \frac{1}{2}(a+b - a-εb - 0) \\
+ &amp;&amp; &amp;= -\frac{1}{2}a^2 + a+ \frac{1}{2}(εb + b) \\
+ FOC &amp;&amp; &amp;a^A = 1\end{aligned}\]</span>
+B’s problem:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; &amp;\phantom{\ggg}-\frac{1}{2}b^2 + D_B^A + \frac{1}{2}(a+b - D_A^A - D_B^A)\\
+ &amp;&amp; &amp;= -\frac{1}{2}b^2 + 0 + \frac{1}{2}(a+b - a-εb - 0) \\
+ &amp;&amp; &amp;= -\frac{1}{2}b^2 + \frac{1}{2}(b -εb ) \\
+ FOC &amp;&amp; &amp;b^A = \frac{1}{2}(1-ε)\end{aligned}\]</span></li>
+<li><span class="math inline">\(o=B\)</span><br />
+A’s problem:
+<span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}-\frac{1}{2}a^2 + D_A^B + \frac{1}{2}(a+b - D_A^B - D_B^B)\\
+ &amp;&amp; &amp;= -\frac{1}{2}a^2 + 0 + \frac{1}{2}(a+b - 0 - λa - b) \\
+ &amp;&amp; &amp;= -\frac{1}{2}a^2 + \frac{1}{2}(a - λa) \\
+ FOC &amp;&amp; &amp;a^A = \frac{1}{2}(1 - λ) \end{aligned}\]</span>
+B’s problem:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; &amp;\phantom{\ggg}-\frac{1}{2}b^2 + D_B^B + \frac{1}{2}(a+b - D_A^B - D_B^B)\\
+ &amp;&amp; &amp;= -\frac{1}{2}b^2 + λa+b + \frac{1}{2}(a+b - 0 - λa - b) \\
+ &amp;&amp; &amp;= -\frac{1}{2}b^2 + λa+b + \frac{1}{2}(a - λa) \\
+ FOC &amp;&amp; &amp;b^A = 1\end{aligned}\]</span></li>
+<li><span class="math inline">\(o=J\)</span><br />
+A’s problem:
+<span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}-\frac{1}{2}a^2 + D_A^J + \frac{1}{2}(a+b - D_A^J - D_B^J)\\
+ &amp;&amp; &amp;= -\frac{1}{2}a^2 + 0 + \frac{1}{2}(a+b - 0 - 0) \\
+ &amp;&amp; &amp;= -\frac{1}{2}a^2 + \frac{1}{2}(a + b) \\
+ FOC &amp;&amp; &amp;a^J = \frac{1}{2} \end{aligned}\]</span>
+B’s problem:
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; &amp;\phantom{\ggg}-\frac{1}{2}b^2 + D_B^J + \frac{1}{2}(a+b - D_A^J - D_B^J)\\
+ &amp;&amp; &amp;= -\frac{1}{2}b^2 + 0 + \frac{1}{2}(a+b - 0 -0) \\
+ &amp;&amp; &amp;= -\frac{1}{2}b^2 + \frac{1}{2}(a +b) \\
+ FOC &amp;&amp; &amp;b^J = \frac{1}{2}\end{aligned}\]</span>
+Therefore, <span class="math inline">\(a^B &lt;a^J &lt;a^A =a^{FB}\)</span> and <span class="math inline">\(b^A &lt;b^J &lt;b^B =b^{FB}\)</span></li>
+</ol></li>
+<li>Total surplus: <span class="math inline">\(a^o + b^o - \frac{1}{2}(a^o)^2 - \frac{1}{2}(b^o)^2\)</span>
+When <span class="math inline">\(o=A\)</span>
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} 1 + \frac{1}{2}(1-ε) - \frac{1}{2} 1^2 - \frac{1}{2}\big(\frac{1}{2}(1-ε)\big)^2 \\
+&amp;= \frac{7}{8} - \frac{1}{4}ε - \frac{1}{8}ε^2 \end{aligned}\]</span>
+When <span class="math inline">\(o=B\)</span>
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(1 - λ) + 1 - \frac{1}{2}\big(\frac{1}{2}(1 - λ)\big)^2 - \frac{1}{2} 1^2 \\
+&amp;= \frac{7}{8} - \frac{1}{4}λ - \frac{1}{8}λ^2 \end{aligned}\]</span>
+When <span class="math inline">\(o=J\)</span>
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2} + \frac{1}{2} - \frac{1}{2}\big(\frac{1}{2}\big)^2 - \frac{1}{2}\big(\frac{1}{2}\big)^2 \\
+&amp;= \frac{3}{4} \end{aligned}\]</span>
+Since <span class="math inline">\(ε &lt; λ\)</span>, <span class="math inline">\(o=A\)</span> is always better than <span class="math inline">\(o=J\)</span><br />
+<span class="math inline">\(o=J\)</span> is always better than <span class="math inline">\(o=A\)</span> when
+<span class="math display">\[\begin{aligned}\frac{3}{4} &amp;&gt; \frac{7}{8} - \frac{1}{4}ε - \frac{1}{8}ε^2 \\
+ε &amp;&gt; -1 + \sqrt{2} \end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="privatization" class="section level3">
 <h3>Privatization</h3>
@@ -1349,6 +1421,27 @@ Total surplus: <span class="math inline">\(1+(1-ε)e^o - \frac{1}{2}(e^o)^2\)</s
   ε &amp;&lt;\frac{1}{3}\end{aligned}\]</span></li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise 8<br />
+At date 0, the government (G) and a manager (M) agree on the planned quantity <span class="math inline">\(q_0\in [0,1]\)</span> of a public good to be provided and on the ownership structure <span class="math inline">\(o\in\{G,M\}\)</span> over a facility needed to provide the good.<br />
+At date 1, party M chooses an investment level <span class="math inline">\(e\in [0,1]\)</span>, incurring investment costs <span class="math inline">\(\frac{1}{2}e^2\)</span>. The investment aims at the development of an innovation.<br />
+At date 2, the parties G and M bargain over the implementation <span class="math inline">\(x\in\{0,1\}\)</span> of the innovation, and they may agree on a quantity <span class="math inline">\(q\in [0,1]\)</span> that is different from <span class="math inline">\(q_0\)</span>.<br />
+If the negotiations fail, the quantity remains <span class="math inline">\(q = q_0\)</span> and the owner has the right to unilaterally decide about <span class="math inline">\(x\)</span>.<br />
+If the innovation is implemented (<span class="math inline">\(x = 1\)</span>), then the costs of operating the facility are reduced, but also the quality of the good to be provided is reduced:<br />
+Party G’s benefit is <span class="math inline">\((2 - xεe) q\)</span>, while party M’s operating costs are <span class="math inline">\((1 - xe) q\)</span>.<br />
+Suppose that <span class="math inline">\(ε\in (0,1)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>What are the decisions <span class="math inline">\(x^{FB}\)</span>, <span class="math inline">\(q^{FB}\)</span>, and <span class="math inline">\(e^{FB}\)</span> that maximize the two parties’ total surplus (first-best solution)?</li>
+<li>Suppose the parties’ negotiations over x and q lead to the Nash bargaining solution.<br />
+What are G’s and M’s date-2 payoffs given the ownership structure o ∈ {G,M}?</li>
+<li>Suppose <span class="math inline">\(o=M\)</span> (privatization).<br />
+Which investment level <span class="math inline">\(e^M\)</span> will M choose at date 1? Is <span class="math inline">\(e^M\)</span> increasing or decreasing in <span class="math inline">\(q_0\)</span> ? Compare <span class="math inline">\(e^M\)</span> to <span class="math inline">\(e^{FB}\)</span>.<br />
+Suppose <span class="math inline">\(o=G\)</span> (public ownership).<br />
+Which investment level <span class="math inline">\(e^G\)</span> will M choose at date 1? Does <span class="math inline">\(e^G\)</span> depend on <span class="math inline">\(q_0\)</span> ? Compare <span class="math inline">\(e^G\)</span> to <span class="math inline">\(e^{FB}\)</span>.</li>
+<li>On which quantity <span class="math inline">\(q_0\in [0,1]\)</span> and on which ownership structure <span class="math inline">\(o\in\{G,M\}\)</span> will the parties agree at date 0?<br />
+Compare <span class="math inline">\(q_0\)</span> to <span class="math inline">\(q^{FB}\)</span>. Will the first-best solution be attained?</li>
+</ol>
+</blockquote>
 </div>
 </div>
 
