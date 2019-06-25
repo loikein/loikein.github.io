@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">44 min read</span>
+    <span class="article-duration">46 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -111,6 +111,8 @@
 <li><a href="#social-preference">Social Preference</a><ul>
 <li><a href="#distributional-model">Distributional Model</a></li>
 <li><a href="#inequity-aversion">Inequity Aversion</a></li>
+<li><a href="#competitive-bilateral-bargaining">Competitive Bilateral Bargaining</a></li>
+<li><a href="#intensional-model">Intensional Model</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1695,13 +1697,15 @@ Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline"
 <div id="inequity-aversion" class="section level3">
 <h3>Inequity Aversion</h3>
 <ul>
-<li>Utility function
+<li>Fehr-Schmidt (FS) Utility function
 <span class="math display">\[\begin{aligned}u_i(\underline{x}) = x_i &amp;- α_i\cdot\frac{1}{I-1}\cdot\sum_{j\neq i}\max\{x_j-x_i, 0\} &amp;&amp; \text{Envy} \\
 &amp;- β_i\cdot\frac{1}{I-1}\cdot\sum_{j\neq i}\max\{x_i-x_j, 0\} &amp;&amp; \text{Altruism}\end{aligned}\]</span>
 <ul>
 <li><span class="math inline">\(α_i\geq β_i\)</span></li>
 <li><span class="math inline">\(0\leq β_i\leq 1\)</span></li>
 </ul></li>
+<li>Bolton-Ockenfels Utility function
+<span class="math display">\[u_i(x) = x_i - b_i\cdot\Big(\frac{x_i}{\sum x_j} - \frac{1}{n}\Big)^2\]</span></li>
 <li>2 player case
 <ul>
 <li>Utility function <span class="math display">\[u_i(\underline{x}) = - α_i\cdot\max\{x_j-x_i, 0\} - β_i\cdot\max\{x_i-x_j, 0\}\]</span></li>
@@ -1710,7 +1714,93 @@ Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline"
 <li><span class="math inline">\(β_i\leq 1\)</span>: not willing to throw away when at advantage<br />
 <img src="/post-img/notes-behavioural--inequality-aversion.png" width="470" /></li>
 </ul></li>
+<li>Lemma 4.1: in an ultimatum, with both agents has FS preferences, and <span class="math inline">\(α_1,α_2,β_1,β_2\)</span> are common knowledge, then
+<ol style="list-style-type: decimal">
+<li>Responder accepts all <span class="math inline">\(s\)</span> s.t. <span class="math inline">\(s\geq\underline{s}\equiv\frac{α_2}{1+2α_2}&lt;\frac{1}{2}\)</span></li>
+<li>Proposer offers <span class="math inline">\(s=\begin{cases}\underline{s} &amp; β_1&lt;\frac{1}{2} \\ \frac{1}{2} &amp; β_1&gt;\frac{1}{2} \end{cases}\)</span></li>
+</ol></li>
 </ul>
+</div>
+<div id="competitive-bilateral-bargaining" class="section level3">
+<h3>Competitive Bilateral Bargaining</h3>
+<ul>
+<li>Proposers: <span class="math inline">\(I-1\)</span>
+<ul>
+<li>Offer: <span class="math inline">\(s_i\)</span></li>
+<li>Utility from accepted offer: <span class="math inline">\(1-s_i\)</span></li>
+<li>Utility from unaccepted offer: 0</li>
+</ul></li>
+<li>Responder: 1
+<ul>
+<li>Can accept at most 1 offer</li>
+<li>Utility from accepting offer: <span class="math inline">\(s_i\)</span></li>
+</ul></li>
+<li>Observation: when <span class="math inline">\(α_i = β_i = 0\)</span>, unique SPNE: at least 2 proposers offer <span class="math inline">\(s_i=1\)</span>, and 1 is accepted</li>
+<li>Lemma 4.2: with inequity aversion agents, unique SPNE: at least 2 proposers offer <span class="math inline">\(s_i=1\)</span>, and 1 is accepted</li>
+<li>Lemma 4.3: with inequity aversion agents, when sellers has <span class="math inline">\(β_1&lt; \frac{I-1}{I}\)</span>
+<ol style="list-style-type: decimal">
+<li>Exists an SPNE where responder accept any <span class="math inline">\(s\geq 0\)</span>, and proposers offer <span class="math inline">\(s=0\)</span></li>
+<li>Exists an SPNE where the highest offer is <span class="math display">\[\bar{s} = \min_{i\in\{2,\dots,I\}} \ \frac{α_i}{(1-β_i)(I-1) + 2α_i + β_i}&lt;\frac{1}{2}\]</span></li>
+</ol></li>
+</ul>
+</div>
+<div id="intensional-model" class="section level3">
+<h3>Intensional Model</h3>
+<ul>
+<li>Experiment
+<ul>
+<li>Version A: proposer proposes either (20, 80) or (80, 20)</li>
+<li>Version B: proposer proposes either (20, 80) or (50, 50) or (80, 20)</li>
+<li>Distributional model predictio: same reacions</li>
+<li>But more responders in version A accepted then in version B</li>
+</ul></li>
+<li>Model of preference for fairness
+<ul>
+<li>If <span class="math inline">\(i\)</span> believes <span class="math inline">\(j\)</span> intended to be <strong>kind</strong>, <span class="math inline">\(i\)</span>’s utility goes up, and obtains utility from treating <span class="math inline">\(j\)</span> kindly in return</li>
+<li>If <span class="math inline">\(i\)</span> believes <span class="math inline">\(j\)</span> intended to be <strong>unkind</strong>, <span class="math inline">\(i\)</span>’s utility goes down, and obtains utility from treating <span class="math inline">\(j\)</span> unkindly in return</li>
+</ul></li>
+<li>Example: BoS
+<ul>
+<li>NE: {(O, O), (B, B)}</li>
+<li>If P2 intends to hurt P1, and P2 believes P1 plays O, then P2 plays B</li>
+<li>If P2 intends to hurt P1, and P2 believes P1 plays B, then P2 plays O</li>
+<li><span class="math inline">\(\implies\)</span> P1 must have belief about (P2’s belief about P1)</li>
+<li>Suppose P1 believes (P2 believes P1 plays O)<br />
+Then P2 plays B <span class="math inline">\(\implies\)</span> P1 conciders as an intention of unkindness<br />
+<span class="math inline">\(\implies\)</span> If P1 believes (P2 plays B), P1 plays O to lower P2’s payoff<br />
+<span class="math inline">\(\implies\)</span> by symmetry, (O, B) or (B, O) may also be equilibria</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>P2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Opera</td>
+<td>Boxing</td>
+</tr>
+<tr class="even">
+<td>P1</td>
+<td>Opera</td>
+<td><span class="math inline">\(2x, x\)</span></td>
+<td>0, 0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Boxing</td>
+<td>0, 0</td>
+<td><span class="math inline">\(x, 2x\)</span></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
