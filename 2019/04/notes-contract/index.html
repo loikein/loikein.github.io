@@ -107,8 +107,8 @@
 <li><a href="#equilibrium-refinements">Equilibrium Refinements</a></li>
 </ul></li>
 <li><a href="#screening-competitive-insurance-market">Screening: Competitive Insurance Market</a><ul>
-<li><a href="#benchmark-1">Benchmark</a></li>
-<li><a href="#hidden-type">Hidden Type</a></li>
+<li><a href="#identical-consumers">Identical Consumers</a></li>
+<li><a href="#different-types-of-consumers">Different Types of Consumers</a></li>
 </ul></li>
 <li><a href="#screening-non-linear-pricing">Screening: Non-Linear Pricing</a><ul>
 <li><a href="#price-distrimination-with-perfect-information">Price Distrimination with Perfect Information</a></li>
@@ -971,8 +971,8 @@ Possible provided $m_j$ is not equilibrium-dominated for all the types  --></li>
 </ul></li>
 </ul>
 <!-- &= (1-p)\cdot (W - W_1) + p\cdot (W - W_2 - d)\\ &= W - pd - (1-p) W_1 - p\cdot W_2 -->
-<div id="benchmark-1" class="section level3">
-<h3>Benchmark</h3>
+<div id="identical-consumers" class="section level3">
+<h3>Identical Consumers</h3>
 <ul>
 <li>1 type of consumers</li>
 <li>Consumer’s problem:
@@ -991,20 +991,27 @@ U&#39;(W_1) &amp;= U&#39;(W_2)\end{aligned}\]</span></li>
 <span class="math display">\[\begin{aligned}π &amp;= α_1 - p(α_1 + α_2)\\
 &amp;= W - p\cdot d - (1-p)\cdot W_1 - p\cdot W_2 \\
 &amp;= 0 \end{aligned}\]</span></li>
+<li>Point <span class="math inline">\(E\)</span>: consumer’s endowment (outside option)</li>
+<li>Line <span class="math inline">\(FE\)</span>: firm’s zero-profit isoprofit line</li>
 </ul>
 <div class="figure">
 <img src="/post-img/notes-contract--insurance-benchmark.png" alt="RS(1976) Figure 1" width="621" />
 <p class="caption">RS(1976) Figure 1</p>
 </div>
 </div>
-<div id="hidden-type" class="section level3">
-<h3>Hidden Type</h3>
+<div id="different-types-of-consumers" class="section level3">
+<h3>Different Types of Consumers</h3>
 <ul>
-<li>Types of consumers: <span class="math inline">\(p\in\{ p_H, p_L\}\)</span>
+<li>Types of consumers: <span class="math inline">\(p\in\{ p_H, p_L\}\)</span>, <span class="math inline">\(p_H&gt;p_L\)</span>
 <ul>
 <li><span class="math inline">\(Pr(p = p_H) = λ\)</span></li>
 <li>Average type: <span class="math inline">\(\bar{p} = λ\cdot p_H + (1-λ)p_L\)</span></li>
 </ul></li>
+<li>Point E: <span class="math inline">\(p_H\)</span> and <span class="math inline">\(p_L\)</span>’s endowment (outside option)</li>
+<li>Non-existence of pooling equilibrium:<br />
+FSOC <span class="math inline">\(α\)</span> is an PE, <span class="math inline">\(α\succ_H E\)</span> and <span class="math inline">\(α\succ_L E\)</span><br />
+<span class="math inline">\(\implies π = α_1 - \bar{p}(α_1 + α_2) = 0\)</span><br />
+<span class="math inline">\(\implies\)</span> the slope of line <span class="math inline">\(αE\)</span> is <span class="math inline">\(\frac{1-\bar{p}}{\bar{p}}\)</span></li>
 </ul>
 <blockquote>
 <p>PS3.Q3<br />
