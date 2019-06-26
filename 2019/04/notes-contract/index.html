@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">30 min read</span>
+    <span class="article-duration">32 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -113,14 +113,16 @@
 <li><a href="#screening-non-linear-pricing">Screening: Non-Linear Pricing</a><ul>
 <li><a href="#perfect-information-monopoly">Perfect Information: Monopoly</a></li>
 <li><a href="#asymmetric-information">Asymmetric Information</a></li>
-<li><a href="#continuous-types">Continuous Types</a></li>
+<li><a href="#continuous-types-mechanism-approach">Continuous Types: Mechanism Approach</a></li>
 </ul></li>
 <li><a href="#moral-hazard">Moral Hazard</a><ul>
 <li><a href="#first-best">First Best</a></li>
 <li><a href="#second-best">Second Best</a></li>
 <li><a href="#risk-neutral-parties-unlimited-liability">Risk Neutral Parties &amp; Unlimited Liability</a></li>
 <li><a href="#risk-neutral-parties-limited-liability">Risk Neutral Parties &amp; Limited Liability</a></li>
-<li><a href="#constant-absolute-risk-averse-cara">Constant Absolute Risk Averse (CARA)</a></li>
+<li><a href="#constant-absolute-risk-aversion-cara">Constant Absolute Risk Aversion (CARA)</a></li>
+<li><a href="#step-contract">Step Contract</a></li>
+<li><a href="#first-order-approach">First Order Approach</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1121,9 +1123,6 @@ FOC &amp;&amp; \frac{\partial}{\partial s_2} = θ_2\cdot V(s_2)- c\cdot s_2 &amp
 &amp;&amp; θ_1\cdot V&#39;(s_2^*) &amp;= \frac{c}{1-\frac{1-λ}{λ}\cdot\frac{θ_2 - θ_1}{θ_1}} \\
 &amp;&amp; &amp;\implies\text{Distortion below the top}\end{aligned}\]</span></li>
 </ul>
-</div>
-<div id="continuous-types" class="section level3">
-<h3>Continuous Types</h3>
 <blockquote>
 <p>PS3.Q2<br />
 Consider a market with two buyers.<br />
@@ -1246,6 +1245,74 @@ therefore, when <span class="math inline">\(γ&gt;\frac{1}{4}\)</span>, low type
 <span class="math inline">\(\implies\)</span> downwards distortion below the top</li>
 </ol>
 </div>
+<div id="continuous-types-mechanism-approach" class="section level3">
+<h3>Continuous Types: Mechanism Approach</h3>
+<p><a href="https://www.jstor.org/stable/pdf/2555674.pdf">Maskin and Riley (1984)</a></p>
+<ul>
+<li>Revelation principle</li>
+<li>Consumers’ type: <span class="math inline">\(θ\in [\underline{θ}, \bar{θ}]\)</span>
+<ul>
+<li>pdf: <span class="math inline">\(f(θ)\)</span></li>
+<li>cdf: <span class="math inline">\(F(θ)\)</span></li>
+<li>Consumers’ statement: <span class="math inline">\(\hat{θ}\)</span></li>
+</ul></li>
+<li>Utility function: <span class="math inline">\(U=\begin{cases}θ\cdot V(s) - T &amp; \text{Consume }s\text{ and pay }T \\ 0 &amp;\text{Otherwise}\end{cases}\)</span>
+<ul>
+<li><span class="math inline">\(V&#39;&gt;0\)</span>, <span class="math inline">\(V&#39;&#39;&lt;0\)</span></li>
+<li>Example: <span class="math inline">\(V(s) = \frac{1-(1-s)^2}{2}\)</span></li>
+</ul></li>
+<li>Cost of production: <span class="math inline">\(c&lt; \underline{θ}\)</span></li>
+<li>Consumers’ problem:
+<span class="math display">\[\begin{aligned}\max_s &amp;&amp; &amp;θ\cdot V(s) - T(s) \\
+\implies &amp;&amp; &amp;s^*(θ) \\
+&amp;&amp; &amp;T\big(s^*(θ)\big)\end{aligned}\]</span></li>
+<li>Price scheme: <span class="math inline">\(\Big( s(θ), T\big(s(θ)\big)\Big)\)</span> for all <span class="math inline">\(θ\)</span></li>
+<li>Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{T(θ),s(θ)} &amp;&amp; \int_{\underline{θ}}^{\bar{θ}} \big(T(θ) - c\cdot s(θ)\big)f(θ) \, dθ&amp; \\
+(PC) &amp;&amp; θ\cdot V\big(s(θ)\big) - T(θ) &amp;\geq 0 \\
+(IC) &amp;&amp; θ\cdot V\big(s(θ)\big) - T(θ) &amp;\geq θ\cdot V(s(\hat{θ})) - T(\hat{θ})\end{aligned}\]</span>
+(IC) for type <span class="math inline">\(θ\)</span> and type <span class="math inline">\(θ&#39;\implies\)</span>
+<span class="math display">\[\begin{cases}θ\cdot V\big(s(θ)\big) - T(θ) \geq θ\cdot V\big(s(θ&#39;)\big) - T(θ&#39;) \\
+θ&#39;\cdot V\big(s(θ&#39;)\big) - T(θ&#39;) \geq θ&#39;\cdot V\big(s(θ)\big) - T(θ) \end{cases}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}(θ-θ&#39;)\cdot \Big( V\big(s(θ)\big) -  V\big(s(θ&#39;)\big)\Big) \geq 0 \end{aligned}\]</span>
+Assume <span class="math inline">\(s(θ)\)</span> is monotonic, <span class="math inline">\(s&#39;(θ)\geq 0\)</span><br />
+<span class="math inline">\(\implies V\big(s(θ)\big)\)</span> is monotonic<br />
+<span class="math inline">\(\implies V\big(s(θ)\big)\)</span> is differentiable almost everywhere<br />
+<span class="math inline">\(\implies\)</span> FOC holds</li>
+<li>Consumer concerning statement <span class="math inline">\(\hat{θ}\)</span>:
+<span class="math display">\[\begin{aligned}\max_{\hat{θ}} &amp;&amp; &amp;θ\cdot V\big(s(\hat{θ})\big) - T(\hat{θ}) \\
+FOC &amp;&amp; &amp;θ\cdot V&#39;\big(s(\hat{θ})\big)\cdot s&#39;(\hat{θ}) - T&#39;(\hat{θ})|_{\hat{θ}=θ} \overset{!}{=}0\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(θ) &amp;= \max_{\hat{θ}} \ θ\cdot V\big(s(\hat{θ})\big) - T(\hat{θ})\\
+U&#39;(θ) &amp;= V\big(s(θ)\big) + \Big(\underbrace{θ\cdot V&#39;\big(s(\hat{θ})\big)\cdot s&#39;(\hat{θ}) - T&#39;(\hat{θ})}_{FOC}\Big)\frac{d\hat{θ}}{dθ} \\
+&amp;= V\big(s(θ)\big) \geq 0\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> (PC) is only binding at <span class="math inline">\(\underline{θ}\)</span>, and slack anywhere else<br />
+<span class="math inline">\(\implies U(\underline{θ}) = 0\)</span><br />
+therefore,
+<span class="math display">\[\begin{aligned}U(θ) &amp;= U(\underline{θ}) + \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du \\
+&amp;= \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du \\
+&amp;= θ\cdot  V\big(s(θ)\big) - T(θ) \\
+T(θ) &amp;= \underbrace{θ\cdot  V\big(s(θ)\big)}_{\text{Surplus}} - \underbrace{\int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du}_{\text{Information rent}}\end{aligned}\]</span></li>
+<li>Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{T(θ),s(θ)} &amp;&amp; \int_{\underline{θ}}^{\bar{θ}} \big(T(θ) -c\cdot s(θ) \big)\cdot f(θ)\, dθ\end{aligned}\]</span>
+plug in <span class="math inline">\(T(θ)\)</span>
+<span class="math display">\[\begin{aligned}\max_{s(θ)} &amp;&amp; &amp;\int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big) - \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du -c\cdot s(θ) \Big)\cdot f(θ)\, dθ \\
+(IC) &amp;&amp; &amp;s&#39;(θ)\geq 0\end{aligned}\]</span>
+Let <span class="math inline">\(h&#39;(θ) = V\big(s(θ)\big)\)</span>, integration by parts gives
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} \Big(\underbrace{\int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du}_{h(θ)}  \Big)\cdot \underbrace{f(θ)}_{F&#39;(θ)}\, dθ \\
+&amp;= \Big(\int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du\Big) \cdot F(θ)\Big|_{\underline{θ}}^{\bar{θ}} - \int_{\underline{θ}}^{\bar{θ}} V\big(s(θ)\big)\cdot F(θ)\, dθ \\
+&amp;= \int_{\underline{θ}}^{\bar{θ}} V\big(s(u)\big)\, du\cdot 1- \int_{\underline{θ}}^{\bar{θ}} V\big(s(u)\big)\, du \cdot F(θ) \\
+&amp;= \int_{\underline{θ}}^{\bar{θ}} V\big(s(u)\big)\cdot \big(1-F(θ)\big)\, du\end{aligned}\]</span>
+plug back into firm’s problem
+<span class="math display">\[\begin{aligned}\max_{s(θ)} &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big) - \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du -c\cdot s(θ) \Big)\cdot f(θ)\, dθ \\
+&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big)-c\cdot s(θ) \Big)\cdot f(θ)\, dθ - \int_{\underline{θ}}^{\bar{θ}} V\big(s(θ)\big)\cdot \big(1-F(θ)\big)\, dθ \\
+&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big)-c\cdot s(θ) \Big)\cdot f(θ)\, dθ - \int_{\underline{θ}}^{\bar{θ}} V\big(s(θ)\big)\cdot \big(\frac{1-F(θ)}{f(θ)}\big)\, f(θ)dθ \\
+&amp;&amp; &amp;= \int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big)-c\cdot s(θ) - V\big(s(θ)\big)\cdot \frac{1-F(θ)}{f(θ)} \Big)\cdot f(θ)\, dθ\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}FOC &amp;&amp; \frac{\partial}{\partial s(θ)} = θ\cdot V&#39;(s(θ)) - c - V&#39;(s(θ)) \cdot\frac{1-F(θ)}{f(θ)} &amp;\overset{!}{=} 0 \\
+&amp;&amp; \Big( θ\cdot V&#39;\big(s(θ)\big) - c\Big) f(θ) &amp;= V&#39;\big(s(θ)\big) \cdot \big(1-F(θ)\big) \\
+&amp;&amp; \frac{θ\cdot V&#39;\big(s(θ)\big) - c}{V&#39;\big(s(θ)\big)} &amp;= \frac{\big(1-F(θ)\big)}{f(θ)} \end{aligned}\]</span></li>
+</ul>
+</div>
 </div>
 <div id="moral-hazard" class="section level2">
 <h2>Moral Hazard</h2>
@@ -1336,8 +1403,9 @@ FOC &amp;&amp; p&#39;(a) - \frac{\big(p&#39;(a)\big)^2 - p&#39;&#39;(a)\cdot p(a
 &amp;&amp; p&#39;(a) = 1-\frac{p&#39;&#39;(a)\cdot p(a)}{\big(p&#39;(a)\big)^2} &amp;&lt; 1\end{aligned}\]</span></li>
 </ul>
 </div>
-<div id="constant-absolute-risk-averse-cara" class="section level3">
-<h3>Constant Absolute Risk Averse (CARA)</h3>
+<div id="constant-absolute-risk-aversion-cara" class="section level3">
+<h3>Constant Absolute Risk Aversion (CARA)</h3>
+<p><a href="https://www.barcelonagse.eu/sites/default/files/working_paper_pdfs/883.pdf">Moral Hazard: Base Models And Two Extensions</a></p>
 <ul>
 <li>Principal’s utility: (RN) <span class="math inline">\(V(x) = x\)</span></li>
 <li>Agent’s utility: (RA) <span class="math display">\[u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)\]</span>
@@ -1348,33 +1416,34 @@ FOC &amp;&amp; p&#39;(a) - \frac{\big(p&#39;(a)\big)^2 - p&#39;&#39;(a)\cdot p(a
 <li>Performance: <span class="math inline">\(q=a+ε\)</span><br />
 <span class="math inline">\(ε\sim\mathcal{N}(0,σ^2)\implies q\sim\mathcal{N}(a,σ^2)\)</span></li>
 </ul></li>
-<li>Linear contract: <span class="math inline">\(w = β + αq\)</span>
+<li>Linear contract: <span class="math display">\[w = β + αq\]</span>
 <ul>
 <li>Efficient incentive (all risk on agent): <span class="math inline">\(α = 1\)</span></li>
 <li>Efficient risk-sharing (all risk on principal, flat wage): <span class="math inline">\(α = 0\)</span></li>
 </ul></li>
 <li>Agent’s problem:
-<span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}E\bigg[-\exp\Big(-r\cdot\big(β + αq - \frac{c}{2}a^2\big)\Big) \bigg] \\
-&amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + αq - \frac{a^2c}{2}\big)\Big)\bigg] \\
-&amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + rαa + αε - \frac{a^2c}{2}\big)\Big)\bigg] \\
-&amp;&amp; &amp;= -E\big[\exp(-r\cdot αε)\big]\cdot\exp\Big(-r\cdot\big(β + αa - \frac{a^2c}{2}\big)\Big) \\
-&amp;&amp; &amp;= -\exp\Big(\frac{r^2α^2σ^2}{2}\Big)\cdot\exp\Big(-r\cdot\big(β + αa - \frac{a^2c}{2}\big)\Big) \\
-&amp;&amp; &amp;= -\exp\Big(-r\cdot\big(\frac{-rα^2σ^2 - a^2c}{2}+β +αa\big)\Big) \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg] \\
+&amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big)\bigg] \\
+&amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + rαa + αε - g(a)\big)\Big)\bigg] \\
+&amp;&amp; &amp;= -E\big[\exp(-r\cdot αε)\big]\cdot\exp\Big(-r\cdot\big(β + αa - g(a)\big)\Big) \\
+&amp;&amp; &amp;= -\exp\Big(\frac{r^2α^2σ^2}{2}\Big)\cdot\exp\Big(-r\cdot\big(β + αa - g(a)\big)\Big) \\
+&amp;&amp; &amp;= -\exp\Big(-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big)\Big) \end{aligned}\]</span>
 since <span class="math inline">\(-\exp(\cdot)\)</span> is decreasing, let
-<span class="math display">\[\begin{aligned}f(a) &amp;= \frac{-rα^2σ^2 - a^2c}{2}+β +αa \\
-f&#39;(a) &amp;= -\frac{1}{2}\cdot 2ac + α \overset{!}{=} 0 \\
+<span class="math display">\[\begin{aligned}f(a) &amp;= \frac{-rα^2σ^2}{2}- g(a) +β +αa  \\
+f&#39;(a) &amp;= -g&#39;(a) + α \\
+&amp;=-\frac{1}{2}\cdot 2ac + α \overset{!}{=} 0 \\
 a^* &amp;= \frac{α}{c} \end{aligned}\]</span></li>
 <li>Principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{a, α,β} &amp;&amp; &amp;\phantom{\ggg}E\big[q - (β + αq) \big] \\
 &amp;&amp; &amp;= E\big[(1-α)q - β\big] \\
 &amp;&amp; &amp;= a(1-α) - β\end{aligned}\]</span>
 where (PC) is:
-<span class="math display">\[\begin{aligned}E\bigg[-\exp\Big(-r\cdot\big(β + αq - \frac{c}{2}a^2\big)\Big) \bigg]&amp;\geq -\exp(-r\cdot 0) \\
--\exp\Big(-r\cdot\big(\frac{-rα^2σ^2 - a^2c}{2}+β +αa\big)\Big) &amp;\geq -\exp(-r\cdot 0) \\
--r\cdot\big(\frac{-rα^2σ^2 - a^2c}{2}+β +αa\big) &amp;\leq -r\cdot 0 \\
-\frac{-rα^2σ^2 - a^2c}{2}+β +αa &amp;\geq 0 \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg]&amp;\geq -\exp(-r\cdot 0) \\
+-\exp\Big(-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big)\Big) &amp;\geq -\exp(-r\cdot 0) \\
+-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big) &amp;\leq -r\cdot 0 \\
+\frac{-rα^2σ^2}{2} - g(a) +β +αa &amp;\geq 0 \end{aligned}\]</span>
 let (PC) be binding,
-<span class="math display">\[\begin{aligned}\frac{-rα^2σ^2 - a^2c}{2}+β +αa &amp;= 0 \\
+<span class="math display">\[\begin{aligned}\frac{-rα^2σ^2}{2} - g(a)+β +αa &amp;= 0 \\
 \frac{-rα^2σ^2 - a^2c}{2} +αa &amp;= -β \end{aligned}\]</span>
 plug in (PC)
 <span class="math display">\[\begin{aligned}\max_{a, α} &amp;&amp; &amp;\phantom{\ggg}a(1-α) - β\\
@@ -1400,6 +1469,25 @@ FOC &amp;&amp; &amp;\frac{\partial}{\partial a} = 1 - 2\cdot \frac{ca}{2}\overse
 &amp;&amp; &amp;α^{**} = 0\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> efficient risk-sharing</li>
 </ul>
+</div>
+<div id="step-contract" class="section level3">
+<h3>Step Contract</h3>
+<ul>
+<li>Wage: <span class="math inline">\(w=\begin{cases}w^* &amp; q\geq\underline{q} \\ K\to -\infty &amp; q&lt;\underline{q} \end{cases}\)</span></li>
+</ul>
+</div>
+<div id="first-order-approach" class="section level3">
+<h3>First Order Approach</h3>
+<p><a href="https://www.jstor.org/stable/pdf/1911363.pdf">Ian Jewitt (1988)</a></p>
+<ul>
+<li>FOSD: first order stochastic dominance</li>
+<li>Proof:
+<span class="math display">\[\begin{aligned}(IC)\implies &amp;&amp; \int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq = g&#39;(a) \end{aligned}\]</span></li>
+</ul>
+<p><span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq \\
+&amp;= u\big(w(q)\big) \cdot F_a(q|a)\big|_{\underline{q}}^{\bar{q}} - \int_{\underline{q}}^{\bar{q}} u&#39;\big(w(q)\big)\cdot w&#39;(q) \cdot F_a(q|a)\, dq \\
+&amp;= (0 -0) - \int_{\underline{q}}^{\bar{q}} u&#39;\big(w(q)\big)\cdot w&#39;(q) \cdot \underbrace{F_a(q|a)}_{FOSD:\leq 0}\, dq \\
+&amp;= 0 - \int_{\underline{q}}^{\bar{q}} u&#39;\big(w(q)\big)\cdot w&#39;(q) \cdot F_a(q|a)\, dq  \end{aligned}\]</span></p>
 </div>
 </div>
 
