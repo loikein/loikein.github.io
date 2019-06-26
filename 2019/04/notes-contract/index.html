@@ -106,13 +106,14 @@
 <li><a href="#perfect-bayesian-equilibrium-pbe">Perfect Bayesian Equilibrium (PBE)</a></li>
 <li><a href="#equilibrium-refinements">Equilibrium Refinements</a></li>
 </ul></li>
-<li><a href="#screening-competitive-insurance-market">Screening: Competitive Insurance Market</a><ul>
+<li><a href="#competitive-insurance-market">Competitive Insurance Market</a><ul>
 <li><a href="#identical-consumers">Identical Consumers</a></li>
 <li><a href="#different-types-of-consumers">Different Types of Consumers</a></li>
 </ul></li>
 <li><a href="#screening-non-linear-pricing">Screening: Non-Linear Pricing</a><ul>
-<li><a href="#price-distrimination-with-perfect-information">Price Distrimination with Perfect Information</a></li>
+<li><a href="#perfect-information-monopoly">Perfect Information: Monopoly</a></li>
 <li><a href="#asymmetric-information">Asymmetric Information</a></li>
+<li><a href="#continuous-types">Continuous Types</a></li>
 </ul></li>
 <li><a href="#moral-hazard">Moral Hazard</a><ul>
 <li><a href="#first-best">First Best</a></li>
@@ -941,8 +942,8 @@ Possible provided $m_j$ is not equilibrium-dominated for all the types  --></li>
 </div>
 </div>
 </div>
-<div id="screening-competitive-insurance-market" class="section level2">
-<h2>Screening: Competitive Insurance Market</h2>
+<div id="competitive-insurance-market" class="section level2">
+<h2>Competitive Insurance Market</h2>
 <p>TIO Ch3, <a href="https://www.uh.edu/~bsorense/Rothschild&amp;Stiglitz.pdf">Rothschild and Stiglitz (1976)</a></p>
 <ul>
 <li>Consumer’s wealth: <span class="math inline">\(W\)</span>
@@ -1039,62 +1040,29 @@ Consider <span class="math inline">\(β\)</span>: <span class="math inline">\(β
 <li>Exists <span class="math inline">\(λ\)</span> s.t. <span class="math inline">\(λ\succ_H α_H\)</span>, <span class="math inline">\(λ\succ_L α_L\)</span><br />
 <span class="math inline">\(\implies\)</span> pooling<br />
 <span class="math inline">\(\implies\)</span> no equilibrium</li>
-<li>As long as the green-shaded area between <span class="math inline">\(\bar{U}_L\)</span> and <span class="math inline">\(F&#39;E\)</span> exists, this is the case</li>
+<li>As long as the green-shaded area between <span class="math inline">\(\bar{U}^L\)</span> and <span class="math inline">\(F&#39;E\)</span> exists, this is the case</li>
 </ul></li>
 </ul>
 <div class="figure">
 <img src="/post-img/notes-contract--insurance-SE2.png" alt="RS(1976) Figure 3" width="505" />
 <p class="caption">RS(1976) Figure 3</p>
 </div>
-<blockquote>
-<p>PS3.Q3<br />
-An airline wishes to determine optimal prices for business class and economy class tickets.<br />
-The airline has the following information.<br />
-There are two types of buyers.<br />
-Some buyers derive a relatively high value from consuming additional space on the airplane. Their utility from consuming <span class="math inline">\(s\)</span> units of space and paying a total airfare of <span class="math inline">\(T\)</span> is given by <span class="math inline">\(8\sqrt{s} - T\)</span>.<br />
-Other travellers derive a relatively low utility from consuming space on an airplane. Their utility from consuming <span class="math inline">\(s\)</span> units of space and paying an airfare of <span class="math inline">\(T\)</span> is given by <span class="math inline">\(2\sqrt{s} - T\)</span>.<br />
-The companies cost of producing <span class="math inline">\(s\)</span> units of space is equal to <span class="math inline">\(s\)</span>; thus, there are no fixed costs and the marginal cost of producing space is equal to one.<br />
-The total mass of consumers is unity.<br />
-A fraction <span class="math inline">\(γ\)</span> derives a high marginal utility from consuming additional space, a fraction <span class="math inline">\(1-γ\)</span> derives a low marginal utility from consuming additional space.<br />
-The company cannot observe which customer has a high or a low demand; it wishes to offer two optimal bundles <span class="math inline">\(\{\underline{s},\underline{T}\}\)</span> and <span class="math inline">\(\{\bar{s},\bar{T}\}\)</span> to the two customer groups.</p>
-<ol style="list-style-type: decimal">
-<li>Write down the firm’s maximization problem, including the relevant constraints.<br />
-</li>
-<li>Derive <span class="math inline">\(\{\underline{s},\underline{T}\}\)</span> and <span class="math inline">\(\{\bar{s},\bar{T}\}\)</span>, assuming that <span class="math inline">\(γ\)</span> is very small (see 3).</li>
-<li>At which level of <span class="math inline">\(γ\)</span> is there a qualitative change in the optimal menu offered to consumers?<br />
-Explain why this change occurs.</li>
-</ol>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Firm’s problem:
-<span class="math display">\[\begin{aligned}\max_{\underline{s},\underline{T},\bar{s},\bar{T}} &amp;&amp; &amp;γ\cdot(\bar{T}-\bar{s}) + (1-γ)\cdot(\underline{T}-\underline{s}) \\
-(PC)_H &amp;&amp; &amp;8\sqrt{\bar{s}} - \bar{T} \geq 0 \\
-(PC)_L &amp;&amp; &amp;2\sqrt{\underline{s}} - \underline{T}\geq 0 \\
-(IC)_H &amp;&amp; &amp;8\sqrt{\bar{s}} - \bar{T} \geq 8\sqrt{\underline{s}} - \underline{T} \\
-(IC)_L &amp;&amp; &amp;2\sqrt{\underline{s}} - \underline{T}\geq 2\sqrt{\bar{s}} - \bar{T}\end{aligned}\]</span></li>
-<li>Since (PC)L and (IC)H are binding,
-<span class="math display">\[\begin{aligned}\underline{T} &amp;= 2\sqrt{\underline{s}} \\
-\bar{T} &amp;= 8\sqrt{\bar{s}} - 8\sqrt{\underline{s}} + \underline{T} \\
-&amp;= 8\sqrt{\bar{s}} - \big(\underbrace{8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}}_{\text{Rent}}\big)\end{aligned}\]</span>
-plug into firm’s problem
-<span class="math display">\[\begin{aligned}\max_{\underline{s},\bar{s}} &amp;&amp; &amp;\phantom{\ggg}γ\cdot\Big(8\sqrt{\bar{s}} - \big(8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}\big)-\bar{s}\Big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
-&amp;&amp; &amp;= γ\cdot\big(8\sqrt{\bar{s}}-\bar{s} - 6\sqrt{\underline{s}}\big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
-FOC &amp;&amp; \frac{\partial}{\partial\bar{s}} &amp;= γ\cdot\big(8\cdot\frac{1}{2}\cdot\bar{s}^{\frac{1}{2}} - 1\big) \overset{!}{=} 0\\
-&amp;&amp; \bar{s}^* &amp;= 16 \implies\text{No distortion at top} \\
-&amp;&amp; \frac{\partial}{\partial\underline{s}} &amp;= -6γ\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}} + (1-γ)\cdot\Big( 2\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}}-1\Big) \overset{!}{=} 0 \\
-&amp;&amp; \underline{s}^* &amp;= \Big(\frac{1-4γ}{1-γ}\Big)^2 \end{aligned}\]</span></li>
-<li>When <span class="math inline">\(\underline{s}\)</span> exists,
-<span class="math display">\[\begin{aligned}\sqrt{\underline{s}} &amp;\geq 0 \\
-\frac{1-4γ}{1-γ} &amp;\geq 0 \\
-(1-4γ)(1-γ) &amp;\geq 0 \\
-γ &amp;\leq\frac{1}{4} \end{aligned}\]</span>
-therefore, when <span class="math inline">\(γ&gt;\frac{1}{4}\)</span>, low types are excluded from the menu.<br />
-<span class="math inline">\(\implies\)</span> downwards distortion below the top</li>
-</ol>
 </div>
 </div>
 <div id="screening-non-linear-pricing" class="section level2">
 <h2>Screening: Non-Linear Pricing</h2>
+<ul>
+<li>Screening: induce buyers to <strong>self-select</strong> with a menu of different contracts
+<ul>
+<li>Self selection: second degree price discrimination<br />
+</li>
+</ul></li>
+<li>Selection by indicators: third degree</li>
+<li>Perfect discrimination: first degree</li>
+<li>Price discrimination requires no resale</li>
+</ul>
+<div id="perfect-information-monopoly" class="section level3">
+<h3>Perfect Information: Monopoly</h3>
 <ul>
 <li>Drivers type: <span class="math inline">\(θ\in\{θ_1, θ_2\}\)</span>, <span class="math inline">\(θ_1&lt;θ_2\)</span>
 <ul>
@@ -1105,14 +1073,10 @@ therefore, when <span class="math inline">\(γ&gt;\frac{1}{4}\)</span>, low type
 <li><span class="math inline">\(V&#39;&gt;0\)</span>, <span class="math inline">\(V&#39;&#39;&lt;0\)</span></li>
 <li>Example: <span class="math inline">\(V(s) = \frac{1-(1-s)^2}{2}\)</span></li>
 </ul></li>
-<li>Cost of insurance: <span class="math inline">\(c\)</span>
+<li>Cost of production: <span class="math inline">\(c\)</span>
 <ul>
 <li><span class="math inline">\(c&lt;θ_1&lt;θ_2\)</span></li>
 </ul></li>
-</ul>
-<div id="price-distrimination-with-perfect-information" class="section level3">
-<h3>Price Distrimination with Perfect Information</h3>
-<ul>
 <li>Bundle: <span class="math inline">\((s_1, T_1)\)</span>, <span class="math inline">\((s_2, T_2)\)</span></li>
 <li>Monopolist’s problem:
 <span class="math display">\[\begin{aligned}\max_{s_1,s_2,T_1,T_2} &amp;&amp; &amp;λ\cdot(T_1 - c\cdot s_1) + (1-λ)\cdot(T_2 - c\cdot s_2) \\
@@ -1122,7 +1086,7 @@ Plug in
 <span class="math display">\[\begin{aligned}\max_{s_1,s_2} &amp;&amp; λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &amp;+ (1-λ)\cdot(θ_2\cdot V(s_2) - c\cdot s_2) \\
 FOC &amp;&amp; \frac{\partial}{\partial s_i}θ_i\cdot V(s_i)- c\cdot s_i &amp;= 0 \\
 &amp;&amp; \underbrace{θ_i\cdot V&#39;(s_i^*)}_{MU} &amp;= \underbrace{c}_{MC} \\
-&amp;&amp; T^* &amp;= θ_i\cdot V(s_i^*)\end{aligned}\]</span></li>
+&amp;&amp; T_i^* &amp;= θ_i\cdot V(s_i^*)\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="asymmetric-information" class="section level3">
@@ -1142,20 +1106,24 @@ FOC &amp;&amp; \frac{\partial}{\partial s_i}θ_i\cdot V(s_i)- c\cdot s_i &amp;= 
 &amp;\geq 0\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> (PC2) is redundant, therefore,
 <span class="math display">\[\begin{aligned}θ_1\cdot V(s_1) - T_1 &amp;= 0 \\
-T_1 &amp;= θ_1\cdot V(s_1) \implies\text{No rent at the bottom} \\
+T_1 &amp;= θ_1\cdot V(s_1) \\
+&amp;\implies\text{No rent at the bottom} \\
 θ_2\cdot V(s_2) - T_2 &amp;= θ_2\cdot V(s_1) - T_1 \\
 &amp;= θ_2\cdot V(s_1) - θ_1\cdot V(s_1) \\
 &amp;= (θ_2 - θ_1)\cdot V(s_1) \\
 T_2 &amp;= θ_2\cdot V(s_2) - \underbrace{(θ_2 - θ_1)\cdot V(s_1)}_{\text{Information rent}}\end{aligned}\]</span>
 Plug back into monopolist’s problem
 <span class="math display">\[\begin{aligned}\max_{s_1,s_2} &amp;&amp; λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &amp;+ (1-λ)\cdot\big(θ_2\cdot V(s_2)- (θ_2 - θ_1)\cdot V(s_1) - c\cdot s_2\big) \\
-FOC &amp;&amp; \frac{\partial}{\partial s_2}θ_2\cdot V(s_2)- c\cdot s_2 &amp;= 0 \\
+FOC &amp;&amp; \frac{\partial}{\partial s_2} = θ_2\cdot V(s_2)- c\cdot s_2 &amp;= 0 \\
 &amp;&amp; θ_2\cdot V&#39;(s_2^*) &amp;= c \\
 &amp;&amp; &amp;\implies\text{No distortion at the top} \\
-&amp;&amp; \frac{\partial}{\partial s_1} λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &amp;+ (1-λ)\cdot\big(-(θ_2 - θ_1)\cdot V(s_1)\big) = 0\\
+&amp;&amp; \frac{\partial}{\partial s_1} = λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &amp;+ (1-λ)\cdot\big(-(θ_2 - θ_1)\cdot V(s_1)\big) = 0\\
 &amp;&amp; θ_1\cdot V&#39;(s_2^*) &amp;= \frac{c}{1-\frac{1-λ}{λ}\cdot\frac{θ_2 - θ_1}{θ_1}} \\
 &amp;&amp; &amp;\implies\text{Distortion below the top}\end{aligned}\]</span></li>
 </ul>
+</div>
+<div id="continuous-types" class="section level3">
+<h3>Continuous Types</h3>
 <blockquote>
 <p>PS3.Q2<br />
 Consider a market with two buyers.<br />
@@ -1231,6 +1199,51 @@ Plug into firm’s problem
  &amp;&amp; p_2^* &amp;= 0 \\
  &amp;&amp; &amp;\implies\text{No distortion at the top} \\\end{aligned}\]</span></li>
 </ol></li>
+</ol>
+<blockquote>
+<p>PS3.Q3<br />
+An airline wishes to determine optimal prices for business class and economy class tickets.<br />
+The airline has the following information.<br />
+There are two types of buyers.<br />
+Some buyers derive a relatively high value from consuming additional space on the airplane. Their utility from consuming <span class="math inline">\(s\)</span> units of space and paying a total airfare of <span class="math inline">\(T\)</span> is given by <span class="math inline">\(8\sqrt{s} - T\)</span>.<br />
+Other travellers derive a relatively low utility from consuming space on an airplane. Their utility from consuming <span class="math inline">\(s\)</span> units of space and paying an airfare of <span class="math inline">\(T\)</span> is given by <span class="math inline">\(2\sqrt{s} - T\)</span>.<br />
+The companies cost of producing <span class="math inline">\(s\)</span> units of space is equal to <span class="math inline">\(s\)</span>; thus, there are no fixed costs and the marginal cost of producing space is equal to one.<br />
+The total mass of consumers is unity.<br />
+A fraction <span class="math inline">\(γ\)</span> derives a high marginal utility from consuming additional space, a fraction <span class="math inline">\(1-γ\)</span> derives a low marginal utility from consuming additional space.<br />
+The company cannot observe which customer has a high or a low demand; it wishes to offer two optimal bundles <span class="math inline">\(\{\underline{s},\underline{T}\}\)</span> and <span class="math inline">\(\{\bar{s},\bar{T}\}\)</span> to the two customer groups.</p>
+<ol style="list-style-type: decimal">
+<li>Write down the firm’s maximization problem, including the relevant constraints.<br />
+</li>
+<li>Derive <span class="math inline">\(\{\underline{s},\underline{T}\}\)</span> and <span class="math inline">\(\{\bar{s},\bar{T}\}\)</span>, assuming that <span class="math inline">\(γ\)</span> is very small (see 3).</li>
+<li>At which level of <span class="math inline">\(γ\)</span> is there a qualitative change in the optimal menu offered to consumers?<br />
+Explain why this change occurs.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{\underline{s},\underline{T},\bar{s},\bar{T}} &amp;&amp; &amp;γ\cdot(\bar{T}-\bar{s}) + (1-γ)\cdot(\underline{T}-\underline{s}) \\
+(PC)_H &amp;&amp; &amp;8\sqrt{\bar{s}} - \bar{T} \geq 0 \\
+(PC)_L &amp;&amp; &amp;2\sqrt{\underline{s}} - \underline{T}\geq 0 \\
+(IC)_H &amp;&amp; &amp;8\sqrt{\bar{s}} - \bar{T} \geq 8\sqrt{\underline{s}} - \underline{T} \\
+(IC)_L &amp;&amp; &amp;2\sqrt{\underline{s}} - \underline{T}\geq 2\sqrt{\bar{s}} - \bar{T}\end{aligned}\]</span></li>
+<li>Since (PC)L and (IC)H are binding,
+<span class="math display">\[\begin{aligned}\underline{T} &amp;= 2\sqrt{\underline{s}} \\
+\bar{T} &amp;= 8\sqrt{\bar{s}} - 8\sqrt{\underline{s}} + \underline{T} \\
+&amp;= 8\sqrt{\bar{s}} - \big(\underbrace{8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}}_{\text{Rent}}\big)\end{aligned}\]</span>
+plug into firm’s problem
+<span class="math display">\[\begin{aligned}\max_{\underline{s},\bar{s}} &amp;&amp; &amp;\phantom{\ggg}γ\cdot\Big(8\sqrt{\bar{s}} - \big(8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}\big)-\bar{s}\Big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
+&amp;&amp; &amp;= γ\cdot\big(8\sqrt{\bar{s}}-\bar{s} - 6\sqrt{\underline{s}}\big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
+FOC &amp;&amp; \frac{\partial}{\partial\bar{s}} &amp;= γ\cdot\big(8\cdot\frac{1}{2}\cdot\bar{s}^{\frac{1}{2}} - 1\big) \overset{!}{=} 0\\
+&amp;&amp; \bar{s}^* &amp;= 16 \implies\text{No distortion at top} \\
+&amp;&amp; \frac{\partial}{\partial\underline{s}} &amp;= -6γ\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}} + (1-γ)\cdot\Big( 2\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}}-1\Big) \overset{!}{=} 0 \\
+&amp;&amp; \underline{s}^* &amp;= \Big(\frac{1-4γ}{1-γ}\Big)^2 \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(\underline{s}\)</span> exists,
+<span class="math display">\[\begin{aligned}\sqrt{\underline{s}} &amp;\geq 0 \\
+\frac{1-4γ}{1-γ} &amp;\geq 0 \\
+(1-4γ)(1-γ) &amp;\geq 0 \\
+γ &amp;\leq\frac{1}{4} \end{aligned}\]</span>
+therefore, when <span class="math inline">\(γ&gt;\frac{1}{4}\)</span>, low types are excluded from the menu.<br />
+<span class="math inline">\(\implies\)</span> downwards distortion below the top</li>
 </ol>
 </div>
 </div>
