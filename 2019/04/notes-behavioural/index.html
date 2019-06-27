@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">46 min read</span>
+    <span class="article-duration">48 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -112,7 +112,12 @@
 <li><a href="#distributional-model">Distributional Model</a></li>
 <li><a href="#inequity-aversion">Inequity Aversion</a></li>
 <li><a href="#competitive-bilateral-bargaining">Competitive Bilateral Bargaining</a></li>
-<li><a href="#intensional-model">Intensional Model</a></li>
+</ul></li>
+<li><a href="#social-preference-intensional-model">Social Preference: Intensional Model</a><ul>
+<li><a href="#behaviour-preference-for-fairness">Behaviour: Preference for Fairness</a></li>
+<li><a href="#model-of-fairness">Model of Fairness</a></li>
+<li><a href="#utility-and-best-response">Utility and Best Response</a></li>
+<li><a href="#equilibrium">Equilibrium</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1738,14 +1743,17 @@ Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline"
 <li>Observation: when <span class="math inline">\(α_i = β_i = 0\)</span>, unique SPNE: at least 2 proposers offer <span class="math inline">\(s_i=1\)</span>, and 1 is accepted</li>
 <li>Lemma 4.2: with inequity aversion agents, unique SPNE: at least 2 proposers offer <span class="math inline">\(s_i=1\)</span>, and 1 is accepted</li>
 <li>Lemma 4.3: with inequity aversion agents, when sellers has <span class="math inline">\(β_1&lt; \frac{I-1}{I}\)</span>
-<ol style="list-style-type: decimal">
+<ul>
 <li>Exists an SPNE where responder accept any <span class="math inline">\(s\geq 0\)</span>, and proposers offer <span class="math inline">\(s=0\)</span></li>
 <li>Exists an SPNE where the highest offer is <span class="math display">\[\bar{s} = \min_{i\in\{2,\dots,I\}} \ \frac{α_i}{(1-β_i)(I-1) + 2α_i + β_i}&lt;\frac{1}{2}\]</span></li>
-</ol></li>
+</ul></li>
 </ul>
 </div>
-<div id="intensional-model" class="section level3">
-<h3>Intensional Model</h3>
+</div>
+<div id="social-preference-intensional-model" class="section level2">
+<h2>Social Preference: Intensional Model</h2>
+<div id="behaviour-preference-for-fairness" class="section level3">
+<h3>Behaviour: Preference for Fairness</h3>
 <ul>
 <li>Experiment
 <ul>
@@ -1754,7 +1762,7 @@ Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline"
 <li>Distributional model predictio: same reacions</li>
 <li>But more responders in version A accepted then in version B</li>
 </ul></li>
-<li>Model of preference for fairness
+<li>Preference for fairness
 <ul>
 <li>If <span class="math inline">\(i\)</span> believes <span class="math inline">\(j\)</span> intended to be <strong>kind</strong>, <span class="math inline">\(i\)</span>’s utility goes up, and obtains utility from treating <span class="math inline">\(j\)</span> kindly in return</li>
 <li>If <span class="math inline">\(i\)</span> believes <span class="math inline">\(j\)</span> intended to be <strong>unkind</strong>, <span class="math inline">\(i\)</span>’s utility goes down, and obtains utility from treating <span class="math inline">\(j\)</span> unkindly in return</li>
@@ -1801,6 +1809,124 @@ Then P2 plays B <span class="math inline">\(\implies\)</span> P1 conciders as an
 </tr>
 </tbody>
 </table>
+</div>
+<div id="model-of-fairness" class="section level3">
+<h3>Model of Fairness</h3>
+<ul>
+<li>Players: <span class="math inline">\(i=1,2\)</span>
+<ul>
+<li>Set of strategies for player i: <span class="math inline">\(A_i\)</span> (pure or mixed)</li>
+</ul></li>
+<li>First order belief
+<ul>
+<li>i’s actual action: <span class="math inline">\(a_i\)</span></li>
+<li>i’s belief what j does: <span class="math inline">\(b_j\)</span></li>
+</ul></li>
+<li>Material payoff: <span class="math inline">\(π_i(a_i, a_{-i})\)</span>
+<ul>
+<li>Set of all possible payoffs if j plays <span class="math inline">\(b_j\)</span>: <span class="math display">\[Π(b_j) = \big\{ \big(π_i(a,b_j) ,π_j(a,b_j)\big)\ |\ a\in A_i\big\}\]</span></li>
+<li>j’s lowest possible payoff: <span class="math inline">\(π_j^{min}(b_j)\in Π(b_j)\)</span></li>
+<li>Set of all Pareto optimal payoffs: <span class="math inline">\(Π^{PAR}(b_j) \subset Π(b_j)\)</span></li>
+<li>j’s highest payoff in Pareto: <span class="math inline">\(π_j^h(b_j)\in Π^{PAR}(b_j)\)</span></li>
+<li>j’s lowest payoff in Pareto: <span class="math inline">\(π_j^l(b_j)\in Π^{PAR}(b_j)\)</span></li>
+</ul></li>
+<li>Fair reference point: <span class="math display">\[π_j^e(b_j) = \frac{π_j^h(b_j)+ π_j^l(b_j)}{2}\]</span>
+<ul>
+<li>i being kind to j: i chooses <span class="math inline">\(a_i\)</span> s.t. <span class="math inline">\(π_j(a_i,b_j) &gt; π_j^e(b_j)\)</span></li>
+<li>i being unkind to j: i chooses <span class="math inline">\(a_i\)</span> s.t. <span class="math inline">\(π_j(a_i,b_j) &lt; π_j^e(b_j)\)</span></li>
+</ul></li>
+<li>Fairness function:
+<span class="math display">\[\begin{aligned}\text{i&#39;s kindness to j} &amp;&amp; f_i(a_i, b_j) &amp;= \frac{π_j(a_i,b_j) - π_j^e(b_j)}{π_j^h(b_j) - π_j^{min}(b_j)} \\
+\text{j&#39;s kindness to i} &amp;&amp; f_j(a_j, b_i) &amp;= \frac{π_i(a_j,b_i) - π_i^e(b_i)}{π_i^h(b_i) - π_i^{min}(b_i)} \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(f_i(a_i, b_j)\begin{cases}&gt;0 &amp;\text{Kind} \\ =0 &amp;\text{Neutral} \\ &lt;0 &amp;\text{Unkind} \end{cases}\)</span></li>
+<li>Takes higher value if i chooses <span class="math inline">\(a_i\)</span> s.t. <span class="math inline">\(π_j(a_i, a_j)\)</span> is large</li>
+</ul></li>
+<li>Second order belief
+<ul>
+<li>i’s actual action: <span class="math inline">\(a_i\)</span></li>
+<li>j’s belief what i does: <span class="math inline">\(b_i\)</span></li>
+<li>i’s belief what j believes what i does: <span class="math inline">\(c_i\)</span></li>
+</ul></li>
+<li>Perceived fairness function:
+<span class="math display">\[\begin{aligned}\text{j&#39;s belief about i&#39;s kindness to j} &amp;&amp; \tilde{f}_i(b_i,c_j) &amp;= \frac{π_j(b_i,c_j) - π_j^e(c_j)}{π_j^h(c_j) - π_j^{min}(c_j)} \\
+\text{i&#39;s belief about j&#39;s kindness to i} &amp;&amp;\tilde{f}_j(b_j,c_i) &amp;= \frac{π_i(b_j,c_i) - π_i^e(c_i)}{π_i^h(c_i) - π_i^{min}(c_i)} \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="utility-and-best-response" class="section level3">
+<h3>Utility and Best Response</h3>
+<ul>
+<li>Utility function:
+<span class="math display">\[U_i(a_i,\underbrace{b_j,c_i}_{\text{Belief}}) = \underbrace{π_i(a_i,b_j)}_{\text{Material payoff}} + \underbrace{\tilde{f}_j(b_j,c_i)\cdot\big( 1 + f_i(a_i, b_j)\big)}_{\text{Reciprocity}}\]</span>
+<ul>
+<li>Reciprocity preference</li>
+<li>Overall kindness: 1 in <span class="math inline">\(1 + f_i(a_i, b_j)\)</span></li>
+</ul></li>
+<li>Player i’s problem:
+<span class="math display">\[\begin{aligned}\max_{a_i\in A_i} &amp;&amp; U_i(a_i,b_j,c_i) \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>Example (BoS)
+Suppose <span class="math inline">\(b_2 = O\)</span>, <span class="math inline">\(c_1 = B\)</span>, what’s P1’s best response?</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>P2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Opera</td>
+<td>Boxing</td>
+</tr>
+<tr class="even">
+<td>P1</td>
+<td>Opera</td>
+<td><span class="math inline">\(2x, x\)</span></td>
+<td>0, 0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Boxing</td>
+<td>0, 0</td>
+<td><span class="math inline">\(x, 2x\)</span></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Perceived fairness<br />
+<span class="math inline">\(\tilde{f}_2(b_2,c_1) = -1\)</span></li>
+<li>Evaluate actions<br />
+If <span class="math inline">\(a_1 = O\)</span>, fairness function: <span class="math inline">\(f_1(a_1, b_2) = 0\)</span><br />
+<span class="math inline">\(\implies U_1 = 2x - 1\cdot(1+0) = 2x-1\)</span><br />
+If <span class="math inline">\(a_1 = B\)</span>, fairness function: <span class="math inline">\(f_1(a_1, b_2) = -1\)</span><br />
+<span class="math inline">\(\implies U_1 = 0 - 1\cdot(1-1) = 0\)</span></li>
+<li>P1 chooses <span class="math inline">\(a_1 = O\)</span> if<br />
+<span class="math display">\[\begin{aligned}2x-1 &amp;\geq 0 \\
+x&amp;\geq \frac{1}{2} \end{aligned}\]</span></li>
+</ol>
+</div>
+<div id="equilibrium" class="section level3">
+<h3>Equilibrium</h3>
+<ul>
+<li>Fairness equilibrium: <span class="math inline">\((a_i,a_j)\)</span> s.t. for all <span class="math inline">\(i,j\)</span>,<br />
+<span class="math inline">\(a_i = a_i^*(b_j,c_i)\)</span> and <span class="math inline">\(a_i=b_i=c_i\)</span>
+<ul>
+<li>Psychological game: utility function on beliefs</li>
+<li>Psychological NE: best response against (correct) beliefs</li>
+</ul></li>
+<li>Lemma 4.4
+<ul>
+<li><span class="math inline">\(x &lt; 1\implies\)</span> (O, B) is a fairness equilibrium of BoS</li>
+<li>For all values of <span class="math inline">\(x\)</span>, (O, O) and (B, B) are fairness equilibria</li>
+</ul></li>
+</ul>
 </div>
 </div>
 

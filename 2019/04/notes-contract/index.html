@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">33 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -133,6 +133,7 @@
 <li><a href="http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D">Microeconomic Theory</a> (MWG)</li>
 <li><a href="http://93.174.95.27/book/index.php?md5=4DC53E7CCAD53B6356429F6CE80F442B">A Primer in Game Theory</a> (PGT)</li>
 <li><a href="http://93.174.95.27/book/index.php?md5=B3C0791C9FB6308FA345C1CA21C68E45">The Theory of Industrial Organization</a> (TIO)</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=3FDF4E91C3B6926C29211A911A8A2B5B">Contract Theory</a> (CT)</li>
 </ul>
 </div>
 <div id="lemon-market-continuous-quality" class="section level2">
@@ -1316,7 +1317,7 @@ plug back into firm’s problem
 </div>
 <div id="moral-hazard" class="section level2">
 <h2>Moral Hazard</h2>
-<p>Bolton a Dewatripont’s Contract Theory, Ch4</p>
+<p>CT Ch4</p>
 <ul>
 <li>Outcome: <span class="math inline">\(q\in\{0,1\}\)</span>
 <ul>
@@ -1334,7 +1335,7 @@ plug back into firm’s problem
 <h3>First Best</h3>
 <ul>
 <li>Assumption: <span class="math inline">\(a\)</span> is observable<br />
-<span class="math inline">\(\implies\)</span> can write contract on effort</li>
+<span class="math inline">\(\implies\)</span> can write contract on effort: <span class="math inline">\(\begin{cases}w_0 &amp; a=a^*\text{, fail} \\ w_1 &amp;a=a^*\text{, success} \\ K\to 0 &amp; a\neq a^* \end{cases}\)</span></li>
 <li>Social planner’s problem:
 <span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;p(a)\cdot V(1-w_1) + \big(1-p(a)\big)\cdot V(0-w_0) \\
 (PC) &amp;&amp; &amp;p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a\geq 0\end{aligned}\]</span>
@@ -1347,7 +1348,8 @@ let (PC) be binding, Lagrangian function:
 therefore,
 <span class="math display">\[\begin{aligned}V&#39;(1-w_1) &amp;= λ\cdot u&#39;(w_1) \\
 V&#39;(-w_0) &amp;= λ\cdot u&#39;(w_0) \\
-λ &amp;= \frac{V&#39;(1-w_1)}{u&#39;(w_1)} = \frac{V&#39;(-w_0)}{u&#39;(w_0)}\end{aligned}\]</span></li>
+λ = \frac{V&#39;(1-w_1)}{u&#39;(w_1)} &amp;= \frac{V&#39;(-w_0)}{u&#39;(w_0)} \\
+\frac{V&#39;(1-w_1)}{V&#39;(-w_0)} &amp;= \frac{u&#39;(w_1)}{u&#39;(w_0)}\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="second-best" class="section level3">
@@ -1405,7 +1407,7 @@ FOC &amp;&amp; p&#39;(a) - \frac{\big(p&#39;(a)\big)^2 - p&#39;&#39;(a)\cdot p(a
 </div>
 <div id="constant-absolute-risk-aversion-cara" class="section level3">
 <h3>Constant Absolute Risk Aversion (CARA)</h3>
-<p><a href="https://www.barcelonagse.eu/sites/default/files/working_paper_pdfs/883.pdf">Moral Hazard: Base Models And Two Extensions</a></p>
+<p>CT 4.2-4.3</p>
 <ul>
 <li>Principal’s utility: (RN) <span class="math inline">\(V(x) = x\)</span></li>
 <li>Agent’s utility: (RA) <span class="math display">\[u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)\]</span>
@@ -1478,7 +1480,7 @@ FOC &amp;&amp; &amp;\frac{\partial}{\partial a} = 1 - 2\cdot \frac{ca}{2}\overse
 </div>
 <div id="first-order-approach" class="section level3">
 <h3>First Order Approach</h3>
-<p><a href="https://www.jstor.org/stable/pdf/1911363.pdf">Ian Jewitt (1988)</a></p>
+<p>CT 4.4, <a href="https://www.jstor.org/stable/pdf/1911363.pdf">Ian Jewitt (1988)</a></p>
 <ul>
 <li>FOSD: first order stochastic dominance</li>
 <li>Proof:
