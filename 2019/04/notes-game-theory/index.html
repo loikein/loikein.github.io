@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">27 min read</span>
+    <span class="article-duration">29 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -103,9 +103,10 @@
 <li><a href="#repeated-game">Repeated Game</a><ul>
 <li><a href="#stage-game">Stage Game</a></li>
 <li><a href="#repetition">Repetition</a></li>
-<li><a href="#folk-theorems">Folk Theorems</a></li>
+<li><a href="#perfect-folk-theorem">(Perfect) Folk Theorem</a></li>
 <li><a href="#example-battle-of-sexes-bos">Example: Battle of Sexes (BoS)</a></li>
 <li><a href="#example-prisoners-dilemma-pd">Example: Prisoner’s Dilemma (PD)</a></li>
+<li><a href="#example-price-wars">Example: Price Wars</a></li>
 </ul></li>
 </ul>
 </div>
@@ -345,7 +346,7 @@ Give an example of a infinite horizon game for which SPNE <span class="math inli
 <p>Consider <span class="math inline">\((s_n)\)</span> where <span class="math inline">\(s_1\)</span> corresponds to the start node<br />
 <span class="math inline">\(\implies s_n =\)</span> {always stop} satisfies one-step deviation but is not a SPNE</p>
 <div class="figure">
-<img src="/post-img/notes-game-theory--centipede.png" alt="Source:Game theory Centipede game" />
+<img src="/post-img/notes-game-theory--centipede.png" alt="" />
 <p class="caption">Source:<a href="https://math.stackexchange.com/questions/2513447/game-theory-centipede-game">Game theory Centipede game</a></p>
 </div>
 <blockquote>
@@ -1291,9 +1292,11 @@ Since symmetric, consider party 2-6:
 H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 </ul>
 </div>
-<div id="folk-theorems" class="section level3">
-<h3>Folk Theorems</h3>
-<p>OR 8.5</p>
+<div id="perfect-folk-theorem" class="section level3">
+<h3>(Perfect) Folk Theorem</h3>
+<p>OR 8.5, 8.8, 8.9<br />
+<a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-254-game-theory-with-engineering-applications-spring-2010/lecture-notes/MIT6_254S10_lec16.pdf">Game Theory with Engineering Applications Lecture 16: Repeated Games II</a>(P7)<br />
+<a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)#Summary_of_folk_theorems">Folk theorem - Wikipedia</a></p>
 <ul>
 <li>Game: <span class="math inline">\(G^{\infty} = \big(I, (A_i)_{i\in I}, (g_i)_{i\in I}\big)\)</span></li>
 <li>The set of NE outcomes of an infinitely repeated game<br />
@@ -1323,12 +1326,22 @@ that cannot be established without punishment
 <li>Preposition: in any NE of <span class="math inline">\(G^{\infty}(δ)\)</span>, each player gets an anverage discounted payoff of at least <span class="math inline">\(\underline{v}_i\)</span><br />
 <span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span>
 <!-- - OR Proposition 145.2  
-Let w be a strictly enforceable feasible payoff profile of G = ⟨N,(Ai), (ui)⟩. Forallε>0thereexistsδ<1suchthatif δ>δthentheδ- discounted infinitely repeated game of G has a Nash equilibrium whose payoff profile w′ satisfies |w′ − w| < ε. --></li>
+Let w be a strictly enforceable feasible payoff profile of G = ⟨N,(Ai), (ui)⟩. For all $ε>0$ there exists $δ<1$ s.t. if $δ>δ, then the δ-discounted infinitely repeated game of G has a NE with payoff profile $w'$ s.t. $w'\in B_ε(w)$. --></li>
 </ul></li>
-<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)<br />
-If <span class="math inline">\(\dim (V^*) = |I| = n\)</span>,<br />
-then for any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span><br />
-s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, exists an SPNE for <span class="math inline">\(G^{\infty}(δ)\)</span> with average discounted payoffs in <span class="math inline">\(B_ε(v)\)</span></li>
+<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)
+<ul>
+<li>Assumption: <span class="math inline">\(\dim (V^*) = |I| = n\)</span><br />
+“the idea is to use the assumption on the dimension of <span class="math inline">\(V^*\)</span> to ensure that each player i can be singled out for punishment in the event of a deviation, and then use rewards and punishments for other players to ensure that the deviator can be held down to her minmax payoff.”</li>
+<li>For any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, <span class="math inline">\(G^{\infty}(δ)\)</span> has an SPNE with average discounted payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
+</ul></li>
+<li>Finitely repeated folk theorem (Benoit, Krishna 1986, OR 8.10 Proposition 159.1)
+<ul>
+<li>Game: <span class="math inline">\(G^T\)</span></li>
+<li>Payoff: <span class="math inline">\(\frac{1}{T}\sum_{t=1}^T g(a^t)\)</span>, <span class="math inline">\(δ=1\)</span></li>
+<li>Assumption: <span class="math inline">\(\dim (V^*) = |I| = n\)</span><br />
+For each i, exists 2 NE of the stage game</li>
+<li>Let <span class="math inline">\(v\in V^*\)</span>, for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T&#39;\)</span> s.t. for all <span class="math inline">\(T&gt;T&#39;\)</span>, <span class="math inline">\(G^T\)</span> has a SPNE with average payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
+</ul></li>
 </ul>
 </div>
 <div id="example-battle-of-sexes-bos" class="section level3">
@@ -1390,6 +1403,39 @@ s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, exists a
 In the above derivation we did not use the one-step deviation principle.<br />
 How would the argument simplify if we had used it?</p>
 </blockquote>
+</div>
+<div id="example-price-wars" class="section level3">
+<h3>Example: Price Wars</h3>
+<ul>
+<li>Players: <span class="math inline">\(n&gt;1\)</span> firms</li>
+<li>Time: <span class="math inline">\(t=1,2,3,\dots, T\)</span></li>
+<li>Set of state of the world: <span class="math inline">\(S\)</span>
+<ul>
+<li>State of the world in period t: <span class="math inline">\(s^t\in S\)</span></li>
+<li>Aggregate demand</li>
+</ul></li>
+<li>Strategy: <span class="math inline">\(p_i^t\in[ 0, s^t]\)</span>
+<ul>
+<li>Market price: <span class="math inline">\(p^t = \min\{p_1^t, p_2^t,\dots, p_n^t\}\)</span></li>
+<li>Aggregate trade: <span class="math inline">\(s^t - p^t\)</span></li>
+<li>Divided equally by all firms i with <span class="math inline">\(p_i^t = p^t\)</span></li>
+</ul></li>
+<li>Aggregate profit: <span class="math inline">\(p^t\cdot (s^t - p^t)\)</span></li>
+<li>Discounting factor: <span class="math inline">\(δ\)</span></li>
+<li>Observatiton
+<ul>
+<li>Stage game has a NE: <span class="math inline">\(p_i = 0\)</span> for all i</li>
+<li>Aggregate profit maximization: <span class="math inline">\(p_s = \frac{s^t}{2}\)</span></li>
+</ul></li>
+<li>Symmetric SPNE
+<ul>
+<li>Average discounted payoff: <span class="math inline">\(\hat{v}\)</span></li>
+<li>Price: <span class="math inline">\(p^*(s)\)</span></li>
+<li>Strategy: if all else haven’t deviated, charge <span class="math inline">\(p_i = \frac{s^t}{2}\)</span><br />
+if someone has deviated, charge <span class="math inline">\(p_i = 0\)</span>
+<span class="math display">\[\begin{aligned}&amp;(1-δ)\cdot\frac{1}{n}\cdot p^*(s)\cdot(s-p^*(s)) + δ\cdot v^* \\ \geq &amp;(1-δ)\cdot p^*(s)\cdot(s-p^*(s)) + δ\cdot 0 \end{aligned}\]</span></li>
+</ul></li>
+</ul>
 </div>
 </div>
 
