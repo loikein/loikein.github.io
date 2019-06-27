@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.55.5" />
+<meta name="generator" content="Hugo 0.55.6" />
 
 <title>Notes on Institution - loikein</title>
 <meta property="og:title" content="Notes on Institution - loikein">
@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">37 min read</span>
+    <span class="article-duration">38 min read</span>
     
     <h1 class="article-title">Notes on Institution</h1>
     
@@ -1290,7 +1290,7 @@ What are the investment levels <span class="math inline">\(b^A\)</span>, <span c
 <li>First best<br />
 Since <span class="math inline">\(a+b&gt;D_A^o + D_B^o\)</span>, collaboration is always good<br />
 Social planner’s problem:
-<span class="math display">\[\begin{aligned}\max_{a,b} &amp;&amp; &amp;a+b &amp;- \frac{1}{2}a^2 - \frac{1}{2}b^2\\
+<span class="math display">\[\begin{aligned}\max_{a,b} &amp;&amp; a+b &amp;- \frac{1}{2}a^2 - \frac{1}{2}b^2\\
 FOC &amp;&amp; a^{FB} &amp;= 1\\
 &amp;&amp; b^{FB}&amp;=1 \end{aligned}\]</span>
 Total surplus:
@@ -1363,7 +1363,7 @@ Since <span class="math inline">\(ε &lt; λ\)</span>, <span class="math inline"
 </ol></li>
 <li>Party G(overnment / public)
 <ul>
-<li>Surplus from <span class="math inline">\(x=1\)</span>: <span class="math inline">\(2-xεe\)</span></li>
+<li>Surplus: <span class="math inline">\(2-xεe\)</span></li>
 <li><span class="math inline">\(v&#39;(a)&gt;0\)</span>, <span class="math inline">\(v&#39;&#39;(a)&lt;0\)</span></li>
 <li><span class="math inline">\(v&#39;(0)&gt;2\)</span>, <span class="math inline">\(\lim_{a\to\infty}v&#39;(a)=0\)</span></li>
 </ul></li>
@@ -1381,21 +1381,31 @@ FOC &amp;&amp; \frac{\partial}{\partial x} &amp;= -εe + e &gt;0 \\
 &amp;&amp; \frac{\partial}{\partial e} &amp;= -xε + x - e \overset{!}{=} 0\\
 &amp;&amp; e^{FB} &amp;= -xε + x \\
 &amp;&amp; &amp;= 1-ε \end{aligned}\]</span></li>
-<li>Second best: day 2: negotiations (NBS)
+<li>Second best: NBS
 <ul>
-<li>In case of disagreement, owner maximizes their own surplus <span class="math inline">\(S^o(o)\)</span></li>
-<li>Re-negotiation surplus: <span class="math inline">\(TS(\text{agreement}) - S^o(M) - S^o(G)\)</span></li>
-<li>Default payoff: <span class="math inline">\(D_M^o = S^o(M) + \frac{1}{2}TS(x^{FB})\)</span></li>
+<li>In case of disagreement, owner maximizes their own surplus <span class="math inline">\(D^o(o)\)</span></li>
+<li>Re-negotiation surplus:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\big((2-εe) - (1-e)\big) - D_M^o - D_G^o \\ &amp;= (1-εe+e)- D_M^o - D_G^o \end{aligned}\]</span></li>
+<li>Re-negotiation payoff:
+<span class="math display">\[\begin{aligned}\text{M&#39;s date-2 payoff} &amp;&amp; D_M^o + \frac{1}{2}\big((1-εe+e) - D_M^o - D_G^o\big) \\
+  \text{G&#39;s date-2 payoff} &amp;&amp; D_G^o + \big((1-εe+e) - D_M^o - D_G^o\big)\end{aligned}\]</span></li>
+</ul></li>
+<li>Day 2: re-negotiation
+<ul>
 <li><span class="math inline">\(o=M\)</span><br />
 In case of disagreement, M chooses <span class="math inline">\(x=1\)</span><br />
-<span class="math display">\[\begin{aligned}\text{Re-negotiation surplus} &amp;&amp; &amp;0? \\
-  \text{M&#39;s default payoff} &amp;&amp; D^M_M &amp;= -(1-e) \\
-  \text{G&#39;s default payoff} &amp;&amp; D^M_G &amp;= 2-εe \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\text{M&#39;s default payoff} &amp;&amp; &amp;D^M_M =-(1-xe) = -(1-e) \\
+  \text{G&#39;s default payoff} &amp;&amp; &amp;D^M_G = 2-xεe = 2-εe \\
+  \text{Re-negotiation surplus} &amp;&amp; &amp;(1-εe+e) - \big((2-εe) - (1-e) \big) =0 \\
+  \text{M&#39;s date-2 payoff} &amp;&amp; &amp;U^M_M = -(1-e)+ \frac{1}{2}\cdot 0 = -(1-e) \\
+  \text{G&#39;s date-2 payoff} &amp;&amp; &amp;U^M_G = 2-εe + \frac{1}{2}\cdot 0 = 2-εe\end{aligned}\]</span></li>
 <li><span class="math inline">\(o=G\)</span><br />
 In case of disagreement, G chooses <span class="math inline">\(x=0\)</span><br />
-<span class="math display">\[\begin{aligned}\text{Re-negotiation surplus} &amp;&amp; &amp;1+(1-ε)e - 2 + 1\\
-  \text{M&#39;s default payoff} &amp;&amp; D^G_M &amp;= -1 + \frac{1}{2}\big(1+(1-ε)e - 2 + 1 \big) \\
-  \text{G&#39;s default payoff} &amp;&amp; D^G_G &amp;= 2 + \frac{1}{2}\big(1+(1-ε)e - 2 + 1 \big) \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\text{M&#39;s default payoff} &amp;&amp; &amp;D^G_M = -(1-xe) = -1 \\
+  \text{G&#39;s default payoff} &amp;&amp; &amp;D^G_G = 2-xεe = 2 \\
+  \text{Re-negotiation surplus} &amp;&amp; &amp;(1-εe+e)-(-1 + 2) = (1-ε)e \\
+  \text{M&#39;s date-2 payoff} &amp;&amp; &amp;U^G_M = -1 + \frac{1}{2}(1-ε)e \\
+  \text{G&#39;s date-2 payoff} &amp;&amp; &amp;U^G_G = 2 + \frac{1}{2}(1-ε)e \\ \end{aligned}\]</span></li>
 </ul></li>
 <li>Day 1: investment level
 <ul>
