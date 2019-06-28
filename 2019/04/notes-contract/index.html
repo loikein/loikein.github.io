@@ -1410,7 +1410,7 @@ p(a^*) + w_0 &amp;= a^* \\
 <li>Principal’s problem becomes:
 <span class="math display">\[\begin{aligned}\max_{a,w_1} &amp;&amp; &amp;p(a)(1-w_1) \\
 (PC) &amp;&amp; &amp;p(a)\cdot w_1 - a\geq 0 \\
-(IC) &amp;&amp; &amp;a\in\max_{\hat{a}} \ p(\hat{a})\cdot w_1 - \hat{a} \end{aligned}\]</span>
+(IC) &amp;&amp; &amp;a\in\text{argmax}_{\hat{a}} \ p(\hat{a})\cdot w_1 - \hat{a} \end{aligned}\]</span>
 (PC) is slack under (IC)<br />
 Solving (IC) (agent’s maximization problem):
 <span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; p(a)\cdot w_1 &amp;- a \\
@@ -1426,7 +1426,7 @@ Therefore, <span class="math inline">\(a^{**} &lt; a^{FB}\)</span></li>
 </div>
 <div id="constant-absolute-risk-aversion-cara" class="section level3">
 <h3>Constant Absolute Risk Aversion (CARA)</h3>
-<p>CT 4.2-4.3</p>
+<p>CT 4.2</p>
 <ul>
 <li>Principal’s utility: (RN) <span class="math inline">\(V(x) = x\)</span></li>
 <li>Agent’s utility: (RA) <span class="math display">\[u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)\]</span>
@@ -1442,37 +1442,38 @@ Therefore, <span class="math inline">\(a^{**} &lt; a^{FB}\)</span></li>
 <li>Efficient incentive (all risk on agent): <span class="math inline">\(α = 1\)</span></li>
 <li>Efficient risk-sharing (all risk on principal, flat wage): <span class="math inline">\(α = 0\)</span></li>
 </ul></li>
-<li>Agent’s problem:
+<li>Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{a, α,β} &amp;&amp; &amp;\phantom{\ggg}E[ q-w] \\
+&amp;&amp; &amp;= E\big[q - (β + αq) \big] \\
+&amp;&amp; &amp;= E\big[(1-α)q - β\big] \\
+&amp;&amp; &amp;= a(1-α) - β \\
+(PC) &amp;&amp; &amp;E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg]\geq -\exp(-r\cdot 0) \\
+(IC) &amp;&amp; &amp;a\in\text{argmax}_{\hat{a}} \ E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(\hat{a})\big)\Big) \bigg]\end{aligned}\]</span>
+Solving (IC)(agent’s maximization problem) gives
 <span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg] \\
 &amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big)\bigg] \\
 &amp;&amp; &amp;= -E\bigg[\exp\Big(-r\cdot\big(β + rαa + αε - g(a)\big)\Big)\bigg] \\
 &amp;&amp; &amp;= -E\big[\exp(-r\cdot αε)\big]\cdot\exp\Big(-r\cdot\big(β + αa - g(a)\big)\Big) \\
 &amp;&amp; &amp;= -\exp\Big(\frac{r^2α^2σ^2}{2}\Big)\cdot\exp\Big(-r\cdot\big(β + αa - g(a)\big)\Big) \\
-&amp;&amp; &amp;= -\exp\Big(-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big)\Big) \end{aligned}\]</span>
+&amp;&amp; &amp;= -\exp\Big(-r\cdot\big(\underbrace{\frac{-rα^2σ^2}{2} - g(a) +β +αa}_{\text{Certainty equivalent compensation}}\big)\Big) \end{aligned}\]</span>
 since <span class="math inline">\(-\exp(\cdot)\)</span> is decreasing, let
-<span class="math display">\[\begin{aligned}f(a) &amp;= \frac{-rα^2σ^2}{2}- g(a) +β +αa  \\
-f&#39;(a) &amp;= -g&#39;(a) + α \\
+<span class="math display">\[\begin{aligned}\hat{w}(a) &amp;= \frac{-rα^2σ^2}{2}- g(a) +β +αa  \\
+\hat{w}&#39;(a) &amp;= -g&#39;(a) + α \\
 &amp;=-\frac{1}{2}\cdot 2ac + α \overset{!}{=} 0 \\
-a^* &amp;= \frac{α}{c} \end{aligned}\]</span></li>
-<li>Principal’s problem:
-<span class="math display">\[\begin{aligned}\max_{a, α,β} &amp;&amp; &amp;\phantom{\ggg}E\big[q - (β + αq) \big] \\
-&amp;&amp; &amp;= E\big[(1-α)q - β\big] \\
-&amp;&amp; &amp;= a(1-α) - β\end{aligned}\]</span>
-where (PC) is:
-<span class="math display">\[\begin{aligned}E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg]&amp;\geq -\exp(-r\cdot 0) \\
--\exp\Big(-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big)\Big) &amp;\geq -\exp(-r\cdot 0) \\
--r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big) &amp;\leq -r\cdot 0 \\
-\frac{-rα^2σ^2}{2} - g(a) +β +αa &amp;\geq 0 \end{aligned}\]</span>
-let (PC) be binding,
-<span class="math display">\[\begin{aligned}\frac{-rα^2σ^2}{2} - g(a)+β +αa &amp;= 0 \\
+a^* &amp;= \frac{α}{c} \end{aligned}\]</span>
+let (PC) be binding:
+<span class="math display">\[\begin{aligned}E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg]&amp;= -\exp(-r\cdot 0) \\
+-\exp\Big(-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big)\Big) &amp;= -\exp(-r\cdot 0) \\
+-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big) &amp;= -r\cdot 0 \\
+\frac{-rα^2σ^2}{2} - g(a)+β +αa &amp;= 0 \\
 \frac{-rα^2σ^2 - a^2c}{2} +αa &amp;= -β \end{aligned}\]</span>
-plug in (PC)
+plug back into principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{a, α} &amp;&amp; &amp;\phantom{\ggg}a(1-α) - β\\
 &amp;&amp; &amp;= a(1-α) + \frac{-rα^2σ^2 - a^2c}{2} +αa \\
 &amp;&amp; &amp;= a + \frac{-rα^2σ^2 - a^2c}{2} \end{aligned}\]</span>
-plug in <span class="math inline">\(a^*\)</span>
+plug in <span class="math inline">\(a^*\)</span> gives unconstrained problem:
 <span class="math display">\[\begin{aligned}\max_{α} &amp;&amp; &amp;\phantom{\ggg}\frac{α}{c} + \frac{-rα^2σ^2 - (\frac{α}{c})^2c}{2} \\
-&amp;&amp; &amp;= \frac{α}{c} - \frac{α^2}{2c} - \frac{rα^2σ^2}{2} \\
+&amp;&amp; &amp;=\frac{α}{c} - \frac{α^2}{2c} - \frac{rα^2σ^2}{2} \\
 FOC &amp;&amp; &amp;\frac{1}{c} - 2\cdot\frac{α}{2c} - 2\cdot\frac{rασ^2}{2}\overset{!}{=} 0 \\
 &amp;&amp; &amp;α^* = \frac{1}{1+crσ^2} &lt; 1\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> less than efficient incentive</li>
@@ -1493,6 +1494,7 @@ FOC &amp;&amp; &amp;\frac{\partial}{\partial a} = 1 - 2\cdot \frac{ca}{2}\overse
 </div>
 <div id="step-contract" class="section level3">
 <h3>Step Contract</h3>
+<p>CT 4.3</p>
 <ul>
 <li>Wage: <span class="math inline">\(w=\begin{cases}w^* &amp; q\geq\underline{q} \\ K\to -\infty &amp; q&lt;\underline{q} \end{cases}\)</span></li>
 </ul>
