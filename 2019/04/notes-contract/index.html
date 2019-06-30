@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">35 min read</span>
+    <span class="article-duration">36 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Information</h1>
     
@@ -120,7 +120,9 @@
 <li><a href="#second-best">Second Best</a></li>
 <li><a href="#risk-neutral-parties-unlimited-liability">Risk Neutral Parties &amp; Unlimited Liability</a></li>
 <li><a href="#risk-neutral-parties-limited-liability">Risk Neutral Parties &amp; Limited Liability</a></li>
-<li><a href="#constant-absolute-risk-aversion-cara">Constant Absolute Risk Aversion (CARA)</a></li>
+</ul></li>
+<li><a href="#moral-hazard-constant-absolute-risk-aversion-cara">Moral Hazard: Constant Absolute Risk Aversion (CARA)</a><ul>
+<li><a href="#linear-contract">Linear Contract</a></li>
 <li><a href="#step-contract">Step Contract</a></li>
 <li><a href="#first-order-approach">First Order Approach</a></li>
 </ul></li>
@@ -1424,8 +1426,9 @@ FOC &amp;&amp; p&#39;(a^{**}) - \frac{\big(p&#39;(a^{**})\big)^2 - p&#39;&#39;(a
 Therefore, <span class="math inline">\(a^{**} &lt; a^{FB}\)</span></li>
 </ul>
 </div>
-<div id="constant-absolute-risk-aversion-cara" class="section level3">
-<h3>Constant Absolute Risk Aversion (CARA)</h3>
+</div>
+<div id="moral-hazard-constant-absolute-risk-aversion-cara" class="section level2">
+<h2>Moral Hazard: Constant Absolute Risk Aversion (CARA)</h2>
 <p>CT 4.2</p>
 <ul>
 <li>Principal’s utility: (RN) <span class="math inline">\(V(x) = x\)</span></li>
@@ -1436,8 +1439,17 @@ Therefore, <span class="math inline">\(a^{**} &lt; a^{FB}\)</span></li>
 <li>Effort: <span class="math inline">\(a\)</span></li>
 <li>Performance: <span class="math inline">\(q=a+ε\)</span><br />
 <span class="math inline">\(ε\sim\mathcal{N}(0,σ^2)\implies q\sim\mathcal{N}(a,σ^2)\)</span></li>
+<li>pdf of <span class="math inline">\(q\)</span>: <span class="math inline">\(f(q|a)\)</span></li>
+<li>Likelihood ratio:
+<span class="math display">\[\begin{aligned}f(q|a) &amp;= \frac{1}{\sqrt{2πσ}}\cdot\exp\Big(- \frac{(q-a)^2}{2σ^2}\Big)\\
+  \frac{f_a(q|a)}{f(q|a)} &amp;= \frac{q-a}{σ^2} \\
+  &amp;\in (-\infty, \infty)\end{aligned}\]</span></li>
 </ul></li>
-<li>Linear contract: <span class="math display">\[w = β + αq\]</span>
+</ul>
+<div id="linear-contract" class="section level3">
+<h3>Linear Contract</h3>
+<ul>
+<li>Contract: <span class="math display">\[w = β + αq\]</span>
 <ul>
 <li>Efficient incentive (all risk on agent): <span class="math inline">\(α = 1\)</span></li>
 <li>Efficient risk-sharing (all risk on principal, flat wage): <span class="math inline">\(α = 0\)</span></li>
@@ -1498,20 +1510,6 @@ FOC &amp;&amp; &amp;\frac{\partial}{\partial a} = 1 - 2\cdot \frac{ca}{2}\overse
 <a href="https://www.jstor.org/stable/pdf/2566946.pdf">Mirrlees (1975)</a><br />
 <a href="https://en.wikipedia.org/wiki/Monotone_likelihood_ratio">Monotone likelihood ratio - Wikipedia</a></p>
 <ul>
-<li>Principal’s utility: (RN) <span class="math inline">\(V(x) = x\)</span></li>
-<li>Agent’s utility: (RA) <span class="math display">\[u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)\]</span>
-<ul>
-<li>Cost of effort: <span class="math inline">\(g(a) = \frac{c}{2}a^2\)</span></li>
-<li>Risk aversion coefficient: <span class="math inline">\(r=-\frac{u&#39;&#39;}{u&#39;}\)</span></li>
-<li>Effort: <span class="math inline">\(a\)</span></li>
-<li>Performance: <span class="math inline">\(q=a+ε\)</span><br />
-<span class="math inline">\(ε\sim\mathcal{N}(0,σ^2)\implies q\sim\mathcal{N}(a,σ^2)\)</span></li>
-<li>pdf of <span class="math inline">\(q\)</span>: <span class="math inline">\(f(q|a)\)</span></li>
-<li>Likelihood ratio:
-<span class="math display">\[\begin{aligned}f(q|a) &amp;= \frac{1}{\sqrt{2πσ}}\cdot\exp\Big(- \frac{(q-a)^2}{2σ^2}\Big)\\
-  \frac{f_a(q|a)}{f(q|a)} &amp;= \frac{q-a}{σ^2} \\
-  &amp;\in (-\infty, \infty)\end{aligned}\]</span></li>
-</ul></li>
 <li>Assumptions
 <ul>
 <li>Monotone likelihood ratio property (MLRP)
@@ -1536,7 +1534,16 @@ Let (PC) be binding, it is violated by
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\int_{-\infty}^{\infty} u(w^*)\cdot f(q|a^*)\, dq \\
 &amp;\phantom{\ggg} - \Big[ \int_{-\infty}^{\underline{q}} u(K)\cdot f(q|a^*)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f(q|a^*)\, dq \Big] \\
 &amp;=\int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f(q|a^*)\, dq &gt;0 \\
-&amp;\overset{?}{\to} 0\end{aligned}\]</span></li>
+&amp;\overset{?}{\to} 0\end{aligned}\]</span>
+By assumption, for any <span class="math inline">\(M\)</span>, exists some <span class="math inline">\(\underline{q}\)</span> s.t. for all <span class="math inline">\(q&lt;\underline{q}\)</span>,
+<span class="math display">\[\begin{aligned}\frac{\partial}{\partial q}\frac{f_a(q|a)}{f(q|a)} &amp;\geq 0 \\
+\lim_{q\to -\infty}\frac{f_a(q|a)}{f(q|a)} &amp;= -\infty \\
+\implies \frac{f_a(q|a)}{f(q|a)} &amp;&lt; -M \\
+f(q|a) &amp;&lt; -\frac{1}{M}\cdot f_a(q|a) \\
+\int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f(q|a^*)\, dq &amp;&lt; -\frac{1}{M}\cdot \int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f_a(q|a^*)\, dq \\
+&amp;&lt; -\frac{1}{M}\cdot\Big( \int_{-\infty}^{\underline{q}} u(w^*)\cdot f_a(q|a^*)\, dq - g&#39;(a^*)\Big) \end{aligned}\]</span>
+choose <span class="math inline">\(M\)</span> large enough, then we have
+<span class="math display">\[\int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f(q|a^*)\, dq &gt;0 \overset{?}{\to} 0\]</span></li>
 </ul>
 </div>
 <div id="first-order-approach" class="section level3">
@@ -1545,13 +1552,36 @@ Let (PC) be binding, it is violated by
 <a href="https://www.jstor.org/stable/pdf/1911363.pdf">Ian Jewitt (1988)</a><br />
 <a href="https://en.wikipedia.org/wiki/Stochastic_dominance">Stochastic dominance - Wikipedia</a></p>
 <ul>
-<li>(IC) <span class="math inline">\(\implies\)</span>
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq = g&#39;(a)\\
-&amp;\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq \\
+<li>Principal’s utility (RA): <span class="math inline">\(V(q-w)\)</span>
+<ul>
+<li><span class="math inline">\(V&#39;&gt;0\)</span>, <span class="math inline">\(V&#39;&#39;&lt;0\)</span></li>
+</ul></li>
+<li>Agent’s utility (RA): <span class="math inline">\(u(w) - g(a)\)</span>
+<ul>
+<li><span class="math inline">\(u&#39;&gt;0\)</span>, <span class="math inline">\(u&#39;&#39;&lt;0\)</span></li>
+<li><span class="math inline">\(g&#39;&gt;0\)</span>, <span class="math inline">\(g&#39;&#39;&gt;0\)</span></li>
+<li>Output: <span class="math inline">\(q\in[\underline{q},\bar{q}]\)</span></li>
+<li>cdf: <span class="math inline">\(F(q|a)\)</span></li>
+<li>pdf: <span class="math inline">\(f(q|a)\)</span></li>
+</ul></li>
+<li>Assumptions
+<ul>
+<li>Convexity of the distribution function condition (CDFC): <span class="math display">\[F_{aa}(q|a)\geq 0\]</span></li>
+<li>Monotone likelihood ratio property (MLRP) <span class="math display">\[\frac{\partial}{\partial q}\frac{f_a(q|a)}{f(q|a)} \geq 0\]</span></li>
+<li>First order stochastic dominance (FOSD): <span class="math display">\[\hat{a}&gt;a\implies F(q|\hat{a})\leq F(q|a)\]</span>
+<img src="/post-img/notes-contract--FOSD.png" width="537" alt="CT Figure 4.1" /></li>
+<li>MLRP <span class="math inline">\(\implies\)</span> FOSD</li>
+</ul></li>
+<li>Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{w(q),a} &amp;&amp; &amp;\int_{\underline{q}}^{\bar{q}}V\big(q-w(q)\big)\cdot f(q|a)\, dq \\
+(PC) &amp;&amp; &amp;\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big)\cdot f(q|a)\, dq - g(a) \geq \bar{u} \\ 
+(IC) &amp;&amp; &amp;a^*\in\text{argmax}_{\hat{a}} \ \int_{\underline{q}}^{\bar{q}} u\big(w(q)\big)\cdot f(q|\hat{a})\, dq - g(\hat{a}) \end{aligned}\]</span>
+Solving (IC) (agent’s maximization problem) gives
+<span class="math display">\[\begin{aligned}FOC &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq \overset{!}{=} g&#39;(a) \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq \\
 &amp;= \underbrace{u\big(w(q)\big) \cdot F_a(q|a)}_{\text{Non-moving support}}\Big|_{\underline{q}}^{\bar{q}} - \int_{\underline{q}}^{\bar{q}} u&#39;\big(w(q)\big)\cdot w&#39;(q) \cdot F_a(q|a)\, dq \\
 &amp;= (0 -0) - \int_{\underline{q}}^{\bar{q}} u&#39;\big(w(q)\big)\cdot w&#39;(q) \cdot \underbrace{F_a(q|a)}_{FOSD:\leq 0}\, dq \\
-&amp;= - \int_{\underline{q}}^{\bar{q}} u&#39;\big(w(q)\big)\cdot w&#39;(q) \cdot F_a(q|a)\, dq  \end{aligned}\]</span></li>
-<li>FOSD: first order stochastic dominance</li>
+&amp;= - \int_{\underline{q}}^{\bar{q}} u&#39;\big(w(q)\big)\cdot w&#39;(q) \cdot F_a(q|a)\, dq \end{aligned}\]</span></li>
 <li>Non-moving support:
 <span class="math inline">\(F_a(q|a)\Big|_{\underline{q}}^{\bar{q}} = 0\)</span> since <span class="math inline">\(F(\bar{q}|a) = 1\)</span>, <span class="math inline">\(F(\underline{q}|a) = 0\)</span> are independent with <span class="math inline">\(a\)</span></li>
 </ul>
