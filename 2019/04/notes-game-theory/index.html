@@ -49,7 +49,7 @@
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">30 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -1412,11 +1412,12 @@ How would the argument simplify if we had used it?</p>
 <li>Set of state of the world: <span class="math inline">\(S\)</span>
 <ul>
 <li>State of the world in period t: <span class="math inline">\(s^t\in S\)</span></li>
+<li>Probability that <span class="math inline">\(s\)</span> occurs: <span class="math inline">\(q(s)\)</span></li>
 <li>Aggregate demand</li>
 </ul></li>
 <li>Strategy: <span class="math inline">\(p_i^t\in[ 0, s^t]\)</span>
 <ul>
-<li>Market price: <span class="math inline">\(p^t = \min\{p_1^t, p_2^t,\dots, p_n^t\}\)</span></li>
+<li>Market price: <span class="math inline">\(p^t = \min\ \{p_1^t, p_2^t,\dots, p_n^t\}\)</span></li>
 <li>Aggregate trade: <span class="math inline">\(s^t - p^t\)</span></li>
 <li>Divided equally by all firms i with <span class="math inline">\(p_i^t = p^t\)</span></li>
 </ul></li>
@@ -1424,16 +1425,51 @@ How would the argument simplify if we had used it?</p>
 <li>Discounting factor: <span class="math inline">\(δ\)</span></li>
 <li>Observatiton
 <ul>
-<li>Stage game has a NE: <span class="math inline">\(p_i = 0\)</span> for all i</li>
+<li>NE of stage game: <span class="math inline">\(p_i = 0\)</span> for all i</li>
+<li>SPNE of repeated game: <span class="math inline">\(p_i^t = 0\)</span> for all i, all t</li>
 <li>Aggregate profit maximization: <span class="math inline">\(p_s = \frac{s^t}{2}\)</span></li>
 </ul></li>
-<li>Symmetric SPNE
+<li>Symmetric SPNE (maximize profit)
 <ul>
 <li>Average discounted payoff: <span class="math inline">\(\hat{v}\)</span></li>
-<li>Price: <span class="math inline">\(p^*(s)\)</span></li>
+<li>Price at first period in <span class="math inline">\(s\)</span>: <span class="math inline">\(p^*(s)\)</span></li>
+<li>Payoff for a firm in equilibrium: <span class="math inline">\(v^*\)</span></li>
 <li>Strategy: if all else haven’t deviated, charge <span class="math inline">\(p_i = \frac{s^t}{2}\)</span><br />
-if someone has deviated, charge <span class="math inline">\(p_i = 0\)</span>
-<span class="math display">\[\begin{aligned}&amp;(1-δ)\cdot\frac{1}{n}\cdot p^*(s)\cdot(s-p^*(s)) + δ\cdot v^* \\ \geq &amp;(1-δ)\cdot p^*(s)\cdot(s-p^*(s)) + δ\cdot 0 \end{aligned}\]</span></li>
+if someone has deviated, charge <span class="math inline">\(p_i = 0\)</span><br />
+</li>
+<li>In order for the SPNE to sustain, it must be
+<span class="math display">\[\underbrace{(1-δ)\cdot\frac{1}{n}\cdot p^*(s)\cdot\big(s-p^*(s)\big)}_{\text{Cooperate}} + δ\cdot v^* \geq \underbrace{(1-δ)\cdot 1\cdot \big(p^*(s)-ε\big)\cdot\big(s-p^*(s)+ε\big)}_{\text{Deviate}} + \underbrace{δ\cdot 0}_{\text{Punishment}}\]</span>
+when <span class="math inline">\(ε\to 0\)</span>,
+<span class="math display">\[\begin{aligned}(1-δ)\cdot\frac{1}{n}\cdot p^*(s)\cdot\big(s-p^*(s)\big) + δ\cdot v^* &amp;\geq (1-δ)\cdot p^*(s)\cdot\big(s-p^*(s)\big) + δ\cdot 0 \\
+  \frac{1}{n}\cdot p^*(s)\cdot\big(s-p^*(s)\big) + \frac{δ}{1-δ}\cdot v^* &amp;\geq p^*(s)\cdot\big(s-p^*(s)\big)\end{aligned}\]</span>
+<!--
+  - Considering average discounted payoff,
+  $$\begin{aligned}&\phantom{\ggg}(1-δ)\cdot\sum_{t=1} δ^{t-1} g_i(a^t) \\
+  &= (1-δ)\cdot g_i(a^1) + (1-δ)\cdot\sum_{t=2} δ^{t-1} g_i(a^t) \\
+  &= (1-δ)\cdot g_i(a^1) + (1-δ)\cdot\sum_{t'=1} δ^{t'} g_i(a^{t'+1}) \\
+  &= (1-δ)\cdot g_i(a^1) + δ\cdot (1-δ)\cdot\sum_{t'=1} δ^{t'-1} g_i(a^{t'+1}) \\\end{aligned}$$
+  therefore,  average discounted equilibrium payoff should be larger than ?? --></li>
+<li>On the other hand, <span class="math inline">\(v^*\)</span> cannot be larger than average discounted payoff
+<span class="math display">\[\begin{aligned}v^* &amp;\leq (1-δ)\cdot\sum_S \frac{1}{n}\cdot q(s)\cdot p^*(s)\cdot\big(s-p^*(s)\big) + δ\cdot v^* \\
+  (1-δ)v^* &amp;\leq (1-δ)\cdot\sum_S \frac{1}{n}\cdot q(s)\cdot p^*(s)\cdot\big(s-p^*(s)\big) \\
+  v^* &amp;\leq \frac{1}{n}\cdot\sum_S q(s)\cdot p^*(s)\cdot\big(s-p^*(s)\big)\end{aligned}\]</span></li>
+<li>Firm coalition’s (reduced) problem:
+<span class="math display">\[\begin{aligned}\max_{v,p:S\to\mathbb{R}} &amp;&amp; &amp;v \\
+  s.t. &amp;&amp; &amp;\frac{1}{n}\cdot p(s)\cdot\big(s-p(s)\big) + \frac{δ}{1-δ}\cdot v \geq p(s)\cdot\big(s-p(s)\big) \\
+  &amp;&amp; &amp;v \leq \frac{1}{n}\cdot\sum_S q(s)\cdot p(s)\cdot\big(s-p(s)\big)\end{aligned}\]</span>
+let the solution be <span class="math inline">\(v^{**}&gt;v^*\)</span>, <span class="math inline">\(p^{**}\)</span><br />
+when <span class="math inline">\(δ\to 1\)</span>,
+<span class="math display">\[\begin{aligned}p^{**} &amp;= \frac{s}{2} \\
+  v^{**} &amp;= \sum_S \frac{1}{n}\cdot q(s)\cdot p^{**}(s)\cdot\big(s-p^{**}(s)\big)\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(δ\)</span> is small, for some <span class="math inline">\(s\)</span>, the second constraint becomes
+<span class="math display">\[\begin{aligned}\frac{1}{n}\cdot p(s)\cdot\big(s-p(s)\big) + \frac{δ}{1-δ}\cdot v &amp;\geq p(s)\cdot\big(s-p(s)\big)\\
+  \frac{δ}{1-δ}\cdot v &amp;\geq \Big(1-\frac{1}{n}\Big) p(s)\cdot\big(s-p(s)\big) \\
+  \frac{δ}{1-δ}\cdot v &amp;\geq \frac{n-1}{n} p(s)\cdot\big(s-p(s)\big)\end{aligned}\]</span>
+Plug in <span class="math inline">\(p= \frac{s}{2}\)</span>, if holds, then <span class="math inline">\(p^{**}(s)= \frac{s}{2}\)</span> for this <span class="math inline">\(s\)</span>
+<span class="math display">\[\begin{aligned}\frac{δ}{1-δ}\cdot v^{**} &amp;\geq\frac{n-1}{n}\cdot\frac{s}{2}\cdot\Big(s-\frac{s}{2}\Big) \\
+  \frac{δ\cdot n}{(1-δ)(n-1)}\cdot v^{**} &amp;\geq\frac{s}{2}\cdot\Big(s-\frac{s}{2}\Big) \end{aligned}\]</span>
+when <span class="math inline">\(δ\)</span> is too small, <span class="math inline">\(p^{**}\)</span> is s.t.
+<span class="math display">\[\frac{δ\cdot n}{(1-δ)(n-1)}\cdot v^{**} = p^{**}\cdot(s-p^{**})\]</span></li>
 </ul></li>
 </ul>
 </div>

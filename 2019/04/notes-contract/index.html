@@ -1576,7 +1576,7 @@ choose <span class="math inline">\(M\)</span> large enough, then we have
 </ul></li>
 <li>Principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{w(q),a} &amp;&amp; &amp;\int_{\underline{q}}^{\bar{q}}V\big(q-w(q)\big)\cdot f(q|a)\, dq \\
-(PC) &amp;&amp; &amp;\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big)\cdot f(q|a)\, dq - g(a) \geq \bar{u} \\ 
+(PC) &amp;&amp; &amp;\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big)\cdot f(q|a)\, dq - g(a) \geq \bar{u} =0 \\ 
 (IC) &amp;&amp; &amp;a^*\in\text{argmax}_{\hat{a}} \ \int_{\underline{q}}^{\bar{q}} u\big(w(q)\big)\cdot f(q|\hat{a})\, dq - g(\hat{a}) \end{aligned}\]</span>
 Solving (IC) (agent’s maximization problem) gives
 <span class="math display">\[\begin{aligned}FOC &amp;&amp; &amp;\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq \overset{!}{=} g&#39;(a) \end{aligned}\]</span>
@@ -1596,10 +1596,11 @@ Solving (IC) (agent’s maximization problem) gives
  +μ\big(u(w(q))\cdot f_{aa}(q|a) -g&#39;&#39;(a)\big)\Big)\, dq &amp;= 0 \end{aligned}\]</span>
 Let <span class="math inline">\(w^{FB}(q)\)</span> denote first-best wage scheme (PC only),
 <span class="math display">\[\begin{aligned}V&#39;\big(q -w^{FB}(q) \big) &amp;= λ\cdot u&#39;\big(w^{FB}(q)\big) \\
- \frac{V&#39;\big(q -w^{FB}(q) \big)}{\cdot u&#39;\big(w^{FB}(q)\big)} &amp;= λ \end{aligned}\]</span>
+ \frac{V&#39;\big(q -w^{FB}(q) \big)}{u&#39;\big(w^{FB}(q)\big)} &amp;= λ \end{aligned}\]</span>
 compare to second best:
-<span class="math display">\[\frac{V&#39;\big(q -w(q) \big)}{\cdot u&#39;\big(w(q)\big)} = λ + μ\cdot\frac{f_a(q|a)}{f(q|a)}\]</span>
-therefore, <span class="math inline">\(μ\leq 0\implies\)</span> <span class="math inline">\(w(q)\leq w^{FB}(q)\)</span> for <span class="math inline">\(q\)</span> s.t. <span class="math inline">\(f_a(q|a)&gt;0\)</span><br />
+<span class="math display">\[\frac{V&#39;\big(q -w(q) \big)}{u&#39;\big(w(q)\big)} = λ + μ\cdot\frac{f_a(q|a)}{f(q|a)}\]</span>
+FSOC <span class="math inline">\(μ\leq 0\)</span><br />
+<span class="math inline">\(\implies w(q)\leq w^{FB}(q)\)</span> for <span class="math inline">\(q\)</span> s.t. <span class="math inline">\(f_a(q|a)&gt;0\)</span><br />
 and <span class="math inline">\(w(q)\geq w^{FB}(q)\)</span> for <span class="math inline">\(q\)</span> s.t. <span class="math inline">\(f_a(q|a)&lt;0\)</span><br />
 therefore
 <span class="math display">\[\int_{\underline{q}}^{\bar{q}} V\big(q-w(q)\big)\cdot f_a(q|a)\, dq \geq \int_{\underline{q}}^{\bar{q}} V\big(q-w^{FB}(q)\big)\cdot f_a(q|a)\, dq\]</span>
@@ -1607,13 +1608,13 @@ However, using integration by parts,
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} V\big(q-w^{FB}(q)\big)\cdot f_a(q|a)\, dq \\
  &amp;= \underbrace{V\big(q-w^{FB}(q)\big)\cdot F_a(q|a)}_{\text{Non-moving support}}\Big|_{\underline{q}}^{\bar{q}} - \int_{\underline{q}}^{\bar{q}}V&#39;\big(q-w^{FB}(q)\big)\cdot\big(1-w^{FB\prime}(q)\big)\cdot F_a(q|a)\, dq \\
  &amp;= - \int_{\underline{q}}^{\bar{q}}V&#39;\big(q-w^{FB}(q)\big)\cdot\big(1-w^{FB\prime}(q)\big)\cdot F_a(q|a)\, dq\end{aligned}\]</span>
-Since differentiating (FOC to Lagrangian w.r.t. <span class="math inline">\(a\)</span>) gives
+Since <span class="math inline">\(\frac{\partial\mathcal{L}}{\partial a}\)</span> gives
 <span class="math display">\[\begin{aligned}\int_{\underline{q}}^{\bar{q}} V\big(q-w(q)\big)\cdot f_a(q|a) + μ\cdot u\big(w(q)\big)\cdot f_{aa}(a|a) \, dq - g&#39;&#39;(a) = 0 \\
  \underbrace{\int_{\underline{q}}^{\bar{q}} V\big(q-w(q)\big)\cdot f_a(q|a)\, dq}_{&gt;0} = -μ\cdot\underbrace{\int_{\underline{q}}^{\bar{q}}u\big(w(q)\big)\cdot f_{aa}(a|a)\, dq - g&#39;&#39;(a)}_{&lt;0} \end{aligned}\]</span>
 <span class="math inline">\(\implies μ&gt;0\)</span></li>
 </ul></li>
 <li>Show MLRP implies <span class="math inline">\(w&#39;(q)\geq 0\)</span></li>
-<li>Show FOC applies if MLRP &amp; CDFC hold</li>
+<li>Show MLRP &amp; CDFC <span class="math inline">\(\implies\)</span> FOC applies</li>
 </ol>
 </div>
 </div>
