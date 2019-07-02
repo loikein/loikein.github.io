@@ -861,12 +861,12 @@ It is possible to satisfy all constraints simultaneously with the mechanism and 
 <li>Investment: <span class="math inline">\(e\)</span></li>
 <li>Cost of investment: <span class="math inline">\(k(e)\)</span></li>
 <li>Cost of trade: <span class="math inline">\(c\)</span></li>
-<li>Payoff: <span class="math inline">\(t-x\cdot c - k(e)\)</span></li>
+<li>Payoff: <span class="math inline">\(t- c\cdot x - k(e)\)</span></li>
 </ul></li>
 <li>Buyer
 <ul>
 <li>Valuation of good: <span class="math inline">\(v\)</span></li>
-<li>Payoff: <span class="math inline">\(x\cdot v - t\)</span></li>
+<li>Payoff: <span class="math inline">\(v\cdot x - t\)</span></li>
 </ul></li>
 </ul>
 <div id="first-best-1" class="section level3">
@@ -913,23 +913,23 @@ both parties will agree on <span class="math inline">\(x^{FB}\)</span> at time 3
 <li>Contract:
 <ul>
 <li>At time 2.5, seller announces <span class="math inline">\(\hat{c}\)</span></li>
-<li>At time 3, buyer chooses <span class="math inline">\(x\)</span> and pays <span class="math inline">\(t\)</span> (???)
+<li>At time 3, buyer chooses <span class="math inline">\(x\)</span> and pays <span class="math inline">\(t\)</span>
 <span class="math display">\[t=\hat{c}\cdot x + E_v\big[ (v-\hat{c})\cdot x^{FB}(\hat{c}, v)]\]</span></li>
 </ul></li>
 <li>Backward induction
 <ul>
 <li>Buyer’s problem:
 <span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; &amp;\phantom{\ggg} v\cdot x - t \\
-  &amp;&amp; &amp;= (v-\hat{c})\cdot x - E_v\big[ (v-\hat{c})\cdot x^{FB}(\hat{c}, v)] \\
-  &amp;&amp; x &amp;= x^{FB}(\hat{c},v)\end{aligned}\]</span></li>
+  &amp;&amp; &amp;= \underbrace{(v-\hat{c})\cdot x}_{x(\hat{c}, v)} - \underbrace{E_v\big[ (v-\hat{c})\cdot x^{FB}(\hat{c}, v)]}_{x^{FB}(\hat{c}, v)} \\
+  \implies &amp;&amp; x &amp;= x^{FB}(\hat{c},v)\end{aligned}\]</span></li>
 <li>Seller considers announcement:
 <span class="math display">\[\begin{aligned}\max_{\hat{c}} &amp;&amp; &amp;\phantom{\ggg} E[t-x\cdot c] - k(e) \\
   &amp;&amp; &amp;= E_v\big[ (\hat{c}-c)\cdot x^{FB}(\hat{c}, v) + (v-\hat{c})\cdot x^{FB}(\hat{c}, v)] - k(e) \\
   &amp;&amp; &amp;= E_v\big[ (v-c)\cdot x^{FB}(\hat{c}, v)] - k(e) \\
-  &amp;&amp; \hat{c} &amp;= c\end{aligned}\]</span></li>
+  \implies &amp;&amp; \hat{c} &amp;= c\end{aligned}\]</span></li>
 <li>Seller’s problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;E_e\big[ (v-c)\cdot x^{FB}(c,v)\big] - k(e) \\
-  &amp;&amp; &amp;e = e^{FB}(c,v) \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;\phantom{\ggg}E_e\big[ (v-c)\cdot x^{FB}(c,v)\big] - k(e) \\
+  \implies &amp;&amp; e &amp;= e^{FB}(c,v) \end{aligned}\]</span></li>
 </ul></li>
 </ul>
 </div>
@@ -1010,7 +1010,7 @@ Plug in back
 <span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; &amp;\phantom{\ggg}E\Big[x^{FB}q -\frac{1}{2}\cdot x^{FB}q - k(e) \Big] \\
 &amp;&amp; &amp;= E\Big[\frac{1}{2}\cdot q - k(e)\Big] \\
 &amp;&amp; &amp;= \frac{1}{2}\big(e\cdot q_H  + (1-e)\cdot q_L\big) - \frac{e^2}{2} \\
-FOC &amp;&amp;  &amp;q_H - q_L - e = 0 \\
+FOC &amp;&amp;  &amp;q_H - q_L - 2e = 0 \\
 &amp;&amp; &amp;\phantom{0000000}e^{FB} = \frac{1}{4}\end{aligned}\]</span>
 Expected total surplus:
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}E\Big[xq -\frac{xq}{2} - k(e) \Big] \\

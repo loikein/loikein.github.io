@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">48 min read</span>
+    <span class="article-duration">50 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -132,6 +132,10 @@ if (!doNotTrack) {
 <li><a href="#model-of-fairness">Model of Fairness</a></li>
 <li><a href="#utility-and-best-response">Utility and Best Response</a></li>
 <li><a href="#equilibrium">Equilibrium</a></li>
+</ul></li>
+<li><a href="#social-preference-interdependent-preference">Social Preference: Interdependent Preference</a><ul>
+<li><a href="#model-of-spitefulness-altruism">Model of Spitefulness &amp; Altruism</a></li>
+<li><a href="#private-types-signalling">Private Types: Signalling</a></li>
 </ul></li>
 </ul>
 </div>
@@ -378,12 +382,12 @@ With quasi-linear preference,
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-behavioural--piece–wise-linear.png" alt="Loss-aversion" width="447" />
+<img src="/post-img/notes-behavioural--piece–wise-linear.png" width="447" alt="" />
 <p class="caption">Loss-aversion</p>
 </div>
 <blockquote>
 <p>Lemma 2.2<br />
-<img src="/post-img/notes-behavioural--mug-game.png" alt="Mug experiment" width="329" /><br />
+<img src="/post-img/notes-behavioural--mug-game.png" width="329" alt="Mug experiment" /><br />
 Let <span class="math inline">\(u(y \ | \ y) = u(x \ | \ y)\)</span><br />
 Prove that followings are consistent with the loss aversion model:<br />
 1. <span class="math inline">\(u(y \ | \ t) &lt; u(x \ | \ t)\)</span><br />
@@ -428,7 +432,7 @@ For <span class="math inline">\(0&lt; Δ &lt; Δ&#39;\)</span>,
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-behavioural--la-large-stake.png" alt="Loss aversion for large stakes" width="427" />
+<img src="/post-img/notes-behavioural--la-large-stake.png" width="427" alt="" />
 <p class="caption">Loss aversion for large stakes</p>
 </div>
 </div>
@@ -703,7 +707,7 @@ Salience of certainty: <span class="math inline">\(π(1) = 1\)</span></li>
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-behavioural--prospect-weighting.png" alt="Probability weighting function" width="352" />
+<img src="/post-img/notes-behavioural--prospect-weighting.png" width="352" alt="" />
 <p class="caption">Probability weighting function</p>
 </div>
 </div>
@@ -1941,6 +1945,124 @@ x&amp;\geq \frac{1}{2} \end{aligned}\]</span></li>
 <li>For all values of <span class="math inline">\(x\)</span>, (O, O) and (B, B) are fairness equilibria</li>
 </ul></li>
 </ul>
+</div>
+</div>
+<div id="social-preference-interdependent-preference" class="section level2">
+<h2>Social Preference: Interdependent Preference</h2>
+<div id="model-of-spitefulness-altruism" class="section level3">
+<h3>Model of Spitefulness &amp; Altruism</h3>
+<ul>
+<li>Players: <span class="math inline">\(i=1,2\)</span></li>
+<li>Types of player: <span class="math inline">\(\begin{cases}\text{Altruistic} &amp; a_i\in(0,1] \\ \text{Neutral} &amp; a_i=0 \\ \text{Spiteful} &amp; a_i\in[-1,0) \end{cases}\)</span></li>
+<li>Utility function: <span class="math display">\[u_i(x_i,x_j) = x_i + \big(γa_i + (1-γ)a_j\big)x_j\]</span>
+<ul>
+<li>Monetory payoff: <span class="math inline">\(x_i\)</span></li>
+<li><span class="math inline">\(γ\in[0.5,1]\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Example (ultimatum game)<br />
+Total amount: 10<br />
+P1 proposes: 2<br />
+P2 chooses accept or reject<br />
+<span class="math inline">\(γ=\frac{1}{2}\)</span></p>
+</blockquote>
+<p>Utility for P2 to accept: <span class="math inline">\(u^A_2 = 2 + \frac{1}{2}( a_1 + a_2)\cdot(10-2)\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(u_2^A\)</span></th>
+<th><span class="math inline">\(a_1 = -1\)</span></th>
+<th><span class="math inline">\(a_1 = 0\)</span></th>
+<th><span class="math inline">\(a_1 = 1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(a_2 = -1\)</span></td>
+<td><span class="math inline">\(-6\)</span></td>
+<td><span class="math inline">\(-2\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(a_2 = 0\)</span></td>
+<td><span class="math inline">\(-2\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(6\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(a_2 = 1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(6\)</span></td>
+<td><span class="math inline">\(10\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="private-types-signalling" class="section level3">
+<h3>Private Types: Signalling</h3>
+<ul>
+<li>Players: <span class="math inline">\(i=1,2\)</span>
+<ul>
+<li>Informatiton: <span class="math inline">\(I_i\)</span> (the strategy of player j)</li>
+<li>Type: <span class="math inline">\(a_i\)</span></li>
+<li>Expected type of player j: <span class="math inline">\(E[a_j\ |\ I_i]\)</span></li>
+</ul></li>
+<li>Utility function: <span class="math display">\[u_i(x_i,x_j) = x_i + \big(γa_i + (1-γ)\cdot E[a_j\ |\ I_i]\big)x_j\]</span></li>
+<li>Perfect Bayesian equilibrium (PBE)
+<ul>
+<li>Beliefs obey Bayes’ rule</li>
+<li>Threshold strategy:<br />
+for <span class="math inline">\(\hat{a}_1\in[-1,1]\)</span>, <span class="math inline">\(s=\min s\)</span> for <span class="math inline">\(a_1&lt;\hat{a}_1\)</span> and <span class="math inline">\(s=\max s\)</span> for <span class="math inline">\(a_1\geq\hat{a}_1\)</span><br />
+for <span class="math inline">\(\hat{a}_2\in[-1,1]\)</span>, reject for <span class="math inline">\(a_2&lt;\hat{a}_2\)</span> and accept for <span class="math inline">\(a_2\geq\hat{a}_2\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Lemma 4.5 (ultimatum game)<br />
+When total amount is 10, <span class="math inline">\(γ=\frac{3}{4}\)</span>,<br />
+1. P2 accepts any offer <span class="math inline">\(\geq 5\)</span><br />
+2. P1 gives 5 if possible</p>
+<p>Lemma 4.6<br />
+When P1 can offer <span class="math inline">\(s=\{0,10\}\)</span>, exists a PBE in threshold strategies with
+<span class="math display">\[\begin{aligned}\hat{a}_1^* &amp;= \frac{3γ-1}{4γ^2 - (1-γ)} = \frac{5}{8} \\ \hat{a}_2^* &amp;= \frac{(2γ-1)(1-γ)}{4γ^2 - (1-γ)} = \frac{1}{16} \end{aligned}\]</span>
+where the probabilities are
+<span class="math display">\[\begin{aligned}Pr(s=0) &amp;= \frac{1}{2}(\hat{a}_1^* + 1) = \frac{13}{16} \\ Pr(R) &amp;= \frac{1}{2}(\hat{a}_2^* + 1) = \frac{17}{32}\end{aligned}\]</span></p>
+</blockquote>
+<p>Let types <span class="math inline">\(a_1, a_2\in[-1,1]\)</span> be uniform and iid</p>
+<ol style="list-style-type: lower-alpha">
+<li>P1 can offer <span class="math inline">\(s=\{0,10\}\)</span>
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(s=10\)</span>, all <span class="math inline">\(a_2\)</span> accept</li>
+<li>When <span class="math inline">\(s=0\)</span>, let the threshold be <span class="math inline">\(\hat{a}_1\)</span> and <span class="math inline">\(\hat{a}_2\)</span><br />
+it is optimal for P2 to accept <span class="math inline">\(\iff\begin{cases}u_2 \geq 0 \\a_2 \geq \hat{a}_2 \end{cases}\)</span><br />
+therefore, P2 considers:
+<span class="math display">\[\begin{aligned}u_2 &amp;\geq 0 \\
+ x_2 + \big(γa_2 + (1-γ)\cdot E[a_2\ |\ I_1]\big)x_1 &amp;\geq 0 \\
+ 0 + 10\cdot\big(γa_2 + (1-γ)\cdot \underbrace{E[a_1\ |\ I_2]}_{E[a_1\ |\ s=0]}\big) &amp;\geq 0 \\
+ 10\cdot\Big(γa_2 + (1-γ)\cdot \frac{1}{2}\cdot (-1 + \hat{a}_1)\Big) &amp;\geq 0 \\
+ γa_2 + (1-γ)\cdot \frac{1}{2}\cdot (-1 + \hat{a}_1) &amp;\geq 0 \\
+ γa_2 &amp;\geq (1-γ)\cdot \frac{1}{2}\cdot (1 - \hat{a}_1) \\
+ a_2 &amp;\geq \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\end{aligned}\]</span>
+plug in <span class="math inline">\(a_2 \geq \hat{a}_2\)</span>
+<span class="math display">\[\begin{aligned}a_2 &amp;\geq \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\\
+ \hat{a}_2 &amp;= \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\end{aligned}\]</span>
+P1 chooses <span class="math inline">\(s=0\)</span> <span class="math inline">\(\iff\begin{cases}u_1(s=0)\geq u_1(s=10) \\a_1 \leq \hat{a}_1 \end{cases}\)</span><br />
+therefore, P1 considers
+<span class="math display">\[\begin{aligned}u_1(s=0)&amp;\geq u_1(s=10) \\
+ 0\cdot Pr(R) + 10\cdot\big(1-Pr(R)\big) &amp;\geq x_1 + \big(γa_1 + (1-γ)\cdot\underbrace{E[a_2\ |\ I_1]}_{=E[a_2\ |\ s=10]}\big)x_2 \\
+ 10\cdot \underbrace{Pr(A)}_{Pr(\hat{a}_2\leq a_2\leq 1)} &amp;\geq 0 + 10\cdot\Big(γa_1 + (1-γ)\cdot\frac{1}{2} (-1 + 1)\Big) \\
+ 10\cdot \frac{1}{2}(-\hat{a}_2+1) &amp;\geq 10\cdot γa_1 \\
+ \frac{1}{2}(1-\hat{a}_2) &amp;\geq γa_1 \\
+ a_1 &amp;\leq \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2)\end{aligned}\]</span>
+plug in <span class="math inline">\(a_1 \leq \hat{a}_1\)</span>
+<span class="math display">\[\begin{aligned}a_1 &amp;\leq \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2)\\
+ \hat{a}_1 &amp;= \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2) \end{aligned}\]</span>
+Therefore, solving the system of
+<span class="math display">\[\begin{aligned}\hat{a}_1^* &amp;= \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2^*)\\\hat{a}_2^* &amp;= \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1^*)\end{aligned}\]</span>
+yields the solutions in lemma 4.6</li>
+</ol></li>
+<li>P1 can offer <span class="math inline">\(s=\{0,5,10\}\)</span></li>
+</ol>
 </div>
 </div>
 
