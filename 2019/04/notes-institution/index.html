@@ -508,11 +508,12 @@ Agent’s problem
 &amp;&amp; &amp;= (\hat{v}-c)\cdot \big(x - x^{FB}(c,\hat{v})\big) \\
 &amp;&amp; &amp;x^* = x^{FB}(c,\hat{v}) \end{aligned}\]</span>
 Principal’s problem
-<span class="math display">\[\begin{aligned}\max_{\hat{v}} &amp;&amp; &amp;\phantom{\ggg}v\cdot x - t \\
-&amp;&amp; &amp;= v\cdot E\big[x^{FB}(c,\hat{v})\big] - \hat{v}\cdot E\big[x^{FB}(c,\hat{v})\big] + E\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
-&amp;&amp; &amp;= E\big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + (\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
-&amp;&amp; &amp;= E\big[(v-c)\cdot x^{FB}(c,\hat{v})\big] \\
-&amp;&amp; &amp;\hat{v}^* = v\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_{\hat{v}} &amp;&amp; &amp;\phantom{\ggg}E_c[v\cdot x - t] \\
+&amp;&amp; &amp;= E_c\big[v\cdot x^{FB}(c,\hat{v}) - t\big(\hat{v},x^{FB}(c,\hat{v})\big)\big] \\
+&amp;&amp; &amp;= E_c\Big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + E_c\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big]\Big] \\
+&amp;&amp; &amp;= E_c\big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + (\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
+&amp;&amp; &amp;= E_c\big[(v-c)\cdot x^{FB}(c,\hat{v})\big] \\
+&amp;&amp; \hat{v}^* &amp;= v\end{aligned}\]</span>
 Expected payoff:<br />
 <span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;\phantom{\ggg}v\cdot x -t \\
 &amp;&amp; &amp;=E\big[(v-c)\cdot x^{FB}(c,v)\big] \\
