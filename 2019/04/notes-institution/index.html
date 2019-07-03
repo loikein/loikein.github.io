@@ -153,8 +153,10 @@ if (!doNotTrack) {
 <li>Agent’s payoff: <span class="math inline">\(t - c(e)\)</span></li>
 </ul></li>
 <li>Reservation utility: <span class="math inline">\(\underline{U} = 0\)</span></li>
-<li>Incentive compatibility constraint (IC): agent chooses the level of effort that maximizes their own utility</li>
-<li>Participation constraint (PC): agent accepts the contract only if the expected utility exceeds other alternatives (their reservation utility)</li>
+<li>Incentive compatibility constraint (IC):<br />
+agent chooses the level of effort that maximizes their own utility</li>
+<li>Participation constraint (PC):<br />
+agent accepts the contract only if the expected utility exceeds other alternatives (their reservation utility)</li>
 </ul>
 <div id="timing" class="section level3">
 <h3>Timing</h3>
@@ -1350,7 +1352,7 @@ B’s problem:
  FOC &amp;&amp; &amp;b^J = \frac{1}{2}\end{aligned}\]</span>
 Therefore, <span class="math inline">\(a^B &lt;a^J &lt;a^A =a^{FB}\)</span> and <span class="math inline">\(b^A &lt;b^J &lt;b^B =b^{FB}\)</span></li>
 </ol></li>
-<li>Total surplus: <span class="math inline">\(a^o + b^o - \frac{1}{2}(a^o)^2 - \frac{1}{2}(b^o)^2\)</span>
+<li>Total surplus: <span class="math inline">\(a^o + b^o - \frac{1}{2}(a^o)^2 - \frac{1}{2}(b^o)^2\)</span><br />
 When <span class="math inline">\(o=A\)</span>
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} 1 + \frac{1}{2}(1-ε) - \frac{1}{2} 1^2 - \frac{1}{2}\big(\frac{1}{2}(1-ε)\big)^2 \\
 &amp;= \frac{7}{8} - \frac{1}{4}ε - \frac{1}{8}ε^2 \end{aligned}\]</span>
@@ -1360,7 +1362,7 @@ When <span class="math inline">\(o=B\)</span>
 When <span class="math inline">\(o=J\)</span>
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2} + \frac{1}{2} - \frac{1}{2}\big(\frac{1}{2}\big)^2 - \frac{1}{2}\big(\frac{1}{2}\big)^2 \\
 &amp;= \frac{3}{4} \end{aligned}\]</span>
-Since <span class="math inline">\(ε &lt; λ\)</span>, <span class="math inline">\(o=A\)</span> is always better than <span class="math inline">\(o=J\)</span><br />
+Since <span class="math inline">\(ε &lt; λ\)</span>, <span class="math inline">\(o=A\)</span> is always better than <span class="math inline">\(o=B\)</span><br />
 <span class="math inline">\(o=J\)</span> is always better than <span class="math inline">\(o=A\)</span> when
 <span class="math display">\[\begin{aligned}\frac{3}{4} &amp;&gt; \frac{7}{8} - \frac{1}{4}ε - \frac{1}{8}ε^2 \\
 ε &amp;&gt; -1 + \sqrt{2} \end{aligned}\]</span></li>
@@ -1490,10 +1492,11 @@ $$\begin{aligned}&\phantom{\ggg} (1 + xe - εxe)q - \frac{1}{2}e^2 \\
 Since M’s cost is <span class="math inline">\((1 - xe) q\)</span>,<br />
 In case of disagreement, <span class="math inline">\(x^M = 1\)</span><br />
 Default payoffs:
-<span class="math display">\[\begin{aligned}D_M^{o=M} &amp;= -(1 - e) q_0 \\
- D_G^{o=M} &amp;= (2 - εe) q_0 \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}D_M^{o=M} &amp;= -(1 - x^M\cdot e) q_0 \\
+ D_G^{o=M} &amp;= (2 - x^M\cdot εe) q_0 \end{aligned}\]</span>
 Re-negotiation surplus:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} (1 + e -εe)\cdot x^{FB} - (1 + e -εe)q_0 \\
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} (1 + x^{FB}\cdot e -x^{FB}\cdot εe) - (D_M^{o=M} + D_G^{o=M}) \\
+ &amp;= (1 + e -εe) - (1 + e -εe)q_0 \\
  &amp;= (1 + e -εe)(1-q_0) \end{aligned}\]</span>
 Date-2 payoff:
 <span class="math display">\[\begin{aligned}\text{M&#39;s payoff} &amp;&amp; &amp;-(1 - e) q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \\
@@ -1505,7 +1508,7 @@ Default payoffs:
 <span class="math display">\[\begin{aligned}D_M^{o=G} &amp;= -(1 - x^Ge) q_0 = -q_0 \\
  D_G^{o=G} &amp;= (2 - εx^Ge) q_0 = 2q_0 \end{aligned}\]</span>
 Re-negotiation surplus:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} (1 + e -εe)\cdot x^{FB} - (D_M^{o=G} + D_G^{o=G}) \\
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} (1 + x^{FB}\cdot e -x^{FB}\cdot εe) - (D_M^{o=G} + D_G^{o=G}) \\
  &amp;= (1 + e -εe) - q_0 \end{aligned}\]</span>
 Date-2 payoff:
 <span class="math display">\[\begin{aligned}\text{M&#39;s payoff} &amp;&amp; &amp;-q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \\
