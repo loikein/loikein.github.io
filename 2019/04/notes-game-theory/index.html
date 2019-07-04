@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">30 min read</span>
+    <span class="article-duration">31 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -121,6 +121,7 @@ if (!doNotTrack) {
 <li><a href="#example-battle-of-sexes-bos">Example: Battle of Sexes (BoS)</a></li>
 <li><a href="#example-prisoners-dilemma-pd">Example: Prisoner’s Dilemma (PD)</a></li>
 <li><a href="#example-price-wars">Example: Price Wars</a></li>
+<li><a href="#example-time-inconsistency-in-public-good">Example: Time Inconsistency in Public Good</a></li>
 </ul></li>
 </ul>
 </div>
@@ -168,7 +169,7 @@ textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E
 <li>Terminal history: <span class="math inline">\((a^k)_{k=1}^K\in H\)</span> is terminal if exists no <span class="math inline">\((a^k)_{k=1}^{K+1}\in H\)</span></li>
 </ul></li>
 <li>Continuous in infinity:<br />
-For any <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T\in\mathbb{N}\)</span> s.t. <span class="math inline">\(|u_i(s_i, s_{-i}) - u_i(s_i&#39;, s_{-i})| &lt; ε\)</span> if <span class="math inline">\(s_i\)</span> and <span class="math inline">\(s_i&#39;\)</span> assign different actions only after histroies of length <span class="math inline">\(\geq T\)</span></li>
+For any <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T\in\mathbb{N}\)</span> s.t. <span class="math inline">\(|u_i(s_i, s_{-i}) - u_i(s_i&#39;, s_{-i})| &lt; ε\)</span> if <span class="math inline">\(s_i\)</span> and <span class="math inline">\(s_i&#39;\)</span> assign different actions only after histories of length <span class="math inline">\(\geq T\)</span></li>
 </ul>
 <blockquote>
 <p>Exercise (slides P13)<br />
@@ -1420,6 +1421,7 @@ How would the argument simplify if we had used it?</p>
 </div>
 <div id="example-price-wars" class="section level3">
 <h3>Example: Price Wars</h3>
+<p><a href="https://www.jstor.org/stable/pdf/1813358.pdf">Rotemberg and Saloner (1986)</a></p>
 <ul>
 <li>Players: <span class="math inline">\(n&gt;1\)</span> firms</li>
 <li>Time: <span class="math inline">\(t=1,2,3,\dots, T\)</span></li>
@@ -1478,13 +1480,81 @@ when <span class="math inline">\(δ\to 1\)</span>,
 <li>When <span class="math inline">\(δ\)</span> is small, for some <span class="math inline">\(s\)</span>, the second constraint becomes
 <span class="math display">\[\begin{aligned}\frac{1}{n}\cdot p(s)\cdot\big(s-p(s)\big) + \frac{δ}{1-δ}\cdot v &amp;\geq p(s)\cdot\big(s-p(s)\big)\\
   \frac{δ}{1-δ}\cdot v &amp;\geq \Big(1-\frac{1}{n}\Big) p(s)\cdot\big(s-p(s)\big) \\
-  \frac{δ}{1-δ}\cdot v &amp;\geq \frac{n-1}{n} p(s)\cdot\big(s-p(s)\big)\end{aligned}\]</span>
+  \frac{δ}{1-δ}\cdot v &amp;\geq \frac{n-1}{n} p(s)\cdot\big(s-p(s)\big) \\
+  \frac{δvn}{(1-δ)(n-1)} &amp;\geq p(s)\cdot\big(s-p(s)\big)\end{aligned}\]</span>
 Plug in <span class="math inline">\(p= \frac{s}{2}\)</span>, if holds, then <span class="math inline">\(p^{**}(s)= \frac{s}{2}\)</span> for this <span class="math inline">\(s\)</span>
 <span class="math display">\[\begin{aligned}\frac{δ}{1-δ}\cdot v^{**} &amp;\geq\frac{n-1}{n}\cdot\frac{s}{2}\cdot\Big(s-\frac{s}{2}\Big) \\
   \frac{δ\cdot n}{(1-δ)(n-1)}\cdot v^{**} &amp;\geq\frac{s}{2}\cdot\Big(s-\frac{s}{2}\Big) \end{aligned}\]</span>
 when <span class="math inline">\(δ\)</span> is too small, <span class="math inline">\(p^{**}\)</span> is s.t.
-<span class="math display">\[\frac{δ\cdot n}{(1-δ)(n-1)}\cdot v^{**} = p^{**}\cdot(s-p^{**})\]</span></li>
+<span class="math display">\[\frac{δ\cdot n}{(1-δ)(n-1)}\cdot v^{**} = p^{**}\cdot(s-p^{**})\]</span>
+<img src="/post-img/notes-game-theory--price-war-1.png" width="422" /><br />
+<img src="/post-img/notes-game-theory--price-war-2.png" width="414" /></li>
 </ul></li>
+</ul>
+</div>
+<div id="example-time-inconsistency-in-public-good" class="section level3">
+<h3>Example: Time Inconsistency in Public Good</h3>
+<ul>
+<li>P1: government
+<ul>
+<li>Tax rate: <span class="math inline">\(t\in[0,1]\)</span></li>
+<li>Tax revenue: <span class="math inline">\(t\cdot R(1-c)\)</span></li>
+<li>Public good: <span class="math inline">\(G = γ\cdot t\cdot R(1-c)\)</span></li>
+<li>Technology: <span class="math inline">\(R-1&lt; γ&lt;R\)</span></li>
+</ul></li>
+<li>P2’s: a continuum of consumers
+<ul>
+<li>Consumption: <span class="math inline">\(c\)</span></li>
+<li>Investment: <span class="math inline">\(1-c\)</span></li>
+<li>Investment return: <span class="math inline">\(R(1-c)(1-t)\)</span></li>
+<li>Stage utility function: <span class="math display">\[u = c + R(1-c)(1-t) + 2\sqrt{G}\]</span></li>
+</ul></li>
+<li>P2s’ choice
+<ul>
+<li>Expected tax rate: <span class="math inline">\(t\)</span></li>
+<li>Treat <span class="math inline">\(G\)</span> as constant</li>
+<li>P2s’ problem:
+<span class="math display">\[\begin{aligned}\max_c &amp;&amp; u &amp;= c + R(1-c)(1-t) + 2\sqrt{G}\\
+  &amp;&amp; &amp;= c\cdot\big( 1-R\cdot(1-t)\big) + R(1-t) + 2\sqrt{G}\\
+  FOC &amp;&amp; \frac{du}{dc} &amp;= 1-R\cdot(1-t)\end{aligned}\]</span>
+<span class="math inline">\(c^* = 1\)</span> when
+<span class="math display">\[\begin{aligned}1-R\cdot(1-t)&amp;&gt;0 \\
+  R\cdot(1-t) &amp;&lt; 1 \\
+  t &amp;&gt; \frac{R-1}{R} \end{aligned}\]</span>
+<span class="math inline">\(c^* = 0\)</span> when
+<span class="math display">\[\begin{aligned}1-R\cdot(1-t)&amp;&lt;0 \\
+  t &amp;&lt; \frac{R-1}{R} \end{aligned}\]</span></li>
+</ul></li>
+<li>P1’s problem
+<ul>
+<li>When <span class="math inline">\(c&lt;1\)</span>,
+<span class="math display">\[\begin{aligned}\max_t &amp;&amp; u &amp;= c + R(1-c)(1-t) + 2\sqrt{γ\cdot t\cdot R(1-c)} \\
+  FOC &amp;&amp; \frac{du}{dt} &amp;= R(1-c)(-1) + 2\cdot\frac{1}{2}\cdot\big(γ\cdot t\cdot R(1-c)\big)^{-\frac{1}{2}}\cdot γ\cdot R(1-c)\\
+  &amp;&amp; &amp;= -R(1-c) + \big(γ\cdot t\cdot R(1-c)\big)^{-\frac{1}{2}}\cdot γ\cdot R(1-c)\\
+  &amp;&amp; &amp;= -R(1-c) + \sqrt{γ\cdot R(1-c)}\cdot\frac{1}{\sqrt{t}} \overset{!}{=} 0 \\
+  &amp;&amp; R(1-c) &amp;= \sqrt{γ\cdot R(1-c)}\cdot\frac{1}{\sqrt{t}} \\
+  &amp;&amp; t^* &amp;= \frac{γ}{R(1-c)} \end{aligned}\]</span>
+therefore, <span class="math inline">\(t^* = \min\ \Big\{1, \frac{γ}{R(1-c)}\Big\}\)</span><br />
+</li>
+<li>When <span class="math inline">\(c=1\)</span>, <span class="math inline">\(u = c = 1\)</span>, <span class="math inline">\(t\)</span> is irrelevant</li>
+</ul></li>
+<li>Unique NE of stage game</li>
+</ul>
+<p><img src="/post-img/notes-game-theory--time-inconsis.png" width="392" /></p>
+<ul>
+<li>P1’s trigger strategy in repetition
+<ol style="list-style-type: decimal">
+<li>Charges <span class="math inline">\(t^{**} = \frac{R-1}{R}\)</span> in the first round</li>
+<li>Charges <span class="math inline">\(t^{**}\)</span> for all histories where all <span class="math inline">\(t = t^{**}\)</span></li>
+<li>Charges <span class="math inline">\(t=1\)</span> for histories where some <span class="math inline">\(t\neq t^{**}\)</span></li>
+</ol></li>
+<li>P2s’ response
+<ol style="list-style-type: lower-alpha">
+<li>When (2) happens, <span class="math inline">\(c=0\)</span></li>
+<li>When (3) happens, <span class="math inline">\(c=1\)</span></li>
+</ol></li>
+<li><span class="math inline">\(\implies\)</span> SPNE if <span class="math inline">\(δ\)</span> is close enough to 1</li>
+<li></li>
 </ul>
 </div>
 </div>
