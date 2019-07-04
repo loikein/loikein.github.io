@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">50 min read</span>
+    <span class="article-duration">52 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -2012,10 +2012,18 @@ P2 chooses accept or reject<br />
 <li>Perfect Bayesian equilibrium (PBE)
 <ul>
 <li>Beliefs obey Bayes’ rule</li>
-<li>Threshold strategy:<br />
-for <span class="math inline">\(\hat{a}_1\in[-1,1]\)</span>, <span class="math inline">\(s=\min s\)</span> for <span class="math inline">\(a_1&lt;\hat{a}_1\)</span> and <span class="math inline">\(s=\max s\)</span> for <span class="math inline">\(a_1\geq\hat{a}_1\)</span><br />
-for <span class="math inline">\(\hat{a}_2\in[-1,1]\)</span>, reject for <span class="math inline">\(a_2&lt;\hat{a}_2\)</span> and accept for <span class="math inline">\(a_2\geq\hat{a}_2\)</span></li>
 </ul></li>
+<li>Threshold strategy
+<ol style="list-style-type: lower-alpha">
+<li>Can offer <span class="math inline">\(s=\{0,10\}\)</span><br />
+for <span class="math inline">\(\hat{a}_1\in[-1,1]\)</span>, <span class="math inline">\(s=0\)</span> is offered by <span class="math inline">\(a_1&lt;\hat{a}_1\)</span> and <span class="math inline">\(s=10\)</span> by <span class="math inline">\(a_1\geq\hat{a}_1\)</span><br />
+for <span class="math inline">\(\hat{a}_2\in[-1,1]\)</span>, <span class="math inline">\(s=0\)</span> is rejected by <span class="math inline">\(a_2&lt;\hat{a}_2\)</span> and accepted by <span class="math inline">\(a_2\geq\hat{a}_2\)</span><br />
+<span class="math inline">\(s=10\)</span> is accepted by all <span class="math inline">\(a_2\)</span></li>
+<li>Can offer <span class="math inline">\(s=\{0,5,10\}\)</span><br />
+for <span class="math inline">\(\hat{a}_1\in[-1,1]\)</span>, <span class="math inline">\(s=0\)</span> is offered by <span class="math inline">\(a_1&lt;\hat{a}_1\)</span> and <span class="math inline">\(s=5\)</span> by <span class="math inline">\(a_1\geq\hat{a}_1\)</span><br />
+for <span class="math inline">\(\hat{a}_2\in[-1,1]\)</span>, <span class="math inline">\(s=0\)</span> is rejected by <span class="math inline">\(a_2&lt;\hat{a}_2\)</span> and accepted by <span class="math inline">\(a_2\geq\hat{a}_2\)</span><br />
+<span class="math inline">\(s=5\)</span> is accepted by all <span class="math inline">\(a_2\)</span></li>
+</ol></li>
 </ul>
 <blockquote>
 <p>Lemma 4.5 (ultimatum game)<br />
@@ -2026,18 +2034,26 @@ When total amount is 10, <span class="math inline">\(γ=\frac{3}{4}\)</span>,<br
 When P1 can offer <span class="math inline">\(s=\{0,10\}\)</span>, exists a PBE in threshold strategies with
 <span class="math display">\[\begin{aligned}\hat{a}_1^* &amp;= \frac{3γ-1}{4γ^2 - (1-γ)} = \frac{5}{8} \\ \hat{a}_2^* &amp;= \frac{(2γ-1)(1-γ)}{4γ^2 - (1-γ)} = \frac{1}{16} \end{aligned}\]</span>
 where the probabilities are
-<span class="math display">\[\begin{aligned}Pr(s=0) &amp;= \frac{1}{2}(\hat{a}_1^* + 1) = \frac{13}{16} \\ Pr(R) &amp;= \frac{1}{2}(\hat{a}_2^* + 1) = \frac{17}{32}\end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned}Pr(s=0) &amp;= \frac{1}{2}\big(\hat{a}_1^* - (-1) \big) = \frac{13}{16} \\ Pr(R) &amp;= \frac{1}{2}\big(\hat{a}_2^* - (-1) \big) = \frac{17}{32}\end{aligned}\]</span></p>
+<p>Lemma 4.7<br />
+When P1 can offer <span class="math inline">\(s=\{0,5,10\}\)</span>, exists a PBE in threshold strategies with
+<span class="math display">\[\begin{aligned}\hat{a}_1^* &amp;= \frac{-(1-γ)}{2γ^2 - (1-γ)} = -\frac{2}{7} \\ \hat{a}_2^* &amp;= \frac{γ(1-γ)}{2γ^2 - (1-γ)} = \frac{3}{14} \end{aligned}\]</span>
+where the probabilities are
+<span class="math display">\[\begin{aligned}Pr(s=0) &amp;= \frac{1}{2}\big(\hat{a}_1^* - (-1) \big) = \frac{5}{14} \\ Pr(R) &amp;= \frac{1}{2}\big(\hat{a}_2^* - (-1) \big) = \frac{17}{28}\end{aligned}\]</span></p>
+<p>Lemma 4.8<br />
+P1 is less likely to offer <span class="math inline">\(s=0\)</span> in version B than in version A.<br />
+P2 is more likely to reject <span class="math inline">\(s=0\)</span> in version B than in version A.</p>
 </blockquote>
 <p>Let types <span class="math inline">\(a_1, a_2\in[-1,1]\)</span> be uniform and iid</p>
 <ol style="list-style-type: lower-alpha">
 <li>P1 can offer <span class="math inline">\(s=\{0,10\}\)</span>
 <ol style="list-style-type: decimal">
 <li>When <span class="math inline">\(s=10\)</span>, all <span class="math inline">\(a_2\)</span> accept</li>
-<li>When <span class="math inline">\(s=0\)</span>, let the threshold be <span class="math inline">\(\hat{a}_1\)</span> and <span class="math inline">\(\hat{a}_2\)</span><br />
-it is optimal for P2 to accept <span class="math inline">\(\iff\begin{cases}u_2 \geq 0 \\a_2 \geq \hat{a}_2 \end{cases}\)</span><br />
+<li>When <span class="math inline">\(s=0\)</span>, let the thresholds be <span class="math inline">\(\hat{a}_1\)</span> and <span class="math inline">\(\hat{a}_2\)</span><br />
+P2 accepts <span class="math inline">\(\iff\begin{cases}u_2(A) \geq u_2(R) \\a_2 \geq \hat{a}_2 \end{cases}\)</span><br />
 therefore, P2 considers:
-<span class="math display">\[\begin{aligned}u_2 &amp;\geq 0 \\
- x_2 + \big(γa_2 + (1-γ)\cdot E[a_2\ |\ I_1]\big)x_1 &amp;\geq 0 \\
+<span class="math display">\[\begin{aligned}u_2 &amp;\geq u_2(R) = 0 \\
+ x_2 + x_1\big(γa_2 + (1-γ)\cdot E[a_2\ |\ I_1]\big) &amp;\geq 0 \\
  0 + 10\cdot\big(γa_2 + (1-γ)\cdot \underbrace{E[a_1\ |\ I_2]}_{E[a_1\ |\ s=0]}\big) &amp;\geq 0 \\
  10\cdot\Big(γa_2 + (1-γ)\cdot \frac{1}{2}\cdot (-1 + \hat{a}_1)\Big) &amp;\geq 0 \\
  γa_2 + (1-γ)\cdot \frac{1}{2}\cdot (-1 + \hat{a}_1) &amp;\geq 0 \\
@@ -2045,23 +2061,58 @@ therefore, P2 considers:
  a_2 &amp;\geq \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\end{aligned}\]</span>
 plug in <span class="math inline">\(a_2 \geq \hat{a}_2\)</span>
 <span class="math display">\[\begin{aligned}a_2 &amp;\geq \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\\
- \hat{a}_2 &amp;= \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\end{aligned}\]</span>
+ \hat{a}_2^* &amp;= \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\end{aligned}\]</span>
 P1 chooses <span class="math inline">\(s=0\)</span> <span class="math inline">\(\iff\begin{cases}u_1(s=0)\geq u_1(s=10) \\a_1 \leq \hat{a}_1 \end{cases}\)</span><br />
 therefore, P1 considers
 <span class="math display">\[\begin{aligned}u_1(s=0)&amp;\geq u_1(s=10) \\
- 0\cdot Pr(R) + 10\cdot\big(1-Pr(R)\big) &amp;\geq x_1 + \big(γa_1 + (1-γ)\cdot\underbrace{E[a_2\ |\ I_1]}_{=E[a_2\ |\ s=10]}\big)x_2 \\
+ 0\cdot Pr(R) + 10\cdot\big(1-Pr(R)\big) &amp;\geq 0 + 10\cdot\big(γa_1 + (1-γ)\cdot\underbrace{E[a_2\ |\ I_1]}_{=E[a_2\ |\ s=10]}\big) \\
  10\cdot \underbrace{Pr(A)}_{Pr(\hat{a}_2\leq a_2\leq 1)} &amp;\geq 0 + 10\cdot\Big(γa_1 + (1-γ)\cdot\frac{1}{2} (-1 + 1)\Big) \\
  10\cdot \frac{1}{2}(-\hat{a}_2+1) &amp;\geq 10\cdot γa_1 \\
  \frac{1}{2}(1-\hat{a}_2) &amp;\geq γa_1 \\
  a_1 &amp;\leq \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2)\end{aligned}\]</span>
 plug in <span class="math inline">\(a_1 \leq \hat{a}_1\)</span>
 <span class="math display">\[\begin{aligned}a_1 &amp;\leq \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2)\\
- \hat{a}_1 &amp;= \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2) \end{aligned}\]</span>
+ \hat{a}_1^* &amp;= \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2) \end{aligned}\]</span>
 Therefore, solving the system of
-<span class="math display">\[\begin{aligned}\hat{a}_1^* &amp;= \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2^*)\\\hat{a}_2^* &amp;= \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1^*)\end{aligned}\]</span>
+<span class="math display">\[\begin{cases}\hat{a}_1^* = \frac{1}{2}\cdot\frac{1}{γ}(1-\hat{a}_2^*)\\\hat{a}_2^* = \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1^*)\end{cases}\]</span>
 yields the solutions in lemma 4.6</li>
 </ol></li>
-<li>P1 can offer <span class="math inline">\(s=\{0,5,10\}\)</span></li>
+<li>P1 can offer <span class="math inline">\(s=\{0,5,10\}\)</span>
+<ol style="list-style-type: decimal">
+<li>P1 never offers <span class="math inline">\(s=10\)</span></li>
+<li>When <span class="math inline">\(s=5\)</span>, all <span class="math inline">\(a_2\)</span> accept</li>
+<li>When <span class="math inline">\(s=0\)</span>, let the thresholds be <span class="math inline">\(\hat{a}_1\)</span> and <span class="math inline">\(\hat{a}_2\)</span><br />
+P2 accepts <span class="math inline">\(\iff\begin{cases}u_2(A) \geq u_2(R) \\a_2 \geq \hat{a}_2 \end{cases}\)</span><br />
+therefore, P2 considers:
+<span class="math display">\[\begin{aligned}u_2 &amp;\geq u_2(R) = 0 \\
+ x_2 + x_1\big(γa_2 + (1-γ)\cdot E[a_2\ |\ I_1]\big) &amp;\geq 0 \\
+ 0 + 10\cdot\big(γa_2 + (1-γ)\cdot \underbrace{E[a_1\ |\ I_2]}_{E[a_1\ |\ s=0]}\big) &amp;\geq 0 \\
+ 10\cdot\Big(γa_2 + (1-γ)\cdot \frac{1}{2}\cdot (-1 + \hat{a}_1)\Big) &amp;\geq 0 \\
+ γa_2 + (1-γ)\cdot \frac{1}{2}\cdot (-1 + \hat{a}_1) &amp;\geq 0 \\
+ γa_2 &amp;\geq (1-γ)\cdot \frac{1}{2}\cdot (1 - \hat{a}_1) \\
+ a_2 &amp;\geq \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\end{aligned}\]</span>
+plug in <span class="math inline">\(a_2 \geq \hat{a}_2\)</span>
+<span class="math display">\[\begin{aligned}a_2 &amp;\geq \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\\
+ \hat{a}_2^* &amp;= \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1)\end{aligned}\]</span>
+P1 chooses <span class="math inline">\(s=0\)</span> <span class="math inline">\(\iff\begin{cases}u_1(s=0)\geq u_1(s=10) \\a_1 \leq \hat{a}_1 \end{cases}\)</span><br />
+therefore, P1 considers
+<span class="math display">\[\begin{aligned}u_1(s=0)&amp;\geq u_1(s=5) \\
+ 0\cdot Pr(R) + 10\cdot\big(1-Pr(R)\big) &amp;\geq 5 + 5\cdot\big(γa_1 + (1-γ)\cdot\underbrace{E[a_2\ |\ I_1]}_{=E[a_2\ |\ s=5]}\big) \\
+ 10\cdot \underbrace{Pr(A)}_{Pr(\hat{a}_2\leq a_2\leq 1)} &amp;\geq 5 + 5\cdot\Big(γa_1 + (1-γ)\cdot\frac{1}{2} (-1 + 1)\Big) \\
+ 10\cdot \frac{1}{2}(-\hat{a}_2+1) &amp;\geq 5 + 5\cdot γa_1 \\
+ 2\cdot \frac{1}{2}(-\hat{a}_2+1) &amp;\geq 1 + γa_1 \\
+ -\hat{a}_2 &amp;\geq γa_1 \\
+ a_1 &amp;\leq -\frac{1}{γ}\hat{a}_2\end{aligned}\]</span>
+plug in <span class="math inline">\(a_1 \leq \hat{a}_1\)</span>
+<span class="math display">\[\begin{aligned}a_1 &amp;\leq -\frac{1}{γ}\hat{a}_2\\
+ \hat{a}_1^* &amp;= -\frac{1}{γ}\hat{a}_2 \end{aligned}\]</span>
+Therefore, solving the system of
+<span class="math display">\[\begin{cases}\hat{a}_1^* = -\frac{1}{γ}\hat{a}_2^*\\\hat{a}_2^* = \frac{1}{2}\cdot\frac{1-γ}{γ} (1 - \hat{a}_1^*)\end{cases}\]</span>
+yields the solutions in lemma 4.7</li>
+</ol></li>
+<li>Comparison<br />
+P1 in version B signals a higher spite by choosing <span class="math inline">\(s=0\)</span><br />
+therefore, P2 in version B gets a higher utility by rejecting <span class="math inline">\(s=0\)</span></li>
 </ol>
 </div>
 </div>
