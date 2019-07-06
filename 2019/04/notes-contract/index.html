@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">36 min read</span>
+    <span class="article-duration">37 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -1389,6 +1389,58 @@ plug back into principal’s problem:
 (PC) &amp;&amp; &amp;p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a\geq 0 \\
 (IC)&#39; &amp;&amp; &amp;p&#39;(a)\cdot \big( u(w_1) -u(w_0)\big)-1 = 0 \end{aligned}\]</span></li>
 </ul>
+<blockquote>
+<p>PS4.Q1<br />
+Consider a principal-agent problem with three exogenous states of nature, <span class="math inline">\(θ_1\)</span>, <span class="math inline">\(θ_2\)</span> and <span class="math inline">\(θ_3\)</span>; two possible effort levels <span class="math inline">\(a_L\)</span> and <span class="math inline">\(a_H\)</span>; and two output levels, distributed as follows as a function of state of nature and the effort level:</p>
+<table>
+<thead>
+<tr class="header">
+<th>State of nature</th>
+<th><span class="math inline">\(θ_1\)</span></th>
+<th><span class="math inline">\(θ_2\)</span></th>
+<th><span class="math inline">\(θ_3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Probability</td>
+<td>0.25</td>
+<td>0.5</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>Output under <span class="math inline">\(a_H\)</span></td>
+<td>18</td>
+<td>18</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Output under <span class="math inline">\(a_L\)</span></td>
+<td>18</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The principal is risk neutral, while the agent has a utility function
+<span class="math display">\[u(w,a) = \sqrt{w} - c(a)\]</span>
+where <span class="math inline">\(c(a_L) = 0\)</span> and <span class="math inline">\(c(a_H) = 0.1\)</span>.<br />
+The agent’s outside option is worth 0.1 to him.</p>
+<ol style="list-style-type: decimal">
+<li>Derive the first-best contract.</li>
+<li>Derive the second-best contract when only output levels are observable.</li>
+<li>Assume that the principal can buy an information system for a price of <span class="math inline">\(0.1\)</span>, that allows the parties to verify whether state of nature <span class="math inline">\(θ_3\)</span> happened or not.<br />
+Will the principal by this information system? Discuss.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let the contract be <span class="math inline">\(w =\begin{cases}w_1 &amp; a=a_H, q=18 \\ w_0 &amp; a=a_H, q=1 \\ K &amp; a=a_L \end{cases}\)</span><br />
+Let <span class="math inline">\(Pr(q = 18|a) = p(a)\)</span>, we know <span class="math inline">\(p(a_H) = 0.75\)</span>, <span class="math inline">\(p(a_L) = 0.25\)</span><br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;p(a)\cdot\big(\sqrt{w_1} - c(a)\big) + \big(1-p(a)\big)\cdot\big(\sqrt{w_0} - c(a)\big) \\
+(PC)_H &amp;&amp; \\
+(PC)_L &amp;&amp; \end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="risk-neutral-parties-unlimited-liability" class="section level3">
 <h3>Risk Neutral Parties &amp; Unlimited Liability</h3>
