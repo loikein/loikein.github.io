@@ -1648,12 +1648,25 @@ Principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{α,f,s} &amp;&amp; &amp;\phantom{\ggg} E[q_1 + q_2 - w] \\
 &amp;&amp; &amp;= E\big[(a + ε_{q_1}) + (a + ε_{q_2}) - (α+ f\cdot q_1 + s\cdot P)\big] \\
 &amp;&amp; &amp;= E\big[ 2a + ε_{q_1} + ε_{q_2} - α - f\cdot (a + ε_{q_1}) - s\cdot (2a + ε_P)\big] \\
-&amp;&amp; &amp;= E\big[ 2a + ε_{q_1} + ε_{q_2} - α - fa - fε_{q_1} - 2sa - sε_P)\big] \\
-&amp;&amp; &amp;= E\big[ a(2 - f - 2s)- α + ε_{q_1}(1-f) + ε_{q_2} - sε_P)\big] \\
+&amp;&amp; &amp;= E\big[ 2a + ε_{q_1} + ε_{q_2} - α - fa - fε_{q_1} - 2sa - sε_P\big] \\
+&amp;&amp; &amp;= E\big[ a(2 - f - 2s)- α + ε_{q_1}(1-f) + ε_{q_2} - sε_P\big] \\
 &amp;&amp; &amp;= a(2 - f - 2s)- α \end{aligned}\]</span>
 s.t.
-<span class="math display">\[\begin{aligned}(PC) &amp;&amp; -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big) &amp;\geq -\exp(-ρ\cdot 0) \\
-(IC) &amp;&amp;  \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}(PC) &amp;&amp; &amp;E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)\Big] \geq -\exp(-ρ\cdot 0) \\
+(IC) &amp;&amp; &amp;a\in\text{argmax}_{\hat{a}} \ E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}c\hat{a}^2 \big)\Big)\Big] \end{aligned}\]</span>
+(IC) gives agent’s problem:
+<span class="math display">\[\begin{aligned}\max_a &amp;&amp; &amp;\phantom{\ggg}E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&amp;&amp; &amp;= -E\Big[\exp\Big(-ρ\cdot\big( (α+ f\cdot q_1 + s\cdot P) - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&amp;&amp; &amp;= -E\Big[\exp\Big(-ρ\cdot\big( α+ f\cdot (a + ε_{q_1}) + s\cdot (2a + ε_P) - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&amp;&amp; &amp;= -E\Big[\exp\Big(-ρ\cdot\big( α+ fa + fε_{q_1} + 2sa + sε_P - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&amp;&amp; &amp;= -E\big[\exp\big(-ρ\cdot(fε_{q_1} + sε_P)\big)\big]\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\end{aligned}\]</span>
+since <span class="math inline">\(ε_{q_i}\overset{iid}{\sim}\mathcal{N}(0,σ_q^2)\)</span>, <span class="math inline">\(ε_{P}\sim\mathcal{N}(0,σ_P^2)\)</span>,<br />
+<span class="math inline">\(\implies fε_{q_i}\overset{iid}{\sim}\mathcal{N}(0,f^2σ_q^2)\)</span>, <span class="math inline">\(sε_{P}\sim\mathcal{N}(0,s^2σ_P^2)\)</span>,<br />
+<span class="math inline">\(fε_{q_1} + sε_P\sim \mathcal{N}(0,f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)\)</span>, where <span class="math inline">\(r = Corr(fε_{q_1} , sε_P)\)</span><br />
+therefore,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}-E\big[\exp\big(-ρ\cdot(fε_{q_1} + sε_P)\big)\big]\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\\
+&amp;= -\exp\big(\frac{ρ^2\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2}\big)\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\\
+&amp;= -\exp\Big(-ρ\cdot\big(\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\end{aligned}\]</span></li>
 <li>Correlation between noise</li>
 </ol>
 </div>
