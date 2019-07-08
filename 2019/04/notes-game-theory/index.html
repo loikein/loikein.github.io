@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">31 min read</span>
+    <span class="article-duration">32 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -355,14 +355,14 @@ one-step deviation principle holds for infinite horizon game if it is continuous
 Every finite extensive form game with perfect information without simultaneous moves has a subgame perfect equilibrium</li>
 </ul>
 <blockquote>
-<p>Exercise (slides P23)<br />
+<p>Exercise (slides P23), Exercise 3<br />
 Give an example of a infinite horizon game for which SPNE <span class="math inline">\(\iff\)</span> one-step deviation principle does not hold.</p>
 </blockquote>
 <p>Consider <span class="math inline">\((s_n)\)</span> where <span class="math inline">\(s_1\)</span> corresponds to the start node<br />
 <span class="math inline">\(\implies s_n =\)</span> {always stop} satisfies one-step deviation but is not a SPNE</p>
 <div class="figure">
 <img src="/post-img/notes-game-theory--centipede.png" alt="" />
-<p class="caption">Source:<a href="https://math.stackexchange.com/questions/2513447/game-theory-centipede-game">Game theory Centipede game</a></p>
+<p class="caption">Source: <a href="https://math.stackexchange.com/questions/2513447/game-theory-centipede-game">Game theory Centipede game</a></p>
 </div>
 <blockquote>
 <p>Exercise (slides P26)<br />
@@ -1048,6 +1048,25 @@ Calculate the Walreasian equilibria for this econorny.</p>
 Show that the core of the production economy is
 <span class="math display">\[\Big\{ x\in X: 0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\}\]</span></p>
 </blockquote>
+<p>We know <span class="math inline">\(v(s) = \begin{cases}0 &amp; c\not\subset s \\ f(|s|-1) &amp; c\in s \end{cases}\)</span><br />
+Core<span class="math inline">\((v) \subset\)</span> ??<br />
+Let <span class="math inline">\(s = N -\{i\}\)</span>,<br />
+<span class="math inline">\(\implies v(s) = f(w-1)\)</span><br />
+<span class="math display">\[\begin{aligned}\textstyle{\sum}_{i\in s}x_i &amp;= f(w) - x_i \\
+&amp;&lt; f(w) - \big( f(w) - f(w-1)\big) \\
+&amp;= f(w-1) \end{aligned}\]</span>
+<span class="math inline">\(\implies x\not\in\)</span> Core<br />
+Assume <span class="math inline">\(x\in[0,f(w) - f(w-1)]\)</span>, :) <span class="math inline">\(x\in C\)</span><br />
+Check <span class="math inline">\(\sum_s x_i\geq v(s)\)</span> for all <span class="math inline">\(s\)</span></p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(c\not\subset s\)</span>, <span class="math inline">\(\sum_s x_i\geq 0\)</span></li>
+<li>If <span class="math inline">\(c\in s\)</span>, :) <span class="math inline">\(\sum_s x_i\geq f(|s|-1)\)</span><br />
+<span class="math display">\[\begin{aligned}\sum_S x_i &amp;= f(w) - \sum_{i\not\in s} x_i \\
+&amp;\geq f(w) - |N-s|\cdot\big( f(w) - f(w-1)\big) \\
+&amp;= \big( f(w) - f(w-1)\big) + \big( f(w-1) - f(w-2)\big) + \dots + \big( f(|s|) - f(|s|-1)\big) + f(|s|-1) \\
+&amp;\phantom{\ggg} - |N-s|\cdot\big( f(w) - f(w-1)\big) \\
+&amp;\geq f(|s|-1)\end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="core" class="section level3">
 <h3>Core</h3>
@@ -1061,88 +1080,91 @@ Show that the core of the production economy is
 assign non-negative weights <span class="math inline">\((λ_S)\)</span> s.t. <span class="math inline">\(\sum_{i\in S} λ_S = 1\)</span></li>
 <li>Balanced game: for every balanced collection of weights <span class="math inline">\((λ_S)\)</span>,
 <span class="math display">\[\sum_S λ_S\cdot v(S) \leq v(N)\]</span></li>
-</ul>
-<blockquote>
-<p>Bondareve-Shapley theorem (OR proposition 262.1)<br />
+<li>Bondareve-Shapley theorem (OR proposition 262.1)<br />
 a coalitional game with transferable payoffs has a non-empty core<br />
 <span class="math inline">\(\iff\)</span> it is balanced<br />
 <span class="math inline">\(\implies\)</span> a coalitional game with transferable payoffs has empty core<br />
-<span class="math inline">\(\iff\)</span> it is not balanced</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>(<span class="math inline">\(\Longrightarrow\)</span>)<br />
-Assume <span class="math inline">\(x\)</span> is in core, <span class="math inline">\(v(N)&gt;0\)</span><br />
-Let <span class="math inline">\(y = \Big( \frac{x_1}{v(N)}, \frac{x_2}{v(N)}, \dots, \frac{x_n}{v(N)}\big)\)</span><br />
-Note that <span class="math inline">\(\sum_i y_i = 1\)</span><br />
-<span class="math inline">\(x\in\)</span> core <span class="math inline">\(\iff\)</span> for all <span class="math inline">\(S\)</span>,
-<span class="math display">\[\begin{aligned}\sum_{i\in S} x_i &amp;\geq v(S) \\
-\sum_{i\in S} y_i \cdot v(N)&amp;\geq v(S) \end{aligned}\]</span>
-Let <span class="math inline">\((λ_S)\)</span> be a balanced collection of weights, <span class="math inline">\(\sum_i λ_S = 1\)</span><br />
-For all <span class="math inline">\(S\)</span>,<br />
-<span class="math display">\[\begin{aligned}v(S) &amp;\leq \sum_{i\in S} y_i \cdot v(N)\\
-\sum_S λ_S\cdot v(S) &amp;\leq \sum_S\big(λ_S\cdot\sum_{i\in S} y_i \cdot v(N)\big) \\
-&amp;= v(N)\cdot\sum_S\sum_{i\in S} λ_S\cdot y_i \\
-&amp;= v(N)\cdot \sum_i \big(y_i\cdot\sum_{i\in S} λ_S\big) \\
-&amp;= v(N)\cdot \sum_i y_i\cdot 1 \\
-&amp;= v(N)\end{aligned}\]</span></li>
-<li>(<span class="math inline">\(\Longleftarrow\)</span>)<br />
-Note: <span class="math inline">\(x\in C(v)\iff \sum_{i\in S} x_i\geq v(S)\)</span> for all S<br />
-Note: Separating hyperplane theorem
-<ol style="list-style-type: lower-alpha">
-<li>Define <span class="math inline">\(w_S\in\mathbb{R}^{|N|+1}\)</span> as <span class="math inline">\(w_S = \big(1_S, v(S)\big)\)</span><br />
-where <span class="math inline">\(1_S\in\mathbb{R}^{|N|}\)</span>, <span class="math inline">\(1_{S,i}=\begin{cases}1 &amp; i\in S \\ 0 &amp; i\not\in S\end{cases}\)</span><br />
-Since
-<span class="math display">\[\begin{aligned}(x,-1)\cdot w_S &amp;\geq 0 \\
- \iff \sum_{i\in S}x_i - 1\cdot v(S) &amp;\geq 0 \\
- \iff \sum_{i\in S} x_i &amp;\geq v(S) \end{aligned}\]</span>
-Therefore,
-<span class="math display">\[\begin{aligned}(x,-1)\cdot w_S &amp;\geq 0 &amp;&amp;\text{for all }S \\
- \iff x &amp;\in C(v) \end{aligned}\]</span>
-Let
-<span class="math display">\[\begin{aligned}A &amp;= \{(1_N, \ v(N) + ε): ε&gt;0 \} \\
- B &amp;= \{ y\in\mathbb{R}^{|N|+1} : y= \textstyle{\sum_S}\, λ_S\cdot w_S, λ_S\geq 0\}\end{aligned}\]</span></li>
-<li>Show <span class="math inline">\(A\cap B =\emptyset\)</span><br />
-Assume exists <span class="math inline">\((1_N, v(N)+ε)\in B\)</span> for some <span class="math inline">\(ε&gt;0\)</span><br />
-<span class="math inline">\(\implies (1_N, v(N)+ε) = \sum_S\, λ_S\cdot w_S\)</span> for some <span class="math inline">\(λ_S\geq 0\)</span><br />
-Therefore, <span class="math inline">\(1 = \sum_{S:i\in S}\, λ_S\)</span> for all <span class="math inline">\(i\in [1, |N|]\)</span><br />
-and <span class="math inline">\(v(N)+ε = \sum_{S}\, λ_S\cdot v(S)\)</span><br />
-Since <span class="math inline">\(λ_S\)</span> is balanced, <span class="math inline">\(\sum_S λ_S\cdot v(S) \leq v(N)\)</span>, contradiction</li>
-<li>By separating hyperplane theorem,<br />
-exists <span class="math inline">\(v\neq 0\)</span> s.t. <span class="math inline">\(v\cdot b\geq v\cdot a\)</span> for all <span class="math inline">\(b\in B\)</span> and <span class="math inline">\(a\in A\)</span><br />
-Define <span class="math inline">\(α_N\)</span> s.t. <span class="math inline">\(v =(α_Ν, α)\)</span><br />
-FSOC assume exists <span class="math inline">\(b\in B\)</span> s.t. <span class="math inline">\(v\cdot b &lt;0\)</span>,<br />
-Since <span class="math inline">\(B\)</span> is a cone, <span class="math inline">\(v\cdot\underbrace{K\cdot b}_{\in B}\)</span> can be arbitrarily small, contradiction<br />
-<span class="math inline">\(\implies\min_{b\in B}\ v\cdot b = 0\)</span><br />
-<span class="math inline">\(\implies v\cdot b\geq 0\geq v\cdot a\)</span><br />
-Since
-<span class="math display">\[\begin{aligned} (α_Ν, α)\cdot \big(1_N, v(N)\big) &amp;\geq (α_Ν, α)\cdot \big(1_N, v(N)+ ε\big) \\
- 0&amp;\geq (α_Ν, α)\cdot (0,0,\dots,0,ε) \\
- &amp;\geq ε\cdot α\end{aligned}\]</span>
-<span class="math inline">\(\implies α\leq 0\)</span><br />
-FSOC assume <span class="math inline">\(α_{N,i}&lt;0\)</span> for some i,<br />
-<span class="math inline">\(\implies\)</span>
-<span class="math display">\[\begin{aligned}(α_N, α)\cdot w_{S=\{i\}} &amp;= (α_N, α)\cdot (0, 0,\dots, \underbrace{1}_{\text{i-th}}, \dots,0) \\
- &amp;= α_{N,i} + α\cdot v(S=\{i\}) &lt; 0\end{aligned}\]</span>
-But <span class="math inline">\(w_{S=\{i\}}\in B\)</span>, contradiction
-<span class="math inline">\(\implies α_N\geq 0\)</span><br />
-FSOC assume <span class="math inline">\(α=0\)</span>,<br />
-<span class="math display">\[\begin{aligned}(α_N, α)\cdot \big(w_N + (0,\dots,0,ε)\big) &amp;= \sum_i (α_N)_i \\
- &amp;&gt; 0 \end{aligned}\]</span>
-contradiction<br />
-<span class="math inline">\(\implies α&lt; 0\)</span><br />
-Let <span class="math inline">\(x=\frac{α_N}{-α}\)</span>, for all <span class="math inline">\(a\in A\)</span> and <span class="math inline">\(b\in B\)</span>,
-<span class="math display">\[\begin{aligned}(x, -1 )\cdot b &amp;\geq 0 \geq (x,-1)\cdot a\\
- \frac{α_N + α}{-α}\cdot b &amp;\geq 0 \\
- (α_N + α) \cdot b &amp;\geq 0 \end{aligned}\]</span></li>
-<li>Check <span class="math inline">\(x\)</span> is an allocation<br />
-Since <span class="math inline">\(x\geq 0\)</span>,<br />
-<span class="math display">\[\begin{aligned}0 &amp;\geq (x,-1)\cdot \big(1,\dots, 1,v(N)+ε\big) \\
- &amp;= \sum_i x_i - v(N) - ε \\
- 0 &amp;\geq (x,-1)\cdot \big(1,\dots, 1,v(N)\big) \\
- &amp;= \sum_i x_i - v(N) \\
- v(N) &amp;\geq \sum_i x_i \end{aligned}\]</span></li>
-</ol></li>
-</ol>
+<span class="math inline">\(\iff\)</span> it is not balanced</li>
+</ul>
+<!-- 
+> Bondareve-Shapley theorem (OR proposition 262.1)  
+> a coalitional game with transferable payoffs has a non-empty core  
+> $\iff$ it is balanced  
+> $\implies$ a coalitional game with transferable payoffs has empty core  
+> $\iff$ it is not balanced  
+
+1. ($\Longrightarrow$)  
+Assume $x$ is in core, $v(N)>0$  
+Let $y = \Big( \frac{x_1}{v(N)}, \frac{x_2}{v(N)}, \dots, \frac{x_n}{v(N)}\big)$  
+Note that $\sum_i y_i = 1$  
+$x\in$ core $\iff$ for all $S$, 
+$$\begin{aligned}\sum_{i\in S} x_i &\geq v(S) \\
+\sum_{i\in S} y_i \cdot v(N)&\geq v(S) \end{aligned}$$
+Let $(λ_S)$ be a balanced collection of weights, $\sum_i λ_S = 1$  
+For all $S$,  
+$$\begin{aligned}v(S) &\leq \sum_{i\in S} y_i \cdot v(N)\\
+\sum_S λ_S\cdot v(S) &\leq \sum_S\big(λ_S\cdot\sum_{i\in S} y_i \cdot v(N)\big) \\
+&= v(N)\cdot\sum_S\sum_{i\in S} λ_S\cdot y_i \\
+&= v(N)\cdot \sum_i \big(y_i\cdot\sum_{i\in S} λ_S\big) \\
+&= v(N)\cdot \sum_i y_i\cdot 1 \\
+&= v(N)\end{aligned}$$
+2. ($\Longleftarrow$)  
+Note: $x\in C(v)\iff \sum_{i\in S} x_i\geq v(S)$ for all S  
+Note: Separating hyperplane theorem  
+    a.
+    Define $w_S\in\mathbb{R}^{|N|+1}$ as $w_S = \big(1_S, v(S)\big)$  
+    where $1_S\in\mathbb{R}^{|N|}$, $1_{S,i}=\begin{cases}1 & i\in S \\ 0 & i\not\in S\end{cases}$  
+    Since 
+    $$\begin{aligned}(x,-1)\cdot w_S &\geq 0 \\
+    \iff \sum_{i\in S}x_i - 1\cdot v(S) &\geq 0 \\
+    \iff \sum_{i\in S} x_i &\geq v(S) \end{aligned}$$
+    Therefore,
+    $$\begin{aligned}(x,-1)\cdot w_S &\geq 0 &&\text{for all }S \\
+    \iff x &\in C(v) \end{aligned}$$
+    Let 
+    $$\begin{aligned}A &= \{(1_N, \ v(N) + ε): ε>0 \} \\
+    B &= \{ y\in\mathbb{R}^{|N|+1} : y= \textstyle{\sum_S}\, λ_S\cdot w_S, λ_S\geq 0\}\end{aligned}$$
+    b. Show $A\cap B =\emptyset$  
+    Assume exists $(1_N, v(N)+ε)\in B$ for some $ε>0$  
+    $\implies (1_N, v(N)+ε) = \sum_S\, λ_S\cdot w_S$ for some $λ_S\geq 0$  
+    Therefore, $1 = \sum_{S:i\in S}\, λ_S$ for all $i\in [1, |N|]$  
+    and $v(N)+ε = \sum_{S}\, λ_S\cdot v(S)$  
+    Since $λ_S$ is balanced, $\sum_S λ_S\cdot v(S) \leq v(N)$, contradiction
+    c. By separating hyperplane theorem,  
+    exists $v\neq 0$ s.t. $v\cdot b\geq v\cdot a$ for all $b\in B$ and $a\in A$  
+    Define $α_N$ s.t. $v =(α_Ν, α)$  
+    FSOC assume exists $b\in B$ s.t. $v\cdot b <0$,  
+    Since $B$ is a cone, $v\cdot\underbrace{K\cdot b}_{\in B}$ can be arbitrarily small, contradiction  
+    $\implies\min_{b\in B}\ v\cdot b = 0$  
+    $\implies v\cdot b\geq 0\geq v\cdot a$  
+    Since 
+    $$\begin{aligned} (α_Ν, α)\cdot \big(1_N, v(N)\big) &\geq (α_Ν, α)\cdot \big(1_N, v(N)+ ε\big) \\
+    0&\geq (α_Ν, α)\cdot (0,0,\dots,0,ε) \\
+    &\geq ε\cdot α\end{aligned}$$
+    $\implies α\leq 0$  
+    FSOC assume $α_{N,i}<0$ for some i,  
+    $\implies$
+    $$\begin{aligned}(α_N, α)\cdot w_{S=\{i\}} &= (α_N, α)\cdot (0, 0,\dots, \underbrace{1}_{\text{i-th}}, \dots,0) \\
+    &= α_{N,i} + α\cdot v(S=\{i\}) < 0\end{aligned}$$
+    But $w_{S=\{i\}}\in B$, contradiction
+    $\implies α_N\geq 0$  
+    FSOC assume $α=0$,  
+    $$\begin{aligned}(α_N, α)\cdot \big(w_N + (0,\dots,0,ε)\big) &= \sum_i (α_N)_i \\
+    &> 0 \end{aligned}$$
+    contradiction  
+    $\implies α< 0$  
+    Let $x=\frac{α_N}{-α}$, for all $a\in A$ and $b\in B$, 
+    $$\begin{aligned}(x, -1 )\cdot b &\geq 0 \geq (x,-1)\cdot a\\
+    \frac{α_N + α}{-α}\cdot b &\geq 0 \\
+    (α_N + α) \cdot b &\geq 0 \end{aligned}$$
+    d. Check $x$ is an allocation  
+    Since $x\geq 0$,  
+    $$\begin{aligned}0 &\geq (x,-1)\cdot \big(1,\dots, 1,v(N)+ε\big) \\
+    &= \sum_i x_i - v(N) - ε \\
+    0 &\geq (x,-1)\cdot \big(1,\dots, 1,v(N)\big) \\
+    &= \sum_i x_i - v(N) \\
+    v(N) &\geq \sum_i x_i \end{aligned}$$
+ -->
 <blockquote>
 <p>Exercise (slides P95)<br />
 An expedition of <span class="math inline">\(n\)</span> pirates has found a huge number of treasure chests.<br />
@@ -1168,6 +1190,31 @@ For 4 and 5, <span class="math inline">\(\sum_{i\in S} λ_S = λ_{(4,5)} = 1\)</
 &amp;&gt; v(N) = 2\end{aligned}\]</span>
 Therefore, the game is not balanced<br />
 <span class="math inline">\(\implies\)</span> the core is empty</li>
+</ol>
+<blockquote>
+<p>Exercise 7<br />
+Consider a Parliament with the following distribution of seats:<br />
+CDU: 33, SPD: 20, Greens: 20, Linke: 15, FDP: 12<br />
+Imagine that the parties have to decide by simple majority how to divide 10 billion Euros among 5 special interest groups.<br />
+Imagine moreover, that each party supports a different special interest group and is only interested in how much money that interest group gets.</p>
+<ol style="list-style-type: decimal">
+<li>Model the above situation as a coalitional game with transferable payoffs.</li>
+<li>What does the Bondavera-Shapley Theorem say? What is a balanced game?</li>
+<li>Is the core of the above game non-empty?<br />
+If so, what can you say about the core allocations? If not, prove that it is empty.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(v(S) = \begin{cases}1 &amp; |S|\geq 50 \\ 0 &amp; \text{Otherwise}\end{cases}\)</span><br />
+</li>
+<li>Bondavera-Shapley Theorem: a coalitional game with transferable payoffs has a non-empty core<br />
+Balanced game: for every balanced collection of weights <span class="math inline">\((λ_S)\)</span>, <span class="math inline">\(\sum_S λ_S\cdot v(S) \leq v(N)\)</span></li>
+<li>Since a simple majority is formed when four-party-coalition is formed,<br />
+Let <span class="math inline">\(λ_{-F} = λ_{-L} = λ_{-G} = λ_{-S} = λ_{-C} = \frac{1}{4}\)</span><br />
+<span class="math inline">\(λ_s = 0\)</span> for all other <span class="math inline">\(s\)</span><br />
+<span class="math display">\[\begin{aligned}\sum_s λ_s\cdot v(s) = 5\cdot \frac{1}{4}\cdot 1 \\
+&amp;= \frac{5}{4} &gt; 1 = v(N)\end{aligned}\]</span>
+Therefore, the game is not balanced, and the core is empty</li>
 </ol>
 </div>
 <div id="shapley-value" class="section level3">
@@ -1248,6 +1295,17 @@ Consider party 1:<br />
 Since symmetric, consider party 2-6:
 <span class="math display">\[\begin{aligned}ψ_{-1}(v) &amp;= \Big( 1-\frac{1}{3})\cdot\frac{1}{5} \\
 &amp;= \frac{2}{15} \end{aligned}\]</span></p>
+<blockquote>
+<p>Example (OR P??)<br />
+<span class="math inline">\(N = \{1,2,\dots, 15\}\)</span><br />
+<span class="math inline">\(v(S) = \begin{cases}1 &amp; S\supset\{1,2,3,4,5} \text{ and } |S|\geq 9 \\ 0 &amp; \text{Otherwise}\end{cases}\)</span><br />
+Calculate the Shapley value</p>
+</blockquote>
+<p>We know that <span class="math inline">\(5\cdot ψ_1 + 10\cdot ψ_6 = 1\)</span><br />
+For <span class="math inline">\(i=6\)</span>, <span class="math inline">\(v^6=1\iff\)</span> he is the 9-th member of the coalition
+<span class="math display">\[\begin{aligned}ψ_6 &amp;= \frac{1}{|N|!}\sum_{γ\in Γ} v^6\big(S_6(γ)\big) \\
+&amp;= \frac{1}{15!}\begin{pmatrix}9 \\ 3\end{pmatrix}\cdot \underbrace{8!}_{\text{8 before}}\cdot \underbrace{6!}_{\text{6 after}} \\
+&amp;= \frac{1}{15!}\cdot \frac{9!}{3!\cdot 6!}\cdot 8!\cdot 6! \end{aligned}\]</span></p>
 </div>
 </div>
 <div id="repeated-game" class="section level2">

@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">37 min read</span>
+    <span class="article-duration">38 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -1422,7 +1422,7 @@ Consider a principal-agent problem with three exogenous states of nature, <span 
 </tr>
 </tbody>
 </table>
-<p>The principal is risk neutral, while the agent has a utility function
+<p>The principal is risk neutral, while the agent has a utility function:
 <span class="math display">\[u(w,a) = \sqrt{w} - c(a)\]</span>
 where <span class="math inline">\(c(a_L) = 0\)</span> and <span class="math inline">\(c(a_H) = 0.1\)</span>.<br />
 The agent’s outside option is worth 0.1 to him.</p>
@@ -1437,10 +1437,25 @@ Will the principal by this information system? Discuss.</li>
 <li>Let the contract be <span class="math inline">\(w =\begin{cases}w_1 &amp; a=a_H, q=18 \\ w_0 &amp; a=a_H, q=1 \\ K &amp; a=a_L \end{cases}\)</span><br />
 Let <span class="math inline">\(Pr(q = 18|a) = p(a)\)</span>, we know <span class="math inline">\(p(a_H) = 0.75\)</span>, <span class="math inline">\(p(a_L) = 0.25\)</span><br />
 Social planner’s problem:
-<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;p(a)\cdot\big(\sqrt{w_1} - c(a)\big) + \big(1-p(a)\big)\cdot\big(\sqrt{w_0} - c(a)\big) \\
-(PC)_H &amp;&amp; \\
-(PC)_L &amp;&amp; \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
+(PC) &amp;&amp; &amp;p(a)\cdot\big(\sqrt{w_1} - c(a)\big) + \big(1-p(a)\big)\cdot\big(\sqrt{w_0} - c(a)\big)\geq 0.1 \end{aligned}\]</span>
+Let (PC) be binding, the Lagrangian can be written as
+<span class="math display">\[\begin{aligned}\mathcal{L} &amp;= p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
+&amp;\phantom{\ggg}+ λ\cdot\Big(p(a)\cdot\big(\sqrt{w_1} - c(a)\big) + \big(1-p(a)\big)\cdot\big(\sqrt{w_0} - c(a)\big)-0.1 \Big) \\
+&amp;= p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
+&amp;\phantom{\ggg}+λ\cdot\big(p(a)\cdot \sqrt{w_1} + \sqrt{w_0} - p(a)\cdot\sqrt{w_0} - c(a)-0.1 \big) \\
+\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -p(a) + λ\cdot p(a)\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
+λ &amp;= 2 \sqrt{w_1}\\
+\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -\big(1-p(a)\big) + λ\cdot \big(1-p(a)\big)\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
+λ &amp;= 2 \sqrt{w_0} \end{aligned}\]</span>
+Therefore, <span class="math inline">\(w_0 = w_1\)</span>
+<span class="math display">\[\begin{aligned}\frac{\partial\mathcal{L}}{\partial a}&amp;= p&#39;(a)\cdot\big(18 - w_1 )-(1 - w_0)\big) + p&#39;(a)\cdot λ\cdot(\sqrt{w_1} - \sqrt{w_0}) \overset{!}{=}0\\ 
+&amp;=  \end{aligned}\]</span></li>
 </ol>
+<!-- 
+(PC)_H && &0.75\cdot\big(\sqrt{w_1} - 0.1\big) + 0.25\cdot\big(\sqrt{w_0} - 0.1\big)\geq 0.1 \\
+(PC)_L && &0.25\cdot\big(\sqrt{w_1} - 0\big) + 0.75\cdot\big(\sqrt{w_0} - 0\big)\geq 0.1
+ -->
 </div>
 <div id="risk-neutral-parties-unlimited-liability" class="section level3">
 <h3>Risk Neutral Parties &amp; Unlimited Liability</h3>
