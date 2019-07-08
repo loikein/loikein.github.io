@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">38 min read</span>
+    <span class="article-duration">40 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -1479,7 +1479,17 @@ w_0 &amp;= 0.0025\end{aligned}\]</span>
 therefore,
 <span class="math display">\[\begin{aligned}\sqrt{w_1} &amp;= 0.05 + 0.2 \\
 w_1 &amp;= 0.0625 \end{aligned}\]</span></li>
-<li>Information system</li>
+<li>Information system<br />
+Pricipal’s payoff from second best contract:
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+&amp;= 0.75\cdot(18 - 0.0625 ) + 0.25\cdot(1 - 0.0025) \\
+&amp;= 13.7025\end{aligned}\]</span>
+Pricipal’s payoff from first best contract:
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+&amp;= 0.75\cdot(18 - 0.04 ) + 0.25\cdot(1 - 0.04) \\
+&amp;= 13.71\end{aligned}\]</span>
+Since <span class="math inline">\(13.71 - 13.7025 = 0.0075 &lt; 0.1\)</span>,<br />
+the principal would not buy the system</li>
 </ol>
 </div>
 <div id="risk-neutral-parties-unlimited-liability" class="section level3">
@@ -1609,6 +1619,43 @@ FOC &amp;&amp; &amp;\frac{\partial}{\partial a} = 1 - 2\cdot \frac{ca}{2}\overse
 &amp;&amp; &amp;α^{**} = 0\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> efficient risk-sharing</li>
 </ul>
+<blockquote>
+<p>PS4.Q2<br />
+Consider the following contracting problem between a risk neutral principal and a risk averse agent.<br />
+The agent has utility function
+<span class="math display">\[u(w,a) = -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)\]</span>
+where <span class="math inline">\(w\)</span> is income, <span class="math inline">\(a\)</span> is effort, <span class="math inline">\(ρ&gt;0\)</span> is the coefficient of absolute risk aversion and <span class="math inline">\(c &gt; 0\)</span> is a cost parameter.<br />
+Suppose the agent’s effort affects output in periods 1, 2 according to
+<span class="math display">\[\begin{aligned}q_1 &amp;= a + ε_{q_1} \\ q_2 &amp;= a + ε_{q_2} \end{aligned}\]</span>
+where <span class="math inline">\(ε_{q_i}\overset{iid}{\sim}\mathcal{N}(0,σ_q^2)\)</span>.<br />
+The agent retires at the end of period one, so that his pay cannot be made contingent directly on <span class="math inline">\(q_2\)</span>.<br />
+However, the agent’s pay can depend on the stock price:
+<span class="math inline">\(P = 2a + ε_P\)</span>
+where <span class="math inline">\(ε_{P}\sim\mathcal{N}(0,σ_P^2)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Derive the optimal compensation contract within the class of linear compensation schemes of the form:
+<span class="math display">\[w = α+ f\cdot q_1 + s\cdot P\]</span>
+To do this, you need to compute the variance of a linear combination of normally distributed random variables.<br />
+Note that <span class="math inline">\(ε_P\)</span> and <span class="math inline">\(ε_{q_i}\)</span> need not be independent.<br />
+</li>
+<li>Discuss how the solution depends on the correlation between the noise terms.<br />
+How does the optimal level of <span class="math inline">\(f\)</span> compare to the optimal level of <span class="math inline">\(s\)</span> if the noise terms are independent?</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Optimal linear contract<br />
+Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{α,f,s} &amp;&amp; &amp;\phantom{\ggg} E[q_1 + q_2 - w] \\
+&amp;&amp; &amp;= E\big[(a + ε_{q_1}) + (a + ε_{q_2}) - (α+ f\cdot q_1 + s\cdot P)\big] \\
+&amp;&amp; &amp;= E\big[ 2a + ε_{q_1} + ε_{q_2} - α - f\cdot (a + ε_{q_1}) - s\cdot (2a + ε_P)\big] \\
+&amp;&amp; &amp;= E\big[ 2a + ε_{q_1} + ε_{q_2} - α - fa - fε_{q_1} - 2sa - sε_P)\big] \\
+&amp;&amp; &amp;= E\big[ a(2 - f - 2s)- α + ε_{q_1}(1-f) + ε_{q_2} - sε_P)\big] \\
+&amp;&amp; &amp;= a(2 - f - 2s)- α \end{aligned}\]</span>
+s.t.
+<span class="math display">\[\begin{aligned}(PC) &amp;&amp; -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big) &amp;\geq -\exp(-ρ\cdot 0) \\
+(IC) &amp;&amp;  \end{aligned}\]</span></li>
+<li>Correlation between noise</li>
+</ol>
 </div>
 <div id="step-contract" class="section level3">
 <h3>Step Contract</h3>
