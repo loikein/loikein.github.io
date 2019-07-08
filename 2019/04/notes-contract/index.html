@@ -1434,28 +1434,53 @@ Will the principal by this information system? Discuss.</li>
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Let the contract be <span class="math inline">\(w =\begin{cases}w_1 &amp; a=a_H, q=18 \\ w_0 &amp; a=a_H, q=1 \\ K &amp; a=a_L \end{cases}\)</span><br />
+<li>First best<br />
+Let the contract be <span class="math inline">\(w =\begin{cases}w_1 &amp; a=a_H, q=18 \\ w_0 &amp; a=a_H, q=1 \\ K &amp; a=a_L \end{cases}\)</span><br />
 Let <span class="math inline">\(Pr(q = 18|a) = p(a)\)</span>, we know <span class="math inline">\(p(a_H) = 0.75\)</span>, <span class="math inline">\(p(a_L) = 0.25\)</span><br />
-Social planner’s problem:
-<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
-(PC) &amp;&amp; &amp;p(a)\cdot\big(\sqrt{w_1} - c(a)\big) + \big(1-p(a)\big)\cdot\big(\sqrt{w_0} - c(a)\big)\geq 0.1 \end{aligned}\]</span>
+Let the desired effort be <span class="math inline">\(a_H\)</span>, social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+(PC) &amp;&amp; &amp;0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.1 \end{aligned}\]</span>
 Let (PC) be binding, the Lagrangian can be written as
-<span class="math display">\[\begin{aligned}\mathcal{L} &amp;= p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
-&amp;\phantom{\ggg}+ λ\cdot\Big(p(a)\cdot\big(\sqrt{w_1} - c(a)\big) + \big(1-p(a)\big)\cdot\big(\sqrt{w_0} - c(a)\big)-0.1 \Big) \\
-&amp;= p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
-&amp;\phantom{\ggg}+λ\cdot\big(p(a)\cdot \sqrt{w_1} + \sqrt{w_0} - p(a)\cdot\sqrt{w_0} - c(a)-0.1 \big) \\
-\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -p(a) + λ\cdot p(a)\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
+<span class="math display">\[\begin{aligned}\mathcal{L} &amp;= 0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) + λ\cdot\Big(0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.2 \Big) \\
+\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -0.75 + λ\cdot 0.75\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
 λ &amp;= 2 \sqrt{w_1}\\
-\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -\big(1-p(a)\big) + λ\cdot \big(1-p(a)\big)\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
+\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -0.25 + λ\cdot 0.25\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
 λ &amp;= 2 \sqrt{w_0} \end{aligned}\]</span>
 Therefore, <span class="math inline">\(w_0 = w_1\)</span>
-<span class="math display">\[\begin{aligned}\frac{\partial\mathcal{L}}{\partial a}&amp;= p&#39;(a)\cdot\big(18 - w_1 )-(1 - w_0)\big) + p&#39;(a)\cdot λ\cdot(\sqrt{w_1} - \sqrt{w_0}) \overset{!}{=}0\\ 
-&amp;=  \end{aligned}\]</span></li>
-</ol>
+<span class="math display">\[\begin{aligned}0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1 &amp;= 0.1 \\
+\sqrt{w_1} = \sqrt{w_0} &amp;= 0.2 \\
+w_1 = w_0 &amp;= 0.04\end{aligned}\]</span>
 <!-- 
-(PC)_H && &0.75\cdot\big(\sqrt{w_1} - 0.1\big) + 0.25\cdot\big(\sqrt{w_0} - 0.1\big)\geq 0.1 \\
-(PC)_L && &0.25\cdot\big(\sqrt{w_1} - 0\big) + 0.75\cdot\big(\sqrt{w_0} - 0\big)\geq 0.1
- -->
+$$\begin{aligned}\mathcal{L} &= p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
+&\phantom{\ggg}+ λ\cdot\Big(p(a)\cdot\sqrt{w_1}+ \big(1-p(a)\big)\cdot\sqrt{w_0} - c(a) - 0.1 \Big) \\
+\frac{\partial\mathcal{L}}{\partial w_1}&= -p(a) + λ\cdot p(a)\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
+λ &= 2 \sqrt{w_1}\\
+\frac{\partial\mathcal{L}}{\partial w_1}&= -\big(1-p(a)\big) + λ\cdot \big(1-p(a)\big)\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
+λ &= 2 \sqrt{w_0} \end{aligned}$$
+Therefore, $w_0 = w_1$
+$$\begin{aligned}\frac{\partial\mathcal{L}}{\partial a}&= p'(a)\cdot\big(18 - w_1 )-(1 - w_0)\big) + λ\cdot\big( p'(a)\cdot (\sqrt{w_1} - \sqrt{w_0}) -c'(a)\big) \overset{!}{=}0\\ 
+&= 17\cdot p'(a) - λ\cdot c'(a) \\
+λ &= 17\cdot\frac{p'(a)}{c'(a)}\end{aligned}$$
+ --></li>
+<li>Second best<br />
+Let the contract be <span class="math inline">\(w =\begin{cases}w_1 &amp; q=18 \\ w_0 &amp; q=1\end{cases}\)</span><br />
+Principal’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+(PC) &amp;&amp; &amp;0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.1 \\
+(IC) &amp;&amp; &amp;0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.25\cdot\sqrt{w_1} + 0.75\cdot\sqrt{w_0}\end{aligned}\]</span>
+Simplifying (IC) and let it be binding
+<span class="math display">\[\begin{aligned}\sqrt{w_1} - \sqrt{w_0} &amp;= 0.2 \\
+\sqrt{w_1} &amp;= \sqrt{w_0} + 0.2\end{aligned}\]</span>
+Plug into (PC)
+<span class="math display">\[\begin{aligned}0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1 &amp;= 0.1 \\
+0.75\cdot(\sqrt{w_0} + 0.2) + 0.25\cdot\sqrt{w_0} &amp;= 0.2 \\
+\sqrt{w_0} &amp;= 0.05 \\
+w_0 &amp;= 0.0025\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}\sqrt{w_1} &amp;= 0.05 + 0.2 \\
+w_1 &amp;= 0.0625 \end{aligned}\]</span></li>
+<li>Information system</li>
+</ol>
 </div>
 <div id="risk-neutral-parties-unlimited-liability" class="section level3">
 <h3>Risk Neutral Parties &amp; Unlimited Liability</h3>
