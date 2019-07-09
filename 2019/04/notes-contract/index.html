@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">40 min read</span>
+    <span class="article-duration">41 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -1666,7 +1666,21 @@ since <span class="math inline">\(ε_{q_i}\overset{iid}{\sim}\mathcal{N}(0,σ_q^
 therefore,
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}-E\big[\exp\big(-ρ\cdot(fε_{q_1} + sε_P)\big)\big]\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\\
 &amp;= -\exp\big(\frac{ρ^2\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2}\big)\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\\
-&amp;= -\exp\Big(-ρ\cdot\big(\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\end{aligned}\]</span></li>
+&amp;= -\exp\Big(-ρ\cdot\big(\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\end{aligned}\]</span>
+since <span class="math inline">\(-\exp(\cdot)\)</span> is decreasing, let
+<span class="math display">\[\begin{aligned}\hat{w}(a) &amp;= \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2 \\
+\hat{w}&#39;(a) &amp;= f + 2s - ca \overset{!}{=} 0 \\
+a^* &amp;= \frac{f+2s}{c}\end{aligned}\]</span>
+Let (PC) be binding,
+<span class="math display">\[\begin{aligned}E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)\Big] &amp;= -\exp(-ρ\cdot 0) \\
+-\exp\Big(-ρ\cdot\big(\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big) &amp;= -\exp(-ρ\cdot 0) \\
+\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2 &amp;= 0 \\
+\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + fa + 2sa - \frac{1}{2}ca^2 &amp;= -α \end{aligned}\]</span>
+plug <span class="math inline">\(a^*,α\)</span> into principal’s problem gives unconstrained maximization problem:
+<span class="math display">\[\begin{aligned}\max_{f,s} &amp;&amp; &amp;\phantom{\ggg}a(2 - f - 2s)- α \\
+&amp;&amp; &amp;= a(2 - f - 2s) + \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + fa + 2sa - \frac{1}{2}ca^2 \\
+&amp;&amp; &amp;= \frac{f+2s}{c}(2 - f - 2s) + \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} \\
+&amp;&amp;  &amp;\phantom{\ggg}+ \frac{(f+2s)^2}{c} - \frac{c}{2}\cdot\big(\frac{f+2s}{c}\big)^2 \end{aligned}\]</span></li>
 <li>Correlation between noise</li>
 </ol>
 </div>
