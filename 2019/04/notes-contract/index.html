@@ -1678,9 +1678,18 @@ Let (PC) be binding,
 \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + fa + 2sa - \frac{1}{2}ca^2 &amp;= -α \end{aligned}\]</span>
 plug <span class="math inline">\(a^*,α\)</span> into principal’s problem gives unconstrained maximization problem:
 <span class="math display">\[\begin{aligned}\max_{f,s} &amp;&amp; &amp;\phantom{\ggg}a(2 - f - 2s)- α \\
-&amp;&amp; &amp;= a(2 - f - 2s) + \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + fa + 2sa - \frac{1}{2}ca^2 \\
+&amp;&amp; &amp;= a(2 - f - 2s) + \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} \\
+&amp;&amp; &amp;\phantom{\ggg}+ fa + 2sa - \frac{1}{2}ca^2 \\
 &amp;&amp; &amp;= \frac{f+2s}{c}(2 - f - 2s) + \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} \\
-&amp;&amp;  &amp;\phantom{\ggg}+ \frac{(f+2s)^2}{c} - \frac{c}{2}\cdot\big(\frac{f+2s}{c}\big)^2 \end{aligned}\]</span></li>
+&amp;&amp; &amp;\phantom{\ggg}+ \frac{(f+2s)^2}{c} - \frac{c}{2}\cdot\big(\frac{f+2s}{c}\big)^2 \\
+&amp;&amp; &amp;= \frac{1}{c}\big(2-\frac{1}{2}f - s\big)(f+2s) - \frac{ρ}{2}(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)\\
+&amp;&amp; &amp;= \frac{1}{c}\big(2f -\frac{1}{2}f^2 - 2sf + 4s - 2s^2\big) - \frac{ρ}{2}(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)\end{aligned}\]</span>
+FOC gives
+<span class="math display">\[\begin{aligned}\frac{\partial}{\partial f}&amp;= \frac{1}{c}(2 - f - 2s) - \frac{ρ}{2}(2fσ_q^2 + 2rσ_qsσ_P) \overset{!}{=}0 \\
+f &amp;= \frac{4 - 4s - 2crsρσ_qσ_P}{2 + 2cρσ_q^2} \\
+\frac{\partial}{\partial s}&amp;= \frac{1}{c}(-2f + 4 - 4s) - \frac{ρ}{2}(2sσ_P^2 + 2rfσ_qσ_P)\overset{!}{=}0 \\
+f &amp;= \frac{8-8s-2csρσ_P^2}{4+2rcρσ_qσ_P}\\
+s &amp;= \frac{-2rσ_qσ_P + 4σ_q^2}{r(-4σ_qσ_P - cρσ_q^2σ_P^2)+ σ_P^2 + 4σ_q^2 + cρσ_q^2σ_P^2} \end{aligned}\]</span></li>
 <li>Correlation between noise</li>
 </ol>
 </div>
