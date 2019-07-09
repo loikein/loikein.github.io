@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">52 min read</span>
+    <span class="article-duration">57 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -1743,6 +1743,118 @@ Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline"
 <li>Proposer offers <span class="math inline">\(s=\begin{cases}\underline{s} &amp; β_1&lt;\frac{1}{2} \\ \frac{1}{2} &amp; β_1&gt;\frac{1}{2} \end{cases}\)</span></li>
 </ol></li>
 </ul>
+<blockquote>
+<p>PS5.Q1<br />
+Two students team up in a project module to write an essay together.<br />
+They decide to split equally the work and simultaneously work on each respective part.<br />
+Each student <span class="math inline">\(i\in\{1, 2\}\)</span> decides how much effort to invest for his/her part.<br />
+There are two possible effort levels <span class="math inline">\(e_i\in\{0, 1\}\)</span>, and cost of effort is <span class="math inline">\(c(e_i) = −e_i\)</span>.<br />
+After submission, the essay is marked, and given that their respective effort is not observable, they receive the same grade.<br />
+The grade depends on joint effort in the following way: 3/4 · (ei + ej) where i, j ∈ {1,2} and j ̸= i.<br />
+Hence, student i’s payoff can be written as:
+<span class="math display">\[π_i(e_i,e_j)=-e_i +\frac{3}{4}(e_i +e_j)\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Write down the payoff matrix of the game and derive the Nash equilibrium under selfish preferences.</li>
+<li>Assume the students have Fehr and Schmidt (1999) inequity averse preferences.<br />
+That is, a student <span class="math inline">\(i\in\{1, 2\}\)</span> has the following utility function:
+<span class="math display">\[u_i(π_i,π_j)=π_i −α_i\cdot\max\{π_j −π_i,0}−β_i\cdot\max\{π_i −π_j,0\}\]</span>
+where <span class="math inline">\(α_i\geq 0\)</span>, <span class="math inline">\(0\leq β_i\leq 1\)</span>, and <span class="math inline">\(β_i\leq α_i\)</span>.<br />
+Moreover, <span class="math inline">\(π_i\)</span> and <span class="math inline">\(π_j\)</span> are the material payoffs of student i and j, respectively.<br />
+Write down the utility matrix of the game.<br />
+For the case that the students are homogeneous in their distaste for inequality, that is, <span class="math inline">\(α_1 = α_2 = α\)</span> and <span class="math inline">\(β_1 = β_2 = β\)</span>, determine the smallest values of <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span> so that it is a Nash equilibrium that both students exert high effort.</li>
+<li>Now, assume <span class="math inline">\(β_1 &gt; \frac{1}{4} &gt; β_2\)</span> and that this is common knowledge.<br />
+Show that there exists a unique Nash equilibrium. Which one?</li>
+<li>Now, assume that there are 10 students with student i’s payoff given by
+<span class="math display">\[π_i(e_i,e_{−i})=−e_i +\frac{3}{4}\cdot\sum_{j=1}^{10} e_j\]</span>
+where <span class="math inline">\(e_{−i}\)</span> denotes the vector of efforts of all students except of i.<br />
+Students <span class="math inline">\(j\in\{1,\dots , 8\}\)</span> display <span class="math inline">\(β_j = \frac{4}{7}\)</span> whereas students <span class="math inline">\(j\in\{9, 10\}\)</span> display <span class="math inline">\(β_j = 0\)</span>.<br />
+Moreover, all students display <span class="math inline">\(α_j = \frac{3}{4}\)</span>.<br />
+Suppose students <span class="math inline">\(j\in\{2,\dots , 8\}\)</span> choose <span class="math inline">\(e_j = 1\)</span> whereas students <span class="math inline">\(j\in\{9, 10\}\)</span> choose <span class="math inline">\(e_j = 0\)</span>.<br />
+Determine the best reply of student 1.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Payoffs with selfish preferences are as in the table,<br />
+NE: <span class="math inline">\(e_1^* = e_2^* = 0\)</span></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>S2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><span class="math inline">\(e_2=1\)</span></td>
+<td><span class="math inline">\(e_2=0\)</span></td>
+</tr>
+<tr class="even">
+<td>S1</td>
+<td><span class="math inline">\(e_1=1\)</span></td>
+<td><span class="math inline">\(\frac{1}{2}\)</span>, <span class="math inline">\(\frac{1}{2}\)</span></td>
+<td><span class="math inline">\(-\frac{1}{4}\)</span>, <span class="math inline">\(\frac{3}{4}\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(e_1=0\)</span></td>
+<td><span class="math inline">\(\frac{3}{4}\)</span>, <span class="math inline">\(-\frac{1}{4}\)</span></td>
+<td>0, 0</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: decimal">
+<li>Payoffs with inequity averse preferences are as in the table,<br />
+to solve the prisoner’s dilemma, we need
+<span class="math display">\[\begin{aligned}\frac{1}{2} &amp;\geq \frac{3}{4}-β_i \\
+β_i &amp;\geq \frac{1}{4} \end{aligned}\]</span></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>S2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><span class="math inline">\(e_2=1\)</span></td>
+<td><span class="math inline">\(e_2=0\)</span></td>
+</tr>
+<tr class="even">
+<td>S1</td>
+<td><span class="math inline">\(e_1=1\)</span></td>
+<td><span class="math inline">\(\frac{1}{2}\)</span>, <span class="math inline">\(\frac{1}{2}\)</span></td>
+<td><span class="math inline">\(-\frac{1}{4}-α_1\)</span>, <span class="math inline">\(\frac{3}{4}-β_2\)</span></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(e_1=0\)</span></td>
+<td><span class="math inline">\(\frac{3}{4}-β_1\)</span>, <span class="math inline">\(-\frac{1}{4}-α_2\)</span></td>
+<td>0, 0</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li>Unique equilibrium: <span class="math inline">\(e_1 = e_2 = 0\)</span><br />
+Since S2 has dominant strategy <span class="math inline">\(e_2^* =0\)</span><br />
+<span class="math inline">\(\implies\)</span> S1’s BR is <span class="math inline">\(e_1^* = 0\)</span></li>
+<li>S1’s utility of choosing <span class="math inline">\(e_1=1\)</span>:
+<span class="math display">\[\begin{aligned}u_i(π_i,π_j) &amp;= π_i −α_i\cdot\max\{π_j −π_i,0}−β_i\cdot\max\{π_i −π_j,0\} \\
+π_j(e_j=0) &amp;= 0 + \frac{3}{4}\cdot 8 = 6 \\
+u_1(e_1=1) &amp;= \big(\underbrace{-1 + \frac{3}{4}\cdot 8 + 0}_{π_1=5}\big) - \frac{2}{9}\cdot α\cdot 1 = 5-\frac{1}{6} \end{aligned}\]</span>
+S1’s utility of chooseing <span class="math inline">\(e_1=0\)</span>:
+<span class="math display">\[\begin{aligned}π_j(e_j=1) &amp;= -1 + \frac{3}{4}\cdot 7 = \frac{17}{4}\\
+u_1(e_1=0) &amp;= \big(\underbrace{0 + \frac{3}{4}\cdot 7 + 0}_{π_1=5}\big) - \frac{7}{9}\cdot β = \frac{21}{4}-\frac{4}{9} \end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="competitive-bilateral-bargaining" class="section level3">
 <h3>Competitive Bilateral Bargaining</h3>
@@ -1945,6 +2057,100 @@ x&amp;\geq \frac{1}{2} \end{aligned}\]</span></li>
 <li>For all values of <span class="math inline">\(x\)</span>, (O, O) and (B, B) are fairness equilibria</li>
 </ul></li>
 </ul>
+<blockquote>
+<p>PS5.Q2<br />
+Two players play the Hawk-Dove game described by the following payoff matrix:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>P2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>D</td>
+<td>H</td>
+</tr>
+<tr class="even">
+<td>P1</td>
+<td>D</td>
+<td>3, 3</td>
+<td>1, 4</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>H</td>
+<td>4, 1</td>
+<td>-1, -1</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Determine the pure strategy Nash equilibrium(a) of the game under standard preferences.</li>
+<li>Assume that the two players have reciprocity preferences as in Rabin (1993).<br />
+Define ai as the strategy of player <span class="math inline">\(i\in\{1,2\}\)</span> and <span class="math inline">\(b_j\)</span> and <span class="math inline">\(c_i\)</span> as the first and second order beliefs of player <span class="math inline">\(i\in\{1,2\}\)</span>.<br />
+The utility function of player i is as follows:
+<span class="math display">\[u_i(a_i,b_j,c_i)=π +\tilde{f}_i(b_j,c_i)\big(1+f_i(a_i,b_j)\big)\]</span>
+where <span class="math inline">\(π_i\)</span> is the material payoff of i. The perceived kindness from j to i is:
+<span class="math display">\[\tilde{f}_j(b_j,c_i) = \frac{π_i(b_j,c_i) - π_i^e(c_i)}{π_i^h(c_i) - π_i^{min}(c_i)}\]</span>
+and the kindness from i to j is:
+<span class="math display">\[\tilde{f}_i(b_i,c_j) = \frac{π_j(b_i,c_j) - π_j^e(c_j)}{π_j^h(c_j) - π_j^{min}(c_j)}\]</span>
+Show that (D, H) and (H, D) are fairness equilibria of the game.</li>
+<li>Determine whether (D, D) and (H, H) are also fairness equilibria of the game.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>NE: (D, H), (H, D)</li>
+<li>Preceived kindness
+<ol style="list-style-type: lower-alpha">
+<li>(H, D)<br />
+For P1:
+<span class="math display">\[\begin{aligned}\tilde{f}_2(b_2,c_1) &amp;= \tilde{f}_2(D, H) = \frac{4 - \frac{1}{2}(4+4)}{4 - (-1)} = 0 \\
+ f_1(a_1, b_2) &amp;= f_1(H,D) = \frac{1-\frac{1}{2}(3+1)}{3-1} = -\frac{1}{2} \\
+ u_1(a_1,b_2,c_1) &amp;= 4 + 0\cdot\big(1-\frac{1}{2}\big) = 4 \end{aligned}\]</span>
+Deviation to D is preferred when
+<span class="math display">\[\begin{aligned}f_1(a_1, b_1) &amp;= f_1(D,D) = \frac{3 - \frac{1}{2}(3+1)}{3-1} = \frac{1}{2} \\
+ u_1(a_1,b_2,c_1) &amp;= 3 + 0\cdot\big(1+\frac{1}{2}\big) = 3 &gt; 4 \end{aligned}\]</span>
+therefore, P1 does not deviate<br />
+For P2:
+<span class="math display">\[\begin{aligned}\tilde{f}_1(b_1,c_2) &amp;= \tilde{f}_1(H, D) = \frac{1 - \frac{1}{2}(3+1)}{3 - 1} = -\frac{1}{2} \\
+ f_2(a_2, b_1) &amp;= f_2(D, H) = \frac{4-4}{4+1} = 0 \\
+ u_2(a_2,b_1,c_2) &amp;= 1 - \frac{1}{2}(1-0) = \frac{1}{2} \end{aligned}\]</span>
+Deviation to H is preferred when
+<span class="math display">\[\begin{aligned}f_2(a_2, b_1) &amp;= f_2(H, H) = \frac{-1-4}{4-(-1)} = -1 \\
+ u_2(a_2,b_1,c_2) &amp;= -1 - \frac{1}{2}(1-1) = -1 &gt; \frac{1}{2} \end{aligned}\]</span>
+therefore, P2 does not deviate</li>
+<li>(D, H)<br />
+By symmetry, (D, H) is a fairness equilibrium</li>
+</ol></li>
+<li>(D, D) and (H, H)
+<ol style="list-style-type: lower-alpha">
+<li>(D, D)<br />
+For P1:
+<span class="math display">\[\begin{aligned}\tilde{f}_2(b_2,c_1) &amp;= \tilde{f}_2(D, D) = \frac{3 - \frac{1}{2}(3+1)}{3-1)} = \frac{1}{2} \\
+ f_1(a_1, b_2) &amp;= f_1(D,D) = \frac{3 - \frac{1}{2}(3+1)}{3-1)} = \frac{1}{2} \\
+ u_1(a_1,b_2,c_1) &amp;= u_1(D,D,D) = 3 + \frac{1}{2}\cdot\big(1+\frac{1}{2}\big) = \frac{15}{4} \end{aligned}\]</span>
+Deviation to H is preferred when
+<span class="math display">\[\begin{aligned}f_1(a_1, b_1) &amp;= f_1(H,D) = \frac{1 - \frac{1}{2}(3+1)}{3-1} = -\frac{1}{2} \\
+ u_1(a_1,b_2,c_1) &amp;= u_1(H,D,D) = 4 + \frac{1}{2}\cdot\big(1-\frac{1}{2}\big) = \frac{17}{4} &gt; \frac{15}{4} \end{aligned}\]</span>
+therefore, P1 deviates<br />
+</li>
+<li>(H, H)<br />
+For P1:
+<span class="math display">\[\begin{aligned}\tilde{f}_2(b_2,c_1) &amp;= \tilde{f}_2(H, H) = \frac{-1 - 4}{4+1} = -1 \\
+ f_1(a_1, b_2) &amp;= f_1(H,H) = \frac{-1 - 4}{4+1} = -1 \\
+ u_1(a_1,b_2,c_1) &amp;= u_1(H,H,H) = -1 + (-1)\cdot(1-1) = -1\end{aligned}\]</span>
+Deviation to D is preferred when
+<span class="math display">\[\begin{aligned}f_1(a_1, b_1) &amp;= f_1(D,H) = \frac{4 - 4}{4+1} = 0 \\
+ u_1(a_1,b_2,c_1) &amp;= u_1(D,H,H) = 1 + (-1)\cdot(1-0) = 0 &gt; -1 \end{aligned}\]</span>
+therefore, P1 deviates</li>
+</ol></li>
+</ol>
 </div>
 </div>
 <div id="social-preference-interdependent-preference" class="section level2">
@@ -1998,6 +2204,64 @@ P2 chooses accept or reject<br />
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>PS5.Q3<br />
+Consider a “Trust Game” between a Sender S and a Receiver R.<br />
+Initially, the Sender has an endowment of 10, and the Receiver has an endowment of 0.<br />
+The Sender can first choose between “share” and “keep”.
+If she chooses “keep”, she keeps the whole endowment for herself and the game is over.<br />
+If she chooses “share”, her whole endowment is transferred to the Receiver and multiplied by three, i.e., the Receiver’s endowment becomes 30.<br />
+If the Sender has chosen “share”, the Receiver can also choose between “share” and “keep”.<br />
+If the Receiver chooses “keep”, she keeps the whole amount of 30 for herself.<br />
+If the Receiver chooses “share”, she transfers back 10 units to the Sender, which are again tripled.<br />
+The monetary payoffs as a function of the players’ actions are given as:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>Receiver</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Share</td>
+<td>Keep</td>
+</tr>
+<tr class="even">
+<td>Sender</td>
+<td>Share</td>
+<td>30, 20</td>
+<td>0, 30</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Keep</td>
+<td>10, 0</td>
+<td>10, 0</td>
+</tr>
+</tbody>
+</table>
+<p>where <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span> are the monetary payoffs of player <span class="math inline">\(i, j\in\{S, R\}\)</span>, and <span class="math inline">\(γ = 0.75\)</span>.<br />
+The Sender’s type is <span class="math inline">\(a_s\in\{−1,0,1\}\)</span>, where each realization occurs with probability one third, and the Receiver’s type is <span class="math inline">\(a_r\in\{−1, 1\}\)</span>, where the probability of <span class="math inline">\(a_r = 1\)</span> is given by <span class="math inline">\(q\)</span> independent of the Sender’s type.</p>
+<ol style="list-style-type: decimal">
+<li>Assume that the Sender chooses “share” if his type is <span class="math inline">\(a_s = 0\)</span> or <span class="math inline">\(a_s = 1\)</span>, and chooses “keep” if <span class="math inline">\(a_s = −1\)</span>.<br />
+What is the Sender’s expected type in case he shares?</li>
+<li>Suppose the Sender adopts the strategy under (1).<br />
+Determine the utility from “share” for each of the Receiver’s two types!</li>
+<li>Suppose the Sender adopts the strategy under (1).<br />
+What is the Receiver’s best response for each of the Receiver’s two types?</li>
+<li>For which values of <span class="math inline">\(q\)</span> is it an equilibrium that the Sender adopts the strategy under (1)?</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E[a_s|S] = \frac{1}{2}\cdot 0 + \frac{1}{2}\cdot 1 = \frac{1}{2}\)</span></li>
+<li><span class="math inline">\(u(S | 1) = 20 + (0.75 + 0.25\cdot 0.5)\cdot 30 = 46.5\)</span><br />
+<span class="math inline">\(u(S|-1) = 20 + \big(0.75\cdot(-1) + 0.25\cdot 0.5\big) = 1.25\)</span></li>
+</ol>
 </div>
 <div id="private-types-signalling" class="section level3">
 <h3>Private Types: Signalling</h3>
