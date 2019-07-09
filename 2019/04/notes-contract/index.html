@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">41 min read</span>
+    <span class="article-duration">44 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -1490,6 +1490,85 @@ Pricipal’s payoff from first best contract:
 &amp;= 13.71\end{aligned}\]</span>
 Since <span class="math inline">\(13.71 - 13.7025 = 0.0075 &lt; 0.1\)</span>,<br />
 the principal would not buy the system</li>
+</ol>
+<blockquote>
+<p>PS4.Q3<br />
+Consider an insurance market subject to moral hazard.<br />
+A consumer has von-Neumann-Morgenstern utility of wealth <span class="math inline">\(u (w) = \sqrt{w}\)</span>.<br />
+The initial endowment of wealth is 100.<br />
+There are two possible loss levels, either <span class="math inline">\(l = 0\)</span> or <span class="math inline">\(l = 51\)</span>.<br />
+The probability distribution over the loss levels depends on an effort level <span class="math inline">\(e\)</span> chosen by the consumer as follows</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(l=0\)</span></th>
+<th><span class="math inline">\(l=51\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(e=0\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\)</span></td>
+<td><span class="math inline">\(\frac{2}{3}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(e=1\)</span></td>
+<td><span class="math inline">\(\frac{2}{3}\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The cost of effort is zero for <span class="math inline">\(e=0\)</span> and equal to 1 for <span class="math inline">\(e=1\)</span>.<br />
+Moreover, there is one risk neutral insurance company.</p>
+<ol style="list-style-type: decimal">
+<li>To determine the consumer’s reservation utility, suppose he does not buy any insurance.<br />
+What effort level does he choose in this case and what is his expected level of utility?</li>
+</ol>
+<p>Consider now the design of the insurance scheme.<br />
+You can think of insurance as of a payment <span class="math inline">\(α\)</span> from the consumer to the insurance company in case the loss is <span class="math inline">\(l = 0\)</span> and of a payment <span class="math inline">\(β\)</span> from the insurance company to the consumer in case the loss is <span class="math inline">\(l = 51\)</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Write the insurer’s expected profit in terms of <span class="math inline">\(α\)</span> and <span class="math inline">\(β\)</span>.<br />
+Now, rewrite the insurer’s expected profit in terms of the vNM-utility levels offered to the consumer in each state, using <span class="math inline">\(u^2 = w\)</span>.</li>
+<li>Suppose information is symmetric, that is the effort level of the consumer is observable.<br />
+Characterize the optimal insurance scheme.</li>
+<li>Suppose now information is asymmetric, that is effort is not observable.<br />
+Characterize the optimal insurance scheme.</li>
+<li>In which of the situations (3) or (4) does the insurance company make higher profits? Discuss.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>When the consumer does not buy insurance, he pays 0 for whatever event<br />
+<span class="math display">\[\begin{aligned}\text{Utility of }e=0 &amp;&amp; \frac{1}{3}\sqrt{100-0} + \frac{2}{3}\sqrt{100-51} &amp;= 8 \\
+\text{Utility of }e=1 &amp;&amp; \frac{2}{3}\sqrt{100-0} + \frac{1}{3}\sqrt{100-51} - 1 &amp;= 8 \end{aligned}\]</span>
+Therefore consumer is indifferent between <span class="math inline">\(e=0\)</span> and <span class="math inline">\(e=1\)</span>,<br />
+his reservation utility is 8</li>
+<li>Assume when consumer chooses <span class="math inline">\(e\)</span>, <span class="math inline">\(Pr(l=51)=p\)</span><br />
+Let consumer’s wealth with insurance be <span class="math inline">\(\begin{cases}w_1 = w-α &amp; l=0\\w_2 = w+β-51 &amp; l=51 \end{cases}\)</span><br />
+Insurer’s expected profit:
+<span class="math display">\[\begin{aligned}π &amp;= (1-p)α - p\cdot β \\
+&amp;= α - p(α+β) \\
+&amp;= w-w_1 - p(w-w_1 + w_2-w+51) \\
+&amp;= w - w_1 - p(-w_1 + w_2 + 51) \\
+&amp;= w - (1-p)w_1 - pw_2 - 51p \\
+&amp;= u^2(w) - (1-p)\cdot u^2(w_1) - p\cdot u^2(w_2) - 51p \end{aligned}\]</span></li>
+<li>Symmetric information<br />
+The desired level of effort be <span class="math inline">\(e=1\)</span><br />
+Let the contract with <span class="math inline">\(e=1\)</span> be <span class="math inline">\((α,β)\)</span><br />
+Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{α,β} &amp;&amp; &amp;α - \frac{1}{3}(α + β) \\
+(PC) &amp;&amp; &amp;\frac{2}{3}\cdot u(w-α) + \frac{1}{3}\cdot u(w-51+β) - 1\geq 8 \end{aligned}\]</span>
+Let (PC) be binding,
+<span class="math display">\[\begin{aligned}\frac{2}{3}\cdot u(w-α) + \frac{1}{3}\cdot u(w-51+β) - 1 &amp;= 8 \\
+2 u(w-α) + u(w-51+β)  &amp;= 27 \\
+u(w-51+β) &amp;= 27 - 2 u(w-α) \end{aligned}\]</span>
+Plug into firm’s problem
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} α - \frac{1}{3}(α + β) \\
+&amp;= u^2(w) - (1-p)\cdot u^2(w_1) - p\cdot u^2(w_2) - 51p \\
+&amp;= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot u^2(w-51+β) - 51p \\
+&amp;= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot \big(27 - 2 u(w-α)\big)^2 - 51p \\\end{aligned}\]</span>
+FOC yields
+<span class="math display">\[\begin{aligned}\frac{\partial π}{\partial α} &amp;=  \end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="risk-neutral-parties-unlimited-liability" class="section level3">
