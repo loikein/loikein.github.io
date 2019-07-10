@@ -1435,32 +1435,30 @@ Will the principal by this information system? Discuss.</li>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>First best<br />
-Let the contract be <span class="math inline">\(w =\begin{cases}w_1 &amp; a=a_H, q=18 \\ w_0 &amp; a=a_H, q=1 \\ K &amp; a=a_L \end{cases}\)</span><br />
-Let <span class="math inline">\(Pr(q = 18|a) = p(a)\)</span>, we know <span class="math inline">\(p(a_H) = 0.75\)</span>, <span class="math inline">\(p(a_L) = 0.25\)</span><br />
-Let the desired effort be <span class="math inline">\(a_H\)</span>, social planner’s problem:
-<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
-(PC) &amp;&amp; &amp;0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.1 \end{aligned}\]</span>
-Let (PC) be binding, the Lagrangian can be written as
-<span class="math display">\[\begin{aligned}\mathcal{L} &amp;= 0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) + λ\cdot\Big(0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.2 \Big) \\
-\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -0.75 + λ\cdot 0.75\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
-λ &amp;= 2 \sqrt{w_1}\\
-\frac{\partial\mathcal{L}}{\partial w_1}&amp;= -0.25 + λ\cdot 0.25\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
-λ &amp;= 2 \sqrt{w_0} \end{aligned}\]</span>
-Therefore, <span class="math inline">\(w_0 = w_1\)</span>
-<span class="math display">\[\begin{aligned}0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1 &amp;= 0.1 \\
-\sqrt{w_1} = \sqrt{w_0} &amp;= 0.2 \\
-w_1 = w_0 &amp;= 0.04\end{aligned}\]</span>
+Let the contract be <span class="math inline">\(w\)</span>, desired effort be <span class="math inline">\(a_H\)</span><br />
+Social planner’s problem:
+<span class="math display">\[\begin{aligned}\max_{a,w_i} &amp;&amp; &amp;0.75\cdot 18 + 0.25\cdot 1 - w \\
+(PC) &amp;&amp; &amp;\sqrt{w} - 0.1 \geq 0.1\end{aligned}\]</span>
+Let (PC) be binding,
+<span class="math display">\[\begin{aligned}\sqrt{w} - 0.1 &amp;= 0.1 \\
+w &amp;= 0.2^2 = 0.04 \end{aligned}\]</span>
 <!-- 
-$$\begin{aligned}\mathcal{L} &= p(a)\cdot(18 - w_1 ) + \big(1-p(a)\big)\cdot(1 - w_0) \\
-&\phantom{\ggg}+ λ\cdot\Big(p(a)\cdot\sqrt{w_1}+ \big(1-p(a)\big)\cdot\sqrt{w_0} - c(a) - 0.1 \Big) \\
-\frac{\partial\mathcal{L}}{\partial w_1}&= -p(a) + λ\cdot p(a)\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
+(Correct but far too complicated)
+Let the contract be $w =\begin{cases}w_1 & a=a_H, q=18 \\ w_0 & a=a_H, q=1 \\ K & a=a_L \end{cases}$  
+Let $Pr(q = 18|a) = p(a)$, we know $p(a_H) = 0.75$, $p(a_L) = 0.25$  
+Let the desired effort be $a_H$, social planner's problem:
+$$\begin{aligned}\max_{a,w_i} && &0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+(PC) && &0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.1 \end{aligned}$$
+Let (PC) be binding, the Lagrangian can be written as
+$$\begin{aligned}\mathcal{L} &= 0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) + λ\cdot\Big(0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.2 \Big) \\
+\frac{\partial\mathcal{L}}{\partial w_1}&= -0.75 + λ\cdot 0.75\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
 λ &= 2 \sqrt{w_1}\\
-\frac{\partial\mathcal{L}}{\partial w_1}&= -\big(1-p(a)\big) + λ\cdot \big(1-p(a)\big)\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
+\frac{\partial\mathcal{L}}{\partial w_1}&= -0.25 + λ\cdot 0.25\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
 λ &= 2 \sqrt{w_0} \end{aligned}$$
 Therefore, $w_0 = w_1$
-$$\begin{aligned}\frac{\partial\mathcal{L}}{\partial a}&= p'(a)\cdot\big(18 - w_1 )-(1 - w_0)\big) + λ\cdot\big( p'(a)\cdot (\sqrt{w_1} - \sqrt{w_0}) -c'(a)\big) \overset{!}{=}0\\ 
-&= 17\cdot p'(a) - λ\cdot c'(a) \\
-λ &= 17\cdot\frac{p'(a)}{c'(a)}\end{aligned}$$
+$$\begin{aligned}0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1 &= 0.1 \\
+\sqrt{w_1} = \sqrt{w_0} &= 0.2 \\
+w_1 = w_0 &= 0.04\end{aligned}$$
  --></li>
 <li>Second best<br />
 Let the contract be <span class="math inline">\(w =\begin{cases}w_1 &amp; q=18 \\ w_0 &amp; q=1\end{cases}\)</span><br />
@@ -1485,8 +1483,8 @@ Pricipal’s payoff from second best contract:
 &amp;= 0.75\cdot(18 - 0.0625 ) + 0.25\cdot(1 - 0.0025) \\
 &amp;= 13.7025\end{aligned}\]</span>
 Pricipal’s payoff from first best contract:
-<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
-&amp;= 0.75\cdot(18 - 0.04 ) + 0.25\cdot(1 - 0.04) \\
+<span class="math display">\[\begin{aligned} &amp;\phantom{\ggg}0.75\cdot 18 + 0.25\cdot 1 - w \\
+&amp;= 0.75\cdot 18 + 0.25\cdot 1 - 0.04 \\
 &amp;= 13.71\end{aligned}\]</span>
 Since <span class="math inline">\(13.71 - 13.7025 = 0.0075 &lt; 0.1\)</span>,<br />
 the principal would not buy the system</li>
@@ -1540,38 +1538,56 @@ Characterize the optimal insurance scheme.</li>
 <ol style="list-style-type: decimal">
 <li>When the consumer does not buy insurance, he pays 0 for whatever event<br />
 <span class="math display">\[\begin{aligned}\text{Utility of }e=0 &amp;&amp; \frac{1}{3}\sqrt{100-0} + \frac{2}{3}\sqrt{100-51} &amp;= 8 \\
-\text{Utility of }e=1 &amp;&amp; \frac{2}{3}\sqrt{100-0} + \frac{1}{3}\sqrt{100-51} - 1 &amp;= 8 \end{aligned}\]</span>
-Therefore consumer is indifferent between <span class="math inline">\(e=0\)</span> and <span class="math inline">\(e=1\)</span>,<br />
-his reservation utility is 8</li>
+\text{Utility of }e=1 &amp;&amp; \frac{2}{3}\sqrt{100-0} + \frac{1}{3}\sqrt{100-51} - \frac{1}{3} &amp;= 8+\frac{2}{3} \end{aligned}\]</span>
+Since <span class="math inline">\(8+\frac{2}{3}&gt; 8\)</span>, consumer prefers <span class="math inline">\(e=1\)</span>,<br />
+his reservation utility is <span class="math inline">\(8+\frac{2}{3}\)</span></li>
 <li>Assume when consumer chooses <span class="math inline">\(e\)</span>, <span class="math inline">\(Pr(l=51)=p\)</span><br />
-Let consumer’s wealth with insurance be <span class="math inline">\(\begin{cases}w_1 = w-α &amp; l=0\\w_2 = w+β-51 &amp; l=51 \end{cases}\)</span><br />
+Let consumer’s wealth with insurance be <span class="math inline">\(\begin{cases}w_1 = 100-α &amp; l=0 \\ w_2 = 49+β &amp; l=51 \end{cases}\)</span><br />
 Insurer’s expected profit:
 <span class="math display">\[\begin{aligned}π &amp;= (1-p)α - p\cdot β \\
-&amp;= α - p(α+β) \\
-&amp;= w-w_1 - p(w-w_1 + w_2-w+51) \\
-&amp;= w - w_1 - p(-w_1 + w_2 + 51) \\
-&amp;= w - (1-p)w_1 - pw_2 - 51p \\
-&amp;= u^2(w) - (1-p)\cdot u^2(w_1) - p\cdot u^2(w_2) - 51p \end{aligned}\]</span></li>
+&amp;= (1-p)\cdot(100 - w_1) - p(49-w_2) \\
+&amp;= (1-p)100- p\cdot 49 + (1-p)w_1 + p\cdot w_2 \\
+&amp;= (1-p)100- p\cdot 49 + (1-p)u^2(w_1) + p\cdot u^2(w_2)  \end{aligned}\]</span></li>
 <li>Symmetric information<br />
-The desired level of effort be <span class="math inline">\(e=1\)</span><br />
+The desired level of effort is <span class="math inline">\(e=1\)</span><br />
 Let the contract with <span class="math inline">\(e=1\)</span> be <span class="math inline">\((α,β)\)</span><br />
 Firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{α,β} &amp;&amp; &amp;α - \frac{1}{3}(α + β) \\
-(PC) &amp;&amp; &amp;\frac{2}{3}\cdot u(w-α) + \frac{1}{3}\cdot u(w-51+β) - 1\geq 8 \end{aligned}\]</span>
-Let (PC) be binding,
-<span class="math display">\[\begin{aligned}\frac{2}{3}\cdot u(w-α) + \frac{1}{3}\cdot u(w-51+β) - 1 &amp;= 8 \\
-2 u(w-α) + u(w-51+β)  &amp;= 27 \\
-u(w-51+β) &amp;= 27 - 2 u(w-α) \end{aligned}\]</span>
-Plug into firm’s problem
-<span class="math display">\[\begin{aligned}π &amp;= α - \frac{1}{3}(α + β) \\
-&amp;= u^2(w) - (1-p)\cdot u^2(w_1) - p\cdot u^2(w_2) - 51p \\
-&amp;= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot u^2(w-51+β) - 51p \\
-&amp;= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot \big(27 - 2 u(w-α)\big)^2 - 51p \\\end{aligned}\]</span>
+(PC) &amp;&amp; &amp;\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3} \geq 8+\frac{2}{3} \end{aligned}\]</span>
+<!-- 
+Let (PC) be binding, 
+$$\begin{aligned}\frac{2}{3}\cdot u(w-α) + \frac{1}{3}\cdot u(w-51+β) - \frac{1}{3} &= 8+\frac{2}{3} \\
+2 u(w-α) + u(w-51+β)  &= 27 \\
+u(w-51+β) &= 27 - 2 u(w-α) \end{aligned}$$
+Plug into firm's problem
+$$\begin{aligned}π &= α - \frac{1}{3}(α + β) \\
+&= u^2(w) - (1-p)\cdot u^2(w_1) - p\cdot u^2(w_2) - 51p \\
+&= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot u^2(w-51+β) - 51p \\
+&= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot \big(27 - 2 u(w-α)\big)^2 - 51p \\\end{aligned}$$
 FOC yields
-<span class="math display">\[\begin{aligned}\frac{\partial π}{\partial α} &amp;= -(1-p)\cdot 2u(w-α)\cdot(-1) - 2p\cdot\big(27-2u(w-α)\big)\cdot(-2)\cdot(-1)\overset{!}{=} 0 \\
-&amp;= 2(1-p)\cdot u(w-α) - 4p\cdot\big(27-2u(w-α)\big) \\
-u(w-α) &amp;= \frac{54p}{1+3p} \\
-u(w-51+β) &amp;= \frac{27(1-p)}{1+3p}\end{aligned}\]</span></li>
+$$\begin{aligned}\frac{\partial π}{\partial α} &= -(1-p)\cdot 2u(w-α)\cdot(-1) \\
+&\phantom{\ggg}- 2p\cdot\big(27-2u(w-α)\big)\cdot(-2)\cdot(-1)\overset{!}{=} 0 \\
+&= 2(1-p)\cdot u(w-α) - 4p\cdot\big(27-2u(w-α)\big) \\
+u(w-α) &= \frac{54p}{1+3p} \\
+u(w-51+β) &= \frac{27(1-p)}{1+3p}\end{aligned}$$
+ --></li>
+<li>Asymmetric information<br />
+Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{α,β} &amp;&amp; &amp;α - \frac{1}{3}(α + β) \\
+(PC) &amp;&amp; &amp;\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3}\geq 8+\frac{2}{3} \\
+(IC) &amp;&amp; &amp;\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3}\geq \frac{1}{3}\cdot u(100-α) + \frac{2}{3}\cdot u(49+β) \end{aligned}\]</span>
+Let (IC) be binding,
+<span class="math display">\[\begin{aligned}\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3} &amp;= \frac{1}{3}\cdot u(100-α) + \frac{2}{3}\cdot u(49+β) \\
+2\cdot u(100-α) + u(49+β) - 1 &amp;= u(100-α) + 2\cdot u(49+β) \\
+u(100-α)  - 1 &amp;= u(49+β) \end{aligned}\]</span>
+Let (PC) be binding,
+<span class="math display">\[\begin{aligned}\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3} &amp;= 8+\frac{2}{3} \\
+2\cdot u(100-α) + u(49+β) - 1 &amp;= 24 + 2 \\
+2\cdot u(100-α) + \big(u(100-α)  - 1\big) - 1 &amp;= 24 + 2 \\
+3\cdot u(100-α) &amp;= 28 \\
+u^*(100-α) &amp;= \frac{28}{3} \\
+u^*(49+β) &amp;= \frac{25}{3}\end{aligned}\]</span></li>
+<li></li>
 </ol>
 </div>
 <div id="risk-neutral-parties-unlimited-liability" class="section level3">
@@ -1726,6 +1742,21 @@ How does the optimal level of <span class="math inline">\(f\)</span> compare to 
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Optimal linear contract<br />
+<span class="math display">\[\begin{aligned}w &amp;= α+ f\cdot q_1 + s\cdot P\\
+E[w] &amp;= E\big[α + f\cdot (a + ε_{q_1}) + s\cdot (2a + ε_P)\big] \\
+&amp;= α + fa + 2sa \\
+Var(w) &amp;= E\big[(w - E[w])^2\big] \\
+&amp;= E\big[(fε_{q_1} + sε_P)^2\big] \\
+&amp;= f^2σ_{q_1}^2 + s^2σ_P^2 + 2fs\underbrace{σ_{qP}}_{Corr(qP)}\end{aligned}\]</span>
+(IC): (Certainty equivalent of agent):
+<span class="math display">\[\hat{w} = -\exp\Big( -ρ\big(- \frac{ρ}{2}(f^2σ_{q_1}^2 + s^2σ_P^2 + 2fsσ_{qP}) + (α + fa + 2sa) - \frac{1}{2}ca^2\big)\Big)\]</span>
+<span class="math inline">\(a^*\)</span> solves maximizing (IC):
+<span class="math display">\[\begin{aligned}\max_{\hat{a}} &amp;&amp; &amp;-ρ\big(α + fa + 2sa - \frac{1}{2}ca^2\big)\\
+&amp;&amp; &amp;a^* = \frac{f+2s}{c}\end{aligned}\]</span>
+Let (PC) be binding, substitude <span class="math inline">\(a^*\)</span> gives
+<span class="math display">\[\begin{aligned}f^* &amp;= \frac{σ^2_P - 2σ_{qP}}{2σ^2_q + \frac{1}{2}σ^2_P + ρc(σ^2_Pσ^2_q - σ^2_{qP})} \\
+s^* &amp;= \frac{2σ^2_q - σ_{qP}}{2σ^2_q + \frac{1}{2}σ^2_P + ρc(σ^2_Pσ^2_q - σ^2_{qP})} \end{aligned}\]</span></li>
+<li>My solution<br />
 Principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{α,f,s} &amp;&amp; &amp;\phantom{\ggg} E[q_1 + q_2 - w] \\
 &amp;&amp; &amp;= E\big[(a + ε_{q_1}) + (a + ε_{q_2}) - (α+ f\cdot q_1 + s\cdot P)\big] \\
@@ -1772,7 +1803,9 @@ f &amp;= \frac{4 - 4s - 2crsρσ_qσ_P}{2 + 2cρσ_q^2} \\
 \frac{\partial}{\partial s}&amp;= \frac{1}{c}(-2f + 4 - 4s) - \frac{ρ}{2}(2sσ_P^2 + 2rfσ_qσ_P)\overset{!}{=}0 \\
 f &amp;= \frac{8-8s-2csρσ_P^2}{4+2rcρσ_qσ_P}\\
 s &amp;= \frac{-2rσ_qσ_P + 4σ_q^2}{r(-4σ_qσ_P - cρσ_q^2σ_P^2)+ σ_P^2 + 4σ_q^2 + cρσ_q^2σ_P^2} \end{aligned}\]</span></li>
-<li>Correlation between noise</li>
+<li>When noises are independent, and <span class="math inline">\(σ^2_q = σ^2_P\)</span>,
+<span class="math inline">\(\implies s^* = 2f^*\)</span><br />
+The ratio of diversification is the same as in the ratio of effort in output and stock price.</li>
 </ol>
 </div>
 <div id="step-contract" class="section level3">
