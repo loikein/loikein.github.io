@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">32 min read</span>
+    <span class="article-duration">33 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -806,6 +806,52 @@ Does player 1 want to demand <span class="math inline">\(x_1&gt;x_1^*\)</span>?
 <span class="math inline">\(\implies\)</span> player 2 accepts if <span class="math inline">\(x_1\leq x_1^*\)</span>, rejects if <span class="math inline">\(x_1&gt;x_1^*\)</span></li>
 <li>Therefore, the results are the same in Theorem (Rubinstein)</li>
 </ol>
+<blockquote>
+<p>Exercise 1<br />
+In the Rubinstein bargaining game, imagine a modification of this game where player 1 after a rejection of player 2 is always allowed to make a second offer - only if this offer is rejected as well player 2 gets to make an offer.<br />
+In other words, if nobody accepts the sequence of players making an offer is: 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, etc.</p>
+<ol style="list-style-type: decimal">
+<li>Can you guess a strategy pair that is a SPNE of this game?</li>
+<li>Use the 1-step deviation principle to show that the strategy pair you gave in (1) indeed is a SPNE.</li>
+<li>Are the payoffs of player 1 in this game higher or lower than in the original Rubinstein game?<br />
+Do you have an intuition why this is the case?</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\big((x^*, y^*), z^*\big)\)</span> that solves<br />
+<span class="math display">\[\begin{aligned}δ_1^2\cdot v_1(x_1) &amp;= v_1(z_1) \\
+δ_2^2\cdot v_2(1-z_1) &amp;= δ_2\cdot v_2(1-y_1) = v_2(1-x_1) \end{aligned}\]</span>
+Equilibrium:<br />
+P1 proposes <span class="math inline">\(x^*\)</span> in 1st round, proposes <span class="math inline">\(y^*\)</span> in second round, and accepts everything <span class="math inline">\(\geq y_1^*\)</span><br />
+P2 always proposes <span class="math inline">\(z^*\)</span>, accepts in P1’s 1st round ?, and accepts in P1’s 2nd round ?</li>
+<li>By one-step deviation principle,
+<ol style="list-style-type: lower-alpha">
+<li>When P1 proposes <span class="math inline">\(x_1&gt;x_1^*\)</span> in their 1st round, P2 rejects<br />
+therefore, P1 proposes <span class="math inline">\(y_1^*\)</span> in their 2nd round s.t.
+<span class="math display">\[v_1(x_1^*) &gt; δ_1\cdot v_1(y_1^*)\]</span></li>
+</ol></li>
+</ol>
+<!-- 
+2. By one-step deviation principle,
+    a. When P1 proposes $x_1>x_1^*$ in their 1st round, P2 rejects  
+    therefore, P1 proposes $x_1^*$ in their 2nd round s.t.
+    $$v_1(x_1^*) > δ_1\cdot v_1(x_1^*)$$
+    b. When P1 proposes $x_1>x_1^*$ in their 2nd round, P2 rejects and proposes $y_1^*$ s.t.
+    $$\begin{aligned}δ_1\cdot v_1(x_1^*) &= v_1(y_1^*) \\
+    δ_1\cdot v_1(x_1^*) &> δ_1\cdot v_1(y_1^*) \\
+    &> δ_1^2\cdot v_1(y_1^*)\end{aligned}$$
+    c. When P2 decides in P1's 1st round, equilibrium means accepts 
+    $$\begin{aligned} v_2(1-x_1) &<> δ_2\cdot v_2(1-x_1^*) \end{aligned}$$
+    d. When P2 decides in P2's 2nd round, equilibrium means accpets $1-x_1\geq 1-x_1^*$
+    $$\begin{aligned}δ_2\cdot v_2(1-x_1) &<> δ_2^2\cdot v_2(1-y_1^*) \\
+    &<> δ_2\cdot v_2(1-x_1^*) \end{aligned}$$
+    e. When P2 proposes $y_2>y_2^*$, P1 rejects and proposes $x_1^*$ s.t.
+    $$\begin{aligned}δ_2^3\cdot v_2(1-x_1^*) &= δ_2^3\cdot v_2(1-y_1^*) \\
+    &< δ_2^2\cdot v_2(1-y_1^*) \end{aligned}$$
+    f. When P1 decides, equilibrium means accepts $y_1\geq y_1^*$
+    $$\begin{aligned}δ_1^2\cdot v_1(y_1) &<> δ_1^3\cdot v_1(x_1^*) \\
+    &<> δ_1^2\cdot v_1(y_1^*) \end{aligned}$$
+ -->
 </div>
 <div id="rubinstein-game-small-time-interval" class="section level3">
 <h3>Rubinstein Game (Small Time Interval)</h3>
