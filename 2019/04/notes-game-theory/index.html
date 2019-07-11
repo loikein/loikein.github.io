@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">36 min read</span>
+    <span class="article-duration">38 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -1154,8 +1154,8 @@ Check <span class="math inline">\(\sum_s x_i\geq v(s)\)</span> for all <span cla
 <li>If <span class="math inline">\(c\in s\)</span>, :) <span class="math inline">\(\sum_s x_i\geq f(|s|-1)\)</span><br />
 <span class="math display">\[\begin{aligned}\sum_S x_i &amp;= f(w) - \sum_{i\not\in s} x_i \\
 &amp;\geq f(w) - |N-s|\cdot\big( f(w) - f(w-1)\big) \\
-&amp;= \big( f(w) - f(w-1)\big) + \big( f(w-1) - f(w-2)\big) + \dots + \big( f(|s|) - f(|s|-1)\big) + f(|s|-1) \\
-&amp;\phantom{\ggg} - |N-s|\cdot\big( f(w) - f(w-1)\big) \\
+&amp;= \big( f(w) - f(w-1)\big) + \big( f(w-1) - f(w-2)\big) \\
+&amp;\phantom{\ggg}+ \dots + \big( f(|s|) - f(|s|-1)\big) + f(|s|-1) - |N-s|\cdot\big( f(w) - f(w-1)\big) \\
 &amp;\geq f(|s|-1)\end{aligned}\]</span></li>
 </ol>
 </div>
@@ -1296,14 +1296,14 @@ If so, what can you say about the core allocations? If not, prove that it is emp
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(v(S) = \begin{cases}1 &amp; |S|\geq 50 \\ 0 &amp; \text{Otherwise}\end{cases}\)</span><br />
+<li><span class="math inline">\(v(S) = \begin{cases}1 &amp; |S|\geq 80 \\ 0 &amp; \text{Otherwise}\end{cases}\)</span><br />
 </li>
 <li>Bondavera-Shapley Theorem: a coalitional game with transferable payoffs has a non-empty core<br />
 Balanced game: for every balanced collection of weights <span class="math inline">\((λ_S)\)</span>, <span class="math inline">\(\sum_S λ_S\cdot v(S) \leq v(N)\)</span></li>
 <li>Since a simple majority is formed when four-party-coalition is formed,<br />
 Let <span class="math inline">\(λ_{-F} = λ_{-L} = λ_{-G} = λ_{-S} = λ_{-C} = \frac{1}{4}\)</span><br />
 <span class="math inline">\(λ_s = 0\)</span> for all other <span class="math inline">\(s\)</span><br />
-<span class="math display">\[\begin{aligned}\sum_s λ_s\cdot v(s) = 5\cdot \frac{1}{4}\cdot 1 \\
+<span class="math display">\[\begin{aligned}\sum_s λ_s\cdot v(s) &amp;= 5\cdot \frac{1}{4}\cdot 1 \\
 &amp;= \frac{5}{4} &gt; 1 = v(N)\end{aligned}\]</span>
 Therefore, the game is not balanced, and the core is empty</li>
 </ol>
@@ -1358,6 +1358,42 @@ for <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</
 Meaning: for games with the same players, the values can be summed up</li>
 </ol>
 <blockquote>
+<p>Exercise 5<br />
+There are 4 identical workers.<br />
+A coalition of <span class="math inline">\(n\)</span> workers can produce <span class="math inline">\(1 − \frac{1}{N}\)</span> widgets.<br />
+Each widget can be sold for 40 dollars.</p>
+<ol style="list-style-type: decimal">
+<li>Use a cooperative solution concepts from class to predict how many widgets will get produced and what the reward of each worker will be.</li>
+<li>Two of the workers fall in love with each other and from now on take all decisions jointly.<br />
+Use a cooperative solution concept from class to predict how many widgets will get produced and what the reward of each worker will be.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let the workers be {A, B, C, D}<br />
+Since they are identical, consider A’s contribution:<br />
+<span class="math display">\[v^A\big( S_A (γ)\big) = \begin{cases}0 &amp; γ = (A,\dots) \\\frac{1}{2} &amp; γ = (x, A,\dots) \\\frac{1}{6} &amp; γ=(x,y,A,\dots) \\\frac{1}{12} &amp; γ=(x,y,z,A)\end{cases}\]</span>
+A’s Shapley value:
+<span class="math display">\[\begin{aligned}ψ_A(v) &amp;= \frac{1}{|N|!} \sum_γ v^A\big( S_A (γ)\big) \\
+&amp;= \frac{1}{4!}\big(3\cdot 2\cdot 1\cdot 0 + 3\cdot 2\cdot 1\cdot\frac{1}{2} + 3\cdot 2\cdot 1\cdot\frac{1}{6} + 3\cdot 2\cdot 1\cdot\frac{1}{12} \big) \\
+&amp;= \frac{1}{4!}\cdot 3\cdot 2\cdot\big(\frac{1}{2} + \frac{1}{6} + \frac{1}{12} \big) \\
+&amp;= \frac{3}{16}\end{aligned}\]</span></li>
+<li>Let the couple be (A, B), C and D are still identical<br />
+AB’s contribution:
+<span class="math display">\[v^{AB}\big( S_{AB} (γ)\big) = \begin{cases}\frac{1}{2} &amp; γ = (AB,\dots) \\\frac{2}{3} &amp; γ = (x, AB, \dots) \\\frac{1}{4} &amp; γ=(x,y,AB)\end{cases}\]</span>
+AB’s Shapley value:
+<span class="math display">\[\begin{aligned}ψ_{AB}(v) &amp;= \frac{1}{|N|!} \sum_γ v^{AB}\big( S_{AB} (γ)\big) \\
+&amp;= \frac{1}{3!}\big( 2\cdot 1\cdot\frac{1}{2} + 2\cdot 1\cdot\frac{2}{3} + 2\cdot 1\cdot\frac{1}{4}\big) \\
+&amp;= \frac{1}{3!}\cdot 2\cdot\big(\frac{1}{2} + \frac{2}{3} + \frac{1}{4}\big) \\
+&amp;= \frac{17}{36}\end{aligned}\]</span>
+C’s contribution:
+<span class="math display">\[v^C\big( S_C (γ)\big) = \begin{cases}0 &amp; γ = (C,\dots) \\\frac{1}{2} &amp; γ = (D, C, \dots) \\\frac{1}{6} &amp; γ=(AB, C, \dots) \\ \frac{1}{12} &amp; γ=(\dots, C)\end{cases}\]</span>
+C’s Shapley value:
+<span class="math display">\[\begin{aligned}ψ_C(v) &amp;= \frac{1}{|N|!} \sum_γ v^C\big( S_C (γ)\big) \\
+&amp;= \frac{1}{3!}\big( 2\cdot 1\cdot 0 + 1\cdot 1\cdot\frac{1}{2} + 1\cdot 1\cdot\frac{1}{6} + 2\cdot 1\cdot\frac{1}{12} \big) \\
+&amp;= \frac{1}{3!}\big(\frac{1}{2} + \frac{1}{6} + 2\cdot\frac{1}{12} \big)\\
+&amp;= \frac{5}{36}\end{aligned}\]</span></li>
+</ol>
+<blockquote>
 <p>Example<br />
 Let <span class="math inline">\(N =\{1,2,3\}\)</span>, <span class="math inline">\(v(\{1,2,3\}) = 1\)</span>, <span class="math inline">\(v(\{1,2\}) = \frac{2}{3}\)</span>, <span class="math inline">\(v(S)=0\)</span> otherwise</p>
 </blockquote>
@@ -1408,7 +1444,7 @@ Since symmetric, consider party 2-6:
 <blockquote>
 <p>Example (OR P??)<br />
 <span class="math inline">\(N = \{1,2,\dots, 15\}\)</span><br />
-<span class="math inline">\(v(S) = \begin{cases}1 &amp; S\supset\{1,2,3,4,5} \text{ and } |S|\geq 9 \\ 0 &amp; \text{Otherwise}\end{cases}\)</span><br />
+<span class="math inline">\(v(S) = \begin{cases}1 &amp; S\supset\{1,2,3,4,5\} \text{ and } |S|\geq 9 \\ 0 &amp; \text{Otherwise}\end{cases}\)</span><br />
 Calculate the Shapley value</p>
 </blockquote>
 <p>We know that <span class="math inline">\(5\cdot ψ_1 + 10\cdot ψ_6 = 1\)</span><br />
@@ -1526,6 +1562,52 @@ For each i, exists 2 NE of the stage game</li>
 <li>Let <span class="math inline">\(v\in V^*\)</span>, for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T&#39;\)</span> s.t. for all <span class="math inline">\(T&gt;T&#39;\)</span>, <span class="math inline">\(G^T\)</span> has a SPNE with average payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise 6<br />
+Two players play a repeated game with discount rate <span class="math inline">\(δ\)</span>.<br />
+Assume that players can perfectly monitor each others actions (i.e. they see what others did in earlier periods), and care only about their expected discounted monetary payoff.<br />
+The stage game:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>P2</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>A</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>P1</td>
+<td>A</td>
+<td>1, 10</td>
+<td>0, 0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>B</td>
+<td>0, 0</td>
+<td>5, 5</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>What can you say about the set of payoffs that can be achieved in a SPNE as the discount rate <span class="math inline">\(δ\)</span> gets close to 1?</li>
+<li>Imagine, again for the case <span class="math inline">\(δ\)</span> being close to 1, that the players sit down together before the game starts and can can discuss which equilibrium they should play.<br />
+What is the problem with this bargaining situation if you would want to use the Nash Bargaining solution or the Kalai-Smorodinsky solution to make a prediction about the outcome?</li>
+<li>In the context of (2), imagine that players just leave if no agreement is reached (in which case both get a payoff of 0).<br />
+What outcome of the bargaining does the Kalai-Smorodinsky solution predict?</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>SPNE</li>
+</ol>
 </div>
 <div id="example-battle-of-sexes-bos" class="section level3">
 <h3>Example: Battle of Sexes (BoS)</h3>
