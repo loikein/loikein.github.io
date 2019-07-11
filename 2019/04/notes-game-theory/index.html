@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">33 min read</span>
+    <span class="article-duration">36 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -819,39 +819,46 @@ Do you have an intuition why this is the case?</li>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\big((x^*, y^*), z^*\big)\)</span> that solves<br />
-<span class="math display">\[\begin{aligned}δ_1^2\cdot v_1(x_1) &amp;= v_1(z_1) \\
+<span class="math display">\[\begin{aligned}δ_1\cdot v_1(x_1) &amp;= v_1(z_1) \\
 δ_2^2\cdot v_2(1-z_1) &amp;= δ_2\cdot v_2(1-y_1) = v_2(1-x_1) \end{aligned}\]</span>
 Equilibrium:<br />
-P1 proposes <span class="math inline">\(x^*\)</span> in 1st round, proposes <span class="math inline">\(y^*\)</span> in second round, and accepts everything <span class="math inline">\(\geq y_1^*\)</span><br />
-P2 always proposes <span class="math inline">\(z^*\)</span>, accepts in P1’s 1st round ?, and accepts in P1’s 2nd round ?</li>
+P1 proposes <span class="math inline">\(x^*\)</span> in 1st round, proposes <span class="math inline">\(y^*\)</span> in second round, and accepts everything <span class="math inline">\(\geq z_1^*\)</span><br />
+P2 always proposes <span class="math inline">\(z^*\)</span>, accepts <span class="math inline">\(\geq 1-x_1^*\)</span> in P1’s 1st round, and accepts <span class="math inline">\(\geq 1-y_1^*\)</span> in P1’s 2nd round</li>
 <li>By one-step deviation principle,
 <ol style="list-style-type: lower-alpha">
 <li>When P1 proposes <span class="math inline">\(x_1&gt;x_1^*\)</span> in their 1st round, P2 rejects<br />
-therefore, P1 proposes <span class="math inline">\(y_1^*\)</span> in their 2nd round s.t.
-<span class="math display">\[v_1(x_1^*) &gt; δ_1\cdot v_1(y_1^*)\]</span></li>
+therefore, P1 proposes <span class="math inline">\(y_1^*\)</span> in their 2nd round<br />
+Since <span class="math inline">\(δ_2&lt;1\)</span>,
+<span class="math display">\[\begin{aligned}δ_2\cdot v_2(1-y_1^*) &amp;= v_2(1-x_1^*) \\
+ v_2(1-y_1^*) &amp;&gt; v_2(1-x_1^*) \\
+ 1-y_1^* &amp;&gt; 1-x_1^* \\
+ y_1^* &amp;&lt; x_1^* \\
+ v_1(y_1^*) &amp;&lt; v_1(x_1^*) \\
+ δ_1\cdot v_1(y_1^*) &amp;&lt; v_1(x_1^*)\end{aligned}\]</span>
+When P1 proposes <span class="math inline">\(y_1&gt;y_1^*\)</span> in their 2nd round, P2 rejects and proposes <span class="math inline">\(z_1^*\)</span> s.t.
+<span class="math display">\[\begin{aligned} δ_2^2\cdot v_2(1-z_1^*) &amp;= δ_2\cdot v_2(1-y_1^*) \\
+ v_2(1-z_1^*) &amp;&gt; v_2(1-y_1^*) \\
+ 1-z_1^* &amp;&gt; 1-y_1^* \\
+ z_1^* &amp;&lt; y_1^* \\
+ v_1(z_1^*) &amp;&lt; v_1(y_1^*) \\
+ δ_1\cdot v_1(z_1^*) &amp;&lt; v_1(y_1^*)\end{aligned}\]</span></li>
+<li>When P2 decides in P1’s 1st round, P2 compares<br />
+<span class="math display">\[\begin{aligned}v_2(1-x_1) &amp;&lt;&gt; δ_2\cdot v_2(1-y_1^*) \\
+ &amp;&lt;&gt; v_2(1-x_1^*) \end{aligned}\]</span>
+therefore accepts anything <span class="math inline">\(\geq 1-x_1^*\)</span><br />
+When P2 decides in P1’s 2nd round, P2 compares<br />
+<span class="math display">\[\begin{aligned}v_2(1-y_1) &amp;&lt;&gt; δ_2\cdot v_2(1-z_1^*) \\
+ &amp;&lt;&gt; v_2(1-y_1^*) \end{aligned}\]</span>
+therefore accepts anything <span class="math inline">\(\geq 1-y_1^*\)</span></li>
+<li>When P2 proposes <span class="math inline">\(z_1 &lt; z_1^*\)</span>, P1 rejects and proposes <span class="math inline">\(x_1^*\)</span> s.t.
+<span class="math display">\[\begin{aligned}v_2(1-x_1^*) &amp;= δ_2^2\cdot v_2(1-z_1^*) \\
+ v_2(1-x_1^*) &amp;&lt; v_2(1-z_1^*) \end{aligned}\]</span></li>
+<li>When P1 decides, P1 compares
+<span class="math display">\[\begin{aligned}v_1(z_1) &amp;&lt;&gt; δ_1\cdot v_1(x_1^*) \\
+ &amp;&lt;&gt; v_1(z_1^*) \end{aligned}\]</span>
+therefore accepts anything <span class="math inline">\(\geq z_1^*\)</span></li>
 </ol></li>
 </ol>
-<!-- 
-2. By one-step deviation principle,
-    a. When P1 proposes $x_1>x_1^*$ in their 1st round, P2 rejects  
-    therefore, P1 proposes $x_1^*$ in their 2nd round s.t.
-    $$v_1(x_1^*) > δ_1\cdot v_1(x_1^*)$$
-    b. When P1 proposes $x_1>x_1^*$ in their 2nd round, P2 rejects and proposes $y_1^*$ s.t.
-    $$\begin{aligned}δ_1\cdot v_1(x_1^*) &= v_1(y_1^*) \\
-    δ_1\cdot v_1(x_1^*) &> δ_1\cdot v_1(y_1^*) \\
-    &> δ_1^2\cdot v_1(y_1^*)\end{aligned}$$
-    c. When P2 decides in P1's 1st round, equilibrium means accepts 
-    $$\begin{aligned} v_2(1-x_1) &<> δ_2\cdot v_2(1-x_1^*) \end{aligned}$$
-    d. When P2 decides in P2's 2nd round, equilibrium means accpets $1-x_1\geq 1-x_1^*$
-    $$\begin{aligned}δ_2\cdot v_2(1-x_1) &<> δ_2^2\cdot v_2(1-y_1^*) \\
-    &<> δ_2\cdot v_2(1-x_1^*) \end{aligned}$$
-    e. When P2 proposes $y_2>y_2^*$, P1 rejects and proposes $x_1^*$ s.t.
-    $$\begin{aligned}δ_2^3\cdot v_2(1-x_1^*) &= δ_2^3\cdot v_2(1-y_1^*) \\
-    &< δ_2^2\cdot v_2(1-y_1^*) \end{aligned}$$
-    f. When P1 decides, equilibrium means accepts $y_1\geq y_1^*$
-    $$\begin{aligned}δ_1^2\cdot v_1(y_1) &<> δ_1^3\cdot v_1(x_1^*) \\
-    &<> δ_1^2\cdot v_1(y_1^*) \end{aligned}$$
- -->
 </div>
 <div id="rubinstein-game-small-time-interval" class="section level3">
 <h3>Rubinstein Game (Small Time Interval)</h3>
@@ -1009,6 +1016,44 @@ gives
   u_2^* &amp;= \frac{1}{2}\cdot\Big(\frac{1}{4}\cdot(K-c_1)^2+d_2-d_1 \Big)\end{aligned}\]</span></li>
 </ul></li>
 </ul>
+<blockquote>
+<p>Exercise 2<br />
+There are two firms called 1 and 2 engaged in Bertrand competition.<br />
+If firms charge different prices, than the profits of the firm charging the higher price are 0, and the profits of the firm i charging the lower price are
+<span class="math display">\[π_i = (A - p_i)(p_i - c_i)\]</span>
+If both firms charge the same price, we will assure that firm 1 captures the entire demand
+<span class="math display">\[π_1 = (A - p_1)(p_1 - c_1)\]</span>
+and firm 2 gets profits equal to 0.<br />
+Assume <span class="math inline">\(c_1 = 1\)</span>, <span class="math inline">\(c_2 = 2\)</span>, <span class="math inline">\(A&gt;0\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>What is the unique pure strategy NE if both firms choose prices simultaneously?</li>
+<li>Can you use the concepts we discussed in class to make some predictions about the case where firms are able to collude and can transfer money between each other?</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Assume firm 1 chooses some price <span class="math inline">\(p&gt;0\)</span> and captures the whole market<br />
+firm 2 chooses <span class="math inline">\(p-ε\)</span> for some <span class="math inline">\(ε&gt;0\)</span><br />
+firm 1 chooses <span class="math inline">\(p-2ε\)</span>, and so on<br />
+Therefore, the unique pure strategy NE is <span class="math inline">\(p_1 = p_2 = 0\)</span></li>
+<li>Since <span class="math inline">\(c_1 &lt; c_2\)</span>, let firm 1 produce <span class="math inline">\(A - p\)</span><br />
+Firm 1’s problem:
+<span class="math display">\[\begin{aligned}\max_p &amp;&amp; (A - p)(p - 1)&amp; \\
+FOC &amp;&amp; A - 2p - 1 &amp;\overset{!}{=} 0 \\
+&amp;&amp; p &amp;= \frac{A-1}{2} \end{aligned}\]</span>
+Total profit:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}(A - p)(p - 1) \\
+&amp;= \big(A - \frac{A-1}{2}\big)\big(\frac{A-1}{2} - 1\big) \\
+&amp;= \frac{1}{4}(A^2 - 2A - 3)\end{aligned}\]</span>
+Disagreement payoff is <span class="math inline">\(π_1 = π_2 = 0\)</span><br />
+therefore, NBS yields
+<span class="math display">\[\begin{aligned}\max_{u_1,u_2} &amp;&amp; &amp;(u_1 - 0)(u_2 - 0) \\
+s.t. &amp;&amp; &amp;u_1 + u_2 \leq \frac{1}{4}(A^2 - 2A - 3) \end{aligned}\]</span>
+plug in
+<span class="math display">\[\begin{aligned}\max_{u_1} &amp;&amp; &amp;\phantom{\ggg}u_1\cdot\big(\frac{1}{4}(A^2 - 2A - 3) - u_1) \\
+&amp;&amp; &amp;= \frac{1}{4}(A^2 - 2A - 3)u_1 - u_1^2 \\
+FOC &amp;&amp; \frac{\partial}{\partial u_1} &amp;=\frac{1}{4}(A^2 - 2A - 3) - 2u_1 \overset{!}{=} 0 \\
+&amp;&amp; u_1^* &amp;= \frac{1}{8}(A^2 - 2A - 3) = u_2^*\end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="kalai-smorodinsky-bs" class="section level3">
 <h3>Kalai-Smorodinsky BS</h3>
@@ -1293,6 +1338,25 @@ Therefore, the game is not balanced, and the core is empty</li>
 </ol></li>
 <li>Theorem (Young): Shapley value is the unique function <span class="math inline">\(ψ(v)\)</span> s.t. axioms 1-3 are satisfied</li>
 </ul>
+<blockquote>
+<p>Exercise 4<br />
+Write down the axioms for the Shapley value.<br />
+Clearly (!) and brie􏰽y (!!!) explain the economic meaning of each of the axioms.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Efficiency / Feasibility<br />
+<span class="math inline">\(\sum_{i\in N} φ_i(v) = v(N)\)</span><br />
+Meaning: nothing in the total value is wasted</li>
+<li>Symmetry<br />
+let <span class="math inline">\(π: N\to N\)</span>, <span class="math inline">\(w(S) = v\big(π(S)\big)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ^i(w) = φ^{π(i)}(v)\)</span><br />
+Meaning: changing the number or name of player will not change their value</li>
+<li>Dummy<br />
+<span class="math inline">\(v^i(S) = 0\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ_i(v) = 0\)</span><br />
+Meaning: if someone contributes 0, their value is 0</li>
+<li>Additivity<br />
+for <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span> with same players, <span class="math inline">\(φ_i(v+w) = φ_i(v) + φ_i(w)\)</span><br />
+Meaning: for games with the same players, the values can be summed up</li>
+</ol>
 <blockquote>
 <p>Example<br />
 Let <span class="math inline">\(N =\{1,2,3\}\)</span>, <span class="math inline">\(v(\{1,2,3\}) = 1\)</span>, <span class="math inline">\(v(\{1,2\}) = \frac{2}{3}\)</span>, <span class="math inline">\(v(S)=0\)</span> otherwise</p>
