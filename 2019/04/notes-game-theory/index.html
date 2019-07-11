@@ -1062,7 +1062,8 @@ FOC &amp;&amp; \frac{\partial}{\partial u_1} &amp;=\frac{1}{4}(A^2 - 2A - 3) - 2
 <li>Axioms
 <ul>
 <li>Nash 1, 2, 3, 5 (<del>IIA</del>)</li>
-<li>Kalai-Smorodinsky: <span class="math inline">\(\max_{x\in X; x\geq d} \ x_i = \max_{x\in Y; x\geq d} \ x_i\)</span><br />
+<li>Kalai-Smorodinsky:
+<span class="math display">\[\begin{cases}\bar{u}_1 = \max_{(x,d_2)\in X} \ x  \\ \bar{u}_2 = \max_{(d_1,x)\in X} \ x \end{cases}\]</span>
 therefore, both players are better-off from more choice:
 <span class="math display">\[\begin{aligned}F_1(X, d) &amp;\geq F_1(Y, d) \\
   F_2(X,d) &amp;\geq F_2(Y,d)\end{aligned}\]</span></li>
@@ -1547,13 +1548,13 @@ that cannot be established without punishment
 <!-- - OR Proposition 145.2  
 Let w be a strictly enforceable feasible payoff profile of G = ⟨N,(Ai), (ui)⟩. For all $ε>0$ there exists $δ<1$ s.t. if $δ>δ, then the δ-discounted infinitely repeated game of G has a NE with payoff profile $w'$ s.t. $w'\in B_ε(w)$. --></li>
 </ul></li>
-<li>Theorem (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)
+<li>Perfect folk theorem (discounting, infinite) (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)
 <ul>
 <li>Assumption: <span class="math inline">\(\dim (V^*) = |I| = n\)</span><br />
-“the idea is to use the assumption on the dimension of <span class="math inline">\(V^*\)</span> to ensure that each player i can be singled out for punishment in the event of a deviation, and then use rewards and punishments for other players to ensure that the deviator can be held down to her minmax payoff.”</li>
+<!-- "the idea is to use the assumption on the dimension of $V^*$ to ensure that each player i can be singled out for punishment in the event of a deviation, and then use rewards and punishments for other players to ensure that the deviator can be held down to her minmax payoff." --></li>
 <li>For any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, <span class="math inline">\(G^{\infty}(δ)\)</span> has an SPNE with average discounted payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
 </ul></li>
-<li>Finitely repeated folk theorem (Benoit, Krishna 1986, OR 8.10 Proposition 159.1)
+<li>Perfect folk theorem (discounting, finite) (Benoit, Krishna 1986, Proposition 159.1)
 <ul>
 <li>Game: <span class="math inline">\(G^T\)</span></li>
 <li>Payoff: <span class="math inline">\(\frac{1}{T}\sum_{t=1}^T g(a^t)\)</span>, <span class="math inline">\(δ=1\)</span></li>
@@ -1561,7 +1562,34 @@ Let w be a strictly enforceable feasible payoff profile of G = ⟨N,(Ai), (ui)�
 For each i, exists 2 NE of the stage game</li>
 <li>Let <span class="math inline">\(v\in V^*\)</span>, for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T&#39;\)</span> s.t. for all <span class="math inline">\(T&gt;T&#39;\)</span>, <span class="math inline">\(G^T\)</span> has a SPNE with average payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
 </ul></li>
+<li>One-Step Deviation Principle (OR Lemma 153.1)<br />
+A strategy profile is a SPNE of the discounted infinitely repeated game of G<br />
+<span class="math inline">\(\iff\)</span> no player can gain by deviating in a single period after any history</li>
 </ul>
+</div>
+<div id="example-battle-of-sexes-bos" class="section level3">
+<h3>Example: Battle of Sexes (BoS)</h3>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>F</th>
+<th>O</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>*3, 1*</td>
+<td>0, 0</td>
+</tr>
+<tr class="even">
+<td>O</td>
+<td>0, 0</td>
+<td>*1, 3*</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>Exercise 6<br />
 Two players play a repeated game with discount rate <span class="math inline">\(δ\)</span>.<br />
@@ -1606,32 +1634,22 @@ What outcome of the bargaining does the Kalai-Smorodinsky solution predict?</li>
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>SPNE</li>
+<li>SPNE<br />
+The stage game has two NE: {(A, A), (B, B)}<br />
+When (A, A) is played repeatedly, P1’ s payoff:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}1\cdot δ^0 + 1\cdot δ^1 + \dots \\
+&amp;= \frac{1}{1-δ} \end{aligned}\]</span>
+P2’ s payoff:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}10\cdot δ^0 + 10\cdot δ^1 + \dots \\
+&amp;= \frac{10}{1-δ} \end{aligned}\]</span>
+When (A, A) is played repeatedly, P1 and P2’ s payoff:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}5\cdot δ^0 + 5\cdot δ^1 + \dots \\
+&amp;= \frac{5}{1-δ} \end{aligned}\]</span>
+When <span class="math inline">\(δ\to 1\)</span>, <span class="math inline">\(1-δ\to 0\)</span>, all payoffs go to <span class="math inline">\(+\infty\)</span></li>
+<li>Payoffs must be transferable</li>
+<li>Kalai-Smorodinsky solution:</li>
 </ol>
-</div>
-<div id="example-battle-of-sexes-bos" class="section level3">
-<h3>Example: Battle of Sexes (BoS)</h3>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>F</th>
-<th>O</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>F</td>
-<td>*3, 1*</td>
-<td>0, 0</td>
-</tr>
-<tr class="even">
-<td>O</td>
-<td>0, 0</td>
-<td>*1, 3*</td>
-</tr>
-</tbody>
-</table>
+<p><img src="/post-img/notes-game-theory--ex-7.png" width="507" /></p>
 </div>
 <div id="example-prisoners-dilemma-pd" class="section level3">
 <h3>Example: Prisoner’s Dilemma (PD)</h3>
