@@ -858,6 +858,12 @@ therefore accepts anything <span class="math inline">\(\geq 1-y_1^*\)</span></li
  &amp;&lt;&gt; v_1(z_1^*) \end{aligned}\]</span>
 therefore accepts anything <span class="math inline">\(\geq z_1^*\)</span></li>
 </ol></li>
+<li>Rewrite the system as
+<span class="math display">\[\begin{aligned}δ_1\cdot v_1(x_1) &amp;= v_1(z_1) \\
+δ_2^2\cdot v_2(1-z_1) &amp;= v_2(1-x_1) \end{aligned}\]</span>
+Therefore, compared to the original Rubinstein game,<br />
+the discounting factor for P2 decreases, and stays the same for P1<br />
+Since players with more patience receive more payoff, P1 is better-off and P2 is worse-off</li>
 </ol>
 </div>
 <div id="rubinstein-game-small-time-interval" class="section level3">
@@ -1019,40 +1025,42 @@ gives
 <blockquote>
 <p>Exercise 2<br />
 There are two firms called 1 and 2 engaged in Bertrand competition.<br />
-If firms charge different prices, than the profits of the firm charging the higher price are 0, and the profits of the firm i charging the lower price are
+If firms charge different prices, then the profits of the firm charging the higher price are 0, and the profits of the firm i charging the lower price are
 <span class="math display">\[π_i = (A - p_i)(p_i - c_i)\]</span>
 If both firms charge the same price, we will assure that firm 1 captures the entire demand
 <span class="math display">\[π_1 = (A - p_1)(p_1 - c_1)\]</span>
 and firm 2 gets profits equal to 0.<br />
-Assume <span class="math inline">\(c_1 = 1\)</span>, <span class="math inline">\(c_2 = 2\)</span>, <span class="math inline">\(A&gt;0\)</span>.</p>
+Assume <span class="math inline">\(c_1 = 1\)</span>, <span class="math inline">\(c_2 = 2\)</span>, <span class="math inline">\(A&gt;0\)</span> big enough.</p>
 <ol style="list-style-type: decimal">
-<li>What is the unique pure strategy NE if both firms choose prices simultaneously?</li>
+<li>Find a pure strategy NE if both firms choose prices simultaneously.</li>
 <li>Can you use the concepts we discussed in class to make some predictions about the case where firms are able to collude and can transfer money between each other?</li>
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Assume firm 1 chooses some price <span class="math inline">\(p&gt;0\)</span> and captures the whole market<br />
-firm 2 chooses <span class="math inline">\(p-ε\)</span> for some <span class="math inline">\(ε&gt;0\)</span><br />
-firm 1 chooses <span class="math inline">\(p-2ε\)</span>, and so on<br />
-Therefore, the unique pure strategy NE is <span class="math inline">\(p_1 = p_2 = 0\)</span></li>
+<li>NE: <span class="math inline">\(p_1 = p_2 = c_2\)</span><br />
+Firm 1 does not deviate: increasing price loses market, decreasing price undercuts profit<br />
+Firm 2 does not deviate: increasing price loses market, decreasing price gives negative profit<br />
+Another NE: <span class="math inline">\(c_1 &lt; p_1 = p_2 &lt; c_2\)</span></li>
 <li>Since <span class="math inline">\(c_1 &lt; c_2\)</span>, let firm 1 produce <span class="math inline">\(A - p\)</span><br />
 Firm 1’s problem:
 <span class="math display">\[\begin{aligned}\max_p &amp;&amp; (A - p)(p - 1)&amp; \\
-FOC &amp;&amp; A - 2p - 1 &amp;\overset{!}{=} 0 \\
-&amp;&amp; p &amp;= \frac{A-1}{2} \end{aligned}\]</span>
+FOC &amp;&amp; A - 2p + 1 &amp;\overset{!}{=} 0 \\
+&amp;&amp; p &amp;= \frac{A+1}{2} \end{aligned}\]</span>
 Total profit:
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}(A - p)(p - 1) \\
-&amp;= \big(A - \frac{A-1}{2}\big)\big(\frac{A-1}{2} - 1\big) \\
-&amp;= \frac{1}{4}(A^2 - 2A - 3)\end{aligned}\]</span>
-Disagreement payoff is <span class="math inline">\(π_1 = π_2 = 0\)</span><br />
+&amp;= \big(A - \frac{A+1}{2}\big)\big(\frac{A+1}{2} - 1\big) \\
+&amp;= \frac{2A - A -1}{2}\cdot\frac{A+1 - 2}{2} \\
+&amp;= \frac{1}{4}(A-1)^2\end{aligned}\]</span>
+Disagreement payoff is <span class="math inline">\(π_1 = (A - 2)(2 - 1) = A-2\)</span>, <span class="math inline">\(π_2 = 0\)</span><br />
 therefore, NBS yields
-<span class="math display">\[\begin{aligned}\max_{u_1,u_2} &amp;&amp; &amp;(u_1 - 0)(u_2 - 0) \\
-s.t. &amp;&amp; &amp;u_1 + u_2 \leq \frac{1}{4}(A^2 - 2A - 3) \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_{u_1,u_2} &amp;&amp; &amp;(u_1 - A+2)(u_2 - 0) \\
+s.t. &amp;&amp; &amp;u_1 + u_2 \leq \frac{1}{4}(A-1)^2 \end{aligned}\]</span>
 plug in
-<span class="math display">\[\begin{aligned}\max_{u_1} &amp;&amp; &amp;\phantom{\ggg}u_1\cdot\big(\frac{1}{4}(A^2 - 2A - 3) - u_1) \\
-&amp;&amp; &amp;= \frac{1}{4}(A^2 - 2A - 3)u_1 - u_1^2 \\
-FOC &amp;&amp; \frac{\partial}{\partial u_1} &amp;=\frac{1}{4}(A^2 - 2A - 3) - 2u_1 \overset{!}{=} 0 \\
-&amp;&amp; u_1^* &amp;= \frac{1}{8}(A^2 - 2A - 3) = u_2^*\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_{u_1} &amp;&amp; &amp;\phantom{\ggg}\big(u_1 - (A - 2)\big)\cdot\big(\frac{1}{4}(A-1)^2 - u_1\big) \\
+&amp;&amp; &amp;= \frac{1}{4}(A-1)^2u_1 + (A - 2)u_1 - u_1^2 - (A-2)\cdot \frac{1}{4}(A-1)^2 \\
+FOC &amp;&amp; \frac{\partial}{\partial u_1} &amp;=\frac{1}{4}(A-1)^2 + (A - 2) - 2u_1 \overset{!}{=} 0 \\
+&amp;&amp; u_1^* &amp;= \frac{1}{8}(A-1)^2 + \frac{1}{2}(A-2)\\
+&amp;&amp; u_2^* &amp;= \frac{1}{8}(A-1)^2 - \frac{1}{2}(A-2)\end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="kalai-smorodinsky-bs" class="section level3">
@@ -1370,15 +1378,19 @@ Use a cooperative solution concept from class to predict how many widgets will g
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Let the workers be {A, B, C, D}<br />
-Since they are identical, consider A’s contribution:<br />
-<span class="math display">\[v^A\big( S_A (γ)\big) = \begin{cases}0 &amp; γ = (A,\dots) \\\frac{1}{2} &amp; γ = (x, A,\dots) \\\frac{1}{6} &amp; γ=(x,y,A,\dots) \\\frac{1}{12} &amp; γ=(x,y,z,A)\end{cases}\]</span>
-A’s Shapley value:
-<span class="math display">\[\begin{aligned}ψ_A(v) &amp;= \frac{1}{|N|!} \sum_γ v^A\big( S_A (γ)\big) \\
-&amp;= \frac{1}{4!}\big(3\cdot 2\cdot 1\cdot 0 + 3\cdot 2\cdot 1\cdot\frac{1}{2} + 3\cdot 2\cdot 1\cdot\frac{1}{6} + 3\cdot 2\cdot 1\cdot\frac{1}{12} \big) \\
-&amp;= \frac{1}{4!}\cdot 3\cdot 2\cdot\big(\frac{1}{2} + \frac{1}{6} + \frac{1}{12} \big) \\
-&amp;= \frac{3}{16}\end{aligned}\]</span></li>
-<li>Let the couple be (A, B), C and D are still identical<br />
+<li>Since they are identical, each worker gets
+<span class="math display">\[\begin{aligned}\frac{1}{4}\cdot\big(1-\frac{1}{4}\big) &amp;= \frac{3}{16} \\
+\frac{3}{16}\cdot 40 &amp;= \frac{15}{2} \end{aligned}\]</span>
+<!-- correct but far too complicated  
+Let the workers be {A, B, C, D}  
+Since they are identical, consider A's contribution:  
+$$v^A\big( S_A (γ)\big) = \begin{cases}0 & γ = (A,\dots) \\\frac{1}{2} & γ = (x, A,\dots) \\\frac{1}{6} & γ=(x,y,A,\dots) \\\frac{1}{12} & γ=(x,y,z,A)\end{cases}$$
+A's Shapley value: 
+$$\begin{aligned}ψ_A(v) &= \frac{1}{|N|!} \sum_γ v^A\big( S_A (γ)\big) \\
+&= \frac{1}{4!}\big(3\cdot 2\cdot 1\cdot 0 + 3\cdot 2\cdot 1\cdot\frac{1}{2} + 3\cdot 2\cdot 1\cdot\frac{1}{6} + 3\cdot 2\cdot 1\cdot\frac{1}{12} \big) \\
+&= \frac{1}{4!}\cdot 3\cdot 2\cdot\big(\frac{1}{2} + \frac{1}{6} + \frac{1}{12} \big) \\
+&= \frac{3}{16}\end{aligned}$$ --></li>
+<li>Let the couple be (A, B), C and D are identical<br />
 AB’s contribution:
 <span class="math display">\[v^{AB}\big( S_{AB} (γ)\big) = \begin{cases}\frac{1}{2} &amp; γ = (AB,\dots) \\\frac{2}{3} &amp; γ = (x, AB, \dots) \\\frac{1}{4} &amp; γ=(x,y,AB)\end{cases}\]</span>
 AB’s Shapley value:
@@ -1386,13 +1398,19 @@ AB’s Shapley value:
 &amp;= \frac{1}{3!}\big( 2\cdot 1\cdot\frac{1}{2} + 2\cdot 1\cdot\frac{2}{3} + 2\cdot 1\cdot\frac{1}{4}\big) \\
 &amp;= \frac{1}{3!}\cdot 2\cdot\big(\frac{1}{2} + \frac{2}{3} + \frac{1}{4}\big) \\
 &amp;= \frac{17}{36}\end{aligned}\]</span>
-C’s contribution:
-<span class="math display">\[v^C\big( S_C (γ)\big) = \begin{cases}0 &amp; γ = (C,\dots) \\\frac{1}{2} &amp; γ = (D, C, \dots) \\\frac{1}{6} &amp; γ=(AB, C, \dots) \\ \frac{1}{12} &amp; γ=(\dots, C)\end{cases}\]</span>
-C’s Shapley value:
-<span class="math display">\[\begin{aligned}ψ_C(v) &amp;= \frac{1}{|N|!} \sum_γ v^C\big( S_C (γ)\big) \\
-&amp;= \frac{1}{3!}\big( 2\cdot 1\cdot 0 + 1\cdot 1\cdot\frac{1}{2} + 1\cdot 1\cdot\frac{1}{6} + 2\cdot 1\cdot\frac{1}{12} \big) \\
-&amp;= \frac{1}{3!}\big(\frac{1}{2} + \frac{1}{6} + 2\cdot\frac{1}{12} \big)\\
-&amp;= \frac{5}{36}\end{aligned}\]</span></li>
+AB get <span class="math inline">\(\frac{17}{36}\cdot 40 = \frac{170}{9}\)</span><br />
+Therefore, C and D each gets
+<span class="math display">\[\begin{aligned}\big(1-\frac{1}{4}\big) - \frac{17}{36} &amp;= \frac{5}{18} \\
+\frac{5}{18}\cdot\frac{1}{2}\cdot 40 &amp;= \frac{50}{9}\end{aligned}\]</span>
+<!-- correct but far too complicated  
+C's contribution:
+$$v^C\big( S_C (γ)\big) = \begin{cases}0 & γ = (C,\dots) \\\frac{1}{2} & γ = (D, C, \dots) \\\frac{1}{6} & γ=(AB, C, \dots) \\ \frac{1}{12} & γ=(\dots, C)\end{cases}$$
+C's Shapley value: 
+$$\begin{aligned}ψ_C(v) &= \frac{1}{|N|!} \sum_γ v^C\big( S_C (γ)\big) \\
+&= \frac{1}{3!}\big( 2\cdot 1\cdot 0 + 1\cdot 1\cdot\frac{1}{2} + 1\cdot 1\cdot\frac{1}{6} + 2\cdot 1\cdot\frac{1}{12} \big) \\
+&= \frac{1}{3!}\big(\frac{1}{2} + \frac{1}{6} + 2\cdot\frac{1}{12} \big)\\
+&= \frac{5}{36}\end{aligned}$$
+ --></li>
 </ol>
 <blockquote>
 <p>Example<br />
@@ -1635,18 +1653,12 @@ What outcome of the bargaining does the Kalai-Smorodinsky solution predict?</li>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>SPNE<br />
-The stage game has two NE: {(A, A), (B, B)}<br />
-When (A, A) is played repeatedly, P1’ s payoff:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}1\cdot δ^0 + 1\cdot δ^1 + \dots \\
-&amp;= \frac{1}{1-δ} \end{aligned}\]</span>
-P2’ s payoff:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}10\cdot δ^0 + 10\cdot δ^1 + \dots \\
-&amp;= \frac{10}{1-δ} \end{aligned}\]</span>
-When (A, A) is played repeatedly, P1 and P2’ s payoff:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}5\cdot δ^0 + 5\cdot δ^1 + \dots \\
-&amp;= \frac{5}{1-δ} \end{aligned}\]</span>
-When <span class="math inline">\(δ\to 1\)</span>, <span class="math inline">\(1-δ\to 0\)</span>, all payoffs go to <span class="math inline">\(+\infty\)</span></li>
-<li>Payoffs must be transferable</li>
+According to Folk Theorem,<br />
+Set of feasible payoffs: <span class="math inline">\(V = Hull\{(5,5), (1,10), (0,0) \}\)</span><br />
+<span class="math inline">\(\underline{v}_1 = 1\)</span>, <span class="math inline">\(\underline{v}_2 = 5\)</span>,<br />
+Set of enforceable payoff profiles: <span class="math inline">\(V^* = Hull\{(1,5), (5,5), (1,10)\}\)</span>, <span class="math inline">\(\dim(V^*) = 2 = |N|\)</span><br />
+</li>
+<li>Which equilibrium is to be realized is not clear</li>
 <li>Kalai-Smorodinsky solution:</li>
 </ol>
 <p><img src="/post-img/notes-game-theory--ex-7.png" width="507" /></p>
