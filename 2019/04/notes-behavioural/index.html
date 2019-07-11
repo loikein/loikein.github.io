@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">57 min read</span>
+    <span class="article-duration">62 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -619,6 +619,42 @@ Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</s
 </li>
 <li>Let the plan be <span class="math inline">\((n,b)\)</span></li>
 </ol>
+<blockquote>
+<p>Mock.Q2<br />
+An agent faces two possible choice sets <span class="math inline">\(A= \{x, y\}\)</span> or <span class="math inline">\(B = \{x, y,z\}\)</span>, where the alternatives <span class="math inline">\(x, y,z\in\mathbb{R}^22\)</span> are given by
+<span class="math display">\[\begin{aligned}x &amp;= (2,0)\\ y &amp;= (1,−1)\\ z &amp;= (0,3) \end{aligned}\]</span>
+The agent has reference dependent preferences, that is, given an alternative <span class="math inline">\(a = (a_1, a_2)\in\mathbb{R}^2\)</span> and a reference point <span class="math inline">\(r = (r1, r2)\in\mathbb{R}^2\)</span>, his utility is
+<span class="math display">\[U(a|r)=a_1 +a_2 +μ(a_1 −r_1)+μ(a_2 −r_2)\]</span>
+where <span class="math inline">\(μ(∆) = ∆\)</span> for <span class="math inline">\(∆\geq 0\)</span>, and <span class="math inline">\(μ(∆) = λ∆\)</span> for <span class="math inline">\(∆\leq 0\)</span>, <span class="math inline">\(λ = 3\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Suppose first that the consumer faces choice set A.<br />
+Determine all personal equilibria.</li>
+<li>Suppose from now on that in an initial period <span class="math inline">\(t = 0\)</span>, the consumer knows that he will face the choice set A with probability <span class="math inline">\(α\)</span> and the choice set B with probability <span class="math inline">\(1−α\)</span> in period <span class="math inline">\(t = 1\)</span>.<br />
+Suppose the agent forms a reference point in <span class="math inline">\(t = 0\)</span> (according to the notion of personal equilibrium), and in <span class="math inline">\(t = 1\)</span> makes the actual choice from the realized choice set.<br />
+Determine the reference point when the agent plans to choose <span class="math inline">\(x\in A\)</span> and <span class="math inline">\(z\in B\)</span>.</li>
+<li>Determine the largest value of <span class="math inline">\(α\)</span> so that choosing <span class="math inline">\(x\in A\)</span> and <span class="math inline">\(z\in B\)</span> is indeed a personal equilibrium.</li>
+<li>Suppose that <span class="math inline">\(α = \frac{1}{2}\)</span>, and it is a personal equilibrium to choose <span class="math inline">\(x\in A\)</span> and <span class="math inline">\(z\in B\)</span>.<br />
+Determine the agent’s expected utility from the perspective of <span class="math inline">\(t = 0\)</span> in this equilibrium.</li>
+<li>Compare the agent’s utility under (4) with the agent’s utility under (1).<br />
+Which one is larger? Explain intuitively why this is so.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(A = \{x,y\}\)</span>, therefore, y is dominated,<br />
+<span class="math inline">\(\implies x\)</span> is the unique PE</li>
+<li><span class="math inline">\(R = \begin{pmatrix}α &amp; 1-α \\ (2,0) &amp; (0,3) \end{pmatrix}\)</span></li>
+<li>Choosing <span class="math inline">\(x\in B\)</span> gives
+<span class="math display">\[\begin{aligned}2 + 0 + α\cdot 0 + (1-α)(2-3λ) &amp;= -5 + 7α \end{aligned}\]</span>
+Choosing <span class="math inline">\(z\in B\)</span> gives
+<span class="math display">\[\begin{aligned}0 + 3 + α(3-2λ) + (1-α)\cdot 0 = 3 - 3α \end{aligned}\]</span>
+z is better than x when
+<span class="math display">\[\begin{aligned}3 - 3α &amp;\geq -5 + 7α \\ α &amp;\leq\frac{4}{5} \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(α = \frac{1}{2}\)</span>, expected utility:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}α\big(2+(1-α)(2-3λ)\big) + (1-α)\big(3 + α(3-2λ\big)\\
+&amp;= 2α + (1-α)\cdot 3 - α(1-α)\cdot 10 \\
+&amp;= 0\end{aligned}\]</span></li>
+<li>Comparison effect</li>
+</ol>
 </div>
 <div id="behaviour-attachment-effect-comparison-effect" class="section level3">
 <h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
@@ -1117,6 +1153,79 @@ The maximum price they will accept is
 <span class="math display">\[\begin{aligned}x &amp;= u_1(A) - u_1(C)\\
 &amp;= 6 - 1\\
 &amp;= 5 \end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>Mock.Q1<br />
+A movie internet platform offers two contracts.<br />
+Under a “pay-as-you-go” contract, watching a movie costs <span class="math inline">\(p\geq 0\)</span> per movie.<br />
+Under a “subscription” contract, watching a movie is for free, but there is a subscription fee <span class="math inline">\(F\geq 0\)</span>.<br />
+A subscription is for one year, and if it is not canceled, it is automatically renewed.<br />
+There is one agent whose (gross) benefit from watching one movie is <span class="math inline">\(b = 1\)</span>.<br />
+The agent watches <span class="math inline">\(λ = 25\)</span> movies in the first year, and 0 movies in the second year.<br />
+Cancelling requires an “attention cost” <span class="math inline">\(c = 10\)</span> which the agent has to occur immediately (if indifferent between canceling and not canceling the subscription, the agent does not cancel).<br />
+Timing:<br />
+In period 0, the firm offers the contracts, and the consumer chooses between the pay-as-you-go and the subscription contract, or chooses her outside option yielding her 0.<br />
+In period 1 (“year 1”), the agent watches the movies, and under the subscription contract can cancel the subscription.<br />
+In period 2, if the agent has not cancelled the subscription, he pays the fee to the firm.<br />
+There is no third year, and so the subscription in the second year does not need to be cancelled.<br />
+Assume that the agent is a <span class="math inline">\(β-δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span>, and <span class="math inline">\(β = \frac{1}{2}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Suppose the agent has chosen the subscription.<br />
+Determine all values of <span class="math inline">\(F\)</span>, so that a time-consistent agent does, but a time-inconsistent agent does not, cancel the subscription.</li>
+<li>Suppose the agent is time-consistent.<br />
+Argue that it is weakly optimal for the firm to induce the agent to choose the pay-as-you-go contract.<br />
+What is the optimal pay-as-you-go price <span class="math inline">\(p\)</span> in this case?</li>
+<li>Suppose now that the firm faces a naive time-inconsistent consumer, and suppose that <span class="math inline">\(p = b = 1\)</span>.<br />
+There is a critical value <span class="math inline">\(\hat{F}\)</span> so that the agent takes the subscription if, and only if, <span class="math inline">\(F\leq\hat{F}\)</span>.<br />
+Determine <span class="math inline">\(\hat{F}\)</span>.</li>
+<li>Under the same assumptions as in (3), determine the profit-maximizing fee for the firm and its maximal profit.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Cancelling gives <span class="math inline">\(25 - F - c\)</span><br />
+Not cancelling gives <span class="math inline">\(25 - F - βF\)</span><br />
+<span class="math inline">\(β=1\)</span> chooses to cancel if
+<span class="math display">\[\begin{aligned}25 - F - c &amp;&gt; 25 - F - βF\\
+-c &amp;&gt; -βF \\
+F &amp;&gt; c \end{aligned}\]</span>
+<span class="math inline">\(β&lt;1\)</span> chooses not to cancel if
+<span class="math display">\[\begin{aligned}25 - F - c &amp;\leq 25 - F - βF\\
+-c &amp;\leq -βF \\
+F &amp;\leq \frac{c}{β} \end{aligned}\]</span>
+therefore, <span class="math inline">\(c&lt;F\leq\frac{c}{β}\)</span><br />
+<span class="math inline">\(\implies F\in(10, 20]\)</span></li>
+<li>Firm can either
+<ol style="list-style-type: lower-alpha">
+<li>Set very large <span class="math inline">\(F\)</span><br />
+Agent chooses pay-as-you-go<br />
+<span class="math inline">\(η = b = 1\)</span><br />
+Firm’s profit: <span class="math inline">\(π = λb = λη = 25\)</span></li>
+<li>Induce the agent to subscribe<br />
+If agent cancels, gets <span class="math inline">\(u = 25 - 10 - F\)</span><br />
+Firm’s profit: <span class="math inline">\(π = 25 - 10 = 15\)</span><br />
+If agent doesn’t cancel, gets <span class="math inline">\(u = λb - 2F = 25 - 2F\)</span><br />
+Firm can set up to <span class="math inline">\(\bar{F} = 10\)</span><br />
+Firm’s profit: <span class="math inline">\(π = 20\)</span><br />
+Therefore, pay-as-you-go is optimal for the firm</li>
+</ol></li>
+<li>Consumer does not cancel <span class="math inline">\(\iff F&lt;c = 0\)</span><br />
+<span class="math display">\[\begin{aligned}-2F + λb &amp;\geq 0 \\
+F &amp;\leq \frac{λb}{2} \\
+&amp;= \frac{25}{2}\end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(F\in[0,10]\)</span>, the agent always subscribes</li>
+<li>When <span class="math inline">\(F\geq 10\)</span>,<br />
+agent subscribes if
+<span class="math display">\[\begin{aligned}-F + λb - c &amp;\geq 0\\
+ F&amp;\leq λb - c \\
+ &amp;= 15 \end{aligned}\]</span>
+Therefore, the maximual <span class="math inline">\(\hat{F} = 15\)</span></li>
+</ol></li>
+<li>When <span class="math inline">\(F\in[10,15]\)</span>, agent subscribes and believes that he cancels but doesn’t<br />
+Firm’s profit: <span class="math inline">\(π = 2F = 2\hat{F} = 30\)</span><br />
+When <span class="math inline">\(F&lt;10\)</span>, agent subscribes<br />
+Firm’s profit: <span class="math inline">\(π = λb = 25\)</span><br />
+When <span class="math inline">\(F&gt;15\)</span>, <span class="math inline">\(F^* = 15\)</span>, <span class="math inline">\(π = 30\)</span></li>
 </ol>
 </div>
 <div id="sophistication-effect" class="section level3">
@@ -2259,8 +2368,17 @@ What is the Receiver’s best response for each of the Receiver’s two types?</
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(E[a_s|S] = \frac{1}{2}\cdot 0 + \frac{1}{2}\cdot 1 = \frac{1}{2}\)</span></li>
-<li><span class="math inline">\(u(S | 1) = 20 + (0.75 + 0.25\cdot 0.5)\cdot 30 = 46.5\)</span><br />
-<span class="math inline">\(u(S|-1) = 20 + \big(0.75\cdot(-1) + 0.25\cdot 0.5\big) = 1.25\)</span></li>
+<li><span class="math inline">\(u_r(S | 1) = 20 + (0.75 + 0.25\cdot 0.5)\cdot 30 = 46.5\)</span><br />
+<span class="math inline">\(u_r(S|-1) = 20 + \big(0.75\cdot(-1) + 0.25\cdot 0.5\big) = 1.25\)</span><br />
+</li>
+<li><span class="math inline">\(u_r(K) = 30 + (0.75a_r + 0.25\cdot E[a_p|S]\big)\cdot 0 = 30\)</span><br />
+<span class="math inline">\(a_r = 1\)</span>: optimal to share<br />
+<span class="math inline">\(a_1 = -1\)</span>: optimal to keep</li>
+<li><span class="math inline">\(u_s(K) = 10\)</span><br />
+<span class="math inline">\(u_s(S| -1) = q\big(30 + (-0.75 + 0.25)\cdot 20\big) + (1-q)\big(0 + (-0.75 - 0.25)\cdot 20\big) = 40q - 20&lt;0\)</span><br />
+<span class="math inline">\(u_s(S| 0) = q\big(30 + (0.75 + 0.25)\cdot 20\big) + (1-q)\big(0 + (0 - 0.25)\cdot 20\big) = 42.5q - 7.5\)</span><br />
+Therefore, <span class="math inline">\(u_s(S| 1) &gt; u_s(S| 0)\)</span><br />
+and <span class="math inline">\(u_s(S| 0) &gt; u_s(K)\iff q&gt;\frac{7}{17}\)</span></li>
 </ol>
 </div>
 <div id="private-types-signalling" class="section level3">
