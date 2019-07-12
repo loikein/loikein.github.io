@@ -1523,18 +1523,19 @@ For <span class="math inline">\(i=6\)</span>, <span class="math inline">\(v^6=1\
 <li>Set of histories: <span class="math inline">\(H = \{\emptyset\}\cup\big(\cup_{t=1}^{\infty} A^t\big) \cup A^{\mathbb{N}}\)</span></li>
 <li>Initial history (node): <span class="math inline">\(h^1 = \emptyset\)</span></li>
 <li>A history of length t:
-<span class="math display">\[\begin{aligned}h^t &amp;= (a^τ)^{t-1}_{τ=1} = A^{t-1} \\ h^{t+1} &amp;= (h^t, a^t)\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}h^t &amp;= (a^τ)^{t-1}_{τ=1} \in A^{t-1} \\ h^{t+1} &amp;= (h^t, a^t)\end{aligned}\]</span>
 <!--     $h^t$ occurs in the beginning of period $t$:
   $$\begin{aligned}h^t &= \Big(h^{t-1},\big( s_1(h^{t-1},\dots, s_n(h^{t-1}) \big)\Big) \\
   &= (h^{t-1}, a^{t-1}) \\
   &= (a^1, a^2,\dots, a^{t-1})\end{aligned}$$ --></li>
 </ul></li>
-<li>Strategy in <span class="math inline">\(G^{\infty}\)</span> <!-- 20190712-1637 here -->
+<li>Strategy in <span class="math inline">\(G^{\infty}\)</span>
 <ul>
-<li>Player i’s strategy : <span class="math inline">\(s_i(h^t)(H\backslash Z) \to A_i\)</span>, <span class="math inline">\(s_i\in S_i\)</span></li>
+<li>Player i’s strategy : <span class="math inline">\(s_i(h^t): (H\backslash Z) \to A_i\)</span>, <span class="math inline">\(s_i\in S_i\)</span></li>
 <li>Set of player i’s strategy: <span class="math inline">\(S_i\)</span></li>
-<li>Strategy profile: <span class="math inline">\(s = (s_1, s_2,\dots, s_n)\)</span></li>
-<li>Set of strategy profiles: <span class="math inline">\(S = \prod_{j\in N} S_j\)</span>
+<li>Strategy profile: <span class="math inline">\(s = (s_1, s_2,\dots, s_n)\)</span><br />
+<span class="math inline">\(s(h^t) = \big( s_1(h^t),\dots, s_n(h^t)\big)\)</span>
+<!-- - Set of strategy profiles: $S = \prod_{j\in N} S_j$ -->
 <!-- - Preference & Utility
   - $\succsim_i$ defined on $Z$
   - Weak separability  
@@ -1543,9 +1544,8 @@ For <span class="math inline">\(i=6\)</span>, <span class="math inline">\(v^6=1\
   (a^1, \dots, a^{t-1}, a, a^{t+1},\dots) &\succsim_i^* (a^1, \dots, a^{t-1}, a', a^{t+1},\dots) \\
   \big(g_i(a^1, \dots, a^{t-1}, a, a^{t+1},\dots)\big &> \big(g_i(a^1, \dots, a^{t-1}, a', a^{t+1},\dots)\big\end{aligned}$$ --></li>
 </ul></li>
-<li>Discount rate: <span class="math inline">\(δ\in (0,1)\)</span>
+<li>Discount rate: <span class="math inline">\(δ\in (0,1)\)</span> <!-- 20190712-1724 here -->
 <ul>
-<li><span class="math inline">\(s(h^t) = \big( s_i(h^t), s_{-i}(h^t)\big) = a^t\)</span></li>
 <li>Discounted payoff: <!--  of player i with $s = (s_i, s_{-i})$ -->
 <span class="math display">\[\begin{aligned}\hat{u}_i(s_i, s_{-i}) &amp;= \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big( s_i(h^t), s_{-i}(h^t)\big) \\
   &amp;= \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big(s(h^t)\big)\end{aligned}\]</span></li>
