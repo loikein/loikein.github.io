@@ -1564,7 +1564,6 @@ H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 <div id="payoffs-perfect-folk-theorem" class="section level3">
 <h3>Payoffs: (Perfect) Folk Theorem</h3>
 <p>OR 8.3, 8.5, 8.8, 8.9<br />
-<a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-254-game-theory-with-engineering-applications-spring-2010/lecture-notes/MIT6_254S10_lec16.pdf">Game Theory with Engineering Applications Lecture 16</a> (P7)<br />
 <a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)#Summary_of_folk_theorems">Folk theorem - Wikipedia</a></p>
 <ul>
 <li>Game: <span class="math inline">\(G^{\infty}(δ) = \big\langle N, (S_i)_{i\in N}, (u_i)_{i\in N}\big\rangle\)</span></li>
@@ -1600,18 +1599,18 @@ break down:
   V^* &amp;\subset V \end{aligned}\]</span></li>
 <li>Enforceable outcome: <span class="math inline">\(a\in A\)</span> is an outcome of G, <span class="math inline">\(u(a)\in V^*\)</span></li>
 </ul></li>
-<li>Nash folk theorem (discounting, infinite) (OR Proposition 145.2)</li>
-<li>Perfect folk theorem (discounting, infinite) (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1) <!-- 20190712-1940 now here -->
+<li>Nash folk theorem (discounting, infinite) (OR Proposition 145.2) <!-- 20190712-2037 now here --></li>
+<li>Perfect folk theorem (discounting, infinite) (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)
 <ul>
 <li>Game: <span class="math inline">\(G^{\infty}\)</span></li>
 <li>Assumption: <span class="math inline">\(\dim (V^*) = |I| = n\)</span><br />
-<!-- "the idea is to use the assumption on the dimension of $V^*$ to ensure that each player i can be singled out for punishment in the event of a deviation, and then use rewards and punishments for other players to ensure that the deviator can be held down to her minmax payoff." --></li>
+</li>
 <li>For any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, <span class="math inline">\(G^{\infty}(δ)\)</span> has an SPNE with <span class="math inline">\(u = \hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
 </ul></li>
 <li>Perfect folk theorem (discounting, finite) (Benoit, Krishna 1986, OR Proposition 159.1)
 <ul>
 <li>Game: <span class="math inline">\(G^T\)</span></li>
-<li>Average ayoff: <span class="math inline">\(\bar(p) = \frac{1}{T}\sum_{t=1}^T g(a^t)\)</span> (<span class="math inline">\(δ=1\)</span>)</li>
+<li>Average payoff: <span class="math inline">\(\bar(p) = \frac{1}{T}\sum_{t=1}^T g(a^t)\)</span> (<span class="math inline">\(δ=1\)</span>)</li>
 <li>Assumptions: <span class="math inline">\(\dim (V^*) = |I| = n\)</span>; exists <strong>2 NE</strong> of the stage game for each i</li>
 <li>Let <span class="math inline">\(v\in V^*\)</span>, for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T&#39;\)</span> s.t. for all <span class="math inline">\(T&gt;T&#39;\)</span>, <span class="math inline">\(G^T\)</span> has a SPNE with <span class="math inline">\(\bar(p) = \hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
 </ul></li>
@@ -1623,6 +1622,11 @@ A strategy profile is a SPNE of the discounted infinitely repeated game of G<br 
 <ul>
 <li>An infinitely repeated game usually has more SPNEs than a finitely repeated game, and it may have multiple SPNEs even if the stage game has a unique NE.</li>
 <li>Playing NE in each stage game, regardless of history, is still a SPNE in the infinitely repeated game.</li>
+</ul>
+<p>Quote from <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-254-game-theory-with-engineering-applications-spring-2010/lecture-notes/MIT6_254S10_lec16.pdf">Game Theory with Engineering Applications Lecture 16</a> (P7-8):</p>
+<ul>
+<li>The idea is to use the assumption on the dimension of <span class="math inline">\(V^*\)</span> (<span class="math inline">\(\dim (V^*) = |I| = n\)</span>) to ensure that each player i can be singled out for punishment in the event of a deviation, and then use rewards and punishments for other players to ensure that the deviator can be held down to her minmax payoff.</li>
+<li>Finitely-repeated games with unique stage equilibrium do not allow corporation or any other outcome than the repetition of this unique equilibrium.</li>
 </ul>
 </div>
 <div id="example-battle-of-sexes-bos" class="section level3">
