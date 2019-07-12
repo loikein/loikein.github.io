@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">44 min read</span>
+    <span class="article-duration">49 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -431,6 +431,44 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 (PC) &amp;&amp; \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/o warranty}} &amp;\geq \underbrace{θ_1 - (1-q) \cdot c}_{\text{Not sell}} \\
 \implies &amp;&amp; θ_2 &amp;\geq θ_1\end{aligned}\]</span></li>
 <li>There is no equilibrium where a <span class="math inline">\(\bar{s}\)</span> seller does not sell</li>
+</ol>
+<blockquote>
+<p>Mock.Q3<br />
+A worker knows her talent <span class="math inline">\(θ\)</span>, but the employer does not.<br />
+The value of the worker to the employer is <span class="math inline">\(Ε[θ]\)</span> (given the employers information, including what he learns through the game).<br />
+The employer pays the worker a wage equal to this expectation over talent, <span class="math inline">\(w = Ε[θ]\)</span>, where the expectation operator is understood as conditional on all information available.<br />
+This is a shortcut to model competition between employers.<br />
+Prior to meeting the employer, the worker can choose a level of eduction <span class="math inline">\(e\)</span>.<br />
+The worker’s payoff function is <span class="math inline">\(w - \frac{e}{θ}\)</span>.<br />
+The worker can be of either of two types, <span class="math inline">\(θ\in\{ θ_l, θ_h\}\)</span> with probability <span class="math inline">\(Pr(θ_h) = p\)</span>.<br />
+<span class="math inline">\(e\)</span> is a continuous variable.<br />
+Timing: First, Nature determines the worker’s type.<br />
+Then the worker observes Nature’s move and chooses a level of education.<br />
+The employer does not observe Nature’s move, but he does observe the worker’s education choice and makes wage offers contingent on the education choice.<br />
+The equilibrium concept is Perfect Bayesian Equilibrium.</p>
+<ol style="list-style-type: decimal">
+<li>Characterize pooling equilibria where both worker types choose the same level of education.<br />
+Be careful to discuss the employer’s off equilibrium path beliefs and the resulting wage schedule.</li>
+<li>Suppose <span class="math inline">\(e^*\)</span> is a pooling level of education.<br />
+Assuming that the employer believes that <span class="math inline">\(θ = θ_l\)</span> if <span class="math inline">\(e\neq e^*\)</span>, characterize all possible levels of <span class="math inline">\(e^*\)</span>.</li>
+<li>Characterize separating equilibria where the high type chooses a different level of education than the low type.</li>
+<li>Discuss the worker’s (type by type) and the employer’s preferences over the different separating equilibria.</li>
+<li>Is it possible that both worker types are better-off in a pooling equilibrium relative to a separating equilibrium? Discuss.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Wage: <span class="math inline">\(w_p = pθ_h + (1-p)θ_l\)</span><br />
+Belief on path: <span class="math inline">\(μ(e_p) = p\)</span>, <span class="math inline">\(μ(e) = 0\)</span> otherwise<br />
+</li>
+<li></li>
+<li>Seperating equilibrium<br />
+For high types: <span class="math inline">\(θ_h - \frac{e_s}{θ_l} \leq θ_l\)</span><br />
+therefore, <span class="math inline">\(e_s \geq θ_l(θ_h - θ_l)\)</span><br />
+</li>
+<li>Low type gets <span class="math inline">\(θ_l\)</span>, high type gets <span class="math inline">\(θ_h - \frac{θ_l}{θ_h}(θ_h - θ_l)\)</span></li>
+<li>In pooling, high type gets <span class="math inline">\(pθ_h -(1-p) θ_l\)</span><br />
+So when <span class="math inline">\(p\)</span> is high, <span class="math inline">\(pθ_h -(1-p) θ_l &gt; θ_h - \frac{θ_l}{θ_h}(θ_h - θ_l)\)</span><br />
+and high type is better-off</li>
 </ol>
 </div>
 </div>
@@ -1066,6 +1104,42 @@ Consider <span class="math inline">\(β\)</span>: <span class="math inline">\(β
 <img src="/post-img/notes-contract--insurance-SE2.png" width="505" alt="" />
 <p class="caption">RS(1976) Figure 3</p>
 </div>
+<blockquote>
+<p>Mock.Q1<br />
+Consider a market for loans to finance investment projects.<br />
+Investing requires an outlay of 1 Dollar.<br />
+There are two types of projects, good and bad. A good project yields profit <span class="math inline">\(π\)</span> with probability <span class="math inline">\(g\)</span> and zero with <span class="math inline">\(1-g\)</span>.<br />
+A bad project yields profit <span class="math inline">\(π\)</span> with <span class="math inline">\(b\)</span> and zero with <span class="math inline">\(1-b\)</span>, where <span class="math inline">\(g&gt;b\)</span>.<br />
+The fraction of good projects is <span class="math inline">\(λ\)</span>.<br />
+Entrepreneurs have no money but can borrow from banks, entrepreneurs know their type, banks don’t.<br />
+A loan contract specifies repayment <span class="math inline">\(R\)</span>.<br />
+Suppose banks can obtain funds at rate <span class="math inline">\(r\)</span> (or, equivalently, the opportunity cost of one dollar for a bank is <span class="math inline">\(1 + r\)</span>).<br />
+Everybody is risk neutral, banks are competitive.<br />
+Assume that <span class="math inline">\(gπ - (1+r) &gt; 0 &gt; bπ - (1+r)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Find the equilibrium level of <span class="math inline">\(R\)</span> and the set of projects financed.</li>
+<li>Suppose now that the entrepreneur can offer to contribute a fraction <span class="math inline">\(x\)</span> of the initial outlay.<br />
+Important: while the entrepreneur has some money to put on the table in the beginning of the game, she cannot store this money; that is, she still can only repay when the outcome of the project is good.<br />
+The cost to the entrepreneur is <span class="math inline">\((1 + ρ) x\)</span> where <span class="math inline">\(ρ &gt; r\)</span>.<br />
+Write the entrepreneur’s payoff function.</li>
+<li>Suppose the timing of the game is that first the entrepreneur puts <span class="math inline">\(x\)</span> dollars on the table, and then the bank(s) make contract offers specifying <span class="math inline">\(R\)</span>.<br />
+Describe the separating equilibrium in which the good type’s utility is highest.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let banks break even</li>
+<li>Doing something inefficient is a signal<br />
+Good type: <span class="math inline">\(g(π-R(x)) - (1+ρ) x\)</span></li>
+<li>Let the bad types be indifferent (no rent at the bottom)<br />
+Bad type: <span class="math inline">\(bR(x_b) = (1-x_b)(1+r)\)</span><br />
+plug back into bad type’s payoff<br />
+<span class="math inline">\(b(π-R(x_b)) - (1+ρ) x_b = bπ - (1-x_b)(1+r) - (1+ρ)x_b\)</span><br />
+since <span class="math inline">\(0 &gt; bπ - (1+r)\)</span>, bad types are not financed<br />
+Good type: <span class="math inline">\(gR(x_g) = (1-x_g)(1+r)\)</span><br />
+plug back into good type’s payoff<br />
+<span class="math inline">\(gπ - (1-x_g)(1+r) - (1+ρ)x_g\)</span><br />
+<span class="math inline">\(x_g\)</span> is the smallest <span class="math inline">\(x\)</span> that just discourages bad types from taking the loan.</li>
+</ol>
 </div>
 </div>
 <div id="screening-non-linear-pricing" class="section level2">
@@ -1260,6 +1334,45 @@ FOC &amp;&amp; \frac{\partial}{\partial\bar{s}} &amp;= γ\cdot\big(8\cdot\frac{1
 γ &amp;\leq\frac{1}{4} \end{aligned}\]</span>
 therefore, when <span class="math inline">\(γ&gt;\frac{1}{4}\)</span>, low types are excluded from the menu.<br />
 <span class="math inline">\(\implies\)</span> downwards distortion below the top</li>
+</ol>
+<blockquote>
+<p>Mock.Q2<br />
+An airline has the exclusive right to transport passengers between two islands.<br />
+The island is visited by tourists and bankers.<br />
+The airline cannot tell whether any given passenger is a tourist or a banker.<br />
+Tourists and bankers differ with respect to their preferences.<br />
+If a traveller buys a ticket at price <span class="math inline">\(P\)</span> a time span <span class="math inline">\(W\)</span> before travelling, then his utility is
+<span class="math display">\[\begin{aligned}\text{Tourist} &amp;&amp; v - θ_TP - W \\ \text{Banker} &amp;&amp; v - θ_BP - W\end{aligned}\]</span>
+where <span class="math inline">\(θ_T &gt; θ_B &gt; 0\)</span>. Thus, a tourist dislikes increases in the price more than a banker does.<br />
+Both of them dislike buying their ticket in advance.<br />
+The airline wishes to design a pricing scheme <span class="math inline">\(\{P_T, W_T\}\)</span> and <span class="math inline">\(\{P_B, W_B\}\)</span> so as to maximize its profits
+<span class="math display">\[λP_T + (1-λ)P_B\]</span>
+where <span class="math inline">\(λ\)</span> is the fraction of tourists and <span class="math inline">\((1-λ)\)</span> is the fraction of bankers.<br />
+Note that the airline’s profit does not directly depend on how early travellers buy their tickets in advance.<br />
+The airline can only set non- negative prices, <span class="math inline">\(P_T,P_B \geq 0\)</span> and the tickets must be bought prior to travelling <span class="math inline">\(W_T, W_B\geq 0\)</span>.<br />
+Passengers cannot be forced to travel, so they must be happy to do so if the airline wishes to serve them.<br />
+Note also that the marginal cost of transporting passengers is zero.</p>
+<ol style="list-style-type: decimal">
+<li>Draw the indi§erence curves of the two customer types and the isoprofit lines of the airline in the contract space. Explain your graph.</li>
+<li>Formulate the airline’s problem and explain the constraints you impose.</li>
+<li>Which of the constraints in the problem must be binding at the optimum? Explain!</li>
+<li>Solve now the problem. How does the solution depend on the parameters?<br />
+Under what conditions are both customer types served?</li>
+<li>What are the classical features of optimal allocations in a screening problem?<br />
+Do you find these classical predictions confirmed in your solution?<br />
+Comment on the properties of the optimal allocation.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(u_P = v - θ_TP - W\)</span>, <span class="math inline">\(W = v - u_P - θ_TP\)</span></li>
+<li><span class="math display">\[\begin{aligned}\max_{P_i,W_i} &amp;&amp; &amp;λP_T + (1-λ)P_B \\
+(PC)_T &amp;&amp; &amp;v - θ_TP_T - W_T\geq 0 \\
+(PC)_B &amp;&amp; &amp;v - θ_BP_B - W_B\geq 0\\
+(IC)_T &amp;&amp; &amp;v - θ_TP_T - W_T\geq v - θ_TP_B - W_B\\
+(IC)_B &amp;&amp; &amp;v - θ_BP_B - W_B\geq v - θ_BP_T - W_T \end{aligned}\]</span></li>
+<li>(PC)T and (IC)B are binding</li>
+<li>Two possibilities: excluding T or letting T have 0 profit</li>
+<li></li>
 </ol>
 </div>
 <div id="continuous-types-mechanism-approach" class="section level3">
