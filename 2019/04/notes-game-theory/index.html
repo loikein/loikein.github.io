@@ -116,8 +116,8 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#repeated-game">Repeated Game</a><ul>
 <li><a href="#stage-game">Stage Game</a></li>
-<li><a href="#repetition">Repetition</a></li>
-<li><a href="#perfect-folk-theorem">(Perfect) Folk Theorem</a></li>
+<li><a href="#discounted-repetition">δ-Discounted Repetition</a></li>
+<li><a href="#payoffs-perfect-folk-theorem">Payoffs: (Perfect) Folk Theorem</a></li>
 <li><a href="#example-battle-of-sexes-bos">Example: Battle of Sexes (BoS)</a></li>
 <li><a href="#example-prisoners-dilemma-pd">Example: Prisoner’s Dilemma (PD)</a></li>
 <li><a href="#example-price-wars">Example: Price Wars</a></li>
@@ -1477,66 +1477,78 @@ For <span class="math inline">\(i=6\)</span>, <span class="math inline">\(v^6=1\
 <h2>Repeated Game</h2>
 <div id="stage-game" class="section level3">
 <h3>Stage Game</h3>
+<p>OR 8.3</p>
 <ul>
 <li>Stage (constituent) game:
-<span class="math display">\[G = \big\langle I, (A_i)_{i\in I}, (g_i)_{i\in I}\big\rangle\]</span></li>
-<li>Set of players: <span class="math inline">\(I\)</span>, <span class="math inline">\(|I| = n\)</span>
+<span class="math display">\[G = \big\langle N, (A_i)_{i\in N}, (g_i)_{i\in N}\big\rangle\]</span></li>
+<li>Set of players: <span class="math inline">\(N\)</span>, <span class="math inline">\(|N| = n\)</span>
 <ul>
-<li>Player function: <span class="math inline">\(P: (H\backslash Z) \to I\)</span></li>
-<li>One player’s strategy: <span class="math inline">\(s_i(h): (H\backslash Z) \to A_i\)</span></li>
-<li>Set of strategy: <span class="math inline">\(S_i\)</span>, <span class="math inline">\(s_i\in S_i\)</span></li>
-<li>Strategy profile: <span class="math inline">\(s = (s_i)_{i\in I}\)</span></li>
+<li>Player function: <span class="math inline">\(P: (H\backslash Z) \to N\)</span></li>
 </ul></li>
-<li>Set of (possible) actions: <span class="math inline">\(A = \{ a \ | \ (h,a)\in H\}\)</span>
+<li>Set of action series: <span class="math inline">\(A = \{ a \ | \ (h,a)\in H\} = \prod_{i\in N} A_i\)</span>
 <ul>
 <li>Set of action series for player i: <span class="math inline">\(A_i\)</span></li>
-<li>Set of action series for all players: <span class="math inline">\(A = A_1\times \dots\times A_n\)</span></li>
-<li>Action profile
+<li>Action profile in <span class="math inline">\(G\)</span>:
 <span class="math display">\[\begin{aligned}a^t &amp;= \big( s_1(a^1,a^2,\dots,a^{t-1}),\dots, s_n(a^1,a^2,\dots,a^{t-1})\big) \\
   &amp;= \big(s_1(h^t),\dots, s_n(h^t)\big)\end{aligned}\]</span></li>
 </ul></li>
 <li>Utility function: <span class="math inline">\(g_i: A\to\mathbb{R}\)</span></li>
-<li>Preference relation: <span class="math inline">\(\succsim_i\)</span> defined on <span class="math inline">\(Z\)</span></li>
 </ul>
 </div>
-<div id="repetition" class="section level3">
-<h3>Repetition</h3>
+<div id="discounted-repetition" class="section level3">
+<h3>δ-Discounted Repetition</h3>
+<p>OR 8.3</p>
 <ul>
-<li>Infinitely repeated game (with discounting preference):
-<span class="math display">\[G^{\infty}(δ) = \big\langle I, (S_i)_{i\in I}, (u_i)_{i\in I}\big\rangle\]</span></li>
-<li>Set of histories: <span class="math inline">\(H = \{\emptyset\}\cup\big(\cup_{t=1}^{\infty} A^t\big) \cup A^{\mathbb{N}}\)</span>
+<li>Infinitely repeated game:
+<span class="math display">\[G^{\infty}(δ) = \big\langle N, (S_i)_{i\in N}, (u_i)_{i\in N}\big\rangle\]</span></li>
+<li>Set of histories: <span class="math display">\[H = \{\emptyset\}\cup\big(\cup_{t=1}^{\infty} A^t\big) \cup A^{\mathbb{N}}\]</span>
+<!--     - Set of terminal histories: $Z\subset H$ -->
 <ul>
-<li>Set of terminal histories: <span class="math inline">\(Z\subset H\)</span></li>
 <li>Initial history (node): <span class="math inline">\(h^1 = \emptyset\)</span></li>
-<li>A history is a series of action profiles<br />
+<li>Set of sequences of action profiles: <span class="math inline">\(A^τ = \{ (a^t)^τ_{t=1}\}\)</span></li>
+<li>History is a series of action profiles<br />
 <span class="math inline">\(h^t\)</span> occurs at the beginning of period <span class="math inline">\(t\)</span> if players use strategy profile <span class="math inline">\(s\)</span>
 <span class="math display">\[\begin{aligned}h^t(s) &amp;= \Big(h^{t-1},\big( s_1(h^{t-1},\dots, s_n(h^{t-1}) \big)\Big) \\
   &amp;= (h^{t-1}, a^{t-1}) \\
-  &amp;= (a^1, a^2,\dots, a^{t-1})\end{aligned}\]</span></li>
+  &amp;= (a^1, a^2,\dots, a^{t-1})\end{aligned}\]</span>
+<!-- - Preference & Utility
+  - $\succsim_i$ defined on $Z$
+  - Weak separability  
+  if some $(a^t)\in A^{\mathbb{N}}$, $a,a'\in A$, then for all $t$,
+  $$\begin{aligned}a &\succsim_i a'\\ u_i(a) &> u_i(a') \\
+  (a^1, \dots, a^{t-1}, a, a^{t+1},\dots) &\succsim_i^* (a^1, \dots, a^{t-1}, a', a^{t+1},\dots) \\
+  \big(u_i(a^1, \dots, a^{t-1}, a, a^{t+1},\dots)\big &> \big(u_i(a^1, \dots, a^{t-1}, a', a^{t+1},\dots)\big\end{aligned}$$ --></li>
+</ul></li>
+<li>Set of player i’s strategy: <span class="math inline">\(S_i\)</span>
+<ul>
+<li>Player i’s strategy : <span class="math inline">\(s_i(h^t) \in S_i\)</span>:<!--  $(H\backslash Z) \to A_i$, --></li>
+<li>Strategy profile: <span class="math inline">\(s = (s_1, s_2,\dots, s_n)\)</span></li>
+<li>Set of strategy profiles: <span class="math inline">\(S_j = \prod_{j\in N} S_j\)</span></li>
 </ul></li>
 <li>Discount rate: <span class="math inline">\(δ\in [0,1)\)</span>
 <ul>
+<li><span class="math inline">\(s(h^t) = \big( s_i(h^t), s_{-i}(h^t)\big)\)</span> <!--  = a^t --></li>
 <li>Discounted payoff of player i with <span class="math inline">\(s = (s_i, s_{-i})\)</span>:
 <span class="math display">\[\begin{aligned}\hat{u}_i(s_i, s_{-i}) &amp;= \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big( s_i(h^t), s_{-i}(h^t)\big) \\
-  &amp;= \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i(a^t)\end{aligned}\]</span></li>
+  &amp;= \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big(s(h^t)\big)\end{aligned}\]</span></li>
 <li>Average discounted payoff:
 <span class="math display">\[\begin{aligned}u_i(s_i, s_{-i}) &amp;= \frac{1}{1+δ+δ^2+\dots}\cdot \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big( s_i(h^t), s_{-i}(h^t)\big)\\
-  &amp;= (1-δ)\cdot \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i(a^t) \\
-  &amp;= \sum_{t=1}^{\infty} δ^{t-1}(1-δ)\cdot g_i(a^t)\end{aligned}\]</span></li>
+  &amp;= (1-δ)\cdot \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big(s(h^t)\big) \\
+  &amp;= \sum_{t=1}^{\infty} δ^{t-1}(1-δ)\cdot g_i\big(s(h^t)\big)\end{aligned}\]</span></li>
 </ul></li>
 <li><span class="math inline">\(s\)</span> is NE <span class="math inline">\(\iff\)</span> for all <span class="math inline">\(i\in I\)</span>, for all <span class="math inline">\(s_i&#39;\)</span> for player i, <span class="math display">\[u_i(s)\geq u_i(s_i&#39;, s_{-i})\]</span></li>
 <li>Finitely repeated game:
-<span class="math display">\[\begin{aligned}G^T(δ) &amp;= \big\langle I, (S_i)_{i\in I}, (u_i)_{i\in I}\big\rangle \\
+<span class="math display">\[\begin{aligned}G^T(δ) &amp;= \big\langle N, (S_i)_{i\in I}, (u_i)_{i\in I}\big\rangle \\
 H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 </ul>
 </div>
-<div id="perfect-folk-theorem" class="section level3">
-<h3>(Perfect) Folk Theorem</h3>
+<div id="payoffs-perfect-folk-theorem" class="section level3">
+<h3>Payoffs: (Perfect) Folk Theorem</h3>
 <p>OR 8.5, 8.8, 8.9<br />
 <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-254-game-theory-with-engineering-applications-spring-2010/lecture-notes/MIT6_254S10_lec16.pdf">Game Theory with Engineering Applications Lecture 16: Repeated Games II</a>(P7)<br />
 <a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)#Summary_of_folk_theorems">Folk theorem - Wikipedia</a></p>
 <ul>
-<li>Game: <span class="math inline">\(G^{\infty} = \big(I, (A_i)_{i\in I}, (g_i)_{i\in I}\big)\)</span></li>
+<li>Game: <span class="math inline">\(G^{\infty} = \big(N, (A_i)_{i\in N}, (g_i)_{i\in N}\big)\)</span></li>
 <li>The set of NE outcomes of an infinitely repeated game<br />
 includes outcomes that are not repetitions of NE of the stage game<br />
 that cannot be established without punishment
@@ -1544,10 +1556,12 @@ that cannot be established without punishment
 <li>Trigger strategy: deviation leads to a punitive action that lasts forever</li>
 <li>All players uses trigger strategy</li>
 </ul></li>
-<li>Set of feasible payoffs (convex hull of payoff profile): <span class="math display">\[V = \Big\{α\cdot\big( g_1(a),\dots, g_n(a) \big) : a\in A, \textstyle{\sum}_n α_i =1 \Big\}\]</span>
+<li>Set of feasible payoffs (convex hull of payoff profile) (OR 8.3)
+<span class="math display">\[V = \Big\{α\cdot\big( g_1(a),\dots, g_n(a) \big) : a\in A, \textstyle{\sum}_n α_i =1 \Big\}\]</span>
 <ul>
-<li>Payoff profile: <span class="math inline">\(v\in\mathbb{R}^N\)</span>, exists <span class="math inline">\(a\)</span> s.t. <span class="math inline">\(v = \big( g_1(a),\dots, g_n(a) \big)\)</span></li>
+<li>Payoff profile: exists <span class="math inline">\(a\)</span> s.t. <span class="math inline">\(v = \big( g_1(a),\dots, g_n(a) \big)\)</span></li>
 <li>Feasible payoff profile: <span class="math inline">\(v\in V\)</span></li>
+<li>Feasible payoff profiles are not necessarily payoff profiles</li>
 </ul></li>
 <li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_n)\)</span>
 <ul>
@@ -1555,7 +1569,12 @@ that cannot be established without punishment
 <span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=1}^{\infty} \overbrace{δ^{t-1} (1-δ)}^{\sum = 1}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
   &amp;\in V \end{aligned}\]</span></li>
 </ul></li>
-<li>Minmax payoffs: <span class="math display">\[\underline{v}_i = \min_{a_{-i}\in A_{-i}} \ \max_{a_i\in A_i} \ g_i(a_{-i}, a_i)\]</span>
+<li>Minmax payoff (OR 8.5)<br />
+the lowest payoff that other players can force upon player i:
+<span class="math display">\[\underline{v}_i = \min_{a_{-i}\in A_{-i}} \ \max_{a_i\in A_i} \ g_i(a_{-i}, a_i)\]</span>
+break down:
+<span class="math display">\[\begin{aligned}g_i^*(a_{-i}) &amp;= \max_{a_i\in A_i} \ g_i(a_{-i}, a_i) \\
+\underline{v}_i &amp;= \min_{a_{-i}\in A_{-i}} \ g_i^*(a_{-i})\end{aligned}\]</span>
 <ul>
 <li>Set of enforceable payoff profiles:
 <span class="math display">\[\begin{aligned}V^* &amp;= \{ v\in V:v_i \geq\underline{v}_i \}\\
@@ -1568,6 +1587,7 @@ Let w be a strictly enforceable feasible payoff profile of G = ⟨N,(Ai), (ui)�
 </ul></li>
 <li>Perfect folk theorem (discounting, infinite) (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)
 <ul>
+<li>Game: <span class="math inline">\(G^{\infty}\)</span></li>
 <li>Assumption: <span class="math inline">\(\dim (V^*) = |I| = n\)</span><br />
 <!-- "the idea is to use the assumption on the dimension of $V^*$ to ensure that each player i can be singled out for punishment in the event of a deviation, and then use rewards and punishments for other players to ensure that the deviator can be held down to her minmax payoff." --></li>
 <li>For any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, <span class="math inline">\(G^{\infty}(δ)\)</span> has an SPNE with average discounted payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
