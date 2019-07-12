@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">38 min read</span>
+    <span class="article-duration">39 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -1506,6 +1506,9 @@ For <span class="math inline">\(i=6\)</span>, <span class="math inline">\(v^6=1\
 <h3>δ-Discounted Repetition</h3>
 <p>OR 8.3</p>
 <ul>
+<li>Finitely repeated game:
+<span class="math display">\[\begin{aligned}G^T(δ) &amp;= \big\langle N, (S_i)_{i\in I}, (u_i)_{i\in I}\big\rangle \\
+H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 <li>Infinitely repeated game:
 <span class="math display">\[G^{\infty}(δ) = \big\langle N, (S_i)_{i\in N}, (u_i)_{i\in N}\big\rangle\]</span></li>
 <li>Action in <span class="math inline">\(G^{\infty}\)</span>
@@ -1544,83 +1547,82 @@ For <span class="math inline">\(i=6\)</span>, <span class="math inline">\(v^6=1\
   (a^1, \dots, a^{t-1}, a, a^{t+1},\dots) &\succsim_i^* (a^1, \dots, a^{t-1}, a', a^{t+1},\dots) \\
   \big(g_i(a^1, \dots, a^{t-1}, a, a^{t+1},\dots)\big &> \big(g_i(a^1, \dots, a^{t-1}, a', a^{t+1},\dots)\big\end{aligned}$$ --></li>
 </ul></li>
-<li>Discount rate: <span class="math inline">\(δ\in (0,1)\)</span> <!-- 20190712-1724 here -->
+<li>Payoff
 <ul>
-<li>Discounted payoff: <!--  of player i with $s = (s_i, s_{-i})$ -->
+<li>Discount rate: <span class="math inline">\(δ\in (0,1)\)</span></li>
+<li>Discounted (cumulative) payoff:
 <span class="math display">\[\begin{aligned}\hat{u}_i(s_i, s_{-i}) &amp;= \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big( s_i(h^t), s_{-i}(h^t)\big) \\
   &amp;= \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big(s(h^t)\big)\end{aligned}\]</span></li>
 <li>Average discounted payoff:
 <span class="math display">\[\begin{aligned}u_i(s_i, s_{-i}) &amp;= \frac{1}{1+δ+δ^2+\dots}\cdot \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big( s_i(h^t), s_{-i}(h^t)\big)\\
   &amp;= (1-δ)\cdot \sum_{t=1}^{\infty} δ^{t-1}\cdot g_i\big(s(h^t)\big) \\
-  &amp;= \sum_{t=1}^{\infty} δ^{t-1}(1-δ)\cdot g_i\big(s(h^t)\big)\end{aligned}\]</span></li>
+  &amp;= \sum_{t=1}^{\infty} (1-δ)\cdot δ^{t-1}\cdot g_i\big(s(h^t)\big)\end{aligned}\]</span></li>
 </ul></li>
 <li><span class="math inline">\(s\)</span> is NE <span class="math inline">\(\iff\)</span> for all <span class="math inline">\(i\in I\)</span>, for all <span class="math inline">\(s_i&#39;\)</span> for player i, <span class="math display">\[u_i(s)\geq u_i(s_i&#39;, s_{-i})\]</span></li>
-<li>Finitely repeated game:
-<span class="math display">\[\begin{aligned}G^T(δ) &amp;= \big\langle N, (S_i)_{i\in I}, (u_i)_{i\in I}\big\rangle \\
-H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="payoffs-perfect-folk-theorem" class="section level3">
 <h3>Payoffs: (Perfect) Folk Theorem</h3>
-<p>OR 8.5, 8.8, 8.9<br />
-<a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-254-game-theory-with-engineering-applications-spring-2010/lecture-notes/MIT6_254S10_lec16.pdf">Game Theory with Engineering Applications Lecture 16: Repeated Games II</a>(P7)<br />
+<p>OR 8.3, 8.5, 8.8, 8.9<br />
+<a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-254-game-theory-with-engineering-applications-spring-2010/lecture-notes/MIT6_254S10_lec16.pdf">Game Theory with Engineering Applications Lecture 16</a> (P7)<br />
 <a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)#Summary_of_folk_theorems">Folk theorem - Wikipedia</a></p>
 <ul>
-<li>Game: <span class="math inline">\(G^{\infty} = \big(N, (A_i)_{i\in N}, (g_i)_{i\in N}\big)\)</span></li>
-<li>The set of NE outcomes of an infinitely repeated game<br />
+<li>Game: <span class="math inline">\(G^{\infty}(δ) = \big\langle N, (S_i)_{i\in N}, (u_i)_{i\in N}\big\rangle\)</span></li>
+<li>The set of (SP)NE outcomes of an infinitely repeated game<br />
 includes outcomes that are not repetitions of NE of the stage game<br />
 that cannot be established without punishment
 <ul>
 <li>Trigger strategy: deviation leads to a punitive action that lasts forever</li>
 <li>All players uses trigger strategy</li>
 </ul></li>
-<li>Set of feasible payoffs of <span class="math inline">\(G\)</span> (convex hull of payoff profile) (OR 8.3)
-<span class="math display">\[V = \Big\{α\cdot\big( g_1(a),\dots, g_n(a) \big) : a\in A, \textstyle{\sum}_n α_i =1 \Big\}\]</span>
+<li>Feasible payoff (OR 8.3)
 <ul>
 <li>Payoff profile: exists <span class="math inline">\(a\)</span> s.t. <span class="math inline">\(v = \big( g_1(a),\dots, g_n(a) \big)\)</span></li>
-<li>Feasible payoff profile: <span class="math inline">\(v\in V\)</span></li>
-<li>Feasible payoff profiles are not necessarily payoff profiles</li>
-</ul></li>
-<li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_n)\)</span>
-<ul>
-<li>Average discounted payoffs:
+<li>Feasible payoff profiles: <span class="math inline">\(v\in V\)</span><br />
+(not necessarily actual payoff profiles)</li>
+<li>Set of feasible payoffs of <span class="math inline">\(G\)</span> (convex hull of payoff profiles)
+<span class="math display">\[V = \Big\{α\cdot\big( g_1(a),\dots, g_n(a) \big) : a\in A, \textstyle{\sum}_n α_i =1 \Big\}\]</span></li>
+<li>Average discounted payoff <span class="math inline">\(\in V\)</span>
 <span class="math display">\[\begin{aligned}\big(u_1(s),\dots,u_n(s)\big) &amp;= \sum_{t=1}^{\infty} \overbrace{δ^{t-1} (1-δ)}^{\sum = 1}\cdot \big(g_1(a^t) ,\dots, g_n(a^t)\big) \\
   &amp;\in V \end{aligned}\]</span></li>
 </ul></li>
 <li>Minmax payoff (OR 8.5)<br />
-the lowest payoff that other players can force upon player i:
+the lowest payoff that other players can force upon player i (punishment)
 <span class="math display">\[\underline{v}_i = \min_{a_{-i}\in A_{-i}} \ \max_{a_i\in A_i} \ g_i(a_{-i}, a_i)\]</span>
 break down:
 <span class="math display">\[\begin{aligned}g_i^*(a_{-i}) &amp;= \max_{a_i\in A_i} \ g_i(a_{-i}, a_i) \\
 \underline{v}_i &amp;= \min_{a_{-i}\in A_{-i}} \ g_i^*(a_{-i})\end{aligned}\]</span>
 <ul>
+<li>OR Proposition 144.1: any NE of <span class="math inline">\(G^{\infty}(δ)\)</span> gives player i <span class="math inline">\(u_i\geq \underline{v}_i\)</span><br />
+<span class="math inline">\(\iff\)</span> player i receives <span class="math inline">\(u_i\in V^*\)</span></li>
 <li>Set of enforceable payoff profiles:
 <span class="math display">\[\begin{aligned}V^* &amp;= \{ v\in V:v_i \geq\underline{v}_i \}\\
   V^* &amp;\subset V \end{aligned}\]</span></li>
 <li>Enforceable outcome: <span class="math inline">\(a\in A\)</span> is an outcome of G, <span class="math inline">\(u(a)\in V^*\)</span></li>
-<li>Preposition: in any NE of <span class="math inline">\(G^{\infty}(δ)\)</span>, each player gets an anverage discounted payoff of at least <span class="math inline">\(\underline{v}_i\)</span><br />
-<span class="math inline">\(\iff\)</span> the payoff is in <span class="math inline">\(V^*\)</span>
-<!-- - OR Proposition 145.2  
-Let w be a strictly enforceable feasible payoff profile of G = ⟨N,(Ai), (ui)⟩. For all $ε>0$ there exists $δ<1$ s.t. if $δ>δ, then the δ-discounted infinitely repeated game of G has a NE with payoff profile $w'$ s.t. $w'\in B_ε(w)$. --></li>
 </ul></li>
-<li>Perfect folk theorem (discounting, infinite) (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1)
+<li>Nash folk theorem (discounting, infinite) (OR Proposition 145.2)</li>
+<li>Perfect folk theorem (discounting, infinite) (Fudenberg, Levine, Maskin 1994, OR Proposition 151.1) <!-- 20190712-1940 now here -->
 <ul>
 <li>Game: <span class="math inline">\(G^{\infty}\)</span></li>
 <li>Assumption: <span class="math inline">\(\dim (V^*) = |I| = n\)</span><br />
 <!-- "the idea is to use the assumption on the dimension of $V^*$ to ensure that each player i can be singled out for punishment in the event of a deviation, and then use rewards and punishments for other players to ensure that the deviator can be held down to her minmax payoff." --></li>
-<li>For any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, <span class="math inline">\(G^{\infty}(δ)\)</span> has an SPNE with average discounted payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
+<li>For any <span class="math inline">\(v\in V^*\)</span> and <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(\underline{δ}&lt;1\)</span> s.t. for all <span class="math inline">\(δ&gt;\underline{δ}\)</span>, <span class="math inline">\(G^{\infty}(δ)\)</span> has an SPNE with <span class="math inline">\(u = \hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
 </ul></li>
-<li>Perfect folk theorem (discounting, finite) (Benoit, Krishna 1986, Proposition 159.1)
+<li>Perfect folk theorem (discounting, finite) (Benoit, Krishna 1986, OR Proposition 159.1)
 <ul>
 <li>Game: <span class="math inline">\(G^T\)</span></li>
-<li>Payoff: <span class="math inline">\(\frac{1}{T}\sum_{t=1}^T g(a^t)\)</span>, <span class="math inline">\(δ=1\)</span></li>
-<li>Assumption: <span class="math inline">\(\dim (V^*) = |I| = n\)</span><br />
-For each i, exists 2 NE of the stage game</li>
-<li>Let <span class="math inline">\(v\in V^*\)</span>, for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T&#39;\)</span> s.t. for all <span class="math inline">\(T&gt;T&#39;\)</span>, <span class="math inline">\(G^T\)</span> has a SPNE with average payoff <span class="math inline">\(\hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
+<li>Average ayoff: <span class="math inline">\(\bar(p) = \frac{1}{T}\sum_{t=1}^T g(a^t)\)</span> (<span class="math inline">\(δ=1\)</span>)</li>
+<li>Assumptions: <span class="math inline">\(\dim (V^*) = |I| = n\)</span>; exists <strong>2 NE</strong> of the stage game for each i</li>
+<li>Let <span class="math inline">\(v\in V^*\)</span>, for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(T&#39;\)</span> s.t. for all <span class="math inline">\(T&gt;T&#39;\)</span>, <span class="math inline">\(G^T\)</span> has a SPNE with <span class="math inline">\(\bar(p) = \hat{v}\)</span> s.t. <span class="math inline">\(\hat{v}\in B_ε(v)\)</span></li>
 </ul></li>
 <li>One-Step Deviation Principle (OR Lemma 153.1)<br />
 A strategy profile is a SPNE of the discounted infinitely repeated game of G<br />
 <span class="math inline">\(\iff\)</span> no player can gain by deviating in a single period after any history</li>
+</ul>
+<p>Quote from <a href="https://sites.duke.edu/niou/files/2011/05/Lecture-5-Repeated-Games.pdf">Introduction to Game Theory Lecture 5: Repeated Games</a> (P11):</p>
+<ul>
+<li>An infinitely repeated game usually has more SPNEs than a finitely repeated game, and it may have multiple SPNEs even if the stage game has a unique NE.</li>
+<li>Playing NE in each stage game, regardless of history, is still a SPNE in the infinitely repeated game.</li>
 </ul>
 </div>
 <div id="example-battle-of-sexes-bos" class="section level3">
@@ -1636,13 +1638,13 @@ A strategy profile is a SPNE of the discounted infinitely repeated game of G<br 
 <tbody>
 <tr class="odd">
 <td>F</td>
-<td>*3, 1*</td>
+<td><strong>*3, 1*</strong></td>
 <td>0, 0</td>
 </tr>
 <tr class="even">
 <td>O</td>
 <td>0, 0</td>
-<td>*1, 3*</td>
+<td><strong>*1, 3*</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1694,7 +1696,8 @@ What outcome of the bargaining does the Kalai-Smorodinsky solution predict?</li>
 According to Folk Theorem,<br />
 Set of feasible payoffs: <span class="math inline">\(V = Hull\{(5,5), (1,10), (0,0) \}\)</span><br />
 <span class="math inline">\(\underline{v}_1 = 1\)</span>, <span class="math inline">\(\underline{v}_2 = 5\)</span>,<br />
-Set of enforceable payoff profiles: <span class="math inline">\(V^* = Hull\{(1,5), (5,5), (1,10)\}\)</span>, <span class="math inline">\(\dim(V^*) = 2 = |N|\)</span><br />
+Set of enforceable payoff profiles:<br />
+<span class="math inline">\(V^* = Hull\{(1,5), (5,5), (1,10)\}\)</span>, <span class="math inline">\(\dim(V^*) = 2 = |N|\)</span><br />
 </li>
 <li>Which equilibrium is to be realized is not clear</li>
 <li>Kalai-Smorodinsky solution:</li>
@@ -1703,13 +1706,6 @@ Set of enforceable payoff profiles: <span class="math inline">\(V^* = Hull\{(1,5
 </div>
 <div id="example-prisoners-dilemma-pd" class="section level3">
 <h3>Example: Prisoner’s Dilemma (PD)</h3>
-<ul>
-<li>Strictly dominant strategy: D</li>
-<li>Strictly dominated strategy: C</li>
-<li>Unique NE: (D, D)</li>
-<li>Preposition: for <span class="math inline">\(T\in\mathbb{N}\)</span>, in any NE of repeated PD <span class="math inline">\(G^T\)</span>, only (D, D) is played along the equilibrium path <span class="math inline">\((a^1,a^2,\dots,a^T)\)</span></li>
-<li>Preposition: for sufficiently large <span class="math inline">\(δ\in[0,1)\)</span>, for infinitely repeated PD <span class="math inline">\(G^{\infty}\)</span>, exists an SPNE where (C, C) is played along the equilibrium path</li>
-</ul>
 <table>
 <thead>
 <tr class="header">
@@ -1727,10 +1723,31 @@ Set of enforceable payoff profiles: <span class="math inline">\(V^* = Hull\{(1,5
 <tr class="even">
 <td>D</td>
 <td>*1, -2</td>
-<td>*-1, -1*</td>
+<td><strong>*-1, -1*</strong></td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li>Strictly dominant strategy: D</li>
+<li>Strictly dominated strategy: C</li>
+<li>Unique NE: (D, D)</li>
+<li>Preposition: for <span class="math inline">\(T\in\mathbb{N}\)</span>, in any NE of repeated PD <span class="math inline">\(G^T\)</span>, only (D, D) is played along the equilibrium path <span class="math inline">\((a^1,a^2,\dots,a^T)\)</span></li>
+<li>Preposition: for sufficiently large <span class="math inline">\(δ\in[0,1)\)</span>, for infinitely repeated PD <span class="math inline">\(G^{\infty}\)</span>, exists an SPNE where (C, C) is played along the equilibrium path
+<ul>
+<li>Set of feasible payoffs:<br />
+<img src="/post-img/notes-game-theory--pd-1.png" width="501" /><br />
+</li>
+<li>Minmax payoffs:
+<span class="math display">\[\begin{aligned}P1 &amp;&amp; \underline{v}_1 &amp;= \min_{a_{2}\in A_{2}} \ \max_{a_1\in A_1} \ g_i(a_{2}, a_1) \\
+  &amp;&amp; &amp;= \min_{a_{2}\in A_{2}} \ \big\{(D,C),(D,D)\big\} \\
+  &amp;&amp; &amp;= -1 \\
+  P2 &amp;&amp; \underline{v}_2 &amp;= \min_{a_{1}\in A_{1}} \ \max_{a_2\in A_2} \ g_i(a_{1}, a_2) \\
+  &amp;&amp; &amp;= \min_{a_{1}\in A_{1}} \ \big\{(C,D), (D,D)\big\} \\
+  &amp;&amp; &amp;= -1 \end{aligned}\]</span></li>
+<li>Kalai-Smorodinsky solution: (C, C) as SPNE<br />
+<img src="/post-img/notes-game-theory--pd-2.png" width="495" /></li>
+</ul></li>
+</ul>
 <blockquote>
 <p>Exercise (slides P119)<br />
 In the above derivation we did not use the one-step deviation principle.<br />
