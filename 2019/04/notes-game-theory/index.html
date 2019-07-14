@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">40 min read</span>
+    <span class="article-duration">41 min read</span>
     
     <h1 class="article-title">Notes on Game Theory</h1>
     
@@ -105,15 +105,16 @@ if (!doNotTrack) {
 <li><a href="#nash-bargaining-problem">Nash Bargaining Problem</a><ul>
 <li><a href="#nash-axioms">Nash Axioms</a></li>
 <li><a href="#nash-bargaining-solution-nbs">Nash Bargaining Solution (NBS)</a></li>
-<li><a href="#example-cournot-vs-collusion">Example: Cournot vs Collusion</a></li>
+<li><a href="#eg-cournot-vs-collusion">eg) Cournot vs Collusion</a></li>
 <li><a href="#kalai-smorodinsky-bs">Kalai-Smorodinsky BS</a></li>
 </ul></li>
 <li><a href="#coalitional-game">Coalitional Game</a><ul>
 <li><a href="#general-case-no-transfer">General Case (No Transfer)</a></li>
 <li><a href="#analogy-with-walreasian-equilibrium">Analogy with <span>Walreasian Equilibrium</span></a></li>
 <li><a href="#with-transfer">With Transfer</a></li>
-<li><a href="#core">Core</a></li>
-<li><a href="#example-exchange-economy">Example: Exchange Economy</a></li>
+<li><a href="#eg-exchange-economy">eg) Exchange Economy</a></li>
+<li><a href="#non-emptiness-of-core">Non-Emptiness of Core</a></li>
+<li><a href="#eg-majority-game">eg) Majority Game</a></li>
 <li><a href="#shapley-value">Shapley Value</a></li>
 </ul></li>
 <li><a href="#repeated-game">Repeated Game</a><ul>
@@ -121,10 +122,10 @@ if (!doNotTrack) {
 <li><a href="#discounted-repetition">δ-Discounted Repetition</a></li>
 <li><a href="#perfect-folk-theorems">Perfect Folk Theorems</a></li>
 <li><a href="#finitely-repeated-game">Finitely Repeated Game</a></li>
-<li><a href="#example-battle-of-sexes-bos">Example: Battle of Sexes (BoS)</a></li>
-<li><a href="#example-prisoners-dilemma-pd">Example: Prisoner’s Dilemma (PD)</a></li>
-<li><a href="#example-price-wars">Example: Price Wars</a></li>
-<li><a href="#example-time-inconsistency-in-public-good">Example: Time Inconsistency in Public Good</a></li>
+<li><a href="#eg-battle-of-sexes-bos">eg) Battle of Sexes (BoS)</a></li>
+<li><a href="#eg-prisoners-dilemma-pd">eg) Prisoner’s Dilemma (PD)</a></li>
+<li><a href="#eg-price-wars">eg) Price Wars</a></li>
+<li><a href="#eg-time-inconsistency-in-public-good">eg) Time Inconsistency in Public Good</a></li>
 </ul></li>
 </ul>
 </div>
@@ -359,7 +360,8 @@ Every finite extensive form game with perfect information without simultaneous m
 </ul>
 <blockquote>
 <p>Exercise (slides P23), Exercise 3<br />
-Give an example of a infinite horizon game for which SPNE <span class="math inline">\(\iff\)</span> one-step deviation principle does not hold.</p>
+Give an example of a infinite horizon game for which SPNE<br />
+<span class="math inline">\(\iff\)</span> one-step deviation principle does not hold.</p>
 </blockquote>
 <p>Consider <span class="math inline">\((s_n)\)</span> where <span class="math inline">\(s_1\)</span> corresponds to the start node<br />
 <span class="math inline">\(\implies s_n =\)</span> {always stop} satisfies one-step deviation but is not a SPNE</p>
@@ -993,8 +995,8 @@ i.e. that for any problem (X, d) and <span class="math inline">\(α,β&gt;0\)</
 there is a point on the boundary of <span class="math inline">\(X\)</span> that satisfies the conditions.</p>
 </blockquote>
 </div>
-<div id="example-cournot-vs-collusion" class="section level3">
-<h3>Example: Cournot vs Collusion</h3>
+<div id="eg-cournot-vs-collusion" class="section level3">
+<h3>eg) Cournot vs Collusion</h3>
 <ul>
 <li>Profit function: <span class="math inline">\(π_i(q_i, q_{-i}) = (K - q_i - q_{-i})\cdot q_i - c_i\cdot q_i\)</span>
 <ul>
@@ -1104,7 +1106,7 @@ therefore, both players are better-off from more choice:
 </div>
 <div id="coalitional-game" class="section level2">
 <h2>Coalitional Game</h2>
-<p>OR Ch13 14 <!-- 20190714-1539 now here --></p>
+<p>OR Ch13 14</p>
 <div id="general-case-no-transfer" class="section level3">
 <h3>General Case (No Transfer)</h3>
 <ul>
@@ -1120,6 +1122,11 @@ therefore, both players are better-off from more choice:
 <li>Set of coalition outcomes: <span class="math inline">\(V(S)\subset X\)</span></li>
 </ul></li>
 <li>Preference relation: <span class="math inline">\(\succsim_i\)</span> defined on <span class="math inline">\(X\)</span></li>
+<li>Core
+<ul>
+<li>No transfer: <span class="math inline">\(\big\{x\in V(N)\big\}\)</span> s.t. no blocking coalitions exist</li>
+<li>Blocking coalition: <span class="math inline">\(S\)</span> s.t. exists <span class="math inline">\(y\in V(S)\)</span>, <span class="math inline">\(y\succ_i x\)</span> for all <span class="math inline">\(i\in S\)</span></li>
+</ul></li>
 </ul>
 </div>
 <div id="analogy-with-walreasian-equilibrium" class="section level3">
@@ -1175,26 +1182,78 @@ Calculate the Walreasian equilibria for this econorny.</p>
 <span class="math display">\[V(S) = \{ x\in X: \sum_S x_i = v(S)\}\]</span></li>
 </ul></li>
 <li>Preference relation: <span class="math inline">\(x \succsim_i x\iff x_i &gt; y_i\)</span></li>
-</ul>
-</div>
-<div id="core" class="section level3">
-<h3>Core</h3>
-<ul>
 <li>Core
 <ul>
-<li>No transfer: <span class="math inline">\(\big\{x\in V(N)\big\}\)</span> s.t. no blocking coalitions exist</li>
 <li>With transfer: <span class="math inline">\(\big\{x(S)\geq v(S)\big\}\)</span> for every <span class="math inline">\(S\)</span></li>
-<li>Blocking coalition: <span class="math inline">\(S\)</span> s.t. exists <span class="math inline">\(y\in V(S)\)</span>, <span class="math inline">\(y\succ_i x\)</span> for all <span class="math inline">\(i\in S\)</span></li>
 </ul></li>
-<li>Balanced collection of weights: For each coalition <span class="math inline">\(S\neq\emptyset\)</span>,<br />
-assign non-negative weights <span class="math inline">\((λ_S)\)</span> s.t. <span class="math inline">\(\sum_{i\in S} λ_S = 1\)</span></li>
-<li>Balanced game: for every balanced collection of weights <span class="math inline">\((λ_S)\)</span>,
-<span class="math display">\[\sum_S λ_S\cdot v(S) \leq v(N)\]</span></li>
+</ul>
+</div>
+<div id="eg-exchange-economy" class="section level3">
+<h3>eg) Exchange Economy</h3>
+<ul>
+<li>Set of players: <span class="math inline">\(N =\{c; 1, 2,\dots, w\}\)</span>
+<ul>
+<li><span class="math inline">\(|N|= w+1\)</span></li>
+<li>Capitalist: <span class="math inline">\(c\)</span></li>
+<li>Workers: <span class="math inline">\(\{1, 2,\dots, w\}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(v(S) = \begin{cases}f\big(|S|-1\big) &amp; c\in S \\ 0 &amp; c\not\in S \end{cases}\)</span>
+<ul>
+<li><span class="math inline">\(f(0) = 0\)</span></li>
+<li><span class="math inline">\(f&#39;&gt;0\)</span>, <span class="math inline">\(f&#39;&#39;\leq 0\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Exercise (slides P90)<br />
+Show that the core of the production economy is
+<span class="math display">\[\Big\{ x\in X: 0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\}\]</span></p>
+</blockquote>
+<p>We know <span class="math inline">\(v(S) = \begin{cases}f\big(|S|-1\big) &amp; c\in S \\ 0 &amp; c\not\in S \end{cases}\)</span><br />
+<span class="math inline">\(\implies v(N) =\sum_i x_i = f(w)\)</span><br />
+<!-- 
+$$\begin{aligned}\sum_S x_i &= f(w) - x_j \\
+&\geq f(w) - \big( f(w) - f(w-1)\big) \\
+&= f(w-1) \end{aligned}$$ -->
+:) Check <span class="math inline">\(\sum_S x_i\geq v(S)\)</span> for all <span class="math inline">\(s\)</span></p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(c\not\subset S\)</span>, <span class="math inline">\(\sum_S x_i\geq 0\)</span></li>
+<li>If <span class="math inline">\(c\in S\)</span><br />
+Let <span class="math inline">\(S = N - S&#39;\)</span>, <span class="math inline">\(c\not\in S&#39;\)</span>, <span class="math inline">\(v(S) = f(S-1)\)</span><br />
+Since <span class="math inline">\(x_i\leq f(w) - f(w-1)\)</span> for all <span class="math inline">\(i\neq c\)</span>,
+<span class="math display">\[\begin{aligned}\sum_S x_i &amp;= f(w) - \sum_{S&#39;} x_j \\
+&amp;\geq f(w) - |N-S|\cdot\big( f(w) - f(w-1)\big) \\
+&amp;= \underbrace{\big( f(w) - f(w-1)\big) + \big( f(w-1) - f(w-2) + \dots + \big( f(|S|) - f(|S|-1)\big)\big)}_{|N-S|\text{ terms}} \\
+&amp;\phantom{\ggg} -|N-S|\cdot\big( f(w) - f(w-1)\big) + f(|S|-1) \\
+&amp;\geq f(|S|-1) = v(S)\end{aligned}\]</span></li>
+</ol>
+<!-- 
+&= f(|S|-1) + \big(1 - \underbrace{|N-S|}_{\geq 1}\big)\big( f(w) - f(w-1)\big) \\
+&\phantom{\ggg}+ \big( f(w-1) - f(w-2)\big) + \dots + \big( f(|S|) - f(|S|-1)\big) \\
+&= f(|S|-1) - \big(|N-S| - 1 \big)\big( f(w) - f(w-1)\big) + f(w-1) - f(|S|-1) \\
+&= f(w-1) - \big(|N-S| - 1 \big)\cdot f(w) + \big(|N-S| - 1 \big)\cdot f(w-1) \\
+&= |N-S|\cdot f(w-1) - \big(|N-S| - 1 \big)\cdot f(w)\\
+&= f(w) + |N-S|\cdot f(w-1) - |N-S|\cdot f(w)\\
+&= f(w) + |N-S|\cdot\big(f(w-1) - f(w)\big)
+ -->
+</div>
+<div id="non-emptiness-of-core" class="section level3">
+<h3>Non-Emptiness of Core</h3>
+<p>OR 13.3 <!-- 20190714-1741 now here --></p>
+<ul>
+<li>Weight of coalition
+<ul>
+<li>Set of all coalitions in a game: <span class="math inline">\(\mathcal{C}\)</span></li>
+<li>Collection of weights: for all <span class="math inline">\(S\in\mathcal{C}\)</span>, <span class="math inline">\(S\neq\emptyset\)</span>,
+<span class="math display">\[\begin{aligned}(λ_S)_{S\in\mathcal{C}} &amp;= (λ_{S_1}, λ_{S_2}\dots, λ_{S_k})\\
+  λ_S &amp;\in[0,1] \end{aligned}\]</span></li>
+<li>Balanced collection of weights: for every <span class="math inline">\(i\)</span>,
+<span class="math display">\[\sum_{S_k\ni i}^{S_k\in\mathcal{C}} λ_{S_k} = 1 \]</span></li>
+</ul></li>
+<li>Balanced game: for every balanced <span class="math inline">\((λ_S)\)</span>,
+<span class="math display">\[\sum_{S\in\mathcal{C}} λ_S\cdot v(S) \leq v(N)\]</span></li>
 <li>Bondareve-Shapley theorem (OR proposition 262.1)<br />
-a coalitional game with transferable payoffs has a non-empty core<br />
-<span class="math inline">\(\iff\)</span> it is balanced<br />
-<span class="math inline">\(\implies\)</span> a coalitional game with transferable payoffs has empty core<br />
-<span class="math inline">\(\iff\)</span> it is not balanced</li>
+A coalitional game with transferable payoffs has a non-empty core<br />
+<span class="math inline">\(\iff\)</span> it is balanced</li>
 </ul>
 <!-- 
 > Bondareve-Shapley theorem (OR proposition 262.1)  
@@ -1275,12 +1334,46 @@ Note: Separating hyperplane theorem
     &= \sum_i x_i - v(N) \\
     v(N) &\geq \sum_i x_i \end{aligned}$$
  -->
+</div>
+<div id="eg-majority-game" class="section level3">
+<h3>eg) Majority Game</h3>
+<ul>
+<li>Set of players: <span class="math inline">\(N =\{B, S1, S2\}\)</span>
+<ul>
+<li>Big party: <span class="math inline">\(B\)</span>, 90 seats</li>
+<li>Small parties: <span class="math inline">\(S1, S2\)</span>, 10 seats each</li>
+</ul></li>
+<li><span class="math inline">\(v(S) = \begin{cases}1 &amp; B\in S \\ 0 &amp; B\not\in S \end{cases}\)</span></li>
+<li>Core: <span class="math inline">\(\{1, 0, 0\}\)</span></li>
+</ul>
+<blockquote>
+<p>Exercise (slides P91)<br />
+Now imaagine party B is still the biggest party but controls only 35 seats and each of other 5 parties has 13 seats.<br />
+<span class="math inline">\(v(S) = 1\)</span> if <span class="math inline">\(S\)</span> contains either the big party and 2 small ones or 4 small parties, <span class="math inline">\(v(S) = 0\)</span> otherwise.<br />
+Is the core empty?</p>
+</blockquote>
+<p>Let <span class="math inline">\(N = \{B, S1, S2, S3, S4, S5\}\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Find balanced weights<br />
+For B,
+<span class="math display">\[\begin{aligned}\sum_{i\in S} λ_S &amp;= 5\cdot 4\cdot λ_{(B,Si,Sj)} = 1 \\
+λ_{(B,Si,Sj)} &amp;= \frac{1}{20}\end{aligned}\]</span>
+For Si,
+<span class="math display">\[\begin{aligned}\sum_{i\in S} λ_S &amp;= 4\cdot λ_{(B,Si,Sj)} + 4\cdot λ_{(B,Sj,Si)} + λ_{(S1, S2, S3, S4, S5)} = 1 \\
+&amp;= 8\cdot \frac{1}{20} + λ_{(S1, S2, S3, S4, S5)} \\
+λ_{(S1, S2, S3, S4, S5)} &amp;= \frac{12}{20} = \frac{3}{5} \end{aligned}\]</span></li>
+<li>Check if game is balanced<br />
+<span class="math display">\[\begin{aligned} \sum_S λ_S\cdot v(S) &amp;= 5\cdot 4\cdot λ_{(B,Si,Sj)}\cdot 1 + \frac{3}{5}\cdot 1 \\
+&amp;= 1 + \frac{3}{5} \\
+&amp;&gt; v(N) = 1\end{aligned}\]</span>
+therefore, the game is unbalanced, and the core is empty</li>
+</ol>
 <blockquote>
 <p>Exercise (slides P95)<br />
 An expedition of <span class="math inline">\(n\)</span> pirates has found a huge number of treasure chests.<br />
 Each pair can carry one chest.<br />
 A coalitional game modeling this situation is given by
-<span class="math display">\[v(S) = \begin{cases}\frac{|S|}{2} &amp; |S| \text{ is even} \\\frac{|S|-1}{2} &amp; |S| \text{ is odd} \end{cases}\]</span><br />
+<span class="math display">\[v(S) = \begin{cases}\frac{|S|}{2} &amp; |S| \text{ is even} \\\frac{|S|-1}{2} &amp; |S| \text{ is odd} \end{cases}\]</span>
 Assume <span class="math inline">\(n\geq 4\)</span>.<br />
 Show that if <span class="math inline">\(n\)</span> is even, then the core consists of a single payoff profile <span class="math inline">\(\big( \frac{1}{2},\frac{1}{2},\dots, \frac{1}{2})\)</span>, and if <span class="math inline">\(n\)</span> is odd, the core is empty.</p>
 </blockquote>
@@ -1326,58 +1419,6 @@ Let <span class="math inline">\(λ_{-F} = λ_{-L} = λ_{-G} = λ_{-S} = λ_{-C} 
 &amp;= \frac{5}{4} &gt; 1 = v(N)\end{aligned}\]</span>
 Therefore, the game is not balanced, and the core is empty</li>
 </ol>
-</div>
-<div id="example-exchange-economy" class="section level3">
-<h3>Example: Exchange Economy</h3>
-<ul>
-<li>Set of players: <span class="math inline">\(N =\{c; 1, 2,\dots, w\}\)</span>
-<ul>
-<li><span class="math inline">\(|N|= w+1\)</span></li>
-<li>Capitalist: <span class="math inline">\(c\)</span></li>
-<li>Workers: <span class="math inline">\(\{1, 2,\dots, w\}\)</span></li>
-</ul></li>
-<li><span class="math inline">\(v(S = )\begin{cases}0 &amp; c\not\in S \\ f\big(|S|-1\big) &amp; c\in S \end{cases}\)</span>
-<ul>
-<li><span class="math inline">\(f(0) = 0\)</span></li>
-<li><span class="math inline">\(f&#39;&gt;0\)</span>, <span class="math inline">\(f&#39;&#39;\leq 0\)</span></li>
-</ul></li>
-</ul>
-<blockquote>
-<p>Exercise (slides P90)<br />
-Show that the core of the production economy is
-<span class="math display">\[\Big\{ x\in X: 0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\}\]</span></p>
-</blockquote>
-<p>We know <span class="math inline">\(v(S) = \begin{cases}0 &amp; c\not\in S \\ f(|S|-1) &amp; c\in S \end{cases}\)</span><br />
-Core:
-<span class="math display">\[\begin{aligned}\Big\{ x\in X : \ &amp;0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, \\
-&amp;x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\} \end{aligned}\]</span>
-<span class="math inline">\(\implies v(N) =\sum_i x_i = f(w)\)</span><br />
-<!-- 
-$$\begin{aligned}\sum_S x_i &= f(w) - x_j \\
-&\geq f(w) - \big( f(w) - f(w-1)\big) \\
-&= f(w-1) \end{aligned}$$ -->
-Assume <span class="math inline">\(x\in\)</span> Core<br />
-:) Check <span class="math inline">\(\sum_S x_i\geq v(S)\)</span> for all <span class="math inline">\(s\)</span></p>
-<ol style="list-style-type: decimal">
-<li>If <span class="math inline">\(c\not\subset S\)</span>, <span class="math inline">\(\sum_S x_i\geq 0\)</span></li>
-<li>If <span class="math inline">\(c\in S\)</span><br />
-Let <span class="math inline">\(S = N - S&#39;\)</span>, <span class="math inline">\(c\not\in S&#39;\)</span>, <span class="math inline">\(v(S) = f(S-1)\)</span><br />
-Since <span class="math inline">\(x_i\leq f(w) - f(w-1)\)</span> for all <span class="math inline">\(i\neq c\)</span>,
-<span class="math display">\[\begin{aligned}\sum_S x_i &amp;= f(w) - \sum_{S&#39;} x_j \\
-&amp;\geq f(w) - |N-S|\cdot\big( f(w) - f(w-1)\big) \\
-&amp;= \underbrace{\big( f(w) - f(w-1)\big) + \big( f(w-1) - f(w-2) + \dots + \big( f(|S|) - f(|S|-1)\big)\big)}_{|N-S|\text{ terms}} \\
-&amp;\phantom{\ggg} -|N-S|\cdot\big( f(w) - f(w-1)\big) + f(|S|-1) \\
-&amp;\geq f(|S|-1) = v(S)\end{aligned}\]</span></li>
-</ol>
-<!-- 
-&= f(|S|-1) + \big(1 - \underbrace{|N-S|}_{\geq 1}\big)\big( f(w) - f(w-1)\big) \\
-&\phantom{\ggg}+ \big( f(w-1) - f(w-2)\big) + \dots + \big( f(|S|) - f(|S|-1)\big) \\
-&= f(|S|-1) - \big(|N-S| - 1 \big)\big( f(w) - f(w-1)\big) + f(w-1) - f(|S|-1) \\
-&= f(w-1) - \big(|N-S| - 1 \big)\cdot f(w) + \big(|N-S| - 1 \big)\cdot f(w-1) \\
-&= |N-S|\cdot f(w-1) - \big(|N-S| - 1 \big)\cdot f(w)\\
-&= f(w) + |N-S|\cdot f(w-1) - |N-S|\cdot f(w)\\
-&= f(w) + |N-S|\cdot\big(f(w-1) - f(w)\big)
- -->
 </div>
 <div id="shapley-value" class="section level3">
 <h3>Shapley Value</h3>
@@ -1698,8 +1739,8 @@ H &amp;= \{\emptyset\}\cup\big(\cup_{t=1}^T A^t\big)\end{aligned}\]</span></li>
 <li>Finitely-repeated games with unique stage equilibrium do not allow corporation or any other outcome than the repetition of this unique equilibrium.</li>
 </ul>
 </div>
-<div id="example-battle-of-sexes-bos" class="section level3">
-<h3>Example: Battle of Sexes (BoS)</h3>
+<div id="eg-battle-of-sexes-bos" class="section level3">
+<h3>eg) Battle of Sexes (BoS)</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1777,8 +1818,8 @@ Set of enforceable payoff profiles:<br />
 </ol>
 <p><img src="/post-img/notes-game-theory--ex-7.png" width="507" /></p>
 </div>
-<div id="example-prisoners-dilemma-pd" class="section level3">
-<h3>Example: Prisoner’s Dilemma (PD)</h3>
+<div id="eg-prisoners-dilemma-pd" class="section level3">
+<h3>eg) Prisoner’s Dilemma (PD)</h3>
 <table>
 <thead>
 <tr class="header">
@@ -1827,8 +1868,8 @@ In the above derivation we did not use the one-step deviation principle.<br />
 How would the argument simplify if we had used it?</p>
 </blockquote>
 </div>
-<div id="example-price-wars" class="section level3">
-<h3>Example: Price Wars</h3>
+<div id="eg-price-wars" class="section level3">
+<h3>eg) Price Wars</h3>
 <p><a href="https://www.jstor.org/stable/pdf/1813358.pdf">Rotemberg and Saloner (1986)</a></p>
 <ul>
 <li>Players: <span class="math inline">\(n&gt;1\)</span> firms</li>
@@ -1900,8 +1941,8 @@ when <span class="math inline">\(δ\)</span> is too small, <span class="math inl
 </ul></li>
 </ul>
 </div>
-<div id="example-time-inconsistency-in-public-good" class="section level3">
-<h3>Example: Time Inconsistency in Public Good</h3>
+<div id="eg-time-inconsistency-in-public-good" class="section level3">
+<h3>eg) Time Inconsistency in Public Good</h3>
 <ul>
 <li>P1: government
 <ul>
