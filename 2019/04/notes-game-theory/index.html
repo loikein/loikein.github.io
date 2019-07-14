@@ -113,6 +113,7 @@ if (!doNotTrack) {
 <li><a href="#analogy-with-walreasian-equilibrium">Analogy with <span>Walreasian Equilibrium</span></a></li>
 <li><a href="#with-transfer">With Transfer</a></li>
 <li><a href="#core">Core</a></li>
+<li><a href="#example-exchange-economy">Example: Exchange Economy</a></li>
 <li><a href="#shapley-value">Shapley Value</a></li>
 </ul></li>
 <li><a href="#repeated-game">Repeated Game</a><ul>
@@ -1175,30 +1176,6 @@ Calculate the Walreasian equilibria for this econorny.</p>
 </ul></li>
 <li>Preference relation: <span class="math inline">\(x \succsim_i x\iff x_i &gt; y_i\)</span></li>
 </ul>
-<blockquote>
-<p>Exercise (slides P90)<br />
-Show that the core of the production economy is
-<span class="math display">\[\Big\{ x\in X: 0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\}\]</span></p>
-</blockquote>
-<p>We know <span class="math inline">\(v(s) = \begin{cases}0 &amp; c\not\subset s \\ f(|s|-1) &amp; c\in s \end{cases}\)</span><br />
-Core<span class="math inline">\((v) \subset\)</span> ??<br />
-Let <span class="math inline">\(s = N -\{i\}\)</span>,<br />
-<span class="math inline">\(\implies v(s) = f(w-1)\)</span><br />
-<span class="math display">\[\begin{aligned}\textstyle{\sum}_{i\in s}x_i &amp;= f(w) - x_i \\
-&amp;&lt; f(w) - \big( f(w) - f(w-1)\big) \\
-&amp;= f(w-1) \end{aligned}\]</span>
-<span class="math inline">\(\implies x\not\in\)</span> Core<br />
-Assume <span class="math inline">\(x\in[0,f(w) - f(w-1)]\)</span>, :) <span class="math inline">\(x\in C\)</span><br />
-Check <span class="math inline">\(\sum_s x_i\geq v(s)\)</span> for all <span class="math inline">\(s\)</span></p>
-<ol style="list-style-type: decimal">
-<li>If <span class="math inline">\(c\not\subset s\)</span>, <span class="math inline">\(\sum_s x_i\geq 0\)</span></li>
-<li>If <span class="math inline">\(c\in s\)</span>, :) <span class="math inline">\(\sum_s x_i\geq f(|s|-1)\)</span><br />
-<span class="math display">\[\begin{aligned}\sum_S x_i &amp;= f(w) - \sum_{i\not\in s} x_i \\
-&amp;\geq f(w) - |N-s|\cdot\big( f(w) - f(w-1)\big) \\
-&amp;= \big( f(w) - f(w-1)\big) + \big( f(w-1) - f(w-2)\big) \\
-&amp;\phantom{\ggg}+ \dots + \big( f(|s|) - f(|s|-1)\big) + f(|s|-1) - |N-s|\cdot\big( f(w) - f(w-1)\big) \\
-&amp;\geq f(|s|-1)\end{aligned}\]</span></li>
-</ol>
 </div>
 <div id="core" class="section level3">
 <h3>Core</h3>
@@ -1350,6 +1327,58 @@ Let <span class="math inline">\(λ_{-F} = λ_{-L} = λ_{-G} = λ_{-S} = λ_{-C} 
 Therefore, the game is not balanced, and the core is empty</li>
 </ol>
 </div>
+<div id="example-exchange-economy" class="section level3">
+<h3>Example: Exchange Economy</h3>
+<ul>
+<li>Set of players: <span class="math inline">\(N =\{c; 1, 2,\dots, w\}\)</span>
+<ul>
+<li><span class="math inline">\(|N|= w+1\)</span></li>
+<li>Capitalist: <span class="math inline">\(c\)</span></li>
+<li>Workers: <span class="math inline">\(\{1, 2,\dots, w\}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(v(S = )\begin{cases}0 &amp; c\not\in S \\ f\big(|S|-1\big) &amp; c\in S \end{cases}\)</span>
+<ul>
+<li><span class="math inline">\(f(0) = 0\)</span></li>
+<li><span class="math inline">\(f&#39;&gt;0\)</span>, <span class="math inline">\(f&#39;&#39;\leq 0\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Exercise (slides P90)<br />
+Show that the core of the production economy is
+<span class="math display">\[\Big\{ x\in X: 0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\}\]</span></p>
+</blockquote>
+<p>We know <span class="math inline">\(v(S) = \begin{cases}0 &amp; c\not\in S \\ f(|S|-1) &amp; c\in S \end{cases}\)</span><br />
+Core:
+<span class="math display">\[\begin{aligned}\Big\{ x\in X : \ &amp;0\leq x_i\leq f(w) - f(w-1) , \ i\neq c, \\
+&amp;x_c = f(w) - \textstyle{\sum}_{i\neq c}x_i\Big\} \end{aligned}\]</span>
+<span class="math inline">\(\implies v(N) =\sum_i x_i = f(w)\)</span><br />
+<!-- 
+$$\begin{aligned}\sum_S x_i &= f(w) - x_j \\
+&\geq f(w) - \big( f(w) - f(w-1)\big) \\
+&= f(w-1) \end{aligned}$$ -->
+Assume <span class="math inline">\(x\in\)</span> Core<br />
+:) Check <span class="math inline">\(\sum_S x_i\geq v(S)\)</span> for all <span class="math inline">\(s\)</span></p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(c\not\subset S\)</span>, <span class="math inline">\(\sum_S x_i\geq 0\)</span></li>
+<li>If <span class="math inline">\(c\in S\)</span><br />
+Let <span class="math inline">\(S = N - S&#39;\)</span>, <span class="math inline">\(c\not\in S&#39;\)</span>, <span class="math inline">\(v(S) = f(S-1)\)</span><br />
+Since <span class="math inline">\(x_i\leq f(w) - f(w-1)\)</span> for all <span class="math inline">\(i\neq c\)</span>,
+<span class="math display">\[\begin{aligned}\sum_S x_i &amp;= f(w) - \sum_{S&#39;} x_j \\
+&amp;\geq f(w) - |N-S|\cdot\big( f(w) - f(w-1)\big) \\
+&amp;= \underbrace{\big( f(w) - f(w-1)\big) + \big( f(w-1) - f(w-2) + \dots + \big( f(|S|) - f(|S|-1)\big)\big)}_{|N-S|\text{ terms}} \\
+&amp;\phantom{\ggg} -|N-S|\cdot\big( f(w) - f(w-1)\big) + f(|S|-1) \\
+&amp;\geq f(|S|-1) = v(S)\end{aligned}\]</span></li>
+</ol>
+<!-- 
+&= f(|S|-1) + \big(1 - \underbrace{|N-S|}_{\geq 1}\big)\big( f(w) - f(w-1)\big) \\
+&\phantom{\ggg}+ \big( f(w-1) - f(w-2)\big) + \dots + \big( f(|S|) - f(|S|-1)\big) \\
+&= f(|S|-1) - \big(|N-S| - 1 \big)\big( f(w) - f(w-1)\big) + f(w-1) - f(|S|-1) \\
+&= f(w-1) - \big(|N-S| - 1 \big)\cdot f(w) + \big(|N-S| - 1 \big)\cdot f(w-1) \\
+&= |N-S|\cdot f(w-1) - \big(|N-S| - 1 \big)\cdot f(w)\\
+&= f(w) + |N-S|\cdot f(w-1) - |N-S|\cdot f(w)\\
+&= f(w) + |N-S|\cdot\big(f(w-1) - f(w)\big)
+ -->
+</div>
 <div id="shapley-value" class="section level3">
 <h3>Shapley Value</h3>
 <ul>
@@ -1383,7 +1412,7 @@ Therefore, the game is not balanced, and the core is empty</li>
 <blockquote>
 <p>Exercise 4<br />
 Write down the axioms for the Shapley value.<br />
-Clearly (!) and brie􏰽y (!!!) explain the economic meaning of each of the axioms.</p>
+Clearly (!) and briefly (!!!) explain the economic meaning of each of the axioms.</p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Efficiency / Feasibility<br />
