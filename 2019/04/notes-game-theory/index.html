@@ -91,7 +91,7 @@ if (!doNotTrack) {
 
 <div id="TOC">
 <ul>
-<li><a href="#extensive-game-perfect-information">Extensive Game, Perfect Information</a><ul>
+<li><a href="#extensive-game-perfect-information">Extensive Game (Perfect Information)</a><ul>
 <li><a href="#strategy">Strategy</a></li>
 <li><a href="#subgame">Subgame</a></li>
 <li><a href="#chance-moves">Chance Moves</a></li>
@@ -134,7 +134,7 @@ if (!doNotTrack) {
 textbook 2: (BM) <a href="http://93.174.95.27/book/index.php?md5=E69CA8B537D303E08D8D422CDF09C4B6">Fun and games</a><br />
 <a href="http://www.econ.uiuc.edu/~hrtdmrt2/Teaching/GT_2016_19/">Reference: Carlos Hurtado’s lecture notes</a></p>
 <div id="extensive-game-perfect-information" class="section level2">
-<h2>Extensive Game, Perfect Information</h2>
+<h2>Extensive Game (Perfect Information)</h2>
 <p>OR 6.1<br />
 <a href="http://gki.informatik.uni-freiburg.de/teaching/ss13/gametheory/gametheory15.pdf">Reference</a></p>
 <ul>
@@ -1106,7 +1106,6 @@ therefore, both players are better-off from more choice:
 </div>
 <div id="coalitional-game" class="section level2">
 <h2>Coalitional Game</h2>
-<p>OR Ch13 14</p>
 <div id="general-case-no-transfer" class="section level3">
 <h3>General Case (No Transfer)</h3>
 <ul>
@@ -1238,7 +1237,7 @@ Since <span class="math inline">\(x_i\leq f(w) - f(w-1)\)</span> for all <span c
 </div>
 <div id="non-emptiness-of-core" class="section level3">
 <h3>Non-Emptiness of Core</h3>
-<p>OR 13.3 <!-- 20190714-1741 now here --></p>
+<p>OR 13.3</p>
 <ul>
 <li>Weight of coalition
 <ul>
@@ -1422,53 +1421,103 @@ Therefore, the game is not balanced, and the core is empty</li>
 </div>
 <div id="shapley-value" class="section level3">
 <h3>Shapley Value</h3>
+<p>OR 14.4 <!-- 20190714-1904 now here --></p>
 <ul>
-<li>Value function: <span class="math inline">\(φ(v) = \big(φ_1(v), \dots, φ_{|N|}(v)\big)\in\mathbb{R}^{|N|}\)</span>
+<li>Value function
+<span class="math display">\[φ(v) = \big(φ_1(v), \dots, φ_{|N|}(v)\big)\in\mathbb{R}^{|N|}\]</span>
 <ul>
-<li>Object game: <span class="math inline">\((N, v)\)</span></li>
+<li>Game: <span class="math inline">\((N, v)\)</span></li>
 <li>Coalition: <span class="math inline">\(S\)</span></li>
+<li>Assigns <strong>unique + feasible</strong> payoff profile to every coalition game w/ transfer</li>
 </ul></li>
+<li>Shapley value<br />
+<span class="math display">\[ψ_i(v) = \frac{1}{|N|!}\sum_{γ\in Γ} v^i\big(S_i(γ)\big)\]</span>
+<ul>
+<li><span class="math inline">\(\iff\)</span> Average marginal contribution</li>
 <li>Marginal contribution: <span class="math inline">\(v^i(S) = v(S\cup\{i\}) - v(S)\)</span></li>
+<li>Ordering of players: <span class="math inline">\(γ: N\to N\)</span>, <span class="math inline">\(Γ = (γ_1, \dots, γ_{|N|})\)</span>, <span class="math inline">\(|Γ|= |N|!\)</span></li>
+<li>Coalition before i joins: <span class="math inline">\(S_i(γ)\)</span></li>
+</ul></li>
 <li>Axioms
 <ol style="list-style-type: decimal">
-<li>Efficiency / Feasibility: <span class="math inline">\(\sum_{i\in N} φ_i(v) = v(N)\)</span></li>
-<li>Symmetry: let <span class="math inline">\(π: N\to N\)</span>, <span class="math inline">\(w(S) = v\big(π(S)\big)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ^i(w) = φ^{π(i)}(v)\)</span></li>
-<li>Dummy: <span class="math inline">\(v^i(S) = 0\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ_i(v) = 0\)</span></li>
-<li>Additivity: for <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span> with same players, <span class="math inline">\(φ_i(v+w) = φ_i(v) + φ_i(w)\)</span></li>
+<li>Efficiency / Feasibility: <span class="math inline">\(\sum_{i\in N} ψ_i(v) = v(N)\)</span></li>
+<li>Symmetry: let <span class="math inline">\(π: N\to N\)</span>, <span class="math inline">\(w(S) = v\big(π(S)\big)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(ψ^i(w) = ψ^{π(i)}(v)\)</span></li>
+<li>Dummy: <span class="math inline">\(v^i(S) = 0\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(ψ_i(v) = 0\)</span></li>
+<li>Additivity: for <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span> with same players, <span class="math inline">\(ψ_i(v+w) = ψ_i(v) + ψ_i(w)\)</span></li>
 </ol></li>
-<li>Shapley value<br />
-<span class="math display">\[φ_i(v) = \frac{1}{|N|!}\sum_{γ\in Γ} v^i\big(S_i(γ)\big)\]</span>
-<ul>
-<li>Ordering of players: <span class="math inline">\(γ: N\to N\)</span>, <span class="math inline">\(Γ = (γ_1, \dots, γ_{|N|})\)</span>, <span class="math inline">\(|Γ|= |N|!\)</span></li>
-</ul></li>
-<li>Theorem (OR Proposition 291.3): Shapley value is the unique function <span class="math inline">\(φ(v)\)</span> s.t. axioms 1-4 are satisfied</li>
-<li>Young (1985) Axioms:
+<li>OR Proposition 291.3:<br />
+Shapley value is the unique value function s.t. axioms 1-4 are satisfied</li>
+<li>Young (1985) Axioms
 <ol style="list-style-type: decimal">
 <li>Efficiency</li>
 <li>Symmetry</li>
-<li>Marginal contribution: if <span class="math inline">\(v^i(S) = w^i(S)\)</span> for all <span class="math inline">\(S\)</span> not containing <span class="math inline">\(i\)</span>, then <span class="math inline">\(φ_i(v) = φ_i(w)\)</span></li>
+<li>Marginal contribution: if <span class="math inline">\(v^i(S) = w^i(S)\)</span> for all <span class="math inline">\(S\)</span> not containing <span class="math inline">\(i\)</span>, then <span class="math inline">\(ψ_i(v) = ψ_i(w)\)</span></li>
 </ol></li>
-<li>Theorem (Young): Shapley value is the unique function <span class="math inline">\(ψ(v)\)</span> s.t. axioms 1-3 are satisfied</li>
+<li>Theorem (Young):<br />
+Shapley value is the unique function <span class="math inline">\(ψ(v)\)</span> s.t. Young axioms 1-3 are satisfied</li>
 </ul>
+<!-- 
+> Lemma  
+> For any game $v$ with $N$ can be written as  
+> $$v = \sum_{T\neq\emptyset, T\subset N} α_T\cdot v_T$$
+> where $α_T\in\mathbb{R}$, and there is unique $(α_T)$ for each game
+
+Let $v_T(S) =\begin{cases}1 & T\subset S \\ 0 &\text{Otherwise} \end{cases}$  
+Rewrite the game $v$: 
+$$\begin{aligned}v &= \big( v(S_1), v(S_2),\dots, v(S_{2^{|N|}-1}) \\
+&\in \mathbb{R}^{2^{|N|}-1} \end{aligned}$$
+:) $B = \{ v_T: T\neq\emptyset, T\subset N\}$ is a basis for vector space $\mathbb{R}^{2^{|N|}-1}$  
+$\iff B$ are linearly independent  
+$\iff \sum_T β_T\cdot v_T = 0$ $\implies β_T = 0$ for all $T$  
+FSOC let $\sum_S β_S\cdot v_S = 0$, where $β_T \neq 0$ for some $T$  
+Let $S$ be s.t. for all $S\subsetneq S'$, $β_{S'} = 0$  
+$$\begin{aligned}0 &= \sum_T β_T\cdot v_T(S) \\
+&= \sum_{T\subsetneq S} \underbrace{β_T}_{!= 0}\cdot \underbrace{v_T(S)}_{= 1} + \underbrace{β_S}_{!\neq 0}\cdot\underbrace{v_S(S)}_{=1} + \sum_{T\not\subset S} β_T\cdot \underbrace{v_T(S)}_{0} \\
+&\neq 0\end{aligned}$$
+Contradiction! 
+ -->
 <blockquote>
-<p>Exercise 4<br />
-Write down the axioms for the Shapley value.<br />
-Clearly (!) and briefly (!!!) explain the economic meaning of each of the axioms.</p>
+<p>Example<br />
+Let <span class="math inline">\(N =\{1,2,3\}\)</span>, <span class="math inline">\(v(\{1,2,3\}) = 1\)</span>, <span class="math inline">\(v(\{1,2\}) = \frac{2}{3}\)</span>, <span class="math inline">\(v(S)=0\)</span> otherwise<br />
+Find out 1, 2, 3’s Shapley values</p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Efficiency / Feasibility<br />
-<span class="math inline">\(\sum_{i\in N} φ_i(v) = v(N)\)</span><br />
-Meaning: nothing in the total value is wasted</li>
-<li>Symmetry<br />
-let <span class="math inline">\(π: N\to N\)</span>, <span class="math inline">\(w(S) = v\big(π(S)\big)\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ^i(w) = φ^{π(i)}(v)\)</span><br />
-Meaning: changing the number or name of player will not change their value</li>
-<li>Dummy<br />
-<span class="math inline">\(v^i(S) = 0\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(φ_i(v) = 0\)</span><br />
-Meaning: if someone contributes 0, their value is 0</li>
-<li>Additivity<br />
-for <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span> with same players, <span class="math inline">\(φ_i(v+w) = φ_i(v) + φ_i(w)\)</span><br />
-Meaning: for games with the same players, the values can be summed up</li>
+<li>Approach 1<br />
+Consider member 1<br />
+1’s marginal contribution:
+<span class="math display">\[v^1\big(S_1(γ)\big) = \begin{cases} 0 &amp; γ = (1,\dots) \\ \frac{2}{3} &amp; γ = (2,1,\dots) \\ 0 &amp; γ = (3,1,\dots) \\ 1 &amp; γ = (x, y,1)\end{cases}\]</span>
+1’s Shapley value:
+<span class="math display">\[\begin{aligned}ψ_1 &amp;= \frac{1}{|N|!} \sum_γ v^1\big( S_1 (γ)\big) \\
+&amp;= \frac{1}{3\cdot 2}\big(0 + \frac{2}{3} + 0 + 2\cdot 1\cdot 1\big)\\
+&amp;= \frac{1}{6}\cdot\frac{8}{3} \\
+&amp;= \frac{4}{9} \end{aligned}\]</span>
+By symmetry, <span class="math inline">\(ψ_2 = ψ_1 = \frac{4}{9}\)</span><br />
+<span class="math inline">\(ψ_3 = v(N) - ψ_1 - ψ_2 = \frac{1}{9}\)</span></li>
+<li>Approach 2<br />
+Consider member 3<br />
+3’s marginal contribution:
+<span class="math display">\[v^3\big(S_3(γ)\big) = \begin{cases} 0 &amp; γ = (3,\dots) \\ 0 &amp; γ = (x, 3,\dots) \\ \frac{1}{3} &amp; γ = (x,y, 3)\end{cases}\]</span>
+3’s Shapley value:
+<span class="math display">\[\begin{aligned}ψ_3 &amp;= \frac{1}{|N|!} \sum_γ v^3\big( S_3 (γ)\big) \\
+&amp;= \frac{1}{3\cdot 2}\big(0 + 0 + 0 + 2\cdot 1\cdot \frac{1}{3}\big)\\
+&amp;= \frac{1}{6}\cdot\frac{2}{3} \\
+&amp;= \frac{1}{9} \end{aligned}\]</span>
+By symmetry, <span class="math inline">\(ψ_1 = ψ_2 = \frac{1}{2}\big(v(N) - ψ_3\big) = \frac{4}{9}\)</span></li>
 </ol>
+<!-- 
+> Exercise 4  
+> Write down the axioms for the Shapley value.  
+> Clearly (!) and briefly (!!!) explain the economic meaning of each of the axioms.
+
+1. Efficiency / Feasibility  
+Meaning: nothing in the total value is wasted
+2. Symmetry  
+Meaning: changing the number or name of player will not change their value
+3. Dummy  
+Meaning: if someone contributes 0, their value is 0
+4. Additivity  
+Meaning: for games with the same players, the values can be summed up
+ -->
 <blockquote>
 <p>Exercise 5<br />
 There are 4 identical workers.<br />
@@ -1484,7 +1533,7 @@ Use a cooperative solution concept from class to predict how many widgets will g
 <li>Since they are identical, each worker gets
 <span class="math display">\[\begin{aligned}\frac{1}{4}\cdot\big(1-\frac{1}{4}\big) &amp;= \frac{3}{16} \\
 \frac{3}{16}\cdot 40 &amp;= \frac{15}{2} \end{aligned}\]</span>
-<!-- correct but far too complicated  
+<!-- correct but too complicated  
 Let the workers be {A, B, C, D}  
 Since they are identical, consider A's contribution:  
 $$v^A\big( S_A (γ)\big) = \begin{cases}0 & γ = (A,\dots) \\\frac{1}{2} & γ = (x, A,\dots) \\\frac{1}{6} & γ=(x,y,A,\dots) \\\frac{1}{12} & γ=(x,y,z,A)\end{cases}$$
@@ -1494,7 +1543,7 @@ $$\begin{aligned}ψ_A(v) &= \frac{1}{|N|!} \sum_γ v^A\big( S_A (γ)\big) \\
 &= \frac{1}{4!}\cdot 3\cdot 2\cdot\big(\frac{1}{2} + \frac{1}{6} + \frac{1}{12} \big) \\
 &= \frac{3}{16}\end{aligned}$$ --></li>
 <li>Let the couple be (A, B), C and D are identical<br />
-AB’s contribution:
+AB’s marginal contribution:
 <span class="math display">\[v^{AB}\big( S_{AB} (γ)\big) = \begin{cases}\frac{1}{2} &amp; γ = (AB,\dots) \\\frac{2}{3} &amp; γ = (x, AB, \dots) \\\frac{1}{4} &amp; γ=(x,y,AB)\end{cases}\]</span>
 AB’s Shapley value:
 <span class="math display">\[\begin{aligned}ψ_{AB}(v) &amp;= \frac{1}{|N|!} \sum_γ v^{AB}\big( S_{AB} (γ)\big) \\
@@ -1505,7 +1554,7 @@ AB get <span class="math inline">\(\frac{17}{36}\cdot 40 = \frac{170}{9}\)</span
 Therefore, C and D each gets
 <span class="math display">\[\begin{aligned}\big(1-\frac{1}{4}\big) - \frac{17}{36} &amp;= \frac{5}{18} \\
 \frac{5}{18}\cdot\frac{1}{2}\cdot 40 &amp;= \frac{50}{9}\end{aligned}\]</span>
-<!-- correct but far too complicated  
+<!-- correct but too complicated  
 C's contribution:
 $$v^C\big( S_C (γ)\big) = \begin{cases}0 & γ = (C,\dots) \\\frac{1}{2} & γ = (D, C, \dots) \\\frac{1}{6} & γ=(AB, C, \dots) \\ \frac{1}{12} & γ=(\dots, C)\end{cases}$$
 C's Shapley value: 
@@ -1515,34 +1564,6 @@ $$\begin{aligned}ψ_C(v) &= \frac{1}{|N|!} \sum_γ v^C\big( S_C (γ)\big) \\
 &= \frac{5}{36}\end{aligned}$$
  --></li>
 </ol>
-<blockquote>
-<p>Example<br />
-Let <span class="math inline">\(N =\{1,2,3\}\)</span>, <span class="math inline">\(v(\{1,2,3\}) = 1\)</span>, <span class="math inline">\(v(\{1,2\}) = \frac{2}{3}\)</span>, <span class="math inline">\(v(S)=0\)</span> otherwise</p>
-</blockquote>
-<p><span class="math inline">\(Γ = \{(1,2,3), (1,3,2), (2,1,3),(2,3,1), (3,1,2),(3,2,1)\}\)</span><br />
-<span class="math inline">\(|Γ| = |N|! = 6\)</span><br />
-<span class="math display">\[\begin{aligned}φ_2(v) &amp;= \frac{1}{6}\cdot\big(v^2(\{1\}) + v^2(\{1,3\}) + v^2(\{\emptyset\}) + v^2(\{\emptyset\}) + v^2(\{3,1\})+v^2(\{3\}) \big) \\
-&amp;= \frac{1}{6}\cdot\bigg( \Big(\frac{2}{3}-0\Big) + (1-0) + 0 + 0 + (1-0) + 0\bigg) \\
-&amp;= \frac{4}{9}\end{aligned}\]</span></p>
-<blockquote>
-<p>Lemma<br />
-For any game <span class="math inline">\(v\)</span> with <span class="math inline">\(N\)</span> can be written as<br />
-<span class="math display">\[v = \sum_{T\neq\emptyset, T\subset N} α_T\cdot v_T\]</span>
-where <span class="math inline">\(α_T\in\mathbb{R}\)</span>, and there is unique <span class="math inline">\((α_T)\)</span> for each game</p>
-</blockquote>
-<p>Let <span class="math inline">\(v_T(S) =\begin{cases}1 &amp; T\subset S \\ 0 &amp;\text{Otherwise} \end{cases}\)</span><br />
-Rewrite the game <span class="math inline">\(v\)</span>:
-<span class="math display">\[\begin{aligned}v &amp;= \big( v(S_1), v(S_2),\dots, v(S_{2^{|N|}-1}) \\
-&amp;\in \mathbb{R}^{2^{|N|}-1} \end{aligned}\]</span>
-:) <span class="math inline">\(B = \{ v_T: T\neq\emptyset, T\subset N\}\)</span> is a basis for vector space <span class="math inline">\(\mathbb{R}^{2^{|N|}-1}\)</span><br />
-<span class="math inline">\(\iff B\)</span> are linearly independent<br />
-<span class="math inline">\(\iff \sum_T β_T\cdot v_T = 0\)</span> <span class="math inline">\(\implies β_T = 0\)</span> for all <span class="math inline">\(T\)</span><br />
-FSOC let <span class="math inline">\(\sum_S β_S\cdot v_S = 0\)</span>, where <span class="math inline">\(β_T \neq 0\)</span> for some <span class="math inline">\(T\)</span><br />
-Let <span class="math inline">\(S\)</span> be s.t. for all <span class="math inline">\(S\subsetneq S&#39;\)</span>, <span class="math inline">\(β_{S&#39;} = 0\)</span><br />
-<span class="math display">\[\begin{aligned}0 &amp;= \sum_T β_T\cdot v_T(S) \\
-&amp;= \sum_{T\subsetneq S} \underbrace{β_T}_{!= 0}\cdot \underbrace{v_T(S)}_{= 1} + \underbrace{β_S}_{!\neq 0}\cdot\underbrace{v_S(S)}_{=1} + \sum_{T\not\subset S} β_T\cdot \underbrace{v_T(S)}_{0} \\
-&amp;\neq 0\end{aligned}\]</span>
-Contradiction!</p>
 <blockquote>
 <p>Exercise (slides P102)<br />
 Calculate the Shapley value for games with transferable payoffs.</p>
