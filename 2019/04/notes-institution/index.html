@@ -206,13 +206,20 @@ FOC &amp;&amp; e^{FB} &amp;= \frac{1}{2} \end{aligned}\]</span>
 Expected total surplus in first best:
 <span class="math display">\[\begin{aligned}E[v \ | \ e^{FB}] - c(e^{FB}) &amp;= \frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\Big(\frac{1}{2}\Big)^2 \\
 &amp;= \frac{1}{8}\end{aligned}\]</span></li>
-<li>Franchising contract can be applied when negative payments are feasible.<br />
-<span class="math display">\[\begin{aligned}t(v) &amp;= v-a \\
-a &amp;= \frac{1}{8} \\
-t(0) &amp;= 0 - \frac{1}{8} \\
+<li>When negative payments are feasible, franchising contract can be applied.<br />
+Let the franchising fee <span class="math inline">\(a\)</span> be a constant,<br />
+agent’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;E[v \ | \ e] - c(e) - a \\
+FOC &amp;&amp; &amp;e^* = \frac{1}{2}\end{aligned}\]</span>
+Principal’s problem:
+<span class="math display">\[\begin{aligned}\max &amp;&amp; &amp;a \\
+(PC) &amp;&amp; &amp;E[v \ | \ e] - c(e) - a\geq 0 \\
+&amp;&amp; &amp;a^* = \frac{1}{8}\end{aligned}\]</span>
+therefore
+<span class="math display">\[\begin{aligned}t(0) &amp;= 0 - \frac{1}{8} \\
 &amp;= -\frac{1}{8} \\
 t\Big(\frac{1}{2}\Big) &amp;= \frac{1}{2} - \frac{1}{8} \\
-&amp;= \frac{3}{8}\end{aligned}\]</span></li>
+&amp;= \frac{3}{8} \end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="limited-liability" class="section level3">
@@ -362,13 +369,14 @@ Suppose principal implements <span class="math inline">\(e = \hat{e}\)</span>, p
 (PC) &amp;&amp; &amp;\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 \geq 0\\
 (LL) &amp;&amp; &amp;\begin{cases}t_2\geq 0 \\ t_0 \geq 0\end{cases}\end{aligned}\]</span>
 (IC) <span class="math inline">\(\implies\hat{e}=\frac{t_2 - t_0}{8}\)</span><br />
+therefore (PC) is slack<br />
 Let <span class="math inline">\(t_0 = 0 \implies t_2 = 8\hat{e}\)</span>.<br />
 Plug in back to principal’s problem,<br />
 <span class="math display">\[\begin{aligned}\max_{\hat{e}} &amp;&amp; \hat{e}\cdot(2-8\hat{e})&amp; \\
 FOC &amp;&amp; 2 - 16\hat{e} &amp;= 0 \\
 &amp;&amp; \hat{e} &amp;= \frac{1}{8}\end{aligned}\]</span>
 Expected payoff:<br />
-<span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;\hat{e}\cdot (2-t_2) + (1-\hat{e})\cdot 0 = \frac{1}{8} \\
+<span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;\hat{e}\cdot (2-t_2) + (1-\hat{e})\cdot (0-t_0) = \frac{1}{8} \\
 \text{Agent:} &amp;&amp; &amp;\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 = \frac{1}{16}\\
 \text{Total:} &amp;&amp; &amp;\hat{e}\cdot 2 + (1-\hat{e})\cdot 0 - 4\hat{e}^2 = \frac{3}{16}\end{aligned}\]</span>
 First best is not attained.</li>
@@ -379,6 +387,10 @@ Agent’s problem:
 FOC &amp;&amp; &amp;t_2 - 8e = 0 \\
 &amp;&amp; &amp;\phantom{t_2 - 8}e = \frac{t_2}{8}\end{aligned}\]</span>
 Agent offers <span class="math inline">\(t_0 = 0\)</span>, <span class="math inline">\(t_2 = 2\implies e = \frac{1}{4} = e^{FB}\)</span>
+Expected payoff:<br />
+<span class="math display">\[\begin{aligned}\text{Principal:} &amp;&amp; &amp;e\cdot (2-t_2) + (1-e)\cdot (0-t_0) = 0 \\
+\text{Agent:} &amp;&amp; &amp;e\cdot t_2 + (1-e)\cdot 0 - 4e^2 = \frac{1}{4}\\
+\text{Total:} &amp;&amp; &amp;e\cdot 2 + (1-e)\cdot 0 - 4e^2 = \frac{1}{4}\end{aligned}\]</span>
 First best is attained.</li>
 </ol>
 </div>
@@ -451,19 +463,30 @@ Expected total surplus:<br />
 &amp;= \Big[\frac{1}{2}\cdot v^2 - \frac{1}{2}v \Big]_{\frac{1}{2}}^1 \\
 &amp;= 0 - \Big(\frac{1}{8} - \frac{1}{4}) \\
 &amp;= \frac{1}{8} \end{aligned}\]</span></li>
-<li>Seller offers contract<br />
-Franchising contract, buyer’s payoff:<br />
-<span class="math display">\[\begin{aligned}x\cdot v - t(x) &amp;= x\cdot v - \frac{1}{2}\cdot x - a \\
-\frac{1}{2}\cdot x + a  &amp;= t(x) \\
-t(0) &amp;= a \\
-t(1) &amp;= a + \frac{1}{2}\end{aligned}\]</span>
-Buyer’s (PC):
-<span class="math display">\[\begin{aligned}E\Big[x\cdot v - \frac{1}{2}\cdot x - a\Big] &amp;\geq 0 \\
-a &amp;\geq \frac{1}{8}\end{aligned}\]</span>
-Therefore,<br />
-<span class="math display">\[\begin{aligned}t(0) &amp;= \frac{1}{8} \\
-t(1) &amp;= \frac{5}{8} \end{aligned}\]</span></li>
+<li>Seller offers contract, therefore they extracts expected total surplus<br />
+Seller’s payoff: <span class="math inline">\(t(x)\)</span><br />
+Buyer’s payoff:
+$$\begin{aligned}xv - t(x) &amp;= (t(x) - x + xv - t(x) ) -  \
+&amp;= - x + xv -  \</li>
 </ol>
+<ul>
+<li>t(x) &amp;= - x -  \
+t(x) &amp;= x +  \
+t(0) &amp;=  \
+t(1) &amp;= \end{aligned}$$</li>
+</ul>
+<!-- 
+$$\begin{aligned}x\cdot v - t(x) &= x\cdot v - \frac{1}{2}\cdot x - a \\
+\frac{1}{2}\cdot x + a  &= t(x) \\
+t(0) &= a \\
+t(1) &= a + \frac{1}{2}\end{aligned}$$
+Buyer's (PC): 
+$$\begin{aligned}E\Big[x\cdot v - \frac{1}{2}\cdot x - a\Big] &\geq 0 \\
+a &\geq \frac{1}{8}\end{aligned}$$
+Therefore,  
+$$\begin{aligned}t(0) &= \frac{1}{8} \\
+t(1) &= \frac{5}{8} \end{aligned}$$
+ -->
 </div>
 <div id="two-sided-timing" class="section level3">
 <h3>Two-Sided Timing</h3>
