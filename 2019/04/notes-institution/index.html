@@ -207,20 +207,26 @@ Expected total surplus in first best:
 <span class="math display">\[\begin{aligned}E[v \ | \ e^{FB}] - c(e^{FB}) &amp;= \frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\Big(\frac{1}{2}\Big)^2 \\
 &amp;= \frac{1}{8}\end{aligned}\]</span></li>
 <li>When negative payments are feasible, franchising contract can be applied.<br />
-Let the franchising fee <span class="math inline">\(a\)</span> be a constant,<br />
-agent’s problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;E[v \ | \ e] - c(e) - a \\
-FOC &amp;&amp; &amp;e^* = \frac{1}{2}\end{aligned}\]</span>
-Principal’s problem:
-<span class="math display">\[\begin{aligned}\max &amp;&amp; &amp;a \\
-(PC) &amp;&amp; &amp;E[v \ | \ e] - c(e) - a\geq 0 \\
-&amp;&amp; &amp;a^* = \frac{1}{8}\end{aligned}\]</span>
-therefore
-<span class="math display">\[\begin{aligned}t(0) &amp;= 0 - \frac{1}{8} \\
-&amp;= -\frac{1}{8} \\
-t\Big(\frac{1}{2}\Big) &amp;= \frac{1}{2} - \frac{1}{8} \\
-&amp;= \frac{3}{8} \end{aligned}\]</span></li>
+Principle extracts expected total surplus
+<span class="math display">\[\begin{aligned}v - t(v) &amp;= \frac{1}{8} \\
+t(v) &amp;= v - \frac{1}{8} \\
+t(0) &amp;= - \frac{1}{8} \\
+t\Big(\frac{1}{2}\Big) &amp;= \frac{3}{8}\end{aligned}\]</span></li>
 </ol>
+<!-- Let the franchising fee $a$ be a constant,  
+agent's problem:
+$$\begin{aligned}\max_e && &E[v \ | \ e] - c(e) - a \\
+FOC && &e^* = \frac{1}{2}\end{aligned}$$
+Principal's problem:
+$$\begin{aligned}\max && &a \\
+(PC) && &E[v \ | \ e] - c(e) - a\geq 0 \\
+&& &a^* = \frac{1}{8}\end{aligned}$$
+therefore
+$$\begin{aligned}t(0) &= 0 - \frac{1}{8} \\
+&= -\frac{1}{8} \\
+t\Big(\frac{1}{2}\Big) &= \frac{1}{2} - \frac{1}{8} \\
+&= \frac{3}{8} \end{aligned}$$
+ -->
 </div>
 <div id="limited-liability" class="section level3">
 <h3>Limited Liability</h3>
@@ -463,18 +469,22 @@ Expected total surplus:<br />
 &amp;= \Big[\frac{1}{2}\cdot v^2 - \frac{1}{2}v \Big]_{\frac{1}{2}}^1 \\
 &amp;= 0 - \Big(\frac{1}{8} - \frac{1}{4}) \\
 &amp;= \frac{1}{8} \end{aligned}\]</span></li>
-<li>Seller offers contract, therefore they extracts expected total surplus<br />
-Seller’s payoff: <span class="math inline">\(t(x)\)</span><br />
-Buyer’s payoff:
-$$\begin{aligned}xv - t(x) &amp;= (t(x) - x + xv - t(x) ) -  \
-&amp;= - x + xv -  \</li>
+<li>When seller offers contract, they extracts expected total surplus<br />
+<span class="math display">\[\begin{aligned}t(x) - \frac{1}{2}\cdot x &amp;= \frac{1}{8} \\
+t(x) &amp;= \frac{1}{8} + \frac{1}{2}\cdot x \\
+t(0) &amp;= \frac{1}{8} \\
+t(1) &amp;= \frac{5}{8}\end{aligned}\]</span></li>
 </ol>
-<ul>
-<li>t(x) &amp;= - x -  \
-t(x) &amp;= x +  \
-t(0) &amp;=  \
-t(1) &amp;= \end{aligned}$$</li>
-</ul>
+<!-- 
+Seller's payoff: $t(x)$  
+Buyer's payoff gives: 
+$$\begin{aligned}x\cdot v - t(x) &= \big(t(x) - \frac{1}{2}\cdot x + x\cdot v - t(x) \big) - \frac{1}{8} \\
+&=-\frac{1}{2}\cdot x + x\cdot v - \frac{1}{8} \\
+-t(x) &= - \frac{1}{2}\cdot x - \frac{1}{8} \\
+t(x) &= \frac{1}{2}\cdot x + \frac{1}{8} \\
+t(0) &= \frac{1}{8} \\
+t(1) &= \frac{5}{8}\end{aligned}$$
+ -->
 <!-- 
 $$\begin{aligned}x\cdot v - t(x) &= x\cdot v - \frac{1}{2}\cdot x - a \\
 \frac{1}{2}\cdot x + a  &= t(x) \\
@@ -646,14 +656,14 @@ At date 1 the principal offers a contract.<br />
 If the agent rejects, the parties get their reservation utilities zero.<br />
 If the agent signs the contract, then subsequently a verifiable decision <span class="math inline">\(x\geq 0\)</span> is made and the principal makes a payment <span class="math inline">\(t\)</span> to the agent.<br />
 The payoffs are:<br />
-<span class="math display">\[\begin{aligned}\text{Principal} &amp;&amp; \sqrt{x} - t \\ \text{Agent} &amp;&amp; t - xc - F\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\text{Principal} &amp;&amp; &amp;\sqrt{x} - t \\ \text{Agent} &amp;&amp; &amp;t - xc - F\end{aligned}\]</span>
 Suppose the (commonly known) fix costs <span class="math inline">\(F\)</span> of the agent satisfy <span class="math inline">\(0\leq F&lt;\frac{1}{4}\)</span><br />
 1. Characterize the first-best solution.<br />
 2. The principal offers a direct revelation mechanism <span class="math inline">\((t_L, x_L, t_H, x_H)\)</span> to the agent.<br />
 What is the principal’s objective function?<br />
-What are the incentive compatibility constraints (ICL) and (ICH)?<br />
-What are the participation constraints (PCL) and (PCH), which must be satisfied if the principal wants to ensure that both types of the agent sign the contract?<br />
-3. Solve the principal’s maximization problem described in part b).<br />
+What are the incentive compatibility constraints (IC)L and (IC)H?<br />
+What are the participation constraints (PC)L and (PC)H, which must be satisfied if the principal wants to ensure that both types of the agent sign the contract?<br />
+3. Solve the principal’s maximization problem described in part (2).<br />
 What is the principal’s expected profit?<br />
 4. Now suppose the principal wants to ensure the participation of the good type <span class="math inline">\(c = \frac{1}{2}\)</span> only.<br />
 What contract will the principal offer?<br />
@@ -669,32 +679,50 @@ FOC &amp;&amp; \frac{1}{2}x^{-\frac{1}{2}} - c &amp;= 0 \\
 <li>Principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; &amp;\phantom{\ggg}E[\sqrt{x} - t(x)] \\
 &amp;&amp; &amp;= \frac{1}{2}(\sqrt{x_L} - t_L) + \frac{1}{2}(\sqrt{x_H} - t_H) \\
-(IC_L) &amp;&amp; &amp;t_L - x_L\cdot c_L - F\geq t_H - x_H\cdot c_L - F \\
-(PC_L) &amp;&amp; &amp;t_L - x_L\cdot c_L - F\geq 0 \\
-(IC_H) &amp;&amp; &amp;t_H - x_H\cdot c_H - F\geq t_L - x_L\cdot c_H - F \\
-(PC_H) &amp;&amp; &amp;t_H - x_H\cdot c_H - F\geq 0\end{aligned}\]</span></li>
-<li><span class="math inline">\((PC_L)\)</span> is redundant (slack)<br />
-<span class="math inline">\((PC_H)\implies t_H = F + x_H\cdot c_H\)</span><br />
-<span class="math inline">\((IC_L)\implies\)</span>
-<span class="math display">\[\begin{aligned}t_L &amp;= t_H - x_H\cdot c_L + x_L\cdot c_L \\
+(IC)_L &amp;&amp; &amp;t_L - x_L\cdot c_L\geq t_H - x_H\cdot c_L \\
+(PC)_L &amp;&amp; &amp;t_L - x_L\cdot c_L\geq F \\
+(IC)_H &amp;&amp; &amp;t_H - x_H\cdot c_H\geq t_L - x_L\cdot c_H\\
+(PC)_H &amp;&amp; &amp;t_H - x_H\cdot c_H\geq F\end{aligned}\]</span></li>
+<li>Adding (IC)L and (IC)H gives
+<span class="math display">\[\begin{aligned}t_L - x_L\cdot c_L + t_H - x_H\cdot c_H &amp;\geq t_H - x_H\cdot c_L + t_L - x_L\cdot c_H\\
+-x_L\cdot c_L - x_H\cdot c_H &amp;\geq - x_H\cdot c_L  - x_L\cdot c_H \\
+x_L\cdot c_H - x_L\cdot c_L &amp;\geq x_H\cdot c_H - x_H\cdot c_L \\
+x_L\cdot(c_H - c_L) &amp;\geq x_H\cdot(c_H - c_L) \\
+x_L &amp;\geq x_H\end{aligned}\]</span>
+Since <span class="math inline">\(c_H&gt;c_L\)</span>, (IC)L <span class="math inline">\(\implies\)</span>
+<span class="math display">\[\begin{aligned}t_L - x_L\cdot c_L&amp;\geq t_H - x_H\cdot c_L \\
+&amp;\geq t_H - x_H\cdot c_H \\
+&amp;\geq F \implies (PC)_L\end{aligned}\]</span>
+Therefore, (PC)L is slack <span class="math inline">\(\implies\)</span> (PC)H is binding
+<span class="math display">\[t_H = F + x_H\cdot c_H\]</span>
+and (IC)L is binding
+<span class="math display">\[\begin{aligned}t_L - x_L\cdot c_L &amp;= t_H - x_H\cdot c_L \\
+t_L &amp;= t_H - x_H\cdot c_L + x_L\cdot c_L \\
 &amp;= F + x_H\cdot c_H - x_H\cdot c_L + x_L\cdot c_L \\
-&amp;= F + x_L\cdot c_L + \underbrace{x_H\cdot( c_H -c_L)}_{\text{Information rent}}\end{aligned}\]</span>
-<span class="math inline">\((IC_H)\implies\)</span>
-<span class="math display">\[\begin{aligned} 0 &amp;\geq (x_H -x_L)(c_H-c_L) \\
-x_H -x_L &amp;\leq 0 \\
-x_H &amp;\leq x_L\end{aligned}\]</span>
+&amp;= F + x_L\cdot c_L + \underbrace{x_H\cdot( c_H -c_L)}_{\text{Information rent}} \end{aligned}\]</span>
+<!-- 
+$(PC)_L$ is redundant (slack)  
+$(PC)_H\implies t_H = F + x_H\cdot c_H$  
+$(IC)_L\implies$ 
+$$\begin{aligned}t_L &= t_H - x_H\cdot c_L + x_L\cdot c_L \\
+&= F + x_H\cdot c_H - x_H\cdot c_L + x_L\cdot c_L \\
+&= F + x_L\cdot c_L + \underbrace{x_H\cdot( c_H -c_L)}_{\text{Information rent}}\end{aligned}$$
+$(IC)_H\implies$
+$$\begin{aligned} 0 &\geq (x_H -x_L)(c_H-c_L) \\
+x_H -x_L &\leq 0 \\
+x_H &\leq x_L\end{aligned}$$
+ -->
 Plug back to principal’s problem:
-<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}\big(\sqrt{x_L} - F - x_L\cdot c_L - x_H\cdot( c_H -c_L)\big) &amp;+ \frac{1}{2}(\sqrt{x_H} - F - x_H\cdot c_H) \\
-FOC &amp;&amp; \frac{1}{2}\Big(\frac{1}{2}x_L^{-\frac{1}{2}}-c_L\Big) &amp;= 0 \\
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; \frac{1}{2}\big(\sqrt{x_L} &amp;- F - x_L\cdot c_L - x_H\cdot( c_H -c_L)\big) + \frac{1}{2}(\sqrt{x_H} - F - x_H\cdot c_H) \\
+FOC &amp;&amp; \frac{\partial}{\partial x_L} &amp;= \frac{1}{2}\Big(\frac{1}{2}x_L^{-\frac{1}{2}}-c_L\Big) \overset{!}{=} 0 \\
 &amp;&amp; x_L^{SB} &amp;= \frac{1}{4c_L^2} \\
 &amp;&amp; &amp;= 1 = x_L^{FB}\\
-&amp;&amp; \frac{1}{2}\Big(-(c_H-c_H)+\frac{1}{2}x_H^{-\frac{1}{2}}-c_H\Big) &amp;= 0 \\
+&amp;&amp; \frac{\partial}{\partial x_H} &amp;=\frac{1}{2}\Big(-(c_H-c_H)+\frac{1}{2}x_H^{-\frac{1}{2}}-c_H\Big) \overset{!}{=} 0 \\
 &amp;&amp; x_H^{SB} &amp;= \frac{1}{(4c_H-2c_L)^2} \\
 &amp;&amp; &amp;= \frac{1}{9} &lt; x_H^{FB}\end{aligned}\]</span>
 Therefore, <span class="math display">\[\begin{aligned}t_H &amp;= F + x_H\cdot c_H \\ &amp;= F + \frac{1}{9} \\ t_L &amp;= F + x_L\cdot c_L + x_H\cdot( c_H -c_L) \\ &amp;= F + \frac{5}{9}\end{aligned}\]</span>
 Principal’s expected profit:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \frac{1}{2}(\sqrt{x_L} - t_L) + \frac{1}{2}(\sqrt{x_H} - t_H) \\
-&amp;= \frac{1}{3} - F\end{aligned}\]</span></li>
+<span class="math display">\[\frac{1}{2}(\sqrt{x_L} - t_L) + \frac{1}{2}(\sqrt{x_H} - t_H)\frac{1}{3} - F\]</span></li>
 <li>Principal’s problem:
 <span class="math display">\[\begin{aligned}\max_{x,t} &amp;&amp; \frac{1}{2}(\sqrt{x_L} - t_L)&amp; \\
 (PC_L) &amp;&amp; t_L - x_L\cdot c_L - F &amp;\geq 0 \\
