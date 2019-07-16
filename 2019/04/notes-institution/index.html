@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">38 min read</span>
+    <span class="article-duration">39 min read</span>
     
     <h1 class="article-title">Notes on Institutional Economics</h1>
     
@@ -1070,16 +1070,18 @@ Expected total surplus:
 &amp;= \frac{9}{32}\end{aligned}\]</span></li>
 <li>Direct mechanism<br />
 Let <span class="math inline">\(\begin{cases}t(q_L) = t_L \\ t(q_H) = t_H \end{cases}\)</span>, <span class="math inline">\(\begin{cases}x(q_L) = x_L \\ x(q_H) = x_H \end{cases}\)</span><br />
-Seller reveals truthfully if
+After <span class="math inline">\(q\)</span> is realized, seller reveals truthfully if
 <span class="math display">\[\begin{aligned}(IC)_H &amp;&amp; t_H - \frac{1}{2}\cdot x_H q_H &amp;\geq t_L - \frac{1}{2}\cdot x_L q_H\\
 \implies &amp;&amp; t_H - t_L &amp;\geq \frac{1}{2}\cdot q_H (x_H - x_L) \\
 (IC)_L &amp;&amp; t_L - \frac{1}{2}\cdot x_L q_L &amp;\geq t_H - \frac{1}{2}\cdot x_H q_L \\
-\implies &amp;&amp; t_H - t_L &amp;\leq \frac{1}{2}\cdot q_L (x_H - x_L) \\\end{aligned}\]</span>
-To attain first best, since <span class="math inline">\(x^{FB} = 1\)</span>,<br />
-<span class="math inline">\((IC)\implies 0\leq t_H - t_L \leq 0\)</span>, <span class="math inline">\(t_H = t_L = T\)</span><br />
-Seller’s problem:
-<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; &amp;\phantom{\ggg}E\Big[ t-\frac{1}{2}\cdot xq - k(e)\Big]\\
-&amp;&amp; &amp;= T -k(e)- E\Big[-\frac{1}{2}\cdot xq\Big] \\
+\implies &amp;&amp; t_H - t_L &amp;\leq \frac{1}{2}\cdot q_L (x_H - x_L)\end{aligned}\]</span>
+To attain first best, plug in <span class="math inline">\(x^{FB} = 1\)</span>
+<span class="math display">\[\begin{aligned}(IC)_H &amp;&amp; t_H - t_L &amp;\geq 0 \\
+(IC)_L &amp;&amp;  t_H - t_L &amp;\leq 0\end{aligned}\]</span>
+therefore, <span class="math inline">\(t_H = t_L = T\)</span><br />
+At day 1, Seller’s problem:
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; &amp;\phantom{\ggg}E_q\Big[ t-\frac{1}{2}\cdot x^{FB}\cdot q - k(e)\Big]\\
+&amp;&amp; &amp;= T -k(e)- E_q\Big[\frac{1}{2}\cdot xq\Big] \\
 &amp;&amp; &amp;= T - \frac{e^2}{2} - \frac{1}{2}\big(e\cdot q_H + (1-e)\cdot q_L \big)\\
 &amp;&amp; &amp;= T - \frac{e^2}{2} - \frac{e}{2} - \frac{1-e}{4}\\
 FOC &amp;&amp; &amp;-e - \frac{1}{4} = 0 \\
