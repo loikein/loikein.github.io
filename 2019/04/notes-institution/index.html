@@ -1167,38 +1167,36 @@ FOC &amp;&amp; v&#39;(a^{FB}) &amp;= 1 \\
 <li>Incomplete contract: can only specify <span class="math inline">\(o=A,B,J\)</span></li>
 <li>Re-negotiation at day 2: split the surplus (<a href="../notes-game-theory/#nash-bargaining-solution-nbs">NBS</a>)<br />
 <span class="math display">\[\begin{aligned}\text{Re-negotiation surplus} &amp;&amp; &amp;\big( v(a)-c(b)\big)-(D^o_A + D^o_B)\\
-  \text{A&#39;s payoff} &amp;&amp; U_A^o(a,b) &amp;= D^o_A - a +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
-  &amp;&amp; a^o &amp;= \text{argmax}_{a} \ U_A^o(a,b) \\
-  \text{B&#39;s payoff} &amp;&amp; U_B^o(a,b) &amp;= D^o_B - b +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
-  &amp;&amp; b^o &amp;= \text{argmax}_{b} \ U_B^o(a,b)\end{aligned}\]</span></li>
+  \text{A&#39;s payoff} &amp;&amp; U_A^o(a,b) &amp;= D^o_A +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
+  \text{B&#39;s payoff} &amp;&amp; U_B^o(a,b) &amp;= D^o_B +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \end{aligned}\]</span></li>
 </ul></li>
 <li>Day 1: investment level
 <ul>
 <li><span class="math inline">\(o=A\)</span><br />
 A’s payoff:
-<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=A}(a,b) &amp;= d_A(a)-a + \frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=A}(a,b)-a &amp;= -a + d_A(a) + \frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
   &amp;&amp; &amp;= -a + \frac{1}{2}\big( v(a)-c(b)+ d_A(a)\big) \\
   FOC &amp;&amp; \frac{1}{2}&amp;\big( v&#39;(a^A) + d_A&#39;(a^A)\big) = 1 \end{aligned}\]</span>
 B’s payoff:
-<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=A}(a,b) &amp;= 0-b +\frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=A}(a,b)-b &amp;= -b + 0 +\frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
   &amp;&amp; &amp;= -b + \frac{1}{2}\big( v(a)-c(b)- d_A(a)\big)\\
   FOC &amp;&amp; \frac{1}{2}&amp;\big( -c&#39;(b^A)\big) = 1\end{aligned}\]</span></li>
 <li><span class="math inline">\(o=B\)</span><br />
 A’s payoff:
-<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=B}(a,b) &amp;= 0 - a + \frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=B}(a,b)- a  &amp;= - a +0 + \frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
   &amp;&amp; &amp;= -a + \frac{1}{2}\big( v(a)-c(b)- d_B(b)\big) \\
   FOC &amp;&amp; \frac{1}{2}&amp;\big( v&#39;(a^B)\big) = 1 \end{aligned}\]</span>
 B’s payoff:
-<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=B}(a,b) &amp;= d_B(b) -b +\frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=B}(a,b)-b  &amp;= -b + d_B(b) +\frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
   &amp;&amp; &amp;= -b + \frac{1}{2}\big( v(a)-c(b) + d_B(b)\big)\\
   FOC &amp;&amp; \frac{1}{2}&amp;\big(-c&#39;(b^B) + d_B&#39;(b)\big) = 1\end{aligned}\]</span></li>
 <li><span class="math inline">\(o=J\)</span><br />
 A’s payoff:
-<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=J}(a,b) &amp;= 0 - a + \frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=J}(a,b)- a &amp;= - a + 0 + \frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
   &amp;&amp; &amp;= -a + \frac{1}{2}\big( v(a)-c(b)\big) \\
   FOC &amp;&amp; \frac{1}{2}&amp;\big( v&#39;(a^J)\big) = 1 \end{aligned}\]</span>
 B’s payoff:
-<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=J}(a,b) &amp;= 0 -b +\frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=J}(a,b)-b &amp;=-b + 0 +\frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
   &amp;&amp; &amp;= -b + \frac{1}{2}\big( v(a)-c(b)\big)\\
   FOC &amp;&amp; \frac{1}{2}&amp;\big(-c&#39;(b^J)\big) = 1\end{aligned}\]</span></li>
 </ul></li>
@@ -1265,36 +1263,38 @@ Total surplus: <span class="math inline">\(1+1 - \frac{1}{2}- \frac{1}{2} = 1\)<
 </ul></li>
 <li>Second best: day 2: negotiations (NBS)
 <span class="math display">\[\begin{aligned}\text{Re-negotiation surplus} &amp;&amp; &amp;( a+b)-(D^o_A + D^o_B)\\
-  \text{A&#39;s payoff} &amp;&amp; U_A^o(a,b) &amp;= D^o_A -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^o_A - D^o_B) \\
-  &amp;&amp; a^o &amp;= \text{argmax}_{a} \ U_A^o(a,b) \\
-  \text{B&#39;s payoff} &amp;&amp; U_B^o(a,b) &amp;= D^o_B -\frac{1}{2}b^2+\frac{1}{2}(a+b - D^o_A - D^o_B) \\
-  &amp;&amp; b^o &amp;= \text{argmax}_{b} \ U_B^o(a,b)\end{aligned}\]</span></li>
+  \text{A&#39;s payoff} &amp;&amp; U_A^o(a,b) &amp;= D^o_A +\frac{1}{2}(a+b - D^o_A - D^o_B) \\
+  \text{B&#39;s payoff} &amp;&amp; U_B^o(a,b) &amp;= D^o_B +\frac{1}{2}(a+b - D^o_A - D^o_B) \end{aligned}\]</span></li>
 <li>Day 1: investment level
 <ul>
 <li><span class="math inline">\(o=A\)</span><br />
 A’s investment:
-<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=A}(a,b) &amp;= D^A_A -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^A_A - D^A_B) \\
-  &amp;&amp; &amp;= (a+b)ε -\frac{1}{2}a^2 + \frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\
-  FOC &amp;&amp; ε - a + \frac{1}{2}(1-ε) &amp;= 0 \\
-  &amp;&amp; a^A &amp;= \frac{1}{2}(1+ε)\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; &amp;\phantom{\ggg}U_A^{o=A}(a,b)-\frac{1}{2}a^2 \\
+  &amp;&amp; &amp;= -\frac{1}{2}a^2 + D^A_A +\frac{1}{2}(a+b - D^A_A - D^A_B) \\
+  &amp;&amp; &amp;= -\frac{1}{2}a^2 + (a+b)ε +\frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\
+  FOC &amp;&amp; &amp;ε - a + \frac{1}{2}(1-ε) = 0 \\
+  &amp;&amp; &amp;a^A = \frac{1}{2}(1+ε)\end{aligned}\]</span>
 B’s investment:
-<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=A}(a,b) &amp;= D^A_B -\frac{1}{2}b^2+\frac{1}{2}(a+b - D^A_A - D^A_B) \\
-  &amp;&amp; &amp;= 0 -\frac{1}{2}b^2+\frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\\\
-  FOC &amp;&amp; -b + \frac{1}{2}(1-ε) &amp;= 0 \\
-  &amp;&amp; b^A &amp;= \frac{1}{2}(1-ε)\end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; &amp;\phantom{\ggg}U_B^{o=A}(a,b)-\frac{1}{2}b^2 \\
+  &amp;&amp; &amp;= -\frac{1}{2}b^2 + D^A_B +\frac{1}{2}(a+b - D^A_A - D^A_B) \\
+  &amp;&amp; &amp;= -\frac{1}{2}b^2 + 0 +\frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\\\
+  FOC &amp;&amp; &amp;-b + \frac{1}{2}(1-ε) = 0 \\
+  &amp;&amp; &amp;b^A = \frac{1}{2}(1-ε)\end{aligned}\]</span></li>
 <li><span class="math inline">\(o=B\)</span><br />
 By symmetry, <span class="math inline">\(a^B = \frac{1}{2}(1-ε)\)</span>, <span class="math inline">\(b^B = \frac{1}{2}(1+ε)\)</span></li>
 <li><span class="math inline">\(o=J\)</span><br />
 A’s investment:
-<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U_A^{o=J}(a,b) &amp;= D^J_A -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
-  &amp;&amp; &amp;= 0 -\frac{1}{2}a^2 + \frac{1}{2}(a+b - 0 - 0) \\
-  FOC &amp;&amp; -a + \frac{1}{2} &amp;= 0 \\
-  &amp;&amp; a^J &amp;= \frac{1}{2} \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; &amp;\phantom{\ggg}U_A^{o=J}(a,b)-\frac{1}{2}a^2 \\
+  &amp;&amp; &amp;= -\frac{1}{2}a^2 + D^J_A +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
+  &amp;&amp; &amp;= -\frac{1}{2}a^2 + 0 + \frac{1}{2}(a+b - 0 - 0) \\
+  FOC &amp;&amp; &amp;-a + \frac{1}{2} = 0 \\
+  &amp;&amp; &amp;a^J = \frac{1}{2} \end{aligned}\]</span>
 B’s investment:
-<span class="math display">\[\begin{aligned}\max_b &amp;&amp; U_B^{o=J}(a,b) &amp;= D^J_B -\frac{1}{2}a^2 +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
-  &amp;&amp; &amp;= 0 -\frac{1}{2}b^2 + \frac{1}{2}(a+b - 0 - 0) \\
-  FOC &amp;&amp; -b + \frac{1}{2} &amp;= 0 \\
-  &amp;&amp; b^J &amp;= \frac{1}{2} \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_b &amp;&amp; &amp;\phantom{\ggg}U_B^{o=J}(a,b) -\frac{1}{2}a^2 \\
+  &amp;&amp; &amp;= -\frac{1}{2}a^2 + D^J_B +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
+  &amp;&amp; &amp;= -\frac{1}{2}b^2 + 0 +\frac{1}{2}(a+b - 0 - 0) \\
+  FOC &amp;&amp; &amp;-b + \frac{1}{2} = 0 \\
+  &amp;&amp; &amp;b^J = \frac{1}{2} \end{aligned}\]</span></li>
 </ul></li>
 <li>Day 0: ownership structure
 Total surplus: <span class="math inline">\(a^o + b^o - \frac{1}{2}(a^o)^2 - \frac{1}{2}(b^o)^2\)</span>
@@ -1477,12 +1477,12 @@ In case of disagreement, G chooses <span class="math inline">\(x=0\)</span><br /
 <li>Day 1: investment level
 <ul>
 <li><span class="math inline">\(o=M\)</span>
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; -(1-e) &amp;- \frac{1}{2}e^2 \\
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; - \frac{1}{2}e^2 &amp;- (1-e) \\
   FOC &amp;&amp; 1 - e &amp;= 0 \\
   &amp;&amp; e^M &amp;= 1 \end{aligned}\]</span></li>
 <li><span class="math inline">\(o=G\)</span>
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; -1 &amp;+ \frac{1}{2}\big(1+(1-ε)e - 2 + 1 \big) - \frac{1}{2}e^2 \\
-  FOC &amp;&amp;  \\
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; - \frac{1}{2}e^2 -1 + \frac{1}{2}\big(1 &amp;+(1-ε)e - 2 + 1 \big) \\
+  FOC &amp;&amp; \frac{1}{2}(1-ε) - e &amp;= 0 \\
   &amp;&amp; e^G &amp;= \frac{1}{2}(1-ε) \end{aligned}\]</span></li>
 <li><span class="math inline">\(\implies e^G &lt; e^{FB} &lt; e^M\)</span></li>
 </ul></li>
