@@ -1534,10 +1534,12 @@ Compare <span class="math inline">\(q_0\)</span> to <span class="math inline">\(
 &amp;&amp; \frac{\partial}{\partial e} &amp;= xq - εxq - e \overset{!}{=} 0 \\
 &amp;&amp; e^{FB} &amp;=  x^{FB}q^{FB} -εx^{FB}q^{FB} \\
 &amp;&amp; &amp;= 1- ε \end{aligned}\]</span>
-<!-- First best total surplus:
-$$\begin{aligned}&\phantom{\ggg} (1 + xe - εxe)q - \frac{1}{2}e^2 \\
-&= \big(1 + (1- ε) - ε(1- ε)\big) - \frac{1}{2} \end{aligned}$$ --></li>
-<li>NBS at date-2
+Expected total surplus:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}(2 - εxe) q - (1 - xe) q - \frac{1}{2}e^2\\
+&amp;= (1 - εxe + xe)q - \frac{1}{2}e^2 \\
+&amp;= \big(1 + (1- ε)xe\big)q - \frac{1}{2}e^2 \\
+&amp;= \big(1 + (1- ε)^2\big)q - \frac{1}{2}e^2\end{aligned}\]</span></li>
+<li>NBS at date 2
 <ol style="list-style-type: lower-alpha">
 <li>When <span class="math inline">\(o=M\)</span><br />
 Since M’s cost is <span class="math inline">\((1 - xe) q\)</span>,<br />
@@ -1549,9 +1551,9 @@ Re-negotiation surplus:
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} (1 + x^{FB}\cdot e -x^{FB}\cdot εe) - (D_M^{o=M} + D_G^{o=M}) \\
  &amp;= (1 + e -εe) - (1 + e -εe)q_0 \\
  &amp;= (1 + e -εe)(1-q_0) \end{aligned}\]</span>
-Date-2 payoff:
+Date 2 payoff:
 <span class="math display">\[\begin{aligned}\text{M&#39;s payoff} &amp;&amp; &amp;-(1 - e) q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \\
- \text{G&#39;s payoff} &amp;&amp; &amp;(2 - εxe)q + \frac{1}{2}(1 + e -εe)(1-q_0) \end{aligned}\]</span></li>
+ \text{G&#39;s payoff} &amp;&amp; &amp;(2 - εxe)q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \end{aligned}\]</span></li>
 <li>When <span class="math inline">\(o=G\)</span><br />
 Since G’s benefit is <span class="math inline">\((2 - εxe) q\)</span>,<br />
 In case of disagreement, <span class="math inline">\(x^G = 0\)</span><br />
@@ -1561,15 +1563,15 @@ Default payoffs:
 Re-negotiation surplus:
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} (1 + x^{FB}\cdot e -x^{FB}\cdot εe) - (D_M^{o=G} + D_G^{o=G}) \\
  &amp;= (1 + e -εe) - q_0 \end{aligned}\]</span>
-Date-2 payoff:
+Date 2 payoff:
 <span class="math display">\[\begin{aligned}\text{M&#39;s payoff} &amp;&amp; &amp;-q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \\
  \text{G&#39;s payoff} &amp;&amp; &amp;2q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \end{aligned}\]</span></li>
 </ol></li>
-<li>Investment at date-1
+<li>Investment at date 1
 <ol style="list-style-type: lower-alpha">
 <li>When <span class="math inline">\(o=M\)</span><br />
 M’s problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;-\frac{1}{2}e^2 -(1 - e) q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \\
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; -\frac{1}{2}e^2 &amp;-(1 - e) q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \\
  FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + q_0 + \frac{1}{2}(1 -ε)(1-q_0)\overset{!}{=} 0 \\
  &amp;&amp; e^M &amp;= q_0 + \frac{1}{2}(1 -ε)(1-q_0) \\
  &amp;&amp; &amp;= \frac{1}{2}(1 - q_0 - ε + εq_0 + 2q_0)\\
@@ -1582,17 +1584,17 @@ M’s problem:
  q_0 &amp;&gt;\frac{1- ε}{1+ε}\end{aligned}\]</span></li>
 <li>When <span class="math inline">\(o=G\)</span><br />
 M’s problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; &amp;-\frac{1}{2}e^2 -q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \\
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; -\frac{1}{2}e^2 &amp;-q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \\
  FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + \frac{1}{2}(1 -ε)\overset{!}{=} 0 \\
  &amp;&amp; e^G &amp;= \frac{1}{2}(1 -ε) \end{aligned}\]</span>
 <span class="math inline">\(\implies e^G\)</span> does not depend on <span class="math inline">\(q_0\)</span><br />
 <span class="math inline">\(e^G\)</span> is always smaller than in first best</li>
 </ol></li>
-<li>At date-0, M and G agree on <span class="math inline">\(q_0\in [0,1]\)</span> s.t. TS is maximized.<br />
+<li>At date 0, M and G agree on <span class="math inline">\(q_0\in [0,1]\)</span> s.t. TS is maximized.<br />
 Since <span class="math inline">\(e^M = e^{FB}\)</span> when <span class="math inline">\(q_0 =\frac{1- ε}{1+ε}\)</span>,<br />
 the parties thus agree on <span class="math inline">\(o=M\)</span>, and they set <span class="math inline">\(q_0=\frac{1- ε}{1+ε} &lt;q^{FB} = 1\)</span><br />
-At date-2, <span class="math inline">\(q\)</span> will be renegotiated to <span class="math inline">\(q = 1\)</span><br />
 <span class="math inline">\(\implies\)</span> investment level is <span class="math inline">\(e^M = e^{FB}\)</span><br />
+At date 2, negotiation sets <span class="math inline">\(q = 1 = q^{FB}\)</span><br />
 <span class="math inline">\(\implies\)</span> first-best solution will be attained</li>
 </ol>
 </div>
