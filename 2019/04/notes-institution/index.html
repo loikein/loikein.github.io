@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">39 min read</span>
+    <span class="article-duration">40 min read</span>
     
     <h1 class="article-title">Notes on Institutional Economics</h1>
     
@@ -273,7 +273,7 @@ t\Big(\frac{1}{2}\Big) &= \frac{1}{2} - \frac{1}{8} \\
 <li>When <span class="math inline">\(c\leq (e_H - e_L)(v_H - v_L) &lt; \frac{e_Hc}{e_H - e_L}\)</span>, <span class="math inline">\(e = e_H\)</span> is first best solution but not chosen by the principal</li>
 </ul>
 <blockquote>
-<p>Application: Workplace surveillance<br />
+<p>Application: Workplace surveillance (S2 P12)<br />
 The principal can decide <span class="math inline">\(x\in\{0,1\}\)</span>, when <span class="math inline">\(x=1\)</span>, a surveillance technology costing <span class="math inline">\(k&gt;0\)</span> is used, and agents’ effort level becomes verifiable.<br />
 Principal’s payoff: <span class="math inline">\(v\in\{0,1\}\)</span>.<br />
 Agent’s effort cost: <span class="math inline">\(c(e) = e^2\)</span>, reservation utility is zero, and chooses <span class="math inline">\(e\in[0,1] = Pr(v=1|e)\)</span>.<br />
@@ -551,6 +551,39 @@ Expected payoff:<br />
 &amp;&amp; &amp;= E\big[(v-c)\cdot x^{FB}(c,v)\big]\end{aligned}\]</span></li>
 <li>Would it be possible for the agent to offer contract and implement <span class="math inline">\(x^{FB}\)</span>, s.t. their expected payoff is strictly positive?</li>
 </ul>
+<blockquote>
+<p>Example (S2 P21)<br />
+v and c are independent random variables that are uniformly distributed on <span class="math inline">\([0, 1]\)</span><br />
+Calculate first-best expected total surplus, payment and payoffs.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>FB expected total surplus
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}E\big[(v-c)\cdot x^{FB}(c,v)\big] \\
+&amp;= E\big[ \max( v-c, 0 )\big] \\
+&amp;= \int_0^1\int_0^1 \max( v-c, 0 )\, dcdv \\
+&amp;= \int_0^1\overbrace{\int_0^v}^{c\leq v} v-c\, dcdv + \underbrace{\int_0^1\overbrace{\int_v^1}^{c&gt;v} 0\, dcdv}_{=0} \\
+&amp;= \int_0^1 \big[vc - \frac{1}{2}c^2 \big]_0^v\, dv \\
+&amp;= \int_0^1 \frac{1}{2}v^2\, dv \\
+&amp;= \big[\frac{1}{6}v^3 \big]_0^1 \\
+&amp;= \frac{1}{6}\end{aligned}\]</span></li>
+<li>Principal extracts all ETS
+<span class="math display">\[\begin{aligned}\hat{v}\cdot x - t(\hat{v}, x) &amp;= E_c\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big]\\
+t(\hat{v}, x) &amp;= \hat{v}\cdot x- E_c\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
+&amp;= \hat{v}\cdot x - E_c\big[ \max( \hat{v} - c, 0 )\big] \\
+&amp;= \hat{v}\cdot x - \int_0^{\hat{v}} \hat{v}-c\, dc - \int_{\hat{v}}^1 0\, dc \\
+&amp;= \hat{v}\cdot x - \big[\hat{v}c-\frac{1}{2}c^2\big]_0^{\hat{v}}\\
+&amp;= \hat{v}\cdot x - \frac{1}{2}\hat{v}^2\end{aligned}\]</span>
+therefore, agent chooses <span class="math inline">\(x\)</span> s.t.
+<span class="math display">\[\begin{aligned}\max_x &amp;&amp; &amp;\phantom{\ggg}t - c\cdot x \\
+&amp;&amp; &amp;= \hat{v}\cdot x - \frac{1}{2}\hat{v}^2 - cx \\
+FOC &amp;&amp; &amp;\hat{v} - c = 0 \\
+&amp;&amp; &amp;x = x^{FB}(c,\hat{v})\end{aligned}\]</span>
+Principal’s payoff:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}E_c\Big[v\cdot x^{FB}(c,\hat{v}) - t\big(\hat{v}, x^{FB}(c,\hat{v})\big)\Big] \\
+&amp;= E_c\Big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + \frac{1}{2}\hat{v}^2 \Big] \\
+&amp;= E_c\big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v})\big] + \frac{1}{2}\hat{v}^2 \\
+&amp;= \end{aligned}\]</span></li>
+</ol>
 </div>
 </div>
 <div id="adverse-selection" class="section level2">
