@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">52 min read</span>
+    <span class="article-duration">54 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -435,12 +435,13 @@ For <span class="math inline">\(\underline{s}\)</span> seller,
 <blockquote>
 <p>PS2.Q1<br />
 Specify a pooling PBE in the following signaling game, in which both types of senders play R:<br />
+(Utility: Sender, Receiver)<br />
 <img src="/post-img/notes-contract--ps2q1.png" width="500" /></p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Assume there is a pooling equilibrium when both types senders play R.<br />
-Therefore, receiver’s on-track belief is <span class="math inline">\(μ(t_1 | R) = q = 0.5\)</span>.<br />
-Receiver chooses u when
+<li>Assume there is a pooling PBE when both types senders play R<br />
+Therefore, receiver’s on-track belief is <span class="math inline">\(μ(t_1 | R) = q = 0.5\)</span><br />
+When sees R, receiver chooses u if
 <span class="math display">\[\begin{aligned}1\cdot 0.5 + 0\cdot 0.5 &amp;\geq 0\cdot 0.5 + 2\cdot 0.5 \\
 0.1 &amp;\geq 1\end{aligned}\]</span>
 therefore ,receiver alway chooses d</li>
@@ -457,8 +458,23 @@ Pooling PBE: <span class="math inline">\(\big\{(R,R), (u|L, d|R), p\geq \frac{1}
 <p>PS2.Q2<br />
 The following signaling game with three types begins with a move in which the nature provides all three types with the same probability (not shown in the picture).<br />
 Specify a pooling PBE in which all three types of senders play L.<br />
+(Utility: Sender, Receiver)<br />
 <img src="/post-img/notes-contract--ps2q2.png" width="500" /></p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Assume there is a pooling PBE when all types senders play L<br />
+Therefore, receiver’s on-track belief is <span class="math inline">\(μ(t_1 | L) = μ(t_2 | L) = μ(t_3 | L)= \frac{1}{3}\)</span><br />
+When sees L, receiver always chooses u</li>
+<li>Let receiver’s off-track belief be <span class="math inline">\(\begin{cases}μ(t_1 | R) = s\\μ(t_2 | R) = r \\μ(t_3 | R) = 1-s-r \end{cases}\)</span><br />
+When sees R, receiver chooses u when
+<span class="math display">\[\begin{aligned} 1\cdot s + 1\cdot r &amp;\geq 1\cdot (1-s-r) \\
+s + r &amp;\geq 1-s-r \\
+s+r &amp;\geq\frac{1}{2}\end{aligned}\]</span>
+however, if receiver chooses d when sees R, <span class="math inline">\(t_3\)</span> deviates by playing R since <span class="math inline">\(2&gt;1\)</span><br />
+therefore, receiver must choose u<br />
+Pooling PBE:<br />
+<span class="math inline">\(\big\{(L,L,L), (u|L, u|R), p=q=\frac{1}{3}, s\geq 0,r\geq 0,1-s-r\geq 0, s+r\geq\frac{1}{2}\big\}\)</span></li>
+</ol>
 <blockquote>
 <p>Mock.Q3<br />
 A worker knows her talent <span class="math inline">\(θ\)</span>, but the employer does not.<br />
@@ -689,7 +705,7 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
   \text{Type H} &amp;&amp; e^*(H) \succsim_H e^*(L)\end{aligned}\]</span>
 <img src="/post-img/notes-contract--job-signal-no-envy.png" width="469" alt="PGT Figure 4.2.5" /></li>
 <li>Envy case
-<span class="math display">\[\begin{aligned}\text{Type L} &amp;&amp; e^*(L) \succsim_L e^*(H) \\
+<span class="math display">\[\begin{aligned}\text{Type L} &amp;&amp; e^*(H) \succsim_L e^*(L) \\
   \text{Type H} &amp;&amp; e^*(H) \succsim_H e^*(L)\end{aligned}\]</span>
 <img src="/post-img/notes-contract--job-signal-envy.png" width="439" alt="PGT Figure 4.2.6" /></li>
 </ul></li>
@@ -843,6 +859,96 @@ r-q &amp;= \frac{q - q^2 - (1-q)qπ}{q + (1-q) π} \\
 <img src="/post-img/notes-contract--job-signal-hybrid.png" width="617" alt="" />
 <p class="caption">PGT Figure 4.2.9</p>
 </div>
+<blockquote>
+<p>PS2.Q3 (needs check)<br />
+Consider the job market signalling model.<br />
+In particular, we consider the following economy.<br />
+A large number of firms compete to attract a worker.<br />
+The outcome of this competition between firms is that all of them o§er to pay a salary equal to the expected level of productivity of the worker.<br />
+The productivity of the worker depends on ability and education.<br />
+There are two types of workers, L and H.<br />
+If an individual of type L chooses a level of education <span class="math inline">\(e\)</span>, then this individual faces costs of education <span class="math inline">\(c_L (e) = e^2\)</span>, and his productivity is <span class="math inline">\(θ_L (e) = 1 + e\)</span>.<br />
+If an individual of type H chooses education level e, then his costs of education are <span class="math inline">\(c_H (e) = \frac{e^2}{2}\)</span> and his productivity is <span class="math inline">\(θ_H (e) = 2+e\)</span>.<br />
+The pool of workers has unit mass and a fraction <span class="math inline">\(λ = \frac{1}{2}\)</span> of type L.<br />
+We consider the following extensive form.<br />
+First, Nature determines the type of the worker, the worker is of low type L with probability <span class="math inline">\(λ\)</span>.<br />
+The worker observes Nature’s draw and then chooses his level of education.<br />
+Firms can observe the level of education chosen but not the underlying ability.<br />
+Firms offer wages equal to the expected level of productivity.<br />
+The equilibrium concept is Perfect Bayesian Equilibrium.</p>
+<ol style="list-style-type: decimal">
+<li>Compute the education levels <span class="math inline">\(e_p\)</span> that can arise in a pooling equilibrium in which firms have pessimistic beliefs of
+<span class="math display">\[μ(H|e) = \begin{cases}0 &amp; e&lt;e_p \\ 0.5 &amp; e\geq e_p\end{cases}\]</span></li>
+<li>Suppose firms have beliefs
+<span class="math display">\[μ(H|e) = \begin{cases}0 &amp; e&lt;e_h \\ y &amp; e= e_h \\ 0 &amp; e&gt;e_h\end{cases}\]</span>
+Compute the education levels in hybrid equilibria where the low type mixes between <span class="math inline">\(e = 0.5\)</span> and <span class="math inline">\(e = e_h\)</span> as a function of <span class="math inline">\(π\)</span>, the probability that the low type chooses <span class="math inline">\(e_h\)</span>.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>With beliefs <span class="math inline">\(μ(H|e) = \begin{cases}0 &amp; e&lt;e_p \\ 0.5 &amp; e\geq e_p\end{cases}\)</span>,<br />
+When facing <span class="math inline">\(e&lt;e_p\)</span>, firm gives <span class="math inline">\(w(e) = 1+e\)</span><br />
+When facing <span class="math inline">\(e\geq e_p\)</span>,
+<span class="math display">\[\begin{aligned}w(e) &amp;= E[θ] \\
+&amp;= \frac{1}{2}(1+e) + \frac{1}{2}(2+e) \\
+&amp;= \frac{3}{2} + e \end{aligned}\]</span>
+therefore, firm gives wage <span class="math inline">\(w(e) = \begin{cases}1 + e &amp; e&lt;e_p \\ 1.5 + e &amp; e\geq e_p\end{cases}\)</span><br />
+Type L’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w(e)&amp;- e^2 \\
+FOC &amp;&amp; 1 - 2e &amp;\overset{!}{=} 0 \\
+&amp;&amp; e_L &amp;= \frac{1}{2}\end{aligned}\]</span>
+(IC)L:
+<span class="math display">\[\begin{aligned}\frac{3}{2} + e_p - e_p^2 &amp;\geq 1 + e_L - e_L^2 \\
+\frac{3}{2} + e_p - e_p^2&amp;\geq 1.25 \\
+e_p - e_p^2 &amp;\geq -0.25 \\
+e_p &amp;\in \big[\frac{1}{2}(1-\sqrt{2}), \frac{1}{2}(1+\sqrt{2})\big] \end{aligned}\]</span>
+Type H’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w(e) &amp;- \frac{e^2}{2} \\
+FOC &amp;&amp; 1-e &amp;\overset{!}{=} 0 \\
+&amp;&amp; e_H &amp;= 1 \end{aligned}\]</span>
+<span class="math inline">\(\implies e_p\geq 1\)</span> (why??)<br />
+(IC)H:
+<span class="math display">\[\begin{aligned}\frac{3}{2} + e_p - \frac{e_p^2}{2}&amp;\geq 1 + e_H - \frac{e_H^2}{2} \\
+\frac{3}{2} + e_p - \frac{e_p^2}{2}&amp;\geq 1.5 \\
+e_p - \frac{e_p^2}{2} &amp;\geq 0 \\
+e_p &amp;\in [0,2] \end{aligned}\]</span>
+Therefore, <span class="math inline">\(e_p\in\big[1, \frac{1}{2}(1+\sqrt{2})\big]\)</span></li>
+<li>Since type L mixes between <span class="math inline">\(e=0.5\)</span> and <span class="math inline">\(e=e_h\)</span>, <span class="math inline">\(π\in[0,1]\)</span>,<br />
+firm’s belief according to Baye’s rule is
+<span class="math display">\[\begin{aligned}y &amp;= \frac{0.5}{0.5 + 0.5\cdot π} \\
+&amp;= \frac{1}{1+π} \\
+&amp;\in \big[ \frac{1}{2},1\big] \end{aligned}\]</span>
+With beliefs <span class="math inline">\(μ(H|e) = \begin{cases}0 &amp; e\neq e_h \\ y &amp; e= e_h\end{cases}\)</span><br />
+When facing <span class="math inline">\(e\neq e_h\)</span>, firm gives <span class="math inline">\(w(e) = 1+e\)</span><br />
+When facing <span class="math inline">\(e= e_h\)</span>,
+<span class="math display">\[\begin{aligned}w(e) &amp;= E[θ] \\
+&amp;= (1-y)(1+e) + y(2+e) \\
+&amp;= (1+y) + e \end{aligned}\]</span>
+therefore, firm gives wage <span class="math inline">\(w(e) = \begin{cases}1 + e &amp; e\neq e_h \\ (1+y) + e &amp; e= e_h\end{cases}\)</span><br />
+(IC)L:
+<span class="math display">\[\begin{aligned}(1+y) + e_h - e_h^2 &amp;= 1 + e_L - e_L^2 \\
+(1+y) + e_h - e_h^2 &amp;= 1.25 \\
+e_h - e_h^2 &amp;= 0.25 - y \\
+y &amp;= 0.25 - e_h + e_h^2 \\
+e_h &amp;\in \big[\frac{1}{2}(1+\sqrt{2}),\frac{3}{2}\big]\end{aligned}\]</span>
+(IC)H:
+<span class="math display">\[\begin{aligned}(1+y) + e_h - \frac{e_h^2}{2}&amp;\geq 1 + e_H - \frac{e_H^2}{2} \\
+(1+y) + e_h - \frac{e_h^2}{2}&amp;\geq 1.5 \\
+e_h - \frac{e_h^2}{2}&amp;\geq 0.5-y \\
+y &amp;\geq 0.5 - e_h +\frac{e_h^2}{2} \\
+e_h &amp;\in [0,2] \end{aligned}\]</span>
+therefore, <span class="math inline">\(e_h\in \big[\frac{1}{2}(1+\sqrt{2}),\frac{3}{2}\big]\)</span></li>
+</ol>
+<blockquote>
+<p>PS2.Q4<br />
+In PS2.Q3, let the cost of the low type be <span class="math inline">\(c_L(e)=e^2\)</span> and let the cost of the high type be <span class="math inline">\(c_H(e)= \frac{e^2}{θ}\)</span> with <span class="math inline">\(θ\geq 1\)</span>.<br />
+For what levels of <span class="math inline">\(θ\)</span> can you construct a separating equilibrium with monotonic beliefs such that the first-best education choices are chosen in equilibrium.<br />
+(i.e. when do you get the envy, when the no-envy case?)</p>
+</blockquote>
+<blockquote>
+<p>PS2.Q5<br />
+In PS2.Q3, is it possible that a pooling equilibrium is Pareto better than any separating equilibrium?<br />
+In particular, vary the parameter <span class="math inline">\(λ\)</span>.</p>
+</blockquote>
 </div>
 <div id="perfect-bayesian-equilibrium-pbe" class="section level3">
 <h3>Perfect Bayesian Equilibrium (PBE)</h3>
@@ -929,42 +1035,6 @@ At information sets off the equilibrium path, beliefs are determined by Bayesian
 <img src="/post-img/notes-contract--job-signal-bayesian-2.png" width="393" alt="" />
 <p class="caption">PGT Figure 4.1.4</p>
 </div>
-<blockquote>
-<p>PS2.Q3<br />
-Consider the jobmarket signalling model.<br />
-In particular, we consider the following economy.<br />
-A large number of firms competes to attract a worker.<br />
-The outcome of this competition between firms is that all of them o§er to pay a salary equal to the expected level of productivity of the worker.<br />
-The productivity of the worker depends on ability and education.<br />
-There are two types of workers, L and H.<br />
-If an individual of type L chooses a level of education <span class="math inline">\(e\)</span>, then this individual faces costs of education <span class="math inline">\(c_L (e) = e^2\)</span>, and his productivity is <span class="math inline">\(θ_L (e) = 1 + e\)</span>.<br />
-If an individual of type H chooses education level e, then his costs of education are <span class="math inline">\(c_H (e) = \frac{e^2}{2}\)</span> and his productivity is <span class="math inline">\(θ_H (e) = 2+e\)</span>.<br />
-The pool of workers has unit mass and a fraction <span class="math inline">\(λ = \frac{1}{2}\)</span> of type L.<br />
-We consider the following extensive form.<br />
-First, Nature determines the type of the worker, the worker is of low type L with probability <span class="math inline">\(λ\)</span>.<br />
-The worker observes Nature’s draw and then chooses his level of education.<br />
-Firms can observe the level of education chosen but not the underlying ability.<br />
-Firms offer wages equal to the expected level of productivity.<br />
-The equilibrium concept is Perfect Bayesian Equilibrium.</p>
-<ol style="list-style-type: decimal">
-<li>Compute the education levels ep that can arise in a pooling equilibrium in which firms have pessimistic beliefs of
-<span class="math display">\[μ(H|e) = \begin{cases}0 &amp; e&lt;e_p \\ 0.5 &amp; e\geq e_P\end{cases}\]</span></li>
-<li>Suppose firms have beliefs
-<span class="math display">\[μ(H|e) = \begin{cases}0 &amp; e&lt;e_h \\ y &amp; e= e_h \\ 0 &amp; e&gt;e_h\end{cases}\]</span>
-Compute the education levels in hybrid equilibria where the low type mixes between <span class="math inline">\(e = 0.5\)</span> and <span class="math inline">\(e = e_h\)</span> as a function of <span class="math inline">\(π\)</span>, the probability that the low type chooses <span class="math inline">\(e_h\)</span>.</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>PS2.Q4<br />
-In PS2.Q3, let the cost of the low type be <span class="math inline">\(c_L(e)=e^2\)</span> and let the cost of the high type be <span class="math inline">\(c_H(e)= \frac{e^2}{θ}\)</span> with <span class="math inline">\(θ\geq 1\)</span>.<br />
-For what levels of <span class="math inline">\(θ\)</span> can you construct a separating equilibrium with monotonic beliefs such that the first-best education choices are chosen in equilibrium.<br />
-(i.e. when do you get the envy, when the no-envy case?)</p>
-</blockquote>
-<blockquote>
-<p>PS2.Q5<br />
-In PS2.Q3, is it possible that a pooling equilibrium is pareto better than any separating equilibrium?<br />
-In particular, vary the parameter <span class="math inline">\(λ\)</span>.</p>
-</blockquote>
 </div>
 <div id="equilibrium-refinements" class="section level3">
 <h3>Equilibrium Refinements</h3>
