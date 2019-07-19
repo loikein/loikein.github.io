@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">54 min read</span>
+    <span class="article-duration">56 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -1240,7 +1240,7 @@ Consider <span class="math inline">\(β\)</span>: <span class="math inline">\(β
 <blockquote>
 <p>Mock.Q1<br />
 Consider a market for loans to finance investment projects.<br />
-Investing requires an outlay of 1 Dollar.<br />
+Investing requires an outlay of 1 dollar.<br />
 There are two types of projects, good and bad. A good project yields profit <span class="math inline">\(π\)</span> with probability <span class="math inline">\(g\)</span> and zero with <span class="math inline">\(1-g\)</span>.<br />
 A bad project yields profit <span class="math inline">\(π\)</span> with <span class="math inline">\(b\)</span> and zero with <span class="math inline">\(1-b\)</span>, where <span class="math inline">\(g&gt;b\)</span>.<br />
 The fraction of good projects is <span class="math inline">\(λ\)</span>.<br />
@@ -1260,18 +1260,42 @@ Describe the separating equilibrium in which the good type’s utility is highes
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Let banks break even</li>
-<li>Doing something inefficient is a signal<br />
-Good type: <span class="math inline">\(g(π-R(x)) - (1+ρ) x\)</span></li>
-<li>Let the bad types be indifferent (no rent at the bottom)<br />
-Bad type: <span class="math inline">\(bR(x_b) = (1-x_b)(1+r)\)</span><br />
-plug back into bad type’s payoff<br />
-<span class="math inline">\(b(π-R(x_b)) - (1+ρ) x_b = bπ - (1-x_b)(1+r) - (1+ρ)x_b\)</span><br />
-since <span class="math inline">\(0 &gt; bπ - (1+r)\)</span>, bad types are not financed<br />
-Good type: <span class="math inline">\(gR(x_g) = (1-x_g)(1+r)\)</span><br />
-plug back into good type’s payoff<br />
-<span class="math inline">\(gπ - (1-x_g)(1+r) - (1+ρ)x_g\)</span><br />
-<span class="math inline">\(x_g\)</span> is the smallest <span class="math inline">\(x\)</span> that just discourages bad types from taking the loan.</li>
+<li>Since E have no money, their repayment to B is zero if the project fails<br />
+Good E borrows to invest if
+<span class="math display">\[\begin{aligned}g\cdot (π - R) + (1-g)\cdot (0 - 0)&amp;\geq 0 \\
+π - R &amp;\geq 0 \end{aligned}\]</span>
+Bad E borrows to invest if
+<span class="math display">\[\begin{aligned}b\cdot (π - R) + (1-b)\cdot (0 - 0)&amp;\geq 0 \\
+π - R &amp;\geq 0 \end{aligned}\]</span>
+therefore, if <span class="math inline">\(π \geq R\)</span>, both types will invest.<br />
+Under competition, B is willing to lend money if
+<span class="math display">\[\begin{aligned}\underbrace{-1}_{\text{Lend}} + \underbrace{λgR + (1-λ)bR}_{\text{Repayment}} &amp;= r \\
+R\big( λg + (1-λ)b \big) &amp;= 1+r \\
+R &amp;= \frac{1+r}{λg + (1-λ)b} \end{aligned}\]</span>
+Therefore, when <span class="math inline">\(λ\)</span> is s.t.
+<span class="math display">\[\begin{aligned}π - R &amp;\geq 0 \\
+π - \frac{1+r}{λg + (1-λ)b} &amp;\geq 0\end{aligned}\]</span>
+all projects will be undertaken</li>
+<li>Good type: <span class="math inline">\(g\big(π-R(x)\big) - (1+ρ)x\)</span><br />
+Bad type: <span class="math inline">\(b\big(π-R(x)\big) - (1+ρ)x\)</span></li>
+<li>Let the separating contract be <span class="math inline">\(\begin{cases}x_g \\ R(x_g) \end{cases}\)</span> and <span class="math inline">\(\begin{cases}x_b \\ R(x_b) \end{cases}\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>Banks offer <span class="math inline">\(R(x_b)\)</span> s.t. they are indifferent between investing and no investing to bad types<br />
+<span class="math display">\[\begin{aligned}R(x_b)\cdot b  &amp;= (1-x_b)(1+r) \\
+ b\big(π-R(x_b)\big) - (1+ρ)x_b &amp;= bπ - (1-x_b)(1+r) - (1+ρ)x_b \\
+ &amp;= \underbrace{bπ - (1+r)}_{&lt;0} - x_b(\underbrace{ρ-r}_{&gt;0}) \\
+ &amp;&lt; 0\end{aligned}\]</span>
+therefore, bad types will not finance the investment<br />
+</li>
+<li>Banks offer <span class="math inline">\(R(x_g)\)</span> s.t. they are indifferent between investing and no investing to good types<br />
+<span class="math display">\[\begin{aligned}R(x_g)\cdot g  &amp;= (1-x_g)(1+r) \\
+ g\big(π-R(x_g)\big) - (1+ρ)x_g &amp;= gπ - (1-x_g)(1+r) - (1+ρ)x_g \\
+ &amp;= gπ - (1+r) - x_g(ρ-r)\end{aligned}\]</span></li>
+<li><span class="math inline">\(x_g\)</span> must satisfy bad type’s (IC):
+<span class="math display">\[\begin{aligned}bπ - (1+r) - x_g(ρ-r) &amp;\leq 0 \\
+ x_g &amp;\geq \frac{bπ - (1+r)}{ρ-r} \\
+ &amp;= x_g^*\end{aligned}\]</span></li>
+</ol></li>
 </ol>
 </div>
 </div>
@@ -1486,7 +1510,7 @@ The airline can only set non- negative prices, <span class="math inline">\(P_T,P
 Passengers cannot be forced to travel, so they must be happy to do so if the airline wishes to serve them.<br />
 Note also that the marginal cost of transporting passengers is zero.</p>
 <ol style="list-style-type: decimal">
-<li>Draw the indi§erence curves of the two customer types and the isoprofit lines of the airline in the contract space. Explain your graph.</li>
+<li>Draw the indifference curves of the two customer types and the isoprofit lines of the airline in the contract space. Explain your graph.</li>
 <li>Formulate the airline’s problem and explain the constraints you impose.</li>
 <li>Which of the constraints in the problem must be binding at the optimum? Explain!</li>
 <li>Solve now the problem. How does the solution depend on the parameters?<br />
@@ -1497,15 +1521,62 @@ Comment on the properties of the optimal allocation.</li>
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Let <span class="math inline">\(u_P = v - θ_TP - W\)</span>, <span class="math inline">\(W = v - u_P - θ_TP\)</span></li>
-<li><span class="math display">\[\begin{aligned}\max_{P_i,W_i} &amp;&amp; &amp;λP_T + (1-λ)P_B \\
+<li>Let <span class="math inline">\(u\)</span> be
+<span class="math display">\[\begin{aligned}u_i &amp;= v - θ_iP - W \\
+W &amp;= (v - u_i) - θ_iP \end{aligned}\]</span></li>
+</ol>
+<p><img src="/post-img/notes-contract--mockq2.png" width="566" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Airline’s problem:
+<span class="math display">\[\begin{aligned}\max_{P_i,W_i} &amp;&amp; &amp;λP_T + (1-λ)P_B \\
 (PC)_T &amp;&amp; &amp;v - θ_TP_T - W_T\geq 0 \\
 (PC)_B &amp;&amp; &amp;v - θ_BP_B - W_B\geq 0\\
 (IC)_T &amp;&amp; &amp;v - θ_TP_T - W_T\geq v - θ_TP_B - W_B\\
 (IC)_B &amp;&amp; &amp;v - θ_BP_B - W_B\geq v - θ_BP_T - W_T \end{aligned}\]</span></li>
-<li>(PC)T and (IC)B are binding</li>
-<li>Two possibilities: excluding T or letting T have 0 profit</li>
-<li></li>
+<li>Adding up (IC)T and (IC)B gives
+<span class="math display">\[\begin{aligned}v - θ_TP_T - W_T + v - θ_BP_B - W_B &amp;\geq v - θ_TP_B - W_B + v - θ_BP_T - W_T \\
+-θ_TP_T - θ_BP_B &amp;\geq - θ_TP_B - θ_BP_T \\
+θ_T(P_B - P_T) + θ_B(P_T - P_B) &amp;\geq 0 \\
+(θ_T - θ_B)(P_B - P_T) &amp;\geq 0\end{aligned}\]</span>
+since <span class="math inline">\(θ_T &gt; θ_B\)</span>, we have <span class="math inline">\(P_B &gt; P_T\)</span><br />
+(IC)B <span class="math inline">\(\implies\)</span>
+<span class="math display">\[\begin{aligned}v - θ_BP_B - W_B &amp;\geq v - θ_BP_T - W_T \\
+&amp;\geq v - θ_TP_T - W_T \\
+&amp;\geq 0 \implies (PC)_B\end{aligned}\]</span>
+therefore, (PC)B is slack <span class="math inline">\(\implies\)</span> (PC)T and (IC)B are binding</li>
+<li>Since (PC)T and (IC)B are binding, we have
+<span class="math display">\[\begin{aligned}v - θ_TP_T - W_T &amp;= 0 \\
+P_T &amp;= \frac{v-W_T}{θ_T}\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}v - θ_BP_B - W_B &amp;= v - θ_BP_T - W_T \\
+P_B &amp;= \frac{W_T - W_B}{θ_B} + P_T \\
+&amp;= \frac{W_T - W_B}{θ_B} + \frac{v-W_T}{θ_T} \end{aligned}\]</span>
+plug into airline’s problem
+<span class="math display">\[\begin{aligned}\max_{W_i} &amp;&amp; &amp;\phantom{\ggg}λP_T + (1-λ)P_B \\
+&amp;&amp; &amp;= λ\cdot \frac{v-W_T}{θ_T} + (1-λ)\cdot\big(\frac{W_T - W_B}{θ_B} + \frac{v-W_T}{θ_T}\big) \\
+&amp;&amp; &amp;= \frac{v-W_T}{θ_T} + (1-λ)\frac{W_T - W_B}{θ_B} \\
+FOC &amp;&amp; &amp;\frac{\partial}{\partial W_B} = -\frac{1-λ}{θ_B} &lt; 0 \implies W_B^* = 0 \\
+&amp;&amp; &amp;\frac{\partial}{\partial W_T} = -\frac{1}{θ_T} + \frac{1-λ}{θ_B} \end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(-\frac{1}{θ_T} + \frac{1-λ}{θ_B}\geq 0\)</span>
+<span class="math inline">\(W_T^*\)</span> is set to maximum
+<span class="math display">\[\begin{aligned}W_T^* &amp;= v \\
+ P_T^* &amp;= \frac{v-W_T^*}{θ_T} \\
+ &amp;= 0 \\
+ P_B^* &amp;= \frac{W_T^* - W_B^*}{θ_B} + P_T^* \\
+ &amp;= \frac{v}{θ_B} \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(-\frac{1}{θ_T} + \frac{1-λ}{θ_B}&lt; 0\)</span><br />
+<span class="math display">\[\begin{aligned}W_T^* &amp;= 0 \\
+ P_T^* &amp;= \frac{v-W_T^*}{θ_T} \\
+ &amp;= \frac{v}{θ_T} \\
+ P_B^* &amp;= \frac{W_T^* - W_B^*}{θ_B} + P_T^* \\
+ &amp;= \frac{v}{θ_T}\end{aligned}\]</span></li>
+</ol></li>
+<li>Seperating:<br />
+No distortion at the top, downward distortion at the bottom.<br />
+This occurs if the waiting time is positive, when the bottom group is excluded.<br />
+Pooling:<br />
+Positive rent to the top, both groups are included.</li>
 </ol>
 </div>
 <div id="continuous-types-mechanism-approach" class="section level3">
