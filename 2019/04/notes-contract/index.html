@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">56 min read</span>
+    <span class="article-duration">58 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -107,7 +107,7 @@ if (!doNotTrack) {
 <li><a href="#separating-equilibrium">Separating Equilibrium</a></li>
 <li><a href="#pooling-equilibrium">Pooling Equilibrium</a></li>
 </ul></li>
-<li><a href="#adverse-selection-mwg-ch-13">Adverse Selection (MWG Ch 13)</a><ul>
+<li><a href="#adverse-selection-continuous-types">Adverse Selection: Continuous Types</a><ul>
 <li><a href="#benchmark">Benchmark</a></li>
 <li><a href="#unknown-type-competitive-equilibrium">Unknown Type Competitive Equilibrium</a></li>
 <li><a href="#spne">SPNE</a></li>
@@ -475,49 +475,12 @@ therefore, receiver must choose u<br />
 Pooling PBE:<br />
 <span class="math inline">\(\big\{(L,L,L), (u|L, u|R), p=q=\frac{1}{3}, s\geq 0,r\geq 0,1-s-r\geq 0, s+r\geq\frac{1}{2}\big\}\)</span></li>
 </ol>
-<blockquote>
-<p>Mock.Q3<br />
-A worker knows her talent <span class="math inline">\(θ\)</span>, but the employer does not.<br />
-The value of the worker to the employer is <span class="math inline">\(Ε[θ]\)</span> (given the employers information, including what he learns through the game).<br />
-The employer pays the worker a wage equal to this expectation over talent, <span class="math inline">\(w = Ε[θ]\)</span>, where the expectation operator is understood as conditional on all information available.<br />
-This is a shortcut to model competition between employers.<br />
-Prior to meeting the employer, the worker can choose a level of eduction <span class="math inline">\(e\)</span>.<br />
-The worker’s payoff function is <span class="math inline">\(w - \frac{e}{θ}\)</span>.<br />
-The worker can be of either of two types, <span class="math inline">\(θ\in\{ θ_l, θ_h\}\)</span> with probability <span class="math inline">\(Pr(θ_h) = p\)</span>.<br />
-<span class="math inline">\(e\)</span> is a continuous variable.<br />
-Timing: First, Nature determines the worker’s type.<br />
-Then the worker observes Nature’s move and chooses a level of education.<br />
-The employer does not observe Nature’s move, but he does observe the worker’s education choice and makes wage offers contingent on the education choice.<br />
-The equilibrium concept is Perfect Bayesian Equilibrium.</p>
-<ol style="list-style-type: decimal">
-<li>Characterize pooling equilibria where both worker types choose the same level of education.<br />
-Be careful to discuss the employer’s off equilibrium path beliefs and the resulting wage schedule.</li>
-<li>Suppose <span class="math inline">\(e^*\)</span> is a pooling level of education.<br />
-Assuming that the employer believes that <span class="math inline">\(θ = θ_l\)</span> if <span class="math inline">\(e\neq e^*\)</span>, characterize all possible levels of <span class="math inline">\(e^*\)</span>.</li>
-<li>Characterize separating equilibria where the high type chooses a different level of education than the low type.</li>
-<li>Discuss the worker’s (type by type) and the employer’s preferences over the different separating equilibria.</li>
-<li>Is it possible that both worker types are better-off in a pooling equilibrium relative to a separating equilibrium? Discuss.</li>
-</ol>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Wage: <span class="math inline">\(w_p = pθ_h + (1-p)θ_l\)</span><br />
-Belief on path: <span class="math inline">\(μ(e_p) = p\)</span>, <span class="math inline">\(μ(e) = 0\)</span> otherwise<br />
-</li>
-<li></li>
-<li>Seperating equilibrium<br />
-For high types: <span class="math inline">\(θ_h - \frac{e_s}{θ_l} \leq θ_l\)</span><br />
-therefore, <span class="math inline">\(e_s \geq θ_l(θ_h - θ_l)\)</span><br />
-</li>
-<li>Low type gets <span class="math inline">\(θ_l\)</span>, high type gets <span class="math inline">\(θ_h - \frac{θ_l}{θ_h}(θ_h - θ_l)\)</span></li>
-<li>In pooling, high type gets <span class="math inline">\(pθ_h -(1-p) θ_l\)</span><br />
-So when <span class="math inline">\(p\)</span> is high, <span class="math inline">\(pθ_h -(1-p) θ_l &gt; θ_h - \frac{θ_l}{θ_h}(θ_h - θ_l)\)</span><br />
-and high type is better-off</li>
-</ol>
 </div>
 </div>
-<div id="adverse-selection-mwg-ch-13" class="section level2">
-<h2>Adverse Selection (MWG Ch 13)</h2>
-<p>also see <a href="#competitive-equilibrium">#Lemon Market Competitive Equilibrium</a></p>
+<div id="adverse-selection-continuous-types" class="section level2">
+<h2>Adverse Selection: Continuous Types</h2>
+<p>MWG Ch 13<br />
+also see <a href="#competitive-equilibrium">#Lemon Market Competitive Equilibrium</a></p>
 <ul>
 <li>Type of workers: <span class="math inline">\(θ\in [\underline{θ},\bar{θ}]\)</span>
 <ul>
@@ -800,7 +763,7 @@ If a worker (with a positive <span class="math inline">\(θ\)</span>) gets hired
 Likewise, the utility of type zero is either <span class="math inline">\(w -K\)</span> or just <span class="math inline">\(w\)</span>, depending on whether <span class="math inline">\(e = 0\)</span> or <span class="math inline">\(e &gt; 0\)</span>.<br />
 Assume that <span class="math inline">\(θ\)</span> is drawn from the unit interval [0; 1]; moreover, <span class="math inline">\(θ\)</span> is distributed uniformly over the interval.<br />
 If a firm hires a worker of productivity <span class="math inline">\(θ\)</span>; the the firm’s profit is <span class="math inline">\(π = θ-w\)</span>.<br />
-Derive a perfect Bayesian equilibrium, where workers below some critical type <span class="math inline">\(θ&#39;\)</span> pool and workers in <span class="math inline">\(θ\in[θ&#39;,1]\)</span> separate.
+Derive a perfect Bayesian equilibrium, where workers below some critical type <span class="math inline">\(θ&#39;\)</span> pool and workers in <span class="math inline">\(θ\in[θ&#39;,1]\)</span> separate.<br />
 Hints:</p>
 <ol style="list-style-type: decimal">
 <li>Construct an equilibrium where the low types pool on <span class="math inline">\(e = 0\)</span>;</li>
@@ -841,6 +804,87 @@ FOC &amp;&amp; \sqrt{2} - 2\cdot\frac{e}{θ} &amp;\overset{!}{=} 0 \\
 \frac{θ&#39;}{2} &amp;\overset{!}{\geq} \frac{θ}{2}\end{aligned}\]</span>
 this holds for workers with <span class="math inline">\(θ\in [0, θ&#39;)\)</span>,<br />
 and holds equal (indifference) for workers with <span class="math inline">\(θ = θ&#39;\)</span>.</p>
+<blockquote>
+<p>Mock.Q3<br />
+A worker knows her talent <span class="math inline">\(θ\)</span>, but the employer does not.<br />
+The value of the worker to the employer is <span class="math inline">\(Ε[θ]\)</span> (given the employers information, including what he learns through the game).<br />
+The employer pays the worker a wage equal to this expectation over talent, <span class="math inline">\(w = Ε[θ]\)</span>, where the expectation operator is understood as conditional on all information available.<br />
+This is a shortcut to model competition between employers.<br />
+Prior to meeting the employer, the worker can choose a level of eduction <span class="math inline">\(e\)</span>.<br />
+The worker’s payoff function is <span class="math inline">\(w - \frac{e}{θ}\)</span>.<br />
+The worker can be of either of two types, <span class="math inline">\(θ\in\{ θ_l, θ_h\}\)</span> with probability <span class="math inline">\(Pr(θ_h) = p\)</span>.<br />
+<span class="math inline">\(e\)</span> is a continuous variable.<br />
+Timing: First, Nature determines the worker’s type.<br />
+Then the worker observes Nature’s move and chooses a level of education.<br />
+The employer does not observe Nature’s move, but he does observe the worker’s education choice and makes wage offers contingent on the education choice.<br />
+The equilibrium concept is Perfect Bayesian Equilibrium.</p>
+<ol style="list-style-type: decimal">
+<li>Characterize pooling equilibria where both worker types choose the same level of education.<br />
+Be careful to discuss the employer’s off equilibrium path beliefs and the resulting wage schedule.</li>
+<li>Suppose <span class="math inline">\(e^*\)</span> is a pooling level of education.<br />
+Assuming that the employer believes that <span class="math inline">\(θ = θ_l\)</span> if <span class="math inline">\(e\neq e^*\)</span>, characterize all possible levels of <span class="math inline">\(e^*\)</span>.</li>
+<li>Characterize separating equilibria where the high type chooses a different level of education than the low type.</li>
+<li>Discuss the worker’s (type by type) and the employer’s preferences over the different separating equilibria.</li>
+<li>Is it possible that both worker types are better-off in a pooling equilibrium relative to a separating equilibrium? Discuss.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Pooling equilibrium<br />
+Assume that both types pool on <span class="math inline">\(e = e_p\)</span><br />
+Employer’s belief: <span class="math inline">\(μ(e) = \begin{cases}p &amp; e = e_p \\ 0 &amp; e\neq e_p \end{cases}\)</span><br />
+When sees <span class="math inline">\(e=e_p\)</span>, employer offers
+<span class="math display">\[\begin{aligned}w_p &amp;= E[θ] \\ &amp;= pθ_h + (1-p)θ_l\end{aligned}\]</span>
+When sees <span class="math inline">\(e\neq e_p\)</span>, employer offers
+<span class="math display">\[w = θ_l\]</span>
+High type does not deviate if
+<span class="math display">\[\begin{aligned}w_p - \frac{e_p}{θ_h} &amp;\geq \max_{e\neq e_p} \ θ_l - \frac{e}{θ_h} \\
+pθ_h + (1-p)θ_l - \frac{e_p}{θ_h} &amp;\geq θ_l \\
+p(θ_h - θ_l) - \frac{e_p}{θ_h} &amp;\geq 0\end{aligned}\]</span>
+Low type does not deviate if
+<span class="math display">\[\begin{aligned}w_p - \frac{e_p}{θ_l} &amp;\geq \max_{e\neq e_p} \ θ_l - \frac{e}{θ_l} \\
+pθ_h + (1-p)θ_l - \frac{e_p}{θ_l} &amp;\geq θ_l \\
+p(θ_h - θ_l) - \frac{e_p}{θ_l} &amp;\geq 0\end{aligned}\]</span></li>
+<li>Since <span class="math inline">\(θ_l&lt; θ_h\)</span>,
+<span class="math display">\[\begin{aligned}\frac{1}{θ_l} &amp;&gt; \frac{1}{θ_h} \\
+\frac{e_p}{θ_l} &amp;&gt; \frac{e_p}{θ_h} \\
+-\frac{e_p}{θ_l} &amp;&lt; - \frac{e_p}{θ_h} \\
+p(θ_h - θ_l) - \frac{e_p}{θ_l} &amp;&lt; p(θ_h - θ_l) - \frac{e_p}{θ_h}\end{aligned}\]</span>
+therefore, <span class="math inline">\(e_p\)</span> must be s.t. <span class="math inline">\(e_p\leq p(θ_h - θ_l)θ_l\)</span></li>
+<li>Seperating equilibrium<br />
+Assume that high type chooses <span class="math inline">\(e_h\)</span>, low type chooses <span class="math inline">\(e_l\)</span><br />
+Employer’s belief: <span class="math inline">\(μ(e) = \begin{cases}1 &amp; e = e_h \\ 0 &amp; e\neq e_l \end{cases}\)</span>
+Low type maximize
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; θ_l &amp;- \frac{e}{θ_l} \\
+FOC &amp;&amp; e_l &amp;= 0 \end{aligned}\]</span>
+High type does not deviate if
+<span class="math display">\[\begin{aligned}θ_h - \frac{e_h}{θ_h} &amp;\geq θ_l - \frac{e_l}{θ_h} \\
+θ_h^2 - e_h &amp;\geq θ_hθ_l \\
+e_h &amp;\leq θ_h(θ_h - θ_l)\end{aligned}\]</span>
+Low type does not deviate if
+<span class="math display">\[\begin{aligned}θ_l - \frac{e_l}{θ_l} &amp;\geq θ_h - \frac{e_h}{θ_l} \\
+θ_l^2 &amp;\geq θ_hθ_l - e_h \\
+e_h &amp;\geq θ_l(θ_h - θ_l)\end{aligned}\]</span></li>
+<li>In seperating equilibrium, low type’s payoff: <span class="math inline">\(θ_l\)</span><br />
+We know
+<span class="math display">\[\begin{aligned}e_h &amp;\in \big[θ_l(θ_h - θ_l), θ_h(θ_h - θ_l)\big] \\
+\frac{e_h}{θ_h} &amp;\in \big[\frac{θ_l}{θ_h}(θ_h - θ_l), (θ_h - θ_l)\big] \end{aligned}\]</span>
+therefore, high type’s payoff:
+<span class="math display">\[θ_h - \frac{e_h}{θ_h}\in\big[θ_l, θ_h - \frac{θ_l(θ_h - θ_l)}{θ_h}\big]\]</span>
+So the higher <span class="math inline">\(e_h\)</span> is, the worse-off high type is.</li>
+<li>In pooling equilibrium, low type’s payoff: <span class="math inline">\(pθ_h + (1-p)θ_l - \frac{e_p}{θ_l}\)</span><br />
+they are better off than in seperating equilibrium when
+<span class="math display">\[\begin{aligned}pθ_h + (1-p)θ_l - \frac{e_p}{θ_l} &amp;\geq θ_l \\
+p(θ_h - θ_l) - \frac{e_p}{θ_l} &amp;\geq 0 \\
+p &amp;\geq \frac{e_p}{θ_l(θ_h - θ_l)}\end{aligned}\]</span>
+High type’s payoff: <span class="math inline">\(pθ_h + (1-p)θ_l - \frac{e_p}{θ_h}\)</span><br />
+they are better off than in seperating equilibrium when
+<span class="math display">\[\begin{aligned}pθ_h + (1-p)θ_l - \frac{e_p}{θ_h} &amp;\geq θ_h - \frac{e_h}{θ_h} \\
+&amp;\geq θ_h - \frac{θ_l(θ_h - θ_l)}{θ_h} \\
+pθ_h(θ_h - θ_l) &amp;\geq (θ_h - θ_l)^2 \\
+p &amp;\geq \frac{θ_h - θ_l}{θ_h} \\
+&amp;= 1 - \frac{θ_l}{θ_h}\end{aligned}\]</span>
+Therefore, when <span class="math inline">\(p\)</span> is large enough, both types are better-off in pooling equilibrium</li>
+</ol>
 </div>
 <div id="hybrid-mixed-equilibrium" class="section level3">
 <h3>Hybrid (Mixed) Equilibrium</h3>
