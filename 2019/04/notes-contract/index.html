@@ -908,7 +908,7 @@ r-q &amp;= \frac{q - q^2 - (1-q)qπ}{q + (1-q) π} \\
 Consider the job market signalling model.<br />
 In particular, we consider the following economy.<br />
 A large number of firms compete to attract a worker.<br />
-The outcome of this competition between firms is that all of them o§er to pay a salary equal to the expected level of productivity of the worker.<br />
+The outcome of this competition between firms is that all of them offer to pay a salary equal to the expected level of productivity of the worker.<br />
 The productivity of the worker depends on ability and education.<br />
 There are two types of workers, L and H.<br />
 If an individual of type L chooses a level of education <span class="math inline">\(e\)</span>, then this individual faces costs of education <span class="math inline">\(c_L (e) = e^2\)</span>, and his productivity is <span class="math inline">\(θ_L (e) = 1 + e\)</span>.<br />
@@ -929,35 +929,32 @@ Compute the education levels in hybrid equilibria where the low type mixes betwe
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>With beliefs <span class="math inline">\(μ(H|e) = \begin{cases}0 &amp; e&lt;e_p \\ 0.5 &amp; e\geq e_p\end{cases}\)</span>,<br />
+<li>Pooling equilibrium<br />
+With beliefs <span class="math inline">\(μ(H|e) = \begin{cases}0 &amp; e&lt;e_p \\ 0.5 &amp; e\geq e_p\end{cases}\)</span>,<br />
 When facing <span class="math inline">\(e&lt;e_p\)</span>, firm gives <span class="math inline">\(w(e) = 1+e\)</span><br />
 When facing <span class="math inline">\(e\geq e_p\)</span>,
 <span class="math display">\[\begin{aligned}w(e) &amp;= E[θ] \\
-&amp;= \frac{1}{2}(1+e) + \frac{1}{2}(2+e) \\
-&amp;= \frac{3}{2} + e \end{aligned}\]</span>
+&amp;= 0.5(1+e) + 0.5(2+e) \\
+&amp;= 1.5 + e \end{aligned}\]</span>
 therefore, firm gives wage <span class="math inline">\(w(e) = \begin{cases}1 + e &amp; e&lt;e_p \\ 1.5 + e &amp; e\geq e_p\end{cases}\)</span><br />
-Type L’s problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w(e)&amp;- e^2 \\
-FOC &amp;&amp; 1 - 2e &amp;\overset{!}{=} 0 \\
-&amp;&amp; e_L &amp;= \frac{1}{2}\end{aligned}\]</span>
 (IC)L:
-<span class="math display">\[\begin{aligned}\frac{3}{2} + e_p - e_p^2 &amp;\geq 1 + e_L - e_L^2 \\
-\frac{3}{2} + e_p - e_p^2&amp;\geq 1.25 \\
+<span class="math display">\[1.5 + e_p - e_p^2 \geq\begin{cases}\max_{e&lt; e_p} \ 1+e - e^2 \\\max_{e&gt; e_p} \ 1.5+e - e^2\end{cases}\]</span>
+therefore, <span class="math inline">\(e_p\geq\frac{1}{2}\)</span>
+<span class="math display">\[\begin{aligned}1.5 + e_p - e_p^2 &amp;\geq 1 + \frac{1}{2} - \big(\frac{1}{2}\big)^2 \\
+&amp;= 1.25 \\
 e_p - e_p^2 &amp;\geq -0.25 \\
 e_p &amp;\in \big[\frac{1}{2}(1-\sqrt{2}), \frac{1}{2}(1+\sqrt{2})\big] \end{aligned}\]</span>
-Type H’s problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; w(e) &amp;- \frac{e^2}{2} \\
-FOC &amp;&amp; 1-e &amp;\overset{!}{=} 0 \\
-&amp;&amp; e_H &amp;= 1 \end{aligned}\]</span>
-<span class="math inline">\(\implies e_p\geq 1\)</span> (why??)<br />
 (IC)H:
-<span class="math display">\[\begin{aligned}\frac{3}{2} + e_p - \frac{e_p^2}{2}&amp;\geq 1 + e_H - \frac{e_H^2}{2} \\
-\frac{3}{2} + e_p - \frac{e_p^2}{2}&amp;\geq 1.5 \\
+<span class="math display">\[1.5 + e_p - \frac{e_p^2}{2} \geq\begin{cases}\max_{e&lt; e_p} \ 1+e - \frac{e^2}{2} \\\max_{e&gt; e_p} \ 1.5+e - \frac{e^2}{2}\end{cases}\]</span>
+therefore, <span class="math inline">\(e_p\geq 1\)</span>
+<span class="math display">\[\begin{aligned}1.5 + e_p - \frac{e_p^2}{2}&amp;\geq 1 + 1 - \frac{1^2}{2} \\
+&amp;= 1.5 \\
 e_p - \frac{e_p^2}{2} &amp;\geq 0 \\
 e_p &amp;\in [0,2] \end{aligned}\]</span>
 Therefore, <span class="math inline">\(e_p\in\big[1, \frac{1}{2}(1+\sqrt{2})\big]\)</span></li>
-<li>Since type L mixes between <span class="math inline">\(e=0.5\)</span> and <span class="math inline">\(e=e_h\)</span>, <span class="math inline">\(π\in[0,1]\)</span>,<br />
-firm’s belief according to Baye’s rule is
+<li>Hybrid equilibrium<br />
+Since type L mixes between <span class="math inline">\(e=0.5\)</span> and <span class="math inline">\(e=e_h\)</span>, <span class="math inline">\(π\in[0,1]\)</span>,<br />
+firm’s belief according to Bayes’ rule is
 <span class="math display">\[\begin{aligned}y &amp;= \frac{0.5}{0.5 + 0.5\cdot π} \\
 &amp;= \frac{1}{1+π} \\
 &amp;\in \big[ \frac{1}{2},1\big] \end{aligned}\]</span>
@@ -1602,7 +1599,7 @@ plug into airline’s problem
 FOC &amp;&amp; &amp;\frac{\partial}{\partial W_B} = -\frac{1-λ}{θ_B} &lt; 0 \implies W_B^* = 0 \\
 &amp;&amp; &amp;\frac{\partial}{\partial W_T} = -\frac{1}{θ_T} + \frac{1-λ}{θ_B} \end{aligned}\]</span>
 <ol style="list-style-type: lower-alpha">
-<li>When <span class="math inline">\(-\frac{1}{θ_T} + \frac{1-λ}{θ_B}\geq 0\)</span>
+<li>When <span class="math inline">\(-\frac{1}{θ_T} + \frac{1-λ}{θ_B}\geq 0\)</span><br />
 <span class="math inline">\(W_T^*\)</span> is set to maximum
 <span class="math display">\[\begin{aligned}W_T^* &amp;= v \\
  P_T^* &amp;= \frac{v-W_T^*}{θ_T} \\
