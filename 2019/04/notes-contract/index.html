@@ -962,18 +962,18 @@ therefore, firm offers wage <span class="math inline">\(w(e) = \begin{cases}1 + 
 Low type’s problem:
 <span class="math display">\[\begin{aligned}\max_{e\geq e_p} &amp;&amp; 1.5 &amp;+ e - e^2 \\
 FOC &amp;&amp; e^* &amp;= 0.5 \end{aligned}\]</span>
-therefore, <span class="math inline">\(e_p\geq\frac{1}{2}\)</span><br />
+therefore, <span class="math inline">\(e_p\geq\frac{1}{2}\)</span> (not willing to give lower level)<br />
 (IC)L:
 <span class="math display">\[\begin{aligned}1.5 + e_p - e_p^2 &amp;\geq\max_{e&lt; e_p} \ 1+e - e^2 \\
 &amp;\geq 1 + \frac{1}{2} - \big(\frac{1}{2}\big)^2 \\
 &amp;= 1.25 \\
 e_p - e_p^2 &amp;\geq -0.25 \\
-e_p &amp;\in \big[\frac{1}{2}(1-\sqrt{2}), \frac{1}{2}(1+\sqrt{2})\big] \end{aligned}\]</span>
+e_p &amp;\in \big[0, \frac{1}{2}(1+\sqrt{2})\big] \end{aligned}\]</span>
 High type’s problem:
 <span class="math display">\[\begin{aligned}\max_{e\geq e_p} &amp;&amp; 1.5 &amp;+ e - \frac{e^2}{2} \\
 FOC &amp;&amp; e^* &amp;= 1 \end{aligned}\]</span>
-therefore, <span class="math inline">\(e_p\geq 1\)</span><br />
-(IC)H:
+therefore, <span class="math inline">\(e_p\geq 1\)</span> (not willing to give lower level)<br />
+(IC)H: (slack)
 <span class="math display">\[\begin{aligned}1.5 + e_p - \frac{e_p^2}{2} &amp;\geq \max_{e&lt; e_p} \ 1+e - \frac{e^2}{2} \\
 &amp;\geq 1 + 1 - \frac{1^2}{2} \\
 &amp;= 1.5 \\
@@ -1000,7 +1000,7 @@ e_h - e_h^2 &amp;= 0.25 - y \\
 y &amp;= 0.25 - e_h + e_h^2 \\
 0.25 - e_h + e_h^2 &amp;\in \big[ \frac{1}{2},1\big] \\
 e_h &amp;\in \big[\frac{1}{2}(1+\sqrt{2}),\frac{3}{2}\big]\end{aligned}\]</span>
-(IC)H:
+(IC)H: (slack)
 <span class="math display">\[\begin{aligned}(1+y) + e_h - \frac{e_h^2}{2}&amp;\geq \max_{e\neq e_h} \ 1+e - \frac{e^2}{2} \\
 (1+y) + e_h - \frac{e_h^2}{2}&amp;\geq 1.5 \\
 e_h - \frac{e_h^2}{2}&amp;\geq 0.5-y \\
@@ -1051,7 +1051,7 @@ high type gets
 therefore, pooling equilibrium is Pareto better if
 <span class="math display">\[λ \leq\begin{cases}0.75 + e_p - e_p^2 \\ -0.375 + e_p - \frac{e_p^2}{2} \end{cases}\]</span>
 Specially, when <span class="math inline">\(e_p\in [1,1.5]\)</span>, <span class="math inline">\(0.75 + e_p - e_p^2\geq -0.375 + e_p - \frac{e_p^2}{2}\)</span>,
-<span class="math display">\[λ \leq 0.375 + e_p - \frac{e_p^2}{2}\]</span>
+<span class="math display">\[λ \leq -0.375 + e_p - \frac{e_p^2}{2}\]</span>
 when <span class="math inline">\(e_p\in\big( 1.5, \frac{1}{2}(1+\sqrt{2})\big]\)</span>, <span class="math inline">\(0.75 + e_p - e_p^2 &lt; -0.375 + e_p - \frac{e_p^2}{2}\)</span>,
 <span class="math display">\[λ \leq 0.75 + e_p - e_p^2\]</span></p>
 </div>
