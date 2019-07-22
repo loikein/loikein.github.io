@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">61 min read</span>
+    <span class="article-duration">62 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -263,18 +263,59 @@ therefore, trade occurs when <span class="math inline">\(θ_2\geq\frac{4}{3}θ_1
 <li>For <span class="math inline">\(f(s) = 4s^3\)</span>, <span class="math inline">\(E\big[s|s\leq \frac{p}{θ_1}\big] = \frac{4}{5}\cdot\frac{p}{θ_1}\)</span><br />
 therefore, trade occurs when <span class="math inline">\(θ_2\geq\frac{5}{4}θ_1\)</span></li>
 </ol></li>
-<li></li>
+<li>As the distribution gets bigger on higher end, the tast difference becomes less important.</li>
 </ol>
 <blockquote>
 <p>PS1.Q2<br />
-Agent 1 finds an old book in his basement and considers selling it on the flee market. Agent 1’s utility from keeping the book is <span class="math inline">\(θ_1s\)</span>, where <span class="math inline">\(s\)</span> is the quality of the book.<br />
-On the flee market, agent 2 is potentially willing to buy the book. Agent 2’s utility from buying the book is <span class="math inline">\(θ_2s − p\)</span> if he buys at price <span class="math inline">\(p\)</span>.<br />
-1. If <span class="math inline">\(s\)</span> is publicly observed, when is trade effcient?<br />
-2. Suppose now <strong>agent 1</strong> does not know the value of the book.<br />
+Agent 1 finds an old book in his basement and considers selling it on the flee market.<br />
+Agent 1’s utility from keeping the book is <span class="math inline">\(θ_1s\)</span>, where <span class="math inline">\(s\)</span> is the quality of the book.<br />
+On the flee market, agent 2 is potentially willing to buy the book.<br />
+Agent 2’s utility from buying the book is <span class="math inline">\(θ_2s - p\)</span> if he buys at price <span class="math inline">\(p\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(s\)</span> is publicly observed, when is trade effcient?<br />
+</li>
+<li>Suppose now <strong>agent 1</strong> does not know the value of the book.<br />
 Agent 2 knows <span class="math inline">\(s\)</span> but agent 1 knows only that <span class="math inline">\(s\in [0, 1]\)</span> is equally likely.<br />
 Suppose that an auctioneer announces a price <span class="math inline">\(p\)</span> at which trade can occur.<br />
-What expected value of quality can agent 1 infer from the fact that trade occurs at price <span class="math inline">\(p\)</span>?</p>
+What expected value of quality can agent 1 infer from the fact that trade occurs at price <span class="math inline">\(p\)</span>?</li>
+<li>Write down the conditions that both buyer and seller are willing to trade.<br />
+Show that for any <span class="math inline">\(θ_2 &gt; θ_1\)</span>, it is always possible to find a price <span class="math inline">\(p\)</span> such that some trade occurs, that is, the market does not break down completely.<br />
+Find the smallest quality level that can be traded in the market.<br />
+Based on this smallest quality level that can be traded, compute the probability that <span class="math inline">\(s\)</span> exceeds the minimum level and show that this probability goes to zero as <span class="math inline">\(θ_2\to θ_1\)</span>.</li>
+</ol>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Seller sells if <span class="math inline">\(p \geq θ_1 s\)</span>
+Buyer buys if <span class="math inline">\(θ_2s - p \geq 0\)</span>
+therefore, when <span class="math inline">\(θ_2 \geq θ_1\)</span>, trade is efficient.</li>
+<li>Buyer buys if
+<span class="math display">\[\begin{aligned}θ_2s - p &amp;\geq 0 \\
+s &amp;\geq \frac{p}{θ_2} \end{aligned}\]</span>
+Therefore, when the buyer buys, seller’s expected value of <span class="math inline">\(s\)</span> is
+<span class="math display">\[\begin{aligned}E\big[s|s\geq \frac{p}{θ_2}\big] &amp;= \frac{\int_{\frac{p}{θ_2}}^1 s\cdot f(s)\, ds}{1 - F(\frac{p}{θ_2})} \\
+&amp;= \frac{\int_{\frac{p}{θ_2}}^1 s\, ds}{1 - \frac{p}{θ_2}} \\
+&amp;= \frac{1}{1 - \frac{p}{θ_2}}\cdot\frac{1}{2}\cdot\big[s^2\big]_{\frac{p}{θ_2}}^1 \\
+&amp;= \frac{1}{2}\cdot\frac{1}{1 - \frac{p}{θ_2}}\cdot\big(1 - \frac{p^2}{θ_2^2}\big) \\
+&amp;= \frac{1}{2}\cdot\big( 1 + \frac{p}{θ_2}\big)\end{aligned}\]</span></li>
+<li>Seller sells if
+<span class="math display">\[\begin{aligned}p &amp;\geq θ_1\cdot E[s] \\
+&amp;= θ_1\cdot \frac{1}{2}\cdot\big( 1 + \frac{p}{θ_2}\big) \\
+p\cdot\big(\frac{2}{θ_1} - \frac{1}{θ_2}\big) &amp;\geq 1 \\
+p &amp;\geq \frac{θ_1θ_2}{2θ_2 - θ_1}\end{aligned}\]</span>
+Buyer buys if
+<span class="math display">\[\begin{aligned}θ_2s - p &amp;\geq 0 \\
+θ_2s &amp;\geq p \\
+&amp;\geq\frac{θ_1θ_2}{2θ_2 - θ_1} \\
+s &amp;\geq\frac{θ_1}{2θ_2 - θ_1} \end{aligned}\]</span>
+when <span class="math inline">\(θ_2 &gt; θ_1\)</span>,
+<span class="math display">\[\begin{aligned}s^* &amp;= \frac{θ_1}{2θ_2 - θ_1} \\
+&amp;&lt; 1 \end{aligned}\]</span>
+therefore, exists some books better than <span class="math inline">\(s^*\)</span> that are traded<br />
+Probability that <span class="math inline">\(s&gt;s^*\)</span>:
+<span class="math display">\[\begin{aligned}1 - F(s^*) &amp;= 1 - \frac{θ_1}{2θ_2 - θ_1} \\
+&amp;= \frac{2(θ_2 - θ_1)}{2θ_2 - θ_1}\end{aligned}\]</span>
+as <span class="math inline">\(θ_2\to θ_1\)</span>, <span class="math inline">\(\frac{2(θ_2 - θ_1)}{2θ_2 - θ_1}\to 0\)</span></li>
+</ol>
 </div>
 <div id="competitive-equilibrium" class="section level3">
 <h3>Competitive Equilibrium</h3>
