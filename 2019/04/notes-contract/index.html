@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">58 min read</span>
+    <span class="article-duration">59 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -115,6 +115,7 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#job-market-signalling">Job Market Signalling</a><ul>
 <li><a href="#pooling-equilibria">Pooling Equilibria</a></li>
+<li><a href="#separating-equilibria-non-envy-case">Separating Equilibria: Non-Envy Case</a></li>
 <li><a href="#separating-equilibria-envy-case">Separating Equilibria: Envy Case</a></li>
 <li><a href="#hybrid-mixed-equilibrium">Hybrid (Mixed) Equilibrium</a></li>
 <li><a href="#perfect-bayesian-equilibrium-pbe">Perfect Bayesian Equilibrium (PBE)</a></li>
@@ -719,6 +720,12 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= \frac{\partial y(η, e)}{\part
 <p class="caption">PGT Figure 4.2.8</p>
 </div>
 </div>
+<div id="separating-equilibria-non-envy-case" class="section level3">
+<h3>Separating Equilibria: Non-Envy Case</h3>
+<ul>
+<li>Strategy profile: <span class="math inline">\(\{L:e^*(L), H:e^*(H), w(e), μ(e)\}\)</span></li>
+</ul>
+</div>
 <div id="separating-equilibria-envy-case" class="section level3">
 <h3>Separating Equilibria: Envy Case</h3>
 <ul>
@@ -904,7 +911,7 @@ r-q &amp;= \frac{q - q^2 - (1-q)qπ}{q + (1-q) π} \\
 <p class="caption">PGT Figure 4.2.9</p>
 </div>
 <blockquote>
-<p>PS2.Q3<br />
+<p>PS2.Q3 (needs check)<br />
 Consider the job market signalling model.<br />
 In particular, we consider the following economy.<br />
 A large number of firms compete to attract a worker.<br />
@@ -928,26 +935,47 @@ The equilibrium concept is Perfect Bayesian Equilibrium.</p>
 Compute the education levels in hybrid equilibria where the low type mixes between <span class="math inline">\(e = 0.5\)</span> and <span class="math inline">\(e = e_h\)</span> as a function of <span class="math inline">\(π\)</span>, the probability that the low type chooses <span class="math inline">\(e_h\)</span>.</li>
 </ol>
 </blockquote>
-<ol style="list-style-type: decimal">
+<ol start="0" style="list-style-type: decimal">
+<li>Separating equilibrium
+Low type’s problem:
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; 1&amp;+e - e^2 \\
+FOC &amp;&amp; e^*(L) &amp;= 0.5 \\
+&amp;&amp; 1&amp;+e^*(L) - \big(e^*(L)\big)^2 = 1.25\end{aligned}\]</span>
+plug in high type wage scheme
+<span class="math display">\[\begin{aligned}2+e_s - e_s^2 &amp;= 1.25 \\
+e_s &amp;= 1.5 \end{aligned}\]</span>
+High type’s problem:
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; 2&amp;+e - \frac{e^2}{2} \\
+FOC &amp;&amp; e^*(H) &amp;= 1 \end{aligned}\]</span>
+therefore, this is an envy case.<br />
+Low type choose <span class="math inline">\(e = e^*(L) = 0.5\)</span><br />
+High type choose <span class="math inline">\(e = e_s = 1.5\)</span><br />
+Firm’s rational belief: <span class="math inline">\(μ(H|e) = \begin{cases}0 &amp; e&lt;e_s \\ 1 &amp; e\geq e_s\end{cases}\)</span></li>
 <li>Pooling equilibrium<br />
 With beliefs <span class="math inline">\(μ(H|e) = \begin{cases}0 &amp; e&lt;e_p \\ 0.5 &amp; e\geq e_p\end{cases}\)</span>,<br />
-When facing <span class="math inline">\(e&lt;e_p\)</span>, firm gives <span class="math inline">\(w(e) = 1+e\)</span><br />
-When facing <span class="math inline">\(e\geq e_p\)</span>,
+when facing <span class="math inline">\(e&lt;e_p\)</span>, firm gives <span class="math inline">\(w(e) = 1+e\)</span><br />
+when facing <span class="math inline">\(e\geq e_p\)</span>,
 <span class="math display">\[\begin{aligned}w(e) &amp;= E[θ] \\
-&amp;= 0.5(1+e) + 0.5(2+e) \\
+&amp;= λ(1+e) + (1-λ)(2+e) \\
 &amp;= 1.5 + e \end{aligned}\]</span>
 therefore, firm offers wage <span class="math inline">\(w(e) = \begin{cases}1 + e &amp; e&lt;e_p \\ 1.5 + e &amp; e\geq e_p\end{cases}\)</span><br />
+Low type’s problem:
+<span class="math display">\[\begin{aligned}\max_{e\geq e_p} &amp;&amp; 1.5 &amp;+ e - e^2 \\
+FOC &amp;&amp; e^* &amp;= 0.5 \end{aligned}\]</span>
+therefore, <span class="math inline">\(e_p\geq\frac{1}{2}\)</span><br />
 (IC)L:
-<span class="math display">\[1.5 + e_p - e_p^2 \geq\begin{cases}\max_{e&lt; e_p} \ 1+e - e^2 \\\max_{e&gt; e_p} \ 1.5+e - e^2\end{cases}\]</span>
-therefore, <span class="math inline">\(e_p\geq\frac{1}{2}\)</span>
-<span class="math display">\[\begin{aligned}1.5 + e_p - e_p^2 &amp;\geq 1 + \frac{1}{2} - \big(\frac{1}{2}\big)^2 \\
+<span class="math display">\[\begin{aligned}1.5 + e_p - e_p^2 &amp;\geq\max_{e&lt; e_p} \ 1+e - e^2 \\
+&amp;\geq 1 + \frac{1}{2} - \big(\frac{1}{2}\big)^2 \\
 &amp;= 1.25 \\
 e_p - e_p^2 &amp;\geq -0.25 \\
 e_p &amp;\in \big[\frac{1}{2}(1-\sqrt{2}), \frac{1}{2}(1+\sqrt{2})\big] \end{aligned}\]</span>
+High type’s problem:
+<span class="math display">\[\begin{aligned}\max_{e\geq e_p} &amp;&amp; 1.5 &amp;+ e - \frac{e^2}{2} \\
+FOC &amp;&amp; e^* &amp;= 1 \end{aligned}\]</span>
+therefore, <span class="math inline">\(e_p\geq 1\)</span><br />
 (IC)H:
-<span class="math display">\[1.5 + e_p - \frac{e_p^2}{2} \geq\begin{cases}\max_{e&lt; e_p} \ 1+e - \frac{e^2}{2} \\\max_{e&gt; e_p} \ 1.5+e - \frac{e^2}{2}\end{cases}\]</span>
-therefore, <span class="math inline">\(e_p\geq 1\)</span>
-<span class="math display">\[\begin{aligned}1.5 + e_p - \frac{e_p^2}{2}&amp;\geq 1 + 1 - \frac{1^2}{2} \\
+<span class="math display">\[\begin{aligned}1.5 + e_p - \frac{e_p^2}{2} &amp;\geq \max_{e&lt; e_p} \ 1+e - \frac{e^2}{2} \\
+&amp;\geq 1 + 1 - \frac{1^2}{2} \\
 &amp;= 1.5 \\
 e_p - \frac{e_p^2}{2} &amp;\geq 0 \\
 e_p &amp;\in [0,2] \end{aligned}\]</span>
@@ -966,14 +994,14 @@ When facing <span class="math inline">\(e= e_h\)</span>,
 &amp;= (1+y) + e \end{aligned}\]</span>
 therefore, firm gives wage <span class="math inline">\(w(e) = \begin{cases}1 + e &amp; e\neq e_h \\ (1+y) + e &amp; e= e_h\end{cases}\)</span><br />
 (IC)L:
-<span class="math display">\[\begin{aligned}(1+y) + e_h - e_h^2 &amp;= \max_{e\neq e_p} \ 1+e - e^2 \\
+<span class="math display">\[\begin{aligned}(1+y) + e_h - e_h^2 &amp;= \max_{e\neq e_h} \ 1+e - e^2 \\
 (1+y) + e_h - e_h^2 &amp;= 1.25 \\
 e_h - e_h^2 &amp;= 0.25 - y \\
 y &amp;= 0.25 - e_h + e_h^2 \\
 0.25 - e_h + e_h^2 &amp;\in \big[ \frac{1}{2},1\big] \\
 e_h &amp;\in \big[\frac{1}{2}(1+\sqrt{2}),\frac{3}{2}\big]\end{aligned}\]</span>
 (IC)H:
-<span class="math display">\[\begin{aligned}(1+y) + e_h - \frac{e_h^2}{2}&amp;\geq \max_{e\neq e_p} \ 1+e - e^2 \\
+<span class="math display">\[\begin{aligned}(1+y) + e_h - \frac{e_h^2}{2}&amp;\geq \max_{e\neq e_h} \ 1+e - \frac{e^2}{2} \\
 (1+y) + e_h - \frac{e_h^2}{2}&amp;\geq 1.5 \\
 e_h - \frac{e_h^2}{2}&amp;\geq 0.5-y \\
 y &amp;\geq 0.5 - e_h +\frac{e_h^2}{2} \\
@@ -988,17 +1016,20 @@ For what levels of <span class="math inline">\(τ\)</span> can you construct a s
 </blockquote>
 <p>Assume that exists some <span class="math inline">\(e_s\)</span> s.t.<br />
 Firm’s belief: <span class="math inline">\(μ(H|e) = \begin{cases}0 &amp; e&lt;e_s \\ 1 &amp; e\geq e_s\end{cases}\)</span><br />
-therefore, firm offers wage <span class="math inline">\(w(e) = \begin{cases}1 + e &amp; e&lt;e_s \\ 2 + e &amp; e\geq e_s\end{cases}\)</span>
+therefore, firm offers wage <span class="math inline">\(w(e) = \begin{cases}1 + e &amp; e&lt;e_s \\ 2 + e &amp; e\geq e_s\end{cases}\)</span><br />
+Low type’s problem:
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; 1&amp;+e - e^2 \\
+FOC &amp;&amp; e^*(L) &amp;= 0.5 \\
+&amp;&amp; 1&amp;+e^*(L) - \big(e^*(L)\big)^2 = 1.25\end{aligned}\]</span>
 (IC)L:
-<span class="math display">\[\begin{aligned}\max_{e&lt; e_s} \ 1 + e - e^2 &amp;\geq 2 + e_s - e_s^2 \\
-1.25 &amp;\geq 2 + e_s - e_s^2 \\
+<span class="math display">\[\begin{aligned}1.25 &amp;\geq 2 + e_s - e_s^2 \\
 e_s &amp;\geq 1.5\end{aligned}\]</span>
 High type’s problem:
-<span class="math display">\[\begin{aligned}\max_{e\geq e_s} &amp;&amp; 2 + e &amp;- \frac{e^2}{τ} \\
+<span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; 2+e &amp;- \frac{e^2}{τ} \\
 FOC &amp;&amp; 1 - \frac{2}{τ}e &amp;\overset{!}{=} 0 \\
-&amp;&amp; e_H &amp;= \frac{τ}{2} \geq 1.5 \\
+&amp;&amp; e^(H) &amp;= \frac{τ}{2} \geq 1.5 \\
 &amp;&amp; τ&amp;\geq 3 \end{aligned}\]</span>
-therefore, when <span class="math inline">\(τ\geq 3\)</span>, there exists a separating equilibrium</p>
+therefore, when <span class="math inline">\(τ\geq 3\)</span>, there exists a separating equilibrium (non-envy case)</p>
 <blockquote>
 <p>PS2.Q5<br />
 In PS2.Q3, is it possible that a pooling equilibrium is Pareto better than any separating equilibrium?<br />
@@ -1008,6 +1039,15 @@ In particular, vary the parameter <span class="math inline">\(λ\)</span>.</p>
 Compare low type's payoff in SE and PE  
 Compare high type's payoff in SE and PE  
 Conclude the results -->
+<p>When varying <span class="math inline">\(λ\)</span>, the expected productivity in pooling equilibrium is
+<span class="math display">\[\begin{aligned}λ\cdot 1 + (1-λ)\cdot 2 + e &amp;= λ + 2 - 2λ + e \\
+&amp;= 2-λ + e \end{aligned}\]</span>
+In pooling equilibrium, low type gets
+<span class="math display">\[\begin{aligned}(2-λ) + e_p - e_p^2 &amp;\geq 1 + 0.5 - 0.5^2 \\
+&amp;= 1.25\end{aligned}\]</span>
+high type gets
+<span class="math display">\[\begin{aligned}(2-λ) + e_p - \frac{e_p^2}{2} &amp;\geq 2 + 1.5 - \frac{1.5^2}{2} \\
+&amp;= 2.375\end{aligned}\]</span></p>
 </div>
 <div id="perfect-bayesian-equilibrium-pbe" class="section level3">
 <h3>Perfect Bayesian Equilibrium (PBE)</h3>
