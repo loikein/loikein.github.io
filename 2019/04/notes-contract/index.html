@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">59 min read</span>
+    <span class="article-duration">61 min read</span>
     
     <h1 class="article-title">Notes on Contract &amp; Informational Economics</h1>
     
@@ -205,6 +205,66 @@ Let <span class="math inline">\(z = \frac{p}{θ_1}\)</span>, expected quality is
 θ_2 &amp;\geq θ_1\cdot\frac{α+1}{α}\end{aligned}\]</span></li>
 <li>Since <span class="math inline">\(\frac{α+1}{α}&gt;1\)</span>, the market is smaller than efficiency</li>
 </ul>
+<blockquote>
+<p>PS1.Q1<br />
+There are two agents, 1 and 2.<br />
+Agent 1 owns a used car of quality <span class="math inline">\(s\)</span>.<br />
+Agent 1 values his car if he keeps it with <span class="math inline">\(θ_1s\)</span>.<br />
+Agent 2 values the car with <span class="math inline">\(θ_2s\)</span> (gross of the price to pay).<br />
+Assume that <span class="math inline">\(θ_2 &gt; θ_1\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>If both know <span class="math inline">\(s\)</span>, when is trade effcient?</li>
+<li>Assume now that only the seller knows <span class="math inline">\(s\)</span>.<br />
+The buyer thinks that quality <span class="math inline">\(s\)</span> is distributed in the population of cars with a uniform density on <span class="math inline">\([0, 1]\)</span>.<br />
+Suppose that a third person (auctioneer) announces a price <span class="math inline">\(p\)</span> at which the two persons can trade.<br />
+When will they trade, i.e. for which values of <span class="math inline">\(s\)</span>?</li>
+<li>Suppose now that the distribution is changed as follows, when will trade occur?
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(f(s) = \frac{1}{2}s^{-\frac{1}{2}}\)</span> on <span class="math inline">\([0, 1]\)</span></li>
+<li><span class="math inline">\(f(s) = 2s\)</span> on <span class="math inline">\([0, 1]\)</span></li>
+<li><span class="math inline">\(f(s) = 3s^2\)</span> on <span class="math inline">\([0, 1]\)</span></li>
+<li><span class="math inline">\(f(s) = 4s^3\)</span> on <span class="math inline">\([0, 1]\)</span></li>
+</ol></li>
+<li>Discuss the role of taste differences and the distribution of quality for the working of the market (informally).</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Since
+<span class="math display">\[\begin{aligned} θ_2 &amp;&gt; θ_1 \\
+θ_2s &amp;&gt; θ_1s\end{aligned}\]</span>
+trade is always efficient</li>
+<li>Seller accepts <span class="math inline">\(p\)</span> if
+<span class="math display">\[\begin{aligned}p &amp;\geq θ_1s \\
+s &amp;\leq \frac{p}{θ_1}\end{aligned}\]</span>
+Buyer accepts <span class="math inline">\(p\)</span> if
+<span class="math display">\[\begin{aligned}p &amp;\leq θ_2\cdot E[s|p] \\
+&amp;= θ_2\cdot\frac{1}{2}\cdot\frac{p}{θ_1} \\
+1 &amp;\leq θ_2\cdot\frac{1}{2}\cdot\frac{1}{θ_1} \\
+θ_2 &amp;\geq 2θ_1\end{aligned}\]</span></li>
+<li>Seller accepts <span class="math inline">\(p\)</span> if
+<span class="math display">\[\begin{aligned}p\geq θ_1s \\
+s &amp;\leq \frac{p}{θ_1}\end{aligned}\]</span>
+Buyer accepts <span class="math inline">\(p\)</span> if
+<span class="math display">\[\begin{aligned}θ_2\cdot E[s|p] &amp;\geq p\\
+θ_2 &amp;\geq \frac{p}{E[s|p]} \end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>For <span class="math inline">\(f(s) = \frac{1}{2}s^{-\frac{1}{2}}\)</span>
+<span class="math display">\[\begin{aligned}E\big[s|s\leq \frac{p}{θ_1}\big] &amp;= \frac{\int_0^{\frac{p}{θ_1}} s\cdot f(s)\, ds}{F(\frac{p}{θ_1})} \\
+ &amp;= \frac{\int_0^{\frac{p}{θ_1}} s\cdot \frac{1}{2}s^{-\frac{1}{2}}\, ds}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}} \\
+ &amp;= \frac{1}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}}\cdot\int_0^{\frac{p}{θ_1}} \frac{1}{2}s^{\frac{1}{2}}\, ds \\
+ &amp;= \frac{1}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}}\cdot\big[\frac{1}{3}s^{\frac{3}{2}}\big]_0^{\frac{p}{θ_1}} \\
+ &amp;= \frac{1}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}}\cdot\frac{1}{3}\cdot\big(\frac{p}{θ_1}\big)^{\frac{3}{2}} \\
+ &amp;= \frac{1}{3}\cdot\frac{p}{θ_1}\end{aligned}\]</span>
+therefore, trade occurs when <span class="math inline">\(θ_2 \geq \frac{p}{E[s|p]} = 3θ_1\)</span></li>
+<li>For <span class="math inline">\(f(s) = 2s\)</span>, <span class="math inline">\(E\big[s|s\leq \frac{p}{θ_1}\big] = \frac{2}{3}\cdot\frac{p}{θ_1}\)</span><br />
+therefore, trade occurs when <span class="math inline">\(θ_2\geq\frac{3}{2}θ_1\)</span></li>
+<li>For <span class="math inline">\(f(s) = 3s^2\)</span>, <span class="math inline">\(E\big[s|s\leq \frac{p}{θ_1}\big] = \frac{3}{4}\cdot\frac{p}{θ_1}\)</span><br />
+therefore, trade occurs when <span class="math inline">\(θ_2\geq\frac{4}{3}θ_1\)</span></li>
+<li>For <span class="math inline">\(f(s) = 4s^3\)</span>, <span class="math inline">\(E\big[s|s\leq \frac{p}{θ_1}\big] = \frac{4}{5}\cdot\frac{p}{θ_1}\)</span><br />
+therefore, trade occurs when <span class="math inline">\(θ_2\geq\frac{5}{4}θ_1\)</span></li>
+</ol></li>
+<li></li>
+</ol>
 <blockquote>
 <p>PS1.Q2<br />
 Agent 1 finds an old book in his basement and considers selling it on the flee market. Agent 1’s utility from keeping the book is <span class="math inline">\(θ_1s\)</span>, where <span class="math inline">\(s\)</span> is the quality of the book.<br />
