@@ -1027,7 +1027,7 @@ e_s &amp;\geq 1.5\end{aligned}\]</span>
 High type’s problem:
 <span class="math display">\[\begin{aligned}\max_{e} &amp;&amp; 2+e &amp;- \frac{e^2}{τ} \\
 FOC &amp;&amp; 1 - \frac{2}{τ}e &amp;\overset{!}{=} 0 \\
-&amp;&amp; e^(H) &amp;= \frac{τ}{2} \geq 1.5 \\
+&amp;&amp; e^*(H) &amp;= \frac{τ}{2} \geq 1.5 \\
 &amp;&amp; τ&amp;\geq 3 \end{aligned}\]</span>
 therefore, when <span class="math inline">\(τ\geq 3\)</span>, there exists a separating equilibrium (non-envy case)</p>
 <blockquote>
@@ -1047,7 +1047,13 @@ In pooling equilibrium, low type gets
 &amp;= 1.25\end{aligned}\]</span>
 high type gets
 <span class="math display">\[\begin{aligned}(2-λ) + e_p - \frac{e_p^2}{2} &amp;\geq 2 + 1.5 - \frac{1.5^2}{2} \\
-&amp;= 2.375\end{aligned}\]</span></p>
+&amp;= 2.375\end{aligned}\]</span>
+therefore, pooling equilibrium is Pareto better if
+<span class="math display">\[λ \leq\begin{cases}0.75 + e_p - e_p^2 \\ -0.375 + e_p - \frac{e_p^2}{2} \end{cases}\]</span>
+Specially, when <span class="math inline">\(e_p\in [1,1.5]\)</span>, <span class="math inline">\(0.75 + e_p - e_p^2\geq -0.375 + e_p - \frac{e_p^2}{2}\)</span>,
+<span class="math display">\[λ \leq 0.375 + e_p - \frac{e_p^2}{2}\]</span>
+when <span class="math inline">\(e_p\in\big( 1.5, \frac{1}{2}(1+\sqrt{2})\big]\)</span>, <span class="math inline">\(0.75 + e_p - e_p^2 &lt; -0.375 + e_p - \frac{e_p^2}{2}\)</span>,
+<span class="math display">\[λ \leq 0.75 + e_p - e_p^2\]</span></p>
 </div>
 <div id="perfect-bayesian-equilibrium-pbe" class="section level3">
 <h3>Perfect Bayesian Equilibrium (PBE)</h3>
