@@ -99,7 +99,7 @@ if (!doNotTrack) {
 <li><a href="#reference-dependence">Reference Dependence</a><ul>
 <li><a href="#behaviour-endowment-effect">Behaviour: Endowment Effect</a></li>
 <li><a href="#gainloss-utility">Gain–Loss Utility</a></li>
-<li><a href="#linear-loss-aversion">Linear Loss Aversion</a></li>
+<li><a href="#linear-piecewise-loss-aversion">Linear (Piecewise) Loss Aversion</a></li>
 <li><a href="#non-linear-loss-aversion">Non-Linear Loss Aversion</a></li>
 <li><a href="#endogenous-reference-formation">Endogenous Reference Formation</a></li>
 </ul></li>
@@ -178,7 +178,7 @@ textbook 2: (WK) <a href="http://93.174.95.27/book/index.php?md5=655CA3A2EEAE166
 <li>Decision making process: <span class="math inline">\(\max\)</span>
 <ul>
 <li>Rules of thumb</li>
-<li>Tending to implify problem</li>
+<li>Tending to simplify problem</li>
 <li>Infected by framing</li>
 </ul></li>
 </ul>
@@ -238,7 +238,7 @@ Let <span class="math inline">\(v_n\)</span> be the satisfycing index for each <
 1. Fix a satisfycing level <span class="math inline">\(v&gt;0\)</span><br />
 <span class="math display">\[v=11\]</span>
 2. Given set <span class="math inline">\(A\)</span>, go through elements in the order of ascending sub-indices<br />
-<span class="math display">\[\begin{aligned}A = \{ &amp;&amp; x_1 &amp;&amp; x_7 &amp;&amp; x_{18} &amp;&amp; x_{21} &amp;&amp; x_{25} &amp;&amp; \} \\ v_n = \{ &amp;&amp; 0 &amp;&amp; 16 &amp;&amp; 8 &amp;&amp; 15 &amp;&amp; 20 &amp;&amp; \}\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}A = \{ &amp;&amp; x_1 &amp;&amp; x_7 &amp;&amp; x_{18} &amp;&amp; x_{21} &amp;&amp; x_{25} &amp;&amp; \} \\ v_n = \{ &amp;&amp; 0 &amp;&amp; 10 &amp;&amp; 8 &amp;&amp; 15 &amp;&amp; 20 &amp;&amp; \}\end{aligned}\]</span>
 3. pick <span class="math inline">\(x_n\)</span> with smallest <span class="math inline">\(n\)</span> s.t. <span class="math inline">\(v_n&gt;v\)</span><br />
 <span class="math display">\[C(A) = x_{21}\]</span>
 4. If no element satisfycs, lower the satisfycing level to <span class="math inline">\(\frac{v}{2}\)</span><br />
@@ -260,35 +260,46 @@ Suppose that burger is fatter than steak, and steak is fatter than salad.<br />
 <li><span class="math inline">\(C(A_1) = C(A_2) = \text{salad}\)</span></li>
 </ol>
 <blockquote>
-<p>PS1.Q2<br />
+<p>PS1.Q2 (Satisfycing)<br />
 Consider the finite set of alternatives <span class="math inline">\(X = \{x_1,\dots ,x_N\}\)</span>.<br />
-A decision maker (DM) assigns to each <span class="math inline">\(x\in X\)</span> a value <span class="math inline">\(v(x)\)</span> and uses the following procedure to choose an element from a given <span class="math inline">\(A\subset X\)</span>:<br />
-1. If the number of elements in <span class="math inline">\(A\)</span> is smaller or equal to <span class="math inline">\(N^* &lt; N\)</span>, then he goes through all alternatives <span class="math inline">\(x_i \in A\)</span> in ascending order of indices <span class="math inline">\(i\)</span> and picks the first element whose value is greater or equal to some predetermined aspiration level <span class="math inline">\(\bar{v}\in\mathbb{R}\)</span>􏰳.<br />
-If for all <span class="math inline">\(x \in A\)</span> it holds that <span class="math inline">\(v(x) &lt; \bar{v}\)</span>, then the DM picks the last element in <span class="math inline">\(A\)</span>, i.e. the element with the largest index <span class="math inline">\(i\)</span>.<br />
-2. If <span class="math inline">\(A\)</span> contains more than <span class="math inline">\(N^*\)</span> elements, he picks the element with the largest index <span class="math inline">\(i\)</span> in <span class="math inline">\(A\)</span>.<br />
+A decision maker (DM) assigns to each <span class="math inline">\(x\in X\)</span> a value <span class="math inline">\(v(x)\)</span> and uses the following procedure to choose an element from a given <span class="math inline">\(A\subset X\)</span>.<br />
 Show by an example that the DM does generally not satisfy IIA.</p>
+<ol style="list-style-type: decimal">
+<li>If the number of elements in <span class="math inline">\(A\)</span> is smaller or equal to <span class="math inline">\(N^* &lt; N\)</span>, then he goes through all alternatives <span class="math inline">\(x_i \in A\)</span> in ascending order of indices <span class="math inline">\(i\)</span> and picks the first element whose value is greater or equal to some predetermined aspiration level <span class="math inline">\(\bar{v}\in\mathbb{R}\)</span>.<br />
+If for all <span class="math inline">\(x \in A\)</span> it holds that <span class="math inline">\(v(x) &lt; \bar{v}\)</span>, then the DM picks the last element in <span class="math inline">\(A\)</span>, i.e. the element with the largest index <span class="math inline">\(i\)</span>.<br />
+</li>
+<li>If <span class="math inline">\(A\)</span> contains more than <span class="math inline">\(N^*\)</span> elements, he picks the element with the largest index <span class="math inline">\(i\)</span> in <span class="math inline">\(A\)</span>.</li>
+</ol>
 </blockquote>
-<p>Let <span class="math inline">\(X = \{x_1, x_2, x_3\}\)</span>, <span class="math inline">\(N^* = 2\)</span>, <span class="math inline">\(\bar{v} = 2.5\)</span>,<br />
-<span class="math inline">\(v(x_1) = 1\)</span>, <span class="math inline">\(v(x_2) = 3\)</span>, <span class="math inline">\(v(x_3) = 2\)</span>.<br />
-Let <span class="math inline">\(A_1 = \{x_1, x_2, x_3\}\)</span>, <span class="math inline">\(A_2 = \{x_2, x_3\}\)</span>,<br />
-<span class="math inline">\(\implies C(A_1) = x_3\)</span> but <span class="math inline">\(C(A_2) = x_2\)</span></p>
+<p>Let <span class="math inline">\(N^* = 2\)</span>, <span class="math inline">\(\bar{v} = 2.5\)</span>, <span class="math inline">\(\begin{aligned}X = \{ &amp;&amp; x_1 &amp;&amp; x_2 &amp;&amp; x_3 &amp;&amp; \} \\ v_n = \{ &amp;&amp; 1 &amp;&amp; 3 &amp;&amp; 2 &amp;&amp; \}\end{aligned}\)</span><br />
+Then <span class="math inline">\(\begin{cases}A_1 = \{ &amp;&amp; x_1 &amp;&amp; x_2 &amp;&amp; x_3 &amp;&amp; \} \\ A_2 = \{ &amp;&amp; x_2 &amp;&amp; x_3 &amp;&amp; \}\end{cases}\)</span><br />
+<span class="math inline">\(\implies C(A_1) = x_3\)</span> but <span class="math inline">\(C(A_2) = x_2\)</span><br />
+<span class="math inline">\(\implies\)</span> IIA is violated</p>
 <blockquote>
 <p>PS1.Q3<br />
-Let <span class="math inline">\(X\)</span> be a finite set of alternatives in 􏰳<span class="math inline">\(\mathbb{R}^2\)</span>.<br />
-We say that <span class="math inline">\(y\)</span> is dominated by <span class="math inline">\(x\)</span> if <span class="math inline">\(x_1\geq y_1\)</span> and <span class="math inline">\(x_2\geq y_2\)</span>, and one inequality is strict.<br />
-Let <span class="math inline">\(A\subset X\)</span> be a choice set.<br />
-For <span class="math inline">\(x\in A\)</span>, let <span class="math inline">\(n(x,A)\)</span> be the number of alternatives in <span class="math inline">\(A\)</span> which are dominated by <span class="math inline">\(x\)</span>.<br />
+Let <span class="math inline">\(X\)</span> be a finite set of alternatives in <span class="math inline">\(\mathbb{R}^2\)</span>.<br />
+<span class="math inline">\(y\)</span> is dominated by <span class="math inline">\(x\)</span> if <span class="math inline">\(x_1\geq y_1\)</span> and <span class="math inline">\(x_2\geq y_2\)</span>, and one inequality is strict.<br />
+Let <span class="math inline">\(A\subset X\)</span> be a choice set, and for each <span class="math inline">\(x\in A\)</span>, let <span class="math inline">\(n(x,A)\)</span> be the number of alternatives in <span class="math inline">\(A\)</span> which are dominated by <span class="math inline">\(x\)</span>.<br />
 Moreover, let <span class="math inline">\(M^*(A)\)</span> be the set of alternatives in <span class="math inline">\(A\)</span> which maximize the sum of the coordinates:<br />
 <span class="math display">\[M^*(A) = \text{argmax}_{x\in A} \ x_1 + x_2\]</span>
-Consider a DM with the following choice procedure:<br />
-1. If <span class="math inline">\(M^*(A)\)</span> contains only a single alternative, then the DM chooses this alternative.<br />
-2. If <span class="math inline">\(M^*(A)\)</span> contains more than one alternative, then:<br />
-2.1. If there is a single alternative <span class="math inline">\(x\in M^*(A)\)</span> with the highest number <span class="math inline">\(n(x,A)\)</span>, then chooses this alternative;<br />
-2.2. If there is more than one alternative in <span class="math inline">\(M^*(A)\)</span> that all have the same, highest number <span class="math inline">\(n(x,A)\)</span>, then chooses among these alternatives the one with the largest first coordinate.<br />
-a) Show by an example that the DM violates IIA.<br />
-b) Show that if instead of (2.1) and (2.2), the DM chooses the one with the largest first coordinate in <span class="math inline">\(M^*(A)\)</span>, then the DM satisfies IIA.</p>
-</blockquote>
+Consider a DM with the following choice procedure:</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(M^*(A)\)</span> contains only a single alternative, then the DM chooses this alternative.<br />
+</li>
+<li>If <span class="math inline">\(M^*(A)\)</span> contains more than one alternative, then:
 <ol style="list-style-type: lower-alpha">
+<li>If there is a single alternative <span class="math inline">\(x\in M^*(A)\)</span> with the highest number <span class="math inline">\(n(x,A)\)</span>, then chooses this alternative;<br />
+</li>
+<li>If there is more than one alternative in <span class="math inline">\(M^*(A)\)</span> that all have the same, highest number <span class="math inline">\(n(x,A)\)</span>, then chooses among these alternatives the one with the largest first coordinate.</li>
+</ol></li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>Show by an example that the DM violates IIA.<br />
+</li>
+<li>Show that if instead of (2.a) and (2.b), the DM chooses the one with the largest first coordinate in <span class="math inline">\(M^*(A)\)</span>, then the DM satisfies IIA.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-roman">
 <li>Let
 <span class="math display">\[\begin{aligned}A_1 = \{ &amp;&amp; (1,3) &amp;&amp; (2,4) &amp;&amp; (3,2) &amp;&amp; (4,2) &amp;&amp; \} \\
 n = \{ &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; \}\end{aligned}\]</span>
@@ -298,17 +309,17 @@ However, let<br />
 <span class="math display">\[\begin{aligned}A_2 = \{ &amp;&amp; (1,3) &amp;&amp; (2,4) &amp;&amp; (4,2) &amp;&amp; \} \\
 n = \{ &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 0 &amp;&amp; \}\end{aligned}\]</span>
 Then <span class="math inline">\(M^*(A_2) = \{(2,4), (4,2)\}\)</span>,<br />
-<span class="math inline">\(\implies C(A_2) = (2,4)\)</span></li>
+<span class="math inline">\(\implies C(A_2) = (2,4)\)</span>, IIA is violated.</li>
 <li>Let <span class="math inline">\(A_2\subset A_1\)</span>,<br />
 let <span class="math inline">\(C(A_1) = x^* = (x_1^*, x_2^*)\in A_1\)</span>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(M^*(A_1) = \{ x^* \}\)</span><br />
 <span class="math inline">\(\implies\)</span> <span class="math display">\[\begin{aligned} x_1^* + x_2^* &amp;&gt; \max_{x\in (A_1\backslash x^*)} \ (x_1 + x_2) \\
- &amp;&gt; \max_{x\in (A_2\backslash x^*)} \ (x_1 + x_2)\end{aligned}\]</span>
+&amp;&gt; \max_{x\in (A_2\backslash x^*)} \ (x_1 + x_2)\end{aligned}\]</span>
 <span class="math inline">\(\implies M^*(A_2) = \{ x^* \}\)</span><br />
 <span class="math inline">\(\implies C(A_2) = x^*\)</span></li>
 <li><span class="math inline">\(M^*(A_1) = \{ x^*, \tilde{x}_1, \dots, \tilde{x}_n \}\)</span>
-<ol style="list-style-type: lower-roman">
+<ol style="list-style-type: lower-alpha">
 <li><span class="math inline">\(M^*(A_2) = \{ x^* \}\)</span><br />
 <span class="math inline">\(\implies C(A_2) = x^*\)</span></li>
 <li><span class="math inline">\(M^*(A_2) = \{ x^*, \tilde{x}_a,\dots, \tilde{x}_b \}\)</span>, <span class="math inline">\(1\leq a \leq b\leq n\)</span><br />
@@ -337,15 +348,15 @@ Since <span class="math inline">\(C(A_1) = x^*\)</span>, <span class="math inlin
 <ul>
 <li>WTP (willingness to pay) &lt; WTA (willingness to accept / sell)</li>
 </ul></li>
-<li>In standard model
+<li>In standard model (slides 2.1.1)
 <ul>
 <li>Set of goods: <span class="math inline">\(\{x_1, x_2\}\)</span></li>
-<li>Quasi-linear preference <span class="math inline">\(u(x_1,x_2) = x_1 + φ(x_2)\)</span></li>
-<li>Fixed increment: <span class="math inline">\(Δ = x_2&#39; - x_2 &gt; 0\)</span></li>
+<li><span class="math inline">\(Δ = x_2&#39; - x_2 &gt; 0\)</span></li>
 <li>WTP and WTA are defined as
 <span class="math display">\[\begin{aligned}u\big( x_1 - WTP(x_1), x_2 + Δ) &amp;= u(x_1,x_2) \\
-  u\big( x_1 + WTA(x_1), x_2) &amp;= u(x_1,x_2+ Δ)\end{aligned}\]</span>
-With quasi-linear preference,
+  u\big( x_1 + WTA(x_1), x_2) &amp;= u(x_1,x_2+ Δ)\end{aligned}\]</span></li>
+<li>Quasi-linear preference <span class="math inline">\(u(x_1,x_2) = x_1 + φ(x_2)\)</span><br />
+<span class="math inline">\(\implies\)</span> no income effect:
 <span class="math display">\[\begin{aligned}x_1 - WTP(x_1) + φ(x_2 + Δ) &amp;= x_1 + φ(x_2) \\
   WTP(x_1) &amp;= φ(x_2 + Δ) - φ(x_2) \\
   x_1 - WTA(x_1) + φ(x_2) &amp;= x_1 + φ(x_2 + Δ) \\
@@ -359,22 +370,30 @@ With quasi-linear preference,
 <li>Income elasticity:
 <span class="math display">\[\begin{aligned}WTP&#39;(x_1)\cdot\frac{x_1}{WTP(x_1)} \approx \Big( 1 - \frac{WTP(x_1)}{WTA(x_1)}\Big)\cdot\frac{x_1}{WTP(x_1)} \end{aligned}\]</span></li>
 </ul></li>
-<li>Above equation does not hold with mug experiment!</li>
+<li>Does not hold with (mug) experiments!</li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-behavioural--WTP-WTA.png" width="327" alt="" />
+<p class="caption">WTP and WTA with no income effect</p>
+</div>
 </div>
 <div id="gainloss-utility" class="section level3">
 <h3>Gain–Loss Utility</h3>
 <ul>
-<li>Additively separable utility functiton: <span class="math inline">\(m_k:X_k\to\mathbb{R}\)</span> <span class="math display">\[m(x) = \sum_k m_k(x_k)\]</span></li>
+<li>Material utility function: <span class="math inline">\(m_k:X_k\to\mathbb{R}\)</span> <span class="math display">\[m(x) = \sum_k m_k(x_k)\]</span></li>
 <li>Gain-loss function: <span class="math inline">\(μ: \mathbb{R}\to\mathbb{R}\)</span>, <span class="math inline">\(μ(0) = 0\)</span></li>
-<li>Gain–loss utility functiton
-<span class="math display">\[\begin{aligned}u(x \ | \ r) &amp;= m(x) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \\ &amp;= \sum_k m_k(x_k) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \end{aligned}\]</span></li>
+<li>Gain–loss utility
+<span class="math display">\[\begin{aligned}u(x \ | \ r) &amp;= m(x) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \\ &amp;= \sum_k m_k(x_k) + \sum_k μ\big(m_k(x_k) - m_k(r_k) \big) \end{aligned}\]</span>
+<ul>
+<li>Example: when <span class="math inline">\(X = \mathbb{R}^2\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(x\ |\ r) = &amp;m_1(x_1) + μ_1\big(m_1(x_1) - m_1(r_1)\big) \\ + &amp;m_2(x_2) + μ_2\big(m_2(x_2) - m_2(r_2)\big)\end{aligned}\]</span></li>
+</ul></li>
 </ul>
 </div>
-<div id="linear-loss-aversion" class="section level3">
-<h3>Linear Loss Aversion</h3>
+<div id="linear-piecewise-loss-aversion" class="section level3">
+<h3>Linear (Piecewise) Loss Aversion</h3>
 <ul>
-<li>(Piecewise) linear gain-loss function
+<li>Linear gain-loss function
 <span class="math display">\[μ = \begin{cases}η\cdot Δ &amp; Δ&gt;0 \\ λ\cdot η\cdot Δ &amp; Δ&lt;0\end{cases}\]</span>
 <ul>
 <li>Emotional component: <span class="math inline">\(η&gt;0\)</span></li>
