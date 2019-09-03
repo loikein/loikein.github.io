@@ -594,34 +594,37 @@ Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <s
 <h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
 <p>(slides P43)</p>
 <ul>
-<li>Attachment effect<br />
+<li>Attachment effect:<br />
 higher probability of small price increases WTP at medium price</li>
-<li>Comparison effect<br />
+<li>Comparison effect:<br />
 larger price difference decreases WTP</li>
-<li>Price distribution: <span class="math inline">\(P = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ p_l &amp; p_m &amp; p_h\end{pmatrix}\)</span>
+<li>Price distribution: <span class="math display">\[P = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ p_l &amp; p_m &amp; p_h\end{pmatrix}\]</span>
 <ul>
-<li><span class="math inline">\(p_l &lt; p_m &lt; p_h\)</span></li>
-<li>Consumer always buys at <span class="math inline">\(p_l\)</span>, never buys at <span class="math inline">\(p_h\)</span><br />
+<li>Buy at <span class="math inline">\(p_i\)</span> gives bundle <span class="math inline">\((v,-p_i)\)</span>, no-buy gives <span class="math inline">\((0,0)\)</span></li>
+<li>Lottery: <span class="math display">\[L(P) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (v,-p_m) &amp; (v,-p_h)\end{pmatrix}\]</span></li>
+<li>Assumptions: <span class="math inline">\(p_l &lt; p_m &lt; p_h\)</span><br />
+always buy at <span class="math inline">\(p_l\)</span>, never buy at <span class="math inline">\(p_h\)</span><br />
 </li>
-<li>When plan is <span class="math inline">\((b, b, n)\)</span>,<br />
+<li>Plan <span class="math inline">\((b, b, n)\)</span> induces reference lottery:
 <span class="math display">\[R(b, b, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (v,-p_m) &amp; (0,0)\end{pmatrix}\]</span>
-Utility at <span class="math inline">\(p_m\)</span>:
+Utility at <span class="math inline">\(p_m\)</span> for buy or no-buy:
 <span class="math display">\[\begin{aligned}U(b,p_m\ |\ R) = v-p_m &amp;+ q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
   &amp;+ q_m\big[(v-v)+(-p_m-(-p_m))\big] \\
   &amp;+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
   U(n,p_m\ |\ R) = 0-0 &amp;+ q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
   &amp;+ q_m\big[λ(0-v)+(0-(-p_m))\big] \\
   &amp;+ q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
-<li>When plan is <span class="math inline">\((b, n, n)\)</span>,<br />
+<li>Plan <span class="math inline">\((b, n, n)\)</span> induces reference lottery:
 <span class="math display">\[R&#39;(b, n, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (0,0) &amp; (0,0)\end{pmatrix}\]</span>
-Utility at <span class="math inline">\(p_m\)</span>:
+Utility at <span class="math inline">\(p_m\)</span> for buy or no-buy:
 <span class="math display">\[\begin{aligned}U(b,p_m\ |\ R&#39;) = v-p_m &amp;+ q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
   &amp;+ q_m\big[(v-0)+λ(-p_m-0)\big] \\
   &amp;+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
   U(n,p_m\ |\ R&#39;) = 0-0 &amp;+ q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
   &amp;+ q_m\big[(0-0)+(0-0)\big] \\
   &amp;+ q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
-<li>When <span class="math inline">\(q_m\to 0\)</span>, <span class="math inline">\(q_h \approx 1-q_l\)</span>,
+<li>When <span class="math inline">\(q_m\to 0\implies q_h \approx 1-q_l\)</span>,<br />
+Utility at <span class="math inline">\(p_m\)</span> for buy or no-buy:
 <span class="math display">\[\begin{aligned}U(b,p_m\ |\ R)&amp;\approx U(b,p_m\ |\ R&#39;) = U(b,p_m) \\
   &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big]+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
   &amp;= v-p_m + q_l\cdot λ(-p_m + p_l)+ q_h\big[v +λ(-p_m)\big]\\
@@ -629,7 +632,7 @@ Utility at <span class="math inline">\(p_m\)</span>:
   U(n,p_m\ |\ R)&amp;\approx U(n,p_m\ |\ R&#39;) = U(n,p_m) \\
   &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] + q_h\big[(0-0)+(0 - 0)\big] \\
   &amp;= q_l\big[λ(-v) + p_l\big] \end{aligned}\]</span></li>
-<li>Agent’s willingness to buy at <span class="math inline">\(p_m\)</span>:
+<li>Agent’s willingness to buy (<a href="#behaviour-endowment-effect">WTP</a>) at <span class="math inline">\(p_m\)</span>:
 <span class="math display">\[\begin{aligned}WTP &amp;= U(b,p_m) - U(n,p_m) \\
   &amp;= 2v -(λ+1)p_m + q_l\cdot (λp_l - v) - q_l\big[λ(-v) + p_l\big] \\
   &amp;= 2v -(λ+1)p_m + q_l\cdot (λ-1)(p_l + v) \end{aligned}\]</span></li>
@@ -645,9 +648,9 @@ Utility at <span class="math inline">\(p_m\)</span>:
 <p>(slides P41)</p>
 <ul>
 <li>Gain-loss utility without risk <span class="math display">\[u(x\ |\ r) = m(x)+ μ\big(m(x)-m(r)\big)\]</span></li>
-<li>Lottery
+<li>Lottery (price distribution)
 <span class="math display">\[L = \begin{pmatrix}p_1 &amp; p_2 &amp; \cdots &amp; p_k &amp; \cdots &amp; p_K \\ x_1 &amp; x_2 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\]</span></li>
-<li>Reference lottery
+<li>Reference lottery (plan)
 <span class="math display">\[R = \begin{pmatrix}q_1 &amp; q_2 &amp; \cdots &amp; q_n &amp; \cdots &amp; q_N \\ r_1 &amp; r_2 &amp; \cdots &amp; r_n &amp; \cdots &amp; r_N \end{pmatrix}\]</span></li>
 <li>Expected utility function:
 <span class="math display">\[U(L\ |\ R) = \sum_k\sum_n u(x_k\ |\ r_n)\cdot p_k\cdot q_n\]</span></li>
@@ -664,7 +667,14 @@ Price distribution (lottery): <span class="math inline">\(P = \begin{pmatrix}0.5
 There are two actions: <span class="math inline">\(b\)</span> (buy) and <span class="math inline">\(n\)</span> (not buy).<br />
 <span class="math inline">\(b\)</span> gives bundle <span class="math inline">\((v,-p)\)</span>, and <span class="math inline">\(n\)</span> gives bundle <span class="math inline">\((0,0)\)</span>.<br />
 Assume piecewise linear gain-loss function, <span class="math inline">\(η = 1\)</span>, <span class="math inline">\(λ&gt;1\)</span>.<br />
-Find all the personal equilibria.</p>
+Find all the personal equilibria.<br />
+Timing:</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Buyer knows price distribution <span class="math inline">\(P\)</span></li>
+<li>Buyer forms a plan (reference lottery) <span class="math inline">\(R\)</span>, based on <span class="math inline">\(P\)</span></li>
+<li>Buyer goes to shop and finds out the actual price <span class="math inline">\(p\)</span></li>
+<li>Buyer decides whether to buy or not, based on <span class="math inline">\(R\)</span> and <span class="math inline">\(p\)</span></li>
+</ol>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Let the plan be <span class="math inline">\((n,n)\)</span><br />
