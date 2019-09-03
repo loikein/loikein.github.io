@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">63 min read</span>
+    <span class="article-duration">64 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -647,17 +647,17 @@ Utility at <span class="math inline">\(p_m\)</span> for buy or no-buy:
 <h3>Endogenous Reference Formation with Risk</h3>
 <p>(slides P41)</p>
 <ul>
-<li>Gain-loss utility without risk <span class="math display">\[u(x\ |\ r) = m(x)+ μ\big(m(x)-m(r)\big)\]</span></li>
+<li>Gain-loss utility (no risk) <span class="math display">\[u(x\ |\ r) = m(x)+ μ\big(m(x)-m(r)\big)\]</span></li>
 <li>Lottery (price distribution)
 <span class="math display">\[L = \begin{pmatrix}p_1 &amp; p_2 &amp; \cdots &amp; p_k &amp; \cdots &amp; p_K \\ x_1 &amp; x_2 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\]</span></li>
 <li>Reference lottery (plan)
 <span class="math display">\[R = \begin{pmatrix}q_1 &amp; q_2 &amp; \cdots &amp; q_n &amp; \cdots &amp; q_N \\ r_1 &amp; r_2 &amp; \cdots &amp; r_n &amp; \cdots &amp; r_N \end{pmatrix}\]</span></li>
-<li>Expected utility function:
+<li>(Expected = with risk) gain-loss utility
 <span class="math display">\[U(L\ |\ R) = \sum_k\sum_n u(x_k\ |\ r_n)\cdot p_k\cdot q_n\]</span></li>
-<li>Personal equilibrium (PE): lottery <span class="math inline">\(L\in\mathcal{L}\)</span> s.t.<br />
-<span class="math inline">\(U(L\ |\ L)\geq U(L&#39;\ |\ L)\)</span> for all <span class="math inline">\(L&#39;\in\mathcal{L}\)</span></li>
-<li>Preferred personal equilibrium (PPE): PE <span class="math inline">\(L\in\mathcal{L}\)</span> s.t.<br />
-<span class="math inline">\(U(L\ |\ L)\geq U(L&#39;\ |\ L&#39;)\)</span> for all PE <span class="math inline">\(L&#39;\in\mathcal{L}\)</span></li>
+<li>Personal equilibrium (PE):<br />
+lottery <span class="math inline">\(L\in\mathcal{L}\)</span> s.t. <span class="math inline">\(U(L\ |\ L)\geq U(L&#39;\ |\ L)\)</span> for all <span class="math inline">\(L&#39;\in\mathcal{L}\)</span></li>
+<li>Preferred personal equilibrium (PPE):<br />
+PE <span class="math inline">\(L\in\mathcal{L}\)</span> s.t. <span class="math inline">\(U(L\ |\ L)\geq U(L&#39;\ |\ L&#39;)\)</span> for all PE <span class="math inline">\(L&#39;\in\mathcal{L}\)</span></li>
 </ul>
 <blockquote>
 <p>Example (unit demand with random price)<br />
@@ -685,8 +685,7 @@ U(n,p_l\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
 When price is <span class="math inline">\(p_h\)</span>,<br />
 <span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 1\big[λ(-p_h-0) + (v-0)\big] \\
 U(n,p_h\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
-Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((n,n)\)</span> is a PE.<br />
-</li>
+Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((n,n)\)</span> is a PE.</li>
 <li>Let the plan be <span class="math inline">\((b,n)\)</span><br />
 Induced reference lottery: <span class="math inline">\(R(b,n) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (0,0)\end{pmatrix}\)</span><br />
 When price is <span class="math inline">\(p_l\)</span>,<br />
@@ -695,11 +694,25 @@ U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\bi
 When price is <span class="math inline">\(p_h\)</span>,<br />
 <span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[λ(-p_h-0) + (v-0)\big] \\
 U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
-Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.<br />
-</li>
+Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.</li>
 <li>Let the plan be <span class="math inline">\((b,b)\)</span><br />
-</li>
-<li>Let the plan be <span class="math inline">\((n,b)\)</span></li>
+Induced reference lottery: <span class="math inline">\(R(b,b) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (v,-p_h)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[(-p_l-(-p_l)) + (v-v)\big] \\ &amp;+ 0.5\big[(-p_l-(-p_h)) + (v-v)\big] \\
+U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,b)\)</span> is a PE.</li>
+<li>Let the plan be <span class="math inline">\((n,b)\)</span><br />
+Induced reference lottery: <span class="math inline">\(R(n,b) = \begin{pmatrix}0.5 &amp; 0.5\\ (0,0) &amp; (v,-p_h)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[λ(-p_l-0) + (v-0)\big] \\ &amp;+ 0.5\big[(-p_l-(-p_h)) + (v-v)\big] \\
+U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-0 + (v-0)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.</li>
 </ol>
 <blockquote>
 <p>Mock.Q2<br />
