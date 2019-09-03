@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">62 min read</span>
+    <span class="article-duration">63 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -105,11 +105,12 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#choice-over-lottery">Choice over Lottery</a><ul>
 <li><a href="#expected-utility-theory">Expected Utility Theory</a></li>
-<li><a href="#endogenous-reference-formation-with-risk">Endogenous Reference Formation with Risk</a></li>
 <li><a href="#behaviour-attachment-effect-comparison-effect">Behaviour: Attachment Effect &amp; Comparison Effect</a></li>
+<li><a href="#endogenous-reference-formation-with-risk">Endogenous Reference Formation with Risk</a></li>
 <li><a href="#behaviour-allais-paradox">Behaviour: Allais Paradox</a></li>
 <li><a href="#prospect-theory">Prospect Theory</a></li>
 <li><a href="#non-expected-utility-theory">Non-Expected Utility Theory</a></li>
+<li><a href="#regret-theory">Regret Theory</a></li>
 </ul></li>
 <li><a href="#time-preference">Time Preference</a><ul>
 <li><a href="#saving-and-consumption">Saving and Consumption</a></li>
@@ -473,9 +474,9 @@ For <span class="math inline">\(0&lt; Δ &lt; Δ&#39;\)</span>,
 <blockquote>
 <p>Exercise<br />
 With loss aversion utility, prove that the agent’s incentive to choose <span class="math inline">\(x\)</span> over <span class="math inline">\(y\)</span> when <span class="math inline">\(r=x\)</span> is larger than the incentive to choose <span class="math inline">\(x\)</span> over <span class="math inline">\(y\)</span> when <span class="math inline">\(r=y\)</span>, formally,<br />
-<span class="math display">\[u(x \ | \ x) - u(y \ | \ x) \geq u(x \ | \ y) - u(y \ | \ y)\]</span></p>
+<span class="math display">\[u(x\ |\ x) - u(y\ |\ x) \geq u(x\ |\ y) - u(y\ |\ y)\]</span></p>
 </blockquote>
-<p><span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} u(x \ | \ x) - u(y \ | \ x) - \big[ u(x \ | \ y) - u(y \ | \ y) \big] \\
+<p><span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} u(x\ |\ x) - u(y\ |\ x) - \big[ u(x\ |\ y) - u(y\ |\ y) \big] \\
 &amp;= \big[ m(x)+0\big] - \Big[m(y) + \sum_k μ\big( m_k(y_k) - m_k(x_k) \big)\Big] \\
 &amp;\phantom{\ggg} - \Big[ m(x) + \sum_k μ\big( m_k(x_k) - m_k(y_k) \big)\Big] + \big[ m(y)+0 \big] \\
 &amp;= - \sum_k \Big[ μ\big( \underbrace{m_k(y_k) - m_k(x_k)}_{Δ}\big) + μ\big( \underbrace{- (m_k(y_k) - m_k(x_k))}_{-Δ}\big) \Big] \\
@@ -530,7 +531,7 @@ n &amp; p&gt;p_b\end{cases}\]</span></li>
 <blockquote>
 <p>Lemma 2.4<br />
 The agent plays PPE <span class="math inline">\(σ\iff σ\)</span> maximizes their material utility, i.e. <span class="math inline">\(σ\in\text{argmax}_{σ&#39;\in X} m(σ&#39;)\)</span>.<br />
-Hence, his behavior is indistinguishable from that of a standard agent who only cares about material utility.<br />
+Hence, his behaviour is indistinguishable from that of a standard agent who only cares about material utility.<br />
 Assume piecewise linear gain-loss function, <span class="math inline">\(η = 1\)</span>, <span class="math inline">\(λ&gt;1\)</span>.</p>
 </blockquote>
 <ol style="list-style-type: decimal">
@@ -566,7 +567,8 @@ Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <s
 <li>Simple lottery: <span class="math inline">\(L = \begin{pmatrix}p_1 &amp; p_2 &amp; \cdots &amp; p_k &amp; \cdots &amp; p_K \\ x_1 &amp; x_2 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\)</span></li>
 <li>Compound lottery: <span class="math inline">\(αL + (1-α)L&#39;\)</span>, with probability <span class="math inline">\(α\in [0,1]\)</span>
 <ul>
-<li>Reduced simple lottery: <span class="math inline">\(\tilde{L} = \begin{pmatrix}αp_1+(1-α)p_1&#39; &amp; \cdots &amp; αp_k+(1-α)p_k&#39; &amp; \cdots &amp; αp_K+(1-α)p_K&#39; \\ x_1 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\)</span></li>
+<li>Reduced simple lottery:<br />
+<span class="math inline">\(\tilde{L} = \begin{pmatrix}αp_1+(1-α)p_1&#39; &amp; \cdots &amp; αp_k+(1-α)p_k&#39; &amp; \cdots &amp; αp_K+(1-α)p_K&#39; \\ x_1 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\)</span></li>
 </ul></li>
 </ul>
 <div id="expected-utility-theory" class="section level3">
@@ -576,22 +578,73 @@ Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <s
 <li>Axioms
 <ol style="list-style-type: decimal">
 <li>Compound lottery is equivalent to reduced simple lottery</li>
-<li><span class="math inline">\(L_1\succsim L_2\iff αL_1 + (1 − α)M \succsim αL_2 + (1 − α)M\)</span>, <span class="math inline">\(α\in (0,1)\)</span></li>
+<li><span class="math inline">\(L_1\succsim L_2\iff αL_1 + (1 − α)M \succsim αL_2 + (1 − α)M\)</span> for any <span class="math inline">\(M\)</span>, <span class="math inline">\(α\in (0,1)\)</span></li>
 </ol>
 <ul>
 <li><span class="math inline">\(\implies\)</span> Agent’s preferences over lotteries can be represented in expected form</li>
 </ul></li>
-<li>Von Neumann utility function (vNM): <span class="math inline">\(U(L) = \sum_k u(x_k)\cdot p_k\)</span>
+<li>von Neumann utility function (vNM) <span class="math display">\[U(L) = \sum_k u(x_k)\cdot p_k\]</span>
 <ul>
 <li>Bernoulli utility function: <span class="math inline">\(u(x_k)\)</span></li>
 <li>Indifference curves are straight, parallel lines</li>
 </ul></li>
 </ul>
 </div>
+<div id="behaviour-attachment-effect-comparison-effect" class="section level3">
+<h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
+<p>(slides P43)</p>
+<ul>
+<li>Attachment effect<br />
+higher probability of small price increases WTP at medium price</li>
+<li>Comparison effect<br />
+larger price difference decreases WTP</li>
+<li>Price distribution: <span class="math inline">\(P = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ p_l &amp; p_m &amp; p_h\end{pmatrix}\)</span>
+<ul>
+<li><span class="math inline">\(p_l &lt; p_m &lt; p_h\)</span></li>
+<li>Consumer always buys at <span class="math inline">\(p_l\)</span>, never buys at <span class="math inline">\(p_h\)</span><br />
+</li>
+<li>When plan is <span class="math inline">\((b, b, n)\)</span>,<br />
+<span class="math display">\[R(b, b, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (v,-p_m) &amp; (0,0)\end{pmatrix}\]</span>
+Utility at <span class="math inline">\(p_m\)</span>:
+<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R) = v-p_m &amp;+ q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
+  &amp;+ q_m\big[(v-v)+(-p_m-(-p_m))\big] \\
+  &amp;+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
+  U(n,p_m\ |\ R) = 0-0 &amp;+ q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
+  &amp;+ q_m\big[λ(0-v)+(0-(-p_m))\big] \\
+  &amp;+ q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
+<li>When plan is <span class="math inline">\((b, n, n)\)</span>,<br />
+<span class="math display">\[R&#39;(b, n, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (0,0) &amp; (0,0)\end{pmatrix}\]</span>
+Utility at <span class="math inline">\(p_m\)</span>:
+<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R&#39;) = v-p_m &amp;+ q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
+  &amp;+ q_m\big[(v-0)+λ(-p_m-0)\big] \\
+  &amp;+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
+  U(n,p_m\ |\ R&#39;) = 0-0 &amp;+ q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
+  &amp;+ q_m\big[(0-0)+(0-0)\big] \\
+  &amp;+ q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(q_m\to 0\)</span>, <span class="math inline">\(q_h \approx 1-q_l\)</span>,
+<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R)&amp;\approx U(b,p_m\ |\ R&#39;) = U(b,p_m) \\
+  &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big]+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
+  &amp;= v-p_m + q_l\cdot λ(-p_m + p_l)+ q_h\big[v +λ(-p_m)\big]\\
+  &amp;= 2v -(λ+1)p_m + q_l\cdot (λp_l - v)\\
+  U(n,p_m\ |\ R)&amp;\approx U(n,p_m\ |\ R&#39;) = U(n,p_m) \\
+  &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] + q_h\big[(0-0)+(0 - 0)\big] \\
+  &amp;= q_l\big[λ(-v) + p_l\big] \end{aligned}\]</span></li>
+<li>Agent’s willingness to buy at <span class="math inline">\(p_m\)</span>:
+<span class="math display">\[\begin{aligned}WTP &amp;= U(b,p_m) - U(n,p_m) \\
+  &amp;= 2v -(λ+1)p_m + q_l\cdot (λp_l - v) - q_l\big[λ(-v) + p_l\big] \\
+  &amp;= 2v -(λ+1)p_m + q_l\cdot (λ-1)(p_l + v) \end{aligned}\]</span></li>
+<li>Attachment effect:
+<span class="math display">\[\begin{aligned}\frac{\partial WTP}{\partial q_l} &amp;= (λ-1)(p_l + v) \\ &amp;&gt; 0 \end{aligned}\]</span></li>
+<li>Comparison effect:
+<span class="math display">\[\begin{aligned}\frac{\partial WTP}{\partial p_l} &amp;= q_l\cdot (λ-1) \\ &amp;&gt; 0 \end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
 <div id="endogenous-reference-formation-with-risk" class="section level3">
 <h3>Endogenous Reference Formation with Risk</h3>
+<p>(slides P41)</p>
 <ul>
-<li>Utility function (without risk): <span class="math inline">\(u(x\ |\ r) = m(x)+ μ\big(m(x)-m(r)\big)\)</span></li>
+<li>Gain-loss utility without risk <span class="math display">\[u(x\ |\ r) = m(x)+ μ\big(m(x)-m(r)\big)\]</span></li>
 <li>Lottery
 <span class="math display">\[L = \begin{pmatrix}p_1 &amp; p_2 &amp; \cdots &amp; p_k &amp; \cdots &amp; p_K \\ x_1 &amp; x_2 &amp; \cdots &amp; x_k &amp; \cdots &amp; x_K \end{pmatrix}\]</span></li>
 <li>Reference lottery
@@ -627,11 +680,11 @@ Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</s
 <li>Let the plan be <span class="math inline">\((b,n)\)</span><br />
 Induced reference lottery: <span class="math inline">\(R(b,n) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (0,0)\end{pmatrix}\)</span><br />
 When price is <span class="math inline">\(p_l\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 0.5\big[(-p_l-(-p_l)) + (v-v)\big] + 0.5\big[λ(-p_l-0) + (v-0)\big] \\
-U(n,p_l\ |\ R) &amp;= 0 - 0 + 0.5\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[(-p_l-(-p_l)) + (v-v)\big] \\ &amp;+ 0.5\big[λ(-p_l-0) + (v-0)\big] \\
+U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
 When price is <span class="math inline">\(p_h\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] + 0.5\big[λ(-p_h-0) + (v-0)\big] \\
-U(n,p_h\ |\ R) &amp;= 0 - 0 + 0.5\big[(0-(-p_l)) + λ(0-v)\big] + 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[λ(-p_h-0) + (v-0)\big] \\
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
 Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.<br />
 </li>
 <li>Let the plan be <span class="math inline">\((b,b)\)</span><br />
@@ -640,9 +693,9 @@ Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</s
 </ol>
 <blockquote>
 <p>Mock.Q2<br />
-An agent faces two possible choice sets <span class="math inline">\(A= \{x, y\}\)</span> or <span class="math inline">\(B = \{x, y,z\}\)</span>, where the alternatives <span class="math inline">\(x, y,z\in\mathbb{R}^22\)</span> are given by
+An agent faces two possible choice sets <span class="math inline">\(A= \{x, y\}\)</span> or <span class="math inline">\(B = \{x, y,z\}\)</span>, where the alternatives <span class="math inline">\(x, y,z\in\mathbb{R}^2\)</span> are given by
 <span class="math display">\[\begin{aligned}x &amp;= (2,0)\\ y &amp;= (1,−1)\\ z &amp;= (0,3) \end{aligned}\]</span>
-The agent has reference dependent preferences, that is, given an alternative <span class="math inline">\(a = (a_1, a_2)\in\mathbb{R}^2\)</span> and a reference point <span class="math inline">\(r = (r1, r2)\in\mathbb{R}^2\)</span>, his utility is
+The agent has reference dependent preferences, that is, given an alternative <span class="math inline">\(a = (a_1, a_2)\in\mathbb{R}^2\)</span> and a reference point <span class="math inline">\(r = (r_1, r_2)\in\mathbb{R}^2\)</span>, his utility is
 <span class="math display">\[U(a|r)=a_1 +a_2 +μ(a_1 −r_1)+μ(a_2 −r_2)\]</span>
 where <span class="math inline">\(μ(∆) = ∆\)</span> for <span class="math inline">\(∆\geq 0\)</span>, and <span class="math inline">\(μ(∆) = λ∆\)</span> for <span class="math inline">\(∆\leq 0\)</span>, <span class="math inline">\(λ = 3\)</span>.</p>
 <ol style="list-style-type: decimal">
@@ -662,61 +715,24 @@ Which one is larger? Explain intuitively why this is so.</li>
 <li><span class="math inline">\(A = \{x,y\}\)</span>, therefore, y is dominated,<br />
 <span class="math inline">\(\implies x\)</span> is the unique PE</li>
 <li><span class="math inline">\(R = \begin{pmatrix}α &amp; 1-α \\ (2,0) &amp; (0,3) \end{pmatrix}\)</span></li>
-<li>Choosing <span class="math inline">\(x\in B\)</span> gives
+<li><ol style="list-style-type: lower-alpha">
+<li>We already know <span class="math inline">\(x\in A\)</span> is PE</li>
+<li>For <span class="math inline">\(B\)</span>,<br />
+Choosing <span class="math inline">\(x\in B\)</span> gives
 <span class="math display">\[\begin{aligned}2 + 0 + α\cdot 0 + (1-α)(2-3λ) &amp;= -5 + 7α \end{aligned}\]</span>
 Choosing <span class="math inline">\(z\in B\)</span> gives
 <span class="math display">\[\begin{aligned}0 + 3 + α(3-2λ) + (1-α)\cdot 0 = 3 - 3α \end{aligned}\]</span>
-z is better than x when
+<span class="math inline">\(z\)</span> is better than <span class="math inline">\(x\)</span> when
 <span class="math display">\[\begin{aligned}3 - 3α &amp;\geq -5 + 7α \\ α &amp;\leq\frac{4}{5} \end{aligned}\]</span></li>
+</ol></li>
 <li>When <span class="math inline">\(α = \frac{1}{2}\)</span>, expected utility:
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}α\big(2+(1-α)(2-3λ)\big) + (1-α)\big(3 + α(3-2λ\big)\\
 &amp;= 2α + (1-α)\cdot 3 - α(1-α)\cdot 10 \\
 &amp;= 0\end{aligned}\]</span></li>
-<li>Comparison effect</li>
+<li>In (1), utility: <span class="math inline">\(x_1 + x_2 = 2\)</span><br />
+In (4), utility: <span class="math inline">\(0&lt; 2\)</span><br />
+Reason: comparison effect: larger price difference decreases WTP</li>
 </ol>
-</div>
-<div id="behaviour-attachment-effect-comparison-effect" class="section level3">
-<h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
-<ul>
-<li>Attachment effect: higher probability of small price increases WTP at medium price</li>
-<li>Comparison effect: larger price difference decreases WTP</li>
-<li>Price distribution: <span class="math inline">\(P = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ p_l &amp; p_m &amp; p_h\end{pmatrix}\)</span>
-<ul>
-<li><span class="math inline">\(p_l &lt; p_m &lt; p_h\)</span></li>
-<li>Consumer always buys at <span class="math inline">\(p_l\)</span>, never buys at <span class="math inline">\(p_h\)</span><br />
-</li>
-<li>When plan is <span class="math inline">\((b, b, n)\)</span>,<br />
-<span class="math display">\[R(b, b, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (v,-p_m) &amp; (0,0)\end{pmatrix}\]</span>
-Utility at <span class="math inline">\(p_m\)</span>:
-<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R) &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
-  &amp;\phantom{\ggg}+ q_m\big[(v-v)+(-p_m-(-p_m))\big] + q_h\big[(v-0)+λ(-p_m - 0)\big]\\
-  U(n,p_m\ |\ R) &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
-  &amp;\phantom{\ggg}+ q_m\big[λ(0-v)+(0-(-p_m))\big] + q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
-<li>When plan is <span class="math inline">\((b, n, n)\)</span>,<br />
-<span class="math display">\[R&#39;(b, n, n) = \begin{pmatrix}q_l &amp; q_m &amp; q_h\\ (v,-p_l) &amp; (0,0) &amp; (0,0)\end{pmatrix}\]</span>
-Utility at <span class="math inline">\(p_m\)</span>:
-<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R&#39;) &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big] \\
-  &amp;\phantom{\ggg}+ q_m\big[(v-0)+λ(-p_m-0)\big] + q_h\big[(v-0)+λ(-p_m - 0)\big]\\
-  U(n,p_m\ |\ R&#39;) &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] \\
-  &amp;\phantom{\ggg}+ q_m\big[(0-0)+(0-0)\big] + q_h\big[(0-0)+(0 - 0)\big]\end{aligned}\]</span></li>
-<li>When <span class="math inline">\(q_m\to 0\)</span>, <span class="math inline">\(q_h \approx 1-q_l\)</span>,
-<span class="math display">\[\begin{aligned}U(b,p_m\ |\ R)&amp;\approx U(b,p_m\ |\ R&#39;)\\
-  U(b,p_m) &amp;= v-p_m + q_l\big[(v-v)+λ(-p_m - (-p_l))\big]+ q_h\big[(v-0)+λ(-p_m - 0)\big]\\
-  &amp;= v-p_m + q_l\cdot λ(-p_m + p_l)+ q_h\big[v +λ(-p_m)\big]\\
-  &amp;= 2v -(λ+1)p_m + q_l\cdot (λp_l - v)\\
-  U(n,p_m\ |\ R)&amp;\approx U(n,p_m\ |\ R&#39;) \\
-  U(n,p_m) &amp;= 0-0 + q_l\big[λ(0-v)+(0 - (-p_l))\big] + q_h\big[(0-0)+(0 - 0)\big] \\
-  &amp;= q_l\big[λ(-v) + p_l\big] \end{aligned}\]</span></li>
-<li>Agent’s willingness to buy at <span class="math inline">\(p_m\)</span>:
-<span class="math display">\[\begin{aligned}WTP &amp;= U(b,p_m) - U(n,p_m) \\
-  &amp;= 2v -(λ+1)p_m + q_l\cdot (λp_l - v) - q_l\big[λ(-v) + p_l\big] \\
-  &amp;= 2v -(λ+1)p_m + q_l\cdot (λ-1)(p_l + v) \end{aligned}\]</span></li>
-<li>Attachment effect:
-<span class="math display">\[\begin{aligned}\frac{\partial WTP}{\partial q_l} &amp;= (λ-1)(p_l + v) \\ &amp;&gt; 0 \end{aligned}\]</span></li>
-<li>Comparison effect:
-<span class="math display">\[\begin{aligned}\frac{\partial WTP}{\partial p_l} &amp;= q_l\cdot (λ-1) \\ &amp;&gt; 0 \end{aligned}\]</span></li>
-</ul></li>
-</ul>
 </div>
 <div id="behaviour-allais-paradox" class="section level3">
 <h3>Behaviour: Allais Paradox</h3>
@@ -772,7 +788,10 @@ Salience of certainty: <span class="math inline">\(π(1) = 1\)</span></li>
 <li><span class="math inline">\(U(L) = \sum_k u(x_k)\cdot\frac{g(x_k)\cdot p_k}{\sum_l g(x_l)\cdot p_l}\)</span></li>
 <li>Allows for straight, non-parallel indifference curves</li>
 </ul>
-<!-- ### Regret Theory -->
+</div>
+<div id="regret-theory" class="section level3">
+<h3>Regret Theory</h3>
+<p>To be added (slides P35)</p>
 </div>
 </div>
 <div id="time-preference" class="section level2">
