@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">70 min read</span>
+    <span class="article-duration">71 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -663,7 +663,7 @@ Consider a lottery, which yields a gain of <span class="math inline">\(αG\)</sp
 The initial wealth level of the agent is <span class="math inline">\(w = 0\)</span>, and we normalize <span class="math inline">\(u(0) = 0\)</span>.<br />
 Show that there is an <span class="math inline">\(\bar{α}&gt; 0\)</span> s.t. for all <span class="math inline">\(α &lt; \bar{α}\)</span>, the agent accepts the lottery (rather than staying at her initial wealth).<br />
 Hint: Taylor expansion.</li>
-<li>Consider now an agent with piecewise linear utility function <span class="math inline">\(u(∆)=\begin{cases}∆ &amp; ∆&gt;0 \\ -λ∆ &amp; ∆&lt;0\end{cases}\)</span> with <span class="math inline">\(λ&gt;1\)</span>.<br />
+<li>Consider now an agent with piecewise linear utility function <span class="math inline">\(u(∆)=\begin{cases}∆ &amp; ∆&gt;0 \\ λ∆ &amp; ∆&lt;0\end{cases}\)</span> with <span class="math inline">\(λ&gt;1\)</span>.<br />
 Show that there is a <span class="math inline">\(λ\)</span> s.t. the agent rejects the lottery for all <span class="math inline">\(α &gt; 0\)</span>.</li>
 </ol>
 </blockquote>
@@ -762,7 +762,7 @@ An agent faces two possible choice sets <span class="math inline">\(A= \{x, y\}\
 <span class="math display">\[\begin{aligned}x &amp;= (2,0)\\ y &amp;= (1,−1)\\ z &amp;= (0,3) \end{aligned}\]</span>
 The agent has reference dependent preferences, that is, given an alternative <span class="math inline">\(a = (a_1, a_2)\in\mathbb{R}^2\)</span> and a reference point <span class="math inline">\(r = (r_1, r_2)\in\mathbb{R}^2\)</span>, his utility is
 <span class="math display">\[U(a|r)=a_1 +a_2 +μ(a_1 −r_1)+μ(a_2 −r_2)\]</span>
-where <span class="math inline">\(μ(∆) = ∆\)</span> for <span class="math inline">\(∆\geq 0\)</span>, and <span class="math inline">\(μ(∆) = λ∆\)</span> for <span class="math inline">\(∆\leq 0\)</span>, <span class="math inline">\(λ = 3\)</span>.</p>
+where <span class="math inline">\(u(∆)=\begin{cases}∆ &amp; ∆&gt;0 \\ -λ∆ &amp; ∆&lt;0\end{cases}\)</span>, <span class="math inline">\(λ = 3\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li>Suppose first that the consumer faces choice set A.<br />
 Determine all personal equilibria.</li>
@@ -798,6 +798,30 @@ Choosing <span class="math inline">\(z\in B\)</span> gives
 In (4), utility: <span class="math inline">\(0&lt; 2\)</span><br />
 Reason: comparison effect: larger price difference decreases WTP</li>
 </ol>
+<blockquote>
+<p>PS3.Q2<br />
+Consider a worker whose wage depends on her performance, which can be either “good” or “bad”.<br />
+If performance is “bad”, the worker gets only a base wage <span class="math inline">\(w\)</span>.<br />
+If performance is “good”, she receives a bonus <span class="math inline">\(b &gt; 0\)</span> on top.<br />
+The worker’s performance depends on her effort choice in a probabilistic manner.<br />
+There are two effort levels <span class="math inline">\(e\in\{L, H\}\)</span>.<br />
+If the worker chooses <span class="math inline">\(e\)</span>, then the probability of good performance is <span class="math inline">\(p_e\)</span>, and the probability of bad performance is <span class="math inline">\(1 − p_e\)</span>, where <span class="math inline">\(1 &gt; p_H &gt; p_L &gt; 0\)</span>.<br />
+The worker has reference–dependent preferences in the dimensions money income and effort costs.<br />
+The material utility from the wage is <span class="math inline">\(m_1(W) = W\)</span>, and the material disutility from effort is <span class="math inline">\(m_2(e) = c_e\)</span> where <span class="math inline">\(c_H &gt; c_L\)</span>.<br />
+Assume that the gain-loss function <span class="math inline">\(μ\)</span> is piece-wise linear with <span class="math inline">\(u(∆)=\begin{cases}∆ &amp; ∆&gt;0 \\ λ∆ &amp; ∆&lt;0\end{cases}\)</span>, where <span class="math inline">\(λ &gt; 1\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Confirm that it is a personal equilibrium for the worker to exert <span class="math inline">\(e_H\)</span> if <span class="math inline">\(b\)</span> satisfies
+<span class="math display">\[b\geq\frac{2(c_H - c_L)}{(p_H - p_L)[2+(λ-1)p_H]}\]</span></li>
+<li>Confirm that it is a personal equilibrium for the worker to exert <span class="math inline">\(e_L\)</span> if <span class="math inline">\(b\)</span> satisfies
+<span class="math display">\[b\leq\frac{(1+λ)(c_H - c_L)}{(p_H - p_L)[2+(λ-1)p_H]}\]</span></li>
+<li>Suppose the worker can choose ex ante between two contracts.<br />
+The first contract pays a fixed wage <span class="math inline">\(w\)</span> for all performance levels.<br />
+The second contract pays <span class="math inline">\(w\)</span> for bad and <span class="math inline">\(w + b\)</span> for good performance.<br />
+Show that if the worker is sufficiently loss averse, she prefers the fixed wage contract.<br />
+(Observe that the monetary payoff of the second contract dominates the monetary payoff of the first one.)<br />
+What is the intuition for this result?</li>
+</ol>
+</blockquote>
 </div>
 <div id="example-unit-demand-with-random-price" class="section level3">
 <h3>Example: Unit Demand with Random Price</h3>
