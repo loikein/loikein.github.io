@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">68 min read</span>
+    <span class="article-duration">70 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -107,6 +107,7 @@ if (!doNotTrack) {
 <li><a href="#expected-utility-theory">Expected Utility Theory</a></li>
 <li><a href="#behaviour-attachment-effect-comparison-effect">Behaviour: Attachment Effect &amp; Comparison Effect</a></li>
 <li><a href="#endogenous-reference-formation-with-risk">Endogenous Reference Formation with Risk</a></li>
+<li><a href="#example-unit-demand-with-random-price">Example: Unit Demand with Random Price</a></li>
 <li><a href="#behaviour-allais-paradox">Behaviour: Allais Paradox</a></li>
 <li><a href="#prospect-theory">Prospect Theory</a></li>
 <li><a href="#non-expected-utility-theory">Non-Expected Utility Theory</a></li>
@@ -756,61 +757,6 @@ lottery <span class="math inline">\(L\in\mathcal{L}\)</span> s.t. <span class="m
 PE <span class="math inline">\(L\in\mathcal{L}\)</span> s.t. <span class="math inline">\(U(L\ |\ L)\geq U(L&#39;\ |\ L&#39;)\)</span> for all PE <span class="math inline">\(L&#39;\in\mathcal{L}\)</span></li>
 </ul>
 <blockquote>
-<p>Example (unit demand with random price)<br />
-A buyer contemplates buying one unit of a good or not.<br />
-The good has a material consumption value of <span class="math inline">\(v\)</span>.<br />
-Price distribution (lottery): <span class="math inline">\(P = \begin{pmatrix}0.5 &amp; 0.5\\ p_l &amp; p_h\end{pmatrix}\)</span><br />
-There are two actions: <span class="math inline">\(b\)</span> (buy) and <span class="math inline">\(n\)</span> (not buy).<br />
-<span class="math inline">\(b\)</span> gives bundle <span class="math inline">\((v,-p)\)</span>, and <span class="math inline">\(n\)</span> gives bundle <span class="math inline">\((0,0)\)</span>.<br />
-Assume piecewise linear gain-loss function, <span class="math inline">\(η = 1\)</span>, <span class="math inline">\(λ&gt;1\)</span>.<br />
-Find all the personal equilibria.<br />
-Timing:</p>
-<ol start="0" style="list-style-type: decimal">
-<li>Buyer knows price distribution <span class="math inline">\(P\)</span></li>
-<li>Buyer forms a plan (reference lottery) <span class="math inline">\(R\)</span>, based on <span class="math inline">\(P\)</span></li>
-<li>Buyer goes to shop and finds out the actual price <span class="math inline">\(p\)</span></li>
-<li>Buyer decides whether to buy or not, based on <span class="math inline">\(R\)</span> and <span class="math inline">\(p\)</span></li>
-</ol>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Let the plan be <span class="math inline">\((n,n)\)</span><br />
-Induced reference lottery: <span class="math inline">\(R(n,n) = \begin{pmatrix}1\\ (0,0)\end{pmatrix}\)</span><br />
-When price is <span class="math inline">\(p_l\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 1\big[λ(-p_l-0) + (v-0)\big] \\
-U(n,p_l\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
-When price is <span class="math inline">\(p_h\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 1\big[λ(-p_h-0) + (v-0)\big] \\
-U(n,p_h\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
-Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((n,n)\)</span> is a PE.</li>
-<li>Let the plan be <span class="math inline">\((b,n)\)</span><br />
-Induced reference lottery: <span class="math inline">\(R(b,n) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (0,0)\end{pmatrix}\)</span><br />
-When price is <span class="math inline">\(p_l\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[(-p_l-(-p_l)) + (v-v)\big] \\ &amp;+ 0.5\big[λ(-p_l-0) + (v-0)\big] \\
-U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
-When price is <span class="math inline">\(p_h\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[λ(-p_h-0) + (v-0)\big] \\
-U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
-Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.</li>
-<li>Let the plan be <span class="math inline">\((b,b)\)</span><br />
-Induced reference lottery: <span class="math inline">\(R(b,b) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (v,-p_h)\end{pmatrix}\)</span><br />
-When price is <span class="math inline">\(p_l\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[(-p_l-(-p_l)) + (v-v)\big] \\ &amp;+ 0.5\big[(-p_l-(-p_h)) + (v-v)\big] \\
-U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
-When price is <span class="math inline">\(p_h\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
-U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
-Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,b)\)</span> is a PE.</li>
-<li>Let the plan be <span class="math inline">\((n,b)\)</span><br />
-Induced reference lottery: <span class="math inline">\(R(n,b) = \begin{pmatrix}0.5 &amp; 0.5\\ (0,0) &amp; (v,-p_h)\end{pmatrix}\)</span><br />
-When price is <span class="math inline">\(p_l\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[λ(-p_l-0) + (v-0)\big] \\ &amp;+ 0.5\big[(-p_l-(-p_h)) + (v-v)\big] \\
-U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
-When price is <span class="math inline">\(p_h\)</span>,<br />
-<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-0 + (v-0)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
-U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
-Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.</li>
-</ol>
-<blockquote>
 <p>Mock.Q2<br />
 An agent faces two possible choice sets <span class="math inline">\(A= \{x, y\}\)</span> or <span class="math inline">\(B = \{x, y,z\}\)</span>, where the alternatives <span class="math inline">\(x, y,z\in\mathbb{R}^2\)</span> are given by
 <span class="math display">\[\begin{aligned}x &amp;= (2,0)\\ y &amp;= (1,−1)\\ z &amp;= (0,3) \end{aligned}\]</span>
@@ -851,6 +797,131 @@ Choosing <span class="math inline">\(z\in B\)</span> gives
 <li>In (1), utility: <span class="math inline">\(x_1 + x_2 = 2\)</span><br />
 In (4), utility: <span class="math inline">\(0&lt; 2\)</span><br />
 Reason: comparison effect: larger price difference decreases WTP</li>
+</ol>
+</div>
+<div id="example-unit-demand-with-random-price" class="section level3">
+<h3>Example: Unit Demand with Random Price</h3>
+<blockquote>
+<p>A buyer contemplates buying one unit of a good or not.<br />
+The good has a material consumption value of <span class="math inline">\(v\)</span>.<br />
+Price distribution (lottery): <span class="math inline">\(P = \begin{pmatrix}0.5 &amp; 0.5\\ p_l &amp; p_h\end{pmatrix}\)</span><br />
+There are two actions: <span class="math inline">\(b\)</span> (buy) and <span class="math inline">\(n\)</span> (not buy).<br />
+<span class="math inline">\(b\)</span> gives bundle <span class="math inline">\((v,-p)\)</span>, and <span class="math inline">\(n\)</span> gives bundle <span class="math inline">\((0,0)\)</span>.<br />
+Assume piecewise linear gain-loss function, <span class="math inline">\(η = 1\)</span>, <span class="math inline">\(λ&gt;1\)</span>.<br />
+Find all the personal equilibria.<br />
+Timing:</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Buyer knows price distribution <span class="math inline">\(P\)</span></li>
+<li>Buyer forms a plan (reference lottery) <span class="math inline">\(R\)</span>, based on <span class="math inline">\(P\)</span></li>
+<li>Buyer goes to shop and finds out the actual price <span class="math inline">\(p\)</span></li>
+<li>Buyer decides whether to buy or not, based on <span class="math inline">\(R\)</span> and <span class="math inline">\(p\)</span></li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let the plan be <span class="math inline">\((n,n)\)</span><br />
+Induced reference lottery: <span class="math inline">\(R(n,n) = \begin{pmatrix}1\\ (0,0)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) &amp;= v - p_l + 1\cdot\big[λ(-p_l-0) + (v-0)\big] \\
+U(n,p_l\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) &amp;= v - p_h + 1\cdot\big[λ(-p_h-0) + (v-0)\big] \\
+U(n,p_h\ |\ R) &amp;= 0 - 0 + 1\big[(0-0) + (0-0)\big] \end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((n,n)\)</span> is a PE.</li>
+<li>Let the plan be <span class="math inline">\((b,n)\)</span><br />
+Induced reference lottery: <span class="math inline">\(R(b,n) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (0,0)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[(-p_l-(-p_l)) + (v-v)\big] \\ &amp;+ 0.5\big[λ(-p_l-0) + (v-0)\big] \\
+U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[λ(-p_h-0) + (v-0)\big] \\
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-0) + (0-0)\big]\end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(n,p_h\ |\ R)\geq U(b,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.</li>
+<li>Let the plan be <span class="math inline">\((b,b)\)</span><br />
+Induced reference lottery: <span class="math inline">\(R(b,b) = \begin{pmatrix}0.5 &amp; 0.5\\ (v,-p_l) &amp; (v,-p_h)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[(-p_l-(-p_l)) + (v-v)\big] \\ &amp;+ 0.5\big[(-p_l-(-p_h)) + (v-v)\big] \\
+U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,b)\)</span> is a PE.</li>
+<li>Let the plan be <span class="math inline">\((n,b)\)</span><br />
+Induced reference lottery: <span class="math inline">\(R(n,b) = \begin{pmatrix}0.5 &amp; 0.5\\ (0,0) &amp; (v,-p_h)\end{pmatrix}\)</span><br />
+When price is <span class="math inline">\(p_l\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_l\ |\ R) = v - p_l &amp;+ 0.5\big[λ(-p_l-0) + (v-0)\big] \\ &amp;+ 0.5\big[(-p_l-(-p_h)) + (v-v)\big] \\
+U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
+When price is <span class="math inline">\(p_h\)</span>,<br />
+<span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-0 + (v-0)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.</li>
+</ol>
+<blockquote>
+<p>PS3.Q1<br />
+Consider the unit demand model with random prices.<br />
+The consumer’s valuation from consumption is <span class="math inline">\(v = 10\)</span>, and he has piece-wise linear gain-loss utility with <span class="math inline">\(λ = 2\)</span>, and <span class="math inline">\(η = 1\)</span>.<br />
+The price distribution is given by
+<span class="math display">\[P = \begin{pmatrix}α &amp; 1-α\\ 5 &amp; 10\end{pmatrix}\]</span>
+For each value of <span class="math inline">\(α\)</span>, derive the set of personal equilibria.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Assume <span class="math inline">\((n,n)\)</span> is a personal equilibrium<br />
+Induced reference lottery: <span class="math inline">\(R = \begin{pmatrix}1\\ (0,0)\end{pmatrix}\)</span>
+<span class="math display">\[u(n\ |\ R) = 0\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(p=5\)</span>
+<span class="math display">\[\begin{aligned} \\
+ u(b\ |\ R) &amp;= v - 5 + 1\cdot\big((v-0) + λ(-5 - 0)\big) \\
+ &amp;= 5 + (10 - 10) \\
+ &amp;= 5 &gt; 0 \end{aligned}\]</span>
+<span class="math inline">\(\implies (n,n)\)</span> is not a personal equilibrium</li>
+</ol></li>
+<li>Assume <span class="math inline">\((b,n)\)</span> is a personal equilibrium<br />
+Induced reference lottery: <span class="math inline">\(R = \begin{pmatrix}α &amp; 1-α\\ (v,-5) &amp; (0,0)\end{pmatrix}\)</span>
+<span class="math display">\[\begin{aligned}u(n\ |\ R) &amp;= 0 - 0 + α\big[ λ(0-v) + (0 - (-5)) \big] + (1-α)\big[(0-0) + (0-0) \big]\\
+&amp;= α(-λv + 5) \\
+&amp;= -15α \end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(p=5\)</span>
+<span class="math display">\[\begin{aligned}u(b\ |\ R) &amp;= v - 5 + α\big[ (v-v) + (-5 - (-5)) \big] + (1-α)\big[(v-0) + λ(-5 -0) \big]\\
+ &amp;= v - 5 + (1-α)(v - 5λ) \\
+ &amp;= 5 &gt; u(n\ |\ R)\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(p=10\)</span>
+<span class="math display">\[\begin{aligned}u(b\ |\ R) &amp;= v - 10 + α\big[ (v-v) + λ(-10 - (-5)) \big] + (1-α)\big[(v-0) + λ(-10 -0)\big]\\
+ &amp;= v - 10 + α(-5λ) + (1-α)(v -10 λ)\\
+ &amp;= -10 α -10(1-α) \\
+ &amp;= -10 \leq u(n\ |\ R) = -15α \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> when <span class="math inline">\(α\leq\frac{2}{3}\)</span>, <span class="math inline">\((b,n)\)</span> is a personal equilibrium</li>
+</ol></li>
+<li>Assume <span class="math inline">\((b,b)\)</span> is a personal equilibrium<br />
+Induced reference lottery: <span class="math inline">\(R = \begin{pmatrix}α &amp; 1-α\\ (v,-5) &amp; (v,-10)\end{pmatrix}\)</span>
+<span class="math display">\[\begin{aligned}u(n\ |\ R) &amp;= 0 - 0 + α\big[ λ(0-v) + (0 - (-5)) \big] + (1-α)\big[λ(0-v) + (0 - (-10)) \big]\\
+&amp;= α(-λv + 5) + (1-α)(-λv + 10)\\
+&amp;= -15α -10(1-α) \\
+&amp;= -5α -10 \end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(p=5\)</span>
+<span class="math display">\[\begin{aligned}u(b\ |\ R) &amp;= v - 5 + α\big[ (v-v) + (-5 - (-5)) \big] + (1-α)\big[(v-v) + (-5 - (-10)) \big]\\
+ &amp;= v - 5 + 5(1-α) \\
+ &amp;= 10 - 5α &gt; u(n\ |\ R)\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(p=10\)</span>
+<span class="math display">\[\begin{aligned}u(b\ |\ R) &amp;= v - 10 + α\big[ (v-v) + λ(-10 - (-5)) \big] + (1-α)\big[(v-v) + (-10 -(-10))\big]\\
+ &amp;= v - 10 + α(-5λ) \\
+ &amp;= -10α \geq u(n\ |\ R) = -5α -10 \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> when <span class="math inline">\(α\leq 2\)</span>, <span class="math inline">\((b,b)\)</span> is a personal equilibrium<br />
+<span class="math inline">\(\implies\)</span> <span class="math inline">\((b,b)\)</span> is always a personal equilibrium</li>
+</ol></li>
+<li>Assume <span class="math inline">\((n,b)\)</span> is a personal equilibrium<br />
+Induced reference lottery: <span class="math inline">\(R = \begin{pmatrix}α &amp; 1-α\\ (0,0) &amp; (v,-10)\end{pmatrix}\)</span>
+<span class="math display">\[\begin{aligned}u(n\ |\ R) &amp;= 0 - 0 + α\big[ (0-0) + (0 - 0) \big] + (1-α)\big[λ(0-v) + (0 - (-10)) \big]\\
+&amp;= (1-α)(-λv + 10)\\
+&amp;= -10(1-α)\end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(p=5\)</span>
+<span class="math display">\[\begin{aligned}u(b\ |\ R) &amp;= v - 5 + α\big[ (v-v) + (-5 - (-5)) \big] + (1-α)\big[(v-v) + (-5 - (-10)) \big]\\
+ &amp;= v - 5 + 5(1-α) \\
+ &amp;= 10 - 5α &gt; u(n\ |\ R)\end{aligned}\]</span>
+<span class="math inline">\(\implies (n,b)\)</span> is not a personal equilibrium</li>
+</ol></li>
 </ol>
 </div>
 <div id="behaviour-allais-paradox" class="section level3">
