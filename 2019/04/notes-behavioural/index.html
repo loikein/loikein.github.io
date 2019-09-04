@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">64 min read</span>
+    <span class="article-duration">68 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -557,6 +557,71 @@ By (1), <span class="math inline">\(σ&#39;\)</span> is PPE<br />
 <span class="math inline">\(\implies σ\)</span> is not PPE, contradiction<br />
 Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <span class="math inline">\(σ&#39;\in X\)</span></li>
 </ol>
+<blockquote>
+<p>PS2.Q1<br />
+Consider a decision maker (DM) with reference-dependent preferences over reference point <span class="math inline">\(r = (r_1, r_2)\in\mathbb{R}^2\)</span> and bundles <span class="math inline">\(x = (x_1, x_2)\in\mathbb{R}^2\)</span> of the form
+<span class="math display">\[U(x\ |\ r) = μ(x_1 − r_1) + μ(x_2 − r_2)\]</span>
+Consider the gain-loss function with parameter <span class="math inline">\(α &gt; 0\)</span>
+<span class="math display">\[μ(Δ) = \begin{cases}α(Δ+2)-3 &amp; Δ&lt;-2 \\ \frac{3}{2}Δ &amp; Δ\in[-2,0) \\ Δ &amp; Δ\geq 0 \end{cases}\]</span>
+We say that <span class="math inline">\(x, y, z\)</span> form a cycle if the DM prefers <span class="math inline">\(x\)</span> over <span class="math inline">\(y\)</span> when the reference point is <span class="math inline">\(y\)</span>, prefers <span class="math inline">\(z\)</span> over <span class="math inline">\(x\)</span> when the reference point is <span class="math inline">\(x\)</span>, and prefers <span class="math inline">\(y\)</span> over <span class="math inline">\(z\)</span> when the reference point is <span class="math inline">\(z\)</span>:
+<span class="math display">\[\begin{aligned}U(x\ |\ y) &amp;&gt; U(y\ |\ y) \\ U(z\ |\ x) &amp;&gt; U(x\ |\ x) \\ U(y\ |\ z) &amp;&gt; U(z\ |\  z) \end{aligned}\]</span>
+Determine a value of <span class="math inline">\(α\)</span> so that the following bundles form a cycle:
+<span class="math display">\[\begin{cases}x = (6,4)\\ y = (8,0)\\ z = (4,8)\end{cases}\]</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(y\)</span> is the reference point
+<span class="math display">\[\begin{aligned}U( y\ |\ y ) &amp;= 0\\
+U(x\ |\ y ) &amp;= μ(6-8) + μ(4-0) \\
+&amp;= μ(-2) + μ(4) \\
+&amp;= -\frac{3\cdot 2}{2} + 4 \\
+&amp;= 1 \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(x\)</span> is the reference point
+<span class="math display">\[\begin{aligned}U(x\ |\ x ) &amp;= 0 \\
+U(z\ |\ x ) &amp;= μ( 4-6) + μ( 4-0)\\
+&amp;= μ(-2) + μ(4)\\
+= 1 \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(z\)</span> is the reference point
+<span class="math display">\[\begin{aligned}U(z\ |\ z ) &amp;= 0 \\
+U(y\ |\ z ) &amp;= μ(8-4) + μ( 0-8) \\
+&amp;= μ(4) + μ(-8) \\
+&amp;= 4 + α(-8+2)-3 \\
+&amp;= 1-6α &gt; 0 \\
+α &amp;&lt; \frac{1}{6} \end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>PS2.Q2<br />
+Consider a finite set <span class="math inline">\(X\)</span> of alternatives in <span class="math inline">\(\mathbb{R}^2_+\)</span>.<br />
+An alternative <span class="math inline">\(x\in X\)</span> is said to be undominated in <span class="math inline">\(X\)</span> if <span class="math inline">\(x_1 &gt; y_1\)</span> or <span class="math inline">\(x_2 &gt; y_2\)</span> for all <span class="math inline">\(y\in X\)</span>, <span class="math inline">\(y\neq x\)</span>.<br />
+Consider an agent with reference dependent preferences
+<span class="math display">\[u(x\ |\ r) = \sum_k x_k + \sum_k μ(x_k - r_k)\]</span>
+where <span class="math inline">\(μ()\)</span> is piecewise linear, <span class="math inline">\(μ(∆)=\begin{cases}∆ &amp; ∆&gt;0 \\ λ∆ &amp; ∆&lt;0\end{cases}\)</span> with <span class="math inline">\(λ&gt;1\)</span>.<br />
+Show that:</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(x\)</span> is a personal equilibrium in <span class="math inline">\(X\)</span> , then <span class="math inline">\(x\)</span> is undominated in <span class="math inline">\(X\)</span>.</li>
+<li>If <span class="math inline">\(λ\)</span> is large enough, then any undominated <span class="math inline">\(x\)</span> in <span class="math inline">\(X\)</span> is a personal equilibrium in <span class="math inline">\(X\)</span>.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(x\in X\)</span> be a personal equilibrium<br />
+FSOC assume there exists <span class="math inline">\(y\in X\)</span> s.t. <span class="math inline">\(x_1\leq y_1\)</span> and <span class="math inline">\(x_2\leq y_2\)</span><br />
+Since <span class="math inline">\(x\)</span> is personal equilibrium,
+<span class="math display">\[\begin{aligned}u(x\ |\ x) &amp;\leq u(y\ |\ x)\\
+x_1 + x_2 &amp;\geq y_1 + y_2 + μ( y_1- x_1) + μ(y_2 - x_2) \\
+0&amp;\geq \underbrace{(y_1- x_1)}_{&gt;0} + \underbrace{(y_2 - x_2)}_{&gt;0} + \underbrace{μ( y_1- x_1)}_{&gt;0} + \underbrace{μ(y_2 - x_2)}_{&gt;0} \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> contradiction</li>
+<li>Let <span class="math inline">\(x\in X\)</span> be undominated<br />
+:) <span class="math inline">\(u(x\ |\ x)\geq u(y\ |\ x)\)</span> for all <span class="math inline">\(y\in X\)</span><br />
+Let <span class="math inline">\(y\)</span> be s.t. <span class="math inline">\(x_1 &gt; y_1\)</span>,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} u(x\ |\ x) - u(y\ |\ x) \\
+&amp;= (x_1 + x_2) - \big(y_1 + y_2 + μ(y_1- x_1) + μ(y_2 - x_2)\big) \\
+&amp;= (x_1 + x_2) - \big(y_1 + y_2 + λ\cdot (y_1- x_1) + (y_2 - x_2)\big) \\
+&amp;= x_1 + x_2 - y_1 - y_2 - λy_1 + λx_1 - y_2 + x_2 \\
+&amp;= (1+λ)x_1 + 2\cdot x_2 - (1+λ)y_1 - 2\cdot y_2 \\
+&amp;= (1+λ)(x_1 - y_1) + 2\cdot (x_2 - y_2)\end{aligned}\]</span>
+<span class="math inline">\(λ\to\infty\implies\)</span> <span class="math inline">\((1+λ)(x_1 - y_1)\to\infty\)</span><br />
+<span class="math inline">\(\implies u(x\ |\ x) - u(y\ |\ x)&gt;0\)</span><br />
+<span class="math inline">\(\implies x\)</span> is personal equilibrium</li>
+</ol>
 </div>
 </div>
 <div id="choice-over-lottery" class="section level2">
@@ -589,6 +654,37 @@ Therefore, <span class="math inline">\(m(σ) \geq m(σ&#39;)\)</span> for all <s
 <li>Indifference curves are straight, parallel lines</li>
 </ul></li>
 </ul>
+<blockquote>
+<p>PS2.Q3<br />
+Consider a lottery, which yields a gain of <span class="math inline">\(αG\)</span> with probability <span class="math inline">\(\frac{1}{2}\)</span> and a loss of <span class="math inline">\(αL\)</span> with probability <span class="math inline">\(\frac{1}{2}\)</span>, where <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(G&gt;L&gt;0\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Consider a risk averse expected utility maximizer with twice continuously differentiable Bernoulli utility function <span class="math inline">\(u:\mathbb{R}\to\mathbb{R}\)</span>.<br />
+The initial wealth level of the agent is <span class="math inline">\(w = 0\)</span>, and we normalize <span class="math inline">\(u(0) = 0\)</span>.<br />
+Show that there is an <span class="math inline">\(\bar{α}&gt; 0\)</span> s.t. for all <span class="math inline">\(α &lt; \bar{α}\)</span>, the agent accepts the lottery (rather than staying at her initial wealth).<br />
+Hint: Taylor expansion.</li>
+<li>Consider now an agent with piecewise linear utility function <span class="math inline">\(u(∆)=\begin{cases}∆ &amp; ∆&gt;0 \\ -λ∆ &amp; ∆&lt;0\end{cases}\)</span> with <span class="math inline">\(λ&gt;1\)</span>.<br />
+Show that there is a <span class="math inline">\(λ\)</span> s.t. the agent rejects the lottery for all <span class="math inline">\(α &gt; 0\)</span>.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Lottery: <span class="math inline">\(L = \begin{pmatrix}0.5 &amp; 0.5\\αG &amp; αL\end{pmatrix}\)</span><br />
+Since the agent is risk averse, <span class="math inline">\(u&#39;&gt;0\)</span> and <span class="math inline">\(u&#39;&#39;&lt;0\)</span><br />
+<span class="math display">\[\begin{aligned}U(L) &amp;= \frac{1}{2}\cdot u(αG) + \frac{1}{2}\cdot u(-αL) \\
+&amp;\approx \frac{1}{2}\cdot u&#39;(0)\cdot(αG) + \frac{1}{2}\cdot u&#39;(0)\cdot(-αL) \\
+&amp;\phantom{\ggg}+ \frac{1}{2}\cdot\frac{1}{2}\cdot u&#39;&#39;(0)\cdot(αG)^2 + \frac{1}{2}\cdot\frac{1}{2}\cdot u&#39;&#39;(0)\cdot(-αL)^2 +\dots \\
+&amp;= \frac{1}{2}\cdot α\cdot \Big( u&#39;(0)(G-L) + \frac{1}{2}\cdot u&#39;&#39;(0)\cdot α (L^2 + G^2 )\Big) \end{aligned}\]</span>
+Let <span class="math inline">\(\bar{α}\)</span> be s.t.
+<span class="math display">\[\begin{aligned}u&#39;(0)(G-L) &amp;= \frac{1}{2}\cdot u&#39;&#39;(0)\cdot \bar{α} (L^2 + G^2 )\\
+\bar{α} &amp;= \frac{2\cdot u&#39;(0)(G-L)}{u&#39;&#39;(0)\cdot (L^2 + G^2 )} \end{aligned}\]</span>
+then for all <span class="math inline">\(α &lt; \bar{α}\)</span>,
+<span class="math display">\[\begin{aligned}u&#39;(0)(G-L) &amp;&gt; \frac{1}{2}\cdot u&#39;&#39;(0)\cdot α (L^2 + G^2 )\\
+U(L) &amp;&gt; 0 = w\end{aligned}\]</span></li>
+<li>Assume <span class="math inline">\(λ\)</span> is s.t.
+<span class="math display">\[\begin{aligned}\frac{1}{2}\cdot u(αG) + \frac{1}{2}\cdot u(-αL) &amp;\leq 0 \\
+\frac{1}{2}\cdot (αG - λαL) &amp;\leq 0 \\
+αG - λαL &amp;\leq 0 \\
+λ &amp;\geq \frac{G}{L}\end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="behaviour-attachment-effect-comparison-effect" class="section level3">
 <h3>Behaviour: Attachment Effect &amp; Comparison Effect</h3>
@@ -759,6 +855,7 @@ Reason: comparison effect: larger price difference decreases WTP</li>
 </div>
 <div id="behaviour-allais-paradox" class="section level3">
 <h3>Behaviour: Allais Paradox</h3>
+<p>(slides P32)</p>
 <ul>
 <li>Problem 1: choose between <span class="math inline">\(L_A\)</span> and <span class="math inline">\(L_B\)</span>
 <span class="math display">\[\begin{aligned}L_A = \begin{pmatrix}0.33 &amp; 0.66 &amp; 0.01 \\ 2500 &amp; 2400 &amp; 0\end{pmatrix} &amp;&amp; L_B = \begin{pmatrix}0 &amp; 1 &amp; 0 \\ 2500 &amp; 2400 &amp; 0\end{pmatrix} \end{aligned}\]</span>
