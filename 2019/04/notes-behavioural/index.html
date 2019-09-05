@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">71 min read</span>
+    <span class="article-duration">73 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -822,6 +822,40 @@ Show that if the worker is sufficiently loss averse, she prefers the fixed wage 
 What is the intuition for this result?</li>
 </ol>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li>Lottery when <span class="math inline">\(e=e_L\)</span>: <span class="math inline">\(L_L = \begin{pmatrix}p_L &amp; 1-p_L \\ (w+b,-c_L) &amp; (w,-c_L) \end{pmatrix}\)</span><br />
+Lottery when <span class="math inline">\(e=e_H\)</span>: <span class="math inline">\(L_H = \begin{pmatrix}p_H &amp; 1-p_H \\ (w+b,-c_H) &amp; (w,-c_H) \end{pmatrix}\)</span><br />
+Assume that <span class="math inline">\(e=e_H\)</span> is personal equilibrium, <span class="math inline">\(R = L_H\)</span><br />
+:) <span class="math inline">\(u(L_H\ |\ R) \geq u(L_L\ |\ R)\)</span>
+<span class="math display">\[\begin{aligned}u(L_H\ |\ R) &amp;= w + p_H\cdot b - c_H + p_H\cdot p_H\cdot 0 + p_H\cdot(1-p_H)\cdot(w+b - w) \\
+&amp;\phantom{\ggg w + p_H\cdot b - c_H} + (1-p_H)\cdot p_H\cdot(λ\cdot(-b)) + (1-p_H)^2\cdot 0\\
+&amp;= w + p_H\cdot b - c_H + (b-λb)\cdot p_H\cdot(1-p_H)\\
+u(L_L\ |\ R) &amp;= w + p_L\cdot b - c_L + p_L\cdot p_H\cdot(-c_L - (-c_H)) \\
+&amp;\phantom{\ggg w + p_H\cdot b - c_L} + p_L\cdot(1-p_H)\cdot\big((w+b-w) + (-c_L - (-c_H))\big) \\
+&amp;\phantom{\ggg w + p_L\cdot b - c_L} + (1-p_L)\cdot p_H\cdot\big(λ(w - (w+b)) + (-c_L - (-c_H))\big) \\
+&amp;\phantom{\ggg w + p_H\cdot b - c_L} + (1-p_L)\cdot(1-p_H)\cdot(-c_L - (-c_H)) \\
+&amp;= w + p_L b - c_L + (c_H - c_L)\cdot 1 + b p_L(1-p_H) - λbp_H (1-p_L)\end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned}u(L_H\ |\ R) &amp;\geq u(L_L\ |\ R) \\
+bp_H - c_H + p_H(b-λb)(1-p_H) &amp;\geq bp_L  - 2c_L + c_H + b p_L(1-p_H) - λbp_H(1-p_L) \\
+b\cdot(p_H - p_L) - 2c_H +bp_H(1-λ) (1-p_H) &amp;\geq - 2c_L + b p_L(1-p_H) - λbp_H (1-p_L)  \\
+&amp;= - 2c_L + b p_L - b p_Lp_H - λbp_H + λbp_Hp_L \\
+&amp;= - 2c_L + b p_L - b p_Lp_H - λbp_H + λbp_Hp_L + bp_H - bp_H \\
+&amp;= - 2c_L + b (p_L-p_H) + bp_H( 1 + λp_L - p_L - λ) \\
+&amp;= - 2c_L - b (p_H-p_L) + bp_H(1 - λ)(1-p_L) \\
+2b(p_H - p_L) - 2(c_H - c_L) + bp_H(1-λ)(1-p_H) &amp;\geq bp_H(1 - λ)(1-p_L) \\
+2b(p_H - p_L) + bp_H(1-λ)(1-p_H -1 + p_L) &amp;\geq 2(c_H - c_L) \\
+b &amp;\geq \frac{2(c_H - c_L)}{2(p_H - p_L) + p_H(1-λ)(p_L - p_H)} \\
+&amp;= \frac{2(c_H - c_L)}{2(p_H - p_L) + p_H(λ-1)(p_H- p_L)}\end{aligned}\]</span></li>
+<li>Assume that <span class="math inline">\(e=e_L\)</span> is personal equilibrium, <span class="math inline">\(R = L_L\)</span><br />
+:) <span class="math inline">\(u(L_L\ |\ R) \geq u(L_H\ |\ R)\)</span></li>
+<li>The proposed contracts are: <span class="math inline">\(C_1 = w\)</span> for all levels, <span class="math inline">\(C_2 = \begin{cases}w \\ w+b\end{cases}\)</span>
+<ol style="list-style-type: lower-alpha">
+<li>Under <span class="math inline">\(C_1\)</span>, it is obvious that <span class="math inline">\(e=e_L\)</span> is the only personal equilibrium<br />
+<span class="math inline">\(\implies u(C_1) = w - c_L\)</span></li>
+<li>Under <span class="math inline">\(C_2\)</span>,</li>
+</ol></li>
+</ol>
 </div>
 <div id="example-unit-demand-with-random-price" class="section level3">
 <h3>Example: Unit Demand with Random Price</h3>
