@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">73 min read</span>
+    <span class="article-duration">76 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -827,13 +827,13 @@ What is the intuition for this result?</li>
 Lottery when <span class="math inline">\(e=e_H\)</span>: <span class="math inline">\(L_H = \begin{pmatrix}p_H &amp; 1-p_H \\ (w+b,-c_H) &amp; (w,-c_H) \end{pmatrix}\)</span><br />
 Assume that <span class="math inline">\(e=e_H\)</span> is personal equilibrium, <span class="math inline">\(R = L_H\)</span><br />
 :) <span class="math inline">\(u(L_H\ |\ R) \geq u(L_L\ |\ R)\)</span>
-<span class="math display">\[\begin{aligned}u(L_H\ |\ R) &amp;= w + p_H\cdot b - c_H + p_H\cdot p_H\cdot 0 + p_H\cdot(1-p_H)\cdot(w+b - w) \\
+<span class="math display">\[\begin{aligned}u(L_H\ |\ R) &amp;= w + p_H\cdot b - c_H + p_H^2\cdot 0 + p_H\cdot(1-p_H)\cdot(w+b - w) \\
 &amp;\phantom{\ggg w + p_H\cdot b - c_H} + (1-p_H)\cdot p_H\cdot(λ\cdot(-b)) + (1-p_H)^2\cdot 0\\
 &amp;= w + p_H\cdot b - c_H + (b-λb)\cdot p_H\cdot(1-p_H)\\
 u(L_L\ |\ R) &amp;= w + p_L\cdot b - c_L + p_L\cdot p_H\cdot(-c_L - (-c_H)) \\
-&amp;\phantom{\ggg w + p_H\cdot b - c_L} + p_L\cdot(1-p_H)\cdot\big((w+b-w) + (-c_L - (-c_H))\big) \\
+&amp;\phantom{\ggg w + p_L\cdot b - c_L} + p_L\cdot(1-p_H)\cdot\big((w+b-w) + (-c_L - (-c_H))\big) \\
 &amp;\phantom{\ggg w + p_L\cdot b - c_L} + (1-p_L)\cdot p_H\cdot\big(λ(w - (w+b)) + (-c_L - (-c_H))\big) \\
-&amp;\phantom{\ggg w + p_H\cdot b - c_L} + (1-p_L)\cdot(1-p_H)\cdot(-c_L - (-c_H)) \\
+&amp;\phantom{\ggg w + p_L\cdot b - c_L} + (1-p_L)\cdot(1-p_H)\cdot(-c_L - (-c_H)) \\
 &amp;= w + p_L b - c_L + (c_H - c_L)\cdot 1 + b p_L(1-p_H) - λbp_H (1-p_L)\end{aligned}\]</span>
 Therefore,
 <span class="math display">\[\begin{aligned}u(L_H\ |\ R) &amp;\geq u(L_L\ |\ R) \\
@@ -853,8 +853,62 @@ b &amp;\geq \frac{2(c_H - c_L)}{2(p_H - p_L) + p_H(1-λ)(p_L - p_H)} \\
 <ol style="list-style-type: lower-alpha">
 <li>Under <span class="math inline">\(C_1\)</span>, it is obvious that <span class="math inline">\(e=e_L\)</span> is the only personal equilibrium<br />
 <span class="math inline">\(\implies u(C_1) = w - c_L\)</span></li>
-<li>Under <span class="math inline">\(C_2\)</span>,</li>
+<li>Under <span class="math inline">\(C_2\)</span>, assume <span class="math inline">\(e\)</span> is a personal equilibrium, <span class="math inline">\(R = L_e\)</span>
+<span class="math display">\[\begin{aligned}u(L_e\ |\ R) &amp;= w + p_e\cdot b - c_e + p_e^2\cdot 0 + p_e\cdot(1-p_e)\cdot(w + b - w) \\
+ &amp;\phantom{\ggg w + p_e\cdot b - c_e} + (1-p_e)\cdot p_e\cdot(λ\cdot(-b)) + (1-p_e)^2\cdot 0\\
+ &amp;= w + p_e\cdot b - c_e + bp_e(1-λ)(1-p_H) \\
+ &amp;= w + p_e\cdot b - c_e - bp_e(λ-1)(1-p_H) \end{aligned}\]</span>
+Let <span class="math inline">\(λ\to\infty\)</span>, <span class="math inline">\(u(L_e\ |\ R)\to -\infty\)</span><br />
+<span class="math inline">\(\implies\)</span> when <span class="math inline">\(λ\)</span> is large enough, the worker will choose <span class="math inline">\(C_1\)</span><br />
+Intuition: risk averse induce agents to choose the option with less risk</li>
 </ol></li>
+</ol>
+<blockquote>
+<p>PS3.Q3<br />
+An agent is looking for a new job.<br />
+Each job has a benefit dimension <span class="math inline">\(b\in\mathbb{R}\)</span> and a cost dimension <span class="math inline">\(c\in\mathbb{R}\)</span>.<br />
+The agent has reference dependent preferences with separate benefit and cost dimensions and a piece–wise linear gain–loss utility function.<br />
+That is, if the reference point in the benefit dimension is <span class="math inline">\(r_b\)</span> and that in the cost dimension is <span class="math inline">\(r_c\)</span>, the agent’s utility from actual benefit <span class="math inline">\(b\)</span> and actual costs <span class="math inline">\(c\)</span> is
+<span class="math display">\[U(b,c) = b-c+μ(b-r_b)+μ\big(-(c-r_c)\big)\]</span>
+where <span class="math inline">\(μ(∆)=\begin{cases}∆ &amp; ∆&gt;0 \\ λ∆ &amp; ∆\leq 0\end{cases}\)</span>, and <span class="math inline">\(λ &gt; 1\)</span>.<br />
+The benefits and costs of the agent’s current job are normalized to <span class="math inline">\(b_0 = c_0 = 0\)</span>.<br />
+The agent has applied to a new job at firm A with benefit <span class="math inline">\(b_A = 10\)</span> and cost <span class="math inline">\(c_A = 5\)</span>.<br />
+After the interview, in period 1, the agent believes that firm A will offer him the job with probability <span class="math inline">\(α\)</span>, and he forms a reference point about whether or not to accept the offer in case.<br />
+In period 2, the agent is informed about whether he is offered the job or not, and in case, decides whether to accept or reject the offer.</p>
+<ol style="list-style-type: decimal">
+<li>If the agent has planned to accept the offer, what is his utility from rejecting the offer?</li>
+<li>Determine the smallest value of <span class="math inline">\(α = \underline{α}\)</span> so that it is a personal equilibrium that the agent accepts the offer.</li>
+<li>Suppose now that in period 1 the agent expects to receive an additional job offer by firm B with probability <span class="math inline">\(β &gt; 0\)</span> that has benefits <span class="math inline">\(b_B = 10\)</span> and costs <span class="math inline">\(c_B = 0\)</span>.<br />
+The job offers of firms A and B are stochastically independent.<br />
+Determine the agent’s reference point when he plans to accept the offer by firm A in the case that he only receives an offer from firm A.</li>
+<li>Argue intuitively why, if accepting the job at firm A in (2) is a personal equilibrium, it remains a personal equilibrium in (3) to accept the job at firm A if only that job offer is received.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>When the agent plans to accept, reference: <span class="math inline">\(R = \begin{pmatrix}α &amp; 1-α \\ (b_A, c_A) &amp; (0,0) \end{pmatrix}\)</span><br />
+Utility to reject:
+<span class="math display">\[\begin{aligned}U(r\ |\ R) &amp;= 0 - 0 + α\cdot\big( λ(0-b_A) + (0 - (-c_A))\big) + (1-α)\cdot 0\\
+&amp;= α( -10λ + 5) \end{aligned}\]</span></li>
+<li>Utility to accept:
+<span class="math display">\[\begin{aligned}U(a\ |\ R) &amp;= b_A -c_A + α\cdot 0 + (1-α)\cdot\big((b_A - 0) + λ(-c_A - 0) \big) \\
+&amp;= 5 + (1-α)(10 - 5λ) \end{aligned}\]</span>
+Accept is a personal equilibrium when <span class="math inline">\(U(a\ |\ R)\geq U(r\ |\ R)\)</span><br />
+<span class="math display">\[\begin{aligned}5 + (1-α)(10 - 5λ)&amp;\geq α( -10λ + 5) \\
+5 + 10 - 5λ - 10α + 5λα &amp;\geq - 10λα + 5α \\
+α(5λ-10+10λ - 5) &amp;\geq 5λ-5 \\
+α(15λ- 15) &amp;\geq 5λ-5 \\
+α &amp;\geq \frac{5λ-5}{15λ- 15} \\
+\underline{α} &amp;= \frac{1}{3}\end{aligned}\]</span></li>
+<li>Since firm B dominates firm A, the agent will choose firm B when both firm offers<br />
+Reference point:
+<span class="math display">\[\begin{aligned}R&#39; &amp;= \begin{pmatrix}αβ &amp; α(1-β) &amp; (1-α)β &amp; (1-α)(1-β) \\ (b_B, c_B) &amp; (b_A, c_A) &amp; (b_B, c_B) &amp;(0,0)\end{pmatrix} \\
+&amp;= \begin{pmatrix}β &amp; α(1-β) &amp; (1-α)(1-β) \\ (b_B, c_B) &amp; (b_A, c_A) &amp;(0,0)\end{pmatrix} \end{aligned}\]</span></li>
+<li>Utility to accept or reject firm A:
+<span class="math display">\[\begin{aligned}U(a\ |\ R&#39;) &amp;= U(a\ |\ R)\cdot (1-β) + β\cdot(λ(-5)) \\
+U(r\ |\ R&#39;) &amp;= U(r\ |\ R)\cdot (1-β) + β\cdot(λ(-10)) \end{aligned}\]</span>
+Since <span class="math inline">\(β\cdot(λ(-5)) &gt; β\cdot(λ(-10))\)</span>,<br />
+<span class="math inline">\(U(a\ |\ R)\geq U(r\ |\ R)\implies U(a\ |\ R&#39;)\geq U(r\ |\ R&#39;)\)</span><br />
+Intuition: attachment effect</li>
 </ol>
 </div>
 <div id="example-unit-demand-with-random-price" class="section level3">
