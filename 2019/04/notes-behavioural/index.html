@@ -116,8 +116,10 @@ if (!doNotTrack) {
 <li><a href="#time-preference">Time Preference</a><ul>
 <li><a href="#saving-and-consumption">Saving and Consumption</a></li>
 <li><a href="#windfall-spending">Windfall Spending</a></li>
-<li><a href="#sophisticated-naive-agent">Sophisticated / Naive Agent</a></li>
-<li><a href="#sophistication-effect">Sophistication effect</a></li>
+</ul></li>
+<li><a href="#time-preference-sophistication-naivete">Time Preference: Sophistication / Naivete</a><ul>
+<li><a href="#immediate-cost">Immediate Cost</a></li>
+<li><a href="#immediate-rewards">Immediate Rewards</a></li>
 <li><a href="#welfare-effect">Welfare Effect</a></li>
 <li><a href="#procrastination-in-infinite-time">Procrastination in Infinite Time</a></li>
 <li><a href="#monopolistic-market">Monopolistic Market</a></li>
@@ -1250,64 +1252,80 @@ s.t. && &\begin{cases}c_2= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\c_1 \leq y_1
 <div id="windfall-spending" class="section level3">
 <h3>Windfall Spending</h3>
 <ul>
+<li>Classical theory: <a href="https://en.wikipedia.org/wiki/Permanent_income_hypothesis">Permanent income Hypothesis</a></li>
 <li>Windfall at <span class="math inline">\(t=1\)</span>: <span class="math inline">\(Δ\)</span></li>
 <li>Constraints
 <span class="math display">\[\begin{aligned}(IC_0) &amp;&amp; x_0 + z_0 &amp;= y_0 \\
 (LC_1) &amp;&amp; c_1&amp;\leq y_1 + R\cdot x_0 + Δ\\
 (BC_1) &amp;&amp; c_1 + x_1 &amp;= y_1 + R\cdot (x_0 + z_0) + Δ \\
 (LC_2) &amp;&amp; c_2 &amp;= y_2 + R\cdot x_1\end{aligned}\]</span></li>
+<li>If <span class="math inline">\(Δ\)</span> is small, agent will spend all of it at <span class="math inline">\(t=1\)</span></li>
 </ul>
+<div class="figure">
+<img src="/post-img/notes-behavioural--windfall.png" alt="" />
+<p class="caption">Consumption set moved by findfall</p>
 </div>
-<div id="sophisticated-naive-agent" class="section level3">
-<h3>Sophisticated / Naive Agent</h3>
+</div>
+</div>
+<div id="time-preference-sophistication-naivete" class="section level2">
+<h2>Time Preference: Sophistication / Naivete</h2>
 <ul>
 <li>Time: <span class="math inline">\(t = 1,\dots, T\)</span></li>
 <li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_T)\)</span>
 <ul>
 <li>Strategy: <span class="math inline">\(s_t\in\begin{cases}\{ Y, N\} &amp; t&lt;T \\ \{ Y\} &amp; t=T \end{cases}\)</span></li>
 </ul></li>
-<li>Payoff
-<ul>
-<li>Choose Y in <span class="math inline">\(t\)</span>: <span class="math inline">\((v_t, c_t)\)</span></li>
-<li>Choose N in <span class="math inline">\(t\)</span>: <span class="math inline">\((0,0)\)</span></li>
-</ul></li>
-<li>Utility function: <span class="math inline">\(U_t = u_t + β\cdot\sum_{s=1}^{T-t} δ^s \cdot u_{t+s}\)</span>
+<li>Possible outcomes: <span class="math inline">\(\begin{cases}v = (v_1,v_2,\dots,v_T) \\ c = (c_1, c_2,\dots, c_T) \end{cases}\)</span></li>
+<li>Utility for time <span class="math inline">\(t\)</span>: <span class="math inline">\(U_t = u_t + β\cdot\sum_{s=1}^{T-t} δ^s \cdot u_{t+s}\)</span>
 <ul>
 <li>Assume <span class="math inline">\(δ=1\)</span></li>
-</ul></li>
 <li>Immediate cost: cost in the period, reward later<br />
-In period t, utility from doing the task in period <span class="math inline">\(τ\geq t\)</span>:
+In period t, utility from doing the task in period <span class="math inline">\(τ\)</span>:
 <span class="math display">\[\begin{aligned}τ=t &amp;&amp; U_t(τ) &amp;=  β\cdot v_t - c_t \\
-τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ-c_τ) \end{aligned}\]</span></li>
-<li>Immediate reward: cost in the period, reward later
-In period t, utility from doing the task in period <span class="math inline">\(τ\geq t\)</span>:
+  τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ-c_τ) \end{aligned}\]</span></li>
+<li>Immediate reward: cost in the period, reward later<br />
+In period t, utility from doing the task in period <span class="math inline">\(τ\)</span>:
 <span class="math display">\[\begin{aligned}τ=t &amp;&amp; U_t(τ) &amp;= v_t - β\cdot c_t\\
-τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ -c_τ) \end{aligned}\]</span></li>
-<li>Time-consistent agent: <span class="math inline">\(U_t(τ)\)</span> is constant for all <span class="math inline">\(τ\)</span> <span class="math inline">\(\implies β=1\)</span>
-<ul>
-<li>Do the task in period t if
-<span class="math display">\[v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\]</span></li>
-<li>Optimal strategy: <span class="math inline">\(s^{TC}\)</span></li>
-<li>First action: <span class="math inline">\(τ^{TC}\)</span></li>
+  τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ -c_τ) \end{aligned}\]</span></li>
 </ul></li>
-<li>Time-inconsistent agent
+<li>Time-consistent agent: <span class="math inline">\(U_t(τ)\)</span> is same for all <span class="math inline">\(τ\)</span> <span class="math inline">\(\implies β=1\)</span>
 <ul>
-<li>Sophisticated: have correct expectations about future selves’ behaviour<br />
-Optimal strategy: <span class="math inline">\(s^{S}\)</span><br />
-First action: <span class="math inline">\(τ^{S}\)</span></li>
-<li>Naive: believe future selves will behave like a time-consistent agent<br />
-Optimal strategy: <span class="math inline">\(s^{N}\)</span><br />
-First action: <span class="math inline">\(τ^{N}\)</span></li>
+<li>Acts in period t if
+<span class="math display">\[v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\]</span></li>
+<li>First action: <span class="math inline">\(τ^{TC}\)</span></li>
+<li>Optimal strategy: <span class="math inline">\(s^{TC} =\{N,N,\dots,N, \underbrace{Y}_{τ^{TC}},\dots\}\)</span></li>
+</ul></li>
+<li>Sophisticated agent: have correct expectations about future-selves’ behaviour
+<ul>
+<li>Compares periods when she will act</li>
+<li>First action: <span class="math inline">\(τ^{S}\)</span><br />
+</li>
+<li>Optimal strategy: <span class="math inline">\(s^{S}\)</span><br />
+</li>
+</ul></li>
+<li>Naive agent: believe future-selves will behave like a time-consistent agent
+<ul>
+<li>Compares <span class="math inline">\(v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\)</span></li>
+<li>First action: <span class="math inline">\(τ^{N}\)</span><br />
+</li>
+<li>Optimal strategy: <span class="math inline">\(s^{N}\)</span></li>
 </ul></li>
 <li>Lemma
 <ul>
 <li><span class="math inline">\(τ^{S}\leq τ^{N}\)</span></li>
-<li>With immediate cost, <span class="math inline">\(τ^{N}\geq τ^{TC}\)</span></li>
-<li>With immediate reward, <span class="math inline">\(τ^{N}\leq τ^{TC}\)</span></li>
+<li>With immediate cost, <span class="math inline">\(τ^{S}\leq τ^{TC}\leq τ^{N}\)</span></li>
+<li>With immediate rewards, <span class="math inline">\(τ^{S}\leq τ^{N}\leq τ^{TC}\)</span> (overconsumption)</li>
+</ul></li>
+<li>Sophistication effect
+<ul>
+<li>With immdiate rewards, <span class="math inline">\(U^S \leq U^N\)</span></li>
+<li>With immediate or zero cost, <span class="math inline">\(τ^{S}\leq τ^{TC}\)</span></li>
 </ul></li>
 </ul>
+<div id="immediate-cost" class="section level3">
+<h3>Immediate Cost</h3>
 <blockquote>
-<p>Example (Immediate cost)<br />
+<p>Example (slides P65)<br />
 Fixed reward: <span class="math inline">\(v_t = \bar{v}\)</span><br />
 Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 5 \\ c_3 &amp;= 8 \\ c_4 &amp;= 13\end{aligned}\]</span>
 Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
@@ -1381,6 +1399,198 @@ and
 <span class="math inline">\(\implies s^{N} = (N,N,N,Y)\)</span></li>
 </ol></li>
 </ol>
+</div>
+<div id="immediate-rewards" class="section level3">
+<h3>Immediate Rewards</h3>
+<blockquote>
+<p>Example (slides P65)<br />
+No cost<br />
+Increasing reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 3 \\ v_2 &amp;= 5 \\ v_3 &amp;= 8 \\ v_4 &amp;= 13\end{aligned}\]</span>
+Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3, act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\ \geq U_3(4) &amp;= 13\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5 \\ \geq U_2(3) &amp;= 8\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3 \\ \geq U_1(2) &amp;= 5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{TC} = (N,N,N,Y)\)</span>, <span class="math inline">\(τ^{TC} = 4\)</span></li>
+</ol></li>
+<li>Sophisticated agent
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\
+ \geq U_3(4) &amp;= β\cdot v = 6.5\\
+ 8 &amp;\geq 6.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 3</li>
+<li>In period 2,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5\\
+ \geq U_2(3) &amp;= β\cdot v = 4 \\
+ 5 &amp;\geq 4\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 2</li>
+<li>In period 1,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(2) &amp;= β\cdot v = 2.5 \\
+ 3&amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 1<br />
+<span class="math inline">\(\implies s^{S} = (Y,Y,Y,Y)\)</span>, <span class="math inline">\(τ^{S} = 1\)</span>, sophistication effect</li>
+</ol></li>
+<li>Naive agent
+<ol style="list-style-type: decimal">
+<li>In period 4, act</li>
+<li>In period 3, act if
+<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\
+ \geq U_3(4) &amp;= β\cdot v = 6.5\\
+ 8 &amp;\geq 6.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 3</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;=  5 \\
+ \geq U_2(4) &amp;= β\cdot v = 6.5 \\
+ 5 &amp;\geq 6.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5\\
+ \geq U_2(3) &amp;= β\cdot v =4 \\
+ 5 &amp;\geq 4\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(4) &amp;= β\cdot v = 6.5 \\
+ 3 &amp;\geq 6.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(3) &amp;= β\cdot v= 4 \\
+ 3 &amp;\geq 4\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
+ \geq U_1(2) &amp;= β\cdot v= 2.5 \\
+ 3 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{N} = (N,N,Y,Y)\)</span>, <span class="math inline">\(τ^{N} = 3\)</span></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>Example: immediate cost &amp; rewards (slide P67)<br />
+Reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 12 \\ v_2 &amp;= 18 \\ v_3 &amp;= 18 \end{aligned}\]</span>
+Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 8 \\ c_3 &amp;= 13\end{aligned}\]</span>
+Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
+<ol style="list-style-type: decimal">
+<li>In period 3, act</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 18 - 8 = 10 \\ \geq U_2(3) &amp;= 18 - 13 = 5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 3</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 12 - 3 = 9\\ \geq U_1(2) &amp;= 18 - 5 = 13\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{TC} = (N,Y,Y)\)</span>, <span class="math inline">\(τ^{TC} = 2\)</span></li>
+</ol></li>
+<li>Sophisticated agent
+<ol style="list-style-type: decimal">
+<li>In period 3, act</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot 18 - 8 = 1 \\
+ \geq U_2(3) &amp;= β\cdot(18 - 13) = 2.5\\
+ 1 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
+<li>In period 1, act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
+ \geq U_1(3) &amp;= β\cdot(18-13) = 2.5 \\
+ 3 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Act in period 1<br />
+<span class="math inline">\(\implies s^{S} = (Y,N,Y)\)</span>, <span class="math inline">\(τ^{S} = 1\)</span>, sophistication effect</li>
+</ol></li>
+<li>Naive agent
+<ol style="list-style-type: decimal">
+<li>In period 3, act</li>
+<li>In period 2, act if
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot 18 - 8 = 1 \\
+ \geq U_2(3) &amp;= β\cdot(18 - 13) = 2.5\\
+ 1 &amp;\geq 2.5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
+<li>In period 1,<br />
+Act if
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
+ \geq U_1(3) &amp;= β\cdot(18 - 13) = 2.5 \\
+ 3 &amp;\geq 2.5\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
+ \geq U_1(2) &amp;= β\cdot(18 - 8) = 5 \\
+ 3 &amp;\geq 5\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
+<span class="math inline">\(\implies s^{N} = (N,N,Y)\)</span>, <span class="math inline">\(τ^{N} = 3\)</span></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>PS4.Q2<br />
+An agent is confronted with several consumption opportunities using his/her credit card.<br />
+The benefits of shopping are immediate and occur at the moment of the purchase, while the costs are delayed.<br />
+At <span class="math inline">\(t = 1\)</span> the agent can buy good A that gives immediate benefit 20 and delayed cost 28.<br />
+At <span class="math inline">\(t = 2\)</span>, the agent can buy good B that gives immediate benefit 30 and delayed cost 50.<br />
+At <span class="math inline">\(t = 3\)</span>, the agent can buy good C that gives immediate benefit 2 and delayed cost 0.<br />
+If the agent buys a good at times <span class="math inline">\(t = 1, 2\)</span>, the game ends, otherwise he/she continues to the next period.<br />
+If the agent has not consumed at <span class="math inline">\(t = 1, 2\)</span> then he/she has to consume at time <span class="math inline">\(t = 3\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Determine the optimal strategy of a time-consistent agent with <span class="math inline">\(δ = 1\)</span>.</li>
+<li>Assume the agent is a <span class="math inline">\(β − δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = \frac{1}{2}\)</span>.<br />
+Determine the optimal strategies of a naive and a sophisticated agent.</li>
+<li>Assume now that a firm offers a product at time <span class="math inline">\(t = 0\)</span> at a price <span class="math inline">\(x\)</span> to be paid immediately, that allows the consumer to cancel some of the consumption options.<br />
+In particular, the consumer can decide to cancel option A, option B, or both.<br />
+Think of it as a temporary block on the credit card.<br />
+Argue, intuitively, why only the sophisticated agent will consider buying such a product.</li>
+<li>Determine whether the sophisticated consumer cancels any of the options and determine the maximum price the consumer is willing to pay for such a product.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>For time-consistent agent, utility from buying each good is
+<span class="math display">\[\begin{aligned}u(A) &amp;= 20 - 28 = -8 \\
+u(B) &amp;= 30 - 50 = -20 \\
+u(C) &amp;= 2 - 0 = 2 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(s^{TC} = \{N,N,Y\}\)</span></li>
+<li>For sophisticated agent,<br />
+In period 3, must buy C<br />
+In period 2, buy B if
+<span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
+&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0)  = 1 \end{aligned}\]</span>
+In period 1, buy A if
+<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
+&gt; u_1(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(s^S = \{Y, Y, Y\}\)</span>
+For naive agent,<br />
+In period 3, must buy C<br />
+In period 2, buy B if
+<span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
+&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0)  = 1 \end{aligned}\]</span>
+In period 1, buy A if
+<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
+&gt; u_1(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
+&gt; u_1(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0) = 1 \end{aligned}\]</span>
+Therefore, <span class="math inline">\(s^N = \{Y, Y, Y\}\)</span></li>
+<li>Since time-consistent agent never chooses dominated option, and naive agent believes that they never chooses dominated option, only sophisticated agent has the incentive to cancel a purchase because of present bias</li>
+<li>For sophisticated agent, in period 0,
+<span class="math display">\[\begin{aligned}u_0(A) &amp;= \frac{1}{2}\cdot 1\cdot( 20 - 28) = -4 \\
+u_0(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \\
+u_0(C) &amp;= \frac{1}{2}\cdot 1\cdot( 2-0) = 1 \end{aligned}\]</span>
+Therefore, the agent chooses to cancel both A and B<br />
+The maximum price they will accept is
+<span class="math display">\[\begin{aligned}x &amp;= u_1(A) - u_1(C)\\
+&amp;= 6 - 1\\
+&amp;= 5 \end{aligned}\]</span></li>
+</ol>
 <blockquote>
 <p>PS4.Q1<br />
 Consider a person who lives for three periods <span class="math inline">\(t = 1, 2, 3\)</span>.<br />
@@ -1388,10 +1598,10 @@ In the first period, the person receives an income <span class="math inline">\(y
 Each period, the person decides how much to consume and how much to save (assume a zero nominal interest rate).<br />
 Let the agent’s instantaneous utility from consumption <span class="math inline">\(c_t\)</span> in period <span class="math inline">\(t\)</span> be <span class="math inline">\(u(c_t)= −\exp(−c_t)\)</span>.</p>
 <ol style="list-style-type: decimal">
-<li>Assume the person is time–consistent with discount factor <span class="math inline">\(δ ∈ [0, 1]\)</span>.<br />
+<li>Assume the person is time–consistent with discount factor <span class="math inline">\(δ\in [0, 1]\)</span>.<br />
 Calculate the person’s optimal consumption path.<br />
 </li>
-<li>Consider a sophisticated hyperbolic discounter with present–bias parameter <span class="math inline">\(β ∈ [0, 1)\)</span>.<br />
+<li>Consider a sophisticated hyperbolic discounter with present–bias parameter <span class="math inline">\(β\in [0, 1)\)</span>.<br />
 Calculate her consumption path <span class="math inline">\((c_1^S,c_2^S,c_3^S)\)</span>.<br />
 Show that she consumes too much in the first period from a long-run perspective (i.e. from the perspective of a hypothetical period 0 self).</li>
 <li>Show that the consumption path <span class="math inline">\((c_1^S − ε, c_2^S − ε, c_3^S + 2ε)\)</span> makes all selves <span class="math inline">\(t = 1, 2, 3\)</span> better off.<br />
@@ -1480,274 +1690,6 @@ In period 3,
 However, since <span class="math inline">\(\frac{\partial c_2^S}{\partial c_1^S} = -\frac{1}{2}&lt; 0\)</span>,<br />
 <span class="math inline">\(\implies\)</span> agent has incentive to increase <span class="math inline">\(c_2^S\)</span> if <span class="math inline">\(ε&gt;0\)</span> in <span class="math inline">\(c_1^S = c_1^S-ε\)</span><br />
 <span class="math inline">\(\implies\)</span> agent does not choose this path in order to avoid overconsumption in period 2</li>
-</ol>
-<blockquote>
-<p>PS4.Q2<br />
-An agent is confronted with several consumption opportunities using his/her credit card.<br />
-The benefits of shopping are immediate and occur at the moment of the purchase, while the costs are delayed.<br />
-At <span class="math inline">\(t = 1\)</span> the agent can buy good A that gives immediate benefit 20 and delayed cost 28.<br />
-At <span class="math inline">\(t = 2\)</span>, the agent can buy good B that gives immediate benefit 30 and delayed cost 50.<br />
-At <span class="math inline">\(t = 3\)</span>, the agent can buy good C that gives immediate benefit 2 and delayed cost 0.<br />
-If the agent buys a good at times <span class="math inline">\(t = 1, 2\)</span>, the game ends, otherwise he/she continues to the next period.<br />
-If the agent has not consumed at <span class="math inline">\(t = 1, 2\)</span> then he/she has to consume at time <span class="math inline">\(t = 3\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li>Determine the optimal strategy of a time-consistent agent with <span class="math inline">\(δ = 1\)</span>.</li>
-<li>Assume the agent is a <span class="math inline">\(β − δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = \frac{1}{2}\)</span>.<br />
-Determine the optimal strategies of a naive and a sophisticated agent.</li>
-<li>Assume now that a firm offers a product at time <span class="math inline">\(t = 0\)</span> at a price <span class="math inline">\(x\)</span> to be paid immediately, that allows the consumer to cancel some of the consumption options.<br />
-In particular, the consumer can decide to cancel option A, option B, or both.<br />
-Think of it as a temporary block on the credit card.<br />
-Argue, intuitively, why only the sophisticated agent will consider buying such a product.</li>
-<li>Determine whether the sophisticated consumer cancels any of the options and determine the maximum price the consumer is willing to pay for such a product.</li>
-</ol>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>For time-consistent agent, utility from buying each good is
-<span class="math display">\[\begin{aligned}u(A) &amp;= 20 - 28 = -8 \\
-u(B) &amp;= 30 - 50 = -20 \\
-u(C) &amp;= 2 - 0 = 2 \end{aligned}\]</span>
-Therefore, <span class="math inline">\(s^{TC} = \{N,N,Y\}\)</span></li>
-<li>For sophisticated agent,<br />
-In period 3, must buy C<br />
-In period 2, buy B if
-<span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
-&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0)  = 1 \end{aligned}\]</span>
-In period 1, buy A if
-<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
-&gt; u_1(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \end{aligned}\]</span>
-Therefore, <span class="math inline">\(s^S = \{Y, Y, Y\}\)</span>
-For naive agent,<br />
-In period 3, must buy C<br />
-In period 2, buy B if
-<span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
-&gt; u_2(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0)  = 1 \end{aligned}\]</span>
-In period 1, buy A if
-<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
-&gt; u_1(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \end{aligned}\]</span>
-and
-<span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
-&gt; u_1(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0) = 1 \end{aligned}\]</span>
-Therefore, <span class="math inline">\(s^N = \{Y, Y, Y\}\)</span></li>
-<li>Since time-consistent agent never chooses dominated option, and naive agent believes that they never chooses dominated option, only sophisticated agent has the incentive to cancel a purchase because of present bias</li>
-<li>For sophisticated agent, in period 0,
-<span class="math display">\[\begin{aligned}u_0(A) &amp;= \frac{1}{2}\cdot 1\cdot( 20 - 28) = -4 \\
-u_0(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \\
-u_0(C) &amp;= \frac{1}{2}\cdot 1\cdot( 2-0) = 1 \end{aligned}\]</span>
-Therefore, the agent chooses to cancel both A and B<br />
-The maximum price they will accept is
-<span class="math display">\[\begin{aligned}x &amp;= u_1(A) - u_1(C)\\
-&amp;= 6 - 1\\
-&amp;= 5 \end{aligned}\]</span></li>
-</ol>
-<blockquote>
-<p>Mock.Q1<br />
-A movie internet platform offers two contracts.<br />
-Under a “pay-as-you-go” contract, watching a movie costs <span class="math inline">\(p\geq 0\)</span> per movie.<br />
-Under a “subscription” contract, watching a movie is for free, but there is a subscription fee <span class="math inline">\(F\geq 0\)</span>.<br />
-A subscription is for one year, and if it is not canceled, it is automatically renewed.<br />
-There is one agent whose (gross) benefit from watching one movie is <span class="math inline">\(b = 1\)</span>.<br />
-The agent watches <span class="math inline">\(λ = 25\)</span> movies in the first year, and 0 movies in the second year.<br />
-Cancelling requires an “attention cost” <span class="math inline">\(c = 10\)</span> which the agent has to occur immediately (if indifferent between canceling and not canceling the subscription, the agent does not cancel).<br />
-Timing:<br />
-In period 0, the firm offers the contracts, and the consumer chooses between the pay-as-you-go and the subscription contract, or chooses her outside option yielding her 0.<br />
-In period 1 (“year 1”), the agent watches the movies, and under the subscription contract can cancel the subscription.<br />
-In period 2, if the agent has not cancelled the subscription, he pays the fee to the firm.<br />
-There is no third year, and so the subscription in the second year does not need to be cancelled.<br />
-Assume that the agent is a <span class="math inline">\(β-δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span>, and <span class="math inline">\(β = \frac{1}{2}\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li>Suppose the agent has chosen the subscription.<br />
-Determine all values of <span class="math inline">\(F\)</span>, so that a time-consistent agent does, but a time-inconsistent agent does not, cancel the subscription.</li>
-<li>Suppose the agent is time-consistent.<br />
-Argue that it is weakly optimal for the firm to induce the agent to choose the pay-as-you-go contract.<br />
-What is the optimal pay-as-you-go price <span class="math inline">\(p\)</span> in this case?</li>
-<li>Suppose now that the firm faces a naive time-inconsistent consumer, and suppose that <span class="math inline">\(p = b = 1\)</span>.<br />
-There is a critical value <span class="math inline">\(\hat{F}\)</span> so that the agent takes the subscription if, and only if, <span class="math inline">\(F\leq\hat{F}\)</span>.<br />
-Determine <span class="math inline">\(\hat{F}\)</span>.</li>
-<li>Under the same assumptions as in (3), determine the profit-maximizing fee for the firm and its maximal profit.</li>
-</ol>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Cancelling gives <span class="math inline">\(25 - F - c\)</span><br />
-Not cancelling gives <span class="math inline">\(25 - F - βF\)</span><br />
-<span class="math inline">\(β=1\)</span> chooses to cancel if
-<span class="math display">\[\begin{aligned}25 - F - c &amp;&gt; 25 - F - βF\\
--c &amp;&gt; -βF \\
-F &amp;&gt; c \end{aligned}\]</span>
-<span class="math inline">\(β&lt;1\)</span> chooses not to cancel if
-<span class="math display">\[\begin{aligned}25 - F - c &amp;\leq 25 - F - βF\\
--c &amp;\leq -βF \\
-F &amp;\leq \frac{c}{β} \end{aligned}\]</span>
-therefore, <span class="math inline">\(c&lt;F\leq\frac{c}{β}\)</span><br />
-<span class="math inline">\(\implies F\in(10, 20]\)</span></li>
-<li>Firm can either
-<ol style="list-style-type: lower-alpha">
-<li>Set very large <span class="math inline">\(F\)</span><br />
-Agent chooses pay-as-you-go<br />
-<span class="math inline">\(η = b = 1\)</span><br />
-Firm’s profit: <span class="math inline">\(π = λb = λη = 25\)</span></li>
-<li>Induce the agent to subscribe<br />
-If agent cancels, gets <span class="math inline">\(u = 25 - 10 - F\)</span><br />
-Firm’s profit: <span class="math inline">\(π = 25 - 10 = 15\)</span><br />
-If agent doesn’t cancel, gets <span class="math inline">\(u = λb - 2F = 25 - 2F\)</span><br />
-Firm can set up to <span class="math inline">\(\bar{F} = 10\)</span><br />
-Firm’s profit: <span class="math inline">\(π = 20\)</span><br />
-Therefore, pay-as-you-go is optimal for the firm</li>
-</ol></li>
-<li>Consumer does not cancel <span class="math inline">\(\iff F&lt;c = 0\)</span><br />
-<span class="math display">\[\begin{aligned}-2F + λb &amp;\geq 0 \\
-F &amp;\leq \frac{λb}{2} \\
-&amp;= \frac{25}{2}\end{aligned}\]</span>
-<ol style="list-style-type: lower-alpha">
-<li>When <span class="math inline">\(F\in[0,10]\)</span>, the agent always subscribes</li>
-<li>When <span class="math inline">\(F\geq 10\)</span>,<br />
-agent subscribes if
-<span class="math display">\[\begin{aligned}-F + λb - c &amp;\geq 0\\
- F&amp;\leq λb - c \\
- &amp;= 15 \end{aligned}\]</span>
-Therefore, the maximual <span class="math inline">\(\hat{F} = 15\)</span></li>
-</ol></li>
-<li>When <span class="math inline">\(F\in[10,15]\)</span>, agent subscribes and believes that he cancels but doesn’t<br />
-Firm’s profit: <span class="math inline">\(π = 2F = 2\hat{F} = 30\)</span><br />
-When <span class="math inline">\(F&lt;10\)</span>, agent subscribes<br />
-Firm’s profit: <span class="math inline">\(π = λb = 25\)</span><br />
-When <span class="math inline">\(F&gt;15\)</span>, <span class="math inline">\(F^* = 15\)</span>, <span class="math inline">\(π = 30\)</span></li>
-</ol>
-</div>
-<div id="sophistication-effect" class="section level3">
-<h3>Sophistication effect</h3>
-<ul>
-<li>With immediate or zero cost, <span class="math inline">\(τ^{S}\leq τ^{TC}\)</span></li>
-</ul>
-<blockquote>
-<p>Example (Immediate reward)<br />
-No cost<br />
-Increasing reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 3 \\ v_2 &amp;= 5 \\ v_3 &amp;= 8 \\ v_4 &amp;= 13\end{aligned}\]</span>
-Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
-<ol style="list-style-type: decimal">
-<li>In period 4, act</li>
-<li>In period 3, act if
-<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\ \geq U_3(4) &amp;= 13\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
-<li>In period 2, act if
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5 \\ \geq U_2(3) &amp;= 8\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
-<li>In period 1, act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3 \\ \geq U_1(2) &amp;= 5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
-<span class="math inline">\(\implies s^{TC} = (N,N,N,Y)\)</span>, <span class="math inline">\(τ^{TC} = 4\)</span></li>
-</ol></li>
-<li>Sophisticated agent
-<ol style="list-style-type: decimal">
-<li>In period 4, act</li>
-<li>In period 3,<br />
-Act if
-<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\
- \geq U_3(4) &amp;= β\cdot v = 6.5\\
- 8 &amp;\geq 6.5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Act in period 3</li>
-<li>In period 2,<br />
-Act if
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5\\
- \geq U_2(3) &amp;= β\cdot v = 4 \\
- 5 &amp;\geq 4\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Act in period 2</li>
-<li>In period 1,<br />
-Act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
- \geq U_1(2) &amp;= β\cdot v = 2.5 \\
- 3&amp;\geq 2.5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Act in period 1<br />
-<span class="math inline">\(\implies s^{S} = (Y,Y,Y,Y)\)</span>, <span class="math inline">\(τ^{S} = 1\)</span>, sophistication effect</li>
-</ol></li>
-<li>Naive agent
-<ol style="list-style-type: decimal">
-<li>In period 4, act</li>
-<li>In period 3, act if
-<span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\
- \geq U_3(4) &amp;= β\cdot v = 6.5\\
- 8 &amp;\geq 6.5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Act in period 3</li>
-<li>In period 2, act if
-<span class="math display">\[\begin{aligned}U_2(2) &amp;=  5 \\
- \geq U_2(4) &amp;= β\cdot v = 6.5 \\
- 5 &amp;\geq 6.5\end{aligned}\]</span>
-and
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5\\
- \geq U_2(3) &amp;= β\cdot v =4 \\
- 5 &amp;\geq 4\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
-<li>In period 1, act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
- \geq U_1(4) &amp;= β\cdot v = 6.5 \\
- 3 &amp;\geq 6.5\end{aligned}\]</span>
-and
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
- \geq U_1(3) &amp;= β\cdot v= 4 \\
- 3 &amp;\geq 4\end{aligned}\]</span>
-and
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3\\
- \geq U_1(2) &amp;= β\cdot v= 2.5 \\
- 3 &amp;\geq 2.5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
-<span class="math inline">\(\implies s^{N} = (N,N,Y,Y)\)</span>, <span class="math inline">\(τ^{N} = 3\)</span></li>
-</ol></li>
-</ol>
-<blockquote>
-<p>Example (Immediate cost 2)<br />
-Reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 12 \\ v_2 &amp;= 18 \\ v_3 &amp;= 18 \end{aligned}\]</span>
-Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 8 \\ c_3 &amp;= 13\end{aligned}\]</span>
-Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
-<ol style="list-style-type: decimal">
-<li>In period 3, act</li>
-<li>In period 2, act if
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= 18 - 8 = 10 \\ \geq U_2(3) &amp;= 18 - 13 = 5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Act in period 3</li>
-<li>In period 1, act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 12 - 3 = 9\\ \geq U_1(2) &amp;= 18 - 5 = 13\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
-<span class="math inline">\(\implies s^{TC} = (N,Y,Y)\)</span>, <span class="math inline">\(τ^{TC} = 2\)</span></li>
-</ol></li>
-<li>Sophisticated agent
-<ol style="list-style-type: decimal">
-<li>In period 3, act</li>
-<li>In period 2, act if
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot 18 - 8 = 1 \\
- \geq U_2(3) &amp;= β\cdot(18 - 13) = 2.5\\
- 1 &amp;\geq 2.5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
-<li>In period 1, act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
- \geq U_1(3) &amp;= β\cdot(18-13) = 2.5 \\
- 3 &amp;\geq 2.5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Act in period 1<br />
-<span class="math inline">\(\implies s^{S} = (Y,N,Y)\)</span>, <span class="math inline">\(τ^{S} = 1\)</span>, sophistication effect</li>
-</ol></li>
-<li>Naive agent
-<ol style="list-style-type: decimal">
-<li>In period 3, act</li>
-<li>In period 2, act if
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= β\cdot 18 - 8 = 1 \\
- \geq U_2(3) &amp;= β\cdot(18 - 13) = 2.5\\
- 1 &amp;\geq 2.5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
-<li>In period 1,<br />
-Act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
- \geq U_1(3) &amp;= β\cdot(18 - 13) = 2.5 \\
- 3 &amp;\geq 2.5\end{aligned}\]</span>
-and
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= β\cdot 12 - 3 = 3\\
- \geq U_1(2) &amp;= β\cdot(18 - 8) = 5 \\
- 3 &amp;\geq 5\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
-<span class="math inline">\(\implies s^{N} = (N,N,Y)\)</span>, <span class="math inline">\(τ^{N} = 3\)</span></li>
-</ol></li>
 </ol>
 </div>
 <div id="welfare-effect" class="section level3">
@@ -2164,6 +2106,79 @@ However, <span class="math inline">\(α\geq \frac{e}{\bar{p}}\implies e-α\bar{p
  &amp;&lt; \bar{p}\end{aligned}\]</span></li>
 </ol></li>
 <li></li>
+</ol>
+<blockquote>
+<p>Mock.Q1<br />
+A movie internet platform offers two contracts.<br />
+Under a “pay-as-you-go” contract, watching a movie costs <span class="math inline">\(p\geq 0\)</span> per movie.<br />
+Under a “subscription” contract, watching a movie is for free, but there is a subscription fee <span class="math inline">\(F\geq 0\)</span>.<br />
+A subscription is for one year, and if it is not canceled, it is automatically renewed.<br />
+There is one agent whose (gross) benefit from watching one movie is <span class="math inline">\(b = 1\)</span>.<br />
+The agent watches <span class="math inline">\(λ = 25\)</span> movies in the first year, and 0 movies in the second year.<br />
+Cancelling requires an “attention cost” <span class="math inline">\(c = 10\)</span> which the agent has to occur immediately (if indifferent between canceling and not canceling the subscription, the agent does not cancel).<br />
+Timing:<br />
+In period 0, the firm offers the contracts, and the consumer chooses between the pay-as-you-go and the subscription contract, or chooses her outside option yielding her 0.<br />
+In period 1 (“year 1”), the agent watches the movies, and under the subscription contract can cancel the subscription.<br />
+In period 2, if the agent has not cancelled the subscription, he pays the fee to the firm.<br />
+There is no third year, and so the subscription in the second year does not need to be cancelled.<br />
+Assume that the agent is a <span class="math inline">\(β-δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span>, and <span class="math inline">\(β = \frac{1}{2}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Suppose the agent has chosen the subscription.<br />
+Determine all values of <span class="math inline">\(F\)</span>, so that a time-consistent agent does, but a time-inconsistent agent does not, cancel the subscription.</li>
+<li>Suppose the agent is time-consistent.<br />
+Argue that it is weakly optimal for the firm to induce the agent to choose the pay-as-you-go contract.<br />
+What is the optimal pay-as-you-go price <span class="math inline">\(p\)</span> in this case?</li>
+<li>Suppose now that the firm faces a naive time-inconsistent consumer, and suppose that <span class="math inline">\(p = b = 1\)</span>.<br />
+There is a critical value <span class="math inline">\(\hat{F}\)</span> so that the agent takes the subscription if, and only if, <span class="math inline">\(F\leq\hat{F}\)</span>.<br />
+Determine <span class="math inline">\(\hat{F}\)</span>.</li>
+<li>Under the same assumptions as in (3), determine the profit-maximizing fee for the firm and its maximal profit.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Cancelling gives <span class="math inline">\(25 - F - c\)</span><br />
+Not cancelling gives <span class="math inline">\(25 - F - βF\)</span><br />
+<span class="math inline">\(β=1\)</span> chooses to cancel if
+<span class="math display">\[\begin{aligned}25 - F - c &amp;&gt; 25 - F - βF\\
+-c &amp;&gt; -βF \\
+F &amp;&gt; c \end{aligned}\]</span>
+<span class="math inline">\(β&lt;1\)</span> chooses not to cancel if
+<span class="math display">\[\begin{aligned}25 - F - c &amp;\leq 25 - F - βF\\
+-c &amp;\leq -βF \\
+F &amp;\leq \frac{c}{β} \end{aligned}\]</span>
+therefore, <span class="math inline">\(c&lt;F\leq\frac{c}{β}\)</span><br />
+<span class="math inline">\(\implies F\in(10, 20]\)</span></li>
+<li>Firm can either
+<ol style="list-style-type: lower-alpha">
+<li>Set very large <span class="math inline">\(F\)</span><br />
+Agent chooses pay-as-you-go<br />
+<span class="math inline">\(η = b = 1\)</span><br />
+Firm’s profit: <span class="math inline">\(π = λb = λη = 25\)</span></li>
+<li>Induce the agent to subscribe<br />
+If agent cancels, gets <span class="math inline">\(u = 25 - 10 - F\)</span><br />
+Firm’s profit: <span class="math inline">\(π = 25 - 10 = 15\)</span><br />
+If agent doesn’t cancel, gets <span class="math inline">\(u = λb - 2F = 25 - 2F\)</span><br />
+Firm can set up to <span class="math inline">\(\bar{F} = 10\)</span><br />
+Firm’s profit: <span class="math inline">\(π = 20\)</span><br />
+Therefore, pay-as-you-go is optimal for the firm</li>
+</ol></li>
+<li>Consumer does not cancel <span class="math inline">\(\iff F&lt;c = 0\)</span><br />
+<span class="math display">\[\begin{aligned}-2F + λb &amp;\geq 0 \\
+F &amp;\leq \frac{λb}{2} \\
+&amp;= \frac{25}{2}\end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(F\in[0,10]\)</span>, the agent always subscribes</li>
+<li>When <span class="math inline">\(F\geq 10\)</span>,<br />
+agent subscribes if
+<span class="math display">\[\begin{aligned}-F + λb - c &amp;\geq 0\\
+ F&amp;\leq λb - c \\
+ &amp;= 15 \end{aligned}\]</span>
+Therefore, the maximual <span class="math inline">\(\hat{F} = 15\)</span></li>
+</ol></li>
+<li>When <span class="math inline">\(F\in[10,15]\)</span>, agent subscribes and believes that he cancels but doesn’t<br />
+Firm’s profit: <span class="math inline">\(π = 2F = 2\hat{F} = 30\)</span><br />
+When <span class="math inline">\(F&lt;10\)</span>, agent subscribes<br />
+Firm’s profit: <span class="math inline">\(π = λb = 25\)</span><br />
+When <span class="math inline">\(F&gt;15\)</span>, <span class="math inline">\(F^* = 15\)</span>, <span class="math inline">\(π = 30\)</span></li>
 </ol>
 </div>
 </div>
