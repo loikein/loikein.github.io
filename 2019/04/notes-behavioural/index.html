@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">77 min read</span>
+    <span class="article-duration">78 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -1269,6 +1269,7 @@ s.t. && &\begin{cases}c_2= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\c_1 \leq y_1
 </div>
 <div id="time-preference-sophistication-naivete" class="section level2">
 <h2>Time Preference: Sophistication / Naivete</h2>
+<p>Paper: <a href="http://www.eief.it/butler/files/2009/11/rabinodonoghue.pdf">O’Donoghue &amp; Rabin (1999)</a></p>
 <ul>
 <li>Time: <span class="math inline">\(t = 1,\dots, T\)</span></li>
 <li>Strategy profile: <span class="math inline">\(s = (s_1,\dots, s_T)\)</span>
@@ -1278,13 +1279,13 @@ s.t. && &\begin{cases}c_2= y_2 + R^2\cdot x_0 + R\cdot (y_1 -c_1) \\c_1 \leq y_1
 <li>Possible outcomes: <span class="math inline">\(\begin{cases}v = (v_1,v_2,\dots,v_T) \\ c = (c_1, c_2,\dots, c_T) \end{cases}\)</span></li>
 <li>Utility for time <span class="math inline">\(t\)</span>: <span class="math inline">\(U_t = u_t + β\cdot\sum_{s=1}^{T-t} δ^s \cdot u_{t+s}\)</span>
 <ul>
-<li>Assume <span class="math inline">\(δ=1\)</span></li>
-<li>Immediate cost: cost in the period, reward later<br />
-In period t, utility from doing the task in period <span class="math inline">\(τ\)</span>:
+<li>Assume <span class="math inline">\(δ=1\implies U_t = u_t + β\cdot\sum_{s=1}^{T-t} u_{t+s}\)</span></li>
+<li>Immediate cost: <!-- cost in the period, reward later -->
+In period t, utility from doing the task in period <span class="math inline">\(τ\)</span> :
 <span class="math display">\[\begin{aligned}τ=t &amp;&amp; U_t(τ) &amp;=  β\cdot v_t - c_t \\
   τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ-c_τ) \end{aligned}\]</span></li>
-<li>Immediate reward: cost in the period, reward later<br />
-In period t, utility from doing the task in period <span class="math inline">\(τ\)</span>:
+<li>Immediate reward: <!-- cost in the period, reward later -->
+In period t, utility from doing the task in period <span class="math inline">\(τ\)</span> :
 <span class="math display">\[\begin{aligned}τ=t &amp;&amp; U_t(τ) &amp;= v_t - β\cdot c_t\\
   τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ -c_τ) \end{aligned}\]</span></li>
 </ul></li>
@@ -1313,13 +1314,13 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <li>Lemma
 <ul>
 <li><span class="math inline">\(τ^{S}\leq τ^{N}\)</span></li>
-<li>With immediate cost, <span class="math inline">\(τ^{S}\leq τ^{TC}\leq τ^{N}\)</span></li>
-<li>With immediate rewards, <span class="math inline">\(τ^{S}\leq τ^{N}\leq τ^{TC}\)</span> (overconsumption)</li>
+<li>With immediate cost, <span class="math inline">\(τ^{TC} &lt;?&gt; τ^{S} \leq τ^{N}\)</span></li>
+<li>With immediate rewards, <span class="math inline">\(τ^{S}\leq τ^{N} \leq τ^{TC}\)</span> (overconsumption)</li>
 </ul></li>
 <li>Sophistication effect
 <ul>
-<li>With immdiate rewards, <span class="math inline">\(U^S \leq U^N\)</span></li>
-<li>With immediate or zero cost, <span class="math inline">\(τ^{S}\leq τ^{TC}\)</span></li>
+<li>With immdiate rewards, sometimes <span class="math inline">\(τ^{S}\leq τ^{N}\implies U^S \leq U^N\)</span></li>
+<li>With immediate cost, sometimes <span class="math inline">\(τ^{S}\leq τ^{TC}\)</span> (overweights presence bias)</li>
 </ul></li>
 </ul>
 <div id="immediate-cost" class="section level3">
@@ -1328,7 +1329,7 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <p>Example (slides P65)<br />
 Fixed reward: <span class="math inline">\(v_t = \bar{v}\)</span><br />
 Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 5 \\ c_3 &amp;= 8 \\ c_4 &amp;= 13\end{aligned}\]</span>
-Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
+Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agents</p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Time-consistent agent: <span class="math inline">\(β=1\)</span>
@@ -1480,7 +1481,7 @@ and
 </ol></li>
 </ol>
 <blockquote>
-<p>Example: immediate cost &amp; rewards (slide P67)<br />
+<p>Example: immediate cost &amp; rewards (slide P67, paper P112)<br />
 Reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 12 \\ v_2 &amp;= 18 \\ v_3 &amp;= 18 \end{aligned}\]</span>
 Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 8 \\ c_3 &amp;= 13\end{aligned}\]</span>
 Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
@@ -1535,19 +1536,19 @@ and
 </ol>
 <blockquote>
 <p>PS4.Q2<br />
-An agent is confronted with several consumption opportunities using his/her credit card.<br />
+An agent is confronted with several consumption opportunities using her credit card.<br />
 The benefits of shopping are immediate and occur at the moment of the purchase, while the costs are delayed.<br />
-At <span class="math inline">\(t = 1\)</span> the agent can buy good A that gives immediate benefit 20 and delayed cost 28.<br />
-At <span class="math inline">\(t = 2\)</span>, the agent can buy good B that gives immediate benefit 30 and delayed cost 50.<br />
-At <span class="math inline">\(t = 3\)</span>, the agent can buy good C that gives immediate benefit 2 and delayed cost 0.<br />
-If the agent buys a good at times <span class="math inline">\(t = 1, 2\)</span>, the game ends, otherwise he/she continues to the next period.<br />
-If the agent has not consumed at <span class="math inline">\(t = 1, 2\)</span> then he/she has to consume at time <span class="math inline">\(t = 3\)</span>.</p>
+At <span class="math inline">\(t = 1\)</span>, she can buy good A with benefit 20 and cost 28.<br />
+At <span class="math inline">\(t = 2\)</span>, she can buy good B with benefit 30 and cost 50.<br />
+At <span class="math inline">\(t = 3\)</span>, she can buy good C with benefit 2 and cost 0.<br />
+If the agent buys a good at times <span class="math inline">\(t = 1, 2\)</span>, the game ends, otherwise she continues to the next period.<br />
+If the agent has not consumed at <span class="math inline">\(t = 1, 2\)</span> then she has to consume at time <span class="math inline">\(t = 3\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li>Determine the optimal strategy of a time-consistent agent with <span class="math inline">\(δ = 1\)</span>.</li>
 <li>Assume the agent is a <span class="math inline">\(β − δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = \frac{1}{2}\)</span>.<br />
 Determine the optimal strategies of a naive and a sophisticated agent.</li>
 <li>Assume now that a firm offers a product at time <span class="math inline">\(t = 0\)</span> at a price <span class="math inline">\(x\)</span> to be paid immediately, that allows the consumer to cancel some of the consumption options.<br />
-In particular, the consumer can decide to cancel option A, option B, or both.<br />
+In particular, the consumer can decide to cancel A, B, or both.<br />
 Think of it as a temporary block on the credit card.<br />
 Argue, intuitively, why only the sophisticated agent will consider buying such a product.</li>
 <li>Determine whether the sophisticated consumer cancels any of the options and determine the maximum price the consumer is willing to pay for such a product.</li>
@@ -1559,6 +1560,7 @@ Argue, intuitively, why only the sophisticated agent will consider buying such a
 u(B) &amp;= 30 - 50 = -20 \\
 u(C) &amp;= 2 - 0 = 2 \end{aligned}\]</span>
 Therefore, <span class="math inline">\(s^{TC} = \{N,N,Y\}\)</span></li>
+<li><ol style="list-style-type: lower-alpha">
 <li>For sophisticated agent,<br />
 In period 3, must buy C<br />
 In period 2, buy B if
@@ -1567,8 +1569,8 @@ In period 2, buy B if
 In period 1, buy A if
 <span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
 &gt; u_1(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \end{aligned}\]</span>
-Therefore, <span class="math inline">\(s^S = \{Y, Y, Y\}\)</span>
-For naive agent,<br />
+Therefore, <span class="math inline">\(s^S = \{Y, Y, Y\}\)</span></li>
+<li>For naive agent,<br />
 In period 3, must buy C<br />
 In period 2, buy B if
 <span class="math display">\[\begin{aligned}u_2(B) &amp;= 30 - \frac{1}{2}\cdot 1\cdot 50 = 5 \\
@@ -1580,19 +1582,20 @@ and
 <span class="math display">\[\begin{aligned}u_1(A) &amp;= 20 - \frac{1}{2}\cdot 1\cdot 28 =6 \\
 &gt; u_1(C) &amp;= \frac{1}{2}\cdot 1\cdot (2-0) = 1 \end{aligned}\]</span>
 Therefore, <span class="math inline">\(s^N = \{Y, Y, Y\}\)</span></li>
-<li>Since time-consistent agent never chooses dominated option, and naive agent believes that they never chooses dominated option, only sophisticated agent has the incentive to cancel a purchase because of present bias</li>
+</ol></li>
+<li>Since time-consistent agent never chooses dominated option, and naive agent believes that they never chooses dominated option, only sophisticated agent has the incentive to cancel a purchase because of presence bias</li>
 <li>For sophisticated agent, in period 0,
 <span class="math display">\[\begin{aligned}u_0(A) &amp;= \frac{1}{2}\cdot 1\cdot( 20 - 28) = -4 \\
 u_0(B) &amp;= \frac{1}{2}\cdot 1\cdot( 30 - 50) = -10 \\
 u_0(C) &amp;= \frac{1}{2}\cdot 1\cdot( 2-0) = 1 \end{aligned}\]</span>
 Therefore, the agent chooses to cancel both A and B<br />
 The maximum price they will accept is
-<span class="math display">\[\begin{aligned}x &amp;= u_1(A) - u_1(C)\\
-&amp;= 6 - 1\\
+<span class="math display">\[\begin{aligned}x &amp;= u_0(C) - u_0(A)\\
+&amp;= 1 - (-4)\\
 &amp;= 5 \end{aligned}\]</span></li>
 </ol>
 <blockquote>
-<p>PS4.Q1<br />
+<p>PS4.Q1 (saving &amp; consumption)<br />
 Consider a person who lives for three periods <span class="math inline">\(t = 1, 2, 3\)</span>.<br />
 In the first period, the person receives an income <span class="math inline">\(y &gt; 0\)</span>.<br />
 Each period, the person decides how much to consume and how much to save (assume a zero nominal interest rate).<br />
@@ -1630,12 +1633,13 @@ c_3^{TC} &amp;= \frac{y}{3}+\ln(δ)\end{aligned}\]</span></li>
 <li>For sophisticated agent, in period 2,
 <span class="math display">\[\begin{aligned}\max_{c_2} &amp;&amp; u_2^S &amp;= -\exp(-c_2) - βδ\exp(-y + c_1 + c_2) \\
 FOC &amp;&amp; \frac{\partial u_2^{S}}{\partial c_2} &amp;= \exp(-c_2) - βδ\exp(-y + c_1 + c_2) \overset{!}{=} 0\\
-\implies &amp;&amp; \exp(-c_2) &amp;= βδ\exp(-c_3) \\
-&amp;&amp; c_2 &amp;= c_3 -\ln(βδ) \\
-FOC &amp;&amp; \exp(-c_2) &amp;= βδ\exp(-y + c_1 + c_2) \\
+&amp;&amp; \exp(-c_2) &amp;= βδ\exp(-y + c_1 + c_2) \\
 &amp;&amp; -c_2 &amp;= \ln(βδ) + (-y + c_1 + c_2) \\
 &amp;&amp; c_2 &amp;= \frac{1}{2}\big(y - c_1 - \ln(βδ)\big) \\
-&amp;&amp; c_3 &amp;= \frac{1}{2}\big(y - c_1 + \ln(βδ)\big) \end{aligned}\]</span>
+\implies &amp;&amp; \exp(-c_2) &amp;= βδ\exp(-c_3) \\
+&amp;&amp; c_2 &amp;= c_3 -\ln(βδ) \\
+&amp;&amp; c_3 &amp;= c_2 + \ln(βδ) \\
+&amp;&amp; &amp;= \frac{1}{2}\big(y - c_1 + \ln(βδ)\big) \end{aligned}\]</span>
 In period 1,
 <span class="math display">\[\begin{aligned}\max_{c_1} &amp;&amp; u_1^S &amp;= -\exp(-c_1) - βδ\exp(-c_2) - βδ^2\exp(-y + c_1 + c_2) \\
 &amp;&amp; &amp;= -\exp(-c_1) - βδ\exp\Big(-\frac{1}{2}\big(y - c_1 - \ln(βδ)\big)\Big) \\
@@ -1668,13 +1672,13 @@ $$\begin{aligned}\frac{\partial c_1^S}{\partial β} &= \frac{1}{3}\cdot\frac{1}{
 &= \frac{βδ^2 + δ^2 - 4βδ^2 - 2δ^2}{3βδ\cdot(βδ + δ)} \\
 &= \frac{-3βδ^2 - δ^2}{3βδ\cdot(βδ + δ)} < 0\end{aligned}$$ -->
 <span class="math inline">\(\implies\)</span> overconsumption in period 1</li>
-<li>If the agent consumes <span class="math inline">\((c_1^S − ε, c_2^S − ε, c_3^S + 2ε)\)</span>, in period 1,
+<li>If the agent consumes <span class="math inline">\((c_1^S − ε, c_2^S − ε, c_3^S + 2ε)\)</span> in period 1,
 <span class="math display">\[\begin{aligned}u_1^S &amp;= -\exp(-c_1 + ε) - βδ\exp(-c_2 + ε) - βδ^2\exp(-c_3 - 2ε) \\
 \frac{\partial u_1^S}{\partial ε} &amp;= -\exp(-c_1 + ε) - βδ\exp(-c_2 + ε) + 2βδ^2\exp(-c_3 - 2ε) \\
 \frac{\partial u_1^S}{\partial ε}\Big|_{ε=0} &amp;= -\exp(-c_1) - βδ\exp(-c_2) + 2βδ^2\exp(-c_3) \\
-&amp;= -\frac{1}{2} βδ\exp(-c_2) - \frac{1}{2}βδ^2\exp(-c_3) - βδ\exp(-c_2) + 2βδ^2\exp(-c_3) \\
+&amp;= \overbrace{-\frac{1}{2} βδ\exp(-c_2) - \frac{1}{2}βδ^2\exp(-c_3)}^{-\exp(-c_1)} - βδ\exp(-c_2) + 2βδ^2\exp(-c_3) \\
 &amp;= -\frac{3}{2} βδ\exp(-c_2) + \frac{3}{2}βδ^2\exp(-c_3) \\
-&amp;= -\frac{3}{2} β^2δ^2\exp(-c_3) + \frac{3}{2}βδ^2\exp(-c_3)\\
+&amp;= \overbrace{-\frac{3}{2} β^2δ^2\exp(-c_3)}^{-\frac{3}{2} βδ\exp(-c_2)} + \frac{3}{2}βδ^2\exp(-c_3)\\
 &amp;= \frac{3}{2} βδ^2(1-β)\exp(-c_3) &gt; 0\end{aligned}\]</span>
 In period 2,
 <span class="math display">\[\begin{aligned}u_2^S &amp;= -\exp(-c_2 + ε) - βδ\exp(-c_3 - 2ε) \\
@@ -1689,7 +1693,7 @@ In period 3,
 <span class="math inline">\(\implies\)</span> all selves <span class="math inline">\(t = 1, 2, 3\)</span> are better off with <span class="math inline">\(ε&gt;0\)</span>
 However, since <span class="math inline">\(\frac{\partial c_2^S}{\partial c_1^S} = -\frac{1}{2}&lt; 0\)</span>,<br />
 <span class="math inline">\(\implies\)</span> agent has incentive to increase <span class="math inline">\(c_2^S\)</span> if <span class="math inline">\(ε&gt;0\)</span> in <span class="math inline">\(c_1^S = c_1^S-ε\)</span><br />
-<span class="math inline">\(\implies\)</span> agent does not choose this path in order to avoid overconsumption in period 2</li>
+<span class="math inline">\(\implies\)</span> agent does not choose this path to avoid overconsumption in period 2</li>
 </ol>
 </div>
 <div id="welfare-effect" class="section level3">
@@ -1698,7 +1702,7 @@ However, since <span class="math inline">\(\frac{\partial c_2^S}{\partial c_1^S}
 <li>Welfare from nothing: 0</li>
 </ul>
 <blockquote>
-<p>Example (Immediate cost 3)<br />
+<p>Example (slide P68)<br />
 Fixed reward: <span class="math inline">\(v_t = \bar{v}\)</span><br />
 Increasing cost: <span class="math inline">\(c_t = \bar{c} + t\cdot ε\)</span><br />
 Let <span class="math inline">\(β\leq\frac{\bar{c}}{\bar{c}+ε}\)</span> for time-inconsistent agent</p>
@@ -1709,7 +1713,7 @@ For any period t, act if
 <span class="math display">\[\begin{aligned}\bar{v} -c_t&amp;\geq \bar{v} -c_{t+1} \\
 -t\cdot ε &amp;\geq -(t+1) \cdot ε \end{aligned}\]</span>
 <span class="math inline">\(\implies s^{TC} = (Y,\dots, Y)\)</span>, <span class="math inline">\(τ^{TC} = 1\)</span></li>
-<li>Time-inconsistent agent assume:
+<li>Delaying is attractive for time-inconsistent agents, assuming:
 <span class="math display">\[\begin{aligned}β\cdot \bar{v} - c_t&amp;\leq β\cdot(\bar{v} -c_{t+1}) \\
 -c_t &amp;\leq -β\cdot c_{t+1} \\
 \bar{c}+t\cdot ε &amp;\geq β\cdot\big( \bar{c} +(t+1)\cdot ε\big)\\
@@ -1720,10 +1724,10 @@ For any period t, act if
 <span class="math display">\[β\cdot \bar{v} -c_t \geq β\cdot(\bar{v} -c_{t+1})\]</span>
 <span class="math inline">\(\implies s^N = (N,\dots,N, Y)\)</span>, <span class="math inline">\(τ^{N} = T\)</span><br />
 Welfare loss: <span class="math inline">\(T\cdot ε\)</span></li>
-<li>Sophisticated agent</li>
+<li>Sophisticated agent does not delay <span class="math inline">\(\implies\)</span> less welfare loss</li>
 </ol>
 <blockquote>
-<p>Example (Immediate reward 2)<br />
+<p>Example (slide P68-69)<br />
 Fixed cost: <span class="math inline">\(c_t = \bar{c}\)</span><br />
 Increasing reward: <span class="math inline">\(v_t = \bar{v} + t\cdot ε\)</span><br />
 Let <span class="math inline">\(β\leq\frac{\bar{v}}{\bar{v}+ε}\)</span> for time-inconsistent agent</p>
@@ -1734,7 +1738,7 @@ For any period t, act if
 <span class="math display">\[\begin{aligned}v_t - \bar{c}&amp;\geq v_{t+1} - \bar{c}\\
 t\cdot ε &amp;\geq (t+1) \cdot ε \end{aligned}\]</span>
 <span class="math inline">\(\implies s^{TC} = (N,\dots,N, Y)\)</span>, <span class="math inline">\(τ^{TC} = T\)</span></li>
-<li>Time-inconsistent agent assume:
+<li>Delaying is attractive for time-inconsistent agents, assuming:
 <span class="math display">\[\begin{aligned}v_t - β\cdot \bar{c} &amp;\geq β\cdot(v_{t+1} - \bar{c}) \\
 \bar{v} + t\cdot ε &amp;\geq β\cdot \big( \bar{v} + (t+1) \cdot ε\big) \\
 β &amp;\leq \frac{\bar{v}+t\cdot ε}{\bar{v}+(t+1)\cdot ε} \\
@@ -1743,8 +1747,8 @@ t\cdot ε &amp;\geq (t+1) \cdot ε \end{aligned}\]</span>
 For any period t, act if
 <span class="math display">\[β\cdot \bar{v} -c_t \geq β\cdot(\bar{v} -c_{t+1})\]</span>
 <span class="math inline">\(\implies s^N = (Y,\dots, Y)\)</span>, <span class="math inline">\(τ^{N} = 1\)</span><br />
-Welfare loss: <span class="math inline">\(T\cdot ε\)</span></li>
-<li>Naive agent</li>
+Welfare loss: <span class="math inline">\(T\cdot ε\implies\)</span> sophistication effect</li>
+<li>Naive agent delays <span class="math inline">\(\implies\)</span> less welfare loss</li>
 </ol>
 </div>
 <div id="procrastination-in-infinite-time" class="section level3">
