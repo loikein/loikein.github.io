@@ -363,8 +363,8 @@ Since <span class="math inline">\(C(A_1) = x^*\)</span>, <span class="math inlin
 <span class="math inline">\(\implies\)</span> no income effect:
 <span class="math display">\[\begin{aligned}x_1 - WTP(x_1) + φ(x_2 + Δ) &amp;= x_1 + φ(x_2) \\
   WTP(x_1) &amp;= φ(x_2 + Δ) - φ(x_2) \\
-  x_1 - WTA(x_1) + φ(x_2) &amp;= x_1 + φ(x_2 + Δ) \\
-  WTA(x_1) &amp;= φ(x_2) - φ(x_2 + Δ) \\
+  x_1 + WTA(x_1) + φ(x_2) &amp;= x_1 + φ(x_2 + Δ) \\
+  -WTA(x_1) &amp;= φ(x_2) - φ(x_2 + Δ) \\
   WTP(x_1) &amp;= WTA(x_1)\end{aligned}\]</span></li>
 <li>Income effect: <span class="math inline">\(WTP&#39;(x_1)\)</span>
 <span class="math display">\[\begin{aligned}WTA(x_1) &amp;= WTP(\tilde{x_1}) \\
@@ -1313,13 +1313,13 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 </ul></li>
 <li>Lemma
 <ul>
-<li><span class="math inline">\(τ^{S}\leq τ^{N}\)</span></li>
+<li><span class="math inline">\(τ^{S}\leq τ^{N}\)</span> (sophistication effect)</li>
 <li>With immediate cost, <span class="math inline">\(τ^{TC} &lt;?&gt; τ^{S} \leq τ^{N}\)</span></li>
 <li>With immediate rewards, <span class="math inline">\(τ^{S}\leq τ^{N} \leq τ^{TC}\)</span> (overconsumption)</li>
 </ul></li>
 <li>Sophistication effect
 <ul>
-<li>With immdiate rewards, sometimes <span class="math inline">\(τ^{S}\leq τ^{N}\implies U^S \leq U^N\)</span></li>
+<li>With immdiate rewards, sometimes <span class="math inline">\(τ^{S}\leq τ^{N}\implies U^S \leq U^N\)</span> (hurt by pre-operating)</li>
 <li>With immediate cost, sometimes <span class="math inline">\(τ^{S}\leq τ^{TC}\)</span> (overweights presence bias)</li>
 </ul></li>
 </ul>
@@ -1481,7 +1481,7 @@ and
 </ol></li>
 </ol>
 <blockquote>
-<p>Example: immediate cost &amp; rewards (slide P67, paper P112)<br />
+<p>Example: immediate cost &amp; rewards (slides P67, paper P112)<br />
 Reward: <span class="math display">\[\begin{aligned}v_1 &amp;= 12 \\ v_2 &amp;= 18 \\ v_3 &amp;= 18 \end{aligned}\]</span>
 Increasing cost: <span class="math display">\[\begin{aligned}c_1 &amp;= 3 \\ c_2 &amp;= 8 \\ c_3 &amp;= 13\end{aligned}\]</span>
 Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent agent</p>
@@ -1693,7 +1693,7 @@ In period 3,
 <span class="math inline">\(\implies\)</span> all selves <span class="math inline">\(t = 1, 2, 3\)</span> are better off with <span class="math inline">\(ε&gt;0\)</span>
 However, since <span class="math inline">\(\frac{\partial c_2^S}{\partial c_1^S} = -\frac{1}{2}&lt; 0\)</span>,<br />
 <span class="math inline">\(\implies\)</span> agent has incentive to increase <span class="math inline">\(c_2^S\)</span> if <span class="math inline">\(ε&gt;0\)</span> in <span class="math inline">\(c_1^S = c_1^S-ε\)</span><br />
-<span class="math inline">\(\implies\)</span> agent does not choose this path to avoid overconsumption in period 2</li>
+<span class="math inline">\(\implies\)</span> agent does not choose <span class="math inline">\(ε&gt;0\)</span> to avoid overconsumption in period 2</li>
 </ol>
 </div>
 <div id="welfare-effect" class="section level3">
@@ -1702,7 +1702,7 @@ However, since <span class="math inline">\(\frac{\partial c_2^S}{\partial c_1^S}
 <li>Welfare from nothing: 0</li>
 </ul>
 <blockquote>
-<p>Example (slide P68)<br />
+<p>Example (slides P68)<br />
 Fixed reward: <span class="math inline">\(v_t = \bar{v}\)</span><br />
 Increasing cost: <span class="math inline">\(c_t = \bar{c} + t\cdot ε\)</span><br />
 Let <span class="math inline">\(β\leq\frac{\bar{c}}{\bar{c}+ε}\)</span> for time-inconsistent agent</p>
@@ -1727,7 +1727,7 @@ Welfare loss: <span class="math inline">\(T\cdot ε\)</span></li>
 <li>Sophisticated agent does not delay <span class="math inline">\(\implies\)</span> less welfare loss</li>
 </ol>
 <blockquote>
-<p>Example (slide P68-69)<br />
+<p>Example (slides P68-69)<br />
 Fixed cost: <span class="math inline">\(c_t = \bar{c}\)</span><br />
 Increasing reward: <span class="math inline">\(v_t = \bar{v} + t\cdot ε\)</span><br />
 Let <span class="math inline">\(β\leq\frac{\bar{v}}{\bar{v}+ε}\)</span> for time-inconsistent agent</p>
@@ -1753,35 +1753,40 @@ Welfare loss: <span class="math inline">\(T\cdot ε\implies\)</span> sophisticat
 </div>
 <div id="procrastination-in-infinite-time" class="section level3">
 <h3>Procrastination in Infinite Time</h3>
+<p>(slides P69)</p>
 <ul>
 <li>Time: <span class="math inline">\(t = 1,\dots\)</span></li>
 <li>Discount rate: <span class="math inline">\(δ\in[0,1)\)</span></li>
 <li>Set of tasks: <span class="math inline">\(X\)</span>, <span class="math inline">\(|X|&lt;\infty\)</span>
 <ul>
-<li>Task: <span class="math inline">\(x = (c,v)\)</span></li>
-<li>Positive discounted value
-<span class="math display">\[\begin{aligned}-c + β\cdot\sum_{s=1}^{\infty}δ^{s}\cdot v &amp;&gt; 0 \\
-  -c + βδ\cdot\sum_{s=0}^{\infty}δ^{s}\cdot v &amp;&gt; 0 \\
-  -c + βδ\cdot\frac{v}{1-δ} &amp;&gt; 0\end{aligned}\]</span></li>
+<li>Task: <span class="math inline">\(x = (c,v)\)</span>, <span class="math inline">\(x\in X\)</span></li>
+<li>Some tasks have positive discounted value
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}-c + β\cdot\sum_{s=1}^{\infty}δ^{s}\cdot v \\
+  &amp;= -c + βδ\cdot\sum_{s=0}^{\infty}δ^{s}\cdot v \\
+  &amp;= -c + βδ\cdot\frac{v}{1-δ} &gt; 0\end{aligned}\]</span></li>
 </ul></li>
 <li>Strategy profile: <span class="math inline">\(s = (a_1,a_2,\dots)\)</span>
 <ul>
 <li>Strategy: <span class="math inline">\(a_t\in X\cup \{\emptyset\}\)</span></li>
 <li>If chooses <span class="math inline">\(a_t = \emptyset\)</span>, move to <span class="math inline">\(t+1\)</span></li>
 <li>If chooses <span class="math inline">\(a_t\in X\)</span>, the game ends, enjoys <span class="math inline">\(v\)</span> in all future periods</li>
-<li>Procrastinate: <span class="math inline">\(s^{\emptyset} = (\emptyset, \emptyset,\dots)\)</span><br />
-when exists <span class="math inline">\(x\in X\)</span> with positive discounted value</li>
 </ul></li>
+<li>Procrastinate: chooses <span class="math inline">\(s^{\emptyset} = (\emptyset, \emptyset,\dots)\)</span> even when exists <span class="math inline">\(x\in X\)</span> with positive discounted value
+<ul>
 <li>Sophisticated agent never procrastinates</li>
 <li>Naive agent procrastinates <span class="math inline">\(\iff\)</span>
 <span class="math display">\[\max_{x\in X} \ -c + βδ\cdot\frac{v}{1-δ} \leq \max_{x\in X} \ βδ\Big( -c + δ\cdot\frac{v}{1-δ}\Big)\]</span></li>
+</ul></li>
 </ul>
 <blockquote>
-<p>Example (more options)<br />
+<p>Example: more options (slides P71)<br />
 Let <span class="math inline">\(β=\frac{1}{2}\)</span>, <span class="math inline">\(δ=\frac{1}{2}\)</span>, agent is naive<br />
-<span class="math inline">\(x_1 = \big(\frac{1}{4}, 1\big)\)</span>, <span class="math inline">\(x_2 = \big(\frac{3}{4}, 2\big)\)</span><br />
-1. Agent face only <span class="math inline">\(x_1\)</span><br />
-2. Agent face <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span></p>
+<span class="math inline">\(x_1 = \big(\frac{1}{4}, 1\big)\)</span>, <span class="math inline">\(x_2 = \big(\frac{3}{4}, 2\big)\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Agent face only <span class="math inline">\(x_1\)</span><br />
+</li>
+<li>Agent face <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span></li>
+</ol>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>For <span class="math inline">\(x_1\)</span><br />
@@ -1799,11 +1804,11 @@ In period <span class="math inline">\(t\)</span>,
 In period <span class="math inline">\(t+1\)</span>,
 <span class="math display">\[\begin{aligned}βδ\Big( -c + δ\cdot\frac{v}{1-δ}\Big) &amp;= \frac{1}{2}\cdot\frac{1}{2}\cdot\Big(-\frac{3}{4} + \frac{1}{2}\cdot\frac{2}{1-\frac{1}{2}}\Big)\\
 &amp;= \frac{5}{16} \end{aligned}\]</span>
-So the agent does not act in period <span class="math inline">\(t\)</span>, <span class="math inline">\(t+1\)</span> and so on<br />
+So the agent always believes that she will complete task <span class="math inline">\(x_2\)</span> tomorrow<br />
 Therefore, the agent procrastinates</li>
 </ol>
 <blockquote>
-<p>Example (improve options)<br />
+<p>Example: more important options (slides P72)<br />
 Let <span class="math inline">\(β=0.6\)</span>, agent is naive<br />
 1. <span class="math inline">\(δ=0.8\)</span>, <span class="math inline">\(x_1 = (0, 11)\)</span>, <span class="math inline">\(x_2 = (40, 20)\)</span><br />
 2. <span class="math inline">\(δ&#39;=0.9\)</span>, <span class="math inline">\(x_1 = (0, 11)\)</span>, <span class="math inline">\(x_2 = (40, 20)\)</span><br />
@@ -1811,10 +1816,13 @@ Let <span class="math inline">\(β=0.6\)</span>, agent is naive<br />
 4. <span class="math inline">\(δ=0.8\)</span>, <span class="math inline">\(x_1&#39;&#39; = (0, 44)\)</span>, <span class="math inline">\(x_2&#39;&#39; = (40, 80)\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Agent completes task <span class="math inline">\(x_1\)</span> immediately</li>
+<li>Agent completes task <span class="math inline">\(x_1\)</span> immediately<br />
+(1 –&gt; 2 importance is increased)</li>
 <li>Agent procrastinates</li>
-<li>Agent procrastinates</li>
-<li>Agent completes task <span class="math inline">\(x_2&#39;&#39;\)</span> immediately</li>
+<li>Agent procrastinates<br />
+(1 –&gt; 3 importance is increased)</li>
+<li>Agent completes task <span class="math inline">\(x_2&#39;&#39;\)</span> immediately<br />
+(3 –&gt; 4 importance is increased)</li>
 </ol>
 <blockquote>
 <p>PS4.Q3<br />
