@@ -580,7 +580,7 @@ U(x\ |\ y ) &amp;= μ(6-8) + μ(4-0) \\
 &amp;= 1 \end{aligned}\]</span></li>
 <li>When <span class="math inline">\(x\)</span> is the reference point
 <span class="math display">\[\begin{aligned}U(x\ |\ x ) &amp;= 0 \\
-U(z\ |\ x ) &amp;= μ( 4-6) + μ( 4-0)\\
+U(z\ |\ x ) &amp;= μ( 4-6) + μ( 8-4)\\
 &amp;= μ(-2) + μ(4)\\
 = 1 \end{aligned}\]</span></li>
 <li>When <span class="math inline">\(z\)</span> is the reference point
@@ -608,7 +608,7 @@ Show that:</p>
 <li>Let <span class="math inline">\(x\in X\)</span> be a personal equilibrium<br />
 FSOC assume there exists <span class="math inline">\(y\in X\)</span> s.t. <span class="math inline">\(x_1\leq y_1\)</span> and <span class="math inline">\(x_2\leq y_2\)</span><br />
 Since <span class="math inline">\(x\)</span> is personal equilibrium,
-<span class="math display">\[\begin{aligned}u(x\ |\ x) &amp;\leq u(y\ |\ x)\\
+<span class="math display">\[\begin{aligned}u(x\ |\ x) &amp;\geq u(y\ |\ x)\\
 x_1 + x_2 &amp;\geq y_1 + y_2 + μ( y_1- x_1) + μ(y_2 - x_2) \\
 0&amp;\geq \underbrace{(y_1- x_1)}_{&gt;0} + \underbrace{(y_2 - x_2)}_{&gt;0} + \underbrace{μ( y_1- x_1)}_{&gt;0} + \underbrace{μ(y_2 - x_2)}_{&gt;0} \end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> contradiction</li>
@@ -1289,14 +1289,14 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <span class="math display">\[\begin{aligned}τ=t &amp;&amp; U_t(τ) &amp;= v_t - β\cdot c_t\\
   τ&gt;t &amp;&amp; U_t(τ) &amp;= β\cdot (v_τ -c_τ) \end{aligned}\]</span></li>
 </ul></li>
-<li>Time-consistent agent: <span class="math inline">\(U_t(τ)\)</span> is same for all <span class="math inline">\(τ\)</span> <span class="math inline">\(\implies β=1\)</span>
+<li>Time-consistent agent: <span class="math inline">\(U_t(τ)\)</span> is same for all <span class="math inline">\(τ\implies β=1\)</span>
 <ul>
 <li>Acts in period t if
 <span class="math display">\[v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\]</span></li>
 <li>First action: <span class="math inline">\(τ^{TC}\)</span></li>
 <li>Optimal strategy: <span class="math inline">\(s^{TC} =\{N,N,\dots,N, \underbrace{Y}_{τ^{TC}},\dots\}\)</span></li>
 </ul></li>
-<li>Sophisticated agent: have correct expectations about future-selves’ behaviour
+<li>Sophisticated agent: knows <span class="math inline">\(β\neq 1\)</span>
 <ul>
 <li>Compares periods when she will act</li>
 <li>First action: <span class="math inline">\(τ^{S}\)</span><br />
@@ -1304,7 +1304,7 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <li>Optimal strategy: <span class="math inline">\(s^{S}\)</span><br />
 </li>
 </ul></li>
-<li>Naive agent: believe future-selves will behave like a time-consistent agent
+<li>Naive agent: thinks <span class="math inline">\(β=1\)</span>
 <ul>
 <li>Compares <span class="math inline">\(v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\)</span></li>
 <li>First action: <span class="math inline">\(τ^{N}\)</span><br />
@@ -1750,6 +1750,73 @@ For any period t, act if
 Welfare loss: <span class="math inline">\(T\cdot ε\implies\)</span> sophistication effect</li>
 <li>Naive agent delays <span class="math inline">\(\implies\)</span> less welfare loss</li>
 </ol>
+<blockquote>
+<p>PS4.Q3<br />
+An employer hires a worker who can exert an effort <span class="math inline">\(e \geq 0\)</span> to do a certain task.<br />
+Effort is observable so that the worker’s wage may depend directly on the chosen effort.<br />
+Consider a setup where the worker is quasi-hyperbolic discounter with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = \frac{3}{4}\)</span> and the firm is time-consistent with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = 1\)</span>.<br />
+The timing is as follows:</p>
+<ol style="list-style-type: decimal">
+<li>At <span class="math inline">\(t = 1\)</span> the employer offers the wage profile <span class="math inline">\(w(e)=F+αe\)</span>.<br />
+The worker decides whether to accept or reject the contract.<br />
+If she rejects the contract, she gets reservation utility <span class="math inline">\(u = 0\)</span> that she will enjoy at <span class="math inline">\(t = 3\)</span>.</li>
+<li>At <span class="math inline">\(t = 2\)</span>, if the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>, she chooses an effort level <span class="math inline">\(e\in [0, 1]\)</span> and bears an immediate cost of effort <span class="math inline">\(-\frac{1}{2}e^2\)</span>.<br />
+If the worker has rejected the contract at <span class="math inline">\(t = 1\)</span>, nothing happens.</li>
+<li>At <span class="math inline">\(t = 3\)</span>, if the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>, she enjoys the wage <span class="math inline">\(w(e)\)</span>.<br />
+If the worker has rejected the contract at <span class="math inline">\(t = 1\)</span>, she enjoys the reservation utility <span class="math inline">\(\bar{u}\)</span>, the firm makes zero profit.<br />
+If the worker has accepted the contract at <span class="math inline">\(t = 1\)</span> the firm earns <span class="math inline">\(e\)</span> and pays cost <span class="math inline">\(w(e)\)</span>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Assume the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>.<br />
+What is the optimal effort <span class="math inline">\(e^N\)</span> and <span class="math inline">\(e^S\)</span> in <span class="math inline">\(t = 2\)</span> if the agent is naive and sophisticated, respectively?<br />
+What is the optimal effort <span class="math inline">\(e^{TC}\)</span> of a time-consistent worker in <span class="math inline">\(t = 2\)</span>?</li>
+<li>For a given <span class="math inline">\(α\)</span>, determine the smallest <span class="math inline">\(F\)</span> so that the naive worker still accepts the contract.<br />
+Determine the corresponding values of <span class="math inline">\(F\)</span> for the sophisticated and the time-consistent worker.</li>
+<li>Determine the optimal contract <span class="math inline">\(F, α\)</span> for the firm when it faces a naive worker under the constraint that the worker accepts the contract.<br />
+Show that the naive agent gets less than her reservation utility under this contract.</li>
+<li>Would a sophisticated agent accept the optimal contract under (c)? Explain why or why not.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Assume the worker accepts contract. At period 2, worker’s problem:
+<span class="math display">\[\begin{aligned}\max_e &amp;&amp; u_2 &amp;= -\frac{1}{2}e^2 + βδ\cdot w(e) \\
+&amp;&amp; &amp;= -\frac{1}{2}e^2 + β\cdot(F+αe) \\
+FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + βα\overset{!}{=} 0 \\
+&amp;&amp; e^S = e^N &amp;= αβ \\
+&amp;&amp; &amp;= \frac{3}{4}α \\
+&amp;&amp; e^{TC} &amp;= α \end{aligned}\]</span></li>
+<li>At period 1, agents accepts if
+<span class="math display">\[\begin{aligned}(PC) &amp;&amp; β\cdot \Big(δ\cdot \big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e)\Big) &amp;\geq 0 \\
+&amp;&amp; δ\cdot\big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e) &amp;\geq 0 \\
+&amp;&amp; -\frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
+\text{Time consistent} &amp;&amp; - \frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
+&amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
+&amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
+\text{Naive} &amp;&amp; - \frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
+&amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
+&amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
+\text{Sophisticated} &amp;&amp; - \frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
+&amp;&amp; -\frac{1}{2}(αβ)^2 + F + βα^2 &amp;\geq 0 \\
+&amp;&amp; F &amp;= \frac{1}{2}(αβ)^2 - βα^2 \\
+&amp;&amp; &amp;= -\frac{15}{32}α^2\end{aligned}\]</span></li>
+<li>Firm’s problem:
+<span class="math display">\[\begin{aligned}\max_{α,F} &amp;&amp; &amp;\phantom{\ggg}e^N - (F+αe^N) \\
+&amp;&amp; &amp;= αβ - (F+α^2β)\\
+(PC) &amp;&amp; &amp;F = - \frac{1}{2}α^2 \end{aligned}\]</span>
+plug in
+<span class="math display">\[\begin{aligned}\max_{α} &amp;&amp; αβ &amp;- \Big(- \frac{1}{2}α^2+α^2β\Big) \\
+FOC &amp;&amp; \frac{\partial}{\partial α} &amp;= β - (-α + 2αβ )\overset{!}{=} 0\\
+&amp;&amp; &amp;= \frac{3}{4} + α - \frac{3}{2}α \\
+&amp;&amp; α^N &amp;= \frac{3}{2} \\
+&amp;&amp; F^N &amp;= -\frac{9}{8} \end{aligned}\]</span>
+:) Naive agent actually ends up with less than <span class="math inline">\(\bar{u} =0\)</span><br />
+<span class="math display">\[\begin{aligned}u(e^N) &amp;= F + βα^2- \frac{1}{2}(αβ)^2 \\
+&amp;= -\frac{9}{8} + \frac{3}{4}\Big( \frac{3}{2}\Big)^2 - \frac{1}{2}\Big( \frac{3}{2}\cdot \frac{3}{4}\Big)^2 \\
+&amp;= -\frac{9}{128} &lt;0 \end{aligned}\]</span></li>
+<li>No.<br />
+The sophisticated agent would require <span class="math inline">\(F^S&gt;F^N\)</span> for (PC).<br />
+<span class="math inline">\(F = \frac{1}{2}(αβ)^2 - βα^2\)</span>?</li>
+</ol>
 </div>
 <div id="procrastination-in-infinite-time" class="section level3">
 <h3>Procrastination in Infinite Time</h3>
@@ -1823,68 +1890,6 @@ Let <span class="math inline">\(β=0.6\)</span>, agent is naive<br />
 (1 –&gt; 3 importance is increased)</li>
 <li>Agent completes task <span class="math inline">\(x_2&#39;&#39;\)</span> immediately<br />
 (3 –&gt; 4 importance is increased)</li>
-</ol>
-<blockquote>
-<p>PS4.Q3<br />
-An employer hires a worker who can exert an effort <span class="math inline">\(e \geq 0\)</span> to do a certain task.<br />
-Effort is observable so that the worker’s wage may depend directly on the chosen effort.<br />
-Consider a setup where the worker is quasi-hyperbolic discounter with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = \frac{3}{4}\)</span> and the firm is time-consistent with <span class="math inline">\(δ = 1\)</span> and <span class="math inline">\(β = 1\)</span>.<br />
-The timing is as follows:</p>
-<ol style="list-style-type: decimal">
-<li>At <span class="math inline">\(t = 1\)</span> the employer offers the wage profile <span class="math inline">\(w(e)=F+αe\)</span>.<br />
-The worker decides whether to accept or reject the contract.<br />
-If she rejects the contract, she gets reservation utility <span class="math inline">\(u = 0\)</span> that she will enjoy at <span class="math inline">\(t = 3\)</span>.</li>
-<li>At <span class="math inline">\(t = 2\)</span>, if the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>, she chooses an effort level <span class="math inline">\(e\in [0, 1]\)</span> and bears an immediate cost of effort <span class="math inline">\(-\frac{1}{2}e^2\)</span>.<br />
-If the worker has rejected the contract at <span class="math inline">\(t = 1\)</span>, nothing happens.</li>
-<li>At <span class="math inline">\(t = 3\)</span>, if the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>, she enjoys the wage <span class="math inline">\(w(e)\)</span>.<br />
-If the worker has rejected the contract at <span class="math inline">\(t = 1\)</span>, she enjoys the reservation utility <span class="math inline">\(\bar{u}\)</span>, the firm makes zero profit.<br />
-If the worker has accepted the contract at <span class="math inline">\(t = 1\)</span> the firm earns <span class="math inline">\(e\)</span> and pays cost <span class="math inline">\(w(e)\)</span>.</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li>Assume the worker has accepted the contract at <span class="math inline">\(t = 1\)</span>.<br />
-What is the optimal effort <span class="math inline">\(e^N\)</span> and <span class="math inline">\(e^S\)</span> in <span class="math inline">\(t = 2\)</span> if the agent is naive and sophisticated, respectively?<br />
-What is the optimal effort <span class="math inline">\(e^{TC}\)</span> of a time-consistent worker in <span class="math inline">\(t = 2\)</span>?</li>
-<li>For a given <span class="math inline">\(α\)</span>, determine the smallest <span class="math inline">\(F\)</span> so that the naive worker still accepts the contract.<br />
-Determine the corresponding values of <span class="math inline">\(F\)</span> for the sophisticated and the time-consistent worker.</li>
-<li>Determine the optimal contract <span class="math inline">\(F, α\)</span> for the firm when it faces a naive worker under the constraint that the worker accepts the contract.<br />
-Show that the naive agent gets less than her reservation utility under this contract.</li>
-<li>Would a sophisticated agent accept the optimal contract under (c)? Explain why or why not.</li>
-</ol>
-</blockquote>
-<ol style="list-style-type: lower-alpha">
-<li>Assume the worker accepts contract. At period 2, worker’s problem:
-<span class="math display">\[\begin{aligned}\max_e &amp;&amp; u_2 &amp;= -\frac{1}{2}e^2 + βδ\cdot w(e) \\
-&amp;&amp; &amp;= -\frac{1}{2}e^2 + β\cdot(F+αe) \\
-FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + βα\overset{!}{=} 0 \\
-&amp;&amp; e^{TC} &amp;= α \\
-&amp;&amp; e^S = e^N &amp;= αβ \\
-&amp;&amp; &amp;= \frac{3}{4}α \end{aligned}\]</span></li>
-<li>Agent accepts if
-<span class="math display">\[\begin{aligned}(PC) &amp;&amp; F + α\cdot e - \frac{1}{2}e^2 &amp;\geq 0 \\
-\text{Time consistent} &amp;&amp; F + α^2 - \frac{1}{2}α^2 &amp;\geq 0 \\
-&amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
-\text{Naive} &amp;&amp; F + α^2 - \frac{1}{2}α^2 &amp;\geq 0 \\
-&amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
-\text{Sophisticated} &amp;&amp; F + βα^2- \frac{1}{2}(αβ)^2 &amp;\geq 0 \\
-&amp;&amp; F &amp;= \frac{1}{2}(αβ)^2 - βα^2 \\
-&amp;&amp; &amp;= -\frac{15}{32}α^2\end{aligned}\]</span></li>
-<li>Firm’s problem:
-<span class="math display">\[\begin{aligned}\max_{α,F} &amp;&amp; &amp;\phantom{\ggg}e^N - (F+αe^N) \\
-&amp;&amp; &amp;= αβ - (F+α^2β)\\
-(PC) &amp;&amp; &amp;F = - \frac{1}{2}α^2 \end{aligned}\]</span>
-plug in
-<span class="math display">\[\begin{aligned}\max_{α} &amp;&amp; αβ &amp;- \Big(- \frac{1}{2}α^2+α^2β\Big) \\
-FOC &amp;&amp; \frac{\partial}{\partial α} &amp;= β - (-α + 2αβ )\overset{!}{=} 0\\
-&amp;&amp; &amp;= \frac{3}{4} + α - \frac{3}{2}α \\
-&amp;&amp; α^N &amp;= \frac{3}{2} \\
-&amp;&amp; F^N &amp;= -\frac{9}{8} \end{aligned}\]</span>
-:) Naive agent actually ends up with less than <span class="math inline">\(\bar{u} =0\)</span><br />
-<span class="math display">\[\begin{aligned}u(e^N) &amp;= F + βα^2- \frac{1}{2}(αβ)^2 \\
-&amp;= -\frac{9}{8} + \frac{3}{4}\Big( \frac{3}{2}\Big)^2 - \frac{1}{2}\Big( \frac{3}{2}\cdot \frac{3}{4}\Big)^2 \\
-&amp;= -\frac{9}{128} &lt;0 \end{aligned}\]</span></li>
-<li>No.<br />
-The sophisticated agent would require <span class="math inline">\(F^S&gt;F^N\)</span> for (PC).<br />
-<span class="math inline">\(F = \frac{1}{2}(αβ)^2 - βα^2\)</span>?</li>
 </ol>
 </div>
 <div id="monopolistic-market" class="section level3">
