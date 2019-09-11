@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">78 min read</span>
+    <span class="article-duration">79 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -122,7 +122,12 @@ if (!doNotTrack) {
 <li><a href="#immediate-rewards">Immediate Rewards</a></li>
 <li><a href="#welfare-effect">Welfare Effect</a></li>
 <li><a href="#procrastination-in-infinite-time">Procrastination in Infinite Time</a></li>
+</ul></li>
+<li><a href="#time-preference-market-response">Time Preference: Market Response</a><ul>
 <li><a href="#monopolistic-market">Monopolistic Market</a></li>
+<li><a href="#time-consistent-consumer">Time Consistent Consumer</a></li>
+<li><a href="#sophisticated-consumer">Sophisticated Consumer</a></li>
+<li><a href="#partially-naive-consumer">Partially Naive Consumer</a></li>
 <li><a href="#competitive-market">Competitive Market</a></li>
 <li><a href="#shrouded-attributes">Shrouded Attributes</a></li>
 </ul></li>
@@ -957,7 +962,7 @@ When price is <span class="math inline">\(p_l\)</span>,<br />
 U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
 When price is <span class="math inline">\(p_h\)</span>,<br />
 <span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-(-p_l)) + (v-v)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
-U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-(-p_l)) + λ(0-v)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
 Therefore, if <span class="math inline">\(U(b,p_l\ |\ R)\geq U(n,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,b)\)</span> is a PE.</li>
 <li>Let the plan be <span class="math inline">\((n,b)\)</span><br />
 Induced reference lottery: <span class="math inline">\(R(n,b) = \begin{pmatrix}0.5 &amp; 0.5\\ (0,0) &amp; (v,-p_h)\end{pmatrix}\)</span><br />
@@ -966,8 +971,8 @@ When price is <span class="math inline">\(p_l\)</span>,<br />
 U(n,p_l\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
 When price is <span class="math inline">\(p_h\)</span>,<br />
 <span class="math display">\[\begin{aligned}U(b,p_h\ |\ R) = v - p_h &amp;+ 0.5\big[λ(-p_h-0 + (v-0)\big] \\ &amp; + 0.5\big[(-p_h-(-p_h)) + (v-v)\big] \\
-U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + (0-v)\big]\end{aligned}\]</span>
-Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((b,n)\)</span> is a PE.</li>
+U(n,p_h\ |\ R) = 0 - 0 &amp;+ 0.5\big[(0-0) + (0-0)\big] \\ &amp;+ 0.5\big[(0-(-p_h)) + λ(0-v)\big]\end{aligned}\]</span>
+Therefore, if <span class="math inline">\(U(n,p_l\ |\ R)\geq U(b,p_l\ |\ R)\)</span> and <span class="math inline">\(U(b,p_h\ |\ R)\geq U(n,p_h\ |\ R)\)</span>, then <span class="math inline">\((n,b)\)</span> is a PE.</li>
 </ol>
 <blockquote>
 <p>PS3.Q1<br />
@@ -1789,14 +1794,11 @@ FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + βα\overset{!}{=} 0 \\
 <span class="math display">\[\begin{aligned}(PC) &amp;&amp; β\cdot \Big(δ\cdot \big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e)\Big) &amp;\geq 0 \\
 &amp;&amp; δ\cdot\big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e) &amp;\geq 0 \\
 &amp;&amp; -\frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
-\text{Time consistent} &amp;&amp; - \frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
-&amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
+\text{Time consistent} &amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
 &amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
-\text{Naive} &amp;&amp; - \frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
-&amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
+\text{Naive} &amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
 &amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
-\text{Sophisticated} &amp;&amp; - \frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
-&amp;&amp; -\frac{1}{2}(αβ)^2 + F + βα^2 &amp;\geq 0 \\
+\text{Sophisticated} &amp;&amp; -\frac{1}{2}(αβ)^2 + F + βα^2 &amp;\geq 0 \\
 &amp;&amp; F &amp;= \frac{1}{2}(αβ)^2 - βα^2 \\
 &amp;&amp; &amp;= -\frac{15}{32}α^2\end{aligned}\]</span></li>
 <li>Firm’s problem:
@@ -1814,8 +1816,7 @@ FOC &amp;&amp; \frac{\partial}{\partial α} &amp;= β - (-α + 2αβ )\overset{!
 &amp;= -\frac{9}{8} + \frac{3}{4}\Big( \frac{3}{2}\Big)^2 - \frac{1}{2}\Big( \frac{3}{2}\cdot \frac{3}{4}\Big)^2 \\
 &amp;= -\frac{9}{128} &lt;0 \end{aligned}\]</span></li>
 <li>No.<br />
-The sophisticated agent would require <span class="math inline">\(F^S&gt;F^N\)</span> for (PC).<br />
-<span class="math inline">\(F = \frac{1}{2}(αβ)^2 - βα^2\)</span>?</li>
+The sophisticated agent would require <span class="math inline">\(F^S = \frac{1}{2}(αβ)^2 - βα^2\)</span> for (PC).</li>
 </ol>
 </div>
 <div id="procrastination-in-infinite-time" class="section level3">
@@ -1856,23 +1857,17 @@ Let <span class="math inline">\(β=\frac{1}{2}\)</span>, <span class="math inlin
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>For <span class="math inline">\(x_1\)</span><br />
-In period <span class="math inline">\(t\)</span>,
-<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= -\frac{1}{4} + \frac{1}{2}\cdot\frac{1}{2}\cdot\frac{1}{1-\frac{1}{2}} \\
-&amp;= \frac{1}{4} \end{aligned}\]</span>
+<li>For <span class="math inline">\(x_1\)</span>, in period <span class="math inline">\(t\)</span>,
+<span class="math display">\[-c + βδ\cdot\frac{v}{1-δ} = -\frac{1}{4} + \frac{1}{2}\cdot\frac{1}{2}\cdot\frac{1}{1-\frac{1}{2}} = \frac{1}{4}\]</span>
 In period <span class="math inline">\(t+1\)</span>,
-<span class="math display">\[\begin{aligned}βδ\Big( -c + δ\cdot\frac{v}{1-δ}\Big) &amp;= \frac{1}{2}\cdot\frac{1}{2}\cdot\Big(-\frac{1}{4} + \frac{1}{2}\cdot\frac{1}{1-\frac{1}{2}}\Big)\\
-&amp;= \frac{3}{16} \end{aligned}\]</span>
+<span class="math display">\[βδ\Big( -c + δ\cdot\frac{v}{1-δ}\Big) = \frac{1}{2}\cdot\frac{1}{2}\cdot\Big(-\frac{1}{4} + \frac{1}{2}\cdot\frac{1}{1-\frac{1}{2}}\Big) = \frac{3}{16}\]</span>
 Therefore, the agent does not procrastinate</li>
-<li>For <span class="math inline">\(x_2\)</span><br />
-In period <span class="math inline">\(t\)</span>,
-<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= -\frac{3}{4} + \frac{1}{2}\cdot\frac{1}{2}\cdot\frac{2}{1-\frac{1}{2}} \\
-&amp;= \frac{1}{4} \end{aligned}\]</span>
+<li>For <span class="math inline">\(x_2\)</span>, in period <span class="math inline">\(t\)</span>,
+<span class="math display">\[-c + βδ\cdot\frac{v}{1-δ} = -\frac{3}{4} + \frac{1}{2}\cdot\frac{1}{2}\cdot\frac{2}{1-\frac{1}{2}} = \frac{1}{4}\]</span>
 In period <span class="math inline">\(t+1\)</span>,
-<span class="math display">\[\begin{aligned}βδ\Big( -c + δ\cdot\frac{v}{1-δ}\Big) &amp;= \frac{1}{2}\cdot\frac{1}{2}\cdot\Big(-\frac{3}{4} + \frac{1}{2}\cdot\frac{2}{1-\frac{1}{2}}\Big)\\
-&amp;= \frac{5}{16} \end{aligned}\]</span>
+<span class="math display">\[βδ\Big( -c + δ\cdot\frac{v}{1-δ}\Big) = \frac{1}{2}\cdot\frac{1}{2}\cdot\Big(-\frac{3}{4} + \frac{1}{2}\cdot\frac{2}{1-\frac{1}{2}}\Big)= \frac{5}{16}\]</span>
 So the agent always believes that she will complete task <span class="math inline">\(x_2\)</span> tomorrow<br />
-Therefore, the agent procrastinates</li>
+When the agent face <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> at the same time, the long term utility of <span class="math inline">\(x_2&gt;x_1\)</span>, so the agent always believes that she will choose and complete task <span class="math inline">\(x_2\)</span> tomorrow, therefore, the agent procrastinates</li>
 </ol>
 <blockquote>
 <p>Example: more important options (slides P72)<br />
@@ -1883,26 +1878,54 @@ Let <span class="math inline">\(β=0.6\)</span>, agent is naive<br />
 4. <span class="math inline">\(δ=0.8\)</span>, <span class="math inline">\(x_1&#39;&#39; = (0, 44)\)</span>, <span class="math inline">\(x_2&#39;&#39; = (40, 80)\)</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li>Agent completes task <span class="math inline">\(x_1\)</span> immediately<br />
-(1 –&gt; 2 importance is increased)</li>
-<li>Agent procrastinates</li>
-<li>Agent procrastinates<br />
-(1 –&gt; 3 importance is increased)</li>
-<li>Agent completes task <span class="math inline">\(x_2&#39;&#39;\)</span> immediately<br />
-(3 –&gt; 4 importance is increased)</li>
+<li>For <span class="math inline">\(x_1\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= 0.6\cdot 0.8\cdot\frac{11}{1-0.8} =26.4 \\
+βδ\cdot\Big(-c + δ\cdot\frac{v}{1-δ}\Big) &amp;= 0.6\cdot 0.8\cdot 0.8\cdot\frac{11}{1-0.8}= 21.12  \end{aligned}\]</span>
+For <span class="math inline">\(x_2\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= -40 + 0.6\cdot 0.8\cdot\frac{20}{1-0.8} = 8 \\
+βδ\cdot\Big(-c + δ\cdot\frac{v}{1-δ}\Big) &amp;= 0.6\cdot 0.8\cdot\Big( -40 + 0.8\cdot\frac{20}{1-0.8}\Big) = 19.2 \end{aligned}\]</span>
+Therefore, the agent completes task <span class="math inline">\(x_1\)</span> immediately</li>
+<li>(1 –&gt; 2 importance of completing today is increased)<br />
+For <span class="math inline">\(x_1\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ&#39;\cdot\frac{v}{1-δ&#39;} &amp;= 0.6\cdot 0.9\cdot\frac{11}{1-0.9} = 59.4 \\
+βδ&#39;\cdot\Big(-c + δ&#39;\cdot\frac{v}{1-δ&#39;}\Big) &amp;= 0.6\cdot 0.9\cdot 0.9\cdot\frac{11}{1-0.9} = 53.46  \end{aligned}\]</span>
+For <span class="math inline">\(x_2\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ&#39;\cdot\frac{v}{1-δ&#39;} &amp;= -40 + 0.6\cdot 0.9\cdot\frac{20}{1-0.9} = 68 \\
+βδ&#39;\cdot\Big(-c + δ&#39;\cdot\frac{v}{1-δ&#39;}\Big) &amp;= 0.6\cdot 0.9\cdot\Big( -40 + 0.9\cdot\frac{20}{1-0.9}\Big) = 75.6 \end{aligned}\]</span>
+Therefore, the agent thinks that she will complete task <span class="math inline">\(x_2\)</span> tomorrow<br />
+<span class="math inline">\(\implies\)</span> procrastination</li>
+<li>(1 –&gt; 3 importance of both tasks are doubled)<br />
+For <span class="math inline">\(x_1&#39;\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= 0.6\cdot 0.8\cdot\frac{22}{1-0.8} = 52.8 \\
+βδ\cdot\Big(-c + δ\cdot\frac{v}{1-δ}\Big) &amp;= 0.6\cdot 0.8\cdot 0.8\cdot\frac{22}{1-0.8} = 42.24 \end{aligned}\]</span>
+For <span class="math inline">\(x_2&#39;\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= -40 + 0.6\cdot 0.8\cdot\frac{40}{1-0.8} = 56 \\
+βδ\cdot\Big(-c + δ\cdot\frac{v}{1-δ}\Big) &amp;= 0.6\cdot 0.8\cdot\Big( -40 + 0.8\cdot\frac{40}{1-0.8}\Big) = 57.6 \end{aligned}\]</span>
+Therefore, the agent thinks that she will complete task <span class="math inline">\(x_2\)</span> tomorrow<br />
+<span class="math inline">\(\implies\)</span> procrastination</li>
+<li>(1 –&gt; 4 importance of both tasks are quadrupled)<br />
+For <span class="math inline">\(x_1&#39;&#39;\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= 0.6\cdot 0.8\cdot\frac{44}{1-0.8} = 105.6 \\
+βδ\cdot\Big(-c + δ\cdot\frac{v}{1-δ}\Big) &amp;= 0.6\cdot 0.8\cdot 0.8\cdot\frac{44}{1-0.8} = 84.48 \end{aligned}\]</span>
+For <span class="math inline">\(x_2&#39;&#39;\)</span>,
+<span class="math display">\[\begin{aligned}-c + βδ\cdot\frac{v}{1-δ} &amp;= -40 + 0.6\cdot 0.8\cdot\frac{80}{1-0.8} = 152 \\
+βδ\cdot\Big(-c + δ\cdot\frac{v}{1-δ}\Big) &amp;= 0.6\cdot 0.8\cdot\Big( -40 + 0.8\cdot\frac{80}{1-0.8}\Big) = 134.4 \end{aligned}\]</span>
+Therefore, the agent completes task <span class="math inline">\(x_2&#39;&#39;\)</span> immediately</li>
 </ol>
 </div>
+</div>
+<div id="time-preference-market-response" class="section level2">
+<h2>Time Preference: Market Response</h2>
 <div id="monopolistic-market" class="section level3">
 <h3>Monopolistic Market</h3>
 <ul>
-<li>Time: <span class="math inline">\(t=0,1,2\)</span></li>
 <li>Monopolistic firm provides good in period 2
 <ul>
 <li>Fixed cost: <span class="math inline">\(K\)</span></li>
 <li>Marginal cost: <span class="math inline">\(α\)</span></li>
 <li>Price: <span class="math inline">\((L, p)\)</span></li>
 </ul></li>
-<li>Agent considers consumption in period 1
+<li>Consumer
 <ul>
 <li>Immediate cost: <span class="math inline">\(c\in[0,1]\)</span>, cdf: <span class="math inline">\(F(c)\)</span>, pdf: <span class="math inline">\(f(c)\)</span></li>
 <li>Benefit in period 2: <span class="math inline">\(b\in(0,1)\)</span></li>
@@ -1910,91 +1933,118 @@ Let <span class="math inline">\(β=0.6\)</span>, agent is naive<br />
 </ul></li>
 <li>Timing
 <ol start="0" style="list-style-type: decimal">
-<li>Firm offers <span class="math inline">\((L, p)\)</span><br />
-Agent chooses to accept or reject</li>
-<li>Agent pays <span class="math inline">\(-L\)</span>, learns <span class="math inline">\(c\)</span><br />
-Agent chooses to consume or not, if consume, pays <span class="math inline">\(-p\)</span> and <span class="math inline">\(-c\)</span></li>
-<li>If agent consume, receive <span class="math inline">\(b\)</span></li>
+<li>Firm offers contract <span class="math inline">\((L, p)\)</span><br />
+Consumer chooses to accept or reject the contract</li>
+<li>If accepted, consumer pays <span class="math inline">\(-L\)</span>, learns <span class="math inline">\(c\)</span><br />
+Consumer chooses to consume or not, if consume, pays <span class="math inline">\(-p\)</span> and <span class="math inline">\(-c\)</span></li>
+<li>If consumed, consumer receive <span class="math inline">\(b\)</span></li>
 </ol></li>
-<li>Time-consistent agent
+</ul>
+</div>
+<div id="time-consistent-consumer" class="section level3">
+<h3>Time Consistent Consumer</h3>
+<ul>
+<li>Time-consistent consumer
 <ul>
 <li><span class="math inline">\(β=1\)</span></li>
 <li>In period 1, consumes <span class="math inline">\(\iff\)</span>
 <span class="math display">\[\begin{aligned}δ\cdot b-c-p &amp;\geq 0 \\ c &amp;\leq δ\cdot b - p\end{aligned}\]</span></li>
 <li>In period 0, expected utility of accepting the contract:
-<span class="math display">\[\begin{aligned}U^{TC} &amp;= δ\cdot\big[ -L + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\cdot f(c)\, dc\big] \\
+<span class="math display">\[\begin{aligned}U^{TC} &amp;= E_c\big[ δ\cdot( - L - c - p + δ\cdot b )\big] \\
+  &amp;= δ\cdot\big[ -L + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\cdot f(c)\, dc\big] \\
   &amp;= δ\cdot\big[ -L + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big]\end{aligned}\]</span>
 Expected utility of rejecting the contract: <span class="math display">\[δ\cdot\bar{u}\]</span></li>
+</ul></li>
 <li>Firm’s problem:
-<span class="math display">\[\begin{aligned}\max_{L,p} &amp;&amp; &amp;π(L,p) = δ\cdot\big[ L-K + \int_0^{δ\cdot b - p} (p-α)\, dF(c)\big] \\
-  (PC) &amp;&amp; &amp;U^{TC}\geq δ\cdot\bar{u}\end{aligned}\]</span>
-Since (PC) be binding at optimal, firm charges s.t. <span class="math inline">\(U^{TC} = δ\cdot\bar{u}\)</span><br />
-Plug back into period 0 expected utility,
+<span class="math display">\[\begin{aligned}\max_{L,p} &amp;&amp; π(L,p) &amp;= E_c\big[δ\cdot(- K + L + p - α)\big] \\
+&amp;&amp; &amp;= δ\cdot\big[ L-K + \int_0^{δ\cdot b - p}(p-α)\, dF(c)\big] \\
+(PC) &amp;&amp; U^{TC}&amp;\geq δ\cdot\bar{u}\end{aligned}\]</span>
+Since (PC) is binding at optimal, firm charges s.t. <span class="math inline">\(U^{TC} = δ\cdot\bar{u}\)</span><br />
+Plug back into consumer’s period 0 expected utility,
 <span class="math display">\[\begin{aligned}δ\cdot\bar{u} &amp;= δ\cdot\big[ -L + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big] \\
-  L &amp;= -\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c) \end{aligned}\]</span>
+\bar{u} &amp;= -L + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c) \\
+L &amp;= -\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\end{aligned}\]</span>
 Plug back into firm’s problem
-<span class="math display">\[\begin{aligned}π(L,p) &amp;= δ\cdot\big[ \underbrace{-\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}_{L} -K + \int_0^{δ\cdot b - p} (p-α)\, dF(c)\big] \\
-  &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
-Therefore, firm maximizes the joint surplus of firm and consumer at period 0<br />
-<span class="math inline">\(\implies\)</span> at period 0, consumption gives total surplus: <span class="math inline">\(δ\cdot [δ\cdot b - c-α]\)</span><br />
+<span class="math display">\[\begin{aligned}π(p) &amp;= δ\cdot\big[ \overbrace{-\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}^{L} -K + \int_0^{δ\cdot b - p} (p-α)\, dF(c)\big] \\
+&amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
+<!--Therefore, firm maximizes the joint surplus of firm and consumer at period 0  
+$\implies$ at period 0, consumption gives total surplus: $δ\cdot [δ\cdot b - c-α]$   -->
 Plug back into firm’s problem:
-<span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(L,p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b -c - α)\, dF(c)\big] \\
-  &amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
-  FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
-  &amp;&amp; &amp;= -\big( δ\cdot b - (\underbrace{δ\cdot b - p}_{c}) -α\big) \overset{!}{=} 0 \\
-  &amp;&amp; p^{TC} &amp;= α \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
+FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
+&amp;&amp; &amp;= δ\cdot (δ\cdot b - c - α)\Big|^{c=δ\cdot b - p}_{c=0} \\
+&amp;&amp; &amp;= δ\cdot b - (δ\cdot b - p) -α \overset{!}{=} 0 \\
+&amp;&amp; p^{TC} &amp;= α \end{aligned}\]</span>
+<ul>
 <li>Price = marginal cost</li>
 </ul></li>
-<li>Sophisticated agent
+</ul>
+</div>
+<div id="sophisticated-consumer" class="section level3">
+<h3>Sophisticated Consumer</h3>
 <ul>
-<li><span class="math inline">\(β&lt;1\)</span> (aware)</li>
+<li>Sophisticated consumer
+<ul>
+<li><span class="math inline">\(β&lt;1\)</span> (consumer is aware of this)</li>
 <li>In period 1, consumes <span class="math inline">\(\iff\)</span>
 <span class="math display">\[\begin{aligned}βδ\cdot b-c-p &amp;\geq 0 \\ c &amp;\leq βδ\cdot b - p\end{aligned}\]</span></li>
 <li>In period 0, expected utility of accepting the contract:
-<span class="math display">\[\begin{aligned}U^{S} &amp;= βδ\cdot\big[ -L + \int_0^{βδ\cdot b - p} (δ\cdot b - c - p)\cdot f(c)\, dc\big] \\
+<span class="math display">\[\begin{aligned}U^{S} &amp;= E_c\big[ βδ\cdot( - L - c - p + δ\cdot b )\big] \\ 
+  &amp;= βδ\cdot\big[ -L + \int_0^{βδ\cdot b - p} (δ\cdot b - c - p)\cdot f(c)\, dc\big] \\
   &amp;= βδ\cdot\big[ -L + \int_0^{βδ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big]\end{aligned}\]</span>
 Expected utility of rejecting the contract: <span class="math display">\[βδ\cdot\bar{u}\]</span></li>
+</ul></li>
 <li>Firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{L,p} &amp;&amp; &amp;π(L,p) = δ\cdot\big[ L-K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
-  (PC) &amp;&amp; &amp;U^{S}\geq βδ\cdot\bar{u}\end{aligned}\]</span>
+(PC) &amp;&amp; &amp;U^{S}\geq βδ\cdot\bar{u}\end{aligned}\]</span>
 Since (PC) be binding at optimal, firm charges s.t. <span class="math inline">\(U^{S} = βδ\cdot\bar{u}\)</span><br />
-Plug back into period 0 expected utility <span class="math inline">\(\implies\)</span> firm’s problem:
-<span class="math display">\[\begin{aligned}π(L,p) &amp;= δ\cdot\big[ -\bar{u} + \int_0^{βδ\cdot b - p} (δ\cdot b - c -p)\, dF(c) -K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
-  &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
-<span class="math inline">\(\implies\)</span> at period 0, consumption gives total surplus: <span class="math inline">\(δ\cdot [δ\cdot b - c-α]\)</span><br />
+Plug back into period 0 expected utility<br />
+<span class="math inline">\(\implies\)</span> firm’s problem:
+<span class="math display">\[\begin{aligned}π(p) &amp;= δ\cdot\big[ \overbrace{-\bar{u} + \int_0^{βδ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}^{L} - K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
+&amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
+<!-- $\implies$ at period 0, consumption gives total surplus: $δ\cdot [δ\cdot b - c-α]$   -->
 Plug back into firm’s problem:
-<span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(L,p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c - α)\, dF(c)\big] \\
-  &amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
-  FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
-  &amp;&amp; &amp;= -\big( δ\cdot b - (βδ\cdot b - p) -α\big) \overset{!}{=} 0 \\
-  &amp;&amp; p^{S} &amp;= α - \underbrace{(1-β)δ\cdot b}_{\text{Commitment value}} \end{aligned}\]</span></li>
-<li>Price &lt; marginal cost (but still efficient)</li>
-<li>Firm sells commitment: <span class="math inline">\(L\)</span> is chosen s.t. (PC) is binding</li>
+<span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c - α)\, dF(c)\big] \\
+&amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
+FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
+&amp;&amp; &amp;= δ\cdot b - (βδ\cdot b - p) -α \overset{!}{=} 0 \\
+&amp;&amp; p^{S} &amp;= α - \underbrace{(1-β)δ\cdot b}_{\text{Commitment value}} \end{aligned}\]</span>
+<ul>
+<li>Price &lt; marginal cost (still efficient)</li>
+<li>Firm induces commitment of consumer’s self 1 s.t. self 0 is willing to accept</li>
 </ul></li>
-<li>Partially naive agent
+</ul>
+</div>
+<div id="partially-naive-consumer" class="section level3">
+<h3>Partially Naive Consumer</h3>
+<ul>
+<li>Partially naive consumer
 <ul>
 <li><span class="math inline">\(β&lt;1\)</span></li>
 <li>Wrong belief (overconfidence): <span class="math inline">\(\hat{β}\in (β,1]\)</span><br />
-for sophisticated agent, <span class="math inline">\(\hat{β}=β\)</span><br />
-for time-consistent agent, <span class="math inline">\(\hat{β}=β=1\)</span></li>
-<li>Firm knows that the agent is naive</li>
-<li>In period 1, agent expect themself to consume <span class="math inline">\(\iff\)</span>
+for sophisticated consumer, <span class="math inline">\(\hat{β}=β&lt;1\)</span><br />
+for time-consistent consumer, <span class="math inline">\(\hat{β}=β=1\)</span></li>
+<li>Firm knows that the consumer is naive</li>
+<li>In period 1, consumer expect themself to consume <span class="math inline">\(\iff\)</span>
 <span class="math display">\[\begin{aligned}\hat{β}δ\cdot b-c-p &amp;\geq 0 \\ c &amp;\leq \hat{β}δ\cdot b - p\end{aligned}\]</span></li>
 <li>In period 0, expected utility of accepting the contract:
-<span class="math display">\[\begin{aligned}U^{N} &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\cdot f(c)\, dc\big] \\
+<span class="math display">\[\begin{aligned}U^{N} &amp;= E_c\big[ βδ\cdot( - L - c - p + δ\cdot b )\big] \\
+  &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\cdot f(c)\, dc\big] \\
   &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big]\end{aligned}\]</span>
 Expected utility of rejecting the contract: <span class="math display">\[βδ\cdot\bar{u}\]</span></li>
+</ul></li>
 <li>Firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{L,p} &amp;&amp; &amp;π(L,p) = δ\cdot\big[ L-K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
-  (PC) &amp;&amp; &amp;U^{N}\geq βδ\cdot\bar{u}\end{aligned}\]</span>
+(PC) &amp;&amp; &amp;U^{N}\geq βδ\cdot\bar{u}\end{aligned}\]</span>
 Since (PC) be binding at optimal, firm charges s.t. <span class="math inline">\(U^{N} = βδ\cdot\bar{u}\)</span><br />
 Plug back into period 0 expected utility,
 <span class="math display">\[\begin{aligned}βδ\cdot\bar{u} &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big] \\
-  L &amp;= -\bar{u} + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c) \end{aligned}\]</span>
+L &amp;= -\bar{u} + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c) \end{aligned}\]</span>
 Plug back into firm’s problem
 <span class="math display">\[\begin{aligned}\max_p &amp;&amp; π(L,p) &amp;= δ\cdot\big[-\bar{u} + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c -p)\, dF(c) -K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
-  &amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c) + \underbrace{\int_{βδ\cdot b - p}^{\hat{β}δ\cdot b - p}(δ\cdot b - c - p)\, dF(c)}_{\text{Ficticious surplus}}\big] \\
-  FOC &amp;&amp; p^N &amp;= α - \underbrace{(1-\hat{β})δ\cdot b\cdot\frac{f(\hat{β}δ\cdot b-p^N)}{f(βδ\cdot b-p^N)}}_{\text{Commitment value}} - \underbrace{\frac{F(\hat{β}δ\cdot b-p^N) - F(βδ\cdot b-p^N)}{f(βδ\cdot b-p^N)}}_{\text{Naivety effect}}\end{aligned}\]</span></li>
+&amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c) + \underbrace{\int_{βδ\cdot b - p}^{\hat{β}δ\cdot b - p}(δ\cdot b - c - p)\, dF(c)}_{\text{Ficticious surplus}}\big] \\
+FOC &amp;&amp; p^N &amp;= α - \underbrace{(1-\hat{β})δ\cdot b\cdot\frac{f(\hat{β}δ\cdot b-p^N)}{f(βδ\cdot b-p^N)}}_{\text{Commitment value}} - \underbrace{\frac{F(\hat{β}δ\cdot b-p^N) - F(βδ\cdot b-p^N)}{f(βδ\cdot b-p^N)}}_{\text{Naivety effect}}\end{aligned}\]</span>
+<ul>
 <li>When <span class="math inline">\(\hat{β}=1\)</span>, commitment value <span class="math inline">\(\to 0\)</span><br />
 <span class="math inline">\(\implies\)</span> marginal pricing</li>
 <li>When <span class="math inline">\(\hat{β}&gt;β\)</span>, the naivety effect depends on <span class="math inline">\(F(c)\)</span></li>
@@ -2011,10 +2061,7 @@ At time 0, actual realized utility is
 <h3>Competitive Market</h3>
 <ul>
 <li>Agent’s outside option: <span class="math inline">\(\bar{u}\)</span></li>
-<li>Perfect competition
-<ul>
-<li>Zero profit</li>
-</ul></li>
+<li>Perfect competition: zero expected profit for firms</li>
 <li>Firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{L,p} &amp;&amp; &amp;π(L,p) = δ\cdot\big[ L-K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
 (PC)\end{aligned}\]</span>
