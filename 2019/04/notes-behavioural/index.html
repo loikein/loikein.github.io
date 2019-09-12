@@ -1941,6 +1941,84 @@ Consumer chooses to consume or not, if consume, pays <span class="math inline">\
 <li>If consumed, consumer receive <span class="math inline">\(b\)</span></li>
 </ol></li>
 </ul>
+<blockquote>
+<p>Mock.Q1<br />
+A movie internet platform offers two contracts.<br />
+Under a “pay-as-you-go” contract, watching a movie costs <span class="math inline">\(p\geq 0\)</span> per movie.<br />
+Under a “subscription” contract, watching a movie is for free, but there is a subscription fee <span class="math inline">\(F\geq 0\)</span>.<br />
+A subscription is for one year, and if it is not canceled, it is automatically renewed.<br />
+The agent’s (gross) benefit from watching one movie is <span class="math inline">\(b = 1\)</span>.<br />
+She watches <span class="math inline">\(λ = 25\)</span> movies in period 1, and 0 movies in period 2.<br />
+Cancelling requires an “attention cost” <span class="math inline">\(c = 10\)</span> which the agent has to occur immediately (if indifferent between canceling and not canceling the subscription, the agent does not cancel).<br />
+Timing:<br />
+In period 0, the firm offers the contracts, and the consumer chooses between pay-as-you-go and subscription, or her outside option (0).<br />
+In period 1, the agent watches movies, and under the subscription contract can cancel the subscription.<br />
+In period 2, if the agent has not cancelled the subscription, she pays the renew fee to the firm.<br />
+There is no period 3, and so the subscription in period 2 does not need to be cancelled.<br />
+Assume that the agent is a <span class="math inline">\(β-δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span>, and <span class="math inline">\(β = \frac{1}{2}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Suppose the agent has chosen subscription.<br />
+Determine all values of <span class="math inline">\(F\)</span>, so that a time-consistent agent does, but a time-inconsistent agent does not, cancel the subscription.</li>
+<li>Suppose the agent is time-consistent.<br />
+Argue that it is weakly optimal for the firm to induce the agent to choose the pay-as-you-go contract.<br />
+What is the optimal pay-as-you-go price <span class="math inline">\(p\)</span> in this case?</li>
+<li>Suppose now the agent is naive, and <span class="math inline">\(p = b = 1\)</span>.<br />
+Determine the critical value <span class="math inline">\(\hat{F}\)</span> s.t. the agent takes the subscription if, and only if, <span class="math inline">\(F\leq\hat{F}\)</span>.</li>
+<li>Under the same assumptions as in (3), determine the profit-maximizing fee for the firm and its maximal profit.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>In period 1, cancelling gives <span class="math inline">\(25 - F - c\)</span><br />
+Not cancelling gives <span class="math inline">\(25 - F - βF\)</span><br />
+Therefore, <span class="math inline">\(β=1\)</span> consumer chooses to cancel if
+<span class="math display">\[\begin{aligned}25 - F - c &amp;&gt; 25 - F - βF\\
+-c &amp;&gt; -βF \\
+F &amp;&gt; c \end{aligned}\]</span>
+<span class="math inline">\(β&lt;1\)</span> consumer chooses not to cancel if
+<span class="math display">\[\begin{aligned}25 - F - c &amp;\leq 25 - F - βF\\
+-c &amp;\leq -βF \\
+F &amp;\leq \frac{c}{β} \end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned}c&lt;F &amp;\leq\frac{c}{β} \\ F &amp;\in(10, 20] \end{aligned}\]</span></li>
+<li><ol style="list-style-type: lower-alpha">
+<li>Firm induces pay-as-you-go by setting large <span class="math inline">\(F\)</span><br />
+Agent chooses pay-as-you-go<br />
+Firm can charge up to <span class="math inline">\(p\leq b = 1\)</span><br />
+Firm’s profit: <span class="math inline">\(π = λp = 25\)</span></li>
+<li>Firm induces subscription<br />
+When <span class="math inline">\(F&gt;c\)</span>, agent cancels, gets utility:
+<span class="math display">\[\begin{aligned}u &amp;= λb - 10 - F \\
+&amp;= 25 - 10 - F \geq 0 \\
+F &amp;\leq 25 - 10 \\
+&amp;= 15 \end{aligned}\]</span>
+Firm’s profit: <span class="math inline">\(π = F = 15\)</span><br />
+When <span class="math inline">\(F\leq c\)</span>, agent doesn’t cancel, gets utility:
+<span class="math display">\[\begin{aligned}u &amp;= λb - 2F \\
+&amp;= 25 - 2F \geq 0\\
+F &amp;\leq 12.5 \\
+F &amp;\leq c = 10\end{aligned}\]</span>
+Therefore <span class="math inline">\(F = 10\)</span>, firm’s profit: <span class="math inline">\(π = 2F = 20\)</span><br />
+So pay-as-you-go gives the firm more profit</li>
+</ol></li>
+<li>Consumer does not cancel <span class="math inline">\(\iff F\leq c = 0\)</span><br />
+<span class="math display">\[\begin{aligned}-2F + λb &amp;\geq 0 \\
+F &amp;\leq \frac{λb}{2} \\
+&amp;= \frac{25}{2}\end{aligned}\]</span>
+<ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(F\in[0,10]\)</span>, the agent always subscribes</li>
+<li>When <span class="math inline">\(F\geq 10\)</span>,<br />
+agent subscribes if
+<span class="math display">\[\begin{aligned}-F + λb - c &amp;\geq 0\\
+ F&amp;\leq λb - c \\
+ &amp;= 15 \end{aligned}\]</span>
+Therefore, the maximual <span class="math inline">\(\hat{F} = 15\)</span></li>
+</ol></li>
+<li>When <span class="math inline">\(F\in[10,15]\)</span>, agent subscribes and believes that he cancels but doesn’t<br />
+Firm’s profit: <span class="math inline">\(π = 2F = 2\hat{F} = 30\)</span><br />
+When <span class="math inline">\(F&lt;10\)</span>, agent subscribes<br />
+Firm’s profit: <span class="math inline">\(π = λb = 25\)</span><br />
+When <span class="math inline">\(F&gt;15\)</span>, <span class="math inline">\(F^* = 15\)</span>, <span class="math inline">\(π = 30\)</span></li>
+</ol>
 </div>
 <div id="time-consistent-consumer" class="section level3">
 <h3>Time Consistent Consumer</h3>
@@ -2174,78 +2252,6 @@ However, <span class="math inline">\(α\geq \frac{e}{\bar{p}}\implies e-α\bar{p
  &amp;&lt; \bar{p}\end{aligned}\]</span></li>
 </ol></li>
 <li></li>
-</ol>
-<blockquote>
-<p>Mock.Q1<br />
-A movie internet platform offers two contracts.<br />
-Under a “pay-as-you-go” contract, watching a movie costs <span class="math inline">\(p\geq 0\)</span> per movie.<br />
-Under a “subscription” contract, watching a movie is for free, but there is a subscription fee <span class="math inline">\(F\geq 0\)</span>.<br />
-A subscription is for one year, and if it is not canceled, it is automatically renewed.<br />
-The agent’s (gross) benefit from watching one movie is <span class="math inline">\(b = 1\)</span>.<br />
-She watches <span class="math inline">\(λ = 25\)</span> movies in the first year, and 0 movies in the second year.<br />
-Cancelling requires an “attention cost” <span class="math inline">\(c = 10\)</span> which the agent has to occur immediately (if indifferent between canceling and not canceling the subscription, the agent does not cancel).<br />
-Timing:<br />
-In period 0, the firm offers the contracts, and the consumer chooses between the pay-as-you-go and the subscription contract, or chooses her outside option yielding her 0.<br />
-In period 1 (“year 1”), the agent watches the movies, and under the subscription contract can cancel the subscription.<br />
-In period 2, if the agent has not cancelled the subscription, he pays the fee to the firm.<br />
-There is no third year, and so the subscription in the second year does not need to be cancelled.<br />
-Assume that the agent is a <span class="math inline">\(β-δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span>, and <span class="math inline">\(β = \frac{1}{2}\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li>Suppose the agent has chosen subscription.<br />
-Determine all values of <span class="math inline">\(F\)</span>, so that a time-consistent agent does, but a time-inconsistent agent does not, cancel the subscription.</li>
-<li>Suppose the agent is time-consistent.<br />
-Argue that it is weakly optimal for the firm to induce the agent to choose the pay-as-you-go contract.<br />
-What is the optimal pay-as-you-go price <span class="math inline">\(p\)</span> in this case?</li>
-<li>Suppose now that the firm faces a naive consumer, and <span class="math inline">\(p = b = 1\)</span>.<br />
-Determine the critical value <span class="math inline">\(\hat{F}\)</span> s.t. the agent takes the subscription if, and only if, <span class="math inline">\(F\leq\hat{F}\)</span>.</li>
-<li>Under the same assumptions as in (3), determine the profit-maximizing fee for the firm and its maximal profit.</li>
-</ol>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Cancelling gives <span class="math inline">\(25 - F - c\)</span><br />
-Not cancelling gives <span class="math inline">\(25 - F - βF\)</span><br />
-<span class="math inline">\(β=1\)</span> chooses to cancel if
-<span class="math display">\[\begin{aligned}25 - F - c &amp;&gt; 25 - F - βF\\
--c &amp;&gt; -βF \\
-F &amp;&gt; c \end{aligned}\]</span>
-<span class="math inline">\(β&lt;1\)</span> chooses not to cancel if
-<span class="math display">\[\begin{aligned}25 - F - c &amp;\leq 25 - F - βF\\
--c &amp;\leq -βF \\
-F &amp;\leq \frac{c}{β} \end{aligned}\]</span>
-therefore, <span class="math inline">\(c&lt;F\leq\frac{c}{β}\)</span><br />
-<span class="math inline">\(\implies F\in(10, 20]\)</span></li>
-<li>Firm can either
-<ol style="list-style-type: lower-alpha">
-<li>Set very large <span class="math inline">\(F\)</span><br />
-Agent chooses pay-as-you-go<br />
-<span class="math inline">\(η = b = 1\)</span><br />
-Firm’s profit: <span class="math inline">\(π = λb = λη = 25\)</span></li>
-<li>Induce the agent to subscribe<br />
-If agent cancels, gets <span class="math inline">\(u = 25 - 10 - F\)</span><br />
-Firm’s profit: <span class="math inline">\(π = 25 - 10 = 15\)</span><br />
-If agent doesn’t cancel, gets <span class="math inline">\(u = λb - 2F = 25 - 2F\)</span><br />
-Firm can set up to <span class="math inline">\(\bar{F} = 10\)</span><br />
-Firm’s profit: <span class="math inline">\(π = 20\)</span><br />
-Therefore, pay-as-you-go is optimal for the firm</li>
-</ol></li>
-<li>Consumer does not cancel <span class="math inline">\(\iff F&lt;c = 0\)</span><br />
-<span class="math display">\[\begin{aligned}-2F + λb &amp;\geq 0 \\
-F &amp;\leq \frac{λb}{2} \\
-&amp;= \frac{25}{2}\end{aligned}\]</span>
-<ol style="list-style-type: lower-alpha">
-<li>When <span class="math inline">\(F\in[0,10]\)</span>, the agent always subscribes</li>
-<li>When <span class="math inline">\(F\geq 10\)</span>,<br />
-agent subscribes if
-<span class="math display">\[\begin{aligned}-F + λb - c &amp;\geq 0\\
- F&amp;\leq λb - c \\
- &amp;= 15 \end{aligned}\]</span>
-Therefore, the maximual <span class="math inline">\(\hat{F} = 15\)</span></li>
-</ol></li>
-<li>When <span class="math inline">\(F\in[10,15]\)</span>, agent subscribes and believes that he cancels but doesn’t<br />
-Firm’s profit: <span class="math inline">\(π = 2F = 2\hat{F} = 30\)</span><br />
-When <span class="math inline">\(F&lt;10\)</span>, agent subscribes<br />
-Firm’s profit: <span class="math inline">\(π = λb = 25\)</span><br />
-When <span class="math inline">\(F&gt;15\)</span>, <span class="math inline">\(F^* = 15\)</span>, <span class="math inline">\(π = 30\)</span></li>
 </ol>
 </div>
 </div>
