@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">79 min read</span>
+    <span class="article-duration">80 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -863,8 +863,8 @@ b &amp;\geq \frac{2(c_H - c_L)}{2(p_H - p_L) + p_H(1-λ)(p_L - p_H)} \\
 <li>Under <span class="math inline">\(C_2\)</span>, assume <span class="math inline">\(e\)</span> is a personal equilibrium, <span class="math inline">\(R = L_e\)</span>
 <span class="math display">\[\begin{aligned}u(L_e\ |\ R) &amp;= w + p_e\cdot b - c_e + p_e^2\cdot 0 + p_e\cdot(1-p_e)\cdot(w + b - w) \\
  &amp;\phantom{\ggg w + p_e\cdot b - c_e} + (1-p_e)\cdot p_e\cdot(λ\cdot(-b)) + (1-p_e)^2\cdot 0\\
- &amp;= w + p_e\cdot b - c_e + bp_e(1-λ)(1-p_H) \\
- &amp;= w + p_e\cdot b - c_e - bp_e(λ-1)(1-p_H) \end{aligned}\]</span>
+ &amp;= w + p_e\cdot b - c_e + bp_e(1-λ)(1-p_e) \\
+ &amp;= w + p_e\cdot b - c_e - bp_e(λ-1)(1-p_e) \end{aligned}\]</span>
 Let <span class="math inline">\(λ\to\infty\)</span>, <span class="math inline">\(u(L_e\ |\ R)\to -\infty\)</span><br />
 <span class="math inline">\(\implies\)</span> when <span class="math inline">\(λ\)</span> is large enough, the worker will choose <span class="math inline">\(C_1\)</span><br />
 Intuition: risk averse induce agents to choose the option with less risk</li>
@@ -1188,7 +1188,7 @@ Invests under budget constraint:
 Consumes under liquidity constraint:
 <span class="math display">\[\begin{aligned}(LC)_2 &amp;&amp; c_2\leq y_2 + R\cdot x_1 \end{aligned}\]</span></li>
 </ol></li>
-<li>No period 3 <span class="math inline">\(\implies \begin{cases}x_2 = 0 \\ z_1 = 0 \end{cases}\)</span>, and the agent spends all her cash at period 2<br />
+<li>No period 3 <span class="math inline">\(\implies \begin{cases}x_2 = 0 \\ z_1 = 0 \end{cases}\)</span>, and the agent spends all her cash in period 2<br />
 therefore,
 <span class="math display">\[\begin{aligned}(BC)_1 &amp;&amp; c_1 + x_1 &amp;= y_1 + R\cdot(x_0 + z_0) \\
 (LC)_2 &amp;&amp; c_2 &amp;= y_2 + R\cdot x_1 \end{aligned}\]</span></li>
@@ -1301,7 +1301,7 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <li>First action: <span class="math inline">\(τ^{TC}\)</span></li>
 <li>Optimal strategy: <span class="math inline">\(s^{TC} =\{N,N,\dots,N, \underbrace{Y}_{τ^{TC}},\dots\}\)</span></li>
 </ul></li>
-<li>Sophisticated agent: knows <span class="math inline">\(β\neq 1\)</span>
+<li>Sophisticated agent: knows <span class="math inline">\(β\leq 1\)</span>
 <ul>
 <li>Compares periods when she will act</li>
 <li>First action: <span class="math inline">\(τ^{S}\)</span><br />
@@ -1309,7 +1309,7 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <li>Optimal strategy: <span class="math inline">\(s^{S}\)</span><br />
 </li>
 </ul></li>
-<li>Naive agent: thinks <span class="math inline">\(β=1\)</span>
+<li>Naive agent: thinks <span class="math inline">\(β=1\)</span> in period 0
 <ul>
 <li>Compares <span class="math inline">\(v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\)</span></li>
 <li>First action: <span class="math inline">\(τ^{N}\)</span><br />
@@ -1783,14 +1783,14 @@ Show that the naive agent gets less than her reservation utility under this cont
 </ol>
 </blockquote>
 <ol style="list-style-type: lower-alpha">
-<li>Assume the worker accepts contract. At period 2, worker’s problem:
+<li>Assume the worker accepts contract. in period 2, worker’s problem:
 <span class="math display">\[\begin{aligned}\max_e &amp;&amp; u_2 &amp;= -\frac{1}{2}e^2 + βδ\cdot w(e) \\
 &amp;&amp; &amp;= -\frac{1}{2}e^2 + β\cdot(F+αe) \\
 FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + βα\overset{!}{=} 0 \\
 &amp;&amp; e^S = e^N &amp;= αβ \\
 &amp;&amp; &amp;= \frac{3}{4}α \\
 &amp;&amp; e^{TC} &amp;= α \end{aligned}\]</span></li>
-<li>At period 1, agents accepts if
+<li>in period 1, agents accepts if
 <span class="math display">\[\begin{aligned}(PC) &amp;&amp; β\cdot \Big(δ\cdot \big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e)\Big) &amp;\geq 0 \\
 &amp;&amp; δ\cdot\big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e) &amp;\geq 0 \\
 &amp;&amp; -\frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
@@ -1974,7 +1974,7 @@ Therefore, <span class="math inline">\(β=1\)</span> consumer chooses to cancel 
 <span class="math display">\[\begin{aligned}25 - F - c &amp;&gt; 25 - F - βF\\
 -c &amp;&gt; -βF \\
 F &amp;&gt; c \end{aligned}\]</span>
-<span class="math inline">\(β&lt;1\)</span> consumer chooses not to cancel if
+<span class="math inline">\(β&lt;1\)</span> consumer chooses no cancel if
 <span class="math display">\[\begin{aligned}25 - F - c &amp;\leq 25 - F - βF\\
 -c &amp;\leq -βF \\
 F &amp;\leq \frac{c}{β} \end{aligned}\]</span>
@@ -1986,13 +1986,14 @@ Agent chooses pay-as-you-go<br />
 Firm can charge up to <span class="math inline">\(p\leq b = 1\)</span><br />
 Firm’s profit: <span class="math inline">\(π = λp = 25\)</span></li>
 <li>Firm induces subscription<br />
-When <span class="math inline">\(F&gt;c\)</span>, agent cancels, gets utility:
+Consumer does not cancel <span class="math inline">\(\iff F\leq c = 10\)</span><br />
+When agent cancels, gets utility:
 <span class="math display">\[\begin{aligned}u &amp;= λb - 10 - F \\
 &amp;= 25 - 10 - F \geq 0 \\
 F &amp;\leq 25 - 10 \\
 &amp;= 15 \end{aligned}\]</span>
 Firm’s profit: <span class="math inline">\(π = F = 15\)</span><br />
-When <span class="math inline">\(F\leq c\)</span>, agent doesn’t cancel, gets utility:
+When agent doesn’t cancel, gets utility:
 <span class="math display">\[\begin{aligned}u &amp;= λb - 2F \\
 &amp;= 25 - 2F \geq 0\\
 F &amp;\leq 12.5 \\
@@ -2000,24 +2001,37 @@ F &amp;\leq c = 10\end{aligned}\]</span>
 Therefore <span class="math inline">\(F = 10\)</span>, firm’s profit: <span class="math inline">\(π = 2F = 20\)</span><br />
 So pay-as-you-go gives the firm more profit</li>
 </ol></li>
-<li>Consumer does not cancel <span class="math inline">\(\iff F\leq c = 0\)</span><br />
-<span class="math display">\[\begin{aligned}-2F + λb &amp;\geq 0 \\
-F &amp;\leq \frac{λb}{2} \\
-&amp;= \frac{25}{2}\end{aligned}\]</span>
+<li>When agent is naive, she thinks <span class="math inline">\(\hat{β}=1\)</span><br />
+In period 1, she actually does not cancel when
+<span class="math display">\[\begin{aligned}25 - F - c &amp;\geq 25 - F - βF \\
+c &amp;\leq βF \\
+F &amp;\geq 2c = 20\end{aligned}\]</span>
+In period 0, agent’s utility from pay-as-you-go:
+<span class="math display">\[λb - λp = 25 - 25 =0\]</span>
+Agent’s utility from subscription and no cancel:
+<span class="math display">\[\begin{aligned}λb - 2F &amp;\geq 0 \\
+F &amp;\leq \frac{λb}{2} = 12.5\end{aligned}\]</span>
+Agent’s utility from subscription and cancel:
+<span class="math display">\[\begin{aligned}λb - F - c &amp;\geq 0\\
+F &amp;\leq λb - c = 15 \end{aligned}\]</span>
 <ol style="list-style-type: lower-alpha">
-<li>When <span class="math inline">\(F\in[0,10]\)</span>, the agent always subscribes</li>
+<li>When <span class="math inline">\(F\leq 10\)</span>, the agent always subscribes</li>
 <li>When <span class="math inline">\(F\geq 10\)</span>,<br />
-agent subscribes if
-<span class="math display">\[\begin{aligned}-F + λb - c &amp;\geq 0\\
- F&amp;\leq λb - c \\
- &amp;= 15 \end{aligned}\]</span>
-Therefore, the maximual <span class="math inline">\(\hat{F} = 15\)</span></li>
+agent subscribes when <span class="math inline">\(F\leq 15 = \hat{F}\)</span></li>
 </ol></li>
-<li>When <span class="math inline">\(F\in[10,15]\)</span>, agent subscribes and believes that he cancels but doesn’t<br />
-Firm’s profit: <span class="math inline">\(π = 2F = 2\hat{F} = 30\)</span><br />
-When <span class="math inline">\(F&lt;10\)</span>, agent subscribes<br />
+<li><ol style="list-style-type: lower-alpha">
+<li>When <span class="math inline">\(F\in(10,15]\)</span>, agent subscribes and thinks she will cancel in period 0, but does not cancel in period 1<br />
+Firm’s profit:
+<span class="math display">\[\begin{aligned}π &amp;= 2F \\
+&amp;\leq 2\hat{F} = 30 \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(F\leq 10\)</span>, agent subscribes and (rationally) does not cancel<br />
+Firm’s profit:
+<span class="math display">\[\begin{aligned}π &amp;= 2F \\
+&amp;\leq 20\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(F&gt;15\)</span>, agent chooses pay-as-you-go
 Firm’s profit: <span class="math inline">\(π = λb = 25\)</span><br />
-When <span class="math inline">\(F&gt;15\)</span>, <span class="math inline">\(F^* = 15\)</span>, <span class="math inline">\(π = 30\)</span></li>
+Therefore, firm should set <span class="math inline">\(F^* = 15\)</span>, and maximal profit is <span class="math inline">\(π=30\)</span></li>
+</ol></li>
 </ol>
 </div>
 <div id="time-consistent-consumer" class="section level3">
@@ -2046,8 +2060,8 @@ L &amp;= -\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\end{align
 Plug back into firm’s utility function:
 <span class="math display">\[\begin{aligned}π(p) &amp;= δ\cdot\big[ \overbrace{-\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}^{L} -K + \int_0^{δ\cdot b - p} (p-α)\, dF(c)\big] \\
 &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
-<!--Therefore, firm maximizes the joint surplus of firm and consumer at period 0  
-$\implies$ at period 0, consumption gives total surplus: $δ\cdot [δ\cdot b - c-α]$   -->
+<!--Therefore, firm maximizes the joint surplus of firm and consumer in period 0  
+$\implies$ in period 0, consumption gives total surplus: $δ\cdot [δ\cdot b - c-α]$   -->
 Plug back into firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
 FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
@@ -2081,7 +2095,7 @@ Plug back into period 0 expected utility<br />
 Plug back into firm’s utility function:
 <span class="math display">\[\begin{aligned}π(p) &amp;= δ\cdot\big[ \overbrace{-\bar{u} + \int_0^{βδ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}^{L} - K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
 &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
-<!-- $\implies$ at period 0, consumption gives total surplus: $δ\cdot [δ\cdot b - c-α]$   -->
+<!-- $\implies$ in period 0, consumption gives total surplus: $δ\cdot [δ\cdot b - c-α]$   -->
 Plug back into firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c - α)\, dF(c)\big] \\
 FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
