@@ -1964,7 +1964,7 @@ Plug back into consumer’s period 0 expected utility,
 <span class="math display">\[\begin{aligned}δ\cdot\bar{u} &amp;= δ\cdot\big[ -L + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big] \\
 \bar{u} &amp;= -L + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c) \\
 L &amp;= -\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\end{aligned}\]</span>
-Plug back into firm’s problem
+Plug back into firm’s utility function:
 <span class="math display">\[\begin{aligned}π(p) &amp;= δ\cdot\big[ \overbrace{-\bar{u} + \int_0^{δ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}^{L} -K + \int_0^{δ\cdot b - p} (p-α)\, dF(c)\big] \\
 &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{δ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
 <!--Therefore, firm maximizes the joint surplus of firm and consumer at period 0  
@@ -1999,13 +1999,12 @@ Expected utility of rejecting the contract: <span class="math display">\[βδ\cd
 (PC) &amp;&amp; &amp;U^{S}\geq βδ\cdot\bar{u}\end{aligned}\]</span>
 Since (PC) be binding at optimal, firm charges s.t. <span class="math inline">\(U^{S} = βδ\cdot\bar{u}\)</span><br />
 Plug back into period 0 expected utility<br />
-<span class="math inline">\(\implies\)</span> firm’s problem:
+Plug back into firm’s utility function:
 <span class="math display">\[\begin{aligned}π(p) &amp;= δ\cdot\big[ \overbrace{-\bar{u} + \int_0^{βδ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}^{L} - K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
 &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\\end{aligned}\]</span>
 <!-- $\implies$ at period 0, consumption gives total surplus: $δ\cdot [δ\cdot b - c-α]$   -->
 Plug back into firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{p} &amp;&amp; π(p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c - α)\, dF(c)\big] \\
-&amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b -c-α)\, dF(c)\big] \\
 FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\partial}{\partial p} \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)\big] \\
 &amp;&amp; &amp;= δ\cdot b - (βδ\cdot b - p) -α \overset{!}{=} 0 \\
 &amp;&amp; p^{S} &amp;= α - \underbrace{(1-β)δ\cdot b}_{\text{Commitment value}} \end{aligned}\]</span>
@@ -2025,9 +2024,11 @@ FOC &amp;&amp; \frac{\partial π(p)}{\partial p} &amp;= δ\cdot\big[ \frac{\part
 for sophisticated consumer, <span class="math inline">\(\hat{β}=β&lt;1\)</span><br />
 for time-consistent consumer, <span class="math inline">\(\hat{β}=β=1\)</span></li>
 <li>Firm knows that the consumer is naive</li>
-<li>In period 1, consumer expect themself to consume <span class="math inline">\(\iff\)</span>
-<span class="math display">\[\begin{aligned}\hat{β}δ\cdot b-c-p &amp;\geq 0 \\ c &amp;\leq \hat{β}δ\cdot b - p\end{aligned}\]</span></li>
-<li>In period 0, expected utility of accepting the contract:
+<li>In period 1, actually consumes <span class="math inline">\(\iff\)</span>
+<span class="math display">\[\begin{aligned}βδ\cdot b-c-p &amp;\geq 0 \\ c &amp;\leq βδ\cdot b - p\end{aligned}\]</span></li>
+<li>In period 0, expects to consume in period 1 <span class="math inline">\(\iff\)</span>
+<span class="math display">\[\begin{aligned}\hat{β}δ\cdot b-c-p &amp;\geq 0 \\ c &amp;\leq \hat{β}δ\cdot b - p\end{aligned}\]</span>
+therefore, expected utility of accepting the contract:
 <span class="math display">\[\begin{aligned}U^{N} &amp;= E_c\big[ βδ\cdot( - L - c - p + δ\cdot b )\big] \\
   &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\cdot f(c)\, dc\big] \\
   &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big]\end{aligned}\]</span>
@@ -2040,21 +2041,23 @@ Since (PC) be binding at optimal, firm charges s.t. <span class="math inline">\(
 Plug back into period 0 expected utility,
 <span class="math display">\[\begin{aligned}βδ\cdot\bar{u} &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big] \\
 L &amp;= -\bar{u} + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c) \end{aligned}\]</span>
+Plug back into firm’s utility function:
+<span class="math display">\[\begin{aligned}π(p) &amp;= δ\cdot\big[\overbrace{-\bar{u} + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c -p)\, dF(c)}^{L} -K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
+&amp;= δ\cdot\big[ -\bar{u}-K + \underbrace{\int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c)}_{\text{Accept + Consume}} + \underbrace{\int_{βδ\cdot b - p}^{\hat{β}δ\cdot b - p}(δ\cdot b - c - p)\, dF(c)}_{\text{Accept + No consume (Fictitious surplus)}}\big] \end{aligned}\]</span>
 Plug back into firm’s problem
-<span class="math display">\[\begin{aligned}\max_p &amp;&amp; π(L,p) &amp;= δ\cdot\big[-\bar{u} + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c -p)\, dF(c) -K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
-&amp;&amp; &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c) + \underbrace{\int_{βδ\cdot b - p}^{\hat{β}δ\cdot b - p}(δ\cdot b - c - p)\, dF(c)}_{\text{Ficticious surplus}}\big] \\
+<span class="math display">\[\begin{aligned}\max_p &amp;&amp; π(p) &amp;= δ\cdot\big[ -\bar{u}-K + \int_0^{βδ\cdot b - p} (δ\cdot b - c - α)\, dF(c) + \int_{βδ\cdot b - p}^{\hat{β}δ\cdot b - p}(δ\cdot b - c - p)\, dF(c)\big]\\
 FOC &amp;&amp; p^N &amp;= α - \underbrace{(1-\hat{β})δ\cdot b\cdot\frac{f(\hat{β}δ\cdot b-p^N)}{f(βδ\cdot b-p^N)}}_{\text{Commitment value}} - \underbrace{\frac{F(\hat{β}δ\cdot b-p^N) - F(βδ\cdot b-p^N)}{f(βδ\cdot b-p^N)}}_{\text{Naivety effect}}\end{aligned}\]</span>
 <ul>
 <li>When <span class="math inline">\(\hat{β}=1\)</span>, commitment value <span class="math inline">\(\to 0\)</span><br />
 <span class="math inline">\(\implies\)</span> marginal pricing</li>
 <li>When <span class="math inline">\(\hat{β}&gt;β\)</span>, the naivety effect depends on <span class="math inline">\(F(c)\)</span></li>
-<li>Welfare analysis<br />
-At time 0, actual realized utility is
-<span class="math display">\[\begin{aligned}u^N &amp;= \hat{β}δ\cdot\bar{u}\\
-  &amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big] \\
-  &amp;= \underbrace{βδ\cdot\big[ -L + \int_0^{βδ\cdot b - p} (δ\cdot b - c - p)\, dF(c)}_{βδ\cdot\bar{u}} + \underbrace{\int_{βδ\cdot b - p}^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)}_{\text{Loss}}\big] \\
-  &amp;\leq βδ\cdot\bar{u}\end{aligned}\]</span></li>
 </ul></li>
+<li>Welfare analysis<br />
+At time 0, consumer’s actual realized utility is
+<span class="math display">\[\begin{aligned}u^N &amp;= \hat{β}δ\cdot\bar{u}\\
+&amp;= βδ\cdot\big[ -L + \int_0^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)\big] \\
+&amp;= \underbrace{βδ\cdot\big[ -L + \int_0^{βδ\cdot b - p} (δ\cdot b - c - p)\, dF(c)}_{βδ\cdot\bar{u}} + \underbrace{\int_{βδ\cdot b - p}^{\hat{β}δ\cdot b - p} (δ\cdot b - c - p)\, dF(c)}_{\text{Loss}}\big] \\
+&amp;\leq βδ\cdot\bar{u}\end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="competitive-market" class="section level3">
@@ -2063,17 +2066,16 @@ At time 0, actual realized utility is
 <li>Agent’s outside option: <span class="math inline">\(\bar{u}\)</span></li>
 <li>Perfect competition: zero expected profit for firms</li>
 <li>Firm’s problem:
-<span class="math display">\[\begin{aligned}\max_{L,p} &amp;&amp; &amp;π(L,p) = δ\cdot\big[ L-K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
-(PC)\end{aligned}\]</span>
-We know <span class="math inline">\(p^S =α - (1-β)δ\cdot b\)</span>
+<span class="math display">\[\begin{aligned}\max_{L,p} &amp;&amp; π(L,p) &amp;= δ\cdot\big[ L-K + \int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big] \\
+&amp;&amp; &amp;= 0\end{aligned}\]</span>
+We know for TC or sophisticated consumers, <span class="math inline">\(p =α - (1-β)δ\cdot b\)</span>
 Since <span class="math inline">\(π=0\)</span>,
 <ul>
 <li>Time-consistent agent: <span class="math inline">\(β=1\)</span>, <span class="math inline">\(p=α\)</span>
-<span class="math display">\[\begin{aligned}π(L,p) &amp;= 0\\ &amp;= δ\cdot\big[ L-K + \underbrace{\int_0^{βδ\cdot b - p} (p-α)\, dF(c)}_{=0}\big] \\
-  L &amp;= K \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}π(L,p) &amp;= δ\cdot\big[ L-K + \underbrace{\int_0^{βδ\cdot b - p} (p-α)\, dF(c)}_{=0}\big] \\
+  L^{TC} &amp;= K \end{aligned}\]</span></li>
 <li>Sophisticated agent: <span class="math inline">\(β&lt;1\)</span>
-<span class="math display">\[\begin{aligned}π(L,p^S) &amp;= 0\\
-  &amp;= δ\cdot\big[ L-K+\int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big]\\
+<span class="math display">\[\begin{aligned}π(L,p^S) &amp;= δ\cdot\big[ L-K+\int_0^{βδ\cdot b - p} (p-α)\, dF(c)\big]\\
   L^S &amp;= K - \int_0^{βδ\cdot b - p} (p-α)\, dF(c) \\
   &amp;= K - \int_0^{βδ\cdot b - p} \big(α - (1-β)δ\cdot b - α\big)\, dF(c) \\
   &amp;= K + \int_0^{βδ\cdot b - p} (1-β)δ\cdot b\, dF(c)\end{aligned}\]</span></li>
