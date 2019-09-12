@@ -1916,6 +1916,7 @@ Therefore, the agent completes task <span class="math inline">\(x_2&#39;&#39;\)<
 </div>
 <div id="time-preference-market-response" class="section level2">
 <h2>Time Preference: Market Response</h2>
+<p>paper: <a href="https://pdfs.semanticscholar.org/a941/2796eef139d16c066557ff008b580df90522.pdf">DellaVigna &amp; Malmendier (2004)</a></p>
 <div id="monopolistic-market" class="section level3">
 <h3>Monopolistic Market</h3>
 <ul>
@@ -2089,6 +2090,7 @@ Since <span class="math inline">\(π=0\)</span>,
 </div>
 <div id="shrouded-attributes" class="section level3">
 <h3>Shrouded Attributes</h3>
+<p>slides P82, paper: <a href="http://pages.stern.nyu.edu/~xgabaix/papers/shrouded.pdf">Gabaix &amp; Laibson (2006)</a></p>
 <ul>
 <li>Timing
 <ol style="list-style-type: decimal">
@@ -2104,9 +2106,9 @@ Myoptic consumers buy add-on</li>
 <li>Base good: <span class="math inline">\(p_i\)</span></li>
 <li>Add-on good: <span class="math inline">\(\hat{p}_i\)</span></li>
 </ul></li>
-<li>Firms’ strategy (add-on good is necessary)
+<li>Firms’ strategy
 <ul>
-<li>Unshroud (reveal)</li>
+<li>Unshroud (reveal that add-on is necessary)</li>
 <li>Shroud (conceal)</li>
 </ul></li>
 <li>Consumer
@@ -2121,15 +2123,15 @@ Myoptic consumers buy add-on</li>
 <li>Cost to substitute add-on: <span class="math inline">\(e\)</span></li>
 <li>Expected add-on price: <span class="math inline">\(\hat{p}_i^E\)</span><br />
 In period 3, buy add-on if <span class="math display">\[\hat{p}_i^E&lt;e\]</span>
-In period 2, buy base good from firm i if <span class="math display">\[-p_i -\min\{e,\hat{p}_i^E \}&gt; -p_j -\min\{e,\hat{p}_j^E \}\]</span><br />
+In period 2, buy base good from firm i if <span class="math display">\[-p_i -\min\{e,\hat{p}_i^E \}&gt; -p_j -\min\{e,\hat{p}_j^E \}\]</span>
 if same, buy base good from each firm with <span class="math inline">\(Pr=\frac{1}{2}\)</span></li>
 </ul></li>
 <li>Myoptic consumer
 <ul>
 <li><span class="math inline">\(Pr=α\)</span></li>
-<li>If both firms shroud, unaware of add-on</li>
-<li>If one firm unshrouds, become sophisticated
-In period 2, buy base good from firm i if <span class="math display">\[-p_i &gt;d -p_j\]</span></li>
+<li>If both firms shroud, unaware of add-on<br />
+In period 2, buy base good from firm i if <span class="math display">\[-p_i &gt; -p_j\]</span></li>
+<li>If one firm unshrouds, become sophisticated</li>
 </ul></li>
 <li>Property of equilibrium
 <ul>
@@ -2140,9 +2142,9 @@ In period 2, buy base good from firm i if <span class="math display">\[-p_i &gt;
 <blockquote>
 <p>Lemma 3.4<br />
 1. If <span class="math inline">\(α\geq \frac{e}{\bar{p}}\)</span>, exists an equilibrium where both firms shroud, and sophisticated consumers substitute<br />
-<span class="math display">\[\begin{aligned}p^* &amp;= -α\bar{p} \\ \hat{p}^* &amp;=\bar{p} \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}p_i^* &amp;= -α\bar{p} \\ \hat{p}_i^* &amp;=\bar{p} \end{aligned}\]</span>
 2. If <span class="math inline">\(α&lt; \frac{e}{\bar{p}}\)</span>, exists an equilibrium where both firms unshroud, and consumers are indifferent<br />
-<span class="math display">\[\begin{aligned}p^* &amp;= -e \\ \hat{p}^* &amp;= e \end{aligned}\]</span></p>
+<span class="math display">\[\begin{aligned}p_i^* &amp;= -e \\ \hat{p}_i^* &amp;= e \end{aligned}\]</span></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Each firm’s profit:
@@ -2179,8 +2181,8 @@ A movie internet platform offers two contracts.<br />
 Under a “pay-as-you-go” contract, watching a movie costs <span class="math inline">\(p\geq 0\)</span> per movie.<br />
 Under a “subscription” contract, watching a movie is for free, but there is a subscription fee <span class="math inline">\(F\geq 0\)</span>.<br />
 A subscription is for one year, and if it is not canceled, it is automatically renewed.<br />
-There is one agent whose (gross) benefit from watching one movie is <span class="math inline">\(b = 1\)</span>.<br />
-The agent watches <span class="math inline">\(λ = 25\)</span> movies in the first year, and 0 movies in the second year.<br />
+The agent’s (gross) benefit from watching one movie is <span class="math inline">\(b = 1\)</span>.<br />
+She watches <span class="math inline">\(λ = 25\)</span> movies in the first year, and 0 movies in the second year.<br />
 Cancelling requires an “attention cost” <span class="math inline">\(c = 10\)</span> which the agent has to occur immediately (if indifferent between canceling and not canceling the subscription, the agent does not cancel).<br />
 Timing:<br />
 In period 0, the firm offers the contracts, and the consumer chooses between the pay-as-you-go and the subscription contract, or chooses her outside option yielding her 0.<br />
@@ -2189,14 +2191,13 @@ In period 2, if the agent has not cancelled the subscription, he pays the fee to
 There is no third year, and so the subscription in the second year does not need to be cancelled.<br />
 Assume that the agent is a <span class="math inline">\(β-δ\)</span> discounter with <span class="math inline">\(δ = 1\)</span>, and <span class="math inline">\(β = \frac{1}{2}\)</span>.</p>
 <ol style="list-style-type: decimal">
-<li>Suppose the agent has chosen the subscription.<br />
+<li>Suppose the agent has chosen subscription.<br />
 Determine all values of <span class="math inline">\(F\)</span>, so that a time-consistent agent does, but a time-inconsistent agent does not, cancel the subscription.</li>
 <li>Suppose the agent is time-consistent.<br />
 Argue that it is weakly optimal for the firm to induce the agent to choose the pay-as-you-go contract.<br />
 What is the optimal pay-as-you-go price <span class="math inline">\(p\)</span> in this case?</li>
-<li>Suppose now that the firm faces a naive time-inconsistent consumer, and suppose that <span class="math inline">\(p = b = 1\)</span>.<br />
-There is a critical value <span class="math inline">\(\hat{F}\)</span> so that the agent takes the subscription if, and only if, <span class="math inline">\(F\leq\hat{F}\)</span>.<br />
-Determine <span class="math inline">\(\hat{F}\)</span>.</li>
+<li>Suppose now that the firm faces a naive consumer, and <span class="math inline">\(p = b = 1\)</span>.<br />
+Determine the critical value <span class="math inline">\(\hat{F}\)</span> s.t. the agent takes the subscription if, and only if, <span class="math inline">\(F\leq\hat{F}\)</span>.</li>
 <li>Under the same assumptions as in (3), determine the profit-maximizing fee for the firm and its maximal profit.</li>
 </ol>
 </blockquote>
