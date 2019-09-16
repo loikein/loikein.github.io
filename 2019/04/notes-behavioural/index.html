@@ -2552,21 +2552,22 @@ Then P2 plays B <span class="math inline">\(\implies\)</span> P1 conciders as an
 <li>Players: <span class="math inline">\(i=1,2\)</span>
 <ul>
 <li>Set of strategies for player i: <span class="math inline">\(A_i\)</span> (pure or mixed)</li>
+<li>Player i’s actual material payoff: <span class="math inline">\(π_i(a_i, a_j)\)</span></li>
 </ul></li>
 <li>First order belief
 <ul>
 <li>i’s actual action: <span class="math inline">\(a_i\)</span></li>
 <li>i’s belief about what j does: <span class="math inline">\(b_j\)</span></li>
 </ul></li>
-<li>If i believes j plays <span class="math inline">\(b_j\)</span> while j actually plays <span class="math inline">\(a_j\)</span>:
+<li>From i’s first belief perspective,<br />
+If j actually plays <span class="math inline">\(a_j\)</span>, and i believes j plays <span class="math inline">\(b_j\)</span>:
 <ul>
-<li>Material payoff for i playing <span class="math inline">\(a_i\)</span>: <span class="math inline">\(π_i(a_i, a_j)\)</span><br />
-</li>
+<li>Material payoff for i playing <span class="math inline">\(a_i\)</span>: <span class="math inline">\(π_i(a_i, b_j)\)</span></li>
 <li>Set of all possible payoffs: <span class="math display">\[Π(b_j) = \big\{ \big(π_i(a_i,b_j) ,π_j(a_i,b_j)\big)\ |\ a_i\in A_i\big\}\]</span></li>
 <li>j’s lowest possible payoff: <span class="math display">\[π_j^{min}(b_j)\in Π(b_j)\]</span></li>
 <li>Set of all Pareto optimal payoffs: <span class="math display">\[Π^{PAR}(b_j) \subset Π(b_j)\]</span></li>
-<li>j’s highest payoff in Pareto: <span class="math display">\[π_j^h(b_j)\in Π^{PAR}(b_j)\]</span></li>
-<li>j’s lowest payoff in Pareto: <span class="math display">\[π_j^l(b_j)\in Π^{PAR}(b_j)\]</span></li>
+<li>j’s highest payoff in Pareto optimal set: <span class="math display">\[π_j^h(b_j)\in Π^{PAR}(b_j)\]</span></li>
+<li>j’s lowest payoff in Pareto optimal set: <span class="math display">\[π_j^l(b_j)\in Π^{PAR}(b_j)\]</span></li>
 </ul></li>
 <li>Fair reference point: <span class="math display">\[π_j^e(b_j) = \frac{π_j^h(b_j)+ π_j^l(b_j)}{2}\]</span>
 <ul>
@@ -2586,16 +2587,25 @@ Then P2 plays B <span class="math inline">\(\implies\)</span> P1 conciders as an
 <li>j’s belief about what i does: <span class="math inline">\(b_i\)</span></li>
 <li>i’s belief about what (<strong>j believes what i does</strong>): <span class="math inline">\(c_i\)</span></li>
 </ul></li>
+<li>From i’s second belief perspective,<br />
+If i actually plays <span class="math inline">\(a_i\)</span>, j believes i plays <span class="math inline">\(b_i\)</span>, and i believes (<strong>j believes i plays <span class="math inline">\(c_i\)</span></strong>)
+<ul>
+<li>Material payoff for i playing <span class="math inline">\(c_i\)</span>: <span class="math inline">\(π_i(c_i, b_j)\)</span></li>
+<li>i’s lowest possible payoff: <span class="math inline">\(π_i^{min}(c_i)\)</span></li>
+<li>i’s highest payoff in Pareto optimal set: <span class="math inline">\(π_i^h(c_i)\)</span></li>
+<li>j’s lowest payoff in Pareto optimal set: <span class="math inline">\(π_i^l(c_i)\)</span></li>
+<li><strong>Perceived</strong> fairness reference point: <span class="math inline">\(π_i^e(c_i) = \frac{π_i^h(c_i)+ π_i^l(c_i)}{2}\)</span></li>
+</ul></li>
 <li><strong>Perceived</strong> fairness function:
-<span class="math display">\[\begin{aligned}\text{j&#39;s belief about i&#39;s kindness to j} &amp;&amp; \tilde{f}_i(b_i,c_j) &amp;= \frac{π_j(b_i,c_j) - π_j^e(c_j)}{π_j^h(c_j) - π_j^{min}(c_j)} \\
-\text{i&#39;s belief about j&#39;s kindness to i} &amp;&amp;\tilde{f}_j(b_j,c_i) &amp;= \frac{π_i(b_j,c_i) - π_i^e(c_i)}{π_i^h(c_i) - π_i^{min}(c_i)} \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\text{i&#39;s belief about j&#39;s kindness to i} &amp;&amp;\tilde{f}_j(c_i,b_j) &amp;= \frac{π_i(c_i,b_j) - π_i^e(c_i)}{π_i^h(c_i) - π_i^{min}(c_i)} \\
+\text{j&#39;s belief about i&#39;s kindness to j} &amp;&amp; \tilde{f}_i(c_j,b_i) &amp;= \frac{π_j(c_j,b_i) - π_j^e(c_j)}{π_j^h(c_j) - π_j^{min}(c_j)} \end{aligned}\]</span></li>
 </ul>
 </div>
 <div id="utility-and-best-response" class="section level3">
 <h3>Utility and Best Response</h3>
 <ul>
 <li>Utility function:
-<span class="math display">\[U_i(a_i,\underbrace{b_j,c_i}_{\text{Belief}}) = \underbrace{π_i(a_i,b_j)}_{\text{Material payoff}} + \underbrace{\tilde{f}_j(b_j,c_i)\cdot\big( 1 + f_i(a_i, b_j)\big)}_{\text{Reciprocity}}\]</span>
+<span class="math display">\[U_i(a_i,\underbrace{b_j,c_i}_{\text{Belief}}) = \underbrace{π_i(a_i,a_j)}_{\text{Material payoff}} + \underbrace{\overbrace{\tilde{f}_j(b_j,c_i)}^{\text{Other}}\cdot\big(\overbrace{ 1 + f_i(a_i, b_j)}^{\text{Self}}\big)}_{\text{Reciprocity}}\]</span>
 <ul>
 <li>Reciprocity preference</li>
 <li>Overall kindness: 1 in <span class="math inline">\(1 + f_i(a_i, b_j)\)</span></li>
