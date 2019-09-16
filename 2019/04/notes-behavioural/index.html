@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.55.6" />
+<meta name="generator" content="Hugo 0.58.2" />
 
 <title>Notes on Behavioural Economics - loikein</title>
 <meta property="og:title" content="Notes on Behavioural Economics - loikein">
@@ -132,7 +132,7 @@ if (!doNotTrack) {
 <li><a href="#shrouded-attributes">Shrouded Attributes</a></li>
 </ul></li>
 <li><a href="#social-preference">Social Preference</a><ul>
-<li><a href="#distributional-model">Distributional Model</a></li>
+<li><a href="#distributional-consequentialist-model">Distributional (Consequentialist) Model</a></li>
 <li><a href="#inequity-aversion">Inequity Aversion</a></li>
 <li><a href="#competitive-bilateral-bargaining">Competitive Bilateral Bargaining</a></li>
 </ul></li>
@@ -1197,7 +1197,7 @@ therefore,
 <span class="math display">\[\begin{aligned}(IC)_0 &amp;&amp; x_0 &amp;= y_0 \\
 (LC)_1 &amp;&amp; c_1 &amp;\leq y_1 + R\cdot x_0 \\
 (BC)_1 &amp;&amp; c_1 + x_1 &amp;= y_1 + R\cdot x_0 \\
-(LC)_2 &amp;&amp; c_2 &amp;\leq y_2 + R\cdot x_1 \end{aligned}\]</span>
+(LC)_2 &amp;&amp; c_2 &amp;= y_2 + R\cdot x_1 \end{aligned}\]</span>
 <span class="math inline">\(\implies (LC)_1\)</span> holds in strict inequality (slack)<br />
 Therefore, <span class="math inline">\((BC)_1\)</span> and <span class="math inline">\((LC)_2 \implies\)</span>
 <span class="math display">\[\begin{aligned}x_1 &amp;= y_1 + R\cdot x_0 - c_1 \\
@@ -1422,10 +1422,10 @@ Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent ag
 <span class="math display">\[\begin{aligned}U_3(3) &amp;= 8 \\ \geq U_3(4) &amp;= 13\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 3</li>
 <li>In period 2, act if
-<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5 \\ \geq U_2(3) &amp;= 8\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U_2(2) &amp;= 5 \\ \geq U_2(4) &amp;= 13\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 2</li>
 <li>In period 1, act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3 \\ \geq U_1(2) &amp;= 5\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 3 \\ \geq U_1(4) &amp;= 13\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
 <span class="math inline">\(\implies s^{TC} = (N,N,N,Y)\)</span>, <span class="math inline">\(τ^{TC} = 4\)</span></li>
 </ol></li>
@@ -1499,7 +1499,7 @@ Let <span class="math inline">\(β=\frac{1}{2}\)</span> for time-inconsistent ag
 <span class="math display">\[\begin{aligned}U_2(2) &amp;= 18 - 8 = 10 \\ \geq U_2(3) &amp;= 18 - 13 = 5\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Act in period 3</li>
 <li>In period 1, act if
-<span class="math display">\[\begin{aligned}U_1(1) &amp;= 12 - 3 = 9\\ \geq U_1(2) &amp;= 18 - 5 = 13\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U_1(1) &amp;= 12 - 3 = 9\\ \geq U_1(2) &amp;= 18 - 8 = 10\end{aligned}\]</span>
 <span class="math inline">\(\implies\)</span> Don’t act in period 1<br />
 <span class="math inline">\(\implies s^{TC} = (N,Y,Y)\)</span>, <span class="math inline">\(τ^{TC} = 2\)</span></li>
 </ol></li>
@@ -1751,7 +1751,7 @@ t\cdot ε &amp;\geq (t+1) \cdot ε \end{aligned}\]</span>
 <li>Sophisticated agent<br />
 For any period t, act if
 <span class="math display">\[β\cdot \bar{v} -c_t \geq β\cdot(\bar{v} -c_{t+1})\]</span>
-<span class="math inline">\(\implies s^N = (Y,\dots, Y)\)</span>, <span class="math inline">\(τ^{N} = 1\)</span><br />
+<span class="math inline">\(\implies s^S = (Y,\dots, Y)\)</span>, <span class="math inline">\(τ^{N} = 1\)</span><br />
 Welfare loss: <span class="math inline">\(T\cdot ε\implies\)</span> sophistication effect</li>
 <li>Naive agent delays <span class="math inline">\(\implies\)</span> less welfare loss</li>
 </ol>
@@ -2292,13 +2292,13 @@ However, <span class="math inline">\(α\geq \frac{e}{\bar{p}}\implies e-α\bar{p
 </ul></li>
 <li>Intrinsic concerns vs instrumental concerns</li>
 </ul>
-<div id="distributional-model" class="section level3">
-<h3>Distributional Model</h3>
+<div id="distributional-consequentialist-model" class="section level3">
+<h3>Distributional (Consequentialist) Model</h3>
 <ul>
 <li>Agents: <span class="math inline">\(i=1,\dots, I\)</span></li>
 <li>Allocation: <span class="math inline">\(\underline{x} = (x_1,\dots, x_I)\)</span>
 <ul>
-<li>Monetary payoff: <span class="math inline">\(x_i\in\mathbb{R}_+\)</span></li>
+<li>Agent i’s monetary payoff: <span class="math inline">\(x_i\in\mathbb{R}_+\)</span></li>
 </ul></li>
 <li>Utility function
 <span class="math display">\[u_i(\underline{x}) = x_i + \sum_{j\neq i} λ_{ij}\cdot( x_i - x_j)\cdot x_j\]</span>
@@ -2315,6 +2315,10 @@ Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline"
 </div>
 <div id="inequity-aversion" class="section level3">
 <h3>Inequity Aversion</h3>
+<!-- 
+- Bolton-Ockenfels Utility function
+$$u_i(x) = x_i - b_i\cdot\Big(\frac{x_i}{\sum x_j} - \frac{1}{n}\Big)^2$$
+ -->
 <ul>
 <li>Fehr-Schmidt (FS) Utility function
 <span class="math display">\[\begin{aligned}u_i(\underline{x}) = x_i &amp;- α_i\cdot\frac{1}{I-1}\cdot\sum_{j\neq i}\max\{x_j-x_i, 0\} &amp;&amp; \text{Envy} \\
@@ -2323,17 +2327,17 @@ Envy: <span class="math inline">\(x_i&lt;x_j\)</span>, <span class="math inline"
 <li><span class="math inline">\(α_i\geq β_i\)</span></li>
 <li><span class="math inline">\(0\leq β_i\leq 1\)</span></li>
 </ul></li>
-<li>Bolton-Ockenfels Utility function
-<span class="math display">\[u_i(x) = x_i - b_i\cdot\Big(\frac{x_i}{\sum x_j} - \frac{1}{n}\Big)^2\]</span></li>
 <li>2 player case
 <ul>
-<li>Utility function <span class="math display">\[u_i(\underline{x}) = - α_i\cdot\max\{x_j-x_i, 0\} - β_i\cdot\max\{x_i-x_j, 0\}\]</span></li>
+<li>Utility function
+<span class="math display">\[\begin{aligned}u_i(\underline{x}) =x_i &amp;- α_i\cdot\max\{x_j-x_i, 0\} \\ &amp;- β_i\cdot\max\{x_i-x_j, 0\}\end{aligned}\]</span></li>
 <li><span class="math inline">\(α_i\geq β_i\)</span>: advantageous inequality is preferred</li>
 <li><span class="math inline">\(0\leq β_i\)</span>: being better-off per se gives no utility</li>
 <li><span class="math inline">\(β_i\leq 1\)</span>: not willing to throw away when at advantage<br />
 <img src="/post-img/notes-behavioural--inequality-aversion.png" width="470" /></li>
 </ul></li>
-<li>Lemma 4.1: in an ultimatum, with both agents has FS preferences, and <span class="math inline">\(α_1,α_2,β_1,β_2\)</span> are common knowledge, then
+<li>Lemma 4.1<br />
+in an ultimatum, with both agents has FS preferences, and <span class="math inline">\(α_1,α_2,β_1,β_2\)</span> are common knowledge, then
 <ol style="list-style-type: decimal">
 <li>Responder accepts all <span class="math inline">\(s\)</span> s.t. <span class="math inline">\(s\geq\underline{s}\equiv\frac{α_2}{1+2α_2}&lt;\frac{1}{2}\)</span></li>
 <li>Proposer offers <span class="math inline">\(s=\begin{cases}\underline{s} &amp; β_1&lt;\frac{1}{2} \\ \frac{1}{2} &amp; β_1&gt;\frac{1}{2} \end{cases}\)</span></li>
@@ -2346,14 +2350,14 @@ They decide to split equally the work and simultaneously work on each respective
 Each student <span class="math inline">\(i\in\{1, 2\}\)</span> decides how much effort to invest for his/her part.<br />
 There are two possible effort levels <span class="math inline">\(e_i\in\{0, 1\}\)</span>, and cost of effort is <span class="math inline">\(c(e_i) = −e_i\)</span>.<br />
 After submission, the essay is marked, and given that their respective effort is not observable, they receive the same grade.<br />
-The grade depends on joint effort in the following way: 3/4 · (ei + ej) where i, j ∈ {1,2} and j ̸= i.<br />
+The grade depends on joint effort in the following way: <span class="math inline">\(\frac{3}{4}(e_i +e_j)\)</span> where <span class="math inline">\(i,j\in\{1,2\}\)</span> and <span class="math inline">\(j\neq i\)</span>.<br />
 Hence, student i’s payoff can be written as:
 <span class="math display">\[π_i(e_i,e_j)=-e_i +\frac{3}{4}(e_i +e_j)\]</span></p>
 <ol style="list-style-type: decimal">
 <li>Write down the payoff matrix of the game and derive the Nash equilibrium under selfish preferences.</li>
 <li>Assume the students have Fehr and Schmidt (1999) inequity averse preferences.<br />
 That is, a student <span class="math inline">\(i\in\{1, 2\}\)</span> has the following utility function:
-<span class="math display">\[u_i(π_i,π_j)=π_i −α_i\cdot\max\{π_j −π_i,0}−β_i\cdot\max\{π_i −π_j,0\}\]</span>
+<span class="math display">\[\begin{aligned}u_i(π_i, π_j) = π_i &amp;−α_i\cdot\max\{π_j −π_i,0\}\\&amp;−β_i\cdot\max\{π_i −π_j,0\} \end{aligned}\]</span>
 where <span class="math inline">\(α_i\geq 0\)</span>, <span class="math inline">\(0\leq β_i\leq 1\)</span>, and <span class="math inline">\(β_i\leq α_i\)</span>.<br />
 Moreover, <span class="math inline">\(π_i\)</span> and <span class="math inline">\(π_j\)</span> are the material payoffs of student i and j, respectively.<br />
 Write down the utility matrix of the game.<br />
@@ -2406,8 +2410,8 @@ NE: <span class="math inline">\(e_1^* = e_2^* = 0\)</span></li>
 <ol start="2" style="list-style-type: decimal">
 <li>Payoffs with inequity averse preferences are as in the table,<br />
 to solve the prisoner’s dilemma, we need
-<span class="math display">\[\begin{aligned}\frac{1}{2} &amp;\geq \frac{3}{4}-β_i \\
-β_i &amp;\geq \frac{1}{4} \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}\frac{1}{2} &amp;\geq \frac{3}{4}-β \\
+β &amp;\geq \frac{1}{4} \end{aligned}\]</span></li>
 </ol>
 <table>
 <thead>
@@ -2440,16 +2444,22 @@ to solve the prisoner’s dilemma, we need
 </tbody>
 </table>
 <ol start="3" style="list-style-type: decimal">
-<li>Unique equilibrium: <span class="math inline">\(e_1 = e_2 = 0\)</span><br />
-Since S2 has dominant strategy <span class="math inline">\(e_2^* =0\)</span><br />
-<span class="math inline">\(\implies\)</span> S1’s BR is <span class="math inline">\(e_1^* = 0\)</span></li>
-<li>S1’s utility of choosing <span class="math inline">\(e_1=1\)</span>:
-<span class="math display">\[\begin{aligned}u_i(π_i,π_j) &amp;= π_i −α_i\cdot\max\{π_j −π_i,0}−β_i\cdot\max\{π_i −π_j,0\} \\
-π_j(e_j=0) &amp;= 0 + \frac{3}{4}\cdot 8 = 6 \\
-u_1(e_1=1) &amp;= \big(\underbrace{-1 + \frac{3}{4}\cdot 8 + 0}_{π_1=5}\big) - \frac{2}{9}\cdot α\cdot 1 = 5-\frac{1}{6} \end{aligned}\]</span>
+<li>Since S2 has dominant strategy <span class="math inline">\(e_2^* =0\)</span><br />
+<span class="math inline">\(\implies\)</span> S1’s BR is <span class="math inline">\(e_1^* = 0\)</span><br />
+Therefore, the unique equilibrium: <span class="math inline">\(e_1 = e_2 = 0\)</span><br />
+</li>
+<li>Utility functions:
+<span class="math display">\[\begin{aligned}π_i(e_i,e_{−i}) &amp;= −e_i +\frac{3}{4}\cdot\sum_{j=1}^{10} e_j\\
+u_i(π_i,π_j) &amp;= π_i −α_i\cdot\max\{π_j −π_i,0\}−β_i\cdot\max\{π_i −π_j,0\} \end{aligned}\]</span>
+Therefore, S1’s utility of choosing <span class="math inline">\(e_1=1\)</span>:
+<span class="math display">\[\begin{aligned}π_1(e_1=1) &amp;= -1 + \frac{3}{4}\cdot 8 = 5 = π_2(e_1=1) \\
+π_9(e_1=1) &amp;= 0 + \frac{3}{4}\cdot 8 = 6 \\
+u_1(e_1=1) &amp;= 7 - α_1\cdot 1 - β_1\cdot 0 = 6.25 \end{aligned}\]</span>
 S1’s utility of chooseing <span class="math inline">\(e_1=0\)</span>:
-<span class="math display">\[\begin{aligned}π_j(e_j=1) &amp;= -1 + \frac{3}{4}\cdot 7 = \frac{17}{4}\\
-u_1(e_1=0) &amp;= \big(\underbrace{0 + \frac{3}{4}\cdot 7 + 0}_{π_1=5}\big) - \frac{7}{9}\cdot β = \frac{21}{4}-\frac{4}{9} \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}π_1(e_1=1) &amp;= 0 + \frac{3}{4}\cdot 7 = \frac{21}{4} = π_9(e_1=0)\\
+π_2(e_1=0) &amp;= -1 + \frac{3}{4}\cdot 7 = \frac{17}{4} \\
+u_1(e_1=0) &amp;= \frac{21}{4} - α_1\cdot 0 - β_1\cdot 1 \approx 4.68 \end{aligned}\]</span>
+Therefore, S1’s BR is <span class="math inline">\(e_1^*=1\)</span></li>
 </ol>
 </div>
 <div id="competitive-bilateral-bargaining" class="section level3">
@@ -2485,8 +2495,8 @@ u_1(e_1=0) &amp;= \big(\underbrace{0 + \frac{3}{4}\cdot 7 + 0}_{π_1=5}\big) - \
 <ul>
 <li>Version A: proposer proposes either (20, 80) or (80, 20)</li>
 <li>Version B: proposer proposes either (20, 80) or (50, 50) or (80, 20)</li>
-<li>Distributional model predictio: same reacions</li>
-<li>But more responders in version A accepted then in version B</li>
+<li>Distributional model prediction: same reacions</li>
+<li>Outcome: more responders in version A accepted then in version B</li>
 </ul></li>
 <li>Preference for fairness
 <ul>
@@ -2498,10 +2508,10 @@ u_1(e_1=0) &amp;= \big(\underbrace{0 + \frac{3}{4}\cdot 7 + 0}_{π_1=5}\big) - \
 <li>NE: {(O, O), (B, B)}</li>
 <li>If P2 intends to hurt P1, and P2 believes P1 plays O, then P2 plays B</li>
 <li>If P2 intends to hurt P1, and P2 believes P1 plays B, then P2 plays O</li>
-<li><span class="math inline">\(\implies\)</span> P1 must have belief about (P2’s belief about P1)</li>
-<li>Suppose P1 believes (P2 believes P1 plays O)<br />
+<li><span class="math inline">\(\implies\)</span> P1 must have belief about (<strong>P2’s belief about P1</strong>)</li>
+<li>Suppose P1 believes (<strong>P2 believes P1 plays O</strong>)<br />
 Then P2 plays B <span class="math inline">\(\implies\)</span> P1 conciders as an intention of unkindness<br />
-<span class="math inline">\(\implies\)</span> If P1 believes (P2 plays B), P1 plays O to lower P2’s payoff<br />
+<span class="math inline">\(\implies\)</span> If P1 believes that (<strong>P2 will play B</strong>), P1 plays O to lower P2’s payoff<br />
 <span class="math inline">\(\implies\)</span> by symmetry, (O, B) or (B, O) may also be equilibria</li>
 </ul></li>
 </ul>
@@ -2546,15 +2556,17 @@ Then P2 plays B <span class="math inline">\(\implies\)</span> P1 conciders as an
 <li>First order belief
 <ul>
 <li>i’s actual action: <span class="math inline">\(a_i\)</span></li>
-<li>i’s belief what j does: <span class="math inline">\(b_j\)</span></li>
+<li>i’s belief about what j does: <span class="math inline">\(b_j\)</span></li>
 </ul></li>
-<li>Material payoff: <span class="math inline">\(π_i(a_i, a_{-i})\)</span>
+<li>If i believes j plays <span class="math inline">\(b_j\)</span> while j actually plays <span class="math inline">\(a_j\)</span>:
 <ul>
-<li>Set of all possible payoffs if j plays <span class="math inline">\(b_j\)</span>: <span class="math display">\[Π(b_j) = \big\{ \big(π_i(a,b_j) ,π_j(a,b_j)\big)\ |\ a\in A_i\big\}\]</span></li>
-<li>j’s lowest possible payoff: <span class="math inline">\(π_j^{min}(b_j)\in Π(b_j)\)</span></li>
-<li>Set of all Pareto optimal payoffs: <span class="math inline">\(Π^{PAR}(b_j) \subset Π(b_j)\)</span></li>
-<li>j’s highest payoff in Pareto: <span class="math inline">\(π_j^h(b_j)\in Π^{PAR}(b_j)\)</span></li>
-<li>j’s lowest payoff in Pareto: <span class="math inline">\(π_j^l(b_j)\in Π^{PAR}(b_j)\)</span></li>
+<li>Material payoff for i playing <span class="math inline">\(a_i\)</span>: <span class="math inline">\(π_i(a_i, a_j)\)</span><br />
+</li>
+<li>Set of all possible payoffs: <span class="math display">\[Π(b_j) = \big\{ \big(π_i(a_i,b_j) ,π_j(a_i,b_j)\big)\ |\ a_i\in A_i\big\}\]</span></li>
+<li>j’s lowest possible payoff: <span class="math display">\[π_j^{min}(b_j)\in Π(b_j)\]</span></li>
+<li>Set of all Pareto optimal payoffs: <span class="math display">\[Π^{PAR}(b_j) \subset Π(b_j)\]</span></li>
+<li>j’s highest payoff in Pareto: <span class="math display">\[π_j^h(b_j)\in Π^{PAR}(b_j)\]</span></li>
+<li>j’s lowest payoff in Pareto: <span class="math display">\[π_j^l(b_j)\in Π^{PAR}(b_j)\]</span></li>
 </ul></li>
 <li>Fair reference point: <span class="math display">\[π_j^e(b_j) = \frac{π_j^h(b_j)+ π_j^l(b_j)}{2}\]</span>
 <ul>
@@ -2571,10 +2583,10 @@ Then P2 plays B <span class="math inline">\(\implies\)</span> P1 conciders as an
 <li>Second order belief
 <ul>
 <li>i’s actual action: <span class="math inline">\(a_i\)</span></li>
-<li>j’s belief what i does: <span class="math inline">\(b_i\)</span></li>
-<li>i’s belief what j believes what i does: <span class="math inline">\(c_i\)</span></li>
+<li>j’s belief about what i does: <span class="math inline">\(b_i\)</span></li>
+<li>i’s belief about what (<strong>j believes what i does</strong>): <span class="math inline">\(c_i\)</span></li>
 </ul></li>
-<li>Perceived fairness function:
+<li><strong>Perceived</strong> fairness function:
 <span class="math display">\[\begin{aligned}\text{j&#39;s belief about i&#39;s kindness to j} &amp;&amp; \tilde{f}_i(b_i,c_j) &amp;= \frac{π_j(b_i,c_j) - π_j^e(c_j)}{π_j^h(c_j) - π_j^{min}(c_j)} \\
 \text{i&#39;s belief about j&#39;s kindness to i} &amp;&amp;\tilde{f}_j(b_j,c_i) &amp;= \frac{π_i(b_j,c_i) - π_i^e(c_i)}{π_i^h(c_i) - π_i^{min}(c_i)} \end{aligned}\]</span></li>
 </ul>
