@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">81 min read</span>
+    <span class="article-duration">83 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Economics</h1>
     
@@ -2357,7 +2357,7 @@ Hence, student i’s payoff can be written as:
 <li>Write down the payoff matrix of the game and derive the Nash equilibrium under selfish preferences.</li>
 <li>Assume the students have Fehr and Schmidt (1999) inequity averse preferences.<br />
 That is, a student <span class="math inline">\(i\in\{1, 2\}\)</span> has the following utility function:
-<span class="math display">\[\begin{aligned}u_i(π_i, π_j) = π_i &amp;−α_i\cdot\max\{π_j −π_i,0\}\\&amp;−β_i\cdot\max\{π_i −π_j,0\} \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}u_i(π_i, π_j) = π_i &amp;−\frac{α_i}{9}\sum_{j\neq i}\max\{π_j −π_i,0\}\\&amp;−\frac{β_i}{9}\sum_{j\neq i}\max\{π_i −π_j,0\} \end{aligned}\]</span>
 where <span class="math inline">\(α_i\geq 0\)</span>, <span class="math inline">\(0\leq β_i\leq 1\)</span>, and <span class="math inline">\(β_i\leq α_i\)</span>.<br />
 Moreover, <span class="math inline">\(π_i\)</span> and <span class="math inline">\(π_j\)</span> are the material payoffs of student i and j, respectively.<br />
 Write down the utility matrix of the game.<br />
@@ -2737,24 +2737,49 @@ Show that (D, H) and (H, D) are fairness equilibria of the game.</li>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>NE: (D, H), (H, D)</li>
-<li>Preceived kindness
-<ol style="list-style-type: lower-alpha">
+<li><ol style="list-style-type: lower-alpha">
 <li>(H, D)<br />
-For P1:
-<span class="math display">\[\begin{aligned}\tilde{f}_2(c_1,b_2) &amp;= \tilde{f}_2(H,D) = \frac{4 - \frac{1}{2}(4+4)}{4 - (-1)} = 0 \\
- f_1(a_1,b_2) &amp;= f_1(H,D) = \frac{1-\frac{1}{2}(3+1)}{3-1} = -\frac{1}{2} \\
- u_1(a_1,b_2,c_1) &amp;= 4 + 0\cdot\big(1-\frac{1}{2}\big) = 4 \end{aligned}\]</span>
-Deviation to D is preferred when
-<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;= f_1(D,D) = \frac{3 - \frac{1}{2}(3+1)}{3-1} = \frac{1}{2} \\
- u_1(a_1,b_2,c_1) &amp;= 3 + 0\cdot\big(1+\frac{1}{2}\big) = 3 &gt; 4 \end{aligned}\]</span>
+For P1, own kindness to P2:
+<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;= \frac{π_2(H,D) - π_2^e(D)}{π_2^h(D) - π_2^{min}(D)}\\
+&amp;= \frac{1-\frac{1}{2}(3+1)}{3-1} \\
+&amp;= -\frac{1}{2} \end{aligned}\]</span>
+Perceived kindness of P2:
+<span class="math display">\[\begin{aligned}\tilde{f}_2(c_1,b_2)&amp;= \frac{π_1(H,D) - π_1^e(H)}{π_1^h(H) - π_1^{min}(H)} \\
+&amp;= \frac{4 - 4}{4 - (-1)} \\
+&amp;= 0 \end{aligned}\]</span>
+Utility:
+<span class="math display">\[\begin{aligned}u_1(a_1,b_2,c_1) &amp;= π_1(H,D) + \tilde{f}_2\cdot (1+f_1)\\
+&amp;= 4 + 0\cdot\big(1-\frac{1}{2}\big) \\
+&amp;= 4 \end{aligned}\]</span>
+Deviation to D changes own kindness to
+<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;= \frac{π_2(D,D) - π_2^e(D)}{π_2^h(D) - π_2^{min}(D)} \\
+&amp;= \frac{3 - \frac{1}{2}(3+1)}{3-1}\\
+&amp;= \frac{1}{2} \end{aligned}\]</span>
+deviation is preferred when
+<span class="math display">\[\begin{aligned}u_1(a_1,b_2,c_1) &amp;= π_1(D,D) + \tilde{f}_2\cdot (1+f_1)\\
+&amp;= 3 + 0\cdot\big(1+\frac{1}{2}\big) \\
+&amp;= 3 &gt; 4 \end{aligned}\]</span>
 therefore, P1 does not deviate<br />
-For P2:
-<span class="math display">\[\begin{aligned}\tilde{f}_1(c_2,b_1) &amp;= \tilde{f}_1(D,H) = \frac{1 - \frac{1}{2}(3+1)}{3 - 1} = -\frac{1}{2} \\
- f_2(a_2,b_1) &amp;= f_2(D,H) = \frac{4-4}{4+1} = 0 \\
- u_2(a_2,b_1,c_2) &amp;= 1 - \frac{1}{2}(1-0) = \frac{1}{2} \end{aligned}\]</span>
-Deviation to H is preferred when
-<span class="math display">\[\begin{aligned}f_2(a_2,b_1) &amp;= f_2(H, H) = \frac{-1-4}{4-(-1)} = -1 \\
- u_2(a_2,b_1,c_2) &amp;= -1 - \frac{1}{2}(1-1) = -1 &gt; \frac{1}{2} \end{aligned}\]</span>
+For P2, own kindness to P1:
+<span class="math display">\[\begin{aligned}f_2(a_2,b_1) &amp;= \frac{π_1(H,D) - π_1^e(H)}{π_1^h(H) - π_1^{min}(H)} \\
+&amp;= \frac{4 - 4}{4 - (-1)} \\
+&amp;= 0 \end{aligned}\]</span>
+Perceived kindness of P1:
+<span class="math display">\[\begin{aligned}\tilde{f}_1(c_2,b_1) &amp;= \frac{π_2(H,D) - π_2^e(D)}{π_2^h(D) - π_2^{min}(D)}\\
+&amp;= \frac{1 - \frac{1}{2}(3+1)}{3 - 1}\\
+&amp;= -\frac{1}{2}\end{aligned}\]</span>
+Utility:
+<span class="math display">\[\begin{aligned}u_2(a_2,b_1,c_2) &amp;= π_2(D,H) + \tilde{f}_1\cdot (1+f_2)\\
+&amp;= 1 - \frac{1}{2}(1+0) \\
+&amp;= \frac{1}{2} \end{aligned}\]</span>
+Deviation to H changes own kindness to
+<span class="math display">\[\begin{aligned}f_2(a_2,b_1) &amp;=  \frac{π_2(H,H) - π_1^e(H)}{π_1^h(H) - π_1^{min}(H)} \\
+&amp;= \frac{-1 - 4}{4-(-1)} \\
+&amp;= -1\end{aligned}\]</span>
+deviation is preferred when
+<span class="math display">\[\begin{aligned}u_2(a_2,b_1,c_2) &amp;= π_2(H,H) + \tilde{f}_1\cdot (1+f_2)\\
+&amp;= -1 - \frac{1}{2}(1-1) \\
+&amp;= -1 &gt; \frac{1}{2} \end{aligned}\]</span>
 therefore, P2 does not deviate</li>
 <li>(D, H)<br />
 By symmetry, (D, H) is a fairness equilibrium</li>
@@ -2762,24 +2787,49 @@ By symmetry, (D, H) is a fairness equilibrium</li>
 <li>(D, D) and (H, H)
 <ol style="list-style-type: lower-alpha">
 <li>(D, D)<br />
-For P1:
-<span class="math display">\[\begin{aligned}\tilde{f}_2(c_1,b_2) &amp;= \tilde{f}_2(D,D) = \frac{3 - \frac{1}{2}(3+1)}{3-1)} = \frac{1}{2} \\
- f_1(a_1,b_2) &amp;= f_1(D,D) = \frac{3 - \frac{1}{2}(3+1)}{3-1)} = \frac{1}{2} \\
- u_1(a_1,b_2,c_1) &amp;= u_1(D,D,D) = 3 + \frac{1}{2}\cdot\big(1+\frac{1}{2}\big) = \frac{15}{4} \end{aligned}\]</span>
-Deviation to H is preferred when
-<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;= f_1(H,D) = \frac{1 - \frac{1}{2}(3+1)}{3-1} = -\frac{1}{2} \\
- u_1(a_1,b_2,c_1) &amp;= u_1(H,D,D) = 4 + \frac{1}{2}\cdot\big(1-\frac{1}{2}\big) = \frac{17}{4} &gt; \frac{15}{4} \end{aligned}\]</span>
-therefore, P1 deviates<br />
-</li>
+For P1, own kindness to P2:
+<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;=\frac{π_2(D,D) - π_2^e(D)}{π_2^h(D) - π_2^{min}(D)}\\
+ &amp;= \frac{3 - \frac{1}{2}(3+1)}{3-1)} \\
+ &amp;= \frac{1}{2}\end{aligned}\]</span>
+Perceived kindness of P2:
+<span class="math display">\[\begin{aligned}\tilde{f}_2(c_1,b_2)&amp;= \frac{π_1(D,D) - π_1^e(D)}{π_1^h(D) - π_1^{min}(D)} \\
+ &amp;= \frac{3 - \frac{1}{2}(3+1)}{3-1)} \\
+ &amp;= \frac{1}{2} \end{aligned}\]</span>
+Utility:
+<span class="math display">\[\begin{aligned}u_1(a_1,b_2,c_1) &amp;= π_1(D,D) + \tilde{f}_2\cdot (1+f_1)\\
+ &amp;= 3 + \frac{1}{2}\cdot\big(1+\frac{1}{2}\big)\\
+ &amp;= \frac{15}{4}\end{aligned}\]</span>
+Deviation to H changes own kindness to
+<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;= \frac{π_2(H,D) - π_2^e(D)}{π_2^h(D) - π_2^{min}(D)} \\
+ &amp;= \frac{1 - \frac{1}{2}(3+1)}{3-1} \\
+ &amp;= -\frac{1}{2} \end{aligned}\]</span>
+deviation is preferred when
+<span class="math display">\[\begin{aligned}u_1(a_1,b_2,c_1) &amp;= π_1(H,D) + \tilde{f}_2\cdot (1+f_1)\\
+ &amp;= 4 + \frac{1}{2}\cdot\big(1-\frac{1}{2}\big)\\
+ &amp;= \frac{17}{4} &gt; \frac{15}{4} \end{aligned}\]</span>
+therefore, P1 deviates, (D, D) is not equilibrium</li>
 <li>(H, H)<br />
-For P1:
-<span class="math display">\[\begin{aligned}\tilde{f}_2(c_1,b_2) &amp;= \tilde{f}_2(H, H) = \frac{-1 - 4}{4+1} = -1 \\
- f_1(a_1, b_2) &amp;= f_1(H,H) = \frac{-1 - 4}{4+1} = -1 \\
- u_1(a_1,b_2,c_1) &amp;= u_1(H,H,H) = -1 + (-1)\cdot(1-1) = -1\end{aligned}\]</span>
-Deviation to D is preferred when
-<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;= f_1(D,H) = \frac{4 - 4}{4+1} = 0 \\
- u_1(a_1,b_2,c_1) &amp;= u_1(D,H,H) = 1 + (-1)\cdot(1-0) = 0 &gt; -1 \end{aligned}\]</span>
-therefore, P1 deviates</li>
+For P1, own kindness to P2:
+<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;=\frac{π_2(H,H) - π_2^e(H)}{π_2^h(H) - π_2^{min}(H)}\\
+ &amp;= \frac{-1 - 4}{4-(-1)} \\
+ &amp;= -1\end{aligned}\]</span>
+Perceived kindness of P2:
+<span class="math display">\[\begin{aligned}\tilde{f}_2(c_1,b_2)&amp;= \frac{π_1(H,H) - π_1^e(H)}{π_1^h(H) - π_1^{min}(H)} \\
+ &amp;= \frac{-1 - 4}{4-(-1)} \\
+ &amp;= -1 \end{aligned}\]</span>
+Utility:
+<span class="math display">\[\begin{aligned}u_1(a_1,b_2,c_1) &amp;= π_1(H,H) + \tilde{f}_2\cdot (1+f_1)\\
+ &amp;= -1 -1\cdot(1-1) \\
+ &amp;= -1\end{aligned}\]</span>
+Deviation to D changes own kindness to
+<span class="math display">\[\begin{aligned}f_1(a_1,b_2) &amp;= \frac{π_2(D,H) - π_2^e(H)}{π_2^h(H) - π_2^{min}(H)} \\
+ &amp;=\frac{4 - 4}{4- (-1)} \\
+ &amp;= 0 \end{aligned}\]</span>
+deviation is preferred when
+<span class="math display">\[\begin{aligned}u_1(a_1,b_2,c_1) &amp;= π_1(D,H) + \tilde{f}_2\cdot (1+f_1)\\
+ &amp;= 1 -1\cdot(1-0) \\
+ &amp;= 0 &gt; -1 \end{aligned}\]</span>
+therefore, P1 deviates, (H, H) is not equilibrium</li>
 </ol></li>
 </ol>
 </div>
@@ -2805,7 +2855,15 @@ P1 proposes: 2<br />
 P2 chooses accept or reject<br />
 <span class="math inline">\(γ=\frac{1}{2}\)</span></p>
 </blockquote>
-<p>Utility for P2 to accept: <span class="math inline">\(u^A_2 = 2 + \frac{1}{2}( a_1 + a_2)\cdot(10-2)\)</span></p>
+<p>Utility for P2 to accept:
+<span class="math display">\[\begin{aligned}u^A_2 &amp;= 2 + \frac{1}{2}(a_1 + a_2)\cdot(10-2) \\
+&amp;= 2 + 4\cdot(a_1 + a_2) \end{aligned}\]</span>
+Utility for P2 to reject:
+<span class="math display">\[\begin{aligned}u^R_2 &amp;= 0 + \frac{1}{2}(a_1 + a_2)\cdot 0 \\
+&amp;= 0 \end{aligned}\]</span>
+therefore, P2 accepts if
+<span class="math display">\[\begin{aligned}2 + 4\cdot(a_1 + a_2) &amp;\geq 0 \\
+a_1 + a_2 &amp;\geq -\frac{1}{2} \end{aligned}\]</span></p>
 <table>
 <thead>
 <tr class="header">
@@ -2844,8 +2902,8 @@ The Sender can first choose between “share” and “keep”.
 If she chooses “keep”, she keeps the whole endowment for herself and the game is over.<br />
 If she chooses “share”, her whole endowment is transferred to the Receiver and multiplied by three, i.e., the Receiver’s endowment becomes 30.<br />
 If the Sender has chosen “share”, the Receiver can also choose between “share” and “keep”.<br />
-If the Receiver chooses “keep”, she keeps the whole amount of 30 for herself.<br />
-If the Receiver chooses “share”, she transfers back 10 units to the Sender, which are again tripled.<br />
+If the Receiver chooses “keep”, he keeps the whole amount of 30 for himself.<br />
+If the Receiver chooses “share”, he transfers back 10 units to the Sender, which are again tripled.<br />
 The monetary payoffs as a function of the players’ actions are given as:</p>
 <table>
 <thead>
@@ -2878,10 +2936,10 @@ The monetary payoffs as a function of the players’ actions are given as:</p>
 </tbody>
 </table>
 <p>where <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span> are the monetary payoffs of player <span class="math inline">\(i, j\in\{S, R\}\)</span>, and <span class="math inline">\(γ = 0.75\)</span>.<br />
-The Sender’s type is <span class="math inline">\(a_s\in\{−1,0,1\}\)</span>, where each realization occurs with probability one third, and the Receiver’s type is <span class="math inline">\(a_r\in\{−1, 1\}\)</span>, where the probability of <span class="math inline">\(a_r = 1\)</span> is given by <span class="math inline">\(q\)</span> independent of the Sender’s type.</p>
+The Sender’s type is <span class="math inline">\(a_s\in\{−1,0,1\}\)</span>, where each realization occurs with <span class="math inline">\(Pr=\frac{1}{3}\)</span>, and the Receiver’s type is <span class="math inline">\(a_r\in\{−1, 1\}\)</span>, where the probability of <span class="math inline">\(a_r = 1\)</span> is given by <span class="math inline">\(q\)</span> independent of the Sender’s type.</p>
 <ol style="list-style-type: decimal">
-<li>Assume that the Sender chooses “share” if his type is <span class="math inline">\(a_s = 0\)</span> or <span class="math inline">\(a_s = 1\)</span>, and chooses “keep” if <span class="math inline">\(a_s = −1\)</span>.<br />
-What is the Sender’s expected type in case he shares?</li>
+<li>Assume that the Sender chooses “share” if <span class="math inline">\(a_S = 0\)</span> or <span class="math inline">\(a_S = 1\)</span>, and chooses “keep” if <span class="math inline">\(a_S = −1\)</span>.<br />
+What is the Sender’s expected type in case she shares?</li>
 <li>Suppose the Sender adopts the strategy under (1).<br />
 Determine the utility from “share” for each of the Receiver’s two types!</li>
 <li>Suppose the Sender adopts the strategy under (1).<br />
@@ -2890,13 +2948,45 @@ What is the Receiver’s best response for each of the Receiver’s two types?</
 </ol>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(E[a_s|S] = \frac{1}{2}\cdot 0 + \frac{1}{2}\cdot 1 = \frac{1}{2}\)</span></li>
-<li><span class="math inline">\(u_r(S | 1) = 20 + (0.75 + 0.25\cdot 0.5)\cdot 30 = 46.5\)</span><br />
-<span class="math inline">\(u_r(S|-1) = 20 + \big(0.75\cdot(-1) + 0.25\cdot 0.5\big) = 1.25\)</span><br />
-</li>
-<li><span class="math inline">\(u_r(K) = 30 + (0.75a_r + 0.25\cdot E[a_p|S]\big)\cdot 0 = 30\)</span><br />
-<span class="math inline">\(a_r = 1\)</span>: optimal to share<br />
-<span class="math inline">\(a_1 = -1\)</span>: optimal to keep</li>
+<li>Sender’s expected type:
+<span class="math display">\[\begin{aligned}E[a_S\ |\ S] &amp;= \Big(\frac{1}{3}\cdot 0 + \frac{1}{3}\cdot 1\Big)\div\frac{2}{3} \\
+&amp;= 0.5 \end{aligned}\]</span></li>
+<li><ol style="list-style-type: lower-alpha">
+<li>For <span class="math inline">\(a_R = 1\)</span>, when the sender shares (<span class="math inline">\(Pr=\frac{2}{3}\)</span>),
+<span class="math display">\[\begin{aligned}u_R(S) &amp;= x_R + \big(γa_R + (1-γ)E[a_S]\big)x_S \\
+&amp;= 20 + (0.75\cdot 1 + 0.25\cdot 0.5)\cdot 30 \\
+&amp;= 46.25 \end{aligned}\]</span>
+When the sender keeps (<span class="math inline">\(Pr=\frac{1}{3}\)</span>),
+<span class="math display">\[\begin{aligned}u_R(S) &amp;= x_R + \big(γa_R + (1-γ)E[a_S]\big)x_S \\
+&amp;= 0 + \big(0.75\cdot 1 + 0.25\cdot (-1)\big)\cdot 10 \\
+&amp;= 5 \end{aligned}\]</span>
+expected utility:
+<span class="math display">\[\begin{aligned}E[u_R(S)] &amp;= \frac{2}{3}\cdot 46.25 + \frac{1}{3}\cdot 5\\
+&amp;= 32.5 \end{aligned}\]</span></li>
+<li>For <span class="math inline">\(a_R = -1\)</span>, when the sender shares,
+<span class="math display">\[\begin{aligned}u_R(S) &amp;= x_R + \big(γa_R + (1-γ)E[a_S]\big)x_S \\
+&amp;= 20 + \big(0.75\cdot(-1) + 0.25\cdot 0.5\big)\cdot 30 \\
+&amp;= 1.25 \end{aligned}\]</span>
+when the sender keeps,
+<span class="math display">\[\begin{aligned}u_R(S) &amp;= x_R + \big(γa_R + (1-γ)E[a_S]\big)x_S \\
+&amp;= 0 + \big(0.75\cdot(-1) + 0.25\cdot (-1)\big)\cdot 10 \\
+&amp;= -10 \end{aligned}\]</span>
+expected utility:
+<span class="math display">\[\begin{aligned}E[u_R(S)] &amp;= \frac{2}{3}\cdot 1.25 + \frac{1}{3}\cdot (-18.75)\\
+&amp;\approx -5.42 \end{aligned}\]</span></li>
+</ol></li>
+<li>For any <span class="math inline">\(a_R\)</span>, when the sender shares, choosing keep gives
+<span class="math display">\[\begin{aligned}u_R(K) &amp;= x_R + \big(γa_R + (1-γ)E[a_S]\big)x_S \\
+&amp;= 30 + \big(0.75\cdot a_R + 0.25\cdot 0.5\big)\cdot 0 \\
+&amp;= 30 \end{aligned}\]</span>
+when the sender keeps, choosing keep gives then same utility as choosing share (as in 2)<br />
+Therefore, for <span class="math inline">\(a_R = 1\)</span>, expected utility:
+<span class="math display">\[\begin{aligned}E[u_R(K)] &amp;= \frac{2}{3}\cdot 30 + \frac{1}{3}\cdot 5\\
+&amp;\approx 21.7 \end{aligned}\]</span>
+For <span class="math inline">\(a_R = -1\)</span>, expected utility:
+<span class="math display">\[\begin{aligned}E[u_R(K)] &amp;= \frac{2}{3}\cdot 30 + \frac{1}{3}\cdot (-10)\\
+&amp;\approx 16.7 \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> For <span class="math inline">\(a_R = 1\)</span>, BR is share; for <span class="math inline">\(a_R = -1\)</span>, BR is keep</li>
 <li><span class="math inline">\(u_s(K) = 10\)</span><br />
 <span class="math inline">\(u_s(S| -1) = q\big(30 + (-0.75 + 0.25)\cdot 20\big) + (1-q)\big(0 + (-0.75 - 0.25)\cdot 20\big) = 40q - 20&lt;0\)</span><br />
 <span class="math inline">\(u_s(S| 0) = q\big(30 + (0.75 + 0.25)\cdot 20\big) + (1-q)\big(0 + (0 - 0.25)\cdot 20\big) = 42.5q - 7.5\)</span><br />
