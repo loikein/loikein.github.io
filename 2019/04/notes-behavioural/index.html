@@ -789,16 +789,21 @@ Which one is larger? Explain intuitively why this is so.</li>
 <li><span class="math inline">\(R = \begin{pmatrix}α &amp; 1-α \\ (2,0) &amp; (0,3) \end{pmatrix}\)</span></li>
 <li><ol style="list-style-type: lower-alpha">
 <li>We already know <span class="math inline">\(x\in A\)</span> is PE</li>
-<li>For <span class="math inline">\(B\)</span>,<br />
+<li>When facing <span class="math inline">\(B\)</span>,<br />
 Choosing <span class="math inline">\(x\in B\)</span> gives
-<span class="math display">\[\begin{aligned}2 + 0 + α\cdot 0 + (1-α)(2-3λ) &amp;= -5 + 7α \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}U(x,B\ |\ R) &amp;= 2 + 0 + α\cdot 0 + (1-α)(2-3λ) \\
+&amp;= 2 + (1-α)(2-3λ) \\
+&amp;= -5 + 7α \end{aligned}\]</span>
 Choosing <span class="math inline">\(z\in B\)</span> gives
-<span class="math display">\[\begin{aligned}0 + 3 + α(3-2λ) + (1-α)\cdot 0 = 3 - 3α \end{aligned}\]</span>
-<span class="math inline">\(z\)</span> is better than <span class="math inline">\(x\)</span> when
+<span class="math display">\[\begin{aligned}U(z,B\ |\ R) &amp;= 0 + 3 + α(3-2λ) + (1-α)\cdot 0 \\
+&amp;= 3 + α(3-2λ) \\
+&amp;= 3 - 3α \end{aligned}\]</span>
+Choosing <span class="math inline">\(z\in B\)</span> is indeed an personal equilibrium when
 <span class="math display">\[\begin{aligned}3 - 3α &amp;\geq -5 + 7α \\ α &amp;\leq\frac{4}{5} \end{aligned}\]</span></li>
 </ol></li>
 <li>When <span class="math inline">\(α = \frac{1}{2}\)</span>, expected utility:
-<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}α\big(2+(1-α)(2-3λ)\big) + (1-α)\big(3 + α(3-2λ\big)\\
+<span class="math display">\[\begin{aligned}E[U] &amp;= α\cdot U(x,B\ |\ R) + (1-α)\cdot U(z,B\ |\ R)\\
+&amp;= α\big(2+(1-α)(2-3λ)\big) + (1-α)\big(3 + α(3-2λ\big)\\
 &amp;= 2α + (1-α)\cdot 3 - α(1-α)\cdot 10 \\
 &amp;= 0\end{aligned}\]</span></li>
 <li>In (1), utility: <span class="math inline">\(x_1 + x_2 = 2\)</span><br />
@@ -1327,32 +1332,34 @@ Utility in period 1:
 Consumer’s problem in period 1:
 <span class="math display">\[\begin{aligned}\max_b &amp;&amp; U &amp;= u_1 + δ u_2 \\
 &amp;&amp; &amp;= \log\frac{y_1 + b}{p_1} + δ\cdot \log (y_2 - b)\\
-FOC &amp;&amp; \frac{\partial U}{\partial b} &amp;= \frac{1}{y_1 + b} + \frac{δ}{y_2 - b} \overset{!}{=} 0\\
-&amp;&amp; \frac{1}{y_1 + b} &amp;= -\frac{δ}{y_2 - b}\\
-&amp;&amp; b &amp;= \frac{δy_1 + y_2}{1-δ}\\
+FOC &amp;&amp; \frac{\partial U}{\partial b} &amp;= \frac{1}{y_1 + b} - \frac{δ}{y_2 - b} \overset{!}{=} 0\\
+&amp;&amp; \frac{1}{y_1 + b} &amp;= \frac{δ}{y_2 - b}\\
+&amp;&amp; (δ+1)b &amp;= y_2 - δy_1 \\
+&amp;&amp; b &amp;= \frac{y_2 - δy_1}{1+δ} \\
 &amp;&amp; c_1 &amp;= \frac{y_1 + b}{p_1}\\
-&amp;&amp; &amp;= \frac{δy_1 + y_2 + y_1 - δy_1}{p_1(1-δ)}\\
-&amp;&amp; &amp;= \frac{y_1+ y_2}{p_1(1-δ)}\end{aligned}\]</span></li>
+&amp;&amp; &amp;= \frac{δy_1 + y_1 + y_2 - δy_1}{p_1(1+δ)}\\
+&amp;&amp; &amp;= \frac{y_1+ y_2}{p_1(1+δ)}\end{aligned}\]</span></li>
 <li>Assume the consumer borrows <span class="math inline">\(b\leq y_2\)</span> in period 1<br />
 Consumer’s problem in period 1:
 <span class="math display">\[\begin{aligned}\max_b &amp;&amp; U &amp;= u_1 + βδ u_2 \\
 &amp;&amp; &amp;= \log\frac{y_1 + b}{p_1} + βδ\cdot \log (y_2 - b)\\
-FOC &amp;&amp; \frac{\partial U}{\partial b} &amp;= \frac{1}{y_1 + b} + \frac{βδ}{y_2 - b} \overset{!}{=} 0\\
-&amp;&amp; \frac{1}{y_1 + b} &amp;= -\frac{βδ}{y_2 - b}\\
-&amp;&amp; b &amp;= \frac{βδy_1 + y_2}{1-βδ}\\
+FOC &amp;&amp; \frac{\partial U}{\partial b} &amp;= \frac{1}{y_1 + b} - \frac{βδ}{y_2 - b} \overset{!}{=} 0\\
+&amp;&amp; \frac{1}{y_1 + b} &amp;= \frac{βδ}{y_2 - b}\\
+&amp;&amp; b &amp;= \frac{βδy_1 + y_2}{1+βδ}\\
 &amp;&amp; c_1 &amp;= \frac{y_1 + b}{p_1}\\
-&amp;&amp; &amp;= \frac{y_1+ y_2}{p_1(1-βδ)}\end{aligned}\]</span></li>
-<li>No difference?</li>
+&amp;&amp; &amp;= \frac{y_1+ y_2}{p_1(1+βδ)}\end{aligned}\]</span></li>
+<li>No difference, because in period 1 she already knows her real <span class="math inline">\(β\)</span></li>
 <li>For consumer i, <span class="math inline">\(p_1\)</span> is increased by <span class="math inline">\(τ\)</span>, and <span class="math inline">\(c_{2i}\)</span> is increased by <span class="math inline">\(τc_{1j}\)</span><br />
-therefore, <span class="math inline">\(c_{1i} = \frac{y_1+ (y_2 + τc_{1j})}{(p_1+τ)(1-βδ)}\)</span><br />
+therefore, <span class="math inline">\(c_{1i} = \frac{y_1+ (y_2 + τc_{1j})}{(p_1+τ)(1+βδ)}\)</span><br />
 Since symmetry, <span class="math inline">\(c_{1i} = c_{1j}\)</span>,
-<span class="math display">\[\begin{aligned}c_{1i} &amp;= \frac{y_1+ (y_2 + τc_{1i})}{(p_1+τ)(1-βδ)}\\
-c_{1i}(p_1+τ)(1-βδ) &amp;= y_1+ (y_2 + τc_{1i}) \\
-c_{1i} &amp;= \frac{y_1+ y_2}{(p_1+τ)(1-βδ) - τ} \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}c_{1i} &amp;= \frac{y_1+ (y_2 + τc_{1i})}{(p_1+τ)(1+βδ)}\\
+c_{1i}(p_1+τ)(1+βδ) &amp;= y_1+ (y_2 + τc_{1i}) \\
+c_{1i} &amp;= \frac{y_1+ y_2}{(p_1+τ)(1+βδ) - τ} \end{aligned}\]</span>
 From self 0’s perspective, she wants to let <span class="math inline">\(c_1 = c_1^{TC}\)</span>
-<span class="math display">\[\begin{aligned}\frac{y_1+ y_2}{(p_1+τ)(1-βδ) - τ} &amp;= \frac{y_1+ y_2}{p_1(1-δ)} \\
+<span class="math display">\[\begin{aligned}\frac{y_1+ y_2}{(p_1+τ)(1+βδ) - τ} &amp;= \frac{y_1+ y_2}{p_1(1+δ)} \\
 (p_1+τ)(1-βδ) - τ &amp;= p_1(1-δ) \\
-τ &amp;= \frac{p_1(δ - βδ)}{βδ} \end{aligned}\]</span></li>
+τ &amp;= \frac{p_1(δ - βδ)}{βδ} \\
+&amp;= \frac{p_1(1 - β)}{β} \end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="windfall-spending" class="section level3">
@@ -1410,7 +1417,7 @@ In period t, utility from doing the task in period <span class="math inline">\(�
 <li>Optimal strategy: <span class="math inline">\(s^{S}\)</span><br />
 </li>
 </ul></li>
-<li>Naive agent: thinks <span class="math inline">\(β=1\)</span> in period 0
+<li>Naive agent: thinks <span class="math inline">\(β=1\)</span> before real actions happen
 <ul>
 <li>Compares <span class="math inline">\(v_t - c_t \geq \max_{τ&gt;t} \ (v_τ - c_τ)\)</span></li>
 <li>First action: <span class="math inline">\(τ^{N}\)</span><br />
@@ -1884,25 +1891,25 @@ Show that the naive agent gets less than her reservation utility under this cont
 </ol>
 </blockquote>
 <ol style="list-style-type: lower-alpha">
-<li>Assume the worker accepts contract. in period 2, worker’s problem:
+<li>Assume the workers accept contract. In period 2, workers’ problem:
 <span class="math display">\[\begin{aligned}\max_e &amp;&amp; u_2 &amp;= -\frac{1}{2}e^2 + βδ\cdot w(e) \\
 &amp;&amp; &amp;= -\frac{1}{2}e^2 + β\cdot(F+αe) \\
 FOC &amp;&amp; \frac{\partial}{\partial e} &amp;= -e + βα\overset{!}{=} 0 \\
 &amp;&amp; e^S = e^N &amp;= αβ \\
 &amp;&amp; &amp;= \frac{3}{4}α \\
 &amp;&amp; e^{TC} &amp;= α \end{aligned}\]</span></li>
-<li>in period 1, agents accepts if
+<li>in period 1, TC and Sophisticated agents correctly know their <span class="math inline">\(β\)</span>, while Naive agent believes <span class="math inline">\(\hat{β}=1\)</span><br />
+The agents accepts if
 <span class="math display">\[\begin{aligned}(PC) &amp;&amp; β\cdot \Big(δ\cdot \big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e)\Big) &amp;\geq 0 \\
 &amp;&amp; δ\cdot\big(- \frac{1}{2}e^2\big) + δ^2\cdot w(e) &amp;\geq 0 \\
 &amp;&amp; -\frac{1}{2}e^2 + F + αe &amp;\geq 0 \\
-\text{Time consistent} &amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
-&amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
-\text{Naive} &amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
+\text{TC, Naive} &amp;&amp; -\frac{1}{2}α^2 + F + α^2 &amp;\geq 0 \\
 &amp;&amp; F &amp;= - \frac{1}{2}α^2 \\
 \text{Sophisticated} &amp;&amp; -\frac{1}{2}(αβ)^2 + F + βα^2 &amp;\geq 0 \\
 &amp;&amp; F &amp;= \frac{1}{2}(αβ)^2 - βα^2 \\
 &amp;&amp; &amp;= -\frac{15}{32}α^2\end{aligned}\]</span></li>
-<li>Firm’s problem:
+<li>The firm correctly know Naive agent’s action in period 2 and belief in period 1.<br />
+Firm’s problem:
 <span class="math display">\[\begin{aligned}\max_{α,F} &amp;&amp; &amp;\phantom{\ggg}e^N - (F+αe^N) \\
 &amp;&amp; &amp;= αβ - (F+α^2β)\\
 (PC) &amp;&amp; &amp;F = - \frac{1}{2}α^2 \end{aligned}\]</span>
