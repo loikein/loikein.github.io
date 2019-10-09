@@ -1,0 +1,502 @@
+---
+title: "Notes on Econometrics - Practice Part"
+author: "loikein"
+date: "2019-01-12"
+slug: "notes-stat-practice"
+tags: ["notes","R", "stat"]
+raw: ""
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+
+Warning: under proofreading
+
+All I wanted was a clear & complete guidance (for upcoming exams).  
+Textbook: [A Guide to Modern Econometrics](http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5)
+
+## Compare Models
+
+### Choose Explanatory Variables
+
+> PS2.Q3  
+> Consider the wage regressions from slide 5 (text P86).  
+> 1. Compute F-statistics for comparing the loglinear model with and without squared experience.  
+> ![](/post-img/notes-stat1--PS2Q3-3.png){width=419px}  
+> ![](/post-img/notes-stat1--PS2Q3-4.png){width=420px}  
+
+$$\begin{aligned} F &= \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)} \\
+&= \frac{\frac{1}{1} \cdot (0.3783 - 0.3761)}{\frac{1}{1472 - 5} \cdot (1 - 0.3783)} \\
+&= 5.19\end{aligned}$$ ~ 
+```{r eval = TRUE}
+# quantiles of F distribution
+#       (1-α),     (J),       (N - K)
+qf( p = 0.95, df1 = 1, df2 = (1472-5) )
+qf( p = 0.99, df1 = 1, df2 = (1472-5) )
+```
+```{r include = FALSE}
+# calc p-value
+dt( x = 3.84, df = (1472-5) )
+```
+Therefore, $H_0$ is rejected.
+
+> PS2.Q3  
+> Consider the wage regressions from slide 5 (text P86).  
+> 2. In the loglinear model without squared experience, what is expected wage gap in percentages?  
+> ![](/post-img/notes-stat1--PS2Q3-4.png){width=420px}  
+
+The model:  
+$$\begin{aligned} \log y_i &= 1.145 + 0.120 \cdot male + \dots \\ 
+y_i &= e^{1.145} + e^{0.120} \cdot e^{male} + \dots\end{aligned}$$  
+Wage gap: $e^{0.120} \cdot 100 \% - 100 \% = 12.7 \%$ 
+
+> PS2.Q3   
+> Consider the wage regressions from slide 5 (text P86).  
+> 3. Consider the implied estimates regarding the expected increases of log wage due to increases in education (slide 5 P27).  
+> ![](/post-img/notes-stat1--PS2Q3-4.png){width=420px}  
+> ![](/post-img/notes-stat1--PS2Q3-0.png){width=497px}  
+> Redo the computation for the loglinear model with squared experience and compare the results:  
+> ![](/post-img/notes-stat1--PS2Q3-3.png){width=419px}  
+
+Specification 4:  
+$$\begin{aligned} 0.437 \times [\log(5) - \log(1)] = 0.703 \\
+0.437 \times [\log(4) - \log(1)] = 0.606 \\
+0.437 \times [\log(3) - \log(1)] = 0.480 \\
+0.437 \times [\log(2) - \log(1)] = 0.302
+ \end{aligned}$$  
+Specification 3:  
+$$\begin{aligned} 0.442 \times [\log(5) - \log(1)] = 0.711 \\
+0.437 \times [\log(4) - \log(1)] = 0.613 \\
+0.437 \times [\log(3) - \log(1)] = 0.486 \\
+0.437 \times [\log(2) - \log(1)] = 0.306
+ \end{aligned}$$ ~ 
+
+> PS2.Q3   
+> Consider the wage regressions from slide 5 (text P86).  
+> 4. Explain why the comparison of specifications 5 and 4 involve $J = 3$ restrictions in the corresponding F-statistic.  
+> ![](/post-img/notes-stat1--PS2Q3-4.png){width=420px}  
+> ![](/post-img/notes-stat1--PS2Q3-5.png){width=425px}
+
+Specification 5 have 3 more explanatory variables. 
+
+> PS2.Q3   
+> Consider the wage regressions from slide 5 (text P86).  
+> 5. Compute an F-statistic for comparing specifications 6 and 5.  
+> ![](/post-img/notes-stat1--PS2Q3-6.png){width=393px}  
+> ![](/post-img/notes-stat1--PS2Q3-5.png){width=425px}
+
+$$\begin{aligned} F &= \frac{\frac{1}{J} \cdot (R^2_1 - R^2_0)}{\frac{1}{N-K} \cdot (1-R^2_1)} \\
+&= \frac{\frac{1}{5} \cdot (0.4032 - 0.3976)}{\frac{1}{1472 - 12} \cdot (1 - 0.4032)} \\
+&= 2.740\end{aligned}$$ ~ 
+```{r eval = TRUE}
+# quantiles of F distribution
+#       (1-α),     (J),       (N - K)
+qf( p = 0.95, df1 = 5, df2 = (1472 - 12) )
+qf( p = 0.99, df1 = 5, df2 = (1472 - 12) )
+```
+Therefore, $H_0$ is rejected at $5 \%$ level, but not rejected at $1 \%$ level. 
+
+### Choose Approach: OLS / GLS
+
+> PS3.Q2  
+> `hetero.txt` contains data on $y_i$ and three regressors $x_{2i}$, $x_{3i}$, $x_{4i}$ for $i = 1, 2, ..., 250$.   
+> The task is to find the underlying data generating process (DGP).   
+> The regression model to be estimated shall contain an intercept and all three regressors.   
+> Apply a nominal significance level of five percent in each testing situation.
+> 1. Apply OLS to find the estimated coefficients of the regression model $y_i =β_1 +β_2x_{2i} +β_3x_{3i} +β_4x_{4i} +ε_i$  
+> \~\~ Report the results in a Table (see PS3.Q1).
+
+```{r eval = TRUE}
+PS3Q2_data = read.table( file="hetero.txt", header = TRUE )
+N = dim( PS3Q2_data )[1]
+colnames( PS3Q2_data )
+str( PS3Q2_data )
+
+# plot
+# library(ggplot2)
+# ggplot(PS3Q2_data, aes(x = x1, y = y)) + geom_point()
+# ggplot(PS3Q2_data, aes(x = x2, y = y)) + geom_point()
+# ggplot(PS3Q2_data, aes(x = x3, y = y)) + geom_point()
+
+# regression
+PS3Q2_reg = lm( data = PS3Q2_data, y ~ x1 + x2 + x3 )
+summary( PS3Q2_reg )
+```
+```{r}
+# autogen regression tables
+library(stargazer)
+```
+
+> PS3.Q2  
+> 2. Compute the correlation matrix of the regressors to see if there is any sign of multi-collinearity.
+
+```{r eval = TRUE}
+X.mat  = cbind( PS3Q2_data$x1,PS3Q2_data$x2,PS3Q2_data$x3 )
+cor( X.mat )
+```  
+There is no strong sign of multicollinarity.
+
+> PS3.Q2  
+> 3. Generate scatter plots of (i) the residuals and the fitted values and (ii) the residuals and each individual regressor.   
+> Are there any visual signs of heteroskedasticity?
+
+```{r eval = TRUE}
+PS3Q2_res = PS3Q2_reg$res
+PS3Q2_fit = PS3Q2_reg$fit
+par( mfrow = c( 2, 2 ))
+plot( PS3Q2_fit, PS3Q2_res )
+plot( PS3Q2_data$x1, PS3Q2_res)
+plot( PS3Q2_data$x2, PS3Q2_res)
+plot( PS3Q2_data$x3, PS3Q2_res)
+```
+
+$x_2$ may have some heteroskedasticity, cannot be sure. 
+
+> PS3.Q2  
+> 4. In order to investigate more formally whether the residual variances are constant, run heteroskedasticity OLS regressions of the following type  
+> $$e^2_i =α_1+α_2x^2_{j,i}+v_i$$  
+> where $j = 2,3,4$.  
+> Test in each of these simple regressions $H_0 : α_2 = 0$.   
+> Find an appropriate alternative hypothesis.   
+> Why we can do these simple regressions using a single regressor safely? Or should we worry about an omitted variable bias here?
+
+Since variance is always positive, $H_1: α_2 > 0$  
+```{r}
+# calculate critical value
+qnorm(0.95)
+
+# simple regressions
+PS3Q2_reg_res = lm( I(PS3Q2_res^2) ~ I(PS3Q2_data$x1^2) )
+summary( PS3Q2_reg_res )
+
+PS3Q2_reg_res = lm( I(PS3Q2_res^2) ~ I(PS3Q2_data$x2^2) )
+summary( PS3Q2_reg_res )
+
+PS3Q2_reg_res = lm( I(PS3Q2_res^2) ~ I(PS3Q2_data$x3^2) )
+summary( PS3Q2_reg_res )
+```  
+Note: $x$'s are not correlated $\not\implies$ transformed $x$'s are not correlated  
+Check for omitted variable bias for transformed $x$'s:  
+```{r eval = TRUE}
+# sth on multicollinearity in the heterosked regressions
+X2.mat = cbind( PS3Q2_data$x1^2, PS3Q2_data$x2^2, PS3Q2_data$x3^2 )
+cor(X2.mat)
+```  
+There is no strong sign of multicollinarity. Therefore, it is safe to use simple regressions. 
+
+> PS3.Q2  
+> 5. Collect the significant regressors from the three simple regressions to estimated a joint model containing all significant regressors simultaneously.  
+> Such an approach would be called specific-to-general. What is your chosen specification?
+
+```{r eval = TRUE}
+PS3Q2_reg_res = lm( I(PS3Q2_res^2) ~ I(PS3Q2_data$x1^2) + I(PS3Q2_data$x2^2) )
+summary( PS3Q2_reg_res )
+```
+
+> PS3.Q2  
+> 6. In contrast to specific-to-general, consider the reverse idea and start with a general model:  
+> $$ e_{2i} = α_1 + α_2 x^2_{2i} + α_3 x^2_{3i} + α_4 x^2_{4i} + v_i $$  
+> Eliminate the most insignificant regressor (only one in each step) and re-estimate the restricted model.   
+> Continue until all contained regressors are significant. What is your chosen specification (model)?   
+> Compare the adjusted R2 values across all specifications you have estimated. Which is the one you would choose on the basis of the adjusted R2 measure?
+
+```{r eval = TRUE}
+# using three regressors
+PS3Q2_reg_res = lm( I(PS3Q2_res^2) ~ I(PS3Q2_data$x1^2) + I(PS3Q2_data$x2^2) + I(PS3Q2_data$x3^2) )
+summary(PS3Q2_reg_res)
+```
+We reach the same conclusion as in the spscific to general approach. 
+
+> PS3.Q2  
+> 7. Plot the estimated $h_i^2$ values. Are there any signs of heteroskedasticity?   
+> Transform the original regression model from (1) to carry out a feasible GLS regression.   
+> Compare the FGLS regression results to the OLS results.
+
+```{r eval = TRUE}
+# find the estimated h values
+h.estim = PS3Q2_reg_res$fit
+# ts.plot(h.estim)
+
+# fit
+ts.plot( PS3Q2_res^2 )
+lines( h.estim, col = 2 )
+```  
+Clearly there is heteroskedasticity.  
+
+```{r eval = TRUE}
+# FGLS transform
+y.star = PS3Q2_data$y / sqrt(h.estim)
+x1.star = PS3Q2_data$x1 / sqrt(h.estim)
+x2.star = PS3Q2_data$x2 / sqrt(h.estim)
+x3.star = PS3Q2_data$x3 / sqrt(h.estim)
+
+PS3Q2_reg_star = lm(y.star ~ x1.star + x2.star + x3.star)
+summary( PS3Q2_reg_star )
+```
+
+> PS3.Q2  
+> 8. Apply White standard errors to the OLS regression from (1).  
+> Recompute the t-values and compare the results. What do you find?
+
+```{r}
+# load sandwich package
+library(sandwich)
+
+# apply robust standard errors to OLS regression
+vcovHC( PS3Q2_reg )
+
+# round standard deviations
+round( sqrt( diag( vcovHC( PS3Q2_reg ))), 3 )
+
+# call summary again
+summary( PS3Q2_reg )
+
+# compare:
+# summary(reg.star)
+
+# t-ratios
+round( summary(PS3Q2_reg)$coef[,1] / sqrt(diag(vcovHC(PS3Q2_reg))), 3 )
+```
+
+> PS3.Q2  
+> True model used in data generation: 
+
+```{r}
+sd.eps = 1
+sd.x1 = 1
+sd.x2 = 2
+sd.x3 = 5
+
+xi = rnorm( N, 0, sd.xi )
+h = 1 + 10*x1^2 + 10*x2^2
+y = 1 + 0.8*x2 +0.8*x3 + sqrt(h) * rnorm(N, 0, sd.eps)
+```
+
+### Weird Model
+
+> PS4.Q1  
+> Consider the nonlinear consumption function:  
+> $$c_t = α + γ y_t^δ$$  
+> where $c_t$ is real consumption and $y_t$ real income. $α ≥ 0$, $γ > 0$ and $δ > 0$.  
+> 1. Can this function be linearized?   
+> 2. Under which parameter restriction is the function linear?   
+> 3. Could you estimate the parameters $α, γ, δ$ via OLS directly?   
+
+1. No.  
+   $\log(c_t) = \log(α + γ y_t^δ)$  
+2. $δ=1$ or $α = 0$  
+3. No.  
+
+> PS4.Q1  
+> Consider the nonlinear consumption function:  
+> $$c_t = α + γ y_t^δ$$  
+> 4. An econometrician who favors OLS wants to estimate the parameters in a reasonable way.    
+> The following possibilities are considered. Comment on each of the possibilities (provide arguments), figure out when they could work (and when not), and choose the best option.   
+> i) $c_t = β_1 + β_2 y_t + ε_t$ s.t. hopefully $b_1 = \hat{a}$ and $b_2 = \hat{γ}$.   
+> ii) $\ln(c_t) = β_1 + β_2 \ln(y_t) + εt$ s.t. hopefully $b_1 = \ln(\hat{γ})$ and $b_2 = \hat{δ}$.   
+> iii) $c_t = β_1 + β_2y_t^2 + ε_t$ s.t. hopefully $b1 = \hat{α}$, $b_2 = \hat{γ}$ and $δ = 2$.   
+> iv) $c_t = β + β \sqrt{y_t} + ε$ s.t. hopefully $b = \hat{α}$, $b = \hat{γ}$ and $\hat{δ} = \frac{1}{2}$.   
+> v) $c_t =β_1+β_2 y_t+ε_t$ where $y_t =y_t a$ with $a\in A =[\underline{a}, \bar{a}]$ and $0<\underline{a}<\bar{a}<\infty$.   
+> \~\~ The regression is considered for many possible values of $a$, hoping that $δ\in A$.   
+> \~\~ So hopefully $δ = \text{argmin}_{a\in A} s^2(a)$, and correspondingly, $b_1 = α$ and $b_2 = γ$ from the regression which provides the minimal value for $s^2(a)$. 
+
+```{r eval = TRUE}
+# number of obs
+PS4Q1_N = 250
+
+# log-normally distributed real income
+PS4Q1_y = rlnorm( PS4Q1_N, 3, 1 )
+
+# parameters
+PS4Q1_beta1 = 1
+PS4Q1_beta2 = 0.6
+PS4Q1_beta3 = 0.8
+
+# real consumption according to the nonlinear consumption function + random error
+PS4Q1_c = PS4Q1_beta1 + PS4Q1_beta2 * PS4Q1_y ^(PS4Q1_beta3) + rnorm( PS4Q1_N, 0, 0.1 )
+plot( x = PS4Q1_y, y = PS4Q1_c )
+```
+
+i) $c_t = β_1 + β_2 y_t + ε_t$ s.t. hopefully $b_1 = \hat{a}$ and $b_2 = \hat{γ}$.  
+Works when $δ = 1$:  
+```{r}
+PS4Q1_reg1 = lm( PS4Q1_c ~ PS4Q1_y )
+summary( PS4Q1_reg1 )
+```
+
+ii) $\ln(c_t) = β_1 + β_2 \ln(y_t) + ε_t$ s.t. hopefully $b_1 = \ln(\hat{γ})$ and $b_2 = \hat{δ}$   
+Works when $α = 0$, $\hat{γ} = \exp(b_1)$ and $\hat{δ} = b_2$  
+(__the delta method__)  
+```{r}
+PS4Q1_reg2 = lm( log(PS4Q1_c) ~ log(PS4Q1_y) )
+summary( PS4Q1_reg2 )
+exp( PS4Q1_reg2$coef[1] )
+```
+
+iii) $c_t = β_1 + β_2y_t^2 + ε_t$ s.t. hopefully $b_1 = \hat{α}$ and $b_2 = \hat{γ}$ and $\hat{δ} = 2$.  
+Works when $δ = 2$  
+```{r}
+PS4Q1_reg3 = lm( PS4Q1_c ~ I(PS4Q1_y^2) )
+summary( PS4Q1_reg3 )
+```
+
+iv) $c = β_1 + β_2 \sqrt{y} + ε$ s.t. hopefully $b_1 = \hat{α}$ and $b_2 = \hat{γ}$ and $\hat{δ} = 1/2$.  
+Works when $δ = \frac{1}{2}$  
+```{r}
+PS4Q1_reg4 = lm( PS4Q1_c ~ I(sqrt(PS4Q1_y)) )
+summary( PS4Q1_reg4 )
+```
+
+v) $c_t =β_1+β_2\tilde{y}_t+ε_t$ where $\tilde{y}_t =y_t^a$ with $a\in A=[\underline{a},\bar{a}]$ and $0 < \underline{a} < \bar{a} \leq\infty$  
+Works without extra assumptions.  
+```{r eval = TRUE}
+PS4Q1_beta3_fix = 1.2
+PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
+summary( PS4Q1_reg5 )
+
+PS4Q1_beta3_fix = 1.1
+PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
+summary( PS4Q1_reg5 )
+
+PS4Q1_beta3_fix = 1
+PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
+summary( PS4Q1_reg5 )
+
+PS4Q1_beta3_fix = 0.9
+PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
+summary( PS4Q1_reg5 )
+
+PS4Q1_beta3_fix = 0.8
+PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
+summary( PS4Q1_reg5 )
+```
+
+> PS4.Q1  
+> 5. Use the US data from 1960:Q1 to 2009:Q4 with N = 200 observations available in the data set usdata.txt to estimate the parameters empirically.  
+> In the data set, the first column is real consumption, and the second is real disposable income.  
+> Comment on your findings and summarize them in a regression output table.  
+> 6. Following (5), test the restriction $δ = 1$
+
+5.  
+```{r}
+PS4Q1_data = read.table( file = "usdata.txt" )
+PS4Q1_c = PS4Q1_data[,1]
+PS4Q1_y = PS4Q1_data[,2]
+PS4Q1_N = length( PS4Q1_y )
+
+# note the data is trending
+ts.plot( PS4Q1_data )
+
+# using (v) from (4)
+PS4Q1_beta_fix_vec = seq( 0.01, 2, 0.01 )
+PS4Q1_reg5_coef = matrix( NA, length(PS4Q1_beta_fix_vec), 2 )
+PS4Q1_s2 = matrix( NA, length(PS4Q1_beta_fix_vec), 1 )
+
+for( i in 1:length( PS4Q1_beta_fix_vec )){
+    PS4Q1_beta3_fix = PS4Q1_beta_fix_vec[i]
+    PS4Q1_reg5 = lm( c ~ I( PS4Q1_y ^ PS4Q1_beta3_fix ))
+    PS4Q1_reg5_coef[i,] = PS4Q1_reg5$coef
+    PS4Q1_s2[i,1] = summary( PS4Q1_reg5 )$sigma^2 
+}
+
+# plot objective function
+plot( PS4Q1_s2 )
+
+# find the arg min and run this particular regression
+which.min( PS4Q1_s2 )
+
+PS4Q1_i = which.min(s2)
+( PS4Q1_beta3_fix = PS4Q1_beta_fix_vec[i] )
+
+PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
+summary( PS4Q1_reg5 )
+round( PS4Q1_reg5$coef, 2 )
+```
+
+6.  
+```{r}
+# restricted model
+PS4Q1_reg5_r = lm( formula( PS4Q1_c ~ PS4Q1_y))
+summary( PS4Q1_reg5r )
+```
+
+> PS4.Q1  
+> 7. Plot the residuals and their autocorrelation function.  
+> Find the empirical first-order autocorrelation coefficient.  
+> Use the Box-Pierce test with one and five lags.  
+> State the null and the alternative hypotheses in both cases.  
+> Compute the test statistics and compare them to the appropriate critical values. Interpret your findings briefly.
+
+```{r}
+# residuals of unrestricted model
+PS4Q1_e = PS4Q1_reg5$res
+par( mfrow = PS4Q1_c( 1, 2 ))
+
+# plot
+ts.plot( PS4Q1_e )
+abline( h = 0 )
+
+# note that the auto-correlations are getting smaller
+## plot
+acf( PS4Q1_e )
+## table
+acf( PS4Q1_e, plot = FALSE )
+```  
+Box-Pierce test with one and five lags:  
+```{r}
+PS4Q1_rho1 = acf( PS4Q1_e, plot=FALSE)$acf[2]
+PS4Q1_Q1 = PS4Q1_N * PS4Q1_rho1^2
+qchisq( 0.95, 1 )
+qchisq( 0.99, 1 )
+
+PS4Q1_Q5 = PS4Q1_N * sum( I( acf( PS4Q1_e, plot = FALSE)$acf[2:6]^2 ))
+
+qchisq( 0.95, 5 )
+
+# choose lag
+log( PS4Q1_N )
+```
+
+## R Workout
+
+### Data Generation
+
+> PS1.Q3  
+> Conduct Monte Carlo simulations.   
+> The idea is to take a data generating process (DGP) with an assumed parameterization, simulate data from it, and estimate the parameters by OLS.  
+> 1. The first DGP is given by $y_t = β_1 + β_2 x_t + ε_t$ where $ε_t ∼ \mathcal{N} (0, 1)$.  
+> \~\~ The exogenous regressor $x_t$ is set to be always drawn from $\mathcal{N} (0, 1)$.  
+> \~\~ Given this regressor, simulate 10000 samples for $y$ of sizes $n = \{10, 50, 100, 500\}$, using $β_1 = 1$ and $β_2 = 2$.    
+> 2. For each of these samples, compute the OLS estimator $b_2$.   
+> 3. Save the result in a matrix and plot it as a smoothed histogram (i.e. kernel density estimator).   
+> 4. Do the same for the DGP where $x_t$ and $ε_t$ are drawn individually from a $t(5)$-distribution instead.    
+> 5. What do you find? Are the assumptions A1–A4 are satisfied?
+
+### OLS Regression
+
+> PS2.Q4  
+> For N = 500 observations, generate data from the linear regression model as follows:  
+> $$y_t = 0.5x_t + ε_t$$  
+> with $x_t ∼^{iid} N(0,σ_x^2)$ independent of $ε_t ∼^{iid} N(0,σ_ε^2)$.    
+> Fix $σ_ε = 4$ and choose different values for $σ_x$, say 0.01 and 100.   
+> Compute the OLS estimator for the true model (excluding the intercept) and its standard deviation.  
+> 1. Verify that the standard deviation can be computed as $\sqrt{ \frac{\sum_t e_t^2}{N-1} \cdot\frac{1}{\sum_t x_t^2}}$, where $e_t$ denotes the OLS residual.  
+> 2. Generate a scatter plot for different values of $σ_x$ to explain why an increasing variance of the regressor makes the OLS estimator more precise.   
+> 3. Vary also the sample size and the variance of the errors and repeat (2). What do you find?
+
+```{r}
+# normal distribution
+?rnorm
+sd = 100
+
+y <- rnorm( 100, mean = 0, sd)
+x <- rnorm( 100, mean = 0, sd)
+
+lm( formula = y ~ x - 1)
+
+plot( x, y )
+```

@@ -1,0 +1,795 @@
+---
+title: "Notes on Econometrics - Exercises"
+author: "loikein"
+date: "2019-03-23"
+slug: "notes-stat-exercise"
+tags: ["notes", "stat"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = FALSE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+
+Textbook: [A Guide to Modern Econometrics](http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5)  
+(no access): [Instructor Companion Site](http://bcs.wiley.com/he-bcs/Books?action=index&bcsId=10946&itemId=1119148650)
+
+- [x] [Exercise 2.1](#exercise-2.1-regression)
+- [x] [Exercise 2.4](#exercise-2.4-regression---true-or-false)
+- [ ] [Exercise 3.2](#exercise-3.2-regression---empirical)
+- [ ] [Exercise 3.4](#exercise-3.4-regression---empirical)
+- [x] [Exercise 5.1](#exercise-5.1-instrumental-variables)
+- [ ] [Exercise 5.2](#exercise-5.2-return-s-to-schooling---empirical)
+- [x] [Exercise 7.1](#exercise-7.1-binary-choice-models)
+- [x] [Exercise 8.1](#exercise-8.1-arma-models-and-unit-roots)
+- [x] [Exercise 9.2](#exercise-9.2-cointegration)
+- [ ] [Exercise 9.3](#exercise-9.3-cointegration---empirical)
+
+## Exercise 2.1 (Regression)
+
+> Consider the following linear regression model:  
+> $$\begin{aligned}y_i &= β_1 + β_2x_{i2} + β_3x_{i3} + ε_i \\ &= x_i'β + ε_i\end{aligned}$$
+
+### a
+
+> Explain how the ordinary least squares estimator for $β$ is determined, and derive an expression for $b$.
+
+slide 2 P9
+
+Solve minimization problem:
+$$\begin{aligned}\min_{β} && S(β) = (y - Xβ)'(y - Xβ)\end{aligned}$$
+$$b = (X'X)^{-1}X'y$$
+
+### b
+
+> Which assumptions are needed to make $b$ an unbiased estimator for $β$?
+
+slide 2 P24
+
+$E[ε_i] = 0$ and $\{ε_1, \dots , ε_n\}$ and $\{x_1, \dots , x_N\}$ are independent (A1, A2)
+
+### c
+
+> Explain how a confidence interval for $β_2$ can be constructed.  
+> Which additional assumptions are needed?
+
+textbook P25
+
+95% confidence interval: $[b_2 - 1.96\cdot se(b_2), b_2 + 1.96\cdot se(b_2)]$  
+Assumptions: $Var(ε_i) = σ^2$ and $Cov(ε_i, ε_j) = 0$ for all $i\neq j$ (for estimating standard error)
+
+### d
+
+> Explain how one can test the hypothesis that $β_3 = 1$
+
+slide 3 P12
+
+H0: $β_3 - 1 = 0$  
+H1: $β_3 - 1 \neq 0$  
+Let $t = \frac{b_3 - 1}{se(b_3)}$ follows a $t_{N-3}$  
+If $|t| > t_{N-3, α/2}$, then H0 is rejected. 
+
+### e
+
+> Explain how one can test the hypothesis that $β_2 + β_3 = 0$
+
+slide 3 P16
+
+H0: $β_2 + β_3 = 0$  
+H1: $β_2 + β_3\neq 0$  
+Let $t = \frac{b_2 + b_3}{se(b_2 + b_3)}$  
+If $|t| > t_{N-3, α/2}$, then H0 is rejected. 
+
+### f
+
+> Explain how one can test the hypothesis that $β_2 = β_3 = 0$
+
+slide 3 P18
+
+H0: $\begin{cases} β_2 = 0 \\ β_3 = 0\end{cases}$  
+H1: $\begin{aligned} & β_2 \neq 0 \\\text{or } & β_3 = 0\end{aligned}$  
+Let $F = \frac{N-3}{2}\cdot\frac{R^2}{1-R^2}$  
+If $F > F_{N-3}^2$, then H0 is rejected.
+
+### g
+
+> Which assumptions are needed to make $b$ a consistent estimator for $b$?
+
+textbook P49
+
+$\frac{1}{N} \sum^N_{i=1} x_ix_i' \to^p \exists Σ_{xx}$ and $E[ε_i x_i] = 0$ (A6, A7)
+
+### h
+
+> Suppose that $x_{i2} = 2 + 3x_{i3}$  
+> What will happen if you try to estimate the above model?
+
+slide 3 P22, textbook P59
+
+No-multicollinearity assumption is violated, so the regression results become unreliable.
+
+### i
+
+> Suppose that the model is estimated with $x^*_{i2} = 2x_{i2} − 2$ included rather than $x_{i2}$  
+> How are the coefficients in this model related to those in the original model?  
+> And the $R^2$'s?
+
+[Lecture 14 Simple Linear Regression](https://www2.stat.duke.edu/~hc95/Teaching/STA103/lec14_notes.pdf)
+
+$$\begin{aligned}y_i &= β_1 + β_2x_{i2} + β_3x_{i3} + ε_i \\
+&= β_1 + β_2\cdot\frac{x^*_{i2} - 2}{2} + β_3x_{i3} + ε_i \\
+&= β_1 + β_2\cdot\frac{-2}{2} + β_2\cdot\frac{x^*_{i2}}{2} + β_3x_{i3} + ε_i\\
+&= β_1' + β_2'x^*_{i2} + β_3'x_{i3} + ε_i \end{aligned}$$ 
+Therefore,
+$$\begin{aligned} b_1' &= b_1 - b_2 \\
+b_2' &= \frac{b_2}{2}\end{aligned}$$ 
+and $b_3$ and $R^2$ remain unchanged.
+
+### j
+
+> Suppose that $x_{i2} = x_{i3} + u_i$, where $u_i$ and $x_{i3}$ are uncorrelated.  
+> Suppose that the model is estimated with $u_i$ included rather than $x_{i2}$  
+> How are the coefficients in this model related to those in the original model?  
+> And the $R^2$'s?
+
+$$\begin{aligned} y_i &= β_1 + β_2x_{i2} + β_3x_{i3} + ε_i \\
+&= β_1 + β_2\cdot(x_{i3} + u_i) + β_3x_{i3} + ε_i \\
+&= β_1 + β_2u_i + (β_2 + β_3)\cdot x_{i3} + ε_i \\
+&= β_1' + β_2' u_i + β_3'x_{i3} + ε_i \\\end{aligned}$$
+Therefore, $β_3' = β_2 + β_3$, other coefficients and $R^2$ remain unchanged.
+
+## Exercise 2.4 (Regression - True or False?)
+
+### a
+
+> Under the Gauss–Markov conditions, OLS can be shown to be BLUE.  
+> The phrase 'linear' in this acronym refers to the fact that we are __estimating a linear model__.
+
+[Gauss–Markov theorem \- Wikipedia](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem?oldformat=true#Linearity)
+
+False.  
+'Linear' means the estimator is a linear function of the dependent variable.
+
+### b
+
+> In order to apply a t-test, the __(all) Gauss–Markov conditions__ are strictly required.
+
+textbook P141  
+[The t\-test and robustness to non\-normality – The Stats Geek](http://thestatsgeek.com/2013/09/28/the-t-test-and-robustness-to-non-normality/)  
+[Student's t\-test \- Wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-test?oldformat=true#Alternatives_to_the_t-test_for_location_problems)
+
+False.  
+The only assumption needed is $ε_i$ and $x_i$ are independent for all $i$ (A8).
+
+### c
+
+> A regression of the OLS residual upon the regressors included in the model by construction yields an $R_2$ of zero.
+
+slide 3 P19
+
+True. 
+
+### d
+
+> The hypothesis that the __OLS estimator__ is equal to zero can be tested by means of a t-test.
+
+False.  
+What is tested is the true coefficients, not the estimators.
+
+### e
+
+> From asymptotic theory, we learn that, under appropriate conditions, the __error terms__ in a regression model will be approximately normally distributed if the sample size is sufficiently large.
+
+slide 4 P15
+
+False.  
+Asymptotic theory says the estimators will be approximately normal with a large sample size.  
+The normality of error terms is an assumption. 
+
+### f
+
+> If the absolute t-value of a coefficient is smaller than 1.96, we __accept__ the null hypothesis that the coefficient is zero, with 95% confidence.
+
+False.  
+We do not accept H0, we just can not reject it. A small t-value does not necessarily mean that H0 is correct.
+
+### g
+
+> Because OLS provides the __best linear approximation__ of a variable $y$ from a set of regressors, OLS also gives __best linear unbiased estimators__ for the coefficients of these regressors.
+
+False.  
+OLS provides the best linear approximation of $y$ by the construction of OLS method,  
+but whether an estimator is BLUE depends on whether the Gauss-Markov assumptions are satisfied. 
+
+### h
+
+> If a variable in a model is significant at the X10% level, it is also significant at the 5% level.
+
+False.  
+Significance at 10% level is weaker than at 5% level. 
+
+### i
+
+> For hypothesis testing, the p-value is __more informative__ than a confidence interval.
+
+textbook P24
+
+False.  
+Confidence interval indicate magnitude and precision of a coefficient, whereas the p-value provides only the latter.
+
+### j
+
+> It is __advisable to remove outliers__ from a data set as this leads to lower standard errors for the OLS estimator.
+
+textbook P48, slide 3 P25
+
+False.  
+If the outliers are correct data points, removing them may result in a less precise estimation. 
+
+### k
+
+> The p-value of a test corresponds to the probability that the __null hypothesis is true__.
+
+textbook P31
+
+False.  
+p-value is the probability that the reported test statistic occurs (H0 cannot be rejected).  
+H0 is not rejected does not equalize to it being true, and vice versa.
+
+### l
+
+> __To prevent multicollinearity__, two explanatory variables with a correlation of 0.9 should not be included in the same regression model.
+
+textbook P45, slide 3 P22
+
+False.  
+With such a high correlation, it becomes hard to identify individual impact of each variable.  
+However, omitting one of them may result in less precise estimation for other estimators.  
+Preferred solutions include increasing sample size and variation of the variables.
+
+### m
+
+> Consider a regression model with two explanatory variables, $x_2$ and $x_3$, and a constant.  
+> Other things equal, the variance of the OLS estimator $b_2$ for $β_2$ is larger if $x_2$ and $x_3$ are moderately negatively correlated than if they are uncorrelated.
+
+textbook P45
+
+True.
+
+### n
+
+> Suppose we are interested in the impact of beauty upon a person's wage (the 'beauty premium', see Hamermesh and Biddle, 1994).  
+> If a beauty premium exists, we should find a __positive and statistically significant__ estimate for its coefficient in a wage equation.
+
+False.  
+1. We do not know if the premium is positive or negative. As long as the coefficient is not zero, beauty premium exists.  
+2. Statistically significance is not the only element to consider when evaluating the estimator.
+
+## Exercise 3.2 (Regression - Empirical)
+
+> For this exercise we use data on sales, size and other characteristics of 400 Dutch men's fashion stores.  
+> The goal is to explain sales per square metre ($sales$) from the characteristics of the shop (number of owners, full-time and part-time workers, number of hours worked, shop size, etc.).
+
+### a
+
+> Estimate a linear model (model A) that explains sales from total number of hours worked ($hoursw$), shop size in square metres ($ssize$) and a constant.  
+> Interpret the results.
+
+### b
+
+> Perform Ramsey's RESET test with $Q = 2$.
+
+### c
+
+> Test whether the number of owners (nown) affects shop sales, conditional upon $hoursw$ and $ssize$.
+
+### d
+
+> Also test whether the inclusion of the number of part-time workers ($npart$) improves the model.
+
+### e
+
+> Estimate a linear model (model B) that explains sales from the number of owners, full-time workers ($nfull$), part-time workers and shop size.  
+> Interpret the results.
+
+### f
+
+> Compare model A and model B on the basis of $\bar{R}^2$, AIC and BIC.
+
+### g
+
+> Perform a non-nested F-test of model A against model B.  
+> Perform a non-nested F-test of model B against model A.  
+> What do you conclude?
+
+### h
+
+> Repeat the above test using the J-test.  
+> Does your conclusion change?
+
+### i
+
+> Include the numbers of full-time and part-time workers in model A to obtain model C.  
+> Estimate this model.  
+> Interpret the results and perform a RESET test.  
+> Are you satisfied with this specification?
+
+## Exercise 3.4 (Regression - Empirical)
+
+## Exercise 5.1 (Instrumental Variables)
+
+> Consider the following model
+> $$\begin{aligned}y_i = β_1 + β_2x_{i2} + β_3x_{i3} + ε_i && i = 1,\dots, N\end{aligned}$$
+> where $(y_i, x_{i2}, x_{i3})$ are observed and have finite moments, and $ε_i$ is an unobserved error term.  
+> Suppose this model is estimated by ordinary least squares.  
+> Denote the OLS estimator by $b$.
+
+### a
+
+> What are the essential conditions required for unbiasedness of $b$?  
+> What are the essential conditions required for consistency of $b$?  
+> Explain the difference between unbiasedness and consistency..
+
+slide 2 P24, textbook P35, textbook P34
+
+1. $E[ε_i] = 0$ and $\{ε_1, \dots , ε_n\}$ and $\{x_1, \dots , x_N\}$ are independent (A1, A2)
+2. $\frac{1}{N} \sum^N_{i=1} x_ix_i' \to^p \exists Σ_{xx}$ and $E[ε_i x_i] = 0$ (A6, A7)
+3. Unbiasedness is stronger than consistency.  
+An unbiased estimator is expected to be true value, whereas a consistent estimator is expected to converge in probability to the true value.
+
+### b
+
+> Show how the conditions for consistency can be written as moment conditions (if you have not done so already).  
+> Explain how a method of moments estimator can be derived from these moment conditions.  
+> Is the resulting estimator any different from the OLS one?
+
+textbook P177, slide 9-1 P6
+
+$$\begin{aligned}E[ε_i x_i] &= 0 \\
+E\big[(y_i - x_i'β)\cdot x_i\big] &= 0 \\
+\sum_N \big[(y_i - x_i'b)\cdot x_i\big] &= 0 \\
+b &= \frac{\sum_N x_iy_i}{\sum_N x_ix_i'}\end{aligned}$$ 
+<!-- The method of moments estimator is obtained by taking the sample expectations, and solving for $b$. -->
+The resulting estimator is exactly same as the OLS estimator.
+
+> Now suppose that $Cov(ε_i, x_{i3})\neq 0$
+
+### c
+
+> Give two examples of cases where one can expect a nonzero correlation between a regressor, $x_{i3}$, and the error $ε_i$.
+
+textbook P144 146 148
+
+1. $x_{i3}$ is subject to measurement error
+2. $x_{i3}$ and $y_i$ are correlated with the same unobserved factor (omitted variable bias)
+3. $x_{i3}$ and $y_i$ have reverse causality
+
+### d
+
+> In this case, is it possible still to make appropriate inferences based on the OLS estimator while adjusting the standard errors appropriately?
+
+textbook P143
+
+Nothing can be done if assumption $E[ε_i x_i] = 0$ is violated.
+
+### e
+
+> Explain how an instrumental variable, $z_i$, say, leads to a new moment condition and, consequently, an alternative estimator for $β$.
+
+slide 9-1 P6
+
+Moment condisions:  
+$$\begin{cases} E[y_i - x_{i}'β] &= 0 \\
+E\big[(y_i - x_{i}'β)\cdot x_{i3}\big] &= 0 \\
+E\big[(y_i - x_{i}'β)\cdot z_i\big] &= 0 \end{cases}$$ 
+Estimation:  
+$$\begin{aligned}\sum_N \big[(y_i - x_{i1}'\hat{β}_{IV,1} - x_{i2}'\hat{β}_{IV,2}- x_{i3}'\hat{β}_{IV,3})\cdot z_i\big] &= 0 \\
+\hat{β}_{IV} &= \frac{\sum_N z_iy_i}{\sum_N z_ix_i'}\end{aligned}$$
+
+### f
+
+> Why does this alternative estimator lead to a smaller $R^2$ than the OLS one?  
+> What does this say of the $R^2$ as a measure for the adequacy of the model?
+
+textbook P22
+
+1. OLS estimator, by construction, uniquely maximizes $R^2$.  
+Therefore, using an instrument variable will certainly decrease $R^2$.  
+2. $R^2$ is only applicable with OLS models. 
+
+### g
+
+> Why can we not choose $z_i = x_{i2}$ as an instrument for $x_{i3}$, even if $E[x_{i2}ε_i] = 0$?  
+> Would it be possible to use $x_{i2}^2$ as an instrument for $x_{i3}$?
+
+1. Because using $z_i$ and $x_{i2}$ at the same time will cause perfect multicollinearity.  
+2. If $Cov(x_{i2}^2, x_{i3})\neq 0$, and the functional form is correct, it is possible to use $x_{i2}^2$. 
+
+## Exercise 5.2 (Returns to Schooling - Empirical)
+
+## Exercise 7.1 (Binary Choice Models)
+
+> For a sample of 600 married females, we are interested in explaining participation in market employment from exogenous characteristics in $x_i$ (age, family composition, education).  
+> Let $y_i = 1$ if person i has a paid job and 0 otherwise.  
+> Suppose we estimate a linear regression model $$y_i = x_i'β + ε_i$$ by ordinary least squares.
+
+### a
+
+> Give two reasons why this is not really an appropriate model.
+
+slide 11 P5
+
+1. Values of predicted $y_i$ in OLS model may not be in the range $[0,1]$ 
+2. Linear model implies that the value of $x_i'β$ is probability 
+
+> As an alternative, we could model the participation decision by a probit model.
+
+### b
+
+> Explain the probit model.
+
+slide 11 P7-8 15
+
+We assume $Pr(y_i = 1 \ | x_i)$ follows standard normal distribution $Φ(x'β)$,  
+and use estimation methods like maximum likelihood to estimate $β$. 
+
+### c
+
+> Give an expression for the log-likelihood function of the probit model.
+
+slide 11 P15
+
+$\log L(β) = \sum_N y_i \cdot\log\big(Φ(x'β)\big) + \sum_N (1 - y_i) \cdot\log\big(1 - Φ(x'β)\big)$
+
+### d
+
+> How would you interpret a positive $β$ coefficient for education in the probit model?
+
+[How do I interpret a probit model in Stata? \- Cross Validated](https://stats.stackexchange.com/a/42960/147391)  
+[The Difference Between Logistic and Probit Regression \- The Analysis Factor](https://www.theanalysisfactor.com/the-difference-between-logistic-and-probit-regression/)
+
+Since the probability of $y_i = 1$ follows $Φ(x'β)$,  
+a positive $β$ means a unit increase in $x_i$ is associated with an increase in $Pr(y_i = 1)$, everything else hold equal.
+
+### e
+
+> Suppose you have a person with $x_i'β = 2$  
+> What is your prediction for her labour market status $y_i$? Why?
+
+[Standard normal distribution Calculator](https://keisan.casio.com/exec/system/1180573191)
+
+$$\begin{aligned} Pr(y_i = 1) &= Φ(2) \\ &= 0.9772 \end{aligned}$$
+
+My prediction is that her $y_i = 1$.
+
+### f
+
+> To what extent is a logit model different from a probit model?
+
+slide 11 P10
+
+1. Shape of distribution is slightly different
+2. Scaling of the distribution is different
+3. Probit model is easier to extend to multivariate cases
+
+> Now assume that we have a sample of women who are not working ($y_i = 0$), part-time working ($y_i = 1$) or full-time working ($y_i = 2$).
+
+### g (\*)
+
+> Is it appropriate, in this case, to specify a linear model as $y_i = x_i'β + ε_i$?
+
+No, because there is still no guarantee that the value of $y_i$ falls into range $[0,2]$.
+
+### h (\*)
+
+> What alternative model could be used instead that exploits the information contained in part-time versus full-time working?
+
+textbook P230
+
+Multi-response models (ordered response models).
+
+### i (\*)
+
+> How would you interpret a positive $β$ coefficient for education in this latter model?
+
+### j (\*)
+
+> Would it be appropriate to pool the two outcomes $y_i = 1$ and $y_i = 2$ and estimate a binary choice model?  
+> Why or why not?
+
+Depends on what the research is focused on.  
+If the purpose is to explain whether or not women are employed, the form of employment should not matter, so pooling provides more data.  
+On the other hand, if the form of employment is of interest, we should not pool. 
+
+## Exercise 8.1 (ARMA Models and Unit Roots)
+
+> A researcher uses a sample of 200 quarterly observations on $Y_t$, the number (in 1000s) of unemployed persons, to model the time series behaviour of the series and to generate predictions.  
+> First, he computes the sample autocorrelation function, with the following results: 
+> 
+> | $k$         | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10    |
+> | ----------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----- |
+> | $\hat{ρ}_k$ | 0.83 | 0.71 | 0.60 | 0.45 | 0.44 | 0.35 | 0.29 | 0.20 | 0.11 | -0.01 |
+
+### a
+
+> What do we mean by the sample autocorrelation function?  
+> Does the above pattern indicate that an autoregressive or moving average representation is more appropriate?  
+> Why?
+
+textbook P317
+
+Sample ACF $\hat{ρ}_k$ is the estimated correlation coefficient between $Y_t$ and $Y_{t-k}$ 
+The pattern indicates an autoregressive process, because the length of memory is long.
+
+> Next, the sample partial autocorrelation function is determined. It is given by
+> 
+> | $k$            | 1    | 2    | 3     | 4    | 5    | 6     | 7    | 8    | 9     | 10    |
+> | -------------- | ---- | ---- | ----- | ---- | ---- | ----- | ---- | ---- | ----- | ----- |
+> | $\hat{θ}_{kk}$ | 0.83 | 0.16 | -0.09 | 0.05 | 0.04 | -0.05 | 0.01 | 0.10 | -0.03 | -0.01 |
+
+### b
+
+> What do we mean by the sample partial autocorrelation function?  
+> Why is the first partial autocorrelation equal to the first autocorrelation coefficient (0.83)?
+
+textbook P318  
+[Partial Autocorrelation Function (PACF) \| STAT 510](https://newonlinecourses.science.psu.edu/stat510/node/62/)
+
+Sample PACF $\hat{θ}_{kk}$ is the estimated correlation coefficient between $Y_t$ and $Y_{t-k}$ in a model with k lags.
+
+$\hat{ρ}_1$ is the correlation between $Y_t$ and $Y_{t-1}$, where as $\hat{θ}_{kk}$ is the correlation between $Y_t$ and $Y_{t-1}$ in a hypothetical progress as the unique lag,  
+so they are by construction the same.
+
+### c
+
+> Does the above pattern indicate that an autoregressive or moving average representation is more appropriate?  
+> Why?
+
+The values of sample PACF are close to zero, indicating an autoregressive process.
+
+> The researcher decides to estimate, as a first attempt, a first-order autoregressive model given by
+> $$Y_t = δ + θY_{t−1} + ε_t$$
+> The estimated value for $θ_1$ is 0.83 with a standard error of 0.07.
+
+### d
+
+> Which estimation method is appropriate for estimating the AR(1) model?  
+> Explain why it is consistent.
+
+textbook P314
+
+OLS estimation.  
+Since $E[Y_{t-j}ε_t] = 0$ for all j, (A7) of Gauss-Markov Assumptions is satisfied, so OLS estimator should be consistent.
+
+### e
+
+> The researcher wants to test for a unit root.  
+> What is meant by 'a unit root'?  
+> What are the implications of the presence of a unit root?  
+> Why are we interested in it? (Give statistical or economic reasons.)
+
+slide 12 P16, textbook P298-299
+
+Unit root means the characteristic root $|z| = 1$.  
+With the presence of a unit root, the process is non-stationary.  
+Detecting a unit root is important because it is the boundary case between stationary ($|z| > 1$) and non-stationary.
+
+### f
+
+> Formulate the hypothesis of a unit root and perform a unit root test based on the above regression.
+
+slide 12 P20 22
+
+H0: $θ - 1 = 0$  
+H1: $θ - 1 < 0$  
+$$\begin{aligned}DF &= \frac{\hat{θ} - 1}{se(\hat{θ})} \\
+&= \frac{0.83 - 1}{0.07} \\
+&= -2.4286\end{aligned}$$ 
+Cannot reject the H0 at 5% level, maybe at 10% level.
+
+### g
+
+> Perform a test for the null hypothesis that $θ = 0.90$
+
+H0: $θ - 0.90 = 0$  
+H0: $θ - 0.90 < 0$  
+$$\begin{aligned}DF &= \frac{\hat{θ} - 1}{se(\hat{θ})} \\
+&= \frac{0.83 - 0.90}{0.07} \\
+&= -1\end{aligned}$$ 
+Cannot reject the H0.
+
+> Next, the researcher extends the model to an AR(2), with the following results (standard errors in parentheses):
+> $$\begin{aligned}Y_t &= 50.0 + 0.74Y_{t−1} + 0.16 Y_{t-2}+ \hat{ε}_t \\ &\phantom{\gg} (5.67) \phantom{0} (0.07) \phantom{Y_{t-1} 0} (0.07) \end{aligned}$$
+
+### h (\*)
+
+> Would you prefer the AR(2) model to the AR(1) model?  
+> How would you check whether an ARMA(2, 1) model may be more appropriate?
+
+$$\begin{aligned}z_{\hat{θ}_2} &= \frac{0.16}{0.07} = 2.2857 ∼ \mathcal{N} \\
+Pr(z > 2.2857) &= 0.0113\end{aligned}$$ 
+Therefore, I prefer AR(2) model to the AR(1) model.
+
+Check ARMA(2, 1)? 
+
+### i
+
+> What do the above results tell you about the validity of the unit root test of (f)?
+
+[What is the difference between a stationary test and a unit root test? \- Cross Validated](https://stats.stackexchange.com/a/235916/147391)
+
+The power of the test is relatively weak, maybe because $\hat{θ}$ is close to 1.
+
+### j
+
+> How would you test for the presence of a unit root in the AR(2) model?
+
+textbook P304
+
+ADF test: H0: $θ_1 + θ_2 - 1 = 0$  
+H1: $θ_1 + θ_2 - 1 < 0$  
+$DF = \frac{\hat{θ_1} + \hat{θ_2} - 1}{se(\hat{θ_1} + \hat{θ_2} - 1)}$
+
+### k (\*)
+
+> From the above estimates, compute an estimate for the average number of unemployed $E\{Y_t\}$
+
+### l (\*)
+
+> Suppose the last two quarterly unemployment levels for 2016:III and 2016:IV were 550 and 600, respectively.  
+> Compute forecasts for 2017:I and 2017:II.
+
+### m (\*)
+
+> Can you say anything sensible about the forecasted value for the quarter 2037:I?  
+> And its accuracy?
+
+## Exercise 9.2 (Cointegration)
+
+> Consider the following very simple relationship between aggregate savings $S_t$ and aggregate income $Y_t$: 
+> $$\begin{aligned}S_t = α + βY_t + ε_t && t=1,\dots, T \end{aligned}$$
+> For some country this relationship is estimated by OLS over the years 1956–2005 ($T = 50$).  
+> The results are given in Table 9.17.  
+> ![](/post-img/notes-stat1-exercise--9-2.png){width=388px}
+> Assume, for the moment, that the series $S_t$ and $Y_t$ are stationary.  
+> Hint: if needed, consult Chapter 4 for the first set of questions.
+
+### a
+
+> How would you interpret the coefficient estimate of 0.098 for the income variable?
+
+A unit change in income is correlated with 0.098 unit change in savings, everything else hold equal.
+
+### b
+
+> Explain why the results indicate that there may be a problem of positive autocorrelation.  
+> Can you give arguments why, in economic models, positive autocorrelation is more likely than negative autocorrelation?
+
+slide 7 P7  
+[What is Autocorrelation? \| Autocorrelation examples](https://www.displayr.com/autocorrelation/)
+
+The Durbin-Watson statistics $dw = 0.7\ll 2$ indicates positive autocorrelation.  
+Negative autocorrelation is rare because the alternating pattern is unusual in economic data.
+
+### c
+
+> What are the effects of autocorrelation on the properties of the OLS estimator?  
+> Think about unbiasedness, consistency and the BLUE property.
+
+1. Unbiasedness is unaffected
+2. Consistency is unaffected (?)
+3. The OLS estimator is no longer BLUE because no autocorrelation among error terms (A4) is violated
+
+### d
+
+> Describe two different approaches to handle the autocorrelation problem in the above case.  
+> Which one would you prefer?
+
+slide 7 P12
+
+1. Reconsider the model: functional form or specification (preferred)
+2. Use HAC standard error
+
+> From now on, assume that $S_t$ and $Y_t$ are nonstationary I(1) series.
+
+### e
+
+> Are there indications that the relationship between the two variables is 'spurious'?
+
+textbook P352, slide 12 P30
+
+Yes because $R^2$ is high, $β$ is significant and dw is low.
+
+### f
+
+> Explain what we mean by 'spurious regressions'.
+
+Two non-stationary process appear to be correlated because they are both trended, but without sensible causality.
+
+### g
+
+> Are there indications that there is a cointegrating relationship between $S_t$ and $Y_t$?
+
+textbook P353, slide 12 P31
+
+$$\begin{aligned}S_t &= α + βY_t + ε_t \\
+ε_t &= S_t - α - βY_t\end{aligned}$$ 
+Since $s = 22.57$, the sample variance of the residuals is relatively large,  
+indicates no cointegrating relationship.
+
+### h
+
+> Explain what we mean by a 'cointegrating relationship'.
+
+[Cointegration \- Wikipedia](https://en.wikipedia.org/wiki/Cointegration?oldformat=true)
+
+Two non-stationary process are correlated, and their linear combination for some $β$ is stationary.
+
+### i
+
+> Describe two different tests that can be used to test the null hypothesis that $S_t$ and $Y_t$ are not cointegrated.
+
+textbook P354 
+
+1. ADF test
+2. Cointegrating regression Durbin–Watson test
+
+### j
+
+> How do you interpret the coefficient estimate of 0.098 under the hypothesis that $S_t$ and $Y_t$ are cointegrated?
+
+textbook P355
+
+Cannot reject H0: $S_t$ and $Y_t$ are not cointegrated
+
+### k (\*)
+
+> Are there reasons to correct for autocorrelation in the error term when we estimate a cointegrating regression?
+
+### l (\*)
+
+> Explain intuitively why the estimator for a cointegrating parameter is super-consistent.
+
+### m (\*)
+
+> Assuming that $S_t$ and $Y_t$ are cointegrated, describe what we mean by an error-correction mechanism.  
+> Give an example. What do we learn from it?
+
+### n (\*)
+
+> How can we consistently estimate an error-correction model?
+
+## Exercise 9.3 (Cointegration - Empirical)
+
+> In this exercise we employ quarterly data on UK nominal consumption and income, for 1971:I to 1985:II (T = 58).  
+> Part of these data was used in Exercise 8.3.
+
+### a
+
+>  Test for a unit root in the consumption series using several augmented Dickey–Fuller tests.
+
+### b
+
+> Perform a regression by OLS explaining consumption from income.  
+> Test for cointegration using two different tests.
+
+### c
+
+> Perform a regression by OLS explaining income from consumption.  
+> Test for cointegration.
+
+### d
+
+> Compare the estimation results and $R_2$'s from the last two regressions.
+
+### e
+
+> Determine the error-correction term from one of the two regressions and estimate an error-correction model for the change in consumption.  
+> Test whether the adjustment coefficient is zero.
+
+### f
+
+> Repeat the last question for the change in income.  
+> What do you conclude?

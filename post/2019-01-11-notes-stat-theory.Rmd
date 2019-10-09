@@ -1,0 +1,1226 @@
+---
+title: "Notes on Econometrics - Theory Part"
+author: "loikein"
+date: "2019-01-11"
+slug: "notes-stat-theory"
+tags: ["notes","R", "stat"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+
+Warning: under proofreading
+
+All I wanted was a clear & complete guidance.  
+Textbook: [A Guide to Modern Econometrics](http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5)
+
+## OLS Model
+
+### OLS Method
+
+- Regressand: $y = [y_1, y_2, \dots, y_N]$ (N\*1)
+- Regressor: $x_i = [1, x_{i2}, \dots, x_{iK}]$ (K\*1), $X = [x_1', x_2', \dots, x_N']$ (N\*K)
+- Estimator: $β = [β_1, β_2, \dots, β_K]$ (K\*1)
+- Let the difference between observation and estimation be  
+$$y - X β$$ 
+OLS chooses $β$ s.t. 
+$$\begin{aligned}\min_{β} && S(β) = (y - Xβ)'(y - Xβ) & \\
+FOC && -2\cdot X'(y - Xβ) &= 0 \\
+&& X'y - X'Xβ &= 0 \\
+&& X'X β &= X'y \end{aligned}$$ 
+- No-Multicollinearity Assumption: if $X'X$ is invertible,  
+$$\begin{aligned} b &\equiv β^* \\ &= (X'X)^{-1}X'y\end{aligned}$$ 
+- Best Linear Approximation: 
+$$\begin{aligned}\hat{y} &= Xb \\
+&= \underbrace{X \ (X'X)^{-1}X'}_{\text{Projection Matrix}} \ y \\
+&= P_X\cdot y\end{aligned}$$ 
+
+<!--
+&= \underbrace{X' \ \lefteqn{\overbrace{\phantom{(X'X)^{-1}X'\cdot y}}^{b}} (X'X)^{-1}X'}_{\text{Projection Matrix}}\ y \\
+-->
+
+- Residual: 
+$$\begin{aligned} e &= y - \hat{y} \\
+&= y - Xb \\
+&= (1 - P_X)\cdot y \\
+&= M_X \cdot y \\
+S(b) &= (y - Xb)'(y - Xb) \\
+&= e'e\end{aligned}$$
+therefore,
+$$\begin{aligned}X'e &= X'(y - Xβ) \\
+&= 0\end{aligned}$$
+- Property of Projection Matrix: 
+$$\begin{aligned} M_X + P_X &= I \\
+M_X\cdot P_X &= 0\end{aligned}$$
+    - Symmetric $$\begin{aligned} P_X' &= P_X\end{aligned}$$
+    - Idempotent $$\begin{aligned} P_X'\cdot P_X &= P_X \\
+    M_X'\cdot M_X &= M_X\end{aligned}$$
+
+### Statistical Model
+
+- Dependent Variable: $y$
+- Independent Variable / Explanatory Variable / Regressor: $x$
+- Population Parameter: $β$
+- Error Term / Disturbance Term: $ε$
+- Number of Observations: $N$
+- True Model:
+$$y = Xβ + ε$$
+- Assumptions:
+    - Exogenous Explanatory Variables $\Longleftarrow$ (A1) + (A2)
+    $$\begin{aligned}E[ε_i \ | \ x_i] &= 0 \\ E[y_i \ | \ x_i] &= x_i' \cdot β \end{aligned}$$
+    - Ceteris Paribus
+- OLS Estimator: $b$
+- OLS Residuals: $e$
+
+### Gauss-Markov Assumptions
+
+(A1) \~ (A4): textbook P15, slide 2 P23 = BLUE  
+(A5): textbook P19, slide 2 P29 = (A1) + (A3) + (A4) + normal  
+(A6): textbook P34, slide 4 P10  
+(A7): textbook P35 141, slide 4 P11 < (A1) + (A2) / (A8)  
+(A8): textbook P37 < (A2)  
+(A9): textbook P101  
+(A10): textbook P102 > (A7)  
+(A11): textbook P140 < (A5)  
+(A12): textbook P141 < (A11)  
+
+Original assumptions:
+
+(A1): $E[ε_i] = 0$   
+(A2): $\{ε_1, \dots , ε_n\}$ and $\{x_1, \dots , x_N\}$ are independent   
+(A3): Homoskedasticity $Var(ε_i) = σ^2$   
+(A4): No Autocorrelation $Cov(ε_i, ε_j) = 0$ for all $i\neq j$
+
+Alternative assumptions:
+
+(A5): $ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)$   
+(A6): $\frac{1}{N} \sum^N_{i=1} x_ix_i' \to^p \exists Σ_{xx}$   
+(A7): $E[ε_i x_i] = 0$   
+(A8): $ε_i$ and $x_i$ are independent  
+(A9): Diagonal Heteroskedasticity $Var(ε \ | \ X) = σ^2\cdot Diag(h_i^2)$  
+(A10): $E[ε \ | \ X] = 0$  
+(A11): $ε_i ∼ IID (0, σ^2)$   
+(A12): Unknown Heteroskedasticity $ε_t$ are serially uncorrelated, $E[ε_t] = 0$
+
+> PS2.Q2  
+> Consider the linear regression model:  
+> $$y_t = β x_t + ε_t$$ 
+> where $ε_t ∼ N(0,σ_ε^2)$,  $x_t ∼ N(0,σ_x^2)$, and $ε_t$ and $x_t$ are independent.  
+> 1. What does the independence imply for $E[x_t ε_t]$?
+
+Since $ε_t$ and $x_t$ are independent, they are not correlated
+$$\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &= 0 \\
+Cov(x_t ε_t) &= 0 \\ &= E[x_t ε_t] - E[x_t] E[ε_t] \\ &= E[x_t ε_t]\end{aligned}$$ 
+$\implies E[x_t ε_t] = 0$
+
+### Linear & Loglinear
+
+| Model       | Dependent Var | Independent Var | $β$                       |
+| ----------- | ------------- | --------------- | ------------------------- |
+| level-level | $y$           | $x$             | $Δy = β Δx$               |
+| level-log   | $y$           | $\log x$        | $Δy = \frac{β}{100}\% Δx$ |
+| log-level   | $\log y$      | $x$             | $\% Δy = (100\cdot β)Δx$  |
+| log-log     | $\log y$      | $\log x$        | $\% Δy = β\% Δx$          |
+
+> Mock.Q1.1  
+> Consider the following nonlinear relationship between two economic variables $y_t>0$ and $x_t$, $α>0$ and $γ>0$ are parameters:  
+> $$y_t = α \exp(γ\cdot x_t)$$ 
+> 1. Linearize the relationship and state a corresponding linear regression model with parameters $β_1$ and $β_2$.  
+> 2. Explain whether your regression model is a (i) level-level, (ii) level-log, (iii) log-level or (iv) log-log specification.  
+> 3. How should the slope parameter in your derived regression model be interpreted?
+
+1. $\log y_t = β_1 + β_2\cdot x_t + ε_t$, where $β_1 = \log α$ and $β_2 = γ$  
+2. This is a log-level model, since the dependent variable is in $\log$ form and the independent variable is not.  
+3. $$\begin{aligned} Δ\log y_t &= Δ x_t\cdot β_2 \\
+β_2 &= \frac{Δ\log y_t}{Δ x_t}\end{aligned}$$ 
+Therefore, $β_2$ can be interpreted as the expected percentage change of $y_t$ given one unit change of $x_t$, held everhthing else constant
+
+> Mock.Q1.2  
+> Consider the following nonlinear relationship between two economic variables $y_t>0$ and $x_t$, $α>0$ and $γ>0$ are parameters:  
+> $$y_t = α \exp(γ\cdot x_t)$$ 
+> 1. Which assumptions on the error term in your regression model are needed s.t. $s^2(X'X)^{-1}$ be an appropriate estimator for the covariance matrix of the OLS estimator $b$ for $(β_1, β_2)'$?  
+> ($X$ denotes the full-rank regressor matrix in your regression model, and $s^2$ is an unbiased estimator of the residual variance $σ^2$.)  
+> 2. Explain the influence of the variation in (i) the residuals and (ii) the regressor matrix on the precision of the OLS estimator based oh the covariance matrix $σ^2(X'X)^{-1}$ 
+
+1. When $s^2(X'X)^{-1}$ is an appropriate estimator for $b$, all four Gauss-Markov assumptions are needed.  
+$E[ε_t] = 0$, $Var(ε_t) = σ^2$, $Cov(ε_t, ε_t') = 0$ for normal errors, and independence between $ε$ and $x$.  
+2. Larger variance in residuals causes larger variance (less precise) of the OLS estimator,  
+while larger variance in the regressors causes the OLS estimator to be more precise.
+
+> Mock.Q1.3  
+> Consider the following nonlinear relationship between two economic variables $y_t>0$ and $x_t$, $α>0$ and $γ>0$ are parameters:  
+> $$y_t = α \exp(γ\cdot x_t)$$ 
+> Suppose that you are unsure whether to include an additional regressor $z_t$ to your linear regression model.  
+> 1. Describe three valid procedures to decide whether the additional regressor shall be included or not.  
+> 2. Give two conditions under which the omission of $z_t$ is unproblematic for the OLS estimator in your linearized model (excluding $z_t$).
+
+1.  1) Regress the model $\log y_t = β_1 + β_2\cdot x_t + β_3\cdot z_t + ε_t$, and test with $H_0$: $β_3=0$  
+    2) Compare $\bar{R^2}$ of the two specifications  
+    3) Compare AIC or BIC of the two specifications  
+2. If $β_3=0$ is not rejected, or AIC / BIC is not decreased by the inclusion of $z_t$, then it is ok to omit it.
+
+> Mock.Q1.4  
+> Consider the following nonlinear relationship between two economic variables $y_t>0$ and $x_t$, $α>0$ and $γ>0$ are parameters:  
+> $$y_t = α \exp(γ\cdot x_t)$$ 
+> As an alternative to linearization, one may directly consider the nonlinear regression model $y_t = α \exp(γ\cdot x_t)+ε_t$ with the additional assumption that $ε_t∼^{iid} \mathcal{N}(0,σ^2)$  
+> 1. Outline two appropriate estimntors for $(α,γ)'$ other than the OLS estimator (maximal 4 sentences)  
+> 2. For a comparison between your linear regression specification and the given nonlinear one, would it be correct to consider the (adjusted) $R^2$ values?
+
+1. Maximum likelihood model (does not assume the errors are normal)  
+Non-linear model: $y_t = α \exp(γ\cdot x_t) + ε_t$  
+2. No, because $R^2$ is conditional on the form of $y_t$
+
+### Elasticity
+
+- Elasticity measures the relative change in the dependent variable owing to a relative change in one of the $x_i$ variables.  
+- For $\log y_i = (\log x_i)' γ + v_i$, elasticity:  
+$$\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&\approx \frac{\partial E[\log y_i | \log x_i]}{\partial \log x_{ik}} \\ &= γ_k \end{aligned}$$ 
+- For $y_i = x_i' β + ε_i$, elasticity:  
+$$\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&= β_k \cdot \frac{x_{ik}}{x_i' β} \end{aligned}$$ 
+
+> PS3.Q1.1  
+> Consider the Cobb-Douglas production function:  
+> $$Y =F(K,L)=τK^{β_1}L^{β_2}$$ 
+> where $F$ is the production function, $K$ capital and $L$ labor.   
+> Technology is assumed to be constant and represented by $τ$.  
+> 1. Which coefficients are elasticities?  
+
+For $K$:  
+$$\begin{aligned} \frac{\partial Y}{\partial K}\cdot\frac{K}{Y} &= τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} \\
+&= \frac{τβ_1K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&= β_1\end{aligned}$$ 
+For $L$:  
+$$\begin{aligned} \frac{\partial Y}{\partial L}\cdot\frac{L}{Y} &= τβ_2K^{β_1}L^{β_2-1} \cdot \frac{K}{Y} \\
+&= \frac{τβ_2K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&= β_2\end{aligned}$$ 
+Therefore, $β_1$ and $β_2$ are the elasticities. 
+
+> PS3.Q1.1  
+> 2. Specify the econometric model you think is appropriate to estimate the coefficients of the production function.  
+
+Take log:  
+$$\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)$$ 
+
+> PS2.Q3  
+> Consider the wage regressions from slide 5 (text P86).  
+> ![](/post-img/notes-stat1--PS2Q3-6.png){width=393px}  
+> 6. Find the estimated elasticities for the effect of experience for males and females.  
+> At which conventional level is the gender effect of experience significant?  
+> Is the gender effect (measured by the male dummy coefficient) significant at $10 \%$ or $5 \%$ level when using a one-sided alternative (namely, positive coefficient)?
+
+Elasticity for female: $0.207$  
+Elasticity for male: $0.207 + 0.041 = 0.248$  
+Gender effect: $0.041$  
+t-ratio: $1.891$  
+```{r eval = TRUE}
+# calculate critical value
+qnorm( 0.90 )
+qnorm( 0.95 )
+```
+Therefore, $H_0$ is rejected at $10 \%$ level, but not rejected at $5 \%$ level. 
+
+## OLS Estimator
+
+### Derive b
+
+> PS1.Q1.3  
+> Consider the linear model $y = Xβ + ε$.   
+> The OLS estimator minimizes the sum of squared residuals:   
+> $$S(\tilde{β}) = ε′ε = (y − X\tilde{β})' (y − X\tilde{β})$$ 
+> 1. Derive the first order condition of $S(\tilde{β})$.  
+> \~\~ Find the solution of the minimization problem and state all needed assumptions.  
+> 2. Check whether the solution in (1) is a minimum. Do you need any further assumption to verify that? 
+
+1. Solve minimization problem  
+$$\begin{aligned} S(β) &= (y − Xβ)' (y − Xβ) \\
+&= (y' - β'X')(y − Xβ) \\ &= y'y - y'Xβ -β' X' y + β' X' Xβ \\
+&= y'y -2β' X' y + β'X'Xβ\end{aligned}$$ 
+FOC  
+$$\begin{aligned} \frac{\partial S(β)}{\partial β} = -2 X' y + 2X'X \hat{β} &= 0 \\
+X'X \hat{β} &= X' y \\ \hat{β} &= (X'X)^{-1} X' y\end{aligned}$$ 
+Assuming $X'X$ is invertible $\Longleftarrow X$ is full-rank.  
+2. Check whether is minimum  
+SOC  
+$$\frac{\partial ^2 S(β)}{\partial β \partial β'} = 2X' X$$ 
+$\implies$ the solution is a minimum if $X' X$ is positive semi-definite.  
+Take arbitrary $a\neq 0$, let  
+$$\begin{aligned} q &= a' X' Xa \\ &= \sum^N_{i=0} x_i^2 a_i^2 \\ &\geq 0\end{aligned}$$ 
+$\implies$ For all $a\neq 0$, $q > 0$, $X' X$ is positive semi-definite, no further assumptions needed. 
+
+> PS2.Q2  
+> Consider the linear regression model:  
+> $$y_t = β x_t + ε_t$$ 
+> where $ε_t ∼ N(0,σ_ε^2)$,  $x_t ∼ N(0,σ_x^2)$, and $ε_t$ and $x_t$ are independent.  
+> 2. Verify that the OLS estimator can be written as   
+> $$b = β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t$$ 
+
+$$\begin{aligned} b &= (X'X)^{−1} X' y \\
+&= β + (X'X)^{-1} X'ε \\
+&= β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t \end{aligned}$$ 
+
+### Unbiasedness of b
+
+textbook P16, slide 2 P24
+
+- OLS estimator is unbiased when $E[b] = β$  
+$$\begin{aligned}E[b] &= E\big[(X'X)^{-1}X'y\big] \\ &= E\big[β + (X'X)^{-1}X'ε\big] \\
+&= β + E\big[(X'X)^{-1}X'ε\big] \\
+&= β + E\big[(X'X)^{-1}X'\big]\cdot E[ε] && \text{(A2)} \\
+&= β + E\big[(X'X)^{-1}X'\big]\cdot 0 && \text{(A1)}\\ &= β \end{aligned}$$
+
+> PS4.Q2.1  
+> T/F?  
+> Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased. 
+
+True.   
+Unbiasedness is only conditional on the average of errors and independence between error and $x$\'s.
+
+### BLUE
+
+textbook P17, slide 2 P26
+
+- BLUE (Best Linear Unbiased Estimator): __Unbiased + Efficient + OLS__
+- Gauss–Markov Theorem: OLS estimator is BLUE if (A1) \~ (A4) are all satisfied
+- Efficienty (best): minimal variance  
+$V(b) \leq V(\tilde{b})$ for all $\tilde{b} \iff V(\tilde{b}) - V(b)$ is positive semi-definite
+$$\begin{aligned}Var(b \ | \ X) &= E\big[ (b - β) (b - β)'\big] \\
+&= E\big[ (X'X)^{-1}X'ε \cdot ε'X(X'X)^{-1}\big] \\
+&= E\big[ (X'X)^{-1}X'\big]\cdot E[εε'] \cdot E\big[ X(X'X)^{-1}\big] && \text{(A2)}\\
+&= (X'X)^{-1}X'\cdot (σ^2 \cdot I_N) \cdot X(X'X)^{-1} && \text{(A3) + (A4)}\\
+&= σ^2 \cdot (X'X)^{-1}X'\cdot X(X'X)^{-1} \\ &= σ^2(X'X)^{-1} \\\end{aligned}$$
+- With sample variance, estimated variance: (see [#Unbiasedness of s^2](#unbiasedness-of-s2))  
+$$V(b) = s^2(X'X)^{-1}$$ 
+- Standard Error / Estimated Standard Deviation: 
+$$\begin{aligned} se(b) &= \sqrt{V(b)} \\
+&= s\sqrt{(X'X)^{-1}} \\
+&\equiv s\sqrt{c_{kk}}\end{aligned}$$
+
+> PS1.Q4  
+> Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.   
+> Consider the linear and unbiased OLS estimator:  
+> $$b = (X′X)^{−1} X′y = Cy$$ 
+> And another linear and unbiased estimator:  
+> $$\tilde{b} = Wy, \ W = W(X)$$ 
+> 1. Verify that $W X = I$ holds due to unbiasedness (similar to $CX = I$).  
+
+Take expectation  
+$$\begin{aligned} E[\tilde{b}] &= E[Wy] \\ &= E\big[ W(Xβ + ε)\big] \\
+&= WXβ + W \cdot E[ε] \\ &= WXβ\end{aligned}$$ 
+Since $\tilde{b}$ is unbiased,  
+$$\begin{aligned} E[\tilde{b}] = WXβ &= β \\ WX &= I\end{aligned}$$ 
+
+> PS1.Q4  
+> Consider the linear and unbiased OLS estimator:  
+> $$b = (X′X)^{−1} X′y = Cy$$ 
+> And another linear and unbiased estimator:  
+> $$\tilde{b} = Wy, \ W = W(X)$$ 
+> 2. Find the covariance matrix of $\tilde{b}$, i.e. $V(\tilde{b})$.   
+
+$$\begin{aligned} V(\tilde{b}) &= E \big[ (\tilde{b} - β)(\tilde{b} - β)' \big] \\
+&= E \big[ (WXβ + Wε - β)(WXβ + Wε - β)' \big] \\ &= E \big[ (Iβ + Wε - β)(Iβ + Wε - β)' \big] \\ &= E[ Wε ε' W'] \\
+&= W \cdot E[ε ε'] \cdot W' \\ &= σ^2 WW' \end{aligned}$$ 
+
+> PS1.Q4  
+> Consider the linear and unbiased OLS estimator:  
+> $$b = (X′X)^{−1} X′y = Cy$$ 
+> And another linear and unbiased estimator:  
+> $$\tilde{b} = Wy, \ W = W(X)$$ 
+> 3. Compare the covariance matrices of $\tilde{b}$ and $b$ by building their difference $V (\tilde{b}) − V (b)$.   
+> \~\~ Show in the final step that the difference between the covariance matrices is positive semi-definite.
+
+$$\begin{aligned} V (\tilde{b}) − V (b) &= σ^2 WW' - σ^2 (X'X)^{-1} \\
+&= σ^2 \big[ WW' - (X'X)^{-1} \big] \\
+&= σ^2 \big[ WW' - WX \cdot (X'X)^{-1}\cdot (WX)' \big] \\
+&= σ^2 \big[ WW' - WX \cdot (X'X)^{-1} \cdot X'W' \big] \\
+&= σ^2 \left\{ W \big[ I - X(X'X)^{-1}X' \big] W' \right\} \\
+&= σ^2 W M_X W'\end{aligned}$$ 
+Take arbitrary $a \neq 0$  
+$$\begin{aligned} a' (σ^2 W M_X W') a &= σ^2 a' W M_X W' a \\
+&= σ^2 a' W M_X M_X W' a \\
+&= σ^2 (M_X W' a)' (M_X W' a) \\ &\geq 0\end{aligned}$$ 
+Therefore, the difference $V (\tilde{b}) − V (b)$ is positive semi-definite.  
+$\implies$ Any unbiased linear estimator cannot offer a variance smaller than the OLS estimator. 
+
+### Unbiasedness of s^2
+
+textbook P18, slide 2 P27
+
+- Population Variance of Error Terms: $σ^2$
+- Unbiased Sample Variance of Residuals  $$s^2 = \frac{1}{N-K} e'e$$
+- Obtained if (A1) \~ (A4) are satisfied
+
+> PS1.Q2  
+> Consider the linear regression model:  
+> $$\begin{aligned} y_i =x^′_i β+ε_i && i=1, \dots ,N\end{aligned}$$ 
+> with $ε^i ∼ NID(0,σ2)$.   
+> Denote by K the number of regressors including the intercept.   
+> Show that $\tilde{s}^2 = \frac{1}{N-1} \sum^N_{i=1} e_i^2$ is a biased estimator, and $s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2$ an unbiased estimator for $σ^2$.   
+> Hint: Treat $X$ as fixed or deterministic (or alternatively, think of working conditionally on outcomes $X$).  
+> \~\~\~\~ $tr(AB) = tr(BA)$ and $tr(A + B) = tr(A) + tr(B)$.
+
+Rewrite the model in matrix form:  
+$$\mathbb{y} = X β + ε$$ 
+Let $P_X \equiv X(X' X)^{-1} X'$, $M_X = I_N - P_X$,  
+$$\begin{aligned} M_X X &= \big( I_N − X (X' X)^{-1} X'\big) \cdot X \\
+&= X − X (X' X)^{-1} X' X \\ &= X − X \\ &= 0\end{aligned}$$ 
+Therefore,  
+$$\begin{aligned} e &= M_X \cdot \mathbb{y} \\ &= M_X (X β + ε) \\ &= M_X Xβ + M_X ε \\ &= M_X ε\end{aligned}$$ 
+Sum of squared error:  
+$$\begin{aligned} \sum^N_{i=1} e_i^2 &= e'e \\ &= tr(e'e) \\
+&= tr(ε' M_X' M_X ε) \\ &= tr(ε' M_X ε) \\ &= tr(M_X ε ε')\end{aligned}$$ 
+Take expectation of both sides  
+$$\begin{aligned} E[e'e] &= tr \big( M_X \cdot E [ε ε'] \big) \\
+&= σ^2 \cdot tr(M_X) \\ &= σ^2 \cdot tr \big( I_N - X(X' X)^{-1} X' \big) \\
+&= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X' X)^{-1} X' \big) \\
+&= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X' X(X' X)^{-1} \big) \\
+&= σ^2 \cdot tr(I_N) - σ^2 \cdot tr(I_K) \\ &= σ^2(N - K)\end{aligned}$$ 
+Therefore,  
+$$\begin{aligned} E[s^2] &= \frac{1}{N-K} \cdot E \left[ \sum^N_{i=1} e_i^2 \right] \\
+&= \frac{1}{N-K} \cdot σ^2(N - K) \\ &= σ^2\end{aligned}$$ 
+$\implies s^2$ is unbiased.  
+And $E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2$ is biased for small $N$'s.  
+
+## Normality Assumption
+
+### Normality of ε
+
+- (A1) + (A3) + (A4) + $ε$ is Nomally Distributed $\implies$ 
+- (A5): $ε ∼ \mathcal{N} (0, σ^2I_N)$  
+    - or: $ε_i ∼ NID (0, σ^2)$   
+- Implies nomality of $y_i \ | \ x_i$
+
+### Normality of b
+
+textbook P19, slide 2 P30
+
+- OLS estimator is normally distributed with 
+$$\begin{aligned}b &∼ \mathcal{N}\big(β, σ^2(X'X)^{-1} \big) \\
+b_k &∼ \mathcal{N}(β_k, σ^2c_{kk})\end{aligned}$$
+- Obtained if  
+   $$\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} && \text{(A2)} \\ε ∼ \mathcal{N} (0, σ^2I_N) && \text{(A5)} \end{cases}$$ 
+
+> PS4.Q2.2  
+> T/F?  
+> Under heteroskedastiticity and/or autocorrelation of the errors, the covariance matrix of the OLS estimator does not change in comparison to the case of homoscedasticity and absence of autocorrelation.
+
+False.  
+Under heteroskedastiticity or autocorrelation,   
+the covariance of the errors is different from benchmark case,  
+thus the covariance matrix of OLS estimator also changes.
+
+> PS2.Q2  
+> Consider the linear regression model:  
+> $$y_t = β x_t + ε_t$$ 
+> where $ε_t ∼ N(0,σ_ε^2)$,  $x_t ∼ N(0,σ_x^2)$, and $ε_t$ and $x_t$ are independent.  
+> 3. Use the LLN to find the appropriate scaling factor $k$ in $\frac{1}{N^k} \sum^N_{t=1} x_t^2$.  
+> \~\~ What does $\frac{1}{N^k} \sum^N_{t=1} x_t^2$ converge to?  
+> Hint: Find $E[x_t]$ to characterize the object to which the scaled sum converges.
+
+LLN suggests $k=1$  
+Since $x_t ∼ N(0,σ_x^2)$, $E[x_t] = 0$, $Var(x_t) = σ_x^2$  
+$$\begin{aligned} \frac{1}{N} \sum^N_{t=1} x_t^2 &\to^p E[x_t^2] \\
+&= σ_x^2\end{aligned}$$ 
+
+> PS2.Q2  
+> Consider the linear regression model:  
+> $$y_t = β x_t + ε_t$$ 
+> where $ε_t ∼ N(0,σ_ε^2)$,  $x_t ∼ N(0,σ_x^2)$, and $ε_t$ and $x_t$ are independent.  
+> 4. To find the appropriate scaling factor $k$ in $N^{−k} \sum^N_{t=1} x_t ε_t$, first find the variance of $N^{−k} \sum^N_{t=1} x_t ε_t$.    
+> For which unique choice of $k$ does this variance neither approach zero, nor explode?   
+> Hence, find the value for $k$ which stabilizes the variance.
+
+$$\begin{aligned}Var\left( N^{−k} \textstyle{\sum}^N_{t=1} x_t ε_t \right) &= (N^{-k})^2 \cdot Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right) \\
+&= N^{-2k} \cdot Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right)\\
+Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right) &= Var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
+&= \textstyle{\sum}^N_{i=1} Var(x_t ε_t ) \\
+&= \textstyle{\sum}^N_{i=1} \left[ Var(x_t) \cdot Var( ε_t ) \right] \\
+&= \textstyle{\sum}^N_{i=1} σ^2_x σ^2_ε  \\
+&= N \cdot σ^2_x σ^2_ε \\
+Var\left( N^{−k} \textstyle{\sum}^N_{t=1} x_t ε_t \right) &= N^{-2k} \cdot N \cdot σ^2_x σ^2_ε \\
+&= N^{1-2k} \cdot σ^2_x σ^2_ε\end{aligned}$$ 
+Set $1 - 2k = 1$, $k = \frac{1}{2}$  
+$$\frac{1}{\sqrt{N}}\sum^N_{t=1} x_t ε_t \to^p σ^2_x σ^2_ε$$ 
+
+> PS2.Q2  
+> Consider the linear regression model:  
+> $$y_t = β x_t + ε_t$$ 
+> where $ε_t ∼ N(0,σ_ε^2)$,  $x_t ∼ N(0,σ_x^2)$, and $ε_t$ and $x_t$ are independent.  
+> 5. Consider the difference $b − β$.  
+> Combine (3) and (4) to find the implied appropriate scaling (i.e. the convergence rate) of $b − β$.
+
+We know  
+$$b-β = \left(\sum^N_{i=1} x_t^2 \right)^{-1} \sum^N_{i=1}x_t ε_t$$ 
+From (3) and (4):  
+$$\begin{aligned} \frac{1}{N} \sum^N_{t=1} x_t^2 &\to^p σ_x^2 \\
+\frac{1}{\sqrt{N}}\sum^N_{t=1} x_t ε_t &\to^p σ_x^2 σ_ε^2 \end{aligned}$$ 
+Assume $N^k(b-β)$ converges in distribution, therefore  
+$$\begin{aligned} N^k(b-β) &= N^k \cdot \left(\sum^N_{i=1} x_t^2 \right)^{-1} \sum^N_{i=1} x_t ε_t \\
+&= \left(\frac{1}{N}\sum^N_{i=1} x_t^2 \right)^{-1} \frac{1}{\sqrt{N}}\sum^N_{i=1} x_t ε_t \\
+N^k &= N \cdot \frac{1}{\sqrt{N}} \\
+k &= \frac{1}{2}\end{aligned}$$ 
+Therefore $\sqrt{N}$ is the implied convergence rate of $b − β$.  
+$$\sqrt{N}(b − β) \to^d \mathcal{N} \big(0, (σ_x^2 σ_ε^2)(σ_x^2)^{-1} \big)$$ 
+Note that under standard notation, $σ^2 \equiv σ_x^2 σ_ε^2$, $Σ_{xx} \equiv σ_x^2$  
+$\implies \sqrt{N}(b − β) \to^d \mathcal{N} (0, σ^2 Σ_{xx}^{-1})$ 
+
+## Asymptotic Property
+
+- Gauss-Markov Assumptions
+- No Normality
+
+### Converge in Probability & Mean Square
+
+- Vector sequence $\{x_n\}$ converges in p when $\mathbb{P}\{ \|x_n - x\| > \exists δ\} \to 0$ as $N \to \infty$
+- Also: $x_n \to^p x$ or $\text{plim } x_n = x$
+- $x_n \to^p x \implies g(x_n) \to^p g(x)$ for all continuous function $g$
+
+~
+
+- Scalar sequence $\{x_n\}$ converges in ms when $E\big[ (x_n - x)^2 \big] \to 0$ as $N \to \infty$
+- Also: $x_n \to^{ms} x$
+- $x_n \to^{ms} x \implies x_n \to^p x$
+- $x_n \to^{ms} α \implies E[x_n] \to α$ and $Var(x_n) \to 0$
+
+### LLN (Law of Large Numbers)
+
+- $\frac{1}{N}\sum^N_{i=1} x_n \to^p E[x]$ as $N \to \infty$, if $\{x_n\}$ are $i.i.d$ copies of $\mathbb{x}$ 
+- (A6) + (A7) + LLN = [Consistency of b](#consistency-of-b) 
+
+Under LLN:  
+$$\begin{aligned}\frac{1}{N} \sum^N_{i=1} x_i x_i' \to^p Σ_{xx}^{-1} && \text{(A6)}\end{aligned}$$ 
+and  
+$$\begin{aligned} \frac{1}{N}\sum x_i ε_i &\to^p E[x_i ε_i]\end{aligned}$$ 
+
+> PS4.Q2.7  
+> T/F?  
+> The LLN states that sample moments converge in probability to their population counterparts.
+
+True.  
+According to LLN:  
+$$\begin{aligned} \frac{1}{N}\sum x_i ε_i &\to^p E[x_i ε_i] \\
+\implies \frac{1}{N}\sum y_i^2 &\to^p E[y_i^2]\end{aligned}$$ 
+
+### Consistency of b
+
+textbook P35
+
+- OLS estimator is consistent if for all $δ > 0​$, 
+$$\begin{aligned}\lim P\{ |b_k - β_k| > δ \} &= 0​ \\
+\text{plim} b &= β\end{aligned}$$ 
+    - If $g(\cdot)$ is a continuous function, then $\text{plim} g(b) = g(β)$
+- When unbiasedness is not feasible, consistency is the minimal requirement for an estimator.
+$$\begin{aligned}b - β &= (X'X)^{-1}X'ε \\
+\text{plim} (b-β) &= Σ_{xx}^{-1}\cdot X'ε && \text{(A6)} \\
+&= Σ_{xx}^{-1}\cdot 0 && \text{(A7)} \\
+&= 0\end{aligned}$$
+- denote the Consistent estimator as $\hat{β}$
+
+> PS5.Q4  
+> Consider the model with a latent (unobserved) variable $y_i^*$:   
+> $$y_i^∗ = x'_i β + ε_i$$ 
+> where $ε_i ∼^{iid} N(0,σ^2_ε)$ and is independent of $x_i$, and $x_i ∼^{iid} N(μ,σ^2_x)$.  
+> The dependent variable is observed with measurement error, i.e., $y_i = y_i^∗ + v_i$,  
+> where $v_i ∼^{iid} N(0,σ^2_v)$ is independent of both $x_j$ and $ε_j ∀j$.  
+> (The unobserved $y_i$ is sometimes called a latent variable.)  
+> Regress $y_i$ on $x_i$ to obtain an OLS estimate $\tilde{β}$.   
+> 1. Is $\tilde{β}$ a consistent estimator of $β$ ?
+
+Rewrite the model:  
+$$\begin{aligned} y_i - v_i &= x_i' β + ε_i \\ y_i &= x_i' β + ε_i + v_i\end{aligned}$$ 
+where $ε_i$ and $v_i$ are uncorrelated.   
+Let $ε_i + v_i = u_i \implies u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)$  
+OLS estimator can be written as:  
+$$\begin{aligned} \tilde{β} &= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i' \right) ^{-1} \frac{1}{N} \sum^N_{i=1} x_i y_i \\
+&= β + \left(\frac{1}{N}\sum^N_{i=1} x_i x_i' \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \\
+\tilde{β} - β &= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i' \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \end{aligned}$$ 
+Apply LLN:
+$$\begin{aligned} \tilde{β} - β &\to^p \text{plim}(\tilde{β} - β) \\
+&= \frac{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i u_i \right)}{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i x_i' \right)} \\
+&= \frac{E[x_i u_i]}{Σ_{xx}}\end{aligned}$$ 
+
+where $x'x \to Σ_{xx}$ (A6).  
+As long as $E[x_i u_i] = 0$ (A7), $\tilde{β}$ is consistent.
+
+> PS5.Q4   
+> Consider the model   
+> $$y^∗_i = x'_i β + ε_i$$ 
+> 2. What happens to the consistency of $\tilde{β}$ if $ε_i$ and $v_i$ are correlated?
+
+Variance of $u_i$ changes as follows:  
+$$Var(u_i) = σ^2_ε + ε^2_v + 2Cov(ε_i, v_i)$$ 
+$\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)$  
+While everything remaining is unchanged, therefore the consistency of $\tilde{β}$.
+
+### Consistency of s^2
+
+textbook P35
+
+- The least square estimator $s^2$ for error variance $σ^2$ is consistent if:  
+   $$\begin{cases} V(ε_i) = σ^2 && \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i' \to^p \exists Σ_{xx} && \text{(A6)} \\ E[ε_i x_i] = 0 && \text{(A7)}  \end{cases}$$ 
+
+### Asymptotic Nomality
+
+textbook P36 141, slide 4 P13
+
+- Asymptotic Distribution: distribution as $N\to\infty$
+    - Asymptotic distribution of $\sqrt{N}\cdot(\hat{β} - β)$ is a nomal distribution
+    - Rate of Convergence: $\sqrt{N}$
+- OLS estimator is CAN (Consistent and Asymptotically Normal) if  
+$$\begin{aligned} \sqrt{N} (b-β) &\to^a \mathcal{N}(0, \ σ^2\cdot Σ_{xx}^{-1}) \\
+b &∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
+&∼^a \mathcal{N}\Big(β, \ s^2\cdot\sum_N x_ix_i'\Big) && \text{(A5) + (A6)}\end{aligned}$$ 
+    - Weaker: (A6) + (A8) + (A11)
+    - Weaker: (A6) + (A7) + (A12)
+
+## Data Problems
+
+### Multicollinearity
+
+slide 3 P22, textbook P59
+
+- Approximate linear relationship among some x's $\implies$ unreliable regression estimates
+    - $X'X$ may not be invertible 
+    - Violates No-Multicollinearity Assumption in [#OLS Method](#ols-method)
+    - $b$ is still unbiased
+- Signs
+    - High se, low t-stat
+    - Hight $R^2$
+    - Dummy Variable Trap
+- Solution
+    - Large $N$ and large variations in variables
+    - Transformation: $\log x$ or $\sqrt{x}$
+
+### Outliers
+
+## Error Problems
+
+- Error terms do not have identical variances
+    - Violate (A3) and (A4) in [#Gauss-Markov Assumptions](#gauss-markov-assumptions)
+    - $Var(ε_i) = σ^2\cdot Ψ$, $Ψ\neq I$
+    - OLS estimator still unbiased, but not [BLUE](#blue): 
+    $$\begin{aligned} Var(b) &= Var\big( (X'X)^{-1}X'ε\big) \\
+    &= (X'X)^{-1}X'\cdot Var(ε) \cdot X(X'X)^{-1} \\
+    &= σ^2\underbrace{(X'X)^{-1}\cdot X'ΨX\cdot }_{\text{was }I}(X'X)^{-1}\end{aligned}$$ 
+
+### Heteroskedasticity
+
+- Different error terms do not have identical variances, the diagonal elements of the covariance matrix are not the same
+    - Exist different groups in the data
+- Scatter plot
+- Solution
+    - Use another specification
+    - White Standard Error
+    - HAC Standard Error
+    - [GLS Estimator](#gls-generalized-least-squares-estimator)
+
+### Autocorrelation (Serial Correlation)
+
+- Different error terms are correlated, covariance matrix is nondiagonal
+    - Data have a time / space dimension: not randomly sampled, time series / panel
+    - $Ψ$ is NOT diagonal matrix
+    - Wrong funcitonal form, omitted variable, lacking dynamics
+- Signs
+    - Serial trend in scatter plot
+    - Error follows [AR(1)](#types-of-process) $$\begin{aligned}ε_t &= ρε_{t-1} + v_t \\
+    E[v_t^2] &= σ^2_v \\
+    Var(ε_t) &= \frac{σ^2_v}{1 - ρ^2} \\
+    Cov(ε_t, ε_{t-s}) &= ρ^s\cdot\frac{σ^2_v}{1 - ρ^2} \\
+    Corr(ε_t, ε_{t-s}) &= ρ^s\end{aligned}$$
+- Solution
+    - Use another specification: include more variables $\implies$ tests are used as mis-specification tests
+    - HAC Standard Error
+    - [GLS Estimator](#gls-generalized-least-squares-estimator)
+
+### White (HC) Standard Error
+
+slide 6 P18, textbook P105, Greene P163
+
+$$\begin{aligned}Var(β) &= σ^2 (X'X)^{-1}\cdot X'ΨX \cdot (X'X)^{-1} \\
+ \hat{Var}(b) &= (X'X)^{-1}\cdot X' (e'e) X\cdot (X'X)^{-1}\end{aligned}$$
+
+> PS4.Q2.4  
+> T/F?  
+> When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.
+
+True. 
+
+### Newey-West (HAC) Standard Error
+
+textbook P128, slide 7 P14
+
+> PS4.Q2.3  
+> T/F?  
+> When applying robust standard errors, the __OLS point estimates__ (estimators) do not change.
+
+True. 
+
+### GLS (Generalized Least Squares) Estimator
+
+textbook P99, slide 6 P12
+
+- Covariance matrix of OLS estimator: $$Var(b) = σ^2(X'X)^{-1}\cdot X'ΨX\cdot(X'X)^{-1}$$ 
+Find some transformation matrix $P$ s.t. $$\begin{aligned}Ψ^{-1} &= P'P \\
+Ψ &= (P'P)^{-1} \\
+&= P^{-1}(P')^{-1} \\
+P'ΨP &= I\end{aligned}$$ 
+Covariance matrix of error becomes $$\begin{aligned}Var(Pε) &= P\cdot Var(ε)\cdot P' \\
+&= σ^2\cdot P'ΨP \\
+&= σ^2I \end{aligned}$$ 
+- Transformed model: $$\begin{aligned}Py &= PXβ + Pε \\
+y^* &= X^*β + ε^* \end{aligned}$$
+- GLS Estimator: $$\begin{aligned}\hat{β} &= (X^{*\prime} X^*)^{-1}X^{*\prime}y^* \\
+&= (X'Ψ^{-1}X)^{-1}X'Ψ^{-1}y \end{aligned}$$
+    - BLUE
+    - Covariance matrix: $$\begin{aligned}Var(\hat{β}) &= σ^2(X^{*\prime} X^*)^{-1} \\ &= σ^2(X'Ψ^{-1}X)^{-1} \end{aligned}$$
+- Estimated error variance: $$\begin{aligned}\hat{σ}^2 &= \frac{1}{N-K}(y^* - X^* \hat{β})'\cdot (y^* - X^* \hat{β}) \\
+&= \frac{1}{N-K}(y - X\hat{β})' \cdot Ψ^{-1}\cdot (y - X\hat{β})\end{aligned}$$
+
+### EGLS (Feasible Estimated GLS) Estimator
+
+- Use estimated value of $Ψ$
+- Consistent, asymptotically best, but not BLUE
+
+### WLS (Weighted LS) Estimator
+
+slide 16 P16, textbook P102 106
+
+- Form of heteroskedasticity: $$\begin{aligned}Ψ &= Diag(h_i^2) \\Var(ε_i) &= σ^2 h_i^2 \\ 
+\underbrace{\frac{y_i}{h_i}}_{y_i^*} &= \Big( \underbrace{\frac{x_i}{h_i}}_{x_i^*}\Big)' β + \underbrace{\frac{ε_i}{h_i}}_{ε_i^*}\end{aligned}$$
+- WLS Estimator: $$\begin{aligned} \hat{β} &= \Big( \sum_N x_i^*x_i^{*\prime} \Big)^{-1} \sum_N x_i^*y_i^* \\
+&= \bigg(\sum_N \frac{x_ix_i'}{h_i^2}\bigg)^{-1} \sum_N \frac{x_iy_i}{h_i^2}\end{aligned}$$
+- Estimated form of heteroskedasticity: $$\begin{aligned} Var(ε_i) &= σ_i^2 \\
+&= σ^2 \cdot \exp(z_i'α) \\
+\log (σ_i^2) &= \log(σ^2) + z_i'α \\
+\log (e_i^2) &= \log(σ^2) + z_i'α + \underbrace{v_i}_{\text{Error}} \\
+e_i^2 &= σ^2 \cdot \exp(z_i'α) \cdot \exp(v_i) \\
+\frac{e_i^2}{σ^2} &= \exp(z_i'α)\cdot \exp(v_i)\end{aligned}$$ 
+OLS estimation yeilds $$\hat{h}_i^2 = \exp(z_i'\hat{α})$$
+
+## Regressor Problem: Endogeneity
+
+- Explanatory variables are correlated with error term
+    - OLS estimator biased but consistent if assumption [(A7) or (A8)](#gauss-markov-assumptions) are satisfied
+- $E[ε_tx_t]\neq 0\implies$ OLS estimator biased and inconsistent
+    - Lagged $y$
+    - Measurement error
+    - Omitted variable bias
+    - Reverse causality (simultaneity)
+- Solution
+    - Instrument Variable
+    - Generalized Method of Moments
+    - [Maximum likelihood](#ml-maximum-likelihood-model)
+
+### Lagged Dependent Variable
+
+textbook P143, slide 8 P4
+
+- For $y_t = βy_{t-1} + ε_t$, $E[y_{t-1}ε_t] = 0\implies$ OLS estimator is consistent
+- But if error follows $$ε_t = ρε_{t-1} + v_t$$ 
+Real model becomes $$y_t = (β + ρ)y_{t-1} - βρy_{t-2} + v_t$$
+So regressing $y_t = βy_{t-1} + ε_t$ leads to $E[y_{t-1}ε_t] \neq 0$
+    - OLS estimator is inconsistent
+    - Durbin-Watson test is invalid
+    - Breusch-Godfrey test is still valid!
+
+> Mock.Q2.3  
+> Consider the following regression model with a lagged dependent variable only:  
+> $$y_t = βy_{t-1} + ε_t$$ 
+> One can show that  
+> $$\text{plim }b = \frac{β+ρ}{1+βρ}$$ 
+> where $b$ denotes the OLS estimator for $β$ obtained from the regression model.  
+> Suppose that the true $β$ equals 0.54 and that $ρ\in (0,1)$.  
+> 1. Explain whether the OLS estimator $b$ is biased and if so in which direction?  
+> 2. What happens in the limiting cases where $ρ\to 0$ or $ρ\to 1$?  
+> 3. Would the endogeneity bias be circumvented by estimating the following alternative regression?  
+> $$y_t = β_1 y_{t-1} + β_2 y_{t-2} + β_3 y_{t-3} + w_t$$
+
+1. Yes.  
+$$\begin{aligned} \text{plim }b &= \frac{β+ρ}{1+βρ} \\
+&= \frac{1+\frac{ρ}{β}}{\frac{1}{β}+ρ} \\
+&= \frac{1+\frac{ρ}{β}+ βρ - βρ}{\frac{1}{β}+ρ} \\
+&= \frac{1+ βρ}{\frac{1}{β}+ρ} + \frac{\frac{ρ}{β}- βρ}{\frac{1}{β}+ρ} \\
+&= β + \frac{\frac{1}{β}- β}{\frac{1}{β}+ρ}\cdot ρ \end{aligned}$$ 
+2. When $ρ\to 0$, $\text{plim }b\to β$ (unbiasedness)  
+When $ρ\to 1$, $\text{plim }b\to 1$  
+3. Yes, yet with efficiency loss if include $t-3$ term.  
+Rewrite the original model with lag operater:  
+$$\begin{aligned} y_t &= βL y_t + ε_t \\
+(1-βL) y_t &= ε_t \end{aligned}$$ 
+Therefore, two lags will be sufficient.
+
+### Measurement Error
+
+- Real model: $$\begin{aligned} y_i &= β_1 + β_2w_t + v_t \\
+E[v_t \ | \ w_t] &= 0\end{aligned}$$
+- Measurement error: $x_t = w_t + u_t$
+- Estimated model: $$y_i = β_1 + β_2x_t + \underbrace{ε_t}_{v_t - β_2u_t}$$
+    - $x_t$ depends on $u_t$, $ε_t$ depends on $u_t\implies E[x_tε_t]\neq 0$
+    - Inconsistency of one estimator carries over to all other estimators
+    $$\begin{aligned}\text{plim} (b_2 - β_2) &= β_2\Big(- \frac{σ^2_u}{σ^2_w + σ^2_u}\Big) \\
+    \text{plim} (b_1 - β_1) &= -\text{plim} (b_2 - β_2)\cdot E[x_t]\end{aligned}$$
+
+### Omitted Variable Bias
+
+- Omitted regressor / factor is correlated with included regressors
+    - Violates ceteris paribus condition when interpreting the [model](#statistical-model)
+- Real model: $$y_i = x_{1i}'β_1 + x_{2i}'β_2 + u_iγ + v_i$$
+    - Estimated model: $$\begin{aligned} y_i = β_1x_{1i} + β_2x_{2i} + \underbrace{ε_i}_{u_iγ + v_i}\end{aligned}$$
+    - Assume $E[x_i v_i] = 0$, $$\text{plim} (b - β) = Σ_{xx}^{-1} \cdot E[x_i u_i]\cdot \underbrace{γ}_{\neq 0}$$
+    - $E[x_i u_i]\neq 0\implies \text{plim} (b - β)\neq 0$
+
+### Reverse Causality
+
+- $y$ has impact on some of the $x$
+- Example: Keynesian consumption function $$\begin{aligned}&& y_t &= β_1 + β_2 x_{2t} + ε_t \\
+&& x_{2t} &= y_t + z_{2t} \\
+\text{Assume:} && E[z_{2t} ε_t] &= 0\end{aligned}$$
+    - Simultaneous equations model in structural form (structural model)
+    - Reduced form: $$\begin{aligned}y_t &= \frac{β_1}{1-β_2} + \frac{β_2}{1-β_2}z_{2t} +  \frac{1}{1-β_2}ε_t \\
+    x_t &= \frac{β_1}{1-β_2} + \frac{1}{1-β_2}z_{2t} +  \frac{1}{1-β_2}ε_t \\
+    \text{plim} (b_2 - β_2) &= (1-β_2) \frac{σ^2}{Var(z_{2t})+σ^2} \geq 0\end{aligned}$$
+
+### IV (Instrumental Variable)
+
+textbook P150, slide 9-1
+
+- Consider Keynesian consumption model $$y_i = β_1x_{1i} + β_2x_{2i} + ε_i$$ 
+- Moment conditions:  
+$$\begin{aligned} E[ε_i x_{1i}] &= E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) x_{1i}\right] = 0 && \text{(1)}\\
+E[ε_i x_{2i}] &= E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) x_{2i}\right] = 0 && \text{(2)}\end{aligned}$$ 
+But $E[ε_i x_{2i}] \neq 0$
+- Find instrument variable $z_{2i}$ s.t. $\begin{cases}E[z_{2i} ε_i] = 0 & \text{(exogeneity)} \\ Cov(x_{2t},z_{2t})\neq 0 & \text{(relevance)} \end{cases}$  
+    - Exclusion restriction: (moment condition for IV)
+    $$\begin{aligned} E[ε_i z_{2i}] = E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) z_{2i}\right] = 0  && \text{(3)} \end{aligned}$$ 
+    - Solving (1) and (3) gives consistent estimator $$\hat{β}_{IV} = (Z'X)^{-1}Z'y$$
+    - $Z = [x_1', z_2']$ (2\*K)
+- $\hat{β}_{IV}$ is consistent if $\text{plim} \frac{1}{N}\sum_N z_ix_i' = Σ_{zx}$ (K\*K) is finite and invertable
+
+<!--
+$$\text{Auxiliary Regression: }x_{2i} = x_{1i}' π_1 + z_{2i} π_2 + v_i$$ 
+should yield $π_2 \neq 0$. 
+-->
+
+> PS5.Q2  
+> In model $y = Xβ+ε$,   
+> Derive the covariance matrix of IV estimator $\hat{β}_{IV} = (Z'X)^{−1}Z'y$ with homoskedastic and serially uncorrelated errors.  
+> Argue why the correlation between instruments and regressors matter for the precision of the IV estimator.  
+> What happens in the limiting case when this correlation approaches zero?
+
+$$\begin{aligned}\hat{β}_{IV} &= (Z'X)^{−1}Z'y \\
+&= (Z'X)^{-1}Z'(Xβ+ε) \\
+&= (Z'X)^{-1}Z'Xβ + (Z'X)^{-1}Z'ε \\
+&= β + (Z'X)^{-1}Z'ε\end{aligned}$$ 
+Derive $V(\hat{β}_{IV})$:  
+$$\begin{aligned}Var(\hat{β}_{IV}) &= E\left[ (\hat{β}_{IV} - β)^2 \right] \\
+&= E \left[ \left( (Z'X)^{-1}Z'ε \right)^2 \right] \\
+&= σ^2 (Z'X)^{-1}Z'Z(X'Z)^{-1}\end{aligned}$$ 
+
+### GIVE (Generalized IV Estimator)
+
+textbook P166, slide 9-2 P8
+
+- Also as: 2SLS (two-stage least squares) estimator
+- Consider model: $$y_i = \underbrace{x_i'}_{\text{K}}β + ε_i$$
+    - K moment conditions: $E[ε_ix_i] = E[(y_i - x_i'β)x_i] = 0$
+    - R exclusion restrictions: $E[ε_iz_i] = E[(y_i - x_i'β)z_i] = 0$
+    - $R>K$
+- Choose $β$ to minimize R sample moments: $\frac{1}{N}\sum_N (y_i - x_i'β)z_i$
+    - Weighting matrix: $W_N$
+    - Solve $\min \ Q_N(β) = \Big[ \frac{1}{N}Z' (y - X β) \Big]' W_N \Big[ \frac{1}{N}Z' (y - X β) \Big]$
+    - GIVE: $\hat{β}_{IV} =(X'ZW_N Z'X)^{−1}X'ZW_N Z'y$
+    - When $R = K$, GIVE reduces to $\hat{β}_{IV} =(Z'X)^{−1}Z'y$
+- Optimal weighting matrix: $W_N^o = \big(\frac{1}{N}Z'Z\big)^{-1}$
+    - GIVE: $\hat{β}_{IV} = \big(X'Z (Z'Z)^{-1} Z'X\big)^{−1} X'Z(Z'Z)^{-1} Z'y$
+
+> PS5.Q1  
+> Show that $\hat{β}_{IV} =(X'ZW_N Z'X)^{−1}X'ZW_N Z'y$ minimizes  
+> $$\begin{aligned} Q_N(β) &= \bigg[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i' β)z_i \bigg]' W_N \bigg[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i' β)z_i \bigg] \\
+&= \bigg[ \frac{1}{N}Z' (y - X β) \bigg]' W_N \bigg[ \frac{1}{N}Z' (y - X β) \bigg] \end{aligned}$$ 
+
+$$\begin{aligned} Q_N(β) &=  \frac{1}{N^2}\Big[ (y' - β'X')Z \cdot W_N \cdot (Z'y - Z'X β) \Big]
+\\ &= \frac{1}{N^2}\Big[ y'ZW_NZ'y - y'ZW_N Z'Xβ - β'X'Z W_N Z'y + β'X' Z W_N Z'Xβ \Big] \\
+&= \frac{1}{N^2}\Big[ y'ZW_NZ'y - 2\big( β'X'Z W_N Z'y \big)  + β'X' Z W_N Z'Xβ \Big] \end{aligned}$$ 
+FOC  
+$$\begin{aligned}\frac{\partial Q}{\partial β} &= -2 X'ZW_N Z'y + 2X'ZW_N Z'Xβ = 0  \\
+\hat{β} &= (X'ZW_N Z'X)^{-1} (X'ZW_N Z'y) \end{aligned}$$ 
+
+> PS5.Q3  
+> Derive the GIVE.  
+> 1. Start with the first stage regression $X = Zγ + v$ and obtain its fitted values $\hat{X}$.  
+> \~\~ Show that the first stage fit $\hat{X}$ is given by $P_ZX$ with $P_Z = Z(Z′Z)^{−1}Z′$.  
+> 2. Consider OLS estimator in the second stage, based on fitted values $\hat{X}$: $y = \hat{X} β + ε$.  
+> \~\~ Show that the resulting estimator equals the GIVE.  
+> 3. Derive the covariance matrix of the GIVE under homoskedasticity and absence of autocorrelation.  
+> \~\~ Compare the results with PS5.Q2.
+
+1. First stage regression: $X = Zγ + v$  
+According to OLS, $\hat{γ} = (Z'Z)^{-1}Z'X$  
+Fitted values:  
+$$\begin{aligned}\hat{X} &= Z \cdot\hat{γ} \\&= Z(Z'Z)^{-1}Z'X \\ &= P_Z X\end{aligned}$$ 
+$P_Z$ is symmetric:  
+$$\begin{aligned} P_Z' &= \left[Z(Z'Z)^{-1}Z' \right]' \\ &= Z(Z'Z)^{-1}Z' \\ &= P_Z\end{aligned}$$ 
+$P_Z$ is idopotent:  
+$$\begin{aligned} P_ZP_Z &= Z(Z'Z)^{-1}Z' \cdot Z(Z'Z)^{-1}Z' \\
+&= Z(Z'Z)^{-1}Z \\
+&= P_Z\end{aligned}$$ 
+
+2. Second stage regression: $y = \hat{X}β+ ε$  
+According to OLS, $b = \big(\hat{X}'\hat{X}\big)^{-1} \hat{X}'y$  
+Therefore  
+$$\begin{aligned} \hat{X} &= P_Z X \\
+\hat{X}' &= X'P_Z' \\
+&= X'P_Z\end{aligned}$$ 
+$$\begin{aligned}b &= (X'P_Z P_ZX)^{-1} X'P_Z y \\
+&= (X'P_ZX)^{-1} X'P_Z y \\
+&= \big( X'Z(Z'Z)^{-1}ZX\big)^{-1} X'Z(Z'Z)^{-1}Z' y \end{aligned}$$ 
+
+3. Variance: (checked) 
+$$\begin{aligned}Var(b) &= σ^2 (\hat{X}' \hat{X})^{-1} \\
+&= σ^2 (X'P_Z X)^{-1} \\
+&= σ^2 (X'Z(Z'Z)^{-1}Z' X)^{-1} \\
+&= σ^2 (Z'X)^{-1}Z'Z(X'Z)^{-1}\end{aligned}$$ 
+Note that this is the exact same variance matrix as in PS5.Q2 
+
+<!-- ### GMM (Generalized Method of Moments) -->
+
+## ML (Maximum Likelihood) Model
+
+- Given $X = (x_1, \dots, x_N)'$ and $y = (y_1, \dots, y_N)'$, and $\dim (θ) = K$ 
+- Likelihood Distribution of observation  
+= Probability Mass Function (pmf, pdf for discrete observations): 
+$$L_i(θ) = f(y_i \ | \ x_i, θ)$$ 
+- Likelihood Function  
+= Joint Probability Mass Function: 
+$$L(θ) = f(y \ | \ X, θ) = \prod_{i=1}^N f(y_i \ | \ x_i, θ)$$ 
+- Log Likelihood Function: $$\log L(θ) = \sum_{i=1}^N \log f(y_i \ | \ x_i, θ)$$ 
+- ML Estimation: $$\begin{aligned}\max && \log L(θ \ | \ y, X)\end{aligned}$$
+- FOC  
+= Score Vector:
+$$\begin{aligned} \frac{\partial\log L(θ \ | \ y, X)}{\partial θ} &= \sum_{i=1}^N \frac{\partial\log f(y_i \ | \ x_i, θ)}{\partial θ} \\
+&= \sum_{i=1}^N  s_i(θ) \\
+&= 0 \ |_{θ = \hat{θ}}\end{aligned}$$ 
+- ML Estimator: $\hat{θ}$ (usually numerical)
+
+### Assumption
+
+### Property of ^θ
+
+- Consistent: $\text{plim} \ \hat{θ} = θ$ 
+- Asymptotically Efficient: $Var(\hat{θ})$ 
+- Asymptotically Normal: $\sqrt{N}(\hat{θ} - θ) \to^a \mathcal{N}(0,V)$ 
+
+### Asymptotic Covariance Matrix
+
+- $V = I(θ)^{-1}$ 
+- Information Matrix: 
+$$\begin{aligned} I(θ) &\equiv \lim_{N\to\infty}\frac{1}{N} \sum_{i=1}^N I_i(θ) \\
+&= \lim_{N\to\infty}\frac{1}{N}\sum_{i=1}^N -E\left[ \frac{\partial^2 \log f(y_i \ | \ x_i, θ)}{\partial θ \partial θ'} \right] \\
+&= \lim_{N\to\infty} -E\left[ \frac{1}{N}\cdot\frac{\partial^2 \log L(θ)}{\partial θ \partial θ'} \right]\end{aligned}$$ 
+- When observations are iid, $I(θ) = I_i(θ)$ 
+- Consistent (Hessian) Estimator of $V$: 
+$$\begin{aligned} \hat{V}_H &= \left( \frac{1}{N} \sum_{i=1}^N I_i(θ) \ \Bigg|_{θ = \hat{θ}}\right)^{-1} \\
+&= \left(\frac{1}{N}\sum_{i=1}^N \frac{\partial^2 \log f(y_i \ | \ x_i, θ)}{\partial θ \partial θ'} \ \Bigg|_{θ = \hat{θ}}\right)^{-1} \end{aligned}$$ 
+- Alternative: BHHH (Berndt–Hall–Hall–Hausman) (Gradient) Estimator: $\hat{V}_G > 0$
+
+## Binary Choice Model
+
+### Regression Model
+
+- Latent Model: $$\begin{aligned} y_i^* &= x_i'β + ε_i \\ y_i &= \begin{cases} 1 && \text{if } y_i^* > 0 \\ 0 && \text{if } y_i^* \leq 0 \end{cases}\end{aligned}$$ 
+- assumed that $$\begin{aligned} Pr(y_i= 1) &= Pr(y_i^*>0) \\ &= P(x_i'β + ε_i > 0) \\ &= P(-ε_i \leq x_i'β) \\ &= \underbrace{G(x_i,β)}_{\text{distribution of }-ε_i}\end{aligned}$$ 
+- General Model: $$Pr( y_i=1 \ | \ x_i) = \underbrace{G(x_i,β)}_{\text{link function}}$$ 
+- Likelihood Function: $$\begin{aligned} L(β) &= \prod_{i=1}^N \big(P(y_i = 1 \ | \ x_i,β)\big)^{y_i}\cdot\big(P(y_i = 0 \ | \ x_i,β)\big)^{1-y_i} \\
+&= \prod_{i=1}^N \big(G(x_i,β)\big)^{y_i}\cdot\big(1-G(x_i,β)\big)^{1-y_i} \\
+\log L(β) &= \sum_{i=1}^N y_i\cdot\log\big(G(x_i,β)\big) + \sum_{i=1}^N (1-y_i)\cdot\log \big(1-G(x_i,β)\big)\end{aligned}$$ 
+- FOC: $$\frac{\partial\log L(β)}{\partial β} = \sum_{i=1}^N\bigg[\underbrace{\frac{y_i - G(x_i,β)}{G(x_i,β)\big(1-G(x_i,β)\big)}\cdot \overbrace{g(x_i,β)}^{\text{p.d.f.}}}_{\text{Generalized Residual}}\bigg]\cdot x_i = 0$$ 
+- Solving FOC gives maximum likelihood estimator $\hat{β}$ 
+- SOC: negative definite $\implies\log L(β)$ is globally concave $\implies$ convergence
+
+### Probit Model
+
+- Probit Model: $$\begin{aligned}G(x_i,β) &= Φ(x_i'β) \\ &= \int^{x_i'β}_{-\infty}\frac{1}{\sqrt{2π}}\cdot\exp\left( -\frac{t^2}{2}\right)dt\end{aligned}$$ 
+- Marginal Effect of changes in $x$ to $P$: $$\frac{\partial Φ(x_i'β)}{\partial x_{ik}} = φ(x_i'β)\cdot β_k$$ 
+
+### Logit Model
+
+- Logit Model: $$\begin{aligned} G(x_i,β) &= Λ(x_i'β) \\ &= \frac{e^{x_i'β}}{1+e^{x_i'β}}\end{aligned}$$ 
+- Marginal Effect of changes in $x$ to $P$: $$\frac{\partial Λ(x_i'β)}{\partial x_{ik}} = \frac{e^{x_i'β}}{(1+e^{x_i'β})^2}\cdot β_k$$ 
+- FOC: $$\frac{\partial\log L(β)}{\partial β} = \sum_{i=1}^N\bigg[ y_i - \frac{e^{x_i'β}}{1+e^{x_i'β}}\bigg]\cdot x_i = 0$$ 
+- Estimated Probability: $$\begin{aligned} \hat{p}_i(y_i = 1 \ | \ x_i) &= \frac{e^{x_i'\hat{β}}}{1+e^{x_i'\hat{β}}} \\
+\implies\sum_{i=1}^N {p}_i\cdot x_i &= \sum_{i=1}^N y_i\cdot x_i\end{aligned}$$ 
+
+### Likelihood Ratio
+
+- Let $\log L_1 = \log L(β)$, $$\log L_0 = Ν_1\cot\log\big(\frac{N_1}{N}\big)+ (Ν-Ν_1)\cot\log\big(\frac{N-N_1}{N}\big)$$ 
+- $\text{McFadden-}R^2 = 1- \frac{\log L_1}{\log L_0} < 0$ 
+
+> PS6.Q1  
+> 1. Explain why the log-likelihood function in binary choice models is always negative  
+> 2. Use this fact to argue why the McFadden pseudo-$R^2$ formula $1 −\frac{\ln L_1}{\ln L_0}$ is then meaningful  
+> 3. Briefly discuss why the likelihood ratio test statistic (for the null hypothesis that all parameters except of the intercept are jointly equal to zero) given as $−2(\ln L_0 − \ln L_1)$ is always positive  
+> Note that it is distributed in the limit as a $χ^2$ random variable
+
+1. The log-likelihood function of a binary choice model is a summation of 0 or 1 multiplied by log of a probability in $[0,1]$ (result of the link function), which is always negative.  
+2. Since a restricted model always has a lower log-likelihood value than an unrestricted one,  
+$\implies \ln L_0 \leq\ln L_1 < 0$  
+$\implies \frac{\ln L_1}{\ln L_0}\in(0,1)$  
+$\implies 1- \frac{\ln L_1}{\ln L_0}\in(0,1)$, with larger value indicating better fitness  
+When the restrictions does not hold, $\frac{\ln L_1}{\ln L_0}\to 0$, $1 −\frac{\ln L_1}{\ln L_0}\to 1$  
+Otherwise, $\frac{\ln L_1}{\ln L_0}\to 0$, $1 −\frac{\ln L_1}{\ln L_0}\to 1$  
+3. $−2(\ln L_0 − \ln L_1)$ is always positive because $\ln L_0 \leq\ln L_1$ 
+
+## Time Series
+
+See also [Notes on Time Series](../../04/notes-time-series)
+
+### Types of Process
+
+- White Noise: $ε_t$ 
+    - Zero mean, homoskedastic ($σ^2$), zero covariance / autocorrelation 
+- MA (1): $Y_t = μ + ε_t + αε_{t-1}$
+$$\begin{aligned}\text{Mean:} && E[Y_t] &= μ \\
+\text{Variance:} && Var(Y_t) &= (1 + α^2)σ^2 \\
+\text{Covariance:} && Cov(Y_t,Y_{t-k}) &= \begin{cases} ασ^2 & k=1\\ 0 & k\geq 2\end{cases} \\
+\text{ACF:} && Corr(Y_t,Y_{t-k}) &= \begin{cases} \frac{α}{1 + α^2} \leq \frac{1}{2} & k=1\\ 0 & k\geq 2\end{cases}\end{aligned}$$
+    - Always stationary
+- AR (1): $Y_t = δ + θ Y_{t-1} + ε_t$  
+When stationary, 
+$$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
+&& &= \frac{δ}{1-θ} \\ 
+&& &= μ \\
+\text{Variance:} && Var(Y_t) &= θ^2Var(Y_{t-1}) + Var(ε_t) \\
+&& &= \frac{σ^2}{1-θ^2} \\
+\text{Covariance:} && Cov(Y_t,Y_{t-k}) &= θ^k\frac{σ^2}{1-θ^2} \\
+\text{ACF:} && Corr(Y_t,Y_{t-k}) &= \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} \\
+&& &= θ^k \end{aligned}$$
+    - Let $y_t \equiv Y_t - μ$, $y_t = θy_{t-1} + ε_t$ 
+- MA (q): $Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}$ 
+    - $Cov(Y_t,Y_{t-k}) = 0$ for $k\geq q+1$ 
+- AR (p): $Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t$ 
+- ARMA (p,q): $Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}$
+
+### Lag Operator
+
+- $L^0=1$, $Ly_t = y_{t-1}$, $L^2 y_t = y_{t-2}$, … 
+- Characteristic equation: $1-θz = 0$ 
+- Characteristic root: $|z|=\left|\frac{1}{θ}\right|$, $|θ| \begin{cases}>1 & \text{explosive} \\ =1 & \text{unit root (explosive)} \\ <1 & \text{stationary}\end{cases}$ 
+- For AR (1): 
+    - $1-θL$ is invertible if $|θ|<1$ 
+$$\begin{aligned} y_t &= θLy_t + ε_t \\ (1-θL) y_t &= ε_t \end{aligned}$$ 
+- For AR (p): 
+    - Lag Polynomial: $$\begin{aligned} θ(L) &= 1 - θ_1L - θ_2L^2 -\cdots - θ_pL^p \\ y_t &= θ_1Ly_t -\cdots - θ_p L^p y_t + ε_t \\ θ(L) y_t &= ε_t \\ \end{aligned}$$ 
+
+### Stationary
+
+- Weakly (Covariance) Stationary 
+$$\begin{cases} E[Y_t] = μ < \infty \\ Var(Y_t) = Var(Y_{t'}) = γ_0 < \infty \\ Cov(Y_t, Y_{t-k}) = γ_k\end{cases}$$ 
+- ACF (AutoCorrelation Function) (textbook P316) 
+$$ρ_k = \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} = \frac{γ_k}{γ_0}$$ 
+    - For MA (q) $ρ_k = 0$ for $k\geq q+1$ 
+    - For AR (1): $ρ_k = θ^k\to 0$ exponentially 
+    - Sample ACF: $$\hat{ρ}_k = \frac{\frac{1}{T-k}\sum^T_{t=k+1}(Y_t-\bar{Y})(Y_{t=k}-\bar{Y})}{\frac{1}{T}\sum^T_{t=1}(Y_t-\bar{Y})^2}$$ 
+    - $\sqrt{T}(\hat{ρ}_k-ρ_k)\to\mathcal{N}(0,\exists v_k)$ 
+- AR (1) is stationary $\iff$ $1-θL$ is invertible $\iff$ characteristic root $|z| > 1$ 
+
+> Mock.Q2.1  
+> Consider the following regression model with a lagged dependent variable only:  
+> $$y_t = βy_{t-1} + ε_t$$ 
+> Provide a simple condition for consistency of the OLS estimator for $β$
+
+The general condition for the OLS estimator for $β$ is $E[x_tε_t] = 0$,  
+here can be written as $E[y_{t-1}ε_t] = 0$
+
+> Mock.Q2.2  
+> Consider the following regression model with a lagged dependent variable only:  
+> $$y_t = βy_{t-1} + ε_t$$ 
+> Suppose that the error term $ε_t$ follows the process $ε_t = ρ ε_{t-1} + v_t$ where $v_t∼^{iid} \mathcal{N}(0,σ_v^2)$  
+> 1. How is the process for $ε_t$ called?  
+> 2. For which values of $ρ$ is $ε_t$ positively autocorrelated? (No derivation needed.)  
+> 3. For which values of $ρ$ is $ε_t$ stationary? Derive! (Maximal 5 lines).
+
+1. AR (1)  
+2. $ACF = ρ$ $\implies$ $ρ > 0$  
+3. Rewrite $ε_t = ρ ε_{t-1} + v_t$ with lag operater:  
+$$\begin{aligned} ε_t &= ρ Lε_t + v_t \\
+(1-ρL) ε_t &= v_t\end{aligned}$$ 
+Characteristic equation:  
+$$\begin{aligned} 1-ρz &= 0 \\
+|z| &= \left| \frac{1}{ρ}\right|\end{aligned}$$ 
+Condition for $ε_t$ to be stationary:  
+$$\begin{aligned} |z| &> 1 \\
+|ρ| &< 1\end{aligned}$$ 
+<!-- Therefore,  
+$$\begin{aligned} Var(ε_t) &= Var(ε_{t-1}) \\
+Var(ρ ε_{t-1} + v_t) &= Var(ε_{t-1}) \\
+ρ\cdot Var(ε_{t-1}) + Var(v_t) &= Var(ε_{t-1}) \\
+Var(ε_{t-1}) &= \frac{σ_v^2}{1-ρ} > 0 \\
+ρ &< 1\end{aligned}$$ -->
+
+> Mock.Q2.4  
+> Consider the following regression model with a lagged dependent variable only:  
+> $$y_t = βy_{t-1} + ε_t$$ 
+> In order to test for autocorrelation in the residuals $\hat{ε_t}$ (epsilonhat) from the regression $y_t = βy_{t-1} + ε_t$ use the Box-Pierce statistic $Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2$,  
+> where $T = 280$ denotes the sample size and $\hat{ρ_j}$ is the empirical $j$th-order autocorrelation coefficient.   
+> Carry out the test for $m = 2$ and use the information in the corrupted R output below in combination with the estimation results reported in the table:  
+>    (Autocorrelations of series epsilonhat, by lag)
+>
+>    | 0     | 1    | 2     | 3     | 4      | 5      |
+>    | ----- | ---- | ----- | ----- | ------ | ------ |
+>    | 1.000 |      | 0.212 | 0.152 | -0.253 | -1.000 |
+>
+>    ```{r}
+>    dynlm( formula = epsilonhat ~ L(epsilonhat, 1 ))
+>    
+>    # Residuals:
+>    #     Min     1Q Median     3Q Max
+>    # -4.0487 0.3869 0.0345 0.3575 3.5857
+>    
+>    # Coefficients:
+>    #                  Estimate Std. Error t value Pr(>|t|)
+>    # (Intercept)     -0.001806   0.046903  -0.038    0.969
+>    # L(epsilonhat,1)  0.437636   0.053792   8.136 1.36e-14 ***
+>    ```
+>
+> 1. State the null and the alternative hypothesis.  
+> 2. Select the appropriate $5\%$-critical value from the following set and interpret the test decision:  
+> $$\begin{aligned} F^{280-2}_2 &= 3.03 \\ F^2_{280-2} &= 19.49 \\ χ_2^2 &= 5.99 \\ χ_{280-2}^2 &= 317.89 \\ t_2 &= 2.92 \\ t_{280-2} &= 1.65 \end{aligned}$$ 
+> 3. Why is the Durbin-Watson test invalid in this setting? (Max 3 sentences)
+
+1. $H_0$: $ε_t$ has no autocorrelation (first two lags have zero coefficient)  
+$H_1$: $ε_t$ has autocorrelation  
+2. Critical value: $χ_2^2 = 5.99$ with $df = 2$  
+$$\begin{aligned} Q_2 &= 280\cdot\sum_{j=1}^2 \hat{ρ_j}^2 \\
+&= 280\times (0.4376^2 + 0.212^2) \\
+&= 66.2 > 5.99\end{aligned}$$ 
+Therefore, $H_0$ is rejected, and $ε_t$ has autocorrelation  
+3. Because the dependent variable ($ε_t$) is lagged. 
+
+### Difference Operator & Integration
+
+- Difference Operator: $Δ \equiv 1-L$ 
+    - First difference: $ΔY_t = Y_t - Y_{t-1}$ 
+    - Second difference: $Δ^2 Y_t = ΔY_t - ΔY_{t-1}$ 
+- $I(0)$ denotes stationary series
+    - Mean reverting
+    - Finite variance
+    - Limited memory of past behaviour
+- $I(1)$ denotes series that become stationary after first-differencing
+    - Infinitely long memory
+
+### Deterministic (Linear) Trend
+
+- Another possible cause of nonstationarity: $γ\neq 0$ (even when $|θ|<1$) 
+$$Y_t = δ + θY_{t-1}+γ\cdot t + ε_t$$ 
+- Trend stationary
+- Solution: 
+    - Regress $Y_t$ on constant and trend and then use residuals  
+    - include $t$ as additional variable in regression
+
+### OLS Estimation
+
+- For AR (p)
+    - Consistency: $E[Y_{t-j}ε_t] = 0$ for all $j = 1,2,3,\dots,p$  
+    - Small sample bias caused ((A2) violated)
+- For MA (1) with invertible lag polynomial
+    - tbe
+
+<!-- ### ML Estimation
+
+tbe -->
+
+### Model Selection
+
+- Residual analysis (Ljung–Box test)
+- AIC & BIC
+- Overfitting: to test ARMA (p,q), estimate ARMA (p+1,q) and ARMA (p,q+1)
+
+### Spurious Regression
+
+textbook P352, slide 12 P28
+
+### Cointegration
+
+textbook P353, slide 12 P31  
+[Lecture: Introduction to Cointegration \- Applied Econometrics](http://staff.utia.cas.cz/barunik/files/appliedecono/Lecture7.pdf)
+
+- Cointegration $\implies$ not spurious
+
+## Panel Data 
+
+- $y_{it} = α + β x_{it} + u_{it}$ (pooled model)
+- $N$ is the number of entities, $T$ is the number of periods, $N\cdot T$ is the number of total observations (if balanced)
+- Micro panel (large $N$, small $T$) & Macro panel (small $N$, large $T$) 
+- Balanced panel: no missing observation (number $=N\cdot T$) 
+
+| True Model \\ Method | Random Effect          | Fixed Effect           |
+| ------------------- | ---------------------- | ---------------------- |
+| Random Effect       | consistent + efficient | consistent             |
+| Fixed Effect        | inconsistent           | consistent + efficient |
+
+### Entity Fixed Effect
+
+- $y_{it} = ( α + μ_i )+ β x_{it} + u_{it}$ 
+- Entity Fixed Effect: $μ_i$ 
+- $u_{it} ∼ \mathcal{N}(0,σ_u^2)$ 
+
+### Time Fixed Effect
+
+- $y_{it} = ( α + λ_t )+ β x_{it} + u_{it}$ 
+- Time Fixed Effect: $λ_t$ 
+- $u_{it} ∼ \mathcal{N}(0,σ_u^2)$ 
+
+### Least Squares Dummy Variable (LSDV) Estimator 
+
+- $y_{it} = α + \sum_{j=2}^N μ_j\cdot D_{ij} + β x_{it} + u_{it}$ 
+- $j$ is an index for dummy variables, $D_{ij}\begin{cases}1 & i=j \\ 0 & i\neq j \end{cases}$ 
+- F-test for $μ_1 = μ_2 = \dots = μ_N = 0$ (in comparison with pooled model) 
+- Breusch-Pagan Test (?)
+
+### Within Estimator 
+
+Let time-mean: $\bar{y}_{i} =\frac{1}{T}\sum_{t=1}^T y_{it}$, $\bar{x}_{i} =\frac{1}{T}\sum_{t=1}^T x_{it}$, and $\bar{u}_{i} =\frac{1}{T}\sum_{t=1}^T u_{it}$  
+Therefore, $\bar{y}_{i} = ( α + μ_i )+ β \bar{x}_{i} + \bar{u}_{i}$
+
+- $y_{it} - \bar{y}_{i} = β (x_{it} -\bar{x}_{i}) + (u_{it} - \bar{u}_{i})$ 
+- OLS estimator: (identical to LSDV Estimator) 
+$$\hat{β}_{FE} = \frac{\sum_{i=1}^N \sum_{t=1}^T (x_{it} - \bar{x}_{i})(y_{it}-\bar{y}_{i})}{\sum_{i=1}^N \sum_{t=1}^T(x_{it}-\bar{x}_{i})^2}$$ 
+- $\hat{u}_i = \bar{y}_{i} - \hat{β}\cdot\bar{x}_{i}$ 
+
+### First Difference Estimator
+
+- For model: $$y_{it} = ( α + μ_i )+ β x_{it} + u_{it}$$  
+Take first difference: 
+$$\begin{aligned} Δy_{it} &= Δ( α + μ_i ) + Δ(β x_{it}) + Δu_{it} \\
+&= βΔx_{it} + Δu_{it} \\
+y_{it} - y_{i,t-1} &= β(x_{it}, x_{i,t-1}) + (u_{it} - u_{i,t-1})\end{aligned}$$ 
+- OLS estimator:  
+$$\hat{β}_{FD} = \frac{\sum_{i=1}^N \sum_{t=2}^T Δx_{it}Δy_{it}}{\sum_{i=1}^N \sum_{t=2}^T(Δx_{it})^2}$$ 
+- Large difference between $\hat{β}_{FD}$ and $\hat{β}_{FE}$ indicates misspecification 
+
+### Entity and Time Fixed Effect (2-way)
+
+- $y_{it} = α + \sum_{j=2}^N μ_j\cdot D_{ij} + \sum_{k=2}^T λ_k\cdot D_{tk} + β x_{it} + u_{it}$ 
+- $j$ is an index for entity dummy variables, $D_{ij}\begin{cases}1 & i=j \\ 0 & i\neq j \end{cases}$ 
+- $k$ is an index for time dummy variables, $D_{tk}\begin{cases}1 & t=k \\ 0 & t\neq k \end{cases}$ 
+
+### Random Effect
+
+- $y_{it} = α + β x_{it} + ( u_{it} + μ_i)$ 
+- Entity Random Effect: $μ_i$
+- $u_{it} ∼ \mathcal{N}(0,σ_u^2)$, $μ_i ∼ \mathcal{N}(0,σ_μ^2)$
+
+### Feasible GLS (EGLS) Estimator
+
+- Let $Ψ = \frac{σ_u^2}{T\cdot σ_μ^2 + σ_u^2}$  
+- Let $θ = 1 - \sqrt{ψ} = 1 - \sqrt{\frac{σ_u^2}{σ_u^2 + T\cdot σ_μ^2}}$, $θ\in [0,1]$  
+- Quasi-demeaning transformation:  
+$$y_{it} - θ \bar{y}_{i}= α (1-θ) + β (x_{it} - θ\bar{x}_{i}) + (u_{it} + μ_i)$$ 
+- OLS estimator: $\hat{β}_{RE}$ 
+
+

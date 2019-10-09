@@ -1,0 +1,1378 @@
+---
+title: "Notes on Mathematical Proofs"
+author: "loikein"
+date: "2019-01-14"
+slug: "notes-math-proof"
+tags: ["notes","math"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+textbook: [Mathematical Methods and Models for Economists](http://93.174.95.27/book/index.php?md5=AE04F15DCB1EA935E104038A0409C65D)  
+
+- :) means "we want to show"
+- FSOC means "for the sake of controdiction" 
+- s.t. means "such that"
+
+~
+
+- [x] PS1 \~ 10
+- [x] [PS11](../notes-math-optimization-dynamics/)
+- [ ] [PS12](../notes-math-optimization-dynamics//#dynamics) (working)
+- [ ] PS13
+
+## Logic
+
+- For some $x\in X$, "$x$ has property $p$" is either true or false. If true, denote as $p(x)$  
+- $\forall x$, $\exists y$ s.t. $p(x,y)\neq\exists y$, $\forall x$ s.t. $p(x,y)$  
+- $\lnot\big[\forall x, \ p(x) \big]$ $\iff$ $\exists x$ s.t. $\lnot p(x)$  
+$\lnot\big[\exists x, \ p(x) \big]$ $\iff$ $\forall x$ s.t. $\lnot p(x)$  
+
+### Truth table
+
+> PS1.Q1  
+> Let $p$ and $q$ be two statements   
+> Prove that $\lnot (p \lor q) \iff \lnot p \land \lnot q$. 
+
+| $p$  | $\lnot p$ | $q$  | $\lnot q$ | $p \lor q$ | $\lnot (p \lor q)$ |
+| :--- | :-------- | :--- | :-------- | :--------- | :----------------- |
+| T    | F         | T    | F         | T          | F                  |
+| T    | F         | F    | T         | T          | F                  |
+| F    | T         | T    | F         | T          | F                  |
+| F    | T         | F    | T         | F          | T                  |
+
+### Proof by Deduction
+
+> PS1.Q2  
+> Let $p$, $q$ and $r$ be three statements  
+> Prove that if $p \implies q$ and $q \implies r$, then $p \implies r$ 
+
+1. $p$ is TRUE  
+   $p\implies q$ means $q$ is TRUE  
+   $q \implies r$ means $r$ is TRUE  
+   $\therefore$ $p$ is TRUE $\implies$ $r$ is TRUE  
+   $\therefore$ $p \implies r$ is TRUE
+2. $p$ is FALSE  
+   $p\implies r$ is always TRUE
+
+## Relation
+
+- Cartesian Product of Sets: $X\times Y \equiv \{ (x,y) \ | \ x\in X, y\in Y\}$ 
+- (Binary) Relation $R$ defined from $X$ to $Y$ is a subset of $X\times Y$ 
+- $(x,y)\in R$ is also denoted as $xRy$ or $y\in R(x)$ 
+- $y$ is called the image of $x$ 
+- Inverse Relation of $R$: $R^{-1}\equiv \{(y,x) \ | \ (x,y)\in R\}$ 
+
+### Preorder (Quasi-order)
+
+- Reflective + Transitive
+- Not Anti-Symmetry: $x\geq y$ and $y\geq x$ but $x\neq y\implies x\sim y$ ($x$ and $y$ are equivalent)
+- Complete Preorder: Reflective + Transitive + Complete
+- Preference
+
+### Order
+
+> PS1.Q6, 2015.F1.Q2, 2017.F1.Q1  
+> Let $R_1$ and $R_2$ be two (partial) orders in some space $U$  
+> Let $R_3$ be the relation defined by $\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U$  
+> Prove that $R_3$ is a (partial) order
+
+1. Reflective  
+Since $R_1$ and $R_2$ are orders, $xR_1 x$ and $xR_2 x$ hold  
+$\implies xR_3x$  
+2. Transitive  
+Since $R_1$ and $R_2$ are orders,  
+$xR_1 y\land yR_1 z\implies xR_1 z$  
+$xR_2 y\land yR_2 z\implies xR_2 z$  
+Therefore,  
+$xR_3 y\land yR_3 z$ $\implies$ $xR_1 y\land yR_1z$ and $xR_2 y\land yR_2 z$  
+$\implies xR_1 z \land xR_2 z$  
+$\implies xR_3 z$  
+3. Anti-Symmetry  
+Since $R_1$ and $R_2$ are orders,  
+$xR_1 y\land yR_1 x\iff x=y$  
+$xR_2 y\land yR_2 x\iff x=y$  
+Therefore,  
+$xR_3 y\land yR_3 x$ $\iff$ $xR_1 x\land yR_1 x$ and $xR_2 y\land yR_2 x$  
+$\iff x=y$  
+
+### Complete Order
+
+> PS1.Q5 (the lexicographic order)  
+> Let $R$  be the relation on $\mathbb{R}^2$ given by: for any $(x_1,y_1) ,\  (x_2, y_2) \in \mathbb{R}^2$, $(x_1,y_1) R (x_2, y_2) \iff x_1 > x_2$ or $x_1 = x_2 \land y_1 \geq y_2$   
+> Prove that $R$ is a complete order
+
+1. Reflective  
+   :) $(x_1,y_1)R(x_1,y_1)$  
+2. Transitive  
+   :) $(x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_3, y_3) \implies (x_1,y_1) R(x_3, y_3)$
+3. Anti-Symmetric  
+   :) $(x_1,y_1) R (x_2, y_2) \land (x_2,y_2) R (x_1, y_1) \iff (x_1,y_1) = (x_2, y_2)$  
+4. Complete  
+   :) $(x_1,y_1) R (x_2, y_2) \lor (x_2,y_2) R (x_1, y_1) \forall x, y$
+
+## Space
+
+- Norm $\implies$ (generates) Metric (Distance)
+    - Norm $\neq$ Distance
+- Metric space $X$ is complete if every Cauchy sequence converges to some limit in $X$
+    - any finite-dimensional Euclidean space is complete
+    - Normed + Complete + Vector space = Banach space
+- metric space $\supset$ complete (Cauchy) space $\supset$ Banach (complete normed vector) space
+- vector (linear) space $\supset$ normed vector space $\supset$ Banach space $\supset$ Euclidean space
+
+![Relation of Spaces, Source: [Space – AKKAWUTVANICH](https://akkawutvanich.wordpress.com/2017/11/09/space/)](/post-img/notes-math-proof--spaces.png)
+
+### Distance
+
+- Distance given by Euclidean Norm: $d(x,y) = \|x-y\| = \sqrt{\sum(x_i-y_i)^2}$ 
+- Triangle Inequality:  
+Real numbers: $|x+y|\leq |x|+|y|$  
+Distance: $d(x,y) + d(y,z) \geq d(x,z)$
+
+> PS2.Q6  
+> Show that $d(x,y)\equiv |x-y|$ is a distance in $\mathbb{R}$
+
+1. Non-negative  
+   :) $d(x,y) \geq 0$
+2. Identity of Indiscernibles  
+   :) $d(x,y) = 0 \iff x = y$  
+3. Symmetric  
+   :) $d(x,y) = d(y,x)$
+4. Triangle Inequality  
+   :) $d(x,y) + d(y,z) \geq d(x,z)$
+
+> PS8.Q7, 2016.F1.Q8  
+> Let $C_B$ be the space of bounded and continuous functions from compact $A\subset \mathbb{R}^n$ to $\mathbb{R}$  
+> Define $d: C_B\times C_B \to \mathbb{R}$ as $d(f,g)\equiv \max _{x\in A} |f(x) - g(x)|$  
+> Show that $d$ is a distance on $C_B$
+
+1. Non-negative (trivial)  
+2. Identity of Indiscernibles  
+($\Longrightarrow$)  
+$$\begin{aligned} d(f,f) &= \max_{x\in A} |f(x) - f(x)| \\
+&= \max_{x\in A} 0 = 0\end{aligned}$$ 
+($\Longleftarrow$)  
+Assume $d(f,g) = 0$ for some $f,g\in C_B$  
+$$\begin{aligned} \max_{x\in A} |f(x) - g(x)| &= 0 \\
+|f(x) - g(x)| &= 0 \\
+f(x) - g(x) &= 0 \text{ for all }x\end{aligned}$$ 
+3. Symmetric  
+Take arbitrary $f,g\in C_B$  
+$$\begin{aligned} d(f,g)&= \max_{x\in A} |f(x) - g(x)| \\
+&= \max_{x\in A} |g(x) - f(x)| \\
+&= d(g,f)\end{aligned}$$ 
+4. Triangle Inequality  
+Take arbitrary $f,g,h\in C_B$  
+Let $x_1,x_2,x_3\in A$ be s.t. 
+$$\begin{cases} d(f,g) = |f(x_1) - g(x_1)| \\
+d(g,h) = |g(x_2) - h(x_2)| \\
+d(f,h) = |f(x_3) - h(x_3)|\end{cases}$$ 
+Therefore,  
+$$\begin{aligned} d(f,g)+d(g,h) &= |f(x_1) - g(x_1)| + |g(x_2) - h(x_2)| \\
+&\geq |f(x_3) - g(x_3)| + |g(x_3) - h(x_3)| \\
+&\geq |f(x_3) - g(x_3) + g(x_3) - h(x_3)| \\
+&= |f(x_3) - h(x_3)| \\
+&= d(f,h)\end{aligned}$$ 
+
+### Cauchy-Schwarz Inequality
+
+- $| u\cdot v | \leq \|u\| \cdot \|v\|$
+
+> Approach 1  
+> textbook P42 Theorem 1.6  
+> Prove $\big( \sum x_i \cdot y_i\big)^2 \leq \big( \sum x_i^2\big)\big( \sum y_i^2\big)$
+
+Take arbitrary vectors $x$, $y\in \mathbb{R}^n$  
+$$\begin{aligned}&\phantom{\ggg} (x-λy)'(x-λy) \\ &= x'x - 2λ\cdot x'y + λ^2\cdot y'y \geq 0 \end{aligned}$$ 
+Let $λ = \frac{x'y}{y'y}$  
+$$\begin{aligned} &\phantom{\ggg} x'x - 2λ\cdot x'y + λ^2\cdot y'y \\
+&= x'x - 2\cdot\frac{x'y}{y'y}\cdot x'y + \Big(\frac{x'y}{y'y}\Big)^2\cdot y'y \\
+&= x'x - 2\cdot\frac{(x'y)^2}{y'y} + (x'y)^2 \geq 0\end{aligned}$$ 
+Therefore,  
+$$\begin{aligned} x'x\cdot y'y - (x'y)^2 &\geq 0 \\
+x'x\cdot y'y &\geq (x'y)^2 \\
+(x'y)^2 &\leq x'x\cdot y'y \\
+\big( \textstyle{\sum} x_i \cdot y_i\big)^2 &\leq \textstyle{\sum} x_i^2 \cdot \textstyle{\sum} y_i^2\end{aligned}$$ 
+Which also implies  
+$$\textstyle{\sum} x_i \cdot y_i \leq \sqrt{\textstyle{\sum} x_i^2} \cdot \sqrt{\textstyle{\sum} y_i^2}$$
+
+> Approach 2  
+> PS5.Q4  
+> Prove the Cauchy-Schwarz inequality for $\mathbb{R}^2$
+
+Let $u = (u_1, u_2), v = (v_1, v_2)$  
+$\|u\| \cdot \|v\| = \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2}$  
+$| u\cdot v | = | u_1 v_1 + u_2 v_2 |$  
+Assume Cauchy-Schwarz inequality is true  
+$$\begin{aligned} | u_1 v_1 + u_2 v_2 | &\leq \sqrt{u_1^2 + u_2^2} \cdot \sqrt{v_1^2 + v_2^2} \\
+u_1^2 v_1^2 + u_2^2 v_2^2 + 2 u_1u_2v_1v_2 &\leq (u_1^2 + u_2^2) (v_1^2 + v_2^2) \\
+0 &\leq u_1^2v_2^2 + u_2^2v_1^2 - 2 u_1u_2v_1v_2\\ &=(u_1v_2-u_2v_1)^2\end{aligned}$$ 
+Since the last line is obviously true, all previous statements are true
+
+> textbook P42  
+> Verify triangle inequality for Euclidean norm
+
+Take arbitrary vectors $x$, $y$, $z\in \mathbb{R}^n$  
+$$\begin{aligned} d(x,z) &= \sqrt{\textstyle{\sum}(x_i - z_i)^2} \\
+\big(d(x,z)\big)^2 &= \textstyle{\sum}(x_i - z_i)^2 \\
+&= \textstyle{\sum}(x_i - y_i + y_i - z_i)^2 \\
+&= \textstyle{\sum}(x_i - y_i)^2 + \textstyle{\sum}(y_i - z_i)^2 + 2\cdot\textstyle{\sum}(x_i - y_i)(y_i - z_i) \\
+&\leq \textstyle{\sum}(x_i - y_i)^2 + \textstyle{\sum}(y_i - z_i)^2 + 2\cdot\sqrt{\textstyle{\sum}(x_i - y_i)^2}\cdot\sqrt{\textstyle{\sum}(y_i - z_i)^2} \\
+&= \big(d(x,y)\big)^2 + \big(d(y,z)\big)^2 + 2\cdot d(x,y)\cdot d(y,z) \\
+&= \big(d(x,y) + d(y,z)\big)^2 \\\end{aligned}$$ 
+Therefore,  
+$$\begin{aligned} \big(d(x,z)\big)^2 &\leq \big(d(x,y) + d(y,z)\big)^2 \\
+d(x,z) &\leq d(x,y) + d(y,z)\end{aligned}$$
+
+## Set Collection & Operation
+
+- Commutative law:  
+$$\begin{aligned} A\cup B = B\cup A \\ A\cap B = B\cap A\end{aligned}$$ 
+- Associative law:  
+$$\begin{aligned} (A\cup B)\cup C = A\cup (B\cup C) \\ (A\cap B)\cap C = A\cap (B\cap C)\end{aligned}$$ 
+- Distributive law:  
+$$\begin{aligned} (A\cup B)\cap C = (A\cap C)\cup (B\cap C) \\ (A\cap B)\cup C = (A\cup C)\cap (B\cap C)\end{aligned}$$ 
+- De Morgan's laws: Let $X_i$, $i\in I$ be sets, then  
+$$\begin{aligned} \big(\cup_{i\in I} X_i\big)^c = \cap_{i\in I}\big(X_i^c\big) \\
+\big(\cap_{i\in I} X_i\big)^c = \cup_{i\in I}\big(X_i^c\big)\end{aligned}$$ 
+
+### Proof by Deduction
+
+> PS1.Q3  
+> Let $\{ A_i \}_{i \in Ι}$ be any arbitrary collection of sets  
+> Prove that $\big(\cup_{i\in Ι} \ A_i \big)^c = \cap_{i\in Ι} \ A_i^c$
+
+Take arbitrary $x\in \big(\cup_{i\in Ι} \ A_i \big)^c$  
+$\iff x\notin \cup_{i\in Ι} \ A_i$  
+$\iff \lnot (\exists i\in I$ s.t. $x\in A_i)$  
+$\iff \forall i\in I$, $x\notin A_i$  
+$\iff \forall i\in I$, $x\in A_i^c$  
+$\iff x\in \cap_{i\in Ι} \ A_i^c$ 
+
+> PS1.Q4, 2016.F1.Q1  
+> Let $A, B \subset U$  be two sets   
+> Prove that $(A\backslash B)^c = A^c \cup B$ 
+
+Let $x\in (A\backslash B)^c$  
+$\iff \lnot (x \in A \backslash B)$  
+$\iff \lnot (x \in A \land x\notin B)$   
+$\iff (x \notin A) \lor (x\in B)$   
+$\iff (x \in A^c) \lor (x\in B)$   
+$\iff x \in A^c \cup B$  
+$\implies (A\backslash B)^c = A^c \cup B$
+
+<!-- > PS1.Q9  
+> Let $f: U \to U'$, $\{ B_i\}_{i \in Ι}$ be a collection of subsets of $U'$  
+> Prove $f^{-1} \big( \cap _{i\in Ι} B_i \big) = \cap _{i\in Ι} f^{-1} \big( B_i \big)$ 
+
+1. $f^{-1} \big( \cap _{i\in Ι} B_i \big) \subset \cap _{i\in Ι} f^{-1} \big( B_i \big)$   
+   $x \in f^{-1} \big( \cap _{i \in Ι} B_i \big)$   
+   $\implies f(x) \in \cap _{i\in Ι} B_i$  
+   $\implies f(x) \in B_i \forall i \in I$  
+   $\implies x \in f ^{-1} \big( B_i \big) \forall i \in I$  
+   $\implies x \in \cap f^{-1}\big( B_i \big)$   
+2. $\cap _{i\in Ι} f^{-1} \big( B_i \big) \subset f^{-1} \big( \cap _{i\in Ι} B_i \big)$   
+   $x \in \cap _{i \in Ι} f ^ {-1} \big( B_i \big)$   
+   $\implies x\inf^{-1}\big( B_i \big) \forall i \in I$  
+   $\implies f(x) \in B_i \forall i\in I$  
+   $\implies f(x) \in \cap B_i$  
+   $\implies x \inf^{-1}\big( \cap B_i \big)$
+ -->
+
+### Inclusion of ε
+
+> PS2.Q8, PS3.Q8  
+> 1. Show that the intersection of a finite collection of open sets is open  
+> 2. Show that the intersection of an arbitrary collection of open sets may not be open
+
+1. for $\{ A_n\} _{n\in N}$ , $A_n$ is open $\forall n\in N \implies \cap A_n$ is open  
+Take arbitrary $x\in \cap A_n$, $\exists$ sequence $\{ε_n\}_n > 0$ s.t. $B_{ε_n} (x) \subset A_n$  
+Take $\underline{ε} \equiv \min \{ ε_n\}$   
+$\implies B_{ \underline{ε}} (x) \subset B_{ε_n} (x) \subset A_n \forall n \in N$  
+$\implies B_{ \underline{ε}} (x) \subset \cap A_n \forall n \in N$  
+$x\in \cap A_n \implies B_{\underline{ε}} (x) \subset A_n \cap A_n$  
+$\implies \cap A_n$ is open
+
+## Set
+
+- Power Set of set $X$, denoted as $2^X$, is the set of all subsets of $X$ 
+- Set $A$ and $B$ are Numerically Equivalent if exists a bijection function from $A$ to $B$ 
+    - Set $A$ is Countable if $A$ is numerically equivalent to any subset of $\mathbb{Z}_+$
+    - Set $A$ is Finite if $A$ is numerically equivalent to $\{1,2,\dots,n\}\subset \mathbb{Z}_+$ for some $n$
+    - $\emptyset$ is finite
+
+### Open / Closed
+
+- Set $A$ is open if $B_ε(x) \subset A$ for all $x \in A$ and some $ε > 0$
+- Set $A$ is closed if $A^C$ is open
+- Set $B \subset A$ is relatively open in $A \iff$ $B = A \cap C$ for some $C$ open in $U$
+- $U$ and $\emptyset$ are both open and closed in $U$
+
+> PS3.Q1  
+> Show that $[a,b] \subset \mathbb{R}$ is closed for any $a<b \in \mathbb{R}$
+
+Let $A \equiv [a,b]$, :) $A^c = (-\infty, a) \cup (b, \infty)$ is open   
+Take arbitrary $x \in A$  
+1. If $x < a$  
+   Let $ε \equiv \frac{a-x}{2} >0$  
+   $$\begin{aligned} \implies \forall y \in B_ε(x), \  y &< x+ε \\ &= \frac{x}{2} + \frac{a}{2} \\ &< a \end{aligned}$$ 
+   $\implies B_ε(x) \subset A^c$  
+2. If $x > b$  
+   Let $ε \equiv \frac{x-b}{2} >0$  
+   $$\begin{aligned} \implies \forall y \in B_ε(x), \  y &> x+ε \\ &= \frac{x}{2} + \frac{b}{2} \\ &> b \end{aligned}$$ 
+   $\implies B_ε(x) \subset A^c$  
+     
+   $\implies B_ε(x) \subset A^c$ for all $x\in A^c$ and some $ε > 0$  
+   $\implies A^C$ is open, $A$ is closed
+
+> PS4.Q1  
+> Let $A\equiv [0,1)$  
+> Prove that $B \subset A$ is relatively open in $A$ only if it is open in $\mathbb{R}$ or it contains $0$
+
+Assume $B​$ is indeed relatively open in $A​$  
+Exists some open set $C \subset \mathbb{R}​$  s.t. $B = A \cap C​$  
+Assume $0 \notin B​$  
+$\implies 0 \notin C​$  
+$\implies B = C \cap (0,1)​$  
+Since $C​$ and $(0,1)​$ are open, $B​$ is also open
+
+### Closure & Interior & Boundary
+
+- Closure of set $A$, denoted by $\bar { A } = \{ x \in U \ | \ B_ε (x)\cap A \neq \emptyset\}$ for all $ε>0$
+- Interior of set $A$, denoted by $\text{int}(A) = \{ x\in A \ | \ B_ε(x)\subset A\}$ for some $ε>0$
+- Boundary of set $A$, denoted by $\partial A = \{ x \ | \ B_ε(x)\cap A \neq \emptyset$ and $B_ε(x)\cap A^C \neq \emptyset\}$ for all $ε>0$
+    - $\text{int} (A) \subset A\subset \bar{A}$
+    - $\bar{A} = \text{int} (A) \cup \partial A$
+
+> PS3.Q3  
+> Prove that $\bar{A}$ is closed
+
+Take arbitrary $x \in \bar{A}^C$   
+$\implies B_ε(x) \cap A = \emptyset$ for some $ε > 0$   
+<!-- :) $B_ε(x) \cap \bar{A} = \emptyset$ for some $ε > 0$  -->
+FSOC assume $\bar{A}$ is open    
+$\implies \exists y \in B_{ε/2} (x)$ and $y\in \bar{A}$   
+$\implies \exists z \in A$ s.t. $z \in B_{ε/2} (y)$  
+$$\begin{aligned} \implies  d(x,z) &\leq d(x,y) + d(y,z)\\ &<\frac{ε}{2}+\frac{ε}{2} \\ &=ε \end{aligned}$$ 
+$\implies B_{ε} (x) \cap A \neq \emptyset$   
+Contradicts to $B_ε(x) \cap A = \emptyset$
+
+> PS2.Q4  
+> Show $\partial A = \bar{A}\backslash \text{int}(A)$ for any set $A$
+
+Take arbitrary $x \in A$  
+$x \in \bar{A}\backslash \text{int}(A) \iff \big(x \in \bar{A} \big) \land \big( x \notin \text{int}(A) \big)$   
+And $x \notin \text{int}(A) \iff B_ε(x)\not\subset A$ for all $ε>0$  $\iff B_ε(x)\cap A^C \neq \emptyset$   
+Therefore, $x\in \bar{A}\backslash \text{int}(A) \iff x \in \partial A$
+
+> PS3.Q2, 2014.F2.Q2  
+> Let $A$, $B$ be two sets, $B$ is open and $B \subset A$  
+> Prove that $B \subset \text{int}(A)$
+
+Take arbitrary $x\in B$  
+$B$ is open $\implies \exists ε>0$ s.t. $B_ε(x) \subset B \subset A$  
+$\implies x \in \text{int}(A)$  
+$\implies B \subset \text{int}(A)$
+
+> PS5.Q3  
+> Let $B$ be closed and $A \subset B$  
+> Prove that $\bar{A }\subset B$
+
+FSOC assume $\exists x\in \bar{A}$ s.t. $x\notin B$  
+Since $x\in \bar{A}$   
+$\implies B_ε(x) \cap A \neq \emptyset$ for all $ε>0$  
+$\implies B_ε(x) \not\subset A^C$ for all $ε>0$  
+Since $A \subset B \iff A^C \supset B^C$  
+$\implies B_ε(x) \not\subset B^C$ for all $ε>0$  
+Since $x\notin B \implies x \in B^C$  
+$\implies B^C$ is not open  
+$\implies B$ is not closed (contradiction)
+
+### Compact
+
+- Compact = Closed + Bounded (in metric space)
+    - Closed subset of compact set is compact
+    - For compact set $A\subset X$, if $f: X\to Y$ is continuous, then $f(A)$ is compact
+
+### Convex
+
+> PS3.Q5, 2015.F1.Q4  
+> Fix $x\in \mathbb{R}^n$ and $ε >0$, prove that $B_ε(x)$ is convex  
+> Hint: use $d(x, y)\equiv \|x-y\|$ is a norm
+
+Take arbitrary $x_1, x_2 \in B_ε(x)$, $λ\in (0,1)$  
+$$\begin{aligned} d(y,x) &= d \big((λx_1+(1-λ)x_2),x\big) \\
+&= \| λx_1 + (1-λ)x_2 - x \| \\
+&= \| λx_1 + x_2 - λx_2 - x \| \\
+&= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\
+&\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\
+&= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\
+&= λ d( x_1,x) + (1-λ) d( x_2,x ) \\
+&< λε + (1-λ) ε \\
+&= ε \end{aligned}$$ 
+$\implies y \in B_ε(x)$  
+$\implies B_ε(x)$ is convex
+
+> PS4.Q6, 2015.F1.Q8  
+> Let $A, B \in \mathbb{R}^n$ be two convex sets  
+> Let $C \equiv \{ z\in \mathbb{R} | z=x+y, \ x\in A, \ y\in B \}$   
+> Prove that $C$ is convex
+
+Take some $x_1, x_2 \in A$ and $y_1,y_2 \in B$  
+Take $z_1, z_2 \in C$ s.t. $z_1 = x_1+ y_1$, $z_2 = x_2+ y_2$  
+Let $$\begin{aligned} z_3 &\equiv λz_1 + (1-λ)z_2 \\ &= λ(x_1+y_1) + (1-λ)(x_2+y_2) \\ &= λx_1+(1-λ)x_2 + λy_1 + (1-λ)y_2 \end{aligned}$$ 
+Since $A$ and $B$ are convex  
+$\implies λx_1+(1-λ)x_2 \in A$ and $λy_1+(1-λ)y_2 \in B$  
+$\implies z_3 \in C$  
+$\implies C$ is convex
+
+### Maximum & Supremum
+
+- $y$ is an upper bound of set $A$ if $y \geq x$ for all $x \in A$  
+(only exist if $A$ is bounded above, not unique)
+- Maximum of set $A$, denoted by $x \equiv \max(A)$, if $x \in A$ and $x$ is an upper bound of $A$  
+(only exists if $A$ is finite, unique)
+- Supremum of set $A$, denoted by $\sup(A)$, is the lowest upper bound of $A$  
+(always exists, $+\infty$ if $A$ is unbounded)
+    - $\sup(A)\in A\iff A$ has maximum
+
+> textbook P34 Problem 6.13  
+> Let $A$ and $B$ be nonempty sets of real numbers, both bounded above  
+> Let $C = \{c = a + b \ | \ a\in A, b\in B\}$  
+> Show that $C$ has a supremum, and $\sup C = \sup A + \sup B$
+
+
+
+> PS3.Q7  
+> Show that for any bounded and non-empty set $A\subset \mathbb{R}$, $B_ε \big( \sup(A) \big) \cap A \neq \emptyset$ for all $ε >0$
+
+$A$ is bounded $\implies \sup(A) \in \mathbb{R}$   
+Let $\bar{x} \equiv \sup(A)$, $\bar{x} \geq \forall x$  
+FSOC assume $\exists ε<0$ s.t. $B_ε (\bar{x}) \cap A = \emptyset$   
+$\implies B_ε(\bar{x}) = (\bar{x}-ε,\bar{x}+ε)$  
+$\implies$ for all $x\in A$, $x\leq \bar{x} - ε$  
+Let $x'=\bar{x}-\frac{ε}{2}$   
+$\implies x\leq \bar{x} - ε < x'$ for all $x\in A$  
+$\implies x'$ is an upper bound of $A$  
+But $x' < \bar{x}$ contradicts that $\bar{x}$ is supremum
+
+> PS3.Q6  
+> Show that if $A\subset \mathbb{R}$ is bounded and $A \neq \emptyset$, then $\sup (A) = \max(\bar{A})$
+
+1. Show $\sup (A) \in \bar{A}$ (see last question)  
+2. Show $\sup (A)$ is an upper bound of $\bar{A}$   
+   FSOC assume $\exists x\in \bar{A}$ s.t. $x>\sup(A)$, let $ε\equiv \frac{x-\sup(A)}{2}$  
+   $\implies B_ε(x) \cap A = \emptyset$   
+   Contradicts to $x\in \bar{A}$
+
+### Dense
+
+- Set $A$ is dense in $U$ if $A \cap B_ε(x)\neq \emptyset \forall x\in U$, $\forall ε>0$
+
+> PS3.Q9  
+> Show that $\mathbb{Q}$ is dense in $\mathbb{R}$
+
+Take arbitrary $x\in\mathbb{R}$, :) $B_ε(x) \cap \mathbb{Q} \neq \emptyset$   
+1. $x\in  \mathbb{Q}$ (trivial)  
+2. $x\notin  \mathbb{Q}$   
+   Take arbitrary $ε > 0$  
+   Take $N \in \mathbb{N}$ s.t. $N> \frac{1}{ε}$   
+   $\implies ε> \frac{1}{N}$   
+   Take the largest integer $n$ s.t.  $\frac{n}{N}\leq x - ε$ and $x-ε< \frac{n+1}{N}$   
+   $$\begin{aligned} \implies x-ε < \frac{n+1}{N} &\leq x-ε + \frac{1}{N} \\ &< x-ε+ε \\&=x\end{aligned}$$ 
+   $\implies \frac{n+1}{N} \in B_ε(x)$  
+   $\frac{n+1}{N} \in \mathbb{Q} \implies B_ε(x) \cap \mathbb{Q} \neq \emptyset$
+
+### Separated / Connected
+
+- Set $A$, $B$ are separated if $A\cap\bar{B} = B\cap\bar{A} = \emptyset$ 
+- Set $A$ is connected if do not exist open sets $B$, $C$ s.t. $B\cap C = \emptyset$, $A\cap B\neq\emptyset$, $A\cap C\neq\emptyset$, and $A\subset B\cup C$ 
+    - or: if $A$ is not the union of two non-empty separated sets
+- Let $A$ be open, $A$ is path-connected if for all $x,y\in A$,  
+exists path function: $f\in\mathcal{C}: [0,1]\to A$ s.t. $f(0) = x$ and $f(1) = y$ 
+    - Path-connected $\iff$ connected
+    - Reference: [Path-Connected Sets](https://maths.ucd.ie/courses/mst3013/resources/l/4/mst3013CapFour11.pdf), [Pathwise\-Connected](http://mathworld.wolfram.com/Pathwise-Connected.html), [Arcwise\-Connected](http://mathworld.wolfram.com/Arcwise-Connected.html)  
+- For connected set $A\subset X$, if $f: X\to Y$ is continuous, then $f(A)$ is connected
+
+## Function
+
+- Function $f$ from $X$ into $Y$ is a relation that for each $x\in X$, exists a unique $y\in Y$ s.t. $(x,y)\in f$
+- Domain: $X$
+- Image (Range): $f(X)$
+    - Codomain: $Y$
+    - only for $f$ is surjection, $f(X) = Y$
+- $y$ is the image of $x$ under $f$, $f(x) = y$ 
+- $x$ is the pre-image (inverse image) of $y$, $x\in f^{-1}(y)$
+- Correspondence $Ψ: X\rightrightarrows Y$ is a generalized function that assigns a subset of $Y$ (element of $2^Y$) to each $x\in X$ 
+
+### Image
+
+> PS2.Q3  
+> Let $f:U\to U'$, $A \subset U$ and $B \subset U'$  
+> Prove that $(f|_A)^{-1} (B) = f^{-1}(B) \cap A$
+
+$x \in f^{-1} (B) \cap A$  
+$\iff x\in A$ and $f(x) \in B$  
+$\iff (f|_A)(x ) \in B$  
+$\iff x\in (f|_A)^{-1} (B)$
+
+> PS1.Q9, textbook P21 Theorem 4.2  
+> Let $f: X\to Y$ be a function, $B_i$, $i\in I$ subsets of $Y$,  
+> Prove:  
+> 1. $f^{-1}\big( \cup_{i\in I} B_i \big) = \cup_{i\in I} f^{-1}(B_i)$  
+> 2. $f^{-1}\big( \cap_{i\in I} B_i \big) = \cap_{i\in I} f^{-1}(B_i)$
+
+1. Take arbitrary $x\in ^{-1}\big( \cup_{i\in I} B_i \big)$  
+$\iff f(x)\in \cup_{i\in I} B_i$  
+$\iff\exists i$ s.t. $f(x)\in B_i$  
+$\iff\exists i$ s.t. $x\in f^{-1}(B_i)$  
+$\iff x\in \cup_{i\in I} f^{-1}(B_i)$  
+2. Take arbitrary $x\in ^{-1}\big( \cap_{i\in I} B_i \big)$  
+$\iff f(x)\in \cap_{i\in I} B_i$  
+$\iff\forall i$, $f(x)\in B_i$  
+$\iff\forall i$, $x\in f^{-1}(B_i)$  
+$\iff x\in \cap_{i\in I} f^{-1}(B_i)$
+
+> PS5.Q2  
+> Let $f: U \to U'$ and $B \subset U'$  
+> Show that $f(f^{-1}(B)) \subset B$
+
+1. $B \neq \emptyset$   
+   Take arbitary $y\in B \subset U'$  
+   $\implies f^{-1}(y) \in f^{-1}(B)$  
+   $\implies \exists x \in f^{-1}(B)$ s.t. $f(x) = y$ for all $y$  
+   Since $f(x) \in B$ for all $x$  
+   $\implies y \in B$ for all $y = f(x)$   
+   $\implies f(f^{-1}(B)) \subset B$   
+2. $B = \emptyset$   
+   $\implies f^{-1}(B)=\emptyset$   
+   $\implies f\big( f^{ -1 } ( B ) \big) = \emptyset \subset B$
+
+> PS2.Q5, PS5.Q1  
+> Let $f: U \to U'$ and $A \subset U$  
+> Show that $f^{-1} \big( f(A) \big) \supset A$
+
+1. $A \neq \emptyset$   
+   Take arbitary $x\in A \subset U$  
+   $\implies f(x) \in f(A)$  
+   $\implies x \in f^{-1} \big( f(x) \big) \subset f^{-1} \big( f(A) \big)$   
+   $\implies x \in f^{-1}\big( f(A) \big)$   
+2. $A = \emptyset$   
+   $\implies f(A)=\emptyset$   
+   $\implies f^{ -1 } \big( f ( A ) \big) = \emptyset \supset A$
+
+> textbook P22 Theorem 4.3  
+> Let $f: X\to Y$ be a function, $A_i$, $i\in I$ subsets of $X$,  
+> Prove:  
+> 1. $f\big( \cup_{i\in I} A_i\big) = \cup_{i\in I}f(A_i)$  
+> 2. $f\big( \cap_{i\in I} A_i\big) \subseteq \cap_{i\in I}f(A_i)$  
+
+1. Take arbitrary $y\in f\big( \cup_{i\in I} A_i\big)$  
+$\iff\exists x\in \cup_{i\in I} A_i$ s.t. $y = f(x)$  
+$\iff\exists i\in I$ s.t. $y = f(x)\in f(A_i)$  
+$\iff y\in \cup_{i\in I}f(A_i)$  
+2. Take arbitrary $y\in f\big( \cap_{i\in I} A_i\big)$  
+$\iff\exists x\in \cap_{i\in I} A_i$ s.t. $y = f(x)$  
+$\implies\forall i\in I$, $\exists x_i\in A_i$ s.t. $y = f(x_i)$  
+$\iff\forall i\in I$, $y\in f(A_i)$  
+$\iff y\in\cap_{i\in I}f(A_i)$ 
+
+> PS9.Q5  
+> Let $A\equiv [1,\infty)$ and $f: A \to \mathbb{R}$, $f(x)= x+\frac{1}{x}$  
+> 1. Prove that $f(A)\subset A$  
+> 2. Prove that $|f(x) - f(y)| <|x - y|$ for all $x\neq y$
+
+1. Prove that $f(A)\subset A$  
+Since $x\in [1,\infty) \implies \frac{1}{x}>0$  
+$\implies f(x) = x+\frac{1}{x} > x \geq 1$  
+$\implies f(A)\subset (1,\infty) \subset [1,\infty)$  
+2. Prove that $|f(x) - f(y)| <|x - y|$ for all $x\neq y$  
+$$\begin{aligned} \left| x + \frac{1}{x} - y - \frac{1}{y} \right| &= \left| x - y + \frac{y-x}{xy}\right| \\
+&= \left|(x-y) \left(1 - \frac{1}{xy}\right)\right| \\
+&= |x-y| \cdot \left|1 - \frac{1}{xy}\right| \\
+&< |x-y|\end{aligned}$$  
+
+### Injection (One-to-one) & Surjection (Onto)
+
+> PS2.Q1  
+> Let $f(x) = x^2: \mathbb{R} \to \mathbb{R}_+$  
+> Prove that it is not injective   
+> Is it surjective?
+
+1. Injective  
+   :) $x_1 \neq  x_2 \implies f(x_1) \neq f(x_2)$  
+2. Surjective  
+   :) For all $y\in Y$, exists $x \in X$ s.t. $f(x) = y$
+
+### Continuity
+
+- Function $f$ is continuous at $x \iff \exists δ>0$ s.t. $f\big( B_δ(x)\big) \subset B_ε\big(f(x)\big)$, for all $ε$ 
+- Function $f: X\to Y$ is continous at $x \in X$ $\iff$ $\big( f(x_n)\big)_n \to f(x)$ for all $(x_n)_n \in X \to x$ 
+    - Function $f: \mathbb{R} \to Y$ is continuous $\iff$ $f(x_n) \to f(x)$ is strictly monotonic for all $x_n \to x$ 
+- Function $f: X\to Y$ is continuous $\iff$ for open set $A \in Y$, its inverse image $f^{-1}(A)$ is open 
+
+![Continuous Function, textbook P67 Figure 2.7.a](/post-img/notes-math-proof--continuity.png)
+
+> PS6.Q1  
+> Prove that if $f, \ g \in \mathcal{C}^0(\mathbb{R},\mathbb{R})$  
+> then $f \circ g \in \mathcal{C}^0(\mathbb{R},\mathbb{R})$
+
+1st approach:  
+Let $h\equiv f\circ g$  
+Since $f$ is continuous  
+$\implies$ for $y\in B_{δ_f}(g(x))$, $f(y) \in B_ε(f(g(x)))$ for some $δ_f>0$  
+Since $g$ is continuous  
+$\implies$ for $x'\in B_{δ_g}(x)$, $g(x') \in B_{δ_f}(g(x))$ for some $δ_g>0$  
+$\implies$ $$\begin{aligned} f\big(g(x')\big) &\in B_ε\left(f\big(g(x)\big)\right) \\
+h(x') &\in B_ε\big(h(x)\big)\end{aligned}$$ 
+$\implies h$ is continuous
+
+2nd approach:  
+Take arbitrary open set $B\subset \mathbb{R}$  
+Since $f$ is continuous,  
+$\implies f^{-1}(B)$ is open  
+Since $g$ is continuous  
+$\implies g^{-1}\big(f^{-1}(B)\big)$ is open  
+$\iff (f\circ g)^{-1}(B)$ is open  
+$\implies f\circ g$ is continuous  
+
+> PS6.Q8  
+> Let $A \subset U$ be a non-empty set in a metric space  
+> Prove that $f(x) \equiv \inf \{ d(x,y) | y \in A \}$ is continuous 
+
+Fix some $x$ in the domain of $f$  
+Fix arbitrary $δ > 0$, take $x' \in B_δ(x)$  
+$\implies$ for all $y \in A$,  
+$$\begin{aligned}  d(x',y) &\leq d(x,y) + d(x,x') \\
+& < d(x,y) + δ \end{aligned}$$ 
+Take infimum of both sides  
+$$f(x') \leq f(x) + δ$$ 
+Similarly,  
+$$\begin{aligned} d(x,y) &\leq d(x',y) + d(x,x') \\
+&< d(x',y) + δ \end{aligned}$$ 
+Take infimum of both sides  
+$$f(x) \leq f(x') + δ$$ 
+$\implies$  
+$$\begin{aligned} f(x') &\in \big[f(x) - δ, f(x) + δ\big] \\
+&\subset B_2δ\big( f(x) \big)\end{aligned}$$ 
+Take $ε \equiv 2δ$  
+$\implies$ if $x' \in B_δ(x)$, then $f(x') \in B_ε\big( f(x) \big)$  
+$\implies f$ is continuous
+
+### Value Theorems
+
+- Mean Value: if $f \in \mathcal{C}^0\big([a,b],\mathbb{R}\big)$ and $f \in \mathcal{C}^1\big((a,b),\mathbb{R}\big)$,  
+exists some $c \in (a, b)$ s.t. $f'(c) = \frac{f(b) - f(a)}{b - a}$
+- Intermediate Value: if $f\in\mathcal{C}^0(A,\mathbb{R})$, $A$ is connected,  
+exists some $c \in (a,b)$ s.t. for any $y \in \big(f(a),f(b)\big)$, $f(c) = y$ 
+- Extreme Value (Weierstrass): if $A\neq\emptyset$ is compact + convex, $f: A\to \mathbb{R}$ is continuous,  
+exists some $x \in A$ s.t. $f(x) = \max \big( f(A) \big)$
+- Brouwer's fixed point: if $A$ is compact and convex, $f: A\to A$ is continuous,  
+$\implies f$ has a fixed point 
+- Kakutani's fixed point: if $A\neq\emptyset$ is compact + convex, $Γ\rightrightarrows A\to$ has a closed graph,  
+$Γ(x)$ is non-empty and convex for all $x\in A\implies Γ$ has a fixed point 
+
+> PS8.Q1  
+> Let $f\in \mathcal{C}^1 (\mathbb{R},\mathbb{R})$, and $f'(a)>0$ for some $a$  
+> Prove that there exists some $ε>0$ s.t. if $x\in (a, a+ε)$ then $f(x)>f(a)$  
+> and if $x\in (a-ε,a)$ then $f(x)<f(a)$
+
+1. $x\in (a, a+ε)$  
+FSOC assume there is some $x\in (a, a+ε)$ s.t. $f(x)\leq f(a)$  
+Consider sequence $\{x_n\}_n$ s.t. $x_n\in \left(a,\frac{a+x_{n-1}}{2} \right)$  
+$\implies f(x_n) \leq f(a)$  
+Clearly, $\{x_n\}_n$ is strictly decreasing  
+$\implies \lim_{n\to\infty} \frac{f(x_n)-f(a)}{x_n-a} \leq 0$  
+Contradicts to $f'(a)>0$  
+2. $x\in (a-ε,a)$  
+Similar argument holds
+
+> PS8.Q2  
+> Let $f\in \mathcal{C}^1 (\mathbb{R},\mathbb{R})$,  
+> Let $f(a)=f(b) = 0$ and $f'(a)\neq f'(b)\neq 0$ for some $a<b\in \mathbb{R}$  
+> Prove the mean value theorem
+
+Since $[a,b]$ is compact and $f$ is continuous,  
+$\implies f$ has maximum and minimum in $[a,b]$  
+If $\max\Big(f|_{[a,b]}\Big) = \min\Big(f|_{[a,b]}\Big)$  
+$\implies f'(x)=0$ for all $x \in [a,b]$, contradicts to $f'(a)\neq f'(b)\neq 0$  
+$\implies \max\Big(f|_{[a,b]}\Big) \neq \min\Big(f|_{[a,b]}\Big)$
+
+1. $\max(f|_{[a,b]}) > 0$  
+Let $c \in \text{argmax}_{x\in[a,b]} f(x)$  
+    a. $f'(c) = 0$ (trivial)  
+    b. $f'(c) > 0$  
+    $\implies$ Exists $c'\in (c,c+ε)$ s.t. $f(c')>f(c)$, contradiction  
+    c. $f'(c) < 0$  
+    Let $g(x) \equiv -f(x)$  
+    $\implies$ Exists $c'\in (c-ε,c)$ s.t. $g(c')<g(c)$  
+    $\implies f(c')>f(c)$, contradiction  
+2. $\max(f|_{[a,b]}) = 0$  
+   Similar arguments apply
+
+> PS9.Q6  
+> Let $f:[0,1]\to[0,1]$ be continuous and convex  
+> Show that if $f(1)<1$, then $f$ has a unique fixed point
+
+Since $[0,1]$ is compact, $f$ is continuous, $f$ has some fixed point  
+FSOC assume there are more than one fixed points  
+$\implies$ exists $x<y\in [0,1)$ s.t. $f(x) = x$ and $f(y) = y$  
+Take $λ\in(0,1)$ s.t. $y = λx + (1-λ)1$  
+Since $f$ is convex  
+$$\begin{aligned} y &= f(y) \\
+&\leq λ\cdot f(x)+(1-λ)\cdot f(1) \\
+&< λ\cdot x+(1-λ)\cdot 1\end{aligned}$$ 
+Contradiction
+
+> PS9.Q7  
+> Let $f:[0,1]\to[0,1]$ be continuous and concave  
+> Show that if $f(0)>0$, then $f$ has a unique fixed point
+
+### Contraction
+
+- Function $f: X\to X$ is a contraction of modulus $λ$  
+if for all $x,x'\in X$, $d\big(f(x), f(x')\big) \leq λ d(x,x')$ for some $λ \in [0,1)$
+- Contraction Mapping Theorem: if $f: X\to X$ is a contraction, and $X$ is complete,  
+then $f$ has a unique fixed point
+
+![Contraction Mapping, textbook P86 Figure 2.11](/post-img/notes-math-proof--contraction-fixed-point.png)
+
+> PS9.Q1  
+> Prove that if $f$ is contraction, then it is continuous
+
+Take arbitrary $ε > 0$, $δ > 0$, $λ \in [0,1)$ and $x$  
+Take $x' \in B_δ(x)$, since $f$ is contraction  
+$\implies d\big(f(x),f(x')\big) \leq λd(x,x') < σ$  
+$\implies f(x')\in B_δ\big(f(x)\big)$  
+Let $ε = δ$  
+$x'\in B_δ(x) \implies f(x')\in B_ε\big(f(x)\big)$  
+$\implies f$ is continuous
+
+> PS9.Q2  
+> Let $f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})$  
+> Assume exists $λ\in(0,1)$ s.t. $f'(x)\in [-λ,λ]$ for all $x$  
+> Prove that $f$ is contraction  
+> Hint: Use the mean value theorem
+
+Take arbitrary $x, y$  
+1. $x=y$  
+$d\big(f(x), f(y)\big) = 0$, $λd(x,y) = 0 \implies d\big(f(x), f(y)\big)\leq λd(x,y)$  
+2. Assume $x<y$  
+By mean value theorem, exists $c\in (x,y)$ s.t. $f'(c)=\frac{f(y)-f(x)}{y-x}$  
+And exists $λ$ s.t. $f'(c)\in[-λ,λ]$  
+$$\begin{aligned} -λ \leq \frac{f(y)-f(x)}{y-x} &\leq λ \\
+\frac{\big|f(y)-f(x)\big|}{|y-x|} &\leq λ \\
+\frac{d\big(f(y),f(x)\big)}{d(x,y)} &\leq λ \\
+d\big(f(y),f(x)\big) &\leq λ \cdot d(x,y)\end{aligned}$$  
+
+> PS9.Q3, 2016.F1.Q4  
+> Prove that if $f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})$ is a contraction, $λ\in(0,1)$  
+> then $f'(x)\in [-λ,λ]$ for all $x$
+
+Take arbitrary $x\in \mathbb{R}$, consider a strictly increasing sequence $\{x_n\}_n \to x$  
+Since $f$ is contraction,  
+$$\begin{aligned} d\big(f(x),f(x_n)\big) &\leq λd(x,x_n) \\
+\frac{ d\big(f(x),f(x_n)\big)} {d(x,x_n)} &\leq λ \end{aligned}$$ 
+Take limit of botht sides  
+$$\begin{aligned} \lim_{n\to\infty}\frac{d\big(f(x),f(x_n)\big)}{d(x,x_n)} &\leq \lim_{n\to\infty} λ \\
+\lim_{n\to\infty}\frac{\big|f(x)-f(x_n)\big|}{|x-x_n|} &\leq λ \\
+\lim_{n\to\infty}\left|\frac{f(x)-f(x_n)}{x-x_n}\right| &\leq λ \\
+|f'(x)| &\leq λ\end{aligned}$$ 
+$\implies f'(x)\in [-λ,λ]$
+
+### Limit & Differenciation
+
+- L'Hopital rule: let $f, g \in \mathcal{C}^1\big((b,a),\mathbb{R}\big)$, $\lim_{x\to a} \frac{f(x)}{g(x)} = \lim_{x\to a} \frac{f'(x)}{g'(x)}$
+
+> PS6.Q2  
+> Prove $\lim_{x\to 0} \frac{e^x - \left(1+x + \frac{x^2}{2} \right)}{x^3} = \frac{1}{6}$
+
+$$\begin{aligned} \lim_{x\to 0} \frac{e^x - \left(1+x + \frac{x^2}{2} \right)}{x^3} &= \lim_{x\to 0} \frac{\left(e^x - 1 - x - \frac{x^2}{2} \right)'}{(x^3)'} \\
+&= \lim_{x\to 0} \frac{e^x - 1 - x}{3x^2} \\
+&= \lim_{x\to 0} \frac{(e^x - 1 - x)'}{(3x^2)'} \\
+&= \lim_{x\to 0} \frac{e^x - 1}{6x} \\
+&= \lim_{x\to 0} \frac{(e^x - 1)'}{(6x)'} \\
+&= \lim_{x\to 0} \frac{e^x}{6} \\ &= \frac{1}{6}\end{aligned}$$  
+
+> PS6.Q3  
+> Prove that if $f, g \in C^1(\mathbb{R},\mathbb{R})$, $\lim_{x\to 0} \frac{f(x)-g(x)}{x} = 0$,  
+> then $f(0)=g(0)$ and $f'(0)=g'(0)$
+
+$$\begin{aligned} \lim_{x\to 0} \frac{f(x)-g(x)}{x} &= 0 \\
+\lim_{x\to 0} f(x) - g(x) &= 0 \\
+f(0) - g(0) &= 0 \\
+f(0) &= g(0)\end{aligned}$$ 
+And  
+$$\begin{aligned} \lim_{x\to 0} f(x) - g(x) &= 0 \\
+\lim_{x\to 0} f'(x) - g'(x) &= 0 \\
+f'(0) - g'(0) &= 0 \\
+f'(0) &= g'(0)\end{aligned}$$   
+
+> PS6.Q7  
+> Let $f, g \in \mathcal{C}^1(\mathbb{R},\mathbb{R})$, $f$ is strictly increasing  
+> Assume $g \circ f \in \mathcal{C}^1(\mathbb{R},\mathbb{R})$  
+> Prove $\frac{d}{dx} g\big( f(x) \big) = g'\big( f(x) \big) \cdot f'(x)$ (chain rule)
+
+Take monotonic sequence $\{x_n\}_n \to x$  
+Since $f(x)$ is strictly increasing  
+$\implies \{f(x_n)\}_n$ is also monotonic, $f(x_n) - f(x )\neq 0$ for all $n$  
+$$\begin{aligned} \frac{d}{dx} g\big( f(x) \big) &= \lim_{x_n\to x} \frac{g\big(f(x)\big) - g\big(f(x_n)\big)}{x-x_n} \\
+&= \lim_{x_n\to x} \frac{g\big(f(x)\big) - g\big(f(x_n)\big)}{f(x) - f(x_n)} \cdot \frac{f(x) - f(x_n)}{x-x_n} \\
+&= \lim_{f(x_n)\to f(x)} \frac{g\big(f(x)\big) - g\big(f(x_n)\big)}{f(x) - f(x_n)} \cdot \lim_{x_n\to x} \frac{f(x) - f(x_n)}{x-x_n} \\
+&= g'\big(f(x)\big)\cdot f'(x)\end{aligned}$$ 
+
+### Supremum / Infimum
+
+> PS2.Q2  
+> Let $f,g:A\to \mathbb{R}$ be two functions with a finite supremum in some set $A$  
+> Show that $\sup_{x\in A} \big( f(x) +g(x) \big) \leq \sup_{x\in A} f(x) + \sup_{x\in A} g(x)$
+
+Denote $h \equiv f+g$, $\bar{f} \equiv \sup\big(f(x)\big)$, $\bar{g} \equiv \sup\big(g(x)\big)$, $\bar{h} \equiv \sup\big(h(x)\big)$  
+$h(x) = f(x) + g(x) \leq \bar{f }+\bar{g}$   
+$\implies \bar{f} + \bar{g}$ is an upper bound of $h(x)$  
+Since supremum is the least upper bound  
+$\implies\bar{h} \leq \bar{f} + \bar{g}$
+
+> PS4.Q7, 2015.F1.Q3  
+> Let $f: \mathbb{R} \to \mathbb{R}$ be a bounded function and $h(y) \equiv \sup_{x\geq y} \big( f(x) \big)$  
+> Show that $h$ is decreasing 
+
+$f$ is bounded $\implies \{ f(x) | x\geq y \}$ is bounded  
+$\implies h(\cdot)$ is well-defined  
+Take $y_1\leq y_2$  
+$\implies \{ f(x)| x\geq y_2\} \subset \{ f(x)| x\geq y_1\}$  
+Since $h(y_1) = \sup_{x\geq y_1} \big( f(x) \big)$ is an upper bound of $\{ f(x)| x\geq y_1\}$  
+$\implies h(y_1)$ is an upper bound of $\{ f(x)| x\geq y_2\}$  
+Since $h(y_2)$ is the least upper bound of $\{ f(x)| x\geq y_2\}$  
+$\implies h(y_1)\geq h(y_2)$  
+
+> PS10.Q6, 2014.F1.Q8  
+> Let $f: \mathbb{R}^2 \to \mathbb{R}$ be bounded  
+> Let $f(x,y)$ be increasing in $y$ for all $x \in \mathbb{R}$,  
+> Show that $V(y) \equiv \sup_{x\in \mathbb{R}} f(x,y)$ is increasing in $y$
+
+$f$ is bounded $\implies \{ f(x) | x\geq y \}$ is bounded  
+$\implies V(y)$ is well-defined  
+Take arbitrary $y_1\leq y_2 \in \mathbb{R}$  
+Since $f$ is increasing in $y$,  
+$\implies f(x,y_1)\leq f(x,y_2)$ for all $x$  
+$V(y_2) = \sup_{x\in\mathbb{R}} f(x,y_2)$  
+$\implies V(y_2)$ is the least upper bound of $f(x,y_2)$  
+$\implies V(y_2)$ is an upper bound of $f(x,y_1)$  
+And $V(y_1) = \sup_{x\in\mathbb{R}} f(x,y_1)$  
+$\implies V(y_1)$ is the least upper bound of $f(x,y_1)$  
+$\implies V(y_1)\leq V(y_2)$ 
+
+<!-- 
+Take $y_1 < y_2\in \mathbb{R}$  
+FSOC assume $V(y_1) > V(y_2)$  
+Let $ε = V(y_1) - V(y_2) > 0$,  
+$$\begin{aligned} V(y_1) &= V(y_2) + ε\\
+\sup f(x,y_1) = V(y_1) &= V(y_2) + ε\end{aligned}$$ 
+$\implies$ exists some $x^* \in \mathbb{R}$ s.t.  
+$$f(x^*,y_1) > V(y_1) - ε = V(y_2)$$ 
+Since $f(x^*,y)$ is increasing in $y$,  
+$\implies f(x^*,y_2) \geq f(x^*,y_1) > V(y_2)$  
+Contradicts that $V(y_2) = \sup f(x,y^2)$  
+$\implies  V(y_1) \leq V(y_2)$
+ -->
+
+### Maximum
+
+- Maximum of function $f: A \to \mathbb{R}$ is $\max_x f(x)$ $\equiv$ $\max \{f(x)|x\in A\}$ $\equiv$ $\max \big( f(A)\big)$
+
+> PS8.Q5  
+> Let $f: [0,1]^2\to \mathbb{R}$ be continuous, and $f(x,y)$ increasing in $x$ for all $y\in [0,1]$  
+> Show that $\max_{(x,y)\in[0,1]^2} f(x,y) = \max_{y\in[0,1]} f(1,y)$
+
+Since $f(x,y)$ increasing in $x$  
+$\implies f(x_1,\bar{y} ) > f(x_2,\bar{y})$ for any $x_1 > x_2$ and for any $\bar{y}$  
+$\implies \max_{(x,y)\in[0,1]^2} f(x,y) \geq \max_{y\in[0,1]} f(1,y)$  
+FSOC assume $\max_{(x,y)\in[0,1]^2} f(x,y) > \max_{y\in[0,1]} f(1,y)$  
+Let $f(x^*, y^*) = \max_{(x,y)\in[0,1]^2} f(x,y)$  
+$\implies f(x^*, y^*) > f(1,y)$ for all $y$  
+$\implies f(x^*, y^*) > f(1,y^*)$ contradiction  
+$\implies \max_{(x,y)\in[0,1]^2} f(x,y) = \max_{y\in[0,1]} f(1,y)$
+
+> PS8.Q4  
+> Let $f: A\to \mathbb{R}$ be continuous for $A\subset \mathbb{R}^n$  
+> Let $B\subset A$ be compact, and exists $\bar{x} \in B$ s.t. $f(\bar{x})\geq f(x)$ for all $x\in A\backslash B$  
+> Show that $\max f(A)$ exists, and $\max f(A) = \max f(B)$
+
+Since $B$ is compact, there exists maximum  
+Let $y^* \equiv \max\big(f(B)\big)$  
+$\implies y^* \geq f(x)$ for all $x\in B$  
+$\implies y^* \geq f(\bar{x}) \geq f(x)$ for all $x\in A\backslash B$  
+$\implies y^*\geq f(x)$ for all $x\in A$  
+$\implies y^* = \max\big(f(A)\big)$
+
+> PS8.Q6  
+> Show that $f(x) = x^α - x - x^2$ has a unique maximum in $\mathbb{R}_+$ when $α \in(0,1)$
+
+Consider $f(1) = -1$  
+Since $x^α < x + x^2$ for all $x>1$  
+$\implies f(1) > f(x)$ for all $x>1$  
+$\implies f$ has maximum in $[0,1]$  
+FOC: $f'(x) = αx^{α-1}-1 - 2x$  
+SOC: $f''(x) = α(α-1)x^{α-2} -2 < 0$  
+$\implies f$ is strictly concave in $\mathbb{R}_+$  
+$\implies f$ has a unique maximum in $[0, 1]$  
+
+> PS10.Q3  
+> Let $A \subset \mathbb{R}^2$ non-empty,  
+> let $A_1 \equiv \{ x \ | \ (x,y)\in A, y\in \mathbb{R} \}$,  
+> and let $A(x) \equiv \{ y \ | \ (x,y)\in A\}$ for all $x\in A_1$  
+> Assume $\max_{(x,y)\in A}f(x,y)$ exists, prove that $\max_{(x,y)\in A}f(x,y)$ $=$ $\max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)$ 
+
+FSOC assume $\max_{(x,y)\in A}f(x,y)\neq\max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)$  
+Let $(x^*,y^*) \in\text{argmax}_{(x,y)\in A}f(x,y)$, $y^* \in A(x^*)$  
+Let $\hat{x} \in \text{argmax}_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)$
+
+1. $\max_{(x,y)\in A}f(x,y) > \max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)$  
+$\implies f(x^*, y^*) > \sup_{y\in A(x)} f(x,y)$ for all $x\in A_1$  
+$\implies f(x^*, y^*) > \sup_{y\in A(x^*)} f(x^*,y)$, contradiction  
+2. $\max_{(x,y)\in A}f(x,y) < \max_{x\in A_1} \big( \sup_{y\in A(x)} f(x,y)\big)$  
+$\implies f(x^*, y^*) <  \sup_{y\in A(\hat{x})} f(\hat{x},y)$  
+But $f(x^*, y^*) \geq f(x,y)$ for all $(x,y)\in A$, and $(\hat{x}, y)\in A$  
+$\implies f(x^*, y^*) \geq f(\hat{x},y)$ for all $(\hat{x},y)$  
+$\implies f(x^*, y^*)$ is an upper bound of $f(\hat{x},y)$, contradiction
+
+### Maximizer & Argmax
+
+- Argument of maximum is $\text{argmax}_x f(x)$ $\equiv$ $\{ x| f(x) = \max \big( f(A)\big) \} \subset A$
+
+> PS10.Q1  
+> Let $f: A \to \mathbb{R}$ be concave and let $A \subset \mathbb{R}^n$ be convex  
+> Prove that if $x^*$ is a local maximizer of $f$, than it is a global maximizer of $f$
+
+Since $x^*$ is a local maximizer,  
+$\implies f(x^*)\geq f(x)$ for all $x\in A\cap B_ε(x^*)$  
+FSOC suppose exists $x' \in A$ s.t. $f(x') > f(x^*)$  
+$\implies$ exists $x^ε = λx^* + (1-λ)x'$ s.t.  
+$$\begin{aligned} f(x^ε) &\geq λf(x^*) + (1-λ)f(x') \\
+f(x^*)\geq f(x^ε) &\geq λf(x^*) + (1-λ)f(x') \\
+(1-λ)f(x^*) &\geq  (1-λ)f(x') \\
+f(x^*) &\geq  f(x')\end{aligned}$$ 
+Contradiction. 
+
+> PS10.Q2  
+> Let $f: A \to \mathbb{R}$ be concave and $A$ convex  
+> Prove that $\text{argmax}_{x\in A} f(x)$ is a convex set
+
+Take $x_1,x_2 \in \text{argmax}_{x\in A} f(x)$  
+$\implies f(x_1), f(x_2)\geq f(x)$ for all $x\in A$  
+Let $x_3 = λx_1 + (1-λ)x_2$, since $f$ is concave,  
+$$\begin{aligned} f(x_3) &\geq λf(x_1) + (1-λ)f(x_2) \\
+&\geq λf(x) + (1-λ)f(x) \\
+&=f(x)\end{aligned}$$ 
+$\implies x_3 \in \text{argmax}_{x\in A} f(x)$  
+$\implies \text{argmax}_{x\in A} f(x)$ is convex
+
+> PS10.Q7, 2017.F1.Q6  
+> Let $f,g: \mathbb{R}^n \to \mathbb{R}$, $A = \{ x \in \mathbb{R}^n | g(x) = 0\}$  
+> Assume exists some $x^* \in A$ s.t. $x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)$  
+> Prove that $x^* \in \text{argmax} _{x\in A} f(x)$ 
+
+Since $x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)$  
+$$\begin{aligned} f(x^*) + g(x^*) &\geq f(x) + g(x) && \text{for all }x\\
+f(x^*) + g(x^*) &\geq f(x) + g(x) && \text{for all }x\in A \\
+f(x^*) &\geq f(x) && \text{for all }x\in A\end{aligned}$$ 
+$\implies x^* \in \text{argmax} _{x\in A} f(x)$
+
+> PS10.Q5  
+> Prove that if $x^* \in \text{argmax}_{x\in \mathbb{R}}\big(f(x) + g(x)\big)$ is s.t. $g(x^*) = 0$,  
+> 1. $\max_{x\in \mathbb{R}} \big(f(x) + g(x)\big)$ $=$ $\max_{x\in \{ x'|g(x')=0\}} f(x)$  
+> 2. $\max_{x\in \mathbb{R}} \big(f(x) + g(x)\big)$ $=$ $\max_{x\in \{ x'|g(x')\geq 0\}} f(x)$
+
+Let $A = \{ x'|g(x')\geq 0\}$, $B = \{ x'|g(x')=0\}$, $B\subset A$  
+Let $\hat{x}\in \text{argmax}_{x\in A} f(x)$  
+FSOC assume $\max_{x\in \mathbb{R}} (f(x) + g(x))\neq\max_{x\in A} f(x)$  
+2.1. 
+$$\begin{aligned} \max_{x\in \mathbb{R}} (f(x) + g(x)) &< \max_{x\in A} f(x) \\
+f(x^*) + g(x^*)&< f(\hat{x}) \\
+f(x^*) &< f(\hat{x}) \end{aligned}$$ 
+Since $g(x^*) = 0$, $g(\hat{x})\geq 0$  
+$\implies$ $f(x^*)+ g(x^*) < f(\hat{x}) + g(\hat{x})$ 
+Contradicts that $x^*\in \text{argmax} \big(f(x) + g(x)\big)$  
+2.2. 
+$$\begin{aligned} \max_{x\in \mathbb{R}} (f(x) + g(x)) &> \max_{x\in A} f(x) \\
+f(x^*) + g(x^*)&> f(\hat{x}) \\
+f(x^*) &> f(\hat{x}) \end{aligned}$$ 
+Contradicts that $\hat{x}\in \text{argmax}_{x\in A} f(x)$  
+1.  
+Since $B\subset A$, 
+$$\begin{aligned} \max_{x\in B} f(x) &\leq \max_{x\in A} f(x) \\
+&\leq \max_{x\in \mathbb{R}} \big(f(x) + g(x)\big)\end{aligned}$$ 
+Let $\hat{x}\in \text{argmax}_{x\in B} f(x)$  
+FSOC assume $\max_{x\in \mathbb{R}} \big(f(x) + g(x)\big) > \max_{x\in B} f(x)$  
+$$\begin{aligned} f(x^*) + g(x^*)&> f(\hat{x}) \\
+f(x^*) &> f(\hat{x}) \end{aligned}$$ 
+Contradicts that $\hat{x}\in \text{argmax}_{x\in B} f(x)$
+
+### Concave & Convex
+
+- Function $f$ is concave if $f\big[ λx_1 + (1-λ)x_2\big]\geq λf(x_1) + (1-λ) f(x_2)$ for all $x_1,x_2$, $λ\in[0,1]$  
+- Function $f$ is strictly concave if $f\big[ λx_1 + (1-λ)x_2\big] > λf(x_1) + (1-λ) f(x_2)$ for all $x_1 \neq x_2$, $λ\in(0,1)$  
+- Function $f$ is (strictly) convex if $-f$ is (strictly) concave  
+- Function $f$ is quasi-concave if $f\big[ λx_1 + (1-λ)x_2\big]\geq\min \big[ f(x_1),f(x_2) \big]$ 
+- Function $f$ is quasi-convex if $f\big[ λx_1 + (1-λ)x_2\big]\leq\max \big[ f(x_1),f(x_2) \big]$ 
+
+> PS6.Q5  
+> Let $f$ and $g$ be convex.  
+> Prove that $f+g$ is concex.
+
+Let $h\equiv f+g$, take arbitrary $x_1,x_2 \in \mathbb{R}$  
+$$\begin{aligned} h\big(λx_1+ (1-λ)x_2\big) &= f\big(λx_1+ (1-λ)x_2\big) + g\big(λx_1+ (1-λ)x_2\big) \\
+&\leq λf(x_1) + (1-λ)f(x_2) + λg(x_1) + (1-λ)g(x_2) \\
+&= λh(x_1) + (1-λ)h(x_2)\end{aligned}$$  
+
+> PS7.Q7, 2014.F1.Q5  
+> Prove that if $f:\mathbb{R}\to \mathbb{R}$ is strictly convex,  
+> then $f(x) = 0$ has at most two solutions  
+
+FSOC assume $f(x) = 0$ has more than two solutions  
+$\implies$ Exist $x<y<z\in\mathbb{R}$ s.t. $f(x) = f(y) = f(z) = 0$  
+Take $λ$ s.t.  
+$$\begin{aligned} y &= λx + (1-λ)z \\
+λ &= \frac{z-y}{z-x}\end{aligned}$$ 
+Since $f$ is strictly convex,  
+$$\begin{aligned} f\big(λx + (1-λ)z\big) &< λf(x) + (1-λ)f(z) \\
+f(y) &< λf(x) + (1-λ)f(z) \\
+0 &< 0+0\end{aligned}$$ 
+Contradiction. 
+
+> PS7.Q1, 2015.F1.Q5  
+> Let $f: \mathbb{R} \to \mathbb{R}$ be strictly concave, $x<y<z\in \mathbb{R}$  
+> Prove that $\frac{f(y)-f(x)}{y-x}>\frac{f(z)-f(x)}{z-x}>\frac{f(z)-f(y)}{z-y}$ 
+
+Take $λ$ s.t. 
+$$\begin{aligned} y &= λ x+(1-λ)z \\
+y -x &= -(1-λ)x + (1-λ)z \\
+&= (1-λ)(z-x) \\
+1-λ &= \frac{y-x}{z-x} \\
+λ &= \frac{z-y}{z-x}\end{aligned}$$ 
+Since $f$ is strictly concave,  
+$$\begin{aligned} f(y) &> λf(x) + (1-λ)f(z) \\
+f(y) - f(x) &> λf(x) - f(x) + (1-λ) f(z) \\
+&= (1-λ) \big( f(z) - f(x)\big) \\
+&= \frac{y-x}{z-x} \big(f(z) -f(x)\big) \\
+\frac{f(y)-f(x)}{y-x} &> \frac{f(z)-f(x)}{z-x}\end{aligned}$$ 
+Similarly,  
+$$\begin{aligned} f(y) &> λf(x) + (1-λ)f(z) \\
+f(y)-f(z) &> λf(x) + (1-λ) f(z) - f(z) \\
+&= λ \big(f(x) - f(z)\big) \\
+f(z) - f(y) &< λ\big(f(z)- f(x)\big) \\
+&= \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
+\frac{f(z)-f(y)}{z-y} &< \frac{f(z)-f(x)}{z-x}\end{aligned}$$ 
+
+> PS7.Q3, 2014.F1.Q6  
+> Prove that if $f: \mathbb{R} \to \mathbb{R}$ is convex,  
+> then $\frac{f(y)-f(x)}{y-x}$ is increasing for all $y > x$
+
+Take $x < y_1 \leq y_2$  
+Take $λ$ s.t.  
+$$\begin{aligned} y_1 &= λx + (1-λ)y_2 \\
+1-λ &= \frac{y_1 - x}{y_2 - x} \\ λ &= \frac{y_2-y_1}{y_2 - x}\end{aligned}$$ 
+Since $f$ is convex, 
+$$\begin{aligned} f(y_1) &\leq λf(x) + (1-λ)f(y_2) \\
+f(y_1) - f(x) &\leq λf(x) -f(x) + (1-λ) f(y_2) \\
+&= -(1-λ) f(x) + (1-λ) f(y_2) \\
+&= \frac{y_1 - x}{y_2 - x}\cdot \big(f(y_2) - f(x)\big) \\
+\frac{f(y_1)-f(x)}{y_1 - x} &\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}$$ 
+
+> PS7.Q4  
+> Prove that if $f\in \mathcal{C}^1(\mathbb{R},\mathbb{R})$ is concave,  
+> then $f(x)\leq f(x_0) + f'(x_0)(x-x_0)$ for any $x,x_0\in \mathbb{R}$
+
+1. $x = x_0$ (trivial)  
+2. $x > x_0$  
+   Take some $y < x_0$ and $λ \in (0,1)$, s.t. $x_0 = λx + (1-λ) y$  
+   $\implies λ = \frac{x_0-y}{x-y}$  
+   Since $f$ is concave,  
+   $$\begin{aligned} f(x_0) &\geq λf(x) + (1-λ)f(y) \\ f(x_0) - f(y) &\geq λ\big( f(x) - f(y)\big) \\ &\geq \frac{x_0-y}{x-y}\big( f(x) - f(y)\big) \\ \frac{f(x_0) - f(y)}{x_0-y} &\geq \frac{ f(x) - f(y)}{x-y}\end{aligned}$$ 
+   Take limit of both sides  
+   $$\begin{aligned} \lim_{y\to x_0}\frac{f(x_0) - f(y)}{x_0-y} &\geq \lim_{y\to x_0}\frac{ f(x) - f(y)}{x-y} \\ f'(x_0) &\geq \frac{f(x)-f(x_0)}{x-x_0} \\ f(x) &\leq f(x_0) + f'(x_0)(x-x_0)\end{aligned}$$  
+
+> PS7.Q5  
+> Prove that if $f:\mathbb{R}\to \mathbb{R}$ is convex,  
+> then $f\big(λx + (1-λ)y\big) \geq λf(x) + (1-λ)f(y)$ for all $x,y$ and $λ \notin [0,1]$
+
+1. $x = y$ (trivial)  
+2. $x < y$  
+   1. When $λ > 1$  
+      Take $z = λx + (1-λ)y \implies x = \frac{1}{λ}z + \left(1-\frac{1}{λ}\right) y$  
+      Let $λ_1 = \frac{1}{λ} \in [0,1] \implies x = λ_1 z + (1-λ_1) y$  
+      Since $f$ is convex,  
+      $$\begin{aligned} f(x) &\leq λ_1 f(z) + (1-λ_1) f(y) \\ &\leq \frac{1}{λ} f(z) + \left(1-\frac{1}{λ}\right) f(y) \\ λf(x) &\leq f(z) + (λ-1) f(y) \\ f(z) &\geq λf(x) +(1-λ)f(y) \\ f\big(λx + (1-λ)y\big) &\geq λf(x) + (1-λ)f(y)\end{aligned}$$ 
+   2. When $λ < 0$  
+      Take $z = λx + (1-λ)y \implies y = \frac{1}{1-λ}z - \frac{λ}{1-λ}x$  
+      Let $λ_2 = \frac{1}{1-λ} \in [0,1] \implies y = λ_2 z + (1-λ_2) x$  
+      Since $f$ is convex,  
+      $$\begin{aligned} f(y) &\leq λ_2 f(z) + (1-λ_2) f(x) \\ f(y) &\leq \frac{1}{1-λ} f(z) + \left(1-\frac{1}{1-λ}\right) f(x) \\ (1-λ) f(y) &\leq f(z) + (1 - 1 + λ) f(x) \\ f(z) &\geq (1-λ) f(y) + λf(x) \\ f(λx + (1-λ)y) &\geq λf(x) + (1-λ)f(y) \end{aligned}$$  
+
+> PS7.Q6  
+> Let $f:\mathbb{R}\to \mathbb{R}$ be strictly increasing, bijective and concave  
+> Prove its inverse is convex 
+
+Let $h = f^{-1}$, take $y_1, y_2\in \mathbb{R}$  
+Since $f$ is bijection,  
+$x_1 = f^{-1}(y_1) = h(y_1)$ and $x_2 f^{-1}(y_2) = h(y_2)$  
+$$\begin{aligned} f\big(λx-1 + (1-λ)x_2\big) &\geq λf(x_1) + (1-λ)f(x_2) \\
+&= λy_1 + (1-λ)y_2\end{aligned}$$ 
+Since $f$ is strictly increasing, assume $x_1 < x_2$,  
+$$\begin{matrix} f(x_1) < f(x_2) & x_1 < x_2 \\
+y_1 < y_2 & h(y_1) < h(y_2)\end{matrix}$$ 
+$\implies h$ is strictly increasing  
+$$\begin{aligned} λy_1 + (1-λ)y_2  &\leq f\big(λx-1 + (1-λ)x_2\big) \\
+h\big( λy_1 + (1-λ)y_2 \big) &\leq h\Big( f\big(λx_1 + (1-λ)x_2 \big) \Big) \\
+&\leq λx_1 + (1-λ)x_2\\ 
+&\leq λh(y_1) + (1-λ)h(y_2)\end{aligned}$$ 
+$\implies h$ is convex  
+
+> PS9.Q4  
+> Let $f: \mathbb{R} \to \mathbb{R}$ be concave, $g: \mathbb{R} \to \mathbb{R}$ convex and $f(x)\leq g(x)$ for all $x$  
+> Prove that there exists a linear function $h$ s.t. $f(x)\leq h(x) \leq g(x)$  
+> Hint: the graph of a linear function from $\mathbb{R}$ to $\mathbb{R}$ is a hyperplane
+
+Take $F\equiv\{ (x,y) | y < f(x) \}$ and $G\equiv\{ (x,y) | y > g(x) \}$  
+Since $f$ is concave and $g$ is convex, $F, G$ are convex  
+Since $f(x)\leq h(x) \leq g(x)$, $F\cap G=\emptyset$  
+By separating hyperplane theorem, $F$ and $G$ are separated by some hyperplane  
+$\implies$ For $z_1\in F$ and $z_2\in G$, exists $p\in \mathbb{R}^2$ and $α \in \mathbb{R}$ s.t. $p\cdot z_1\leq α \leq p\cdot z_2$  
+Let $H = \{ (x,y)| p_1\cdot x+p_2\cdot y =α \}$ and $h(x)= \frac{α - p_1\cdot x}{p_2}$  
+FSOC assume $h(x)<f(x)$ for some $x$  
+$\implies h(x)< \frac{h(x)+f(x)}{2}< f(x)$, contradicts to $\frac{h(x)+f(x)}{2} \in F$  
+$\implies h(x)\geq f(x)$  
+Similarly we can prove $h(x)\leq g(x)$
+
+### Epigraph
+
+- Epigraph of $f$: $\big\{ (x,y) | y \geq f(x) \big\}$  
+- $f$ is (strictly) convex $\iff$ its epigraph is (strictly) convex.
+
+> PS6.Q4  
+> Prove that the epigraph of a convex function is convex
+
+Let $f: \mathbb{R}^n \to \mathbb{R}$ be convex, its epigraph: $E = \big\{ (x,y) | y \geq f(x) \big\}$  
+Take $(x_1,y_1),(x_2,y_2)\in E$  
+$\implies y_1\geq f(x_1)$ and $y_2\geq f(x_2)$  
+Take $λ \in[0,1]$, let $(x_3, y_3) = \big(λx_1+(1-λ)x_2, \ λy_1+(1-λ)y_2 \big)$  
+Since $f$ is convex,  
+$$\begin{aligned} f(x_3) &\leq λf(x_1) + (1-λ)f(x_2) \\
+&\leq λ y_1 + (1-λ) y_2 \\
+&= y_3\end{aligned}$$ 
+$\implies y_3 \geq f(x_3)$  
+$\implies (x_3,y_3) \in E$  
+$\implies E$ is convex.
+
+> PS7.Q2  
+> Let $f,g$ be convex, prove $\max\{f,g\}$ is convex  
+> Hint: show the epigraph is convex
+
+Since $f,g$ are convex  
+$\implies$ epigraphs $E_f \equiv \{(x,y)| y\geq f(x)\}$ and $E_g \equiv \{(x,y)| y\geq g(x)\}$ are convex  
+Let $h \equiv \max\{f,g\}$  
+Epigraph of $h$:  
+$$\begin{aligned} E_h &\equiv \{(x,y)| y\geq h(x)\} \\
+&= \{(x,y)| y\geq f(x) \land y\geq g(x)\} \\
+&=  E_f \cap E_g \end{aligned}$$ 
+Take $x,y\in E_f \cap E_g$  
+$\implies λx+(1-λ)y \in E_f$ and $λx+(1-λ)y \in E_g$  
+$\implies λx+(1-λ)y \in E_f \cap E_g$  
+$\implies E_h = E_f \cap E_g$ is convex  
+$\implies h$ is convex
+
+## Set × Function
+
+### Injection & Surjection (revisited)
+
+> PS4.Q8  
+> Prove that $\mathbb{Z}$ is countable by explicitly finding a bijection between $\mathbb{Z}$ and $\mathbb{N}$
+
+Define $f: \mathbb{Z} \to \mathbb{N}$ as  
+$$f(x) \equiv \begin{cases} 2x & \text{if } x>0 \\ -2x+1 & \text{if } x\leq 0 \end{cases}$$ 
+1. Injective  
+2. Surjective  
+3. Find $f^{-1}$  
+   $$f^{-1}(y) \equiv \begin{cases} \frac{y}{2} & \text{if y is even}\\ -\frac{y-1}{2} & \text{if y is odd or } 0 \end{cases}$$  
+
+### Finite & Countable
+
+- Set $A$ is finite if $A = \emptyset$ or exists a bijection between $A$ and $\{1,2,3,\cdots,n\}$ for some $n \in\mathbb{N}$
+- Set $A$ is countable (or countably infinite) if exists a bijection between $A$ and $\mathbb{N}$
+
+> PS5.Q8 (bonus)   
+> Prove $\mathbb{Q}$ is countable
+
+## Sequence
+
+- Sequence $\{x_n\}$ is a function $s$ from $\mathbb{N}$ to some set $X$ 
+- $x_i = s(i)$ denotes the $i$-th value of the sequence
+- Let $g: \mathbb{N}\to\mathbb{N}$ be a strictly increasing function,  
+$h(k) = s\big(g(k)\big)$ is a subsequence of $s$, denoted as $\{x_{n_k}\}$
+
+### Convergent
+
+- Sequence $(x_n)_n$ converges to $x'$ if exists $N_ε$ s.t. $n > N_ε \implies d(x_n, x') < ε$, for all $ε > 0$
+- Sequence $(x_n)_n$ is Cauchy if exists $N$ s.t. $m,n>N \implies d(x_n, x_m) < ε$, for all $ε > 0$
+    - every convergent sequence in metric space is Cauchy
+
+> PS4.Q4  
+> Let $(x_n)_{n\in \mathbb{N} } \to x^*$ and $(y_n)_{n\in \mathbb{N} } \to y^*$  
+> Show that if $x_n \geq y_n$ for all $n$, then $x^* \geq y^*$
+
+FSOC assume $x^* < y^*$  
+Let $ε \equiv \frac{y^*-x^*}{2}$  
+$\exists N_x$ and $N_y$ s.t. $| x_n - x^*| < ε$ for all $n > N_x$,  
+\~\~\~\~\~\~\~\~\~\~\~\~\~\~$| y_n - y^*| < ε$ for all $n > N_y$  
+Let $N\equiv \max \{ N_x, N_y \}$   
+$\implies \forall n>N$,  
+$$\begin{aligned}x_n - y_n &= x_n - x^* + x^* - y^* + y^* - y_n \\ &\leq | x_n - x^*| + x^* - y^* + | y_n - y^*| \\ &< x^* - y^* + 2ε \\ &=0 \end{aligned}$$ 
+$\implies x_n < y_n$ contradiction
+
+> PS5.Q7.1  
+> Let $(x_n)_n \to x^*$ and $(y_n)_n \to y^*$  
+> Prove $(x_n + y_n)_n \to x^* + y^*$
+
+1. Fix some $ε  > 0$  
+   Exist $N_{1(ε)}, N_{2(ε)} \in \mathbb{N}$ s.t.$| x_n - x^* | < ε$ for all $n > N_{1(ε)}$, and $| y_n - y^* | < ε$ for all $n > N_{2(ε)}$  
+   Let $N \equiv \max\{N_{1(ε)}, N_{2(ε)} \}$   
+   $\implies \forall n>N$,   
+   $$\begin{aligned} |(x_n + y_n) - (x^* + y^*)| &=|x_n - x^* + y_n - y^*| \\ &\leq |x_n - x^*|+|y_n - y^*| \\ &< 2ε \end{aligned}$$ 
+   Let $ε' \equiv 2ε$,   
+   $$|(x_n + y_n) - (x^* + y^*)| < ε'$$  
+
+> PS5.Q7.2  
+> Let $(x_n)_n \to x^*$ and $(y_n)_n \to y^*$  
+> Prove $(x_n y_n)_n \to x^*y^*$
+
+2. Fix some $ε  > 0$  
+   Exist $N_{1(ε)}, N_{2(ε)} \in \mathbb{N}$ s.t.$| x_n - x^* | < ε$ for all $n > N_{1(ε)}$, and $| y_n - y^* | < ε$ for all $n > N_{2(ε)}$  
+   Let $N \equiv \max\{N_{1(ε)}, N_{2(ε)} \}$   
+   $\implies \forall n>N$,   
+   $$\begin{aligned} | x_n y_n - x^* y^* | &= | x_n y_n - x_n y^* + x_n y^* - x^* y^*| \\ &= | x_n ( y_n - y^*) + y^* (x_n - x^*) | \\ &\leq |x^n| |y_n - y^*| + | y^*| |x_n - x^*| \\ &< (|x_n| + |y^*|) \cdot ε \end{aligned}$$ 
+   Let $M \equiv \sup\{ |x_n|, n \in \mathbb{N} \}$   
+   $$\begin{aligned} | x_n y_n - x^* y^* | &< (|x_n| + |y^*|) \cdot ε \\ &\leq (M + |y^*|) \cdot ε \end{aligned}$$  
+
+> PS5.Q7.3  
+> Let $(x_n)_n \to x^*$ and $(y_n)_n \to y^*$  
+> If $x_n, x^* \neq 0$, then $(\frac{1}{x_n})_n \to \frac{1}{x^*}$
+
+3. Fix some $ε  > 0$  
+   Exists $N \in \mathbb{N}$ s.t. $| x_n - x^*| < ε$ for all $n>N$  
+   $$\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &= \left| \frac{x^* - x_n}{x^*x_n} \right| \\ &= | x^* - x_n | \cdot \frac{1}{|x^*|\cdot |x_n|} \\ &< ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \end{aligned}$$ 
+   Let $M \equiv \sup\left\{ \frac{1}{|x_n|}, n \in \mathbb{N} \right\}$   
+   Since $x_n, x^* \neq 0 \implies M$ is well-defined   
+   $$\begin{aligned} \left| \frac{1}{x_n} - \frac{1}{x^*} \right| &< ε \cdot \frac{1}{|x^*|} \cdot \frac{1}{|x_n|} \\ &\leq ε\cdot\frac{M}{|x^*|}\end{aligned}$$ 
+   Let $ε' \equiv ε\cdot\frac{M}{|x^*|}$,   
+   $$\left| \frac{1}{x_n} - \frac{1}{x^*} \right| < ε'$$  
+
+### Limit & Cluster Point
+
+- Limit of sequence $(x_n)_n$, denoted by $x \equiv \lim_{n\to\infty} x_n$ if $(x_n)_n \to x$
+- $x$ is a cluster point of sequence $(x_n)_n$ if $\exists N'>N$ s.t. $d(x_{N'}, x )<ε$ for all $ε>0$ and all $N \in \mathbb{N}$
+    - Limit is a cluster point, but cluster point may not be limit
+    - $x$ is a cluster point of sequence $(x_n)_n \iff x$ is the limit of some subsequence of $(x_n)_n$ 
+- Bolzano-Weierstrass Theorem  
+any bounded sequence in $\mathbb{R}$ has at least one cluster point (has at least one convergent subsequence)
+
+> PS4.Q3  
+> Prove that $x$ is a cluster point of sequence $(x_n)_n$  
+> $\iff x$ is the limit of some subsequence of $(x_n)_n$
+
+1. ($\Longrightarrow$)   
+   Suppose $x$ is a cluster point of $(x_n)_n$  
+   :) construct subsequence of $(x_n)_n \to x$  
+   Define $(ε_n)_n$ as:  
+   1. $ε_1=1$
+   2. $ε_{n+1}=\frac{ε_n}{2}=\frac{1}{2^{n-1}}$
+
+   And define $(k_n)_n$ as:  
+   1. $k_1 = \min \{ m>0| x_m \in B_{ε_1}(x) \}$
+   2. $k_2 = \min \{ m>k_1| x_m \in B_{ε_2}(x) \}$
+   3. $k_n = \min \{ m>k_{n-1}| x_m \in B_{ε_n}(x) \}$
+
+   Since $(k_n)_n$ is strictly increasing and $(ε_n)_n$ is strictly decreasing  
+   $\implies \exists ε_n<ε$ s.t. $| x_{k_n} - x | < ε_n < ε$, for all $ε > 0$ and $n > N_ε$  
+   $\implies x_{k_n} \to x$  
+2. ($\Longleftarrow$)   
+   Suppose $x$ is the limit of subsequence $(x_{k_n})_n$  
+   Fix some $ε>0$   
+   FSOC assume $B_ε(x) \cap \{x_n\}_{n>N} = \emptyset$ for some $N \in \mathbb{N}$   
+   $\implies B_ε(x) \cap \{x_{k_n}\}_{n>N} = \emptyset$   
+   $\implies \exists N \in \mathbb{N}$ s.t. $| x_{k_n} - x | \geq ε$  for all $n\geq N$  
+   Contradicts to $x$ is the limit of $(x_{k_n})_n$  
+   $\implies B_ε(x) \cap \{x_n\}_{n>N} \neq\emptyset$ for all $N \in \mathbb{N}$   
+   $\implies x$ is a cluster point of $(x_n)_n$
+
+### (Un-)bounded
+
+- Every convergent sequence in metric space is bounded
+- Every monotonic sequence bounded from below or above in $\mathbb{R}$ converges to its supremum / infimum
+- A real sequence is bounded if it is bounded from both below and above
+
+> PS4.Q2
+> Prove that if a real sequence $(x_n)_n$ is unbounded, then it contains a subsequence that tends either to $\infty$ or to $-\infty$
+
+Let $(x_n)_n$ be unbounded above  
+:) construct subsequence of $(x_n)_n \to \infty \iff \forall M>0$, $\exists N\in \mathbb{N}$ s.t. $x_N >M$  
+Let $\{ M_n\}_n =n$  
+Define $(z_n)_n \equiv  (x_{k_n})_n$ as subsequence of $(x_n)_n$ s.t.:  
+1. For $n=1$, let $k_1 = \min \{ m>0| x_m >M_1 \}$   
+2. For $n=2$, let $k_2 = \min \{ m>k_1| x_m >M_2 \}$   
+3. For $n > 2$, let $k_n = \min \{ m>k_{n-1}| x_m >M_n \}$   
+Since $(k_n)_n$ is a subset of $\mathbb{N}$, it is strictly increasing and well-defined  
+$\implies \forall M>0$, $\exists M_n>M$ s.t. $z_n > M_n > N$ for all $n > N$  
+$\implies (z_n)_n \to \infty$
+
+## Set × Sequence
+
+- $x$ is is the limit of some sequence in $A \iff x \in \bar{A}$ (closure of $A$)
+- $x$ is is a limit point of $A \iff x$ is the limit of some sequence in $A\backslash \{x\}$
+- $A$ is closed $\iff A$ contains all its limit points
+- $A$ is compact $\iff$ every sequence in $A$ has a subsequence that convergent to a point in $A$ 
+
+> PS5.Q5  
+> Prove that $A \in \mathbb{R}$ is closed $\iff$ it contains all its limit points
+
+1. ($\Longrightarrow$)   
+   Suppose $A$ is closed, then $A^C$ is open  
+   FSOC assume some $x\in A^C$ be the limit point of $\{x_n\}_{n\in N}\subset A\backslash \{x\}$  
+   $\implies x\in A^C$  
+   $\implies$ for some $B_ε(x) \subset A^C$, $B_ε(x) \cap A = \emptyset$   
+   $\implies B_ε(x) \cap \{x_n\}_{n\in N} = \emptyset$   
+   Contradicts to $x$ being the limit  
+2. ($\Longleftarrow$)   
+   Suppose $A$ contains all its limit points  
+   FSOC assume $A^C$ is not open  
+   Construct sequence $(ε_n)_n$ s.t. $ε_1 = 1$ and $ε_{n+1} = \frac{ε_n}{2}$ for all $n \in \mathbb{N}$  
+   Take arbitrary $x\in A^C$   
+   Construct sequence $(y_n)_n$ s.t. $y_n \in A \cap B_{ε_n}(x)$ for all $n \in \mathbb{N}$   
+   $\implies y_n \in A \backslash \{x\}$ for all $n$  
+   Since $(ε_n)_n \to 0 \implies (y_n)_n \to x$  
+   $\implies x \in A$, contradiction
+
+> PS5.Q6, PS9.Q8  
+> Fix $r\in \mathbb{R}_{++}$ and set $A\subset\mathbb{R}^n$  
+> Show that $\{ x\in A | B_r(x) \subset A \}$ is closed
+
+Let $B \equiv \{ x\in A | B_r(x) \subset A \}$, :) $B^C$ is open  
+Since $B_r(x) \subset A \implies x\in A$  
+$\implies B = \{ x | B_r(x) \subset A \}$
+
+1. If $B^C = \emptyset$ (trivial)
+2. If $B^C \neq \emptyset$  
+   FSOC assume $B^C$ is not open  
+   $\implies \exists x \in B^C$ s.t. $B_ε(x)\not\subset B^C$ for all $ε>0$  
+   $\implies B_ε(x)\cap B \neq \emptyset$ for all $ε>0$  
+   Since $x \in B^C \implies B_r(x)\not\subset A$  
+   $\implies \exists x' \in B_r(x)$ s.t. $B_r(x')\not\subset A$  
+   $\implies x' \notin A$  
+   Take a strictly decreasing sequence $(ε_n)_n \to 0$, s.t. $\exists x_n \in B_{ε_n}(x) \cap B$ for each $ε_n$  
+   $\implies (x_n)_n \to x$, $d(x_n,x)\to 0$  
+   Take sufficiently large $N$ s.t.  
+   $$\begin{aligned} d(x_N,x) &< r-d(x,x') \\ \implies d(x_N,x') &\leq d(x_N,x) + d(x, x') \ \text{triangle ineq.}\\ &< r-d(x,x') + d(x,x') \\ &=r \end{aligned}$$ 
+   $\implies x' \in B_r(x_N)$  
+   But by construction $x_N \in B \implies B_r(x_N) \subset A$, contradiction

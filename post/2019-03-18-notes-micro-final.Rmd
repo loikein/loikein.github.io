@@ -1,0 +1,178 @@
+---
+title: "Notes on Microeconomics - First Final"
+author: "loikein"
+date: "2019-03-18"
+slug: "notes-micro-final"
+tags: ["notes","micro"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+Warning: I failed this exam.
+
+## Problem 1: Dual Consumer
+
+> Joey is a consumer in a world with a single commodity: potato chips.  
+> Assume that potato chips are a divisible good with quantities in gram.  
+> Joey's preferences are represented by a utility function $u:[0, \infty)\to\mathbb{R}$.  
+> Assume $u(\cdot)$ is non-decreasing.  
+> Consider the following two statements:  
+> (i) The minimal amount of potato chips Joey needs to achieve a utility of at least 2 is 500g.  
+> (ii) The maximal utility Joey can achieve with 500g of chips is 2.
+
+### a)
+
+> Use an example to show that in general it can be the case that (i) holds and (ii) does not.
+
+![](/post-img/notes-micro-final--1a.png)
+
+### b)
+
+> State sufficient conditions under which (i) implies (ii).  
+> Remarks: You do not need to prove that those conditions are sufficient.  
+> There will be less points for conditions which are more restrictive.
+
+$u(\cdot)$ is continuous
+
+### c)
+
+> State sufficient conditions under which (ii) implies (i).  
+> Remarks: You do not need to prove that those conditions are sufficient.  
+> There will be less points for conditions which are more restrictive.
+
+$u(\cdot)$ is increasing (or weaker: local non-satiation)
+
+## Problem 2: Law of Supply
+
+> Consider a producer in a world with $K\geq 2$ commodities where the producer's technology is given by a choice set $Z\subset\mathbb{R}^K$.  
+> Assume that $z$ is the producer's supply function, i.e. for any $p\in\mathbb{R}^K$, $z(p)$ is the unique vector in $Z$ solving $\max_{z\in Z} p\cdot z$.
+
+### a)
+
+> Assume that for some vector $p\in\mathbb{R}^K$, it is the case that $z_1(p) < 0$, i.e. good 1 is an input good.  
+> Explain why it has to be the case that if the price of good 1 increases the producer will either continue producing the same outputs with the same inputs, or use less of good 1 as an input.  
+> Remarks: To keep notation simple, you can restrict attention to the case where K = 2.  
+> The explanation why the above statement is true, should be "from fundamentals", and, in particular, not rely on the law of supply.
+
+For $p_1' > p_1$,  
+$$\begin{aligned}&\phantom{ggg} (p' - p)\cdot\big(z(p') - z(p)\big) \\
+&= p'\cdot z(p') - p'\cdot z(p) - p\cdot z(p') + p\cdot z(p) \\
+&= \big(p'\cdot z(p') - p'\cdot z(p)\big) + \big(p\cdot z(p) - p\cdot z(p')\big) \\
+&= \big(\max_{z} p'\cdot z - p'\cdot z(p)\big) + \big(\max_{z} p\cdot z - p\cdot z(p')\big) \\
+&\geq 0\end{aligned}$$ 
+Therefore,  
+$$\begin{aligned} z(p') - z(p) &\geq 0 \\
+z(p')&\geq z(p) \\
+|z_1(p')|&\leq |z_1(p)|\end{aligned}$$ 
+So, it is either the case that $z_1(p') = z_1(p)$, or the producer will use less of good 1 as an input. 
+
+### b)
+
+> Does a similar statement hold in the context of consumer theory under analogous assumptions?  
+> (If a price of a good increases consumption decreases, when demand function is well defined)  
+> You do not need to explain your answer, a yes/no answer is sufficient.
+
+If the good has no wealth effect, yes.  
+Otherwise, no. 
+
+## Problem 3: Cournot Competition
+
+> Consider the following market:  
+> Inverse market demand is $P(Q) = 1 - Q$, whero $Q$ is the aggregate quantity in the market.  
+> There are N firms in the market, they all produce with zero costs. 
+
+### a)
+
+> Characterize the Pareto efficient aggregate production level by the N firms.  
+> What can you say about the individual production levels of the firms?
+
+Pareto efficiency requires price equalized to marginal cost (zero).  
+Therefore, aggregate production level is $q^s = 1$.  
+Since we do not know how the firms divide the market, nothing can be said about their individual production levels. 
+
+### b)
+
+> Suppose now the firms compete by simultaneously setting a quantity $q_i$ for $i = 1,\dots ,N$.  
+> How much output does each firm produce in the symmetric Cournot-(Nash)-equilibrium?  
+> How much do all firms produce on aggregate?
+
+Indivisual firm's problem:  
+$$\begin{aligned}\max_{q_i} && \big(1 - \sum_N q_i\big)\cdot q_i& \\
+FOC && 1 - \sum^{j\neq i}_N q_j - 2q_i^* &= 0 \\
+&& 1 - \sum_N q_i - q_i^* &= 0 \\
+&& q_i^* &= \frac{1}{N+1}\end{aligned}$$ 
+Aggregate supply: 
+$$\begin{aligned}q^s &= \frac{1}{N+1}\cdot N \\ &= \frac{N}{N+1}\end{aligned}$$ 
+
+### c)
+
+> Discuss the inefficiency of the Cournot-equilibrium.  
+> How does it depend on $N$?
+
+Since $\frac{N}{N+1} < 1$, all firms could have produced more to raise the total surplus of the society.  
+The larger $N$ is, the closer $\frac{N}{N+1}$ and 1 are, and the less inefficient it is.
+
+## Problem 4: Externality
+
+> Suppose consumer 1 gets utility $φ_1(h)$ if she can listen to music, where $h\geq 0$ is the noise level.  
+> Consumer 2 gets disutility $φ_2(h)$ if consumer 1 enjoys music with noise level $h$.  
+> Suppose that $φ_1(h)$ is twice differentiable, increasing and concave,  
+> and that $φ_2(h)$ is twice differentiable, decreasing and concave.
+
+### a)
+
+> 1. What level of $h^*$ maximizes the sum of the two individuals' utilities?  
+> 2. What level of $\hat{h}$ maximizes consumer 1's utility?  
+> 3. What level of $\bar{h}$ maximizes consumer 2's utility?
+
+Since $φ_1(h)$ is twice differentiable, increasing and concave, $φ'_1(h)\geq 0$, $φ''_1(h)<0$  
+Since $φ_2(h)$ is twice differentiable, decreasing and concave, $φ'_2(h)\leq 0$, $φ''_2(h)<0$  
+
+1. Consider both consumer's utility  
+$$\begin{aligned}\max_h && φ_1(h) + φ_2(h)& && \text{s.t.} && h\geq 0\\
+FOC && φ'_1(h^*) + φ'_2(h^*) &= 0 \\
+&& φ'_1(h^*) &= -φ'_2(h^*)\end{aligned}$$ 
+Since $φ'_1(h)\geq 0$ and $φ'_2(h)\leq 0$, $h^*\geq 0$
+2. Consider consumer 1's utility  
+$$\begin{aligned}\max_h && φ_1(h)& && \text{s.t.} && h\geq 0 \\
+FOC && φ'_1(\hat{h}) &= 0\end{aligned}$$ 
+Since $φ'_1(h)\geq 0$, $\hat{h}$ is as large as possible. 
+3. Consider consumer 2's utility  
+$$\begin{aligned}\max_h && φ_2(h) && \text{s.t.} && h\geq 0\end{aligned}$$ 
+Since $φ_2(h)$ is decreasing, $\bar{h} = 0$
+
+### b) 
+
+> Suppose that the utility of consumer $i$ with music at level $h$ and receiving a transfer $T$ is $φ_i(h) + T$ ($-T$ if the consumer has to pay).  
+> Suppose that consumer 1 has the right to choose the level that maximizes her payoff, $\hat{h}$.  
+> However, consumer 2 can make a take-it-or-leave-it offer to consumer 1 to pay the amount $T$ to consumer 1 to reduce $h$ to some level.  
+> What level of $h$ will be chosen if consumer 2 makes the optimal offer to consumer 1?
+
+Consumer 2's problem:  
+$$\begin{aligned}\max && φ_2(h) + T& && \text{s.t.} && φ_1(h) - T \geq φ_1(\hat{h})\end{aligned}$$ 
+Set the constraint to equality,  
+$$\begin{aligned} \max && φ_2(h) + \big(φ_1(h) - φ_1(\hat{h})\big)& \\
+FOC && φ'_2(h^2) + φ'_1(h^2) &= 0 \\
+&& φ'_2(h^2) &= -φ'_1(h^2)\end{aligned}$$ 
+Therefore, consumer 2 will choose $h^2 = h^*$ as the offer. 
+
+### c)
+
+> Suppose now that consumer 2 has the right to enforce $h = 0$.  
+> However, consumer 1 can make a take-it-or-leave-it offer to consumer 2 to pay $T$ in exchange for the right to increase $h$ to some specified level.  
+> To what level will $h$ be increased in the optimal take-it-or-leave-it offer? 
+
+Consumer 1's problem:  
+$$\begin{aligned}\max && φ_1(h) - T& && \text{s.t.} && φ_2(h) + T \geq φ_2(0)\end{aligned}$$ 
+Set the constraint to equality,  
+$$\begin{aligned} \max && φ_1(h) - \big(φ_2(0) - φ_2(h)\big)& \\
+FOC && φ'_1(h^1) + φ'_2(h^1) &= 0 \\
+&& φ'_1(h^1) &= -φ'_2(h^1)\end{aligned}$$ 
+Therefore, consumer 1 will choose $h^1 = h^*$ as the offer. 
+
+### d)
+
+> Relate your answers in a), b), and c) to a known theorem.
+
+Coase's Theorem: bargaining leads to an efficient outcome, no matter how property rights are allocated

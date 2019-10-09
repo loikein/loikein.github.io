@@ -1,0 +1,1266 @@
+---
+title: "Notes on Institutional Economics"
+author: "loikein"
+date: "2019-04-09"
+slug: "notes-institution"
+tags: ["notes", "micro", "GT"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = FALSE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+
+## Literature
+
+1. [Contract Theory](http://93.174.95.27/book/index.php?md5=3FDF4E91C3B6926C29211A911A8A2B5B)
+2. [Game Theory](http://93.174.95.27/book/index.php?md5=5FCE17D1189A9424E102E1B26A1EFEF5) (multi-stage games)
+3. [Institutions and Economic Theory](http://93.174.95.27/book/index.php?md5=8331D90128CC294F66A75BEE80DC062E) (very general and theoretical)
+4. Institutional Economics: An Introduction (Groenewegen, J. & Spithoven, A. & Van den Berg, A.)
+5. [Firms, contracts, and financial structure](http://93.174.95.27/book/index.php?md5=2C89493D80037491355C246FCF0B5045) (incomplete contract)
+6. 
+
+## Moral Hazard: Hidden Action
+
+- Return: $v$
+- Effort level: $e$
+    - cdf (technology): $F(\hat{v} \ | \ e) = Pr(v\leq \hat{v} \ | \ e)$
+    - Cost of effort: $c(e)$
+- Contract: $t$
+    - Principal's payoff: $v - t$
+    - Agent's payoff: $t - c(e)$
+- Reservation utility: $\underline{U} = 0$
+- Incentive compatibility constraint (IC):  
+agent chooses the level of effort that maximizes their own utility
+- Participation constraint (PC):  
+agent accepts the contract only if the expected utility exceeds other alternatives (their reservation utility)
+
+### Timing
+
+1. Principal offers contract: $t$
+2. Agent accepts or rejects
+3. Agent chooses $e$ (unobservable)
+4. $v$ is realized (verifiable)
+5. Payment $t$ is made
+
+### Benchmark (Unlimited Liability)
+
+- First best solution: 
+$$\begin{aligned}e^{FB} &= \text{argmax} \ E[v \ | \ e] - c(e) \\
+&= \begin{cases} p(e)\cdot v_H + \big( 1-p(e)\big) \cdot v_L & v\in\{ v_L, v_H\} \\ \int_{v_L}^{v_H} v\cdot f(v|e)dv & v\in [v_L, v_H]\end{cases}\end{aligned}$$
+where $p(e) = Pr(v = v_H \ | \ e)$ 
+- Franchising contract: $t(v) = v-a$ (may be positive or negative)
+    - Agent's problem
+    $$\begin{aligned}\max_e && E[t(v) \ | \ e] - c(e) &= E[v \ | \ e] - a - c(e) \\ && e^* &= e^{FB} \end{aligned}$$
+    - Principal's payoff 
+    $$\begin{aligned}v-t(v) &= a \\ &= E[v \ | \ e^{FB}] - c(e^{FB})\end{aligned}$$
+
+> Exercise 1  
+> A principal can make a take-it-or-leave-it contract offer to an agent.  
+> The reservation utilities are zero.  
+> The agent can choose an unobservable effort level $e\in [0,1]$.  
+> The agent's disutility of effort is given by $c(e) = \frac{1}{2}e^2$.  
+> The principal's return $v\in\{0,\frac{1}{2}\}$ is verifiable, and it is $v=\frac{1}{2}$ with probability $e$.  
+> If the principal makes a payment t to the agent, the payoffs are:
+> $$\begin{aligned}\text{Principal} && &v - t \\\text{Agent} && &t - c(e)\end{aligned}$$
+> 1. What effort level is chosen in the first-best solution?  
+> How large is the expected total surplus in the first-best solution?  
+> 2. The principal offers a contract $t(v)$.  
+> How will the principal set $t(0)$ and $t\big(\frac{1}{2}\big)$, if negative payments are feasible?
+
+1. First best  
+Social planner's problem:
+$$\begin{aligned}\max_e && E[v \ | \ e] - c(e) &= e\cdot\frac{1}{2}+(1-e)\cdot 0 - \frac{1}{2}e^2\\
+&& &= \frac{1}{2}(e-e^2) \\
+FOC && e^{FB} &= \frac{1}{2} \end{aligned}$$
+Expected total surplus in first best:
+$$\begin{aligned}E[v \ | \ e^{FB}] - c(e^{FB}) &= \frac{1}{2}\cdot\frac{1}{2} - \frac{1}{2}\Big(\frac{1}{2}\Big)^2 \\
+&= \frac{1}{8}\end{aligned}$$
+2. When negative payments are feasible, franchising contract can be applied.  
+Principle extracts expected total surplus
+$$\begin{aligned}v - t(v) &= \frac{1}{8} \\
+t(v) &= v - \frac{1}{8} \\
+t(0) &= - \frac{1}{8} \\
+t\Big(\frac{1}{2}\Big) &= \frac{3}{8}\end{aligned}$$
+
+<!-- Let the franchising fee $a$ be a constant,  
+agent's problem:
+$$\begin{aligned}\max_e && &E[v \ | \ e] - c(e) - a \\
+FOC && &e^* = \frac{1}{2}\end{aligned}$$
+Principal's problem:
+$$\begin{aligned}\max && &a \\
+(PC) && &E[v \ | \ e] - c(e) - a\geq 0 \\
+&& &a^* = \frac{1}{8}\end{aligned}$$
+therefore
+$$\begin{aligned}t(0) &= 0 - \frac{1}{8} \\
+&= -\frac{1}{8} \\
+t\Big(\frac{1}{2}\Big) &= \frac{1}{2} - \frac{1}{8} \\
+&= \frac{3}{8} \end{aligned}$$
+ -->
+
+### Limited Liability
+
+- Limited liability: $t\geq 0$
+- Return: $v\in \{v_H, v_L\}$
+- Effort level: $e\in \{ e_H, e_L\}$
+    - Technology: $\begin{cases}Pr( v = v_H \ | \ e = e_H ) = e_H \\ Pr( v = v_H \ | \ e=e_L ) = e_L \\ e_L < e_H  \end{cases}$
+    - Cost: $\begin{cases}c(e_H) = c \\ c(e_L) = 0 \end{cases}$
+- First best solution
+    - $e^{FB} = e_H$ when 
+    $$\begin{aligned} e_H v_H + (1-e_H )v_L - c &\geq e_Lv_H + (1-e_L)v_L - 0 \\
+    (e_H - e_L)(v_H - v_L) &\geq c\end{aligned}$$
+    - $e^{FB} = e_L$ otherwise
+- Second best solution
+    - Contract: $\begin{cases}t(v_H) = t_H \\ t(v_L) = t_L \end{cases}$
+- When principal implements $e = e_H$
+$$\begin{aligned}\max && &e_H(v_H - t_H) + (1-e_H)(v_L - t_L) \\
+(IC) && &e_H t_H + (1-e_H )t_L - c \geq e_L t_H + (1-e_L )t_L - 0 \\
+(PC) && &e_H t_H + (1-e_H )t_L - c \geq \underline{U} = 0 \\
+(LL) && &\begin{cases}t_H \geq 0 \\t_L \geq 0 \end{cases}\end{aligned}$$
+    - Lemma: $\begin{cases}t_H = \frac{c}{e_H - e_L} \\ t_L = 0\end{cases}$ is a solution
+    - Agent's expected payoff (LL rent): 
+    $$\begin{aligned}e_H t_H + (1-e_H )t_L - c &= e_H \cdot \frac{c}{e_H - e_L} - c\\ &= \frac{e_Lc}{e_H - e_L}\end{aligned}$$
+    - Principal's expected payoff: 
+    $$\begin{aligned}e_H (v_H - t_H) + (1-e_H )(v_L - t_L) &= e_H (v_H - t_H) + (1-e_H )v_L \\
+    &= e_H v_H - e_Ht_H + (1-e_H )(v_L - t_L) \\
+    &= e_H v_H - \frac{e_Hc}{e_H - e_L} + (1-e_H )v_L \end{aligned}$$
+- When principal implements $e = e_L$
+    - Contract: $t_H = t_L = 0$
+    - Agent's expected payoff: 0
+    - Principal's expected payoff: $e_L v_H + (1-e_L )v_L$
+- Principal wants to implement $e = e_H$ when
+$$\begin{aligned} e_H v_H  - \frac{e_Hc}{e_H - e_L} + (1-e_H )v_L &\geq e_L v_H + (1-e_L )v_L\\
+(e_H - e_L)(v_H - v_L) &\geq \frac{e_Hc}{e_H - e_L}\end{aligned}$$
+- When $c\leq (e_H - e_L)(v_H - v_L) < \frac{e_Hc}{e_H - e_L}$, $e = e_H$ is first best solution but not chosen by the principal   
+
+> Application: Workplace surveillance (S2 P12)  
+> The principal can decide $x\in\{0,1\}$, when $x=1$, a surveillance technology costing $k>0$ is used, and agents' effort level becomes verifiable.  
+> Principal's payoff: $v\in\{0,1\}$.  
+> Agent's effort cost: $c(e) = e^2$, reservation utility is zero, and chooses $e\in[0,1] = Pr(v=1|e)$.  
+> 1. Calculate the first best and the second best.  
+> 2. Consider a privacy protection law that forbids workplace surveillance. How does the law impact on total surplus?
+
+1. First best  
+Social planner's problem:  
+$$\begin{aligned}\max_e && e - e^2 - x\cdot k &\phantom{\ggg} \\
+FOC && 1 - 2e &= 0 \\
+&& e^{FB} &= \frac{1}{2} \\
+&& x^{FB} &= 0 \end{aligned}$$ 
+Expected total surplus: $$e^{FB} - (e^{FB})^2 - x^{FB}\cdot k = \frac{1}{4}$$
+2. Second best  
+    a. Suppose principal chooses $x = 0$  
+    Contract: $t(v=1) = t_1$, $t(v=0) = t_0$  
+    Suppose principal implements $e = \hat{e}$, principal's problem:  
+    $$\begin{aligned}\max_{\hat{e}} && &\phantom{\ggg}\hat{e}\cdot(v_1 - t_1) + (1 - \hat{e})\cdot(v_0 - t_0) \\
+    && &= \hat{e}\cdot(1 - t_1) - t_0\cdot(1 - \hat{e})\\
+    (IC) && &\hat{e} = \text{argmax}_e \ e\cdot t_1 + (1-e)\cdot t_0 - e^2 \\
+    (PC) && &\hat{e}\cdot t_1 + (1-\hat{e})\cdot t_0 - \hat{e}^2 \geq 0\\
+    (LL) && &\begin{cases}t_1\geq 0 \\ t_0 \geq 0 \end{cases}\end{aligned}$$ 
+    (IC) $\implies \hat{e} = \frac{t_1 - t_0}{2}$,  
+    Let $t_0 = 0 \implies t_1 = 2\hat{e}$.  
+    Plug in back to principal's problem,  
+    $$\begin{aligned}\max_{\hat{e}} && \hat{e}\cdot(1 - 2\hat{e})&\\
+    FOC && 1 - 4\hat{e} &= 0 \\
+    && \hat{e} &= \frac{1}{4} \end{aligned}$$
+    Expected payoff:  
+    $$\begin{aligned}\text{Principal:} && &\hat{e}\cdot(1 - 2\hat{e}) = \frac{1}{8} \\
+    \text{Agent:} && &\hat{e}\cdot t_1 - \hat{e}^2 = \frac{1}{16} \\
+    \text{Total:} && &\hat{e} - \hat{e}^2 = \frac{3}{16}\end{aligned}$$
+    b. Suppose principal chooses $x = 1$  
+    Principal enforces $e = e^{FB} = \frac{1}{2}$  
+    Contract: $t(e^{FB}) = \frac{1}{4}$  
+    Expected payoff:  
+    $$\begin{aligned}\text{Principal:} && &e\cdot 1 + (1-e)\cdot 0 - t - k = \frac{1}{4} - k \\
+    \text{Agent:} && &- c + t = 0\\
+    \text{Total:} && &e\cdot 1 + (1-e)\cdot 0 - c - k = \frac{1}{4} - k\end{aligned}$$
+    c. Comparison  
+    Principal chooses $x = 1$ when 
+    $$\begin{aligned} \frac{1}{8} &\leq \frac{1}{4} - k\\
+    k &\leq \frac{1}{8}\end{aligned}$$
+3. Privacy protection law  
+The law improves total surplus when principal prefers to choose $x = 1$ and  
+$$\begin{aligned}\frac{3}{16} &> \frac{1}{4} - k \\
+k &> \frac{1}{16} \end{aligned}$$
+Therefore, the law improves total surplus when $\frac{1}{16} < k < \frac{1}{8}$
+
+### Agent Offers Contract
+
+- Contract: $\begin{cases}t_H = v_H \\ t_L = v_L \end{cases}$
+- First best solution is attained
+    - Agent's expected payoff: $e_H v_H + (1-e_H )v_L$
+    - Principal's expected payoff: 0
+- Restrictions of contractual freedom may be welfare-enhancing
+
+> Exercise 2  
+> Consider a principal and an agent, the agent has no wealth.  
+> The parties are risk-neutral and the reservation utilities are zero.  
+> The agent can choose the unobservable effort level $e\in [0,1]$.  
+> The agent’s disutility of effort is $4e^2$.  
+> The principal’s return $v\in\{0,2\}$ is verifiable; it is $v=2$ with probability $e$.  
+> 1. What effort level is chosen in the first-best solution?  
+> How large is the expected total surplus in the first-best solution?  
+> 2. Consider contracts that stipulate a payment $t(v)$ to the agent, where $t_0 = t(0)$ and $t_2 = t(2)$.  
+> First suppose that the principal can make a take-it-or-leave it contract offer to the agent.  
+> How will $t_0$ and $t_2$ be set by the principal?  
+> How large are the parties' expected payoffs in this case?  
+> Will the first-best solution be attained?  
+> 3. Now suppose that the agent can make a take-it-or-leave it contract offer to the principal.  
+> How will $t_0$ and $t_2$ be set by the agent?  
+> How large are the parties’ expected payoffs in this case?  
+> Will the first-best solution be attained?
+
+1. First best  
+Social planner's problem:  
+$$\begin{aligned}\max_e && 2\cdot e + 0\cdot (1-e) - 4e^2 \\
+FOC && 2 - 8e &= 0 \\
+&& e^{FB} &= \frac{1}{4} \end{aligned}$$
+Expected total surplus: 
+$$\begin{aligned}2\cdot e^{FB} - 4(e^{FB})^2 &= 2\cdot \frac{1}{4} - 4\cdot\Big(\frac{1}{4}\Big)^2 \\
+&= \frac{1}{4} \end{aligned}$$
+2. Limited liability  
+Suppose principal implements $e = \hat{e}$, principal's problem:
+$$\begin{aligned}\max_t && &\hat{e}\cdot(2-t_2) + (1-\hat{e})\cdot(0 - t_0) \\
+(IC) && &\hat{e} = \text{argmax}_e \ e\cdot t_2 + (1-e)\cdot t_0 - 4e^2 \\
+(PC) && &\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 \geq 0\\
+(LL) && &\begin{cases}t_2\geq 0 \\ t_0 \geq 0\end{cases}\end{aligned}$$
+(IC) $\implies\hat{e}=\frac{t_2 - t_0}{8}$  
+therefore (PC) is slack  
+Let $t_0 = 0 \implies t_2 = 8\hat{e}$.  
+Plug in back to principal's problem,  
+$$\begin{aligned}\max_{\hat{e}} && \hat{e}\cdot(2-8\hat{e})& \\
+FOC && 2 - 16\hat{e} &= 0 \\
+&& \hat{e} &= \frac{1}{8}\end{aligned}$$
+Expected payoff:  
+$$\begin{aligned}\text{Principal:} && &\hat{e}\cdot (2-t_2) + (1-\hat{e})\cdot (0-t_0) = \frac{1}{8} \\
+\text{Agent:} && &\hat{e}\cdot t_2 + (1-\hat{e})\cdot t_0 - 4\hat{e}^2 = \frac{1}{16}\\
+\text{Total:} && &\hat{e}\cdot 2 + (1-\hat{e})\cdot 0 - 4\hat{e}^2 = \frac{3}{16}\end{aligned}$$
+First best is not attained.
+3. Agent offers contract  
+Agent's problem:
+$$\begin{aligned}\max_e && &e\cdot t_2 + (1-e)\cdot t_0 - 4e^2\\
+(PC) && &\begin{cases}2 - t_2\geq 0 \\ 0 - t_0 \geq 0\end{cases} \\
+FOC && &t_2 - 8e = 0 \\
+&& &\phantom{t_2 - 8}e = \frac{t_2}{8}\end{aligned}$$
+Agent offers $t_0 = 0$, $t_2 = 2\implies e = \frac{1}{4} = e^{FB}$
+Expected payoff:  
+$$\begin{aligned}\text{Principal:} && &e\cdot (2-t_2) + (1-e)\cdot (0-t_0) = 0 \\
+\text{Agent:} && &e\cdot t_2 + (1-e)\cdot 0 - 4e^2 = \frac{1}{4}\\
+\text{Total:} && &e\cdot 2 + (1-e)\cdot 0 - 4e^2 = \frac{1}{4}\end{aligned}$$
+First best is attained.
+
+## Moral Hazard: Hidden Information
+
+### One-Sided 
+
+- Timing
+    1. Principal offers contract: $t$
+    2. Agent accepts or rejects
+    3. Agent learns their type $c$ (unobservable)
+    4. Agent chooses quantity $x$ (verifiable)
+    5. $v(x)$ is realized (verifiable)
+    6. Payment $t$ is made
+- Return: $v$
+- Agent's type (cost): $c\geq 0$ 
+    - cdf: $F(c)$
+- Agent's action (quantity): $x\geq 0$
+    - Technology: $v(x)$
+- Contract: $t$
+    - Principal's payoff: $v(x) - t$
+    - Agent's payoff: $t - c\cdot x$
+- First-best solution: $$x^{FB}(c) = \text{argmax} \ v(x) - c\cdot x$$
+- Franchising contract: $t(x) = v(x)-a$ (may be positive or negative)
+    - Agent's problem
+    $$\begin{aligned}\max_x && t(x) - c\cdot x &= v(x)-a - c\cdot x \\
+    && x^* &= x^{FB}(c) \end{aligned}$$
+    Principal to abstract all surplus, let 
+    $$\begin{aligned}E\big[v(x)-a - c\cdot x\big] &\overset{!}{=} 0\\
+    a &= E\big[v(x) - c\cdot x\big] \\
+    &= E\Big[v\big(x^{FB}(c)\big) - c\cdot x^{FB}(c)\Big]\end{aligned}$$
+
+> Exercise 3  
+> A seller can make a take-it-or-leave it contract offer to a buyer.  
+> The reservation utilities are zero.  
+> After a contract is signed, the buyer privately learns his type $v$.  
+> It is commonly known that $v$ is uniformly distributed on the interval $[0,1]$.  
+> If the verifiable quantity $x\in \{0,1\}$ is traded and the buyer makes a transfer payment $t$ to the seller, the payoffs are:  
+> Seller: $t - \frac{1}{2}\cdot x$  
+> Buyer: $x\cdot v - t$  
+> 1. Characterize the ex post efficient trade decision.  
+> How large is the expected total surplus in the first-best solution?  
+> 2. Suppose the seller offers the following contract:  
+> After the realization of $v$, the buyer can choose a quantity $x$ and must pay $t(x)$ to the seller.  
+> How will $t(0)$ und $t(1)$ be set by the seller?
+
+1. First best  
+Social planner's problem:  
+$$\begin{aligned}\max_x && &x\cdot v - \frac{1}{2}\cdot x \\
+&& &x^{FB}(v) = \begin{cases}1 & v\geq \frac{1}{2} \\ 0 & v<\frac{1}{2} \end{cases}\end{aligned}$$
+Expected total surplus:  
+$$\begin{aligned}&\phantom{\ggg}E\Big[x^{FB}(v)\cdot v - \frac{1}{2}\cdot x^{FB}(v) \Big] \\
+&= \int_{\frac{1}{2}}^1 1\cdot\Big(v - \frac{1}{2}\Big)\,dv + \underbrace{\int_0^{\frac{1}{2}} 0\cdot \Big(v - \frac{1}{2}\Big)\, dv}_{=0} \\
+&= \Big[\frac{1}{2}\cdot v^2 - \frac{1}{2}v \Big]_{\frac{1}{2}}^1 \\
+&= 0 - \Big(\frac{1}{8} - \frac{1}{4}) \\
+&= \frac{1}{8} \end{aligned}$$
+2. When seller offers contract, they extracts expected total surplus  
+$$\begin{aligned}t(x) - \frac{1}{2}\cdot x &= \frac{1}{8} \\
+t(x) &= \frac{1}{8} + \frac{1}{2}\cdot x \\
+t(0) &= \frac{1}{8} \\
+t(1) &= \frac{5}{8}\end{aligned}$$
+
+<!-- 
+Seller's payoff: $t(x)$  
+Buyer's payoff gives: 
+$$\begin{aligned}x\cdot v - t(x) &= \big(t(x) - \frac{1}{2}\cdot x + x\cdot v - t(x) \big) - \frac{1}{8} \\
+&=-\frac{1}{2}\cdot x + x\cdot v - \frac{1}{8} \\
+-t(x) &= - \frac{1}{2}\cdot x - \frac{1}{8} \\
+t(x) &= \frac{1}{2}\cdot x + \frac{1}{8} \\
+t(0) &= \frac{1}{8} \\
+t(1) &= \frac{5}{8}\end{aligned}$$
+ -->
+<!-- 
+$$\begin{aligned}x\cdot v - t(x) &= x\cdot v - \frac{1}{2}\cdot x - a \\
+\frac{1}{2}\cdot x + a  &= t(x) \\
+t(0) &= a \\
+t(1) &= a + \frac{1}{2}\end{aligned}$$
+Buyer's (PC): 
+$$\begin{aligned}E\Big[x\cdot v - \frac{1}{2}\cdot x - a\Big] &\geq 0 \\
+a &\geq \frac{1}{8}\end{aligned}$$
+Therefore,  
+$$\begin{aligned}t(0) &= \frac{1}{8} \\
+t(1) &= \frac{5}{8} \end{aligned}$$
+ -->
+
+### Two-Sided
+
+- Timing
+    1. Principal offers contract: $(t, x)$
+    2. Agent accepts or rejects
+    3. Agent learns their type $c$, principal learns their type $v$  
+    (unobservable by the other party)
+    4. Agent chooses $x$
+    5. Payment $t$ is made
+- Principal's type (return): $v\geq 0$
+    - cdf: $G(v)$
+- Agent's type (cost): $c\geq 0$ 
+    - cdf: $F(c)$
+- Contract: $(t, x)$
+    - Quantity: $x\in\{0,1\}$
+    - Technology: $v = c\cdot x$
+    - Payment: $t(x)$
+    - Principal's payoff: $v\cdot x - t$
+    - Agent's payoff: $t - c\cdot x$
+- First-best solution: 
+$$\begin{aligned} x^{FB}(c,v) &= \text{argmax} \ v\cdot x - c\cdot x \\
+&= \begin{cases}1 & v\geq c \\ 0 & v\leq c \end{cases}\end{aligned}$$
+- Contract: principal annouces some $\hat{v}$ at day 3.5
+$$\begin{aligned}t(\hat{v}, x) &= \hat{v}\cdot x- E\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
+&= \begin{cases}\hat{v}\cdot x - \hat{v} + c & \hat{v}\geq c \\
+\hat{v}\cdot x & \hat{v}\leq c \end{cases}\end{aligned}$$
+Agent's problem
+$$\begin{aligned}\max_x && &\phantom{\ggg}t(\hat{v}, x) - c\cdot x \\
+&& &= \hat{v}\cdot x- E\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] - c\cdot x \\
+&& &= (\hat{v}-c)\cdot x - (\hat{v} - c)\cdot x^{FB}(c,\hat{v}) \\
+&& &= (\hat{v}-c)\cdot \big(x - x^{FB}(c,\hat{v})\big) \\
+&& &x^* = x^{FB}(c,\hat{v}) \end{aligned}$$
+Principal's problem
+$$\begin{aligned}\max_{\hat{v}} && &\phantom{\ggg}E_c[v\cdot x - t] \\
+&& &= E_c\big[v\cdot x^{FB}(c,\hat{v}) - t\big(\hat{v},x^{FB}(c,\hat{v})\big)\big] \\
+&& &= E_c\Big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + E_c\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big]\Big] \\
+&& &= E_c\big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + (\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
+&& &= E_c\big[(v-c)\cdot x^{FB}(c,\hat{v})\big] \\
+&& \hat{v}^* &= v\end{aligned}$$
+Expected payoff:  
+$$\begin{aligned}\text{Principal:} && &\phantom{\ggg}v\cdot x -t \\
+&& &=E\big[(v-c)\cdot x^{FB}(c,v)\big] \\
+\text{Agent:} && &\phantom{\ggg}t - c\cdot x \\
+&& &= (v-c)\cdot \big(x^{FB}(c,v) - x^{FB}(c,v)\big) = 0\\
+\text{Total:} && &\phantom{\ggg}v\cdot x - c\cdot x \\
+&& &= E\big[(v-c)\cdot x^{FB}(c,v)\big]\end{aligned}$$
+- Would it be possible for the agent to offer contract and implement $x^{FB}$, s.t. their expected payoff is strictly positive?
+
+> Example (S2 P21)  
+> v and c are independent random variables that are uniformly distributed on $[0, 1]$  
+> Calculate first-best expected total surplus, payment and payoffs.
+
+1. FB expected total surplus
+$$\begin{aligned}&\phantom{\ggg}E\big[(v-c)\cdot x^{FB}(c,v)\big] \\
+&= E\big[ \max( v-c, 0 )\big] \\
+&= \int_0^1\int_0^1 \max( v-c, 0 )\, dcdv \\
+&= \int_0^1\overbrace{\int_0^v}^{c\leq v} v-c\, dcdv + \underbrace{\int_0^1\overbrace{\int_v^1}^{c>v} 0\, dcdv}_{=0} \\
+&= \int_0^1 \big[vc - \frac{1}{2}c^2 \big]_0^v\, dv \\
+&= \int_0^1 \frac{1}{2}v^2\, dv \\
+&= \big[\frac{1}{6}v^3 \big]_0^1 \\
+&= \frac{1}{6}\end{aligned}$$
+2. Principal extracts all ETS
+$$\begin{aligned}\hat{v}\cdot x - t(\hat{v}, x) &= E_c\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big]\\
+t(\hat{v}, x) &= \hat{v}\cdot x- E_c\big[(\hat{v} - c)\cdot x^{FB}(c,\hat{v})\big] \\
+&= \hat{v}\cdot x - E_c\big[ \max( \hat{v} - c, 0 )\big] \\
+&= \hat{v}\cdot x - \int_0^{\hat{v}} \hat{v}-c\, dc - \int_{\hat{v}}^1 0\, dc \\
+&= \hat{v}\cdot x - \big[\hat{v}c-\frac{1}{2}c^2\big]_0^{\hat{v}}\\
+&= \hat{v}\cdot x - \frac{1}{2}\hat{v}^2\end{aligned}$$
+therefore, agent chooses $x$ s.t.
+$$\begin{aligned}\max_x && &\phantom{\ggg}t - c\cdot x \\
+&& &= \hat{v}\cdot x - \frac{1}{2}\hat{v}^2 - cx \\
+FOC && &\hat{v} - c = 0 \\
+&& &x = x^{FB}(c,\hat{v})\end{aligned}$$
+Principal's payoff:
+$$\begin{aligned}&\phantom{\ggg}E_c\Big[v\cdot x^{FB}(c,\hat{v}) - t\big(\hat{v}, x^{FB}(c,\hat{v})\big)\Big] \\
+&= E_c\Big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v}) + \frac{1}{2}\hat{v}^2 \Big] \\
+&= E_c\big[v\cdot x^{FB}(c,\hat{v}) - \hat{v}\cdot x^{FB}(c,\hat{v})\big] + \frac{1}{2}\hat{v}^2 \\
+&= \end{aligned}$$
+
+
+## Adverse Selection
+
+### One-Sided: Timing
+
+0. Agent learns their type $c$
+1. Principal offers contract $t$
+2. Agent accepts or rejects
+3. Agent chooses quantity $x$ (verifiable)
+4. Payment $t$ is made
+
+### First Best
+
+- Return: $v$
+    - $v'(x)>0$, $v''(x)<0$
+    - $v'(0) = \infty$, $\lim_{x\to\infty} \ v'(x) = 0$
+- Agent's cost: $c\in\{ c_L, c_H\}$
+    - Probability: $Pr(c= c_L) = p$
+    - Reservation utility: $\underline{U} = 0$
+- Contract: $t$
+    - Principal's payoff: $v(x) - t$
+    - Agent's payoff: $t - c\cdot x$
+- First-best solution
+$$\begin{aligned}\max_x && v(x) &- c\cdot x\\
+FOC && v'\big(x^{FB}(c) \big) &= c \\
+&& x^{FB}(c_L) &> x^{FB}(c_H)\end{aligned}$$
+- Game induced by mechanism
+    - Principal's strategy: $s_p\in S_p$
+    - Agent's strategy: $s_a(c)\in S_a$
+    - Principal's payoff: $v\Big(X\big(s_a(c), s_p\big)\Big) - T\big(s_a(c), s_p\big)$
+    - Agent's payoff: $T\big(s_a(c), s_p\big) - c\cdot X\big(s_a(c), s_p\big)$
+    - Equilibrium
+    $$\begin{aligned}s_p^* &= \text{argmax}_{s_p} \ v\Big(X\big(s_a^*(c), s_p\big)\Big) - T\big(s_a^*(c), s_p\big) \\
+    s_a^* &= \text{argmax}_{s_a} \ T\big(s_a(c), s_p^*\big) - c\cdot X\big(s_a(c), s_p^*\big)\end{aligned}$$
+- Game induced by [direct mechanism](../notes-mechanism-social/#social-choice-function-implementation)  
+By revelation principle, implementable = truthfully implementable
+    - Principal's strategy: $t(c) = T\big(s_a^*(c), s_p^*\big)$
+    - Agent's strategy: $x(c) = X\big(s_a^*(c), s_p^*\big)$
+    - Principal's payoff: $v\big(x(c)\big) - t(c)$
+    - Agent's payoff: $t(c) - c\cdot x(c)$
+
+### Second Best
+
+- Contract: $\begin{cases}x_L = x(c_L) \\ t_L = t(c_L)\end{cases}$, $\begin{cases}x_H = x(c_H) \\ t_H = t(c_H)\end{cases}$
+- Principal's problem
+$$\begin{aligned}\max_{x_L, x_H, t_L, t_H} && p\cdot\big( v(x_L) - t_L\big) &+ (1-p)\cdot\big( v(x_H) - t_H\big) \\
+(IC_L) && t_L - c_L\cdot x_L&\geq t_H - c_L\cdot x_H\\
+\implies && t_L - c_L\cdot x_L&= t_H - c_L\cdot x_H \\
+(IC_H) && t_H - c_H\cdot x_H&\geq t_L - c_H\cdot x_L\\
+(PC_L) && t_L - c_L\cdot x_L&\geq \underline{U} = 0\\
+(PC_H) && t_H - c_H\cdot x_H&\geq \underline{U} = 0 \\
+\implies && t_H - c_H\cdot x_H &= 0\end{aligned}$$
+Therefore, 
+$$\begin{aligned}t_H &= c_H\cdot x_H \\
+t_L &= c_L\cdot x_L + t_H - c_L\cdot x_H \\
+&= c_L\cdot x_L + c_H\cdot x_H - c_L\cdot x_H \\
+&= c_L\cdot x_L + \underbrace{x_H\cdot( c_H - c_L)}_{\text{Information rent}}\end{aligned}$$
+Plug back into Principal's problem
+$$\begin{aligned}\max_{x_L, x_H} && p&\cdot\big( v(x_L) - c_L\cdot x_L - x_H\cdot( c_H - c_L)\big) \\
+&& &+ (1-p)\cdot\big( v(x_H) - c_H\cdot x_H) \\
+FOC && \frac{\partial}{\partial x_L} &= p\cdot\big( v'(x_L) -c_L\big) \\
+&& v'(x_L^{SB}) &= c_L \\
+&& x_L^{SB} &= x^{FB}(c_L)\implies\text{No distortion at the top}\\
+&& \frac{\partial}{\partial x_H} &= -p\cdot (c_H - c_L) + (1- p)\cdot\big( v'(x_H) -\cdot c_H) \\
+&& v'(x_H^{SB}) &= c_H + \frac{p}{1-p}\cdot(c_H - c_L) \\
+&& x_H^{SB} &< x^{FB}(c_H)\implies\text{Downward distortion}\end{aligned}$$
+Check $(IC_H)$
+$$\begin{aligned}t_H - c_H\cdot x_H &= c_H\cdot x_H - c_H\cdot x_H = 0 \\
+t_L - c_H\cdot x_L &= c_L\cdot x_L + x_H\cdot( c_H - c_L) - c_H\cdot x_L \\
+&= x_H\cdot( c_H - c_L) - x_L\cdot( c_H - c_L) \\
+&= (x_H - x_L)( c_H - c_L) < 0 \\
+\implies t_H - c_H\cdot x_H&> t_L - c_H\cdot x_L\end{aligned}$$
+
+> Exercise 4  
+> Consider the following variant of the basic adverse selection model:  
+> At date 0 the agent learns his type $c\in\{c_L, c_H\}$.  
+> Suppose $c_L = \frac{1}{2}$ and $c_H = 1$.  
+> It is commonly known that the distribution of the random variable $c$ is given by $Pr(c= \frac{1}{2}) = Pr(c=1) = \frac{1}{2}$.  
+> At date 1 the principal offers a contract.  
+> If the agent rejects, the parties get their reservation utilities zero.  
+> If the agent signs the contract, then subsequently a verifiable decision $x\geq 0$ is made and the principal makes a payment $t$ to the agent.  
+> The payoffs are:  
+> $$\begin{aligned}\text{Principal} && &\sqrt{x} - t \\ \text{Agent} && &t - xc - F\end{aligned}$$
+> Suppose the (commonly known) fix costs $F$ of the agent satisfy $0\leq F<\frac{1}{4}$  
+> 1. Characterize the first-best solution.  
+> 2. The principal offers a direct revelation mechanism $(t_L, x_L, t_H, x_H)$ to the agent.  
+> What is the principal’s objective function?  
+> What are the incentive compatibility constraints (IC)L and (IC)H?  
+> What are the participation constraints (PC)L and (PC)H, which must be satisfied if the principal wants to ensure that both types of the agent sign the contract?  
+> 3. Solve the principal's maximization problem described in part (2).  
+> What is the principal's expected profit?  
+> 4. Now suppose the principal wants to ensure the participation of the good type $c = \frac{1}{2}$ only.  
+> What contract will the principal offer?  
+> What is his expected profit in this case?  
+> Hence, for which values of $F$ will the principal dispense with the participation of the bad type $c=1$?
+
+1. Social planner's problem:
+$$\begin{aligned}\max_{x} && \sqrt{x} - xc - F& \\
+FOC && \frac{1}{2}x^{-\frac{1}{2}} - c &= 0 \\
+&& x^{FB}(c) &= \frac{1}{4c^2} \\
+&& &=\begin{cases}1 & c=\frac{1}{2} \\ \frac{1}{4} & c=1 \end{cases}\end{aligned}$$
+2. Principal's problem: 
+$$\begin{aligned}\max_{x,t} && &\phantom{\ggg}E[\sqrt{x} - t(x)] \\
+&& &= \frac{1}{2}(\sqrt{x_L} - t_L) + \frac{1}{2}(\sqrt{x_H} - t_H) \\
+(IC)_L && &t_L - x_L\cdot c_L\geq t_H - x_H\cdot c_L \\
+(PC)_L && &t_L - x_L\cdot c_L\geq F \\
+(IC)_H && &t_H - x_H\cdot c_H\geq t_L - x_L\cdot c_H\\
+(PC)_H && &t_H - x_H\cdot c_H\geq F\end{aligned}$$
+3. Adding (IC)L and (IC)H gives
+$$\begin{aligned}t_L - x_L\cdot c_L + t_H - x_H\cdot c_H &\geq t_H - x_H\cdot c_L + t_L - x_L\cdot c_H\\
+-x_L\cdot c_L - x_H\cdot c_H &\geq - x_H\cdot c_L  - x_L\cdot c_H \\
+x_L\cdot c_H - x_L\cdot c_L &\geq x_H\cdot c_H - x_H\cdot c_L \\
+x_L\cdot(c_H - c_L) &\geq x_H\cdot(c_H - c_L) \\
+x_L &\geq x_H\end{aligned}$$
+Since $c_H>c_L$, (IC)L $\implies$ 
+$$\begin{aligned}t_L - x_L\cdot c_L&\geq t_H - x_H\cdot c_L \\
+&\geq t_H - x_H\cdot c_H \\
+&\geq F \implies (PC)_L\end{aligned}$$
+Therefore, (PC)L is slack $\implies$ (PC)H is binding
+$$t_H = F + x_H\cdot c_H$$
+and (IC)L is binding
+$$\begin{aligned}t_L - x_L\cdot c_L &= t_H - x_H\cdot c_L \\
+t_L &= t_H - x_H\cdot c_L + x_L\cdot c_L \\
+&= F + x_H\cdot c_H - x_H\cdot c_L + x_L\cdot c_L \\
+&= F + x_L\cdot c_L + \underbrace{x_H\cdot( c_H -c_L)}_{\text{Information rent}} \end{aligned}$$
+<!-- 
+$(PC)_L$ is redundant (slack)  
+$(PC)_H\implies t_H = F + x_H\cdot c_H$  
+$(IC)_L\implies$ 
+$$\begin{aligned}t_L &= t_H - x_H\cdot c_L + x_L\cdot c_L \\
+&= F + x_H\cdot c_H - x_H\cdot c_L + x_L\cdot c_L \\
+&= F + x_L\cdot c_L + \underbrace{x_H\cdot( c_H -c_L)}_{\text{Information rent}}\end{aligned}$$
+$(IC)_H\implies$
+$$\begin{aligned} 0 &\geq (x_H -x_L)(c_H-c_L) \\
+x_H -x_L &\leq 0 \\
+x_H &\leq x_L\end{aligned}$$
+ -->
+Plug back to principal's problem:
+$$\begin{aligned}\max_x && \frac{1}{2}\big(\sqrt{x_L} &- F - x_L\cdot c_L - x_H\cdot( c_H -c_L)\big) + \frac{1}{2}(\sqrt{x_H} - F - x_H\cdot c_H) \\
+FOC && \frac{\partial}{\partial x_L} &= \frac{1}{2}\Big(\frac{1}{2}x_L^{-\frac{1}{2}}-c_L\Big) \overset{!}{=} 0 \\
+&& x_L^{SB} &= \frac{1}{4c_L^2} \\
+&& &= 1 = x_L^{FB}\\
+&& \frac{\partial}{\partial x_H} &=\frac{1}{2}\Big(-(c_H-c_H)+\frac{1}{2}x_H^{-\frac{1}{2}}-c_H\Big) \overset{!}{=} 0 \\
+&& x_H^{SB} &= \frac{1}{(4c_H-2c_L)^2} \\
+&& &= \frac{1}{9} < x_H^{FB}\end{aligned}$$
+Therefore,  $$\begin{aligned}t_H &= F + x_H\cdot c_H \\ &= F + \frac{1}{9} \\ t_L &= F + x_L\cdot c_L + x_H\cdot( c_H -c_L) \\ &= F + \frac{5}{9}\end{aligned}$$
+Principal's expected profit: 
+$$\frac{1}{2}(\sqrt{x_L} - t_L) + \frac{1}{2}(\sqrt{x_H} - t_H)\frac{1}{3} - F$$
+4. Principal's problem:
+$$\begin{aligned}\max_{x,t} && \frac{1}{2}(\sqrt{x_L} - t_L)& \\
+(PC_L) && t_L - x_L\cdot c_L - F &\geq 0 \\
+(PC_H) && t_H - x_H\cdot c_H - F &< 0 \end{aligned}$$
+Therefore, $t_L = F + x_L\cdot c_L$  
+Plug back to principal's problem  
+$$\begin{aligned}\max_x && \frac{1}{2}(\sqrt{x_L} - F - x_L\cdot c_L)& \\
+FOC && \frac{1}{2}\Big(\frac{1}{2}x_L^{-\frac{1}{2}}-c_L\Big) &= 0 \\
+&& x_L^{SB} &= \frac{1}{4c_L^2} \\
+&& &= 1\end{aligned}$$
+$$\begin{aligned}t_L &= F + x_L\cdot c_L \\
+&= F + \frac{1}{2} \end{aligned}$$
+Principal's expected profit: 
+$$\begin{aligned}&\phantom{\ggg} \frac{1}{2}(\sqrt{x_L} - t_L) \\
+&= \frac{1}{4} - \frac{1}{2}F\end{aligned}$$
+Therefore, principal dispenses with the participation of high type if
+$$\begin{aligned}\frac{1}{4} - \frac{1}{2}F &\geq \frac{1}{3} - F\\
+F &\geq \frac{1}{6} \end{aligned}$$
+
+
+### Agent Offers Contract
+
+- First best solution is attained
+
+### Two-Sided: Timing
+
+0. Agent learns their type $c$, principal learns their type $v$
+1. Principal offers contract $t$
+2. Agent accepts or rejects
+3. Agent chooses quantity $x$ (verifiable)
+4. Payment $t$ is made
+
+### Benchmark
+
+- Principal's type: $v$
+    - cdf: $G(v)$
+- Agent's cost: $c$
+    - cdf: $F(c)$
+    - Reservation utility: $\underline{U} = 0$
+- Contract: $t$
+    - Quantity: $x\in\{0,1\}$
+    - Principal's payoff: $v\cdot x - t$
+    - Agent's payoff: $t - c\cdot x$
+- First-best solution
+$$\begin{aligned} x^{FB}(c,v) &= \text{argmax} \ v\cdot x - c\cdot x \\
+&= \begin{cases}1 & v\geq c \\ 0 & v\leq c \end{cases}\end{aligned}$$
+- Game induced by mechanism
+    - Principal's strategy: $s_p(v)\in S_p$
+    - Agent's strategy: $s_a(c)\in S_a$
+    - Principal's payoff: $v\cdot X\big(s_a(c), s_p(v)\big) - T\big(s_a(c), s_p(v)\big)$
+    - Agent's payoff: $T\big(s_a(c), s_p(v)\big) - c\cdot X\big(s_a(c), s_p(v)\big)$
+    - Bayesian equilibrium
+    $$\begin{aligned}s_p^*(v) &= \text{argmax}_{s_p} \ E_c\Big[ v\cdot X\big(s_a^*(c), s_p\big) - T\big(s_a^*(c), s_p\big)\Big] \\
+    s_a^*(c) &= \text{argmax}_{s_a} \ E_v\Big[ T\big(s_a, s_p^*(v)\big) - c\cdot X\big(s_a, s_p^*(v)\big)\Big]\end{aligned}$$
+- Game induced by direct mechanism
+    - Principal's strategy: $t(c,v) = T\big(s_a^*(c), s_p^*(v)\big)$
+    - Agent's strategy: $x(c,v) = X\big(s_a^*(c), s_p^*(v)\big)$
+    - Principal's payoff: $E_c\big[ v\cdot x(c,v) - t(c,v)\big]$
+    - Agent's payoff: $E_v\big[ t(c,v) - c\cdot x(c,v)\big]$
+
+### Impossible Case
+
+- Principal's type: $v\in\{v_L, v_H\}$ (uniform)
+- Agent's cost: $c\in\{c_L, c_H\}$ (uniform)
+    - $0<c_L<v_L<c_H<v_H$
+- First-best solution
+$$x^{FB}(c,v) = \begin{cases}1 & v\geq c \\ 0 & v\leq c\end{cases}$$
+Therefore,
+$$\begin{aligned}\left.\begin{aligned}x^{FB}(c_L,v_L)\\ x^{FB}(c_L,v_H)\\ x^{FB}(c_H,v_H)\end{aligned}\right\} &= 1 \\
+x^{FB}(c_H,v_L) &= 0 \end{aligned}$$
+- Direct mechanism: $[t(c,v),x^{FB}(c,v)]$
+- Contract: $t_{ij} = t(c_i, v_j)$
+    - Conclusion: can not satisfy all constraints simultaneously
+    - Constraints for agent
+    $$\begin{aligned} (PC) c_L && E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &\geq 0 \\
+    (IC) c_L && E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &\geq E_v\big[ t(c_H,v) - c_L\cdot x^{FB}(c_H,v) \big] \\
+    && \frac{1}{2} (t_{LH} - c_L) + \frac{1}{2} (t_{LL} - c_L) &\geq \frac{1}{2}(t_{HH} - c_L) + \frac{1}{2}(t_{HL} - 0\cdot c_L)\\
+    (PC) c_H && E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &\geq 0\\
+    && \frac{1}{2} (t_{HH} - c_H) + \frac{1}{2}(t_{HL} - 0\cdot c_H) &\geq 0\\
+    (IC) c_H && E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &\geq E_v\big[ t(c_L,v) - c_H\cdot x^{FB}(c_L,v) \big]\end{aligned}$$
+    - Constraints for principal
+    $$\begin{aligned}(PC) v_L && E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &\geq 0 \\
+    && \frac{1}{2}(v_L - t_{LL}) + \frac{1}{2}(0\cdot v_L - t_{HL}) &\geq 0\\
+    (IC) v_L && E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &\geq E_c\big[v_L\cdot x^{FB}(c,v_H) - t(c, v_H)\big] \\
+    (PC) v_H && E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &\geq 0 \\
+    (IC) v_H && E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &\geq E_c\big[v_H\cdot x^{FB}(c,v_L) - t(c, v_L)\big] \\
+    && \frac{1}{2}(v_H - t_{LH}) + \frac{1}{2}(v_H - t_{HH}) &\geq \frac{1}{2}(v_H - t_{LL}) + \frac{1}{2}(0\cdot v_H - t_{HL})\end{aligned}$$
+
+> Exercise 5  
+> A seller and a buyer can make a verifiable decision $x\in \{0,1\}$, where $x = 1$ means that a good is exchanged.  
+> When the buyer makes a transfer payment $t$ to the seller, then the parties’ payoffs are:
+> $$\begin{aligned}\text{Buyer} && x\cdot v - t \\ \text{Seller} && t - x\cdot c\end{aligned}$$
+> The cost $c\in\{c_L,c_H\}$ is private information of the seller, the valuation $v\in\{v_L,v_H\}$ is private information of the buyer.  
+> It is commonly known that $c$ and $v$ are independently distributed random variables with $Pr(c = c_L) = Pr(v = v_H) = \frac{1}{3}$ and $0 < c_L < v_L < v_H < c_H$.  
+> The parties' reservation utilities are zero.  
+> 1. What is the ex post efficient decision rule, which maximizes the parties' total surplus (first- best solution)?  
+> From an ex ante point of view (i.e., before the random variables are realized), what is the expected total surplus when the ex post efficient decision rule will be applied?  
+> 2. What are the four incentive compatibility constraints that a direct mechanism must satisfy when the ex post efficient decision rule is to be implemented?  
+> 3. Suppose the parties are privately informed at the contracting stage already (adverse selection).  
+> Please provide all participation constraints.  
+> Can the ex post efficient decision rule be implemented when bargaining over the contract is voluntary?  
+> If so, provide a direct mechanism that satisfies all incentive compatibility and participation constraints.  
+> 4. Suppose the parties learn their private information only after a contract has been signed (moral hazard).  
+> What are the participation constraints?  
+> Can the ex post efficient decision rule be implemented when bargaining over the contract is voluntary?
+
+1. Social planner's problem:
+$$\begin{aligned}\max_x && &x\cdot v - x\cdot c \\
+&& &x^{FB}(c_L) = 1\\
+&& &x^{FB}(c_H) = 0 \end{aligned}$$
+Total surplus: 
+$$\begin{aligned}&\phantom{\ggg}E_{v,c}\big[x^{FB}\cdot (v-c)\big] \\
+&= \frac{1}{3}\cdot E_v\big[x^{FB}\cdot (v-c_L)\big] + \frac{2}{3}\cdot E_v\big[\underbrace{x^{FB}\cdot (v-c_H)}_{=0}\big] \\
+&= \frac{1}{3}\Big(\frac{1}{3}\cdot 1\cdot(v_H - c_L) + \frac{2}{3}\cdot 1\cdot(v_L - c_L) \Big) \\
+&= \frac{1}{9}\cdot v_H  + \frac{2}{9}\cdot v_L - \frac{1}{3}\cdot c_L\end{aligned}$$
+2. Direct mechanism: $\big( t(c,v), x^{FB}(c,v)\big)$  
+Let $t_{ij} = t(c_i, v_j)$,  
+Incentive compatibility constraints for seller: 
+$$\begin{aligned}
+(IC) c_L && E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &\geq E_v\big[ t(c_H,v) - c_L\cdot x^{FB}(c_H,v) \big] \\
+&& \frac{1}{3} (t_{LH} - c_L) + \frac{2}{3} (t_{LL} - c_L) &\geq \frac{1}{3}(t_{HH} - 0\cdot c_L) + \frac{2}{3}(t_{HL} - 0\cdot c_L)\\
+(IC) c_H && E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &\geq E_v\big[ t(c_L,v) - c_H\cdot x^{FB}(c_L,v) \big] \\
+&& \frac{1}{3} (t_{HH} - 0\cdot c_H) + \frac{2}{3} (t_{HL} - 0\cdot c_H) &\geq \frac{1}{3}(t_{LH} - c_H) + \frac{2}{3}(t_{LL} - c_H) \end{aligned}$$
+For buyer: 
+$$\begin{aligned}
+(IC) v_L && E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &\geq E_c\big[v_L\cdot x^{FB}(c,v_H) - t(c, v_H)\big] \\
+&& \frac{1}{3}(v_L - t_{LL}) + \frac{2}{3}(0\cdot v_L - t_{HL}) &\geq \frac{1}{3}(v_L - t_{LH}) + \frac{2}{3}(0\cdot v_L - t_{HH}) \\
+(IC) v_H && E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &\geq E_c\big[v_H\cdot x^{FB}(c,v_L) - t(c, v_L)\big] \\
+&& \frac{1}{3}(v_H - t_{LH}) + \frac{2}{3}(0\cdot v_H - t_{HH}) &\geq \frac{1}{3}(v_H - t_{LL}) + \frac{2}{3}(0\cdot v_H - t_{HL})\end{aligned}$$
+3. Participate constraints for seller: 
+$$\begin{aligned}
+(PC) c_L && E_v\big[ t(c_L,v) - c_L\cdot x^{FB}(c_L,v) \big] &\geq 0 \\
+&& \frac{1}{3} (t_{LH} - c_L) + \frac{2}{3} (t_{LL} - c_L) &\geq 0 \\
+(PC) c_H && E_v\big[ t(c_H,v) - c_H\cdot x^{FB}(c_H,v) \big] &\geq 0 \\
+&& \frac{1}{3} (t_{HH} - 0\cdot c_H) + \frac{2}{3} (t_{HL} - 0\cdot c_H) &\geq 0\end{aligned}$$
+For buyer: 
+$$\begin{aligned}
+(PC) v_L && E_c\big[v_L\cdot x^{FB}(c,v_L) - t(c, v_L)\big] &\geq 0 \\
+&& \frac{1}{3}(v_L - t_{LL}) + \frac{2}{3}(0\cdot v_L - t_{HL}) &\geq 0 \\
+(PC) v_H && E_c\big[v_H\cdot x^{FB}(c,v_H) - t(c, v_H)\big] &\geq 0 \\
+&& \frac{1}{3}(v_H - t_{LH}) + \frac{2}{3}(0\cdot v_H - t_{HH}) &\geq 0\end{aligned}$$
+It is possible to satisfy all constraints simultaneously, for example: 
+$$\begin{aligned}
+&\begin{cases}x^{FB}(c_L) = 1\\x^{FB}(c_H) = 0 \end{cases} \\
+&\begin{cases}t_{LH} = t_{LL} = p\\ t_{HH} = t_{HL} = 0 \end{cases} \\
+&p \in( c_L, v_L)\end{aligned}$$
+4. Participate constraints for seller: 
+$$\begin{aligned} E_v\big[ t(c,v) - c\cdot x^{FB}(c,v) \big] &\geq 0 \\
+\frac{1}{9} (t_{LH} - c_L) + \frac{2}{9} (t_{LL} - c_L) +\frac{2}{9} (t_{HH} - 0\cdot c_H) + \frac{4}{9} (t_{HL} - 0\cdot c_H) &\geq 0 \end{aligned}$$
+For buyer: 
+$$\begin{aligned}
+E_c\big[v\cdot x^{FB}(c,v) - t(c, v)\big] &\geq 0 \\
+\frac{1}{9}(v_H - t_{LH}) + \frac{2}{9}(v_L - t_{LL}) + \frac{2}{9}(0\cdot v_H - t_{HH})+ \frac{4}{9}(0\cdot v_H - t_{HL}) &\geq 0\end{aligned}$$
+It is possible to satisfy all constraints simultaneously with the mechanism and price provided in (3).
+
+## Hold-Up Problem
+
+- Timing
+    0. Buyer and seller draft contract $t$
+    1. Seller invests $e$ (hidden)
+    2. Buyer observes $v$, seller observes $c$
+    3. Trade $x$, payment $t$ is made
+- Seller
+    - Investment: $e$
+    - Cost of investment: $k(e)$
+    - Cost of trade: $c$
+    - Payoff: $t- c\cdot x - k(e)$
+- Buyer
+    - Valuation of good: $v$
+    - Payoff: $v\cdot x - t$
+
+### First Best
+
+- Trade level: $x^{FB}(c,v) = \begin{cases}1 & c\leq v \\ 0 & \text{Otherwise} \end{cases}$
+- Social planner's problem:
+$$\begin{aligned}\max_{e} && E_e\big[ (v-c)&\cdot x^{FB}(c,v)\big] - k(e)\end{aligned}$$
+- When no contract is signed, according to Coase Theorem,  
+both parties will agree on $x^{FB}$ at time 3
+    - Seller has bargaining power: $e = e^{FB}$
+    - Buyer has bargaining power: $e = 0$, hold-up problem (fully underinvestment)
+    - With equal bargaining power, seller considers
+    $$\begin{aligned}\max_{e} && \frac{1}{2}\cdot E_e\big[ (v-c)&\cdot x^{FB}(c,v)\big] - k(e)\end{aligned}$$
+    $\implies \hat{e}<e^{FB}$, underinvestment
+
+### Observable & Non-Verifiable Information
+
+- At time 2, buyer and seller observes $c,v$
+- Not verifiable on the court
+- Option contract (Fill in the price)
+    - At time 2.5, seller announces price $p$ 
+    - At time 3, buyer has the option to buy at $p$
+- Backward induction
+    - Buyer buys when $v\geq p$  
+    $\implies$ seller announces $p\geq c$  
+    $\implies$ if $v\geq c$, buyer will exercise the option
+    - Equilibrium: $x = x^{FB}(c,v)$
+    - Seller's payoff: $E_e\big[ (v-c)\cdot x^{FB}(c,v)\big] - k(e)$
+
+### Private Information & Self-Investment
+
+- At time 2, buyer only observes $v$, seller only observes $c$
+- Contract:
+    - At time 2.5, seller announces $\hat{c}$
+    - At time 3, buyer chooses $x$ and pays $t$ 
+    $$t=\hat{c}\cdot x + E_v\big[ (v-\hat{c})\cdot x^{FB}(\hat{c}, v)]$$
+- Backward induction
+    - Buyer's problem:
+    $$\begin{aligned}\max_{x,t} && &\phantom{\ggg} v\cdot x - t \\
+    && &= \underbrace{(v-\hat{c})\cdot x}_{x(\hat{c}, v)} - \underbrace{E_v\big[ (v-\hat{c})\cdot x^{FB}(\hat{c}, v)]}_{x^{FB}(\hat{c}, v)} \\
+    \implies && x &= x^{FB}(\hat{c},v)\end{aligned}$$
+    - Seller considers announcement: 
+    $$\begin{aligned}\max_{\hat{c}} && &\phantom{\ggg} E[t-x\cdot c] - k(e) \\
+    && &= E_v\big[ (\hat{c}-c)\cdot x^{FB}(\hat{c}, v) + (v-\hat{c})\cdot x^{FB}(\hat{c}, v)] - k(e) \\
+    && &= E_v\big[ (v-c)\cdot x^{FB}(\hat{c}, v)] - k(e) \\
+    \implies && \hat{c} &= c\end{aligned}$$
+    - Seller's problem: 
+    $$\begin{aligned}\max_e && &\phantom{\ggg}E_e\big[ (v-c)\cdot x^{FB}(c,v)\big] - k(e) \\
+    \implies && e &= e^{FB}(c,v) \end{aligned}$$
+
+### Private Information & Cross-Investment
+
+- At time 1, seller chooses $e\in [0,1]$, $k(e) = \frac{1}{2}\cdot e^2$
+- At time 2, only buyer observes $v\in\{v_H,v_L\}$, everyone observes $c$
+    - $Pr(v=v_H) = e$
+- When $v_L < c < v_H$
+    - First best: $\begin{cases}x^{FB}(v_L) = 0 \\ x^{FB}(v_H) = 1 \end{cases}$  
+    Social planner's problem: 
+    $$\begin{aligned}\max_e && &\phantom{\ggg}E_e\big[ (v-c)\cdot x^{FB}(c,v)] - k(e) \\
+    && &= e\cdot(v_H-c) - \frac{1}{2}\cdot e^2 \\
+    FOC && &v_H-c - e = 0 \\
+    && &e^{FB}(c,v) = v_H - c\end{aligned}$$
+    - Option contract: at time 3, buyer has the option to buy at $p=v_H$
+    - Backward induction:  
+    Buyer buys when $v=v_H$  
+    Seller's problem: 
+    $$\begin{aligned}\max_e && &\phantom{\ggg}E_e\big[ (p-c)\cdot x^{FB}(c,v)]-k(e) \\
+    && &= e\cdot(p-c) - \frac{1}{2}\cdot e^2 \\
+    FOC && &p-c - e = 0 \\
+    && &e = e^{FB}(c,v) \end{aligned}$$
+- When $c<v_L$
+    - First best: $x^{FB} = 1$  
+    Social planner's problem: 
+    $$\begin{aligned}\max_e && &\phantom{\ggg}E_e\big[ (v-c)\cdot x^{FB}(c,v)] - k(e) \\
+    && &= e\cdot(v_H-c) + (1-e)\cdot(v_L - c) - \frac{1}{2}\cdot e^2 \\
+    FOC && &v_H-v_L - e = 0 \\
+    && &e^{FB}(c,v) = v_H - v_L\end{aligned}$$
+    - Direct mechanism contract: let $\begin{cases}x(v_L) =x_L \\ x(v_H) = x_H \end{cases}$, $\begin{cases}t(v_L) =t_L \\ t(v_H) = t_H \end{cases}$  
+    Buyer truthfully reveals if
+    $$\begin{aligned}(IC)_H && v_H\cdot x_H - t_H &\geq v_H\cdot x_L - t_L \\
+    \implies && v_H\cdot (x_H -x_L) &\geq t_H - t_L \\
+    (IC)_L && v_L\cdot x_L - t_L &\geq v_L\cdot x_H - t_H \\
+    \implies && t_H - t_L &\geq v_L\cdot (x_H-x_L)\end{aligned}$$
+    Since $x^{FB}(v_L) = x^{FB}(v_H)=1$,  
+    $(IC)\implies 0\leq t_H - t_L\leq 0$  
+    $\implies t_H = t_L = t$  
+    Seller's problem: 
+    $$\begin{aligned}\max_e && &\phantom{\ggg}E_e\big[t-c\cdot x^{FB}(c,v)]-k(e) \\
+    && &= E_e[ T-c] - k(e) \\
+    && &= T-c - \frac{1}{2}\cdot e^2 \\
+    FOC && e&= 0\end{aligned}$$
+    $\implies$ first best solution will not be attained
+
+> Exercise 6  
+> A buyer and a seller can choose the verifiable level of trade $x\in [0,1]$ at date 3.  
+> At date 0, the parties can write a binding contract.  
+> At date 1 the seller chooses an unobservable effort level $e\in [0,1]$.  
+> The seller's investment costs are $k(e) = \frac{e^2}{2}$.  
+> When the buyer makes a transfer payment t to the seller, the parties’ payoffs are:
+> $$\begin{aligned}\text{Seller} && &t-\frac{1}{2}\cdot xq - k(e) \\\text{Buyer} && &xq -t \end{aligned}$$
+> The quality $q\in\{q_L,q_H\}$ is realized at date 2 and is private information of the seller.  
+> Suppose that $q_L=\frac{1}{2}$, $q_H =1$ and $Pr(q = q_H) = e$.  
+> 1. What are the trade level (as a function of $q$) and the effort level in the first-best solution?  
+> What is the expected total surplus of the buyer and the seller in the first-best solution?  
+> 2. Consider a direct mechanism $\big[t(q), x(q)\big]$.  
+> What are the incentive compatibility constraints that ensure that the seller will reveal the quality truthfully?  
+> What are the investment incentives of the seller if the mechanism is ex post efficient?  
+> Will the first-best solution be attained?
+
+1. First best  
+Social planner's problem:
+$$\begin{aligned}\max_{x,e} && xq &-\frac{1}{2}\cdot xq - k(e) \\
+FOC && \frac{\partial}{\partial x} &= \frac{1}{2}\cdot q >0\\
+&& x^{FB} &= 1\end{aligned}$$
+Plug in back
+$$\begin{aligned}\max_{e} && &\phantom{\ggg}E\Big[x^{FB}q -\frac{1}{2}\cdot x^{FB}q - k(e) \Big] \\
+&& &= E\Big[\frac{1}{2}\cdot q - k(e)\Big] \\
+&& &= \frac{1}{2}\big(e\cdot q_H  + (1-e)\cdot q_L\big) - \frac{e^2}{2} \\
+FOC &&  &q_H - q_L - 2e = 0 \\
+&& &\phantom{0000000}e^{FB} = \frac{1}{4}\end{aligned}$$
+Expected total surplus:
+$$\begin{aligned}&\phantom{\ggg}E\Big[xq -\frac{xq}{2} - k(e) \Big] \\
+&= e^{FB}\cdot q_H\cdot \frac{1}{2} + (1-e^{FB})\cdot q_L\cdot \frac{1}{2} - \frac{e^2}{2} \\
+&= \frac{1}{8}+\frac{3}{16} - \frac{1}{32}\\
+&= \frac{9}{32}\end{aligned}$$
+2. Direct mechanism  
+Let $\begin{cases}t(q_L) = t_L \\ t(q_H) = t_H \end{cases}$, $\begin{cases}x(q_L) = x_L \\ x(q_H) = x_H \end{cases}$  
+After $q$ is realized, seller reveals truthfully if
+$$\begin{aligned}(IC)_H && t_H - \frac{1}{2}\cdot x_H q_H &\geq t_L - \frac{1}{2}\cdot x_L q_H\\
+\implies && t_H - t_L &\geq \frac{1}{2}\cdot q_H (x_H - x_L) \\
+(IC)_L && t_L - \frac{1}{2}\cdot x_L q_L &\geq t_H - \frac{1}{2}\cdot x_H q_L \\
+\implies && t_H - t_L &\leq \frac{1}{2}\cdot q_L (x_H - x_L)\end{aligned}$$
+To attain first best, plug in $x^{FB} = 1$
+$$\begin{aligned}(IC)_H && t_H - t_L &\geq 0 \\
+(IC)_L &&  t_H - t_L &\leq 0\end{aligned}$$
+therefore, $t_H = t_L = T$  
+At day 1, Seller's problem: 
+$$\begin{aligned}\max_{e} && &\phantom{\ggg}E_q\Big[ t-\frac{1}{2}\cdot x^{FB}\cdot q - k(e)\Big]\\
+&& &= T -k(e)- E_q\Big[\frac{1}{2}\cdot xq\Big] \\
+&& &= T - \frac{e^2}{2} - \frac{1}{2}\big(e\cdot q_H + (1-e)\cdot q_L \big)\\
+&& &= T - \frac{e^2}{2} - \frac{e}{2} - \frac{1-e}{4}\\
+FOC && &-e - \frac{1}{4} = 0 \\
+&& &\phantom{0000000}e = -\frac{1}{4} \end{aligned}$$
+therefore, seller chooses $e=0$, the first best is not attained
+
+## Property Rights
+
+### Vertical Integration
+
+- Timing
+    0. Parties agree on ownership structure
+    1. A invests $a$, B invests $b$
+    2. Bargain over trading of intermediate good $x\in\{0,1\}$
+- Party A
+    - Buyer of intermediate product
+    - Provider of human capital for final product
+    - Surplus from $x=1$: $v(a)$
+    - $v'(a)>0$, $v''(a)<0$
+    - $v'(0)>2$, $\lim_{a\to\infty}v'(a)=0$
+- Party B
+    - Supplier of intermediate product
+    - Provider of intermediate product with some physical asset
+    - Cost of trading: $c(b)$
+    - $c'(b)<0$, $c''(b)>0$
+    - $-c'(0)>2$, $\lim_{b\to\infty}c'(b)=0$
+- Ownership structures
+    - Non-integration: B owns the asset
+    - Integration: A owns the asset
+    - Joint ownership: both has veto power
+- Default payoff from $x=0$
+    - $d_A(a)<v(a) - c(b)$, $d_B(b)<v(a) - c(b)$  
+    $\implies x^{FB}=1$
+    - $v'(a)>d_A'(a)$, $-c'(b)>d_B'(b)$
+
+|       | $D^o_A$  | $D^o_B$  |
+| ----- | -------- | -------- |
+| $o=A$ | $d_A(a)$ | 0        |
+| $o=B$ | 0        | $d_B(b)$ |
+| $o=J$ | 0        | 0        |
+
+- Day2: trade (first best)  
+Social planner's problem:
+$$\begin{aligned}\max_{a,b} && v(a) &- c(b) - a - b \\
+FOC && v'(a^{FB}) &= 1 \\
+&& -c'(b^{FB}) &= 1 \end{aligned}$$
+- Day2: trade (second best)
+    - Incomplete contract: can only specify $o=A,B,J$
+    - Re-negotiation at day 2: split the surplus ([NBS](../notes-game-theory/#nash-bargaining-solution-nbs))  
+    $$\begin{aligned}\text{Re-negotiation surplus} && &\big( v(a)-c(b)\big)-(D^o_A + D^o_B)\\
+    \text{A's payoff} && U_A^o(a,b) &= D^o_A +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \\
+    \text{B's payoff} && U_B^o(a,b) &= D^o_B +\frac{1}{2}\big( v(a)-c(b)-D^o_A - D^o_B\big) \end{aligned}$$
+- Day 1: investment level
+    - $o=A$  
+    A's payoff:
+    $$\begin{aligned}\max_{a} && U_A^{o=A}(a,b)-a &= -a + d_A(a) + \frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
+    && &= -a + \frac{1}{2}\big( v(a)-c(b)+ d_A(a)\big) \\
+    FOC && \frac{1}{2}&\big( v'(a^A) + d_A'(a^A)\big) = 1 \end{aligned}$$
+    B's payoff:
+    $$\begin{aligned}\max_b && U_B^{o=A}(a,b)-b &= -b + 0 +\frac{1}{2}\big( v(a)-c(b)-d_A(a) - 0\big) \\
+    && &= -b + \frac{1}{2}\big( v(a)-c(b)- d_A(a)\big)\\
+    FOC && \frac{1}{2}&\big( -c'(b^A)\big) = 1\end{aligned}$$
+    - $o=B$  
+    A's payoff:
+    $$\begin{aligned}\max_{a} && U_A^{o=B}(a,b)- a  &= - a +0 + \frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
+    && &= -a + \frac{1}{2}\big( v(a)-c(b)- d_B(b)\big) \\
+    FOC && \frac{1}{2}&\big( v'(a^B)\big) = 1 \end{aligned}$$
+    B's payoff:
+    $$\begin{aligned}\max_b && U_B^{o=B}(a,b)-b  &= -b + d_B(b) +\frac{1}{2}\big( v(a)-c(b) - 0 - d_B(b)\big) \\
+    && &= -b + \frac{1}{2}\big( v(a)-c(b) + d_B(b)\big)\\
+    FOC && \frac{1}{2}&\big(-c'(b^B) + d_B'(b)\big) = 1\end{aligned}$$
+    - $o=J$  
+    A's payoff:
+    $$\begin{aligned}\max_{a} && U_A^{o=J}(a,b)- a &= - a + 0 + \frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
+    && &= -a + \frac{1}{2}\big( v(a)-c(b)\big) \\
+    FOC && \frac{1}{2}&\big( v'(a^J)\big) = 1 \end{aligned}$$
+    B's payoff:
+    $$\begin{aligned}\max_b && U_B^{o=J}(a,b)-b &=-b + 0 +\frac{1}{2}\big( v(a)-c(b) - 0 - 0\big) \\
+    && &= -b + \frac{1}{2}\big( v(a)-c(b)\big)\\
+    FOC && \frac{1}{2}&\big(-c'(b^J)\big) = 1\end{aligned}$$
+
+![](/post-img/notes-institution--integration-a.png)
+![](/post-img/notes-institution--integration-b.png)
+
+- Day 0: ownership structure  
+Total surplus: $v(a^o) - c(b^o) - a^o - b^o$  
+Since $\begin{cases}o^A\succ_A o^J \\ o^A\sim_B o^J \end{cases}$ and $\begin{cases}o^B\succ_B o^J \\ o^B\sim_A o^J \end{cases}$,  
+$\implies o=J$ is not optimal
+    - If $d^o_{-i} \equiv 0$, then $i$ should be the owner
+    - If only one of the parties has the investment decision, then it should be the owner
+
+### Joint Venture
+
+- Investments are for physical assets
+    - Party A's investment cost: $\frac{1}{2}a^2$
+    - Party B's investment cost: $\frac{1}{2}b^2$
+- When $x=1$, total surplus: $a+b$
+- Default payment from $x=0$: 
+
+|       | $D^o_A$  | $D^o_B$  |
+| ----- | -------- | -------- |
+| $o=A$ | $(a+b)ε$ | 0        |
+| $o=B$ | 0        | $(a+b)ε$ |
+| $o=J$ | 0        | 0        |
+
+- First best
+    - $x^{FB}=1$
+    - Social planner's problem
+    $$\begin{aligned}\max_{a,b} && a+b &-\frac{1}{2}a^2-\frac{1}{2}b^2 \\
+    FOC && a^{FB} &= 1\\
+    && b^{FB} &= 1 \end{aligned}$$
+    Total surplus: $1+1 - \frac{1}{2}- \frac{1}{2} = 1$
+- Second best: day 2: negotiations (NBS)
+    $$\begin{aligned}\text{Re-negotiation surplus} && &( a+b)-(D^o_A + D^o_B)\\
+    \text{A's payoff} && U_A^o(a,b) &= D^o_A +\frac{1}{2}(a+b - D^o_A - D^o_B) \\
+    \text{B's payoff} && U_B^o(a,b) &= D^o_B +\frac{1}{2}(a+b - D^o_A - D^o_B) \end{aligned}$$
+- Day 1: investment level
+    - $o=A$  
+    A's investment:
+    $$\begin{aligned}\max_{a} && &\phantom{\ggg}U_A^{o=A}(a,b)-\frac{1}{2}a^2 \\
+    && &= -\frac{1}{2}a^2 + D^A_A +\frac{1}{2}(a+b - D^A_A - D^A_B) \\
+    && &= -\frac{1}{2}a^2 + (a+b)ε +\frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\
+    FOC && &ε - a + \frac{1}{2}(1-ε) = 0 \\
+    && &a^A = \frac{1}{2}(1+ε)\end{aligned}$$
+    B's investment:
+    $$\begin{aligned}\max_b && &\phantom{\ggg}U_B^{o=A}(a,b)-\frac{1}{2}b^2 \\
+    && &= -\frac{1}{2}b^2 + D^A_B +\frac{1}{2}(a+b - D^A_A - D^A_B) \\
+    && &= -\frac{1}{2}b^2 + 0 +\frac{1}{2}\big(a+b - (a+b)ε - 0\big) \\\\
+    FOC && &-b + \frac{1}{2}(1-ε) = 0 \\
+    && &b^A = \frac{1}{2}(1-ε)\end{aligned}$$
+    - $o=B$  
+    By symmetry, $a^B = \frac{1}{2}(1-ε)$, $b^B = \frac{1}{2}(1+ε)$
+    - $o=J$  
+    A's investment:
+    $$\begin{aligned}\max_{a} && &\phantom{\ggg}U_A^{o=J}(a,b)-\frac{1}{2}a^2 \\
+    && &= -\frac{1}{2}a^2 + D^J_A +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
+    && &= -\frac{1}{2}a^2 + 0 + \frac{1}{2}(a+b - 0 - 0) \\
+    FOC && &-a + \frac{1}{2} = 0 \\
+    && &a^J = \frac{1}{2} \end{aligned}$$
+    B's investment:
+    $$\begin{aligned}\max_b && &\phantom{\ggg}U_B^{o=J}(a,b) -\frac{1}{2}a^2 \\
+    && &= -\frac{1}{2}a^2 + D^J_B +\frac{1}{2}(a+b - D^J_A - D^J_B) \\
+    && &= -\frac{1}{2}b^2 + 0 +\frac{1}{2}(a+b - 0 - 0) \\
+    FOC && &-b + \frac{1}{2} = 0 \\
+    && &b^J = \frac{1}{2} \end{aligned}$$
+- Day 0: ownership structure
+Total surplus: $a^o + b^o - \frac{1}{2}(a^o)^2 - \frac{1}{2}(b^o)^2$
+    - $o=A$
+    $$\begin{aligned}&\phantom{\ggg} \frac{1}{2}(1+ε) + \frac{1}{2}(1-ε) - \frac{1}{2}\cdot\Big(\frac{1}{2}(1+ε)\Big)^2 - \frac{1}{2}\cdot\Big(\frac{1}{2}(1-ε)\Big)^2 \\
+    &= \frac{3}{4}-\frac{1}{4}ε^2\end{aligned}$$
+    - $o=B$  
+    By symmetry, total surplus: $\frac{3}{4}-\frac{1}{4}ε^2$
+    - $o=J$
+    $$\begin{aligned}&\phantom{\ggg}\frac{1}{2} + \frac{1}{2} - \frac{1}{2}\cdot\Big( \frac{1}{2}\Big)^2 - \frac{1}{2}\cdot\Big( \frac{1}{2}\Big)^2\\
+    &= \frac{3}{4} \end{aligned}$$
+    Therefore, $o=J$ is optimal
+
+
+> Exercise 7  
+> Consider the following variant of the "Property Rights" model:  
+> At date 0, parties A and B agree on an ownership structure $o\in \{A,B,J\}$.  
+> At date 1, party A chooses an investment level $a\geq 0$ at costs $\frac{1}{2}a^2$, and party B simultaneously chooses an investment level $b\geq 0$ at costs $\frac{1}{2}b^2$.  
+> At date 2, the parties bargain about whether or not to collaborate.  
+> Suppose $0 < ε < λ < 1$.  
+> If the parties agree on collaboration, together they can generate the date-2 surplus $a+b$.  
+> If the parties do not reach an agreement, then depending on the ownership structure $o$, the default payoffs $D^o_A$ of party A and $D^o_B$ of party B are:
+> 
+> |       | $D_A^o$ | $D_B^o$ |
+> | ----- | ------- | ------- |
+> | $o=A$ | $a+εb$  | 0       |
+> | $o=B$ | 0       | $λa+b$  |
+> | $o=J$ | 0       | 0       |
+> 
+> 1. Characterize the first-best solution.
+> 2. Which investment levels ao and bo will the parties A and B choose at date 1 in the three cases $o=A$, $o=B$, and $o=J$, when they anticipate the date-2 Nash bargaining solution?  
+> Hence, what are the investment levels $a^A$, $a^B$, $a^J$, $a^{FB}$, and how can they be ranked?  
+> What are the investment levels $b^A$, $b^B$, $b^J$, $b^{FB}$, and how can they be ranked?
+> 3. On which ownership structure $o\in\{A,B,J\}$ will the parties agree at date 0?
+
+1. First best  
+Since $a+b>D_A^o + D_B^o$, collaboration is always good  
+Social planner's problem:
+$$\begin{aligned}\max_{a,b} && a+b &- \frac{1}{2}a^2 - \frac{1}{2}b^2\\
+FOC && a^{FB} &= 1\\
+&& b^{FB}&=1 \end{aligned}$$
+Total surplus:
+$$\begin{aligned}&\phantom{\ggg}a+b - \frac{1}{2}a^2 - \frac{1}{2}b^2 \\
+&= 1 + 1 - \frac{1}{2} - \frac{1}{2} \\
+&= 1\end{aligned}$$
+2. NBS at date 2
+$$\begin{aligned}\text{A's payoff} && D_A^o + \frac{1}{2}(a+b - D_A^o - D_B^o) \\
+\text{B's payoff} && D_B^o + \frac{1}{2}(a+b - D_A^o - D_B^o)\end{aligned}$$
+    a. $o=A$  
+    A's date 1 problem:
+    $$\begin{aligned}\max_a && &\phantom{\ggg}-\frac{1}{2}a^2 + D_A^A + \frac{1}{2}(a+b - D_A^A - D_B^A)\\
+    && &= -\frac{1}{2}a^2 + a+εb + \frac{1}{2}(a+b - a-εb - 0) \\
+    && &= -\frac{1}{2}a^2 + a+ \frac{1}{2}(εb + b) \\
+    FOC && &a^A = 1\end{aligned}$$
+    B's date 1 problem:
+    $$\begin{aligned}\max_b && &\phantom{\ggg}-\frac{1}{2}b^2 + D_B^A + \frac{1}{2}(a+b - D_A^A - D_B^A)\\
+    && &= -\frac{1}{2}b^2 + 0 + \frac{1}{2}(a+b - a-εb - 0) \\
+    && &= -\frac{1}{2}b^2 + \frac{1}{2}(b -εb ) \\
+    FOC && &b^A = \frac{1}{2}(1-ε)\end{aligned}$$
+    b. $o=B$  
+    A's date 1 problem:
+    $$\begin{aligned}\max_a && &\phantom{\ggg}-\frac{1}{2}a^2 + D_A^B + \frac{1}{2}(a+b - D_A^B - D_B^B)\\
+    && &= -\frac{1}{2}a^2 + 0 + \frac{1}{2}(a+b - 0 - λa - b) \\
+    && &= -\frac{1}{2}a^2 + \frac{1}{2}(a - λa) \\
+    FOC && &a^A = \frac{1}{2}(1 - λ) \end{aligned}$$
+    B's date 1 problem:
+    $$\begin{aligned}\max_b && &\phantom{\ggg}-\frac{1}{2}b^2 + D_B^B + \frac{1}{2}(a+b - D_A^B - D_B^B)\\
+    && &= -\frac{1}{2}b^2 + λa+b + \frac{1}{2}(a+b - 0 - λa - b) \\
+    && &= -\frac{1}{2}b^2 + λa+b + \frac{1}{2}(a - λa) \\
+    FOC && &b^A = 1\end{aligned}$$
+    c. $o=J$  
+    A's date 1 problem:
+    $$\begin{aligned}\max_a && &\phantom{\ggg}-\frac{1}{2}a^2 + D_A^J + \frac{1}{2}(a+b - D_A^J - D_B^J)\\
+    && &= -\frac{1}{2}a^2 + 0 + \frac{1}{2}(a+b - 0 - 0) \\
+    && &= -\frac{1}{2}a^2 + \frac{1}{2}(a + b) \\
+    FOC && &a^J = \frac{1}{2} \end{aligned}$$
+    B's date 1 problem:
+    $$\begin{aligned}\max_b && &\phantom{\ggg}-\frac{1}{2}b^2 + D_B^J + \frac{1}{2}(a+b - D_A^J - D_B^J)\\
+    && &= -\frac{1}{2}b^2 + 0 + \frac{1}{2}(a+b - 0 -0) \\
+    && &= -\frac{1}{2}b^2 + \frac{1}{2}(a +b) \\
+    FOC && &b^J = \frac{1}{2}\end{aligned}$$
+    Therefore, $a^B <a^J <a^A =a^{FB}$ and $b^A <b^J <b^B =b^{FB}$ 
+3. Total surplus: $a^o + b^o - \frac{1}{2}(a^o)^2 - \frac{1}{2}(b^o)^2$  
+When $o=A$
+$$\begin{aligned}&\phantom{\ggg} 1 + \frac{1}{2}(1-ε) - \frac{1}{2} 1^2 - \frac{1}{2}\big(\frac{1}{2}(1-ε)\big)^2 \\
+&= \frac{7}{8} - \frac{1}{4}ε - \frac{1}{8}ε^2 \end{aligned}$$
+When $o=B$
+$$\begin{aligned}&\phantom{\ggg} \frac{1}{2}(1 - λ) + 1 - \frac{1}{2}\big(\frac{1}{2}(1 - λ)\big)^2 - \frac{1}{2} 1^2 \\
+&= \frac{7}{8} - \frac{1}{4}λ - \frac{1}{8}λ^2 \end{aligned}$$
+When $o=J$
+$$\begin{aligned}&\phantom{\ggg} \frac{1}{2} + \frac{1}{2} - \frac{1}{2}\big(\frac{1}{2}\big)^2 - \frac{1}{2}\big(\frac{1}{2}\big)^2 \\
+&= \frac{3}{4} \end{aligned}$$
+Since $ε < λ$, $o=A$ is always better than $o=B$  
+And $o=J$ is better than $o=A$ when 
+$$\begin{aligned}\frac{3}{4} &> \frac{7}{8} - \frac{1}{4}ε - \frac{1}{8}ε^2 \\
+ε &> -1 + \sqrt{2} \end{aligned}$$
+
+### Privatization
+
+- Timing
+    0. Parties agree on ownership structure $o\in\{G,M\}$
+    1. M invests $e\in[0,1]$
+    2. Bargain over trading of intermediate good $x\in\{0,1\}$
+- Party G(overnment / public)
+    - Surplus: $2-xεe$
+    - $v'(a)>0$, $v''(a)<0$
+    - $v'(0)>2$, $\lim_{a\to\infty}v'(a)=0$
+- Party M(anager / firm)
+    - Cost of investment $e$: $\frac{1}{2}e^2$
+    - Cost of provision: $1-xe$
+    - $c'(b)<0$, $c''(b)>0$
+    - $-c'(0)>2$, $\lim_{b\to\infty}c'(b)=0$
+- First best
+$$\begin{aligned}\max_{x,e} && &2-xεe -(1-xe) -\frac{1}{2}e^2 \\
+FOC && \frac{\partial}{\partial x} &= -εe + e >0 \\
+&& x^{FB} &= 1\\
+&& \frac{\partial}{\partial e} &= -xε + x - e \overset{!}{=} 0\\
+&& e^{FB} &= -xε + x \\
+&& &= 1-ε \end{aligned}$$
+- Second best: NBS
+    - In case of disagreement, owner maximizes their own surplus $D^o(o)$
+    - Re-negotiation surplus: let $x = x^{FB} = 1$,
+    $$\begin{aligned}&\phantom{\ggg}\big((2-xεe) - (1-xe)\big) - D_M^o - D_G^o \\ &= \big((2-εe) - (1-e)\big) - D_M^o - D_G^o\\ &= (1-εe+e)- D_M^o - D_G^o \end{aligned}$$
+    - Re-negotiation payoff: 
+    $$\begin{aligned}\text{M's date-2 payoff} && D_M^o + \frac{1}{2}\big((1-εe+e) - D_M^o - D_G^o\big) \\
+    \text{G's date-2 payoff} && D_G^o + \frac{1}{2}\big((1-εe+e) - D_M^o - D_G^o\big)\end{aligned}$$
+- Day 2: re-negotiation
+    - $o=M$  
+    In case of disagreement, M chooses $x=1$  
+    $$\begin{aligned}\text{M's default payoff} && &D^M_M =-(1-xe) = -(1-e) \\
+    \text{G's default payoff} && &D^M_G = 2-xεe = 2-εe \\
+    \text{Re-negotiation surplus} && &(1-εe+e) - \big((2-εe) - (1-e) \big) =0 \\
+    \text{M's date-2 payoff} && &U^M_M = -(1-e)+ \frac{1}{2}\cdot 0 = -(1-e) \\
+    \text{G's date-2 payoff} && &U^M_G = 2-εe + \frac{1}{2}\cdot 0 = 2-εe\end{aligned}$$
+    - $o=G$  
+    In case of disagreement, G chooses $x=0$  
+    $$\begin{aligned}\text{M's default payoff} && &D^G_M = -(1-xe) = -1 \\
+    \text{G's default payoff} && &D^G_G = 2-xεe = 2 \\
+    \text{Re-negotiation surplus} && &(1-εe+e)-(-1 + 2) = (1-ε)e \\
+    \text{M's date-2 payoff} && &U^G_M = -1 + \frac{1}{2}(1-ε)e \\
+    \text{G's date-2 payoff} && &U^G_G = 2 + \frac{1}{2}(1-ε)e \\ \end{aligned}$$
+- Day 1: investment level
+    - $o=M$
+    $$\begin{aligned}\max_e && - \frac{1}{2}e^2 &- (1-e) \\
+    FOC && 1 - e &= 0 \\
+    && e^M &= 1 \end{aligned}$$
+    - $o=G$
+    $$\begin{aligned}\max_e && - \frac{1}{2}e^2 -1 + \frac{1}{2}\big(1 &+(1-ε)e - 2 + 1 \big) \\
+    FOC && \frac{1}{2}(1-ε) - e &= 0 \\
+    && e^G &= \frac{1}{2}(1-ε) \end{aligned}$$
+    - $\implies e^G < e^{FB} < e^M$
+- Day 0: ownership structure  
+Total surplus: $1+(1-ε)e^o - \frac{1}{2}(e^o)^2$  
+    - $o=M$
+    $$\begin{aligned}1 + (1-ε) - \frac{1}{2} &= \frac{3}{2} - ε \end{aligned}$$
+    - $o=G$ 
+    $$\begin{aligned}&\phantom{\ggg}1+(1-ε)\cdot\frac{1}{2}(1-ε) - \frac{1}{2}\Big(\frac{1}{2}(1-ε) \Big)^2 \\
+    &= \\
+    &= 1+\frac{3}{8}(1-ε)^2 \end{aligned}$$
+    - Choose $o=M$ if
+    $$\begin{aligned} \frac{3}{2} - ε &> 1+\frac{3}{8}(1-ε)^2 \\
+    ε &<\frac{1}{3}\end{aligned}$$
+
+> Exercise 8  
+> At date 0, the government (G) and a manager (M) agree on the planned quantity $q_0\in [0,1]$ of a public good to be provided and on the ownership structure $o\in\{G,M\}$ over a facility needed to provide the good.  
+> At date 1, party M chooses an investment level $e\in [0,1]$, incurring investment costs $\frac{1}{2}e^2$. The investment aims at the development of an innovation.  
+> At date 2, the parties G and M bargain over the implementation $x\in\{0,1\}$ of the innovation, and they may agree on a quantity $q\in [0,1]$ that is different from $q_0$.  
+> If the negotiations fail, the quantity remains $q = q_0$ and the owner has the right to unilaterally decide about $x$.  
+> If the innovation is implemented ($x = 1$), then the costs of operating the facility are reduced, but also the quality of the good to be provided is reduced:  
+> $$\begin{aligned}\text{G's benefit} && &(2 - εxe) q \\ \text{M's cost} && &(1 - xe) q \end{aligned}$$
+> Suppose that $ε\in (0,1)$.
+> 
+> 1. What are the decisions $x^{FB}$, $q^{FB}$, and $e^{FB}$ that maximize the two parties' total surplus (first-best solution)?
+> 2. Suppose the parties’ negotiations over x and q lead to the Nash bargaining solution.  
+> What are G’s and M’s date-2 payoffs given the ownership structure $o\in\{G,M\}$?
+> 3. Suppose $o=M$ (privatization).  
+> Which investment level $e^M$ will M choose at date 1? Is $e^M$ increasing or decreasing in $q_0$ ? Compare $e^M$ to $e^{FB}$.  
+> Suppose $o=G$ (public ownership).  
+> Which investment level $e^G$ will M choose at date 1? Does $e^G$ depend on $q_0$ ? Compare $e^G$ to $e^{FB}$.
+> 4. On which quantity $q_0\in [0,1]$ and on which ownership structure $o\in\{G,M\}$ will the parties agree at date 0?  
+> Compare $q_0$ to $q^{FB}$. Will the first-best solution be attained?
+
+1. Social planner's problem:
+$$\begin{aligned}\max_{x,q,e} && &\phantom{\ggg}(2 - εxe) q - (1 - xe) q - \frac{1}{2}e^2 \\
+&& &= (1 + xe - εxe)q - \frac{1}{2}e^2 \end{aligned}$$
+$$\begin{aligned}FOC && \frac{\partial}{\partial x} &= eq - εeq \\
+&& &= (1-ε)eq > 0 \\
+&& x^{FB} &= 1 \\
+&& \frac{\partial}{\partial q} &= 1 + xe - εxe \\
+&& &= 1 + (1-ε)xe > 0\\
+&& q^{FB} &= 1 \\
+&& \frac{\partial}{\partial e} &= xq - εxq - e \overset{!}{=} 0 \\
+&& e^{FB} &=  x^{FB}q^{FB} -εx^{FB}q^{FB} \\
+&& &= 1- ε \end{aligned}$$
+Expected total surplus:
+$$\begin{aligned}&\phantom{\ggg}(2 - εxe) q - (1 - xe) q - \frac{1}{2}e^2\\
+&= (1 - εxe + xe)q - \frac{1}{2}e^2 \\
+&= \big(1 + (1- ε)xe\big)q - \frac{1}{2}e^2 \\
+&= \big(1 + (1- ε)^2\big)q - \frac{1}{2}e^2\end{aligned}$$
+2. NBS at date 2
+    a. When $o=M$  
+    Since M's cost is $(1 - xe) q$,  
+    In case of disagreement, $x^M = 1$  
+    Default payoffs: 
+    $$\begin{aligned}D_M^{o=M} &= -(1 - x^M\cdot e) q_0 \\
+    D_G^{o=M} &= (2 - x^M\cdot εe) q_0 \end{aligned}$$
+    Re-negotiation surplus:
+    $$\begin{aligned}&\phantom{\ggg} (1 + x^{FB}\cdot e -x^{FB}\cdot εe) - (D_M^{o=M} + D_G^{o=M}) \\
+    &= (1 + e -εe) - (1 + e -εe)q_0 \\
+    &= (1 + e -εe)(1-q_0) \end{aligned}$$
+    Date 2 payoff:
+    $$\begin{aligned}\text{M's payoff} && &-(1 - e) q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \\
+    \text{G's payoff} && &(2 - εxe)q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \end{aligned}$$
+    b. When $o=G$  
+    Since G's benefit is $(2 - εxe) q$,  
+    In case of disagreement, $x^G = 0$  
+    Default payoffs: 
+    $$\begin{aligned}D_M^{o=G} &= -(1 - x^Ge) q_0 = -q_0 \\
+    D_G^{o=G} &= (2 - εx^Ge) q_0 = 2q_0 \end{aligned}$$
+    Re-negotiation surplus:
+    $$\begin{aligned}&\phantom{\ggg} (1 + x^{FB}\cdot e -x^{FB}\cdot εe) - (D_M^{o=G} + D_G^{o=G}) \\
+    &= (1 + e -εe) - q_0 \end{aligned}$$
+    Date 2 payoff:
+    $$\begin{aligned}\text{M's payoff} && &-q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \\
+    \text{G's payoff} && &2q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \end{aligned}$$
+3. Investment at date 1
+    a. When $o=M$  
+    M's problem:
+    $$\begin{aligned}\max_e && -\frac{1}{2}e^2 &-(1 - e) q_0 + \frac{1}{2}(1 + e -εe)(1-q_0) \\
+    FOC && \frac{\partial}{\partial e} &= -e + q_0 + \frac{1}{2}(1 -ε)(1-q_0)\overset{!}{=} 0 \\
+    && e^M &= q_0 + \frac{1}{2}(1 -ε)(1-q_0) \\
+    && &= \frac{1}{2}(1 - q_0 - ε + εq_0 + 2q_0)\\
+    && &= \frac{1}{2}\big((1- ε) + (1+ε)q_0\big) \end{aligned}$$
+    $\implies e^M$ is increasing in $q_0$  
+    $e^M$ is larger than in first best (over-investment) when
+    $$\begin{aligned}\frac{1}{2}\big((1- ε) + (1+ε)q_0\big) &> 1- ε \\
+    (1- ε) + (1+ε)q_0 &> 2(1- ε) \\
+    (1+ε)q_0 &> 1- ε \\
+    q_0 &>\frac{1- ε}{1+ε}\end{aligned}$$
+    b. When $o=G$  
+    M's problem:
+    $$\begin{aligned}\max_e && -\frac{1}{2}e^2 &-q_0 + \frac{1}{2}\big((1 + e -εe) - q_0\big) \\
+    FOC && \frac{\partial}{\partial e} &= -e + \frac{1}{2}(1 -ε)\overset{!}{=} 0 \\
+    && e^G &= \frac{1}{2}(1 -ε) \end{aligned}$$
+    $\implies e^G$ does not depend on $q_0$  
+    $e^G$ is always smaller than in first best
+4. At date 0, M and G agree on $q_0\in [0,1]$ s.t. TS is maximized.  
+Since $e^M = e^{FB}$ when $q_0 =\frac{1- ε}{1+ε}$,  
+the parties thus agree on $o=M$, and they set $q_0=\frac{1- ε}{1+ε} <q^{FB} = 1$  
+$\implies$ investment level is $e^M = e^{FB}$  
+At date 2, negotiation sets $q = 1 = q^{FB}$  
+$\implies$ first-best solution will be attained
+

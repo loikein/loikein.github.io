@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on loikein</title>
+    <title>Python on loikein&#39;s notes</title>
     <link>/tags/python/</link>
-    <description>Recent content in Python on loikein</description>
+    <description>Recent content in Python on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Introduction to Python 3</title>
-      <link>/2019/06/intro-python/</link>
+      <link>/post/2019/06/intro-python/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/06/intro-python/</guid>
+      <guid>/post/2019/06/intro-python/</guid>
       <description>Slides Basics Lab   Slides ch1
 ch2
 ch3

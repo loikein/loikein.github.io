@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on loikein</title>
+    <title>R on loikein&#39;s notes</title>
     <link>/tags/r/</link>
-    <description>Recent content in R on loikein</description>
+    <description>Recent content in R on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
@@ -13,28 +13,28 @@
     
     <item>
       <title>Notes on Time Series</title>
-      <link>/2019/04/notes-time-series/</link>
+      <link>/post/2019/04/notes-time-series/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/04/notes-time-series/</guid>
+      <guid>/post/2019/04/notes-time-series/</guid>
       <description>Definition Property  Analysis Procedure Trend Trend &amp;amp; Seasonality Lag &amp;amp; Difference Operator  ARMA White Noise MA MA Stationarity AR AR (1) Stationarity AR (p) Stationarity AR (p) as MA (∞) Yule-Walker Equations ARMA  ARCH &amp;amp; GARCH ARCH ARCH Stationarity GARCH GARCH Stationarity  Old Stuff Integration OLS Estimation ML Estimation Model Selection Spurious Regression Cointegration    Definition  Time series: collection of observations indexed by date \[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;amp;= \{y_t\}_{t\in\mathbb{Z}} \\ &amp;amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]  Observed sample: \(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\) Underlying random variables: \(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)  Stochastic process: ordered sequence of random variables \[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]  Probability space: \((Ω,\mathcal{A},P)\) Mapping: \(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\) s.</description>
     </item>
     
     <item>
       <title>Notes on Econometrics - Tests and Statistics</title>
-      <link>/2019/02/notes-stat-test/</link>
+      <link>/post/2019/02/notes-stat-test/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/02/notes-stat-test/</guid>
+      <guid>/post/2019/02/notes-stat-test/</guid>
       <description>R^2 t-test F-test (Joint Test / Model Test) Wald Test Wald statistic F-statistic  BIC &amp;amp; AIC Nested Model Time Series  J Test (Non-Nested Model) PE Test (Linear vs Log) Chow (Breakpoint) Test Heteroskedasticity Test Goldfeld-Quandt Breusch-Pagan Test  Autocorrelation Test Durbin-Watson Breusch-Godfrey Box-Pierce  Instrumental Variable Test Durbin-Wu-Hausman (Endogeneity) Sargan (Instrument Validity)  DF (Dickey-Fuller) Test Unit Root Deterministic Trend ADF (Augmented Dickey-Fuller) Test Spurious Regression vs Cointegration  Ljung–Box (Portmanteau) Test (Residual Analysis) Hausman Test (FE vs RE) Read Regression Table   Warning: under proofreading</description>
     </item>
     
     <item>
       <title>Notes on Econometrics - Practice Part</title>
-      <link>/2019/01/notes-stat-practice/</link>
+      <link>/post/2019/01/notes-stat-practice/</link>
       <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/01/notes-stat-practice/</guid>
+      <guid>/post/2019/01/notes-stat-practice/</guid>
       <description>Compare Models Choose Explanatory Variables Choose Approach: OLS / GLS Weird Model  R Workout Data Generation OLS Regression    Warning: under proofreading
 All I wanted was a clear &amp;amp; complete guidance (for upcoming exams).
 Textbook: A Guide to Modern Econometrics
@@ -45,21 +45,22 @@ Consider the wage regressions from slide 5 (text P86).
     
     <item>
       <title>Notes on Econometrics - Theory Part</title>
-      <link>/2019/01/notes-stat-theory/</link>
+      <link>/post/2019/01/notes-stat-theory/</link>
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/01/notes-stat-theory/</guid>
+      <guid>/post/2019/01/notes-stat-theory/</guid>
       <description>OLS Model OLS Method Statistical Model Gauss-Markov Assumptions Linear &amp;amp; Loglinear Elasticity  OLS Estimator Derive b Unbiasedness of b BLUE Unbiasedness of s^2  Normality Assumption Normality of ε Normality of b  Asymptotic Property Converge in Probability &amp;amp; Mean Square LLN (Law of Large Numbers) Consistency of b Consistency of s^2 Asymptotic Nomality  Data Problems Multicollinearity Outliers  Error Problems Heteroskedasticity Autocorrelation (Serial Correlation) White (HC) Standard Error Newey-West (HAC) Standard Error GLS (Generalized Least Squares) Estimator EGLS (Feasible Estimated GLS) Estimator WLS (Weighted LS) Estimator  Regressor Problem: Endogeneity Lagged Dependent Variable Measurement Error Omitted Variable Bias Reverse Causality IV (Instrumental Variable) GIVE (Generalized IV Estimator)  ML (Maximum Likelihood) Model Assumption Property of ^θ Asymptotic Covariance Matrix  Binary Choice Model Regression Model Probit Model Logit Model Likelihood Ratio  Time Series Types of Process Lag Operator Stationary Difference Operator &amp;amp; Integration Deterministic (Linear) Trend OLS Estimation Model Selection Spurious Regression Cointegration  Panel Data Entity Fixed Effect Time Fixed Effect Least Squares Dummy Variable (LSDV) Estimator Within Estimator First Difference Estimator Entity and Time Fixed Effect (2-way) Random Effect Feasible GLS (EGLS) Estimator    Warning: under proofreading</description>
     </item>
     
     <item>
       <title>Rmd Template</title>
-      <link>/2018/01/rmd-template/</link>
+      <link>/post/2018/01/rmd-template/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference Reference Cheatsheet  Inline Code Executed  Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Words of Warning I use Typora to write my posts. Its WYSIWYG mode usually processes .Rmd file correctly, but gets lost in a file as complicated as this one.
-Always check twice and preview the .html page.</description>
+      <guid>/post/2018/01/rmd-template/</guid>
+      <description>Words of Warning Rmd Reference Reference Cheatsheet  Inline Code Executed  Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
+Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in a file as complicated as this one.
+When writing long posts in Sublime, minimap &amp;amp; Ouline plugin can be quite handy.</description>
     </item>
     
   </channel>

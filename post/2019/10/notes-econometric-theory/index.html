@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.57.2" />
+
+<title>Notes on Econometric Theory - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Econometric Theory - loikein&#39;s notes">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/post/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+    <h1 class="article-title">Notes on Econometric Theory</h1>
+    
+    <span class="article-date">2019/10/08</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#literature">Literature</a></li>
+<li><a href="#basic-concepts-of-probability-theory">Basic Concepts of Probability Theory</a><ul>
+<li><a href="#probability-measures">Probability Measures</a></li>
+<li><a href="#extension-to-mathbbrk">Extension to <span class="math inline">\(\mathbb{R}^k\)</span></a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>wow</p>
+<!-- parametric estimation -->
+<div id="literature" class="section level2">
+<h2>Literature</h2>
+<p>Asymptotic Theory:</p>
+<ul>
+<li>Casella, Berger: Statistical Inference</li>
+<li>Bruce Hansen: Econometrics (Lecture Notes), Ch5</li>
+<li>Davidson: Econometric Theory</li>
+<li>White: Asymptotic Theory for Econometricians</li>
+</ul>
+<p>M-, Z-, Extremum Estimators:</p>
+<ul>
+<li>?</li>
+</ul>
+<!-- 
+## Asymptotic Statistics
+
+- Observations: $(x_n) = x_1, x_2,\dots$
+    - Assumption: $x_n\to x$
+- Linear model: $y_i = x_i^T\cdot β + ε_i$, $i=1,\dots,m$
+- Estimator: $\hat{β} = \hat{β}_n = \hat{β}_n\big((y_1, x_1),\dots,(y_n,x_n)\big)$
+    - $(\hat{β}_n) = \hat{β}_1, \hat{β}_2$
+    - Consistency: $\hat{β}_n\to β$
+
+## M-Estimators, Z-Estimators, Extremum Estimators
+
+- Assume $\{z_i: i=1,\dots,m\}\overset{iid}{\sim}P_{θ_0}$
+    - $P$ is some distribution
+    - $θ_0 = (μ_0, σ_0^2)$
+- Linear model: $y_i = x_i^T\cdot θ_0 + ε_i$
+    - Assume $E[ε_i\ |\ x_i] = 0\implies E[y_i\ |\ x_i] = x_i^T\cdot θ_0$
+    - Theoretically, $θ_0 = \text{argmin}_{θ\in Θ}\ Q(θ)$
+    - In practice, let $\hat{θ}_0 = \text{argmin}_{θ\in Θ}\ \hat{Q}_n(θ)$
+    - Consistency: $\hat{θ}_n\overset{p}{\to} θ_0$
+    - $\sqrt{m}(\hat{θ}_n - θ_0)\overset{d}{\to} \mathcal{N}(0,Σ)$
+ -->
+</div>
+<div id="basic-concepts-of-probability-theory" class="section level2">
+<h2>Basic Concepts of Probability Theory</h2>
+<div id="probability-measures" class="section level3">
+<h3>Probability Measures</h3>
+<ul>
+<li><span class="math inline">\(Ω\)</span>: sample space, a set of possible outcomes of an experiment
+<ul>
+<li>Countable set: <span class="math inline">\(\| Ω \|\leq \mathbb{N}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(A\subset Ω\)</span>: event, a collection of possible outcomes
+<ul>
+<li>Disjoint sets: <span class="math inline">\(A_i\cap A_j = \emptyset\)</span> for <span class="math inline">\(i\neq j\)</span></li>
+</ul></li>
+<li><span class="math inline">\(\mathcal{A}\)</span>: family of <span class="math inline">\(A\)</span></li>
+<li>Step functions: <span class="math inline">\(F\)</span> is a step function with finitely or countably many jumps <span class="math inline">\(x_1&lt;x_2&lt;\dots\)</span> and jump heights <span class="math inline">\(b_1,b_2,\dots &gt;0\)</span></li>
+</ul>
+<blockquote>
+<p>Def 1.1. Axioms of probability / Kolmogorov Axioms<br />
+A probability measure <span class="math inline">\(P\)</span> on <span class="math inline">\((Ω,\mathcal{A})\)</span> is a mapping <span class="math inline">\(P:\mathcal{A}\to[0,1]\)</span> with the following properties:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(P(\emptyset)= 0\)</span></li>
+<li><span class="math inline">\(P(Ω) =1\)</span></li>
+<li><span class="math inline">\(P\big(\cup_{i=1}^{\infty} A_i\big) = \sum_{i=1}^{\infty} P(A_i)\)</span> for all <span class="math inline">\(A_i\in\mathcal{A}\)</span> that are disjoint</li>
+</ol>
+</blockquote>
+<p>Remarks:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Def 1.1. formally defines the probability <span class="math inline">\(P(A)\)</span> that event <span class="math inline">\(A\)</span> occurs</li>
+<li>By (i), the probability that nothing happens is 0<br />
+By (ii), the probability that something happens is 1</li>
+<li>By (iii) <span class="math inline">\(\implies\)</span> finite additivity (σ-additivity) for disjoint <span class="math inline">\(A_i\)</span>’s:
+<span class="math display">\[P\big(\cup_{i=1}^{I} A_i\big) = \sum_{i=1}^{I} P(A_i)\]</span></li>
+<li>If <span class="math inline">\(Ω\)</span> is countable, we can always take <span class="math inline">\(\mathcal{A} = \mathcal{P}(Ω)\)</span> (power set)</li>
+<li>If <span class="math inline">\(Ω\)</span> is uncountable, it is in general impossible to define <span class="math inline">\(P\)</span> for all <span class="math inline">\(A\subset Ω\)</span> s.t. (i) - (iii) are satisfied<br />
+thus, we cannot set <span class="math inline">\(\mathcal{A} = \mathcal{P}(Ω)\)</span> in general, but have to restrict the class of possible events <span class="math inline">\(A\)</span></li>
+</ol>
+<blockquote>
+<p>Example: Laplace distribution<br />
+Let <span class="math inline">\(Ω\)</span>, <span class="math inline">\(\mathcal{A} = \mathcal{P}(Ω)\)</span> the class of all subsets of <span class="math inline">\(Ω\)</span>, then<br />
+<span class="math display">\[P(A) := \frac{|A|}{|Ω|}\]</span></p>
+</blockquote>
+<p>Consider tossing a fair dice once, <span class="math inline">\(Ω = \{1,\dots,6\}\)</span>, then <span class="math inline">\(P(A=\{6\}) = \frac{1}{6}\)</span><br />
+Consider tossing a fair dice twive, <span class="math inline">\(Ω = \{(1,1),\dots,(6,6)\}\)</span>, then <span class="math inline">\(P(A=\{(2,6), (3,5),(4,4)\}) = \frac{3}{36}\)</span></p>
+<blockquote>
+<p>Prop 1.2.<br />
+Let <span class="math inline">\(Ω\)</span> be countable, mapping <span class="math inline">\(p:Ω\to[0,1]\)</span> is <span class="math inline">\(\sum_{w\in Ω}p(w)=1\)</span><br />
+Then <span class="math inline">\(P(A):= \sum_{w\in A}p(w)\)</span> for all <span class="math inline">\(A\in\mathcal{P}(Ω)\)</span> defines a probability mapping on <span class="math inline">\(\mathcal{P}(Ω)\)</span></p>
+</blockquote>
+<p>Examples:</p>
+<ol style="list-style-type: decimal">
+<li>Laplace distribution<br />
+</li>
+<li>Bernoulli distribution<br />
+<span class="math inline">\(Ω = \{0,1\}\)</span>, <span class="math inline">\(p(1)=q\)</span> for some <span class="math inline">\(q\in[0,1]\)</span>, <span class="math inline">\(p(0)=1-q\)</span><br />
+</li>
+<li>Binomial distribution<br />
+<span class="math inline">\(\mathcal{B}(m,p)\)</span>, <span class="math inline">\(m\geq 1\)</span>, <span class="math inline">\(0\leq q\leq 1\)</span><br />
+<span class="math inline">\(Ω = \{0,\dots,m\}\)</span>, <span class="math inline">\(p(k)=(m, k)^T\cdot q^k\cdot(1-q)^{m-k}\)</span> for some <span class="math inline">\(q\in[0,1]\)</span>, <span class="math inline">\(p(0)=1-q\)</span><br />
+<span class="math inline">\(\sum_{k=0}^{\infty} p(k)= \sum_{k=0}^{\infty} (m, k)^T\cdot q^k\cdot(1-q)^{m-k}= \big(q + (1-q)\big)^m =1\)</span></li>
+<li>Poisson distribution<br />
+<span class="math inline">\(Ω = \mathbb{N}_0\)</span>, <span class="math inline">\(p(k)=\frac{λ^k}{k!}\cdot l^{-λ}\)</span><br />
+<span class="math inline">\(\sum_{k=0}^{\infty} p(k)=\Big(\sum_{k=0}^{\infty}\frac{λ^k}{k!}\Big)\cdot l^{-λ} = l^{λ}\cdot l^{-λ} =1\)</span></li>
+</ol>
+<p>Proof: exercise</p>
+<blockquote>
+<p>Remark 1.1.d.<br />
+If <span class="math inline">\(Ω\)</span> is uncountable, it is in general impossible to define <span class="math inline">\(P\)</span> for all <span class="math inline">\(A\subset Ω\)</span> s.t. (i) - (iii) are satisfied</p>
+</blockquote>
+<p>Solution:</p>
+<blockquote>
+<p>Def 1.3. σ-algebra<br />
+Define <span class="math inline">\(P\)</span> on <span class="math inline">\(\mathcal{A}\subset\mathcal{P}(Ω)\)</span><br />
+If all <span class="math inline">\(A\in\mathcal{A}\)</span> have the following properties, then <span class="math inline">\(\mathcal{A}\)</span> is called a σ-algebra or a σ-field</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(\emptyset\in\mathcal{A}\)</span></li>
+<li><span class="math inline">\(A\in\mathcal{A}\implies A^C\in\mathcal{A}\)</span></li>
+<li><span class="math inline">\(A_1,A_2,\dots\in\mathcal{A}\implies \cup_{i=1}^{\infty}A_i\in\mathcal{A}\)</span></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Def 1.4. Borel σ-field<br />
+Let <span class="math inline">\(Ω=\mathbb{R}\)</span><br />
+The σ-field <span class="math inline">\(\mathcal{B}\)</span> that contains all open intervals <span class="math inline">\((a,b)\)</span> for <span class="math inline">\(-\infty\leq a&lt;b\leq\infty\)</span> is called Borel-σ-field<br />
+A set <span class="math inline">\(A\in\mathcal{B}\)</span> is called a Borel set</p>
+</blockquote>
+<p>Remark: <span class="math inline">\(\mathcal{B}\neq\mathcal{P}(Ω)\)</span></p>
+<blockquote>
+<p>Remark 1.5. Set<br />
+<span class="math inline">\(\mathcal{A}_1=\{(a,b]:-\infty\leq a&lt;b&lt;\infty\}\)</span><br />
+<span class="math inline">\(\mathcal{A}_2=\{[a,b):-\infty &lt; a&lt;b\leq\infty\}\)</span><br />
+<span class="math inline">\(\mathcal{A}_3=\{[a,b]:-\infty &lt; a&lt;b&lt;\infty\}\)</span><br />
+<span class="math inline">\(\mathcal{A}_4=\{(-\infty,b]:-\infty &lt;b&lt;\infty\}\)</span><br />
+For <span class="math inline">\(j=1,\dots,4\)</span>, <span class="math inline">\(\mathcal{B}\)</span> is the smallest σ-field that contains <span class="math inline">\(\mathcal{A}_j\)</span></p>
+</blockquote>
+<p>Proof: exercise<br />
+e.g. use <span class="math inline">\((a,b)=\cup_{m=1}^{\infty} \big[a+\frac{1}{m},b-\frac{1}{m}\big]\)</span></p>
+<blockquote>
+<p>Def 1.6. Distribution function<br />
+Let <span class="math inline">\(P\)</span> be a probability measure on <span class="math inline">\(\mathbb{R},\mathcal{B}\)</span><br />
+The distribution function <span class="math inline">\(F:\mathbb{R}\to[0,1]\)</span> is defined by setting<br />
+<span class="math display">\[F(b) = P\big((-\infty,b]\big) \text{ for all } b\in\mathbb{R}\]</span></p>
+</blockquote>
+<p>Note: <span class="math inline">\(P\big((a,b]\big)=F(b)-F(a)\)</span></p>
+<blockquote>
+<p>Thm 1.7.<br />
+Let <span class="math inline">\(F:\mathbb{R}\to\mathbb{R}\)</span> be a function with the following properties:</p>
+<ol style="list-style-type: lower-roman">
+<li>Non-decreasing: <span class="math inline">\(F(a)\leq F(b)\)</span> for <span class="math inline">\(a&lt;b\)</span></li>
+<li>Continuous from above (the right): <span class="math inline">\(F(b_n)\to F(b)\)</span> for <span class="math inline">\(b_n\searrow b\)</span></li>
+<li><span class="math inline">\(\lim_{x\to -\infty}F(x)=0\)</span>, <span class="math inline">\(\lim_{x\to\infty}F(x)=1\)</span></li>
+</ol>
+<p>Then there exists a unique probability measure <span class="math inline">\(P\)</span> on <span class="math inline">\((\mathbb{R},B)\)</span> s.t.
+<span class="math display">\[F(b) = P\big((-\infty,b]\big) \text{ for all } b\in\mathbb{R}\]</span></p>
+</blockquote>
+<p>Remarks:</p>
+<ol style="list-style-type: lower-alpha">
+<li>This says that any function <span class="math inline">\(F\)</span> with the properties uniquely characterizes a probability measure on <span class="math inline">\((\mathbb{R},B)\)</span><br />
+</li>
+<li>The reverse holds true too, see Thm 1.8. below</li>
+</ol>
+<blockquote>
+<p>Thm 1.8.<br />
+Any distribution function <span class="math inline">\(F\)</span> satisfies properties (i)-(iii) in Thm 1.7.</p>
+</blockquote>
+<p>Remarks:</p>
+<ol style="list-style-type: lower-alpha">
+<li>A probability measure <span class="math inline">\(P\)</span> on <span class="math inline">\((\mathbb{R},B)\)</span> is uniquely determined by the corresponding distribution function <span class="math inline">\(F\)</span> with <span class="math inline">\(F(b) = P\big((-\infty,b]\big)\)</span></li>
+<li>Class of distribution fuctions = class of functions with properties (i)-(iii)</li>
+</ol>
+<p>Proof: (i) and (iii): exercise<br />
+(ii):<br />
+FSOC assume <span class="math inline">\(F:\mathbb{R}\to\mathbb{R}\)</span> is a distribution function that is not continuous from the right<br />
+<span class="math inline">\(\implies\)</span> exists a sequence <span class="math inline">\(\{b_n\}\)</span>, <span class="math inline">\(b_n\searrow b\)</span> monotonically for some <span class="math inline">\(b\in\mathbb{R}\)</span> s.t. <span class="math inline">\(F(b_n)\not\to F(b)\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned}1-F(b_n) &amp;= 1-P\big((-\infty, b_n]\big)\\
+&amp;= P\big((b_n,\infty)\big) \\
+&amp;= P\Big[ (b_1,\infty)\cup\big(\cup_{k=2}^n (b_k,b_{k-1}]\big)\Big] \\
+&amp;= P\big((b_1,\infty)\big) + \textstyle{\sum}_{k=2}^n P\big((b_k,b_{k-1}]\big) \\
+:&amp;= p_n\end{aligned}\]</span>
+It is obvious that <span class="math inline">\(p_n\)</span> is monotonically increasing and bounded,<br />
+<span class="math inline">\(\implies\)</span>
+<span class="math display">\[\begin{aligned}p_n &amp;\to p \\
+&amp;= P\big((b_1,\infty)\big) + \sum_{k=2}^{\infty} P\big((b_k,b_{k-1}]\big)\\
+&amp;= P\Big[(b_1,\infty)\cup\big(\cup_{k=2}^{\infty}(b_k,b_{k-1}] \big)\Big] \\
+&amp;= P\big((b,\infty)\big) \\
+&amp;= 1 - P\big((-\infty, b]\big) \\
+&amp;= 1 - F(b) \end{aligned}\]</span>
+therefore, <span class="math inline">\(1 - F(b_n) = p_n\to p = 1-F(b)\)</span><br />
+<span class="math inline">\(\implies 1 - F(b_n)\to 1-F(b)\)</span>, contradiction</p>
+<blockquote>
+<p>Example: Step function
+Let <span class="math inline">\(F\)</span> be a step function, <span class="math inline">\(P\)</span> be a probability function corresponds to <span class="math inline">\(F\)</span>,<br />
+<span class="math inline">\(P\big(\{x_i\}\big) = b_i\)</span> with <span class="math inline">\(\sum_{i=1}^{\infty}b_i = 1\)</span><br />
+Hence we can regard the sample space as being complete</p>
+</blockquote>
+<p>In this case, <span class="math inline">\(Ω = \{x_1,x_2,\dots\}\)</span></p>
+<blockquote>
+<p>Example: Absolutely continuous functions<br />
+Let <span class="math inline">\(F\)</span> have the representation <span class="math inline">\(F(x) = \int_{-\infty}^x f(y)\, dy\)</span><br />
+where <span class="math inline">\(f\)</span> is bounded &amp; integrable on any interval <span class="math inline">\([a,b]\)</span> and <span class="math inline">\(\lim_{a,b\to\infty} \int_a^b f(y)\, dy =1\)</span><br />
+<span class="math inline">\(f\)</span> is called (probability) density function.<br />
+Let <span class="math inline">\(P\)</span> be the corresponding probability measure, it holds that <span class="math inline">\(P(\{x\})=0\)</span> for all <span class="math inline">\(x\in\mathbb{R}\)</span></p>
+</blockquote>
+<p>Example:</p>
+<ol style="list-style-type: decimal">
+<li>Uniform distribution on <span class="math inline">\([a,b]\)</span><br />
+<span class="math inline">\(f(x) = \frac{1}{b-a}\cdot 1\)</span>, <span class="math inline">\(x\in[a,b]\)</span><br />
+then <span class="math inline">\(F(x)=\begin{cases}0 &amp; x\leq a \\ \frac{x-a}{b-a} &amp; a\leq x\leq b \\ 1 &amp; x\geq b \end{cases}\)</span><br />
+</li>
+<li>Normal distribution <span class="math inline">\(\mathcal{N}(μ,σ)\)</span>, <span class="math inline">\(μ\in\mathbb{R}\)</span>, <span class="math inline">\(σ&gt;0\)</span><br />
+<span class="math inline">\(f_{μ,σ}(x) = \frac{1}{\sqrt{2πσ^2}}\cdot \exp\big(-\frac{1}{2}\cdot\frac{(x-μ)^2}{σ^2}\big)\)</span><br />
+then <span class="math inline">\(F(x) = \int_{-\infty}^x f_{μ,σ}(y)\, dy\)</span></li>
+</ol>
+</div>
+<div id="extension-to-mathbbrk" class="section level3">
+<h3>Extension to <span class="math inline">\(\mathbb{R}^k\)</span></h3>
+<ul>
+<li>Borel σ-field <span class="math inline">\(\mathcal{B}^k = \mathcal{B}\)</span> is defined as the smallest σ-field generated by the open cubes <span class="math inline">\((a_1,b_1)\times\dots\times (a_k,b_k)\)</span></li>
+<li>Distribution function <span class="math inline">\(F:\mathbb{R}^k\to\mathbb{R}\)</span> corresponding to the probability measure <span class="math inline">\(P\)</span> is defined as
+<span class="math display">\[F(b_1,\dots,b_k)=P\big((x_1,\dots,x_k) : x_1\leq b_1,\dots,x_k\leq b_k\big)\]</span></li>
+<li>Absolute continuity: <span class="math inline">\(F\)</span> s.t. exists <span class="math inline">\(f:\mathbb{R}^k\to\mathbb{R}\)</span> s.t.
+<span class="math display">\[F(b_1,\dots,b_k) = \int_{-\infty}^{b_1}\cdots\int_{-\infty}^{b_k}f(x_1,\dots,x_k)\, dx_1\dots dx_k\]</span></li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>

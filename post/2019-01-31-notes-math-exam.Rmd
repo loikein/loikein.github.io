@@ -1,0 +1,1234 @@
+---
+title: "Notes on Mathematics - Past Exams"
+author: "loikein"
+date: "2019-01-31"
+slug: "notes-math-exam"
+tags: ["notes","math"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+Words of warning:
+
+- This post will only exist during 1st \~ 2nd exam term.  
+Afterwards, it will be restructured and merged into [Notes on Mathematical Proofs](https://loikein.github.io/2019/01/notes-math-proof/).  
+- Sometimes I take approaches different from the solutions, or use different notations for clarity. 
+
+~
+
+- :) means "we want to show"
+- FSOC means "for the sake of controdiction" 
+- s.t. means "such that"
+
+~
+
+- [x] 2014-1
+- [x] 2014-2
+- [x] 2015-1
+- [ ] 2015-2
+- [x] 2016-1
+- [ ] 2016-2
+- [x] 2017-1
+- [ ] 2017-2
+- [x] 2018-1
+- [x] 2018-2
+- [x] 2019-1
+
+## What
+
+> 2019.F1.Q1  
+> Use induction to prove that $\sum^N_{n=1} a_n = \frac{1−a^N}{1-a}a$ for all $N\in\mathbb{N}$ and $a\in\mathbb{R}\backslash\{1\}$.
+
+1. For $N = 1$  
+$$\begin{aligned}\sum^1_{n=1} a_1 &= a \\
+\frac{1−a^1}{1-a}a &= 1\cdot a \\
+&= a\end{aligned}$$ 
+The equation holds. 
+2. Assume the equation holds for all $N<\bar{N}$  
+3. For $N = \bar{N}$  
+$$\begin{aligned} \sum^{\bar{N}}_{n=1} a_n &= a^{\bar{N}} + \sum^{\bar{N}-1}_{n=1} a_n \\
+&= a^{\bar{N}} + \frac{1−a^{\bar{N}-1}}{1-a}a \\
+&= \frac{(1-a)a^{\bar{N}}}{1-a}+ \frac{1−a^{\bar{N}-1}}{1-a}a \\
+&= \frac{(1-a)a^{\bar{N}-1} + 1−a^{\bar{N}-1}}{1-a}a \\
+&= \frac{a^{\bar{N}-1} - a^{\bar{N}} + 1−a^{\bar{N}-1}}{1-a}a \\
+&= \frac{1- a^{\bar{N}}}{1-a}a\end{aligned}$$
+The equation holds. 
+
+## Relation
+
+Steps: 
+
+1. Reflective 
+2. Transitive 
+3. Anti-Symmetry 
+4. Complete (only for complete order)
+
+> 2014.F1.Q2  
+> Let $R$ be a relation on some set $U$  
+> Assume that there exist two functions $f,g: U\to \mathbb{R}$  
+> For all $x,y\in U$, $xRy$ $\iff$ $f(x)\geq g(y)$  
+> For all $x\in U$, $f(x)\leq g(x)$  
+> Show that R is transitive
+
+Take arbitrary $x,y,z\in U$, assume $xRy$ and $yRz$  
+$xRy\implies f(x)\geq g(y)$  
+$yRz\implies f(y)\geq g(z)$  
+Also, since $f(x)\leq g(x)$ for all $x$  
+$\implies g(y)\geq f(y)$  
+$\implies f(x)\geq g(y)\geq f(y)\geq g(z)$  
+$\implies f(x)\geq g(z)$  
+$\implies xRz$ 
+
+> 2014.F2.Q3  
+> Let $U = \mathbb{R}^2$ and the relation R be defined as $(x_1, y_1)R(x_2, y_2)$ if and only if $x_1\geq x_2$ and $y_1\leq y_2$.  
+> Show that $R$ is transitive.
+
+Let $(x_1, y_1), (x_2, y_2), (x_3, y_3)$ be s.t. $(x_1, y_1)R (x_2, y_2)$, $(x_2, y_2)R (x_3, y_3)$  
+$(x_1, y_1)R (x_2, y_2)$ $\iff$ $x_1\geq x_2$ and $y_1\leq y_2$  
+$(x_2, y_2)R (x_3, y_3)$ $\iff$ $x_2\geq x_3$ and $y_2\leq y_3$  
+$\implies x_1\geq x_2\geq x_3$ and $y_1\leq y_2\leq y_3$  
+$\implies (x_1, y_1)R(x_3, y_3)$
+
+> 2015.F1.Q2, 2017.F1.Q1 PS1.Q6  
+> Let $R_1$ and $R_2$ be two (partial) orders in some space $U$  
+> Let $R_3$ be the relation defined by $\big( x R_3 y \iff xR_1y \land xR_2y \big) \forall x,y \in U$  
+> Prove that $R_3$ is a (partial) order
+
+1. Reflective  
+Since $R_1$ and $R_2$ are orders, $xR_1 x$ and $xR_2 x$ hold  
+$\implies xR_3x$  
+2. Transitive  
+Since $R_1$ and $R_2$ are orders,  
+$xR_1 y\land yR_1 z\implies xR_1 z$  
+$xR_2 y\land yR_2 z\implies xR_2 z$  
+Therefore,  
+$xR_3 y\land yR_3 z$ $\implies$ $xR_1 y\land yR_1z$ and $xR_2 y\land yR_2 z$  
+$\implies xR_1 z \land xR_2 z$  
+$\implies xR_3 z$  
+3. Anti-Symmetry  
+Since $R_1$ and $R_2$ are orders,  
+$xR_1 y\land yR_1 x\iff x=y$  
+$xR_2 y\land yR_2 x\iff x=y$  
+Therefore,  
+$xR_3 y\land yR_3 x$ $\iff$ $xR_1 x\land yR_1 x$ and $xR_2 y\land yR_2 x$  
+$\iff x=y$  
+
+> 2016.F1.Q2  
+> Let $U$ be a set and $2^U$ its power set  
+> Show that the inclusion $\subset$ is a partial order in $2^U$  
+> Remember that $A\subset B$ $\iff$ for all $x\in U$, ($x\in A$ implies $x\in B$)
+
+1. Reflective  
+Take arbitrary $A\in 2^U$  
+$x\in A \implies x\in A$  
+$\implies A\subset A$  
+2. Transitive  
+Take $A, B, C\in 2^U$ s.t. $A\subset B$ and $B\subset C$  
+$A\subset B\implies$ $(x\in A \implies x\in B)$  
+$B\subset C\implies$ $(x\in B \implies x\in C)$  
+$\implies (x\in A \implies x\in B\implies x\in C)$  
+$\implies (x\in A \implies x\in C)$  
+$\implies A\subset C$  
+3. Anti-Symmetry  
+Take $A, B\in 2^U$ s.t. $A\subset B$ and $B\subset A$  
+$A\subset B\implies$ $(x\in A \implies x\in B)$  
+$B\subset A\implies$ $(x\in B \implies x\in A)$  
+$\implies x\in A\iff x\in B$  
+$\iff A = B$ 
+
+## Space
+
+### Distance
+
+Steps:  
+
+1. Non-negative  
+2. Identity of Indiscernibles  
+($\Longrightarrow$)  
+($\Longleftarrow$)  
+3. Symmetric  
+4. Triangle Inequality  
+
+> 2014.F1.Q4  
+> Let $f: U\to R$ be injective  
+> Define $d(x, y)\equiv \big|f(x) - f(y)\big|$ for all $x, y\in U$  
+> Show that $d$ is a distance 
+
+1. Non-negative (trivial)  
+2. Identity of Indiscernibles  
+($\Longrightarrow$)  
+$$\begin{aligned} d(x,x) &= |f(x) - f(x)| \\ &= 0\end{aligned}$$
+($\Longleftarrow$)  
+Assume $d(x, y) = 0$  
+$$\begin{aligned} |f(x) - f(y)| &= 0 \\
+f(x) - f(y) &= 0 \\
+f(x) &= f(y)\end{aligned}$$ 
+Since $f$ is injective,  
+$f(x) = f(y) \implies x=y$ 
+3. Symmetric  
+For any $x,y\in U$,  
+$$\begin{aligned} d(x, y) &= \big|f(x) - f(y)\big|\\
+&= \big|f(y) - f(x)\big| \\
+&= d(y,x)\end{aligned}$$ 
+4. Triangle Inequality  
+For any $x,y,z\in U$,  
+$$\begin{aligned} d(x,z) &= \big|f(x) - f(z)\big| \\
+&= \big|f(x) - f(y) + f(y) - f(z)\big| \\
+&\leq \big|f(x) - f(y)\big| + \big|f(y) - f(z)\big| \\
+&= d(x,y) + d(y,z)\end{aligned}$$ 
+
+> 2015.F1.Q9  
+> Let $f: \mathbb{R}_+ \to \mathbb{R}$ be concave, strictly increasing, and $f(0) = 0$  
+> Prove that $d(x, y) \equiv f\big(|x − y|\big)$ for all $x, y\in \mathbb{R}$ is a distance
+
+1. Non-negative  
+Since $f$ is strictly increasing, for all $x, y\in \mathbb{R}$,  
+$$\begin{aligned} |x − y|&\geq 0 \\
+f\big(|x − y|\big)&\geq f(0) \\
+d(x,y)&\geq 0\end{aligned}$$ 
+2. Identity of Indiscernibles  
+($\Longrightarrow$)  
+For any $x\in \mathbb{R}$,  
+$$\begin{aligned} d(x,x) &= f\big(|x − x|\big) \\
+&= f(0) = 0\end{aligned}$$ 
+($\Longleftarrow$)  
+Assume $d(x, y) = 0$, since $f$ is strictly increasing,  
+$$\begin{aligned}f\big(|x − y|\big) &= 0 \\
+&= f(0) \\ x &= y\end{aligned}$$ 
+3. Symmetric  
+For all $x, y\in \mathbb{R}$,  
+$$\begin{aligned} d(x,y) &= f\big(|x − y|\big) \\
+&= f\big(|y − x|\big) \\
+&= d(y,x)\end{aligned}$$ 
+4. Triangle Inequality  
+For arbitrary $x\leq y\in \mathbb{R}$, consider any $z\in \mathbb{R}$  
+    1. $x\leq z\leq y$  
+    Take $λ$ s.t.  
+    $$\begin{aligned} z &=  λx + (1-λ)y \\ 1-λ &= \frac{z-x}{y-x} \\ λ &= \frac{y-z}{y-x}\end{aligned}$$ 
+    Therefore, $y-z = λ(y-x) + (1-λ) \cdot 0$  
+    Since $f$ is concave,  
+    $$\begin{aligned} d(y,z) &= f(|y-z|)\\ &= f(y-z)\\ &\geq λf(y-x) + (1-λ)f(0)\\ &= λf(y-x)\end{aligned}$$ 
+    Similarly, $z-x = (1-λ)(y-x) + λ \cdot 0$  
+    $$\begin{aligned} d(z,x) &= f(|z-x|)\\ &= f(z-x)\\ &\geq (1-λ)f(y-x) + λf(0)\\ &= (1-λ)f(y-x) \\
+    d(y,z) + d(z,x) &\geq λf(y-x) + (1-λ)f(y-x)\\ &=f(y-x) = f(|y-x|)\\ &= d(y,x)\end{aligned}$$ 
+    2. $z < x\leq y$  
+    $\implies |y-z| > |x-z|$  
+    Since $f$ is strictly increasing,  
+    $$\begin{aligned} f(|y-z|) &> f(|x-z|) \\ d(y,z) &> d(x,z) \\ d(y,z) + d(y,x) &> d(x,z)\end{aligned}$$ 
+    3. $x\leq y < z$  
+    $\implies |z-y| \geq |z-x|$  
+    Since $f$ is increasing,  
+    $$\begin{aligned} f(|z-y|) &\geq f(|z-x|) \\ d(z,y) &\geq d(z,x) \\ d(z,y) + d(y,x) &> d(z,x)\end{aligned}$$ 
+
+> 2016.F1.Q5  
+> Define $d: \mathbb{R}^2\times\mathbb{R}^2\to\mathbb{R}$ as $d\big((x_1,y_1),(x_2,y_2)\big) = |x_1 −x_2|+|y_1 −y_2|$  
+> Prove that $d$ is a distance
+
+1. Non-negative (trivial)  
+2. Identity of Indiscernibles  
+($\Longrightarrow$)  
+$$\begin{aligned} d\big((x_1,y_1),(x_1,y_1)\big) &= |x_1 −x_1|+|y_1 −y_1| \\
+&= 0 + 0 = 0\end{aligned}$$ 
+($\Longleftarrow$)  
+Assume $d\big((x_1,y_1),(x_2,y_2)\big) = 0$,  
+$$\begin{aligned} |x_1 −x_2|+|y_1 −y_2| &= 0 \\
+x_1 &= x_2 \\ y_1 &= y_2\end{aligned}$$ 
+3. Symmetric  
+For all $(x_1,y_1),(x_2,y_2)$, 
+$$\begin{aligned} d\big((x_1,y_1),(x_2,y_2)\big) &= |x_1 −x_2|+|y_1 −y_2| \\
+&= |x_2 −x_1|+|y_2 −y_1| \\
+&= d\big((x_2,y_2),(x_1,y_1)\big)\end{aligned}$$ 
+4. Triangle Inequality  
+$$\begin{aligned} &\phantom{\ggg} d\big((x_1,y_1),(x_2,y_2)\big) + d\big((x_2,y_2),(x_3,y_3)\big) \\
+&= |x_1 −x_2| + |y_1 −y_2| + |x_2 −x_3| + |y_2 −y_3| \\
+&= |x_1 −x_2| + |x_2 −x_3| + |y_1 −y_2| + |y_2 −y_3| \\
+&\geq |x_1 −x_2+x_2 −x_3| + |y_1 −y_2+y_2 −y_3| \\
+&= |x_1 −x_3| + |y_1 − y_3| \\
+&= d\big((x_1,y_1),(x_3,y_3)\big)\end{aligned}$$ 
+
+> 2016.F1.Q8, PS8.Q7  
+> Let $C_B$ be the space of bounded and continuous functions from compact $A\subset \mathbb{R}^n$ to $\mathbb{R}$  
+> Define $d: C_B\times C_B \to \mathbb{R}$ as $d(f,g)\equiv \max_{x\in A} |f(x) - g(x)|$  
+> Assume that $\max_{x\in A} |f(x) - g(x)|$ exists for all $f,g\in C_B$  
+> Show that $d$ is a distance on $C_B$
+
+1. Non-negative (trivial)  
+2. Identity of Indiscernibles  
+($\Longrightarrow$)  
+$$\begin{aligned} d(f,f) &= \max_{x\in A} |f(x) - f(x)| \\
+&= \max_{x\in A} 0 = 0\end{aligned}$$ 
+($\Longleftarrow$)  
+Assume $d(f,g) = 0$ for some $f,g\in C_B$  
+$$\begin{aligned} \max_{x\in A} |f(x) - g(x)| &= 0 \\
+|f(x) - g(x)| &= 0 \\
+f(x) - g(x) &= 0 \text{ for all }x\end{aligned}$$ 
+3. Symmetric  
+Take arbitrary $f,g\in C_B$  
+$$\begin{aligned} d(f,g)&= \max_{x\in A} |f(x) - g(x)| \\
+&= \max_{x\in A} |g(x) - f(x)| \\
+&= d(g,f)\end{aligned}$$ 
+4. Triangle Inequality  
+Take arbitrary $f,g,h\in C_B$  
+Let $x_1,x_2,x_3\in A$ be s.t. 
+$$\begin{cases} d(f,g) = |f(x_1) - g(x_1)| \\
+d(g,h) = |g(x_2) - h(x_2)| \\
+d(f,h) = |f(x_3) - h(x_3)|\end{cases}$$ 
+Therefore,  
+$$\begin{aligned} d(f,g)+d(g,h) &= |f(x_1) - g(x_1)| + |g(x_2) - h(x_2)| \\
+&\geq |f(x_3) - g(x_3)| + |g(x_3) - h(x_3)| \\
+&\geq |f(x_3) - g(x_3) + g(x_3) - h(x_3)| \\
+&= |f(x_3) - h(x_3)| \\
+&= d(f,h)\end{aligned}$$ 
+
+> 2018.F2.Q6  
+> Let $A\subset\mathbb{R}^n$ be non-empty and compact, and $\mathcal{C}(A)$ be the space of continuous functions from $A$ to $\mathbb{R}$.  
+> Define $d:\mathcal{C}(A)\times\mathcal{C}(A)\to\mathbb{R}$ as $d(f,g)\equiv\sup_{x\in A} \ |f(x)−g(x)|$ for all $f,g\in\mathcal{C}(A)$  
+> Prove that $d$ is a distance in $C(A)$.  
+> Hint: You can assume without proving it that for each $f,g\in\mathcal{C}(A)$ there is some $x_{fg}\in A$ such that $d(f,g)=|f(x_{fg})−g(x_{fg})|$, and $|a+b|\leq |a|+|b|$ for all $a,b\in\mathbb{R}$.
+
+1. Non-negative (trivial)  
+2. Identity of Indiscernibles  
+($\Longrightarrow$)  
+Take arbitrary $f\in\mathcal{C}(A)$,  
+$$\begin{aligned}d(f,f) &= \sup_{x\in A} \ |f(x)−f(x)| \\
+&= \sup_{x\in A} \ 0 \\
+&= 0 \end{aligned}$$ 
+($\Longleftarrow$)  
+Take some $f,g\in\mathcal{C}(A)$ s.t.  
+$$\begin{aligned}\sup_{x\in A} \ |f(x)−g(x)| &= 0 \\
+|f(x)−g(x)| &\leq 0 \\
+|f(x)−g(x)| &= 0 \\
+f(x) &= g(x)\end{aligned}$$ 
+Therefore, $f=g$
+3. Symmetric  
+Take arbitrary $f,g\in\mathcal{C}(A)$,  
+$$\begin{aligned}d(f,g) &= \sup_{x\in A} \ |f(x)−g(x)| \\
+&= \sup_{x\in A} \ |g(x)−f(x)| \\
+&= d(g,f)\end{aligned}$$
+4. Triangle Inequality  
+Take arbitrary $f,g,h\in\mathcal{C}(A)$,  
+$\implies$ exists $x_{fg}$, $x_{fh}$, $x_{gh}$, respectively  
+$$\begin{aligned}d(f,g) &= |f(x_{fg}) - g(x_{fg})| \\
+&= |f(x_{fg}) - h(x_{fh}) + h(x_{fh}) - g(x_{fg})| \\
+&\leq |f(x_{fg}) - h(x_{fh})| + |h(x_{fh}) - g(x_{fg})| \\
+&\leq d(f,h) + \sup_{x\in A} |h(x) - g(x)| \\
+&= d(f,h) + d(h,g)\end{aligned}$$
+
+<!-- ### Cauchy-Schwarz Inequality -->
+
+## Set Collection & Operation
+
+### Proof by Deduction
+
+> 2014.F1.Q1  
+> Let $\{A_n \ | \ n\in N\}$ be a collection of sets, and $B$ a set, all in universe $U$  
+> Show that $B\cap \big( \cup_{n=1}^{\infty} A_n\big)$ $=$ $\cup_{n=1}^{\infty}\big( B \cap A_n\big)$
+
+1. ($\subset$)  
+Take $x\in B\cap \big( \cup_{n=1}^{\infty} A_n\big)$  
+$\implies x\in B$ and $x\in \cup_{n=1}^{\infty} A_n$  
+$\implies x\in A_{n_0}$ for some $n_0$  
+$\implies x\in B\cap A_{n_0}$  
+$\implies x\in \cup_{n=1}^{\infty}\big( B \cap A_n\big)$  
+2. ($\supset$)  
+Take $x\in \cup_{n=1}^{\infty}\big( B \cap A_n\big)$  
+$\implies$ exists some $n_0$ s.t. $x\in B\cap A_{n_0}$  
+$\implies x\in B$ and $x\in B\cap A_{n_0}$  
+$\implies x\in B$ and $x\in \cup_{n=1}^{\infty} A_n$  
+$\implies x\in B\cap \big( \cup_{n=1}^{\infty} A_n\big)$ 
+
+> 2016.F1.Q1, PS1.Q4  
+> Let $A, B \subset U$  be two sets   
+> Prove that $(A\backslash B)^c = A^c \cup B$ 
+
+Let $x\in (A\backslash B)^c$  
+$\iff \lnot (x \in A \backslash B)$  
+$\iff \lnot (x \in A \land x\notin B)$   
+$\iff (x \notin A) \lor (x\in B)$   
+$\iff (x \in A^c) \lor (x\in B)$   
+$\iff x \in A^c \cup B$  
+$\implies (A\backslash B)^c = A^c \cup B$
+
+### Inclusion of ε
+
+> 2015.F1.Q1  
+> Fix $x_0\in \mathbb{R}^n$  
+> Show that $\{x_0\} =\cap_{ε\in \mathbb{R}_{++}} B_ε(x_0)$ for each $ε>0$  
+> where, $B_ε(x_0)$ is the open ball of radius $ε$ centered at $x_0$
+
+Since $x_0 \in B_ε(x_0)$ for all $ε>0$  
+$\implies x_0\in \cap_{ε\in \mathbb{R}_{++}} B_ε(x_0)$  
+FSOC assume exists $x'\neq x_0$, $x'\in \cap_{ε\in \mathbb{R}_{++}} B_ε(x_0)$  
+$\implies x'\in B_ε(x_0)$ for all $ε>0$  
+$\implies x'\in B_{d(x_0,x')}(x_0)$, contradiction 
+
+> 2017.F1.Q7  
+> Let $\{A_n \ | \ n = 1,\dots,N\}$ be a finite collection of sets in metric space $\langle U, d\rangle$  
+> Prove that $\text{int}\big(\cap_{n=1}^N A_n \big) = \cap_{n=1}^N \big(\text{int}(A_n)\big)$
+
+1. ($\subset$)  
+Take arbitrary $x\in \text{int}\big(\cap_{n=1}^N A_n \big)$  
+$\implies$ exists $ε>0$ s.t. $B_ε(x)\in \cap_{n=1}^N A_n$  
+$\implies B_ε(x)\in A_n$ for all $n\in[1,N]$  
+$\implies x\in \text{int}(A_n)$ for all $n$  
+$\implies x\in\cap_{n=1}^N \big(\text{int}(A_n)\big)$  
+2. ($\supset$)  
+Take arbitrary $x\in\cap_{n=1}^N \big(\text{int}(A_n)\big)$  
+$\implies x\in \text{int}(A_n)$ for all $n$  
+$\implies$ exists $ε(n)>0$ for each $n$ s.t. $B_{ε(n)}(x)\in A_n$  
+Take $ε = \min\big[ε(1),ε(2),\dots,ε(N)\big]$  
+$\implies B_ε(x)\in A_n$ for all $n$  
+$\implies B_ε(x)\in \cap_{n=1}^N A_n$  
+$\implies x\in \text{int}\big(\cap_{n=1}^N A_n \big)$  
+
+> 2014.F2.Q1  
+> Let $\{A_n \ | \ n = 1,\dots , N\}$ be a finite collection of open sets in universe $U$.  
+> Show that $A = \cap^N_{n=1}A_n$ is an open set.
+
+Take arbitrary $x\in A$  
+$\implies x\in A_n$ for all $n$  
+Since $A_n$ are open for all $n$,  
+$\implies$ exists $ε_n$ s.t. $B_{ε_n}(x)\subset A_n$ for all $n$  
+Take $ε = \min\{ε_1, ε_2,\dots, ε_N\}$, $B_{ε}(x)\subset A_n$ for all $n$  
+$\implies B_{ε}(x)\subset A$  
+$\implies A$ is open
+
+## Set
+
+### Close / Open
+
+> 2014.F1.Q3  
+> Let $\langle U,d\rangle$ be a metric space, $x^* \in U$ an element, $r > 0$ a real number  
+> Prove that $B_r(x^*) =\{x\in U \ | \ d(x,x^*) < r\}$ is an open set
+
+Take arbitrary $x\in B_r(x^*)$, let $ε = r - d(x,x^*)$  
+For any $x' \in B_ε(x)$,  
+$$\begin{aligned} d(x',x^*)&\leq d(x,x^*) + d(x',x) \\
+&< d(x,x^*) + ε \\
+&= d(x,x^*) + r - d(x,x^*) \\ &= r\end{aligned}$$ 
+$\implies x'\in B_r(x^*)$  
+$\implies B_r(x^*)$ is open 
+
+### Closure & Interior & Boundary
+
+> 2014.F2.Q2, PS3.Q2  
+> Let $A$, $B$ be two sets, $B$ is open and $B \subset A$  
+> Prove that $B \subset \text{int}(A)$
+
+Take arbitrary $x\in B$  
+$B$ is open $\implies \exists ε>0$ s.t. $B_ε(x) \subset B \subset A$  
+$\implies x \in \text{int}(A)$  
+$\implies B \subset \text{int}(A)$
+
+### Convex
+
+> 2015.F1.Q8, PS4.Q6  
+> Let $A, B \in \mathbb{R}^n$ be two convex sets  
+> Let $C \equiv \{ z\in \mathbb{R} | z=x+y, x\in A, y\in B \}$  
+> Prove that $C$ is convex
+
+Take some $x_1, x_2 \in A$ and $y_1,y_2 \in B$  
+Take $z_1, z_2 \in C$ s.t. $z_1 = x_1+ y_1$, $z_2 = x_2+ y_2$  
+Let $$\begin{aligned} z_3 &\equiv λz_1 + (1-λ)z_2 \\ &= λ(x_1+y_1) + (1-λ)(x_2+y_2) \\ &= λx_1+(1-λ)x_2 + λy_1 + (1-λ)y_2 \end{aligned}$$ 
+Since $A$ and $B$ are convex  
+$\implies λx_1+(1-λ)x_2 \in A$ and $λy_1+(1-λ)y_2 \in B$  
+$\implies z_3 \in C$  
+$\implies C$ is convex
+
+> 2017.F1.Q9  
+> Let $A$ be a convex set in $\mathbb{R}^n$  
+> Define $C \equiv \{ z\in \mathbb{R} \ | \ z=λx, x\in A, λ\in [0,1] \}$  
+> Prove that $C$ is convex
+
+Take arbitrary $z_1,z_2\in C$  
+$\implies z_1 = λ_1x_1$ for some $x_1\in A$, and $z_2 = λ_2x_2$ for some $x_2\in A$  
+Take arbitrary $λ\in[0,1]$, let $z_3$ be s.t.  
+$$\begin{aligned} z_3 &= λz_1 + (1-λ)z_2 \\
+&= λ(λ_1x_1) + (1-λ)(λ_2x_2)\end{aligned}$$ 
+
+1. $λ\cdot λ_1 + (1-λ)λ_2 = 0$  
+$\implies λ\cdot λ_1=0$, $(1-λ)λ_2 = 0$  
+Since $0\in C$  
+$\implies z_3\in C$  
+2. $λ\cdot λ_1  + (1-λ)λ_2 > 0$  
+$$\begin{aligned} z_3 &= λ(λ_1x_1) + (1-λ)(λ_2x_2)\\
+&= \big(λ\cdot λ_1 + (1-λ)λ_2\big)\cdot \bigg[\frac{λ}{λ\cdot λ_1 + (1-λ)λ_2}\cdot λ_1x_1 + \frac{1-λ}{λ\cdot λ_1 + (1-λ)λ_2}\cdot λ_2x_2 \bigg] \\
+&= \big(λ\cdot λ_1 + (1-λ)λ_2\big)\cdot \bigg[\frac{λ\cdot λ_1}{λ\cdot λ_1 + (1-λ)λ_2}\cdot x_1 + \frac{(1-λ)λ_2}{λ\cdot λ_1 + (1-λ)λ_2}\cdot x_2 \bigg]\end{aligned}$$ 
+Let $λ'= \frac{λ\cdot λ_1}{λ\cdot λ_1 + (1-λ)λ_2}$, $λ'\in[0,1]$  
+$\implies \big( λ' x_1 + (1-λ')x_2\big)\in A$  
+Since $λ\cdot λ_1 + (1-λ)λ_2\in [0,1]$  
+$\implies z_3 = λ(λ_1x_1) + (1-λ)(λ_2x_2)\in C$, $C$ is convex
+
+> 2014.F1.Q9  
+> Let $A\subset \mathbb{R}^n$ be a set  
+> Prove that there exists a set $B\subset \mathbb{R}^n$ s.t. $B$ is convex, $A\subset B$  
+> and $B\subset B'$ for all convex sets $B'\subset \mathbb{R}^n$ such that $A\subset B'$
+
+Define $B\equiv \{ x \ | \ x = λa + (1-λ)b\}$ for all $a,b\in A$ and $λ\in[0,1]$  
+$B$ is convex by construction  
+Since $\begin{cases} x=a & \text{when } λ=1 \\ x=b & \text{when } λ=0\end{cases}$,  
+$\implies A\subset B$  
+FSOC assume for some convex set $B'$ s.t. $A\subset B'$, $B\not\subset B'$  
+$\implies$ exists $a,b\in A$ and $λ$ s.t.  
+$$\begin{cases} λa + (1-λ)b &\in B' \\
+λa + (1-λ)b &\not\in B\end{cases}$$ 
+Contradiction.
+
+> PS3.Q5, 2015.F1.Q4  
+> Fix $x\in \mathbb{R}^n$ and $ε >0$, prove that $B_ε(x)$ is convex  
+> Hint: use $d(x, y)\equiv \|x-y\|$ is a norm
+
+Take arbitrary $x_1, x_2 \in B_ε(x)$, $λ\in (0,1)$  
+$$\begin{aligned} d(y,x) &= d \big((λx_1+(1-λ)x_2),x\big) \\
+&= \| λx_1 + (1-λ)x_2 - x \| \\
+&= \| λx_1 + x_2 - λx_2 - x \| \\
+&= \| λ (x_1-x) + (1-λ)(x_2-x) \| \\
+&\leq \| λ (x_1-x) \| + \| (1-λ)(x_2-x) \| \\
+&= λ\| x_1-x \| + (1-λ) \| x_2-x \| \\
+&= λ d( x_1,x) + (1-λ) d( x_2,x ) \\
+&< λε + (1-λ) ε \\
+&= ε \end{aligned}$$ 
+$\implies y \in B_ε(x)$  
+$\implies B_ε(x)$ is convex
+
+### Maximum & Supremum
+
+> 2018.F2.Q4  
+> Let $A, B\subset\mathbb{R}^n$ be two compact, non-empty sets.  
+> Let $d$ be the Euclidean distance in $\mathbb{R}^n$.  
+> Define $D(A,B)\equiv\sup_{x\in A}\inf_{y\in B} \ d(x,y)$  
+> Show that $A\subset B$ if and only if $D(A,B)=0$.  
+> Hint: You can use without proving it that $d(x,\cdot):\mathbb{R}^n\to\mathbb{R}_+$ is continuous for all $x\in\mathbb{R}^n$.
+
+1. ($\Longrightarrow$)  
+Let $A\subset B$,  
+$$\begin{aligned} D(A,B)&\equiv\sup_{x\in A}\inf_{y\in B} \ d(x,y) \\
+&\leq \sup_{x\in A} \ d(x,x) \\
+&= 0\end{aligned}$$ 
+2. ($\Longleftarrow$)  
+Let $D(A,B) = 0$  
+$$\begin{aligned}\sup_{x\in A}\inf_{y\in B} \ d(x,y) &= 0\\
+\inf_{y\in B} \ d(x,y) &= 0 && \forall x\in A\end{aligned}$$
+For all $x\in A$, since $B$ is compact and $d(x,\cdot)$ is continuous,  
+$\implies \min_{y\in B} \ d(x,y)$ exists  
+$$\begin{aligned}d(x,y^*) &= \min_{y\in B} \ d(x,y) && \exists y^*\in B \\
+&\leq \inf_{y\in B} \ d(x,y) \\
+&= 0 \end{aligned}$$ 
+$\implies x = y^*$  
+$\implies A\subset B$  
+
+### Dense
+
+## Function
+
+### Image
+
+### Injection (One-to-one) & Surjection (Onto)
+
+### Continuity
+
+> 2014.F2.Q9  
+> Let $f:\mathbb{R}^n\to\mathbb{R}$ and $g:\mathbb{R}^n\to\mathbb{R}$ be continuous.  
+> Prove that $f+g$ is continuous.
+
+Let $h = f+g$, take arbitrary $x\in\mathbb{R}^n$ and $ε>0$   
+Since $f$ is continuous  
+$\implies$ exists $δ_f$ s.t. $f\big( B_{δ_f} (x)\big)\in B_ε\big(f(x) \big)$  
+Since $g$ is continuous  
+$\implies$ exists $δ_g$ s.t. $g\big( B_{δ_g} (x)\big)\in B_ε\big(g(x) \big)$  
+Let $δ = \min\{δ_f, δ_g\}$, for all $x'\in B_{δ} (x)$,  
+$$\begin{aligned}d\big( h(x), h(x') \big) &= d\big( f(x)+g(x), f(x')+g(x') \big) \\
+&= \big|f(x)+g(x) - f(x')-g(x') \big| \\
+&= \Big|\big( f(x)- f(x')\big) + \big( g(x) -g(x') \big) \Big| \\
+&\leq \big| f(x)- f(x')\big| + \big| g(x) -g(x') \big| \\
+&\leq ε + ε = 2ε\end{aligned}$$
+Let $ε' = 2ε$  
+$\implies$ $h\big(B_{δ} (x)\big) \in B_{ε'}\big(h(x)\big)$ 
+
+> 2014.F2.Q4  
+> Let $f: \mathbb{R}\to\mathbb{R}$ be a continuous function.  
+> Show that $A\equiv \{x \ | \ f(x)>0\}$ is an open set.
+
+1. $A = \emptyset$ (trivial)
+2. $A\neq\emptyset$  
+Take arbitrary $x\in A$, let $f(x) = ε > 0$  
+$f$ is continuous  
+$\implies$ exists $δ$ s.t. $f\big( B_δ(x)\big)\in B_ε\big( f(x) \big)$  
+$\implies f\big( B_δ(x)\big)\in (0, 2ε)$  
+$\implies f\big( B_δ(x)\big) > 0$  
+Let $ε' = δ$, $B_{ε'}(x)\subset A$  
+$\implies A$ is open
+
+> 2014.F2.Q6  
+> Let $f: \mathbb{R}\to\mathbb{R}$ be a function and $x^*\in\mathbb{R}$.  
+> Assume there exists a real sequence $(x_n)_n$ converging to $x^*$ such that $\big(f(x_n)\big)_n$ converges to $y^*$ and $y^* < f(x^*)$.  
+> Prove that $f$ is not continuous at $x^*$.
+
+Denote $d\big(f(x^*), y^*\big) = f(x^*) - y^* = 2ε$  
+FSOC assume exists some $δ>0$ s.t. $f\big(B_δ(x^*)\big)\subset B_ε\big(f(x^*)\big)$  
+$(x_n)_n \to x^*\implies$ exists $N_x$ s.t. $d(x_n, x^*)<δ$ for all $n>N_x$  
+$\big(f(x_n)\big)_n\to y^*\implies$ exists $N_y$ s.t. $d\big(f(x^*), y^*\big)<ε$ for all $n>N_y$  
+Let $N = \max\{N_x, N_y\} + 1$, $x_{N}\in B_δ(x^*)$,  
+$$\begin{aligned}d\big(f(x^*), y^*\big) &\leq d\big(f(x^*), f(x_N)\big) + d\big(f(x_N), y^*\big) \\
+&< ε + ε\\
+&= d\big(f(x^*), y^*\big)\end{aligned}$$ 
+Contradiction.  
+Therefore, there exists no $δ>0$ s.t. $f\big(B_δ(x^*)\big)\subset B_ε\big(f(x^*)\big)$  
+$\implies f$ is not continuous at $x^*$
+
+### Mean Value
+
+> 2015.F1.Q7  
+> Let $f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})$  
+> Show that $f$ is increasing $\iff f'(x)\geq 0$ for all $x\in\mathbb{R}$  
+> Hint: use the mean value theorem
+
+1. ($\Longrightarrow$)  
+FSOC assume $f'(x)< 0$ for some $x$  
+By mean value theorem, exists $x_1\leq x_2$ s.t. $x\in (x_1,x_2)$,  
+$$\begin{aligned} f'(x) = \frac{f(x_2) - f(x_1)}{x_2 - x_1} &< 0 \\
+f(x_2) - f(x_1) &< 0\end{aligned}$$ 
+Contradicts that $f$ is increasing  
+2. ($\Longleftarrow$)  
+FSOC assume $f$ is not increasing  
+Take arbitrary $x_1\leq x_2\in\mathbb{R}$  
+By mean value theorem, exists $x'\in (x_1,x_2)$ s.t.  
+$$\begin{aligned} f'(x) = \frac{f(x_2) - f(x_1)}{x_2 - x_1} &\geq 0\\
+f(x_2) - f(x_1) &\geq 0\end{aligned}$$ 
+Contradicts that $f$ is not increasing  
+
+> 2015.F1.Q6  
+> Let $f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})$ be s.t. $f'(x)\leq 1$ for all $x\in\mathbb{R}$  
+> Prove that the set of fixed points of $f$ is convex  
+> Hint: use the mean value theorem
+
+1. The set is empty or singleton (trivial)  
+2. The set contains more than 1 element  
+Assume $x_1,x_2$ are fixed points of $f$  
+Let $x_3 = λx_1 + (1-λ)x_2$  
+FSOC assume $f(x_3)< x_3$  
+By mean value theorem, exists $x'\in (x_3,x_2)$ s.t. 
+$$\begin{aligned} f'(x') &= \frac{f(x_2) - f(x_3)}{x_2 - x_3} \\
+&= \frac{x_2 - f(x_3)}{x_2 - x_3} \\
+&= 1 + \frac{x_3 - f(x_3)}{x_2 - x_3} > 1\end{aligned}$$ 
+Contradiction.  
+FSOC assume $f(x_3) > x_3$  
+By mean value theorem, exists $x'\in (x_1,x_3)$ s.t. 
+$$\begin{aligned} f'(x') &= \frac{f(x_3) - f(x_1)}{x_3 - x_1} \\
+&= \frac{f(x_3) - x_1}{x_3 - x_1} \\
+&= 1 + \frac{f(x_3) - x_3}{x_3 - x_1} > 1\end{aligned}$$ 
+Contradiction.  
+Therefore, $f(x_3) = x_3$  
+$\implies λx_1 + (1-λ)x_2$ is a fixed point 
+
+> 2019.F1.Q6  
+> Let $f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})$ be a function.  
+> Assume there is some $λ > 0$ such that $|f'(x)|\leq λ$ for all $x\in\mathbb{R}$.  
+> Prove $|f(x) − f(y)|\leq λ |x − y|$ for all $x,y \in\mathbb{R}$.  
+> Hint: use the mean value theorem.
+
+FSOC assume exist some $x, y \in\mathbb{R}$ s.t.  
+$$\begin{aligned}|f(x) − f(y)| &> λ|x − y| \\
+\frac{|f(x) − f(y)|}{|x − y|} &> λ \\
+\bigg| \frac{f(x) − f(y)}{x − y}\bigg| &> λ\end{aligned}$$
+Since $f\in\mathcal{C}^1(\mathbb{R},\mathbb{R})$  
+$\implies$ exists some $z\in [x,y]$ s.t.  
+$$\begin{aligned}f'(z) &= \frac{f(x) − f(y)}{x − y} \\
+|f'(z)| &= \bigg| \frac{f(x) − f(y)}{x − y}\bigg| \\
+&> λ \end{aligned}$$
+Contradicts that $|f'(x)|\leq λ$ for all $x$  
+$\implies$ $|f(x) − f(y)|\leq λ |x − y|$ for all $x,y$
+
+### Intermediate Value
+
+> 2016.F1.Q9  
+> Prove that if $f:[a,b]\to \mathbb{R}$ is continuous for some $a<b$ and $f(a)<0<f(b)$  
+> then there exists $c\in (a, b)$ s.t. $f(c) = 0$  
+> DO NOT use the intermediate value theorem
+
+Note: The solution uses infimum, but it helps for me to also think of supremum.  
+Reference:  
+[Brilliant Math & Science Wiki](https://brilliant.org/wiki/intermediate-value-theorem/#proofs-of-the-intermediate-value-theorem)  
+[Mathematics Stack Exchange](https://math.stackexchange.com/questions/1092358/proof-of-the-intermediate-value-theorem)
+
+Since $f$ is continuous,  
+$\implies$ for $ε = -f(a) > 0$, exists $δ>0$ s.t. for all $x\in B_δ(a)$,  
+$$\begin{aligned} f(x) &\in B_ε\big(f(a)\big) \\
+\big|f(x) - f(a)\big| &< ε \end{aligned}$$ 
+Consider set $S = \{ x\in[a,b] \ | \ f(x) < 0\}$, $a\in S$  
+Since $S$ is non-empty and bounded, $S$ has least upper bound $x_0$  
+
+1. $f(x_0) > 0$  
+$\implies$ for $ε = f(x_0)>0$, exists exists $δ>0$ s.t. for all $x\in B_δ(x_0)$,  
+$$\begin{aligned} f(x) &\in B_ε\big(f(x_0)\big) \\
+\big|f(x) - f(x_0)\big| &< ε \\
+f(x) > 0\end{aligned}$$ 
+$\implies x\not\in S$ for all $x\in B_δ(x_0)$  
+$\implies (x_0-δ)$ is an upper bound of $S$  
+Contradicts that $x_0$ is the least upper bound  
+2. $f(x_0) < 0$  
+$\implies$ for $ε = -f(x_0)>0$, exists exists $δ>0$ s.t. for all $x\in B_δ(x_0)$,  
+$$\begin{aligned} f(x) &\in B_ε\big(f(x_0)\big) \\
+\big|f(x) - f(x_0)\big| &< ε \\
+f(x) < 0\end{aligned}$$ 
+$\implies x\in S$ for all $x\in B_δ(x_0)$  
+Contradicts that $x_0$ is an upper bound  
+3. Therefore $f(x_0) = 0$
+
+> 2018.F1.Q2  
+> Let $f,g:\mathbb{R}\to\mathbb{R}$ be continuous functions.  
+> Assume that $\lim_{x\to -\infty f(x)} = -\infty$, $\lim_{x\to \infty f(x)} = \infty$ and that $g$ is bounded.  
+> Prove that there is some $x^*\in\mathbb{R}$ such that $f(x^*) = g(x^*)$.  
+> Hint: use the intermediate value theorem. You do not need to prove that $f − g$ is continuous.
+
+$g$ is bounded  
+$\implies$ exists $M\in\mathbb{R}$ s.t. $-M < g(x) < M$ for all $x\in\mathbb{R}$  
+$\lim_{x\to -\infty f(x)} = -\infty$  
+$\implies$ exists $x_1$ s.t. $f(x_1) < -M < g(x)$ for all $x\in\mathbb{R}$  
+$\lim_{x\to \infty f(x)} = \infty$  
+$\implies$ exists $x_2$ s.t. $f(x_2) > M > g(x)$ for all $x\in\mathbb{R}$  
+Let $h = f - g$ be continuous, for $x\in (x_1, x_2)$,  
+exists some $x^*$ s.t. $h(x^*) = 0$  
+$\implies f(x^*) - g(x^*) = 0$
+
+### Fix Point
+
+> 2018.F2.Q5  
+> Let $f:\mathbb{R}\to\mathbb{R}$ be a contraction.  
+> Show that $F:\mathbb{R}^2\to\mathbb{R}^2$, defined by $F(x,y)\equiv \big(f(y),f(x)\big)$ for all $x,y\in\mathbb{R}$, has a unique fixed point.  
+> Hint: You may want to show (and use) that $f\circ f$ is a contraction.
+
+1. Since $f$ is a contraction  
+$\implies f$ has unique fixed point $x^*$  
+2. Let $f^2=f\circ f$, for all $x,x'\in\mathbb{R}$,  
+$$\begin{aligned}d\big(f^2(x), f^2(x')\big) &= d\Big(f\big(f(x)\big), f\big(f(x')\big) \Big) \\
+&\leq λ\cdot d\big(f(x), f(x')\big) \\
+&\leq λ^2\cdot d(x,x')\end{aligned}$$
+Therefore, $f^2$ is a contraction  
+$\implies f^2$ has unique fixed point  
+$$\begin{aligned}f^2(x^*) &= f\big( f(x^*)\big) \\
+&= f(x^*) \\
+&= x^*\end{aligned}$$
+$\implies x^*$ is the fixed point of $f^2$  
+<!-- 3. Let $F^2 = F\circ F$, $F^2(x,y) = F(f^2(x), f^2(y))$  
+$$\begin{aligned}F^2(x^*, x^*) &= \big(f^2(x^*),f^2(x^*)\big) \\
+&= (x^*, x^*)\end{aligned}$$
+$\implies x^*$ is a fixed point of $F^2$   -->
+3. Consider $F$  
+$$\begin{aligned}F(x^*, x^*) &= \big(f(x^*),f(x^*)\big) \\
+&= (x^*, x^*)\end{aligned}$$
+$\implies (x^*, x^*)$ is a fixed point of $F$  
+4. FSOC assume $F(x,y)$ has another fixed point $(x',y')\neq (x^*, x^*)$  
+$$\begin{aligned} F(x',y') &= \big(f(y'),f(x')\big) \\
+&= (x',y') \\
+x' &= f(y')\\
+y' &= f(x')\end{aligned}$$
+Therefore,  
+$$\begin{aligned}f\big( f(y')\big) = f(x') = y' \\
+f\big( f(x')\big) = f(y') = x'\end{aligned}$$
+$\implies x',y'$ are fixed points of $f^2$  
+Since $x^*$ is the unique fixed point of $f^2$,  
+$\implies x' = y' = x^*$, contradiction  
+$\implies (x^*, x^*)$ is the unique fixed point of $F$  
+
+### Contraction
+
+> 2014.F1.Q7  
+> Assume that $f, g: \mathbb{R}\to \mathbb{R}$ are contractions with $λ_f$ and $λ_g$  
+> Show that $h\equiv f\circ g$ is a contraction 
+
+Take arbitrary $x,x'\in \mathbb{R}$  
+$$\begin{aligned} d\big(h(x), h(x')\big) &= d\Big(f\big(g(x)\big), f\big(g(x')\big)\Big) \\
+&\leq λ_f\cdot d\big( g(x), g(x')\big) \\
+&\leq λ_f\cdot \big(λ_g \cdot d(x,x')\big) \\
+&= (λ_f\cdot λ_g) \cdot d(x,x')\end{aligned}$$ 
+Since $λ_f,λ_g\in [0,1)$  
+$\implies λ_f\cdot λ_g \in [0,1)$  
+$\implies h$ is a contraction
+
+> 2014.F2.Q5  
+> Assume that $f,g:\mathbb{R}\to \mathbb{R}$ are contractions with parameters $λ_f$ and $λ_g$, respectively.  
+> Show that $h = \frac{1}{2}f + \frac{1}{2} g$ is a contraction.
+
+Take arbitrary $x,x'\in \mathbb{R}$  
+$$\begin{aligned} d\big(h(x), h(x')\big) &= \bigg|\frac{1}{2}f(x) + \frac{1}{2} g(x) - \frac{1}{2}f(x') - \frac{1}{2} g(x')\bigg| \\
+&= \bigg| \big(\frac{1}{2}f(x) - \frac{1}{2}f(x')\big) + \big(\frac{1}{2} g(x)  - \frac{1}{2} g(x')\big)\bigg| \\
+&= \bigg| \frac{1}{2} \big(f(x) - f(x')\big) + \frac{1}{2} \big(g(x) - g(x')\big)\bigg| \\
+&= \frac{1}{2} d\big(f(x), f(x')\big) + \frac{1}{2} d\big(g(x), g(x')\big) \\
+&= \frac{1}{2} λ_f d(x,x') + \frac{1}{2} λ_g d(x,x') \\
+&= \frac{1}{2} (λ_f+λ_g) d(x,x')\end{aligned}$$
+Since $λ_f,λ_g\in [0,1)$  
+$\implies \frac{1}{2} (λ_f+λ_g) \in [0,1)$  
+$\implies h$ is a contraction
+
+> 2016.F1.Q4, PS9.Q3  
+> Prove that if $f\in \mathcal{C}^1(\mathbb{R}, \mathbb{R})$ is a contraction, $λ\in(0,1)$  
+> then $f'(x)\in [-λ,λ]$ for all $x$
+
+Take arbitrary $x\in \mathbb{R}$, consider a strictly increasing sequence $\{x_n\}_n \to x$  
+Since $f$ is contraction,  
+$$\begin{aligned} d\big(f(x),f(x_n)\big) &\leq λd(x,x_n) \\
+\frac{ d\big(f(x),f(x_n)\big)} {d(x,x_n)} &\leq λ \end{aligned}$$ 
+Take limit of botht sides  
+$$\begin{aligned} \lim_{n\to\infty}\frac{d\big(f(x),f(x_n)\big)}{d(x,x_n)} &\leq \lim_{n\to\infty} λ \\
+\lim_{n\to\infty}\frac{\big|f(x)-f(x_n)\big|}{|x-x_n|} &\leq λ \\
+\lim_{n\to\infty}\left|\frac{f(x)-f(x_n)}{x-x_n}\right| &\leq λ \\
+|f'(x)| &\leq λ\end{aligned}$$ 
+$\implies f'(x)\in [-λ,λ]$
+
+> 2018.F1.Q3  
+> Let $f:\mathbb{R}\to\mathbb{R}$ be a function.  
+> Assume that there is some $β\in (0,1)$ s.t. for all $x\in\mathbb{R}$ and $a>0$, $f(a+x)\in \big(f(x)−βa,f(x)+βa\big)$.  
+> Provethat $f$ is a contraction.
+
+$$\begin{aligned}f(a+x) &\in \big(f(x)−βa,f(x)+βa\big) \\
+f(a+x) - f(x) &\in (−βa, βa) \\
+d\big(f(a+x), f(x)\big) &< βa \\
+&= d(x, a+x)\end{aligned}$$
+Therefore, $f$ is a contraction for $β$
+
+### Limit & Differenciation
+
+### Supremum / Infimum
+
+> 2014.F1.Q8, PS10.Q6  
+> Let $f: \mathbb{R}^2 \to \mathbb{R}$ be bounded  
+> Let $f(x,y)$ be increasing in $y$ for all $x \in \mathbb{R}$,  
+> Show that $V(y) \equiv \sup_{x\in \mathbb{R}} f(x,y)$ is increasing in $y$
+
+$f$ is bounded $\implies \{ f(x) | x\geq y \}$ is bounded  
+$\implies V(y)$ is well-defined  
+Take arbitrary $y_1\leq y_2 \in \mathbb{R}$  
+Since $f$ is increasing in $y$,  
+$\implies f(x,y_1)\leq f(x,y_2)$ for all $x$  
+$V(y_2) = \sup_{x\in\mathbb{R}} f(x,y_2)$  
+$\implies V(y_2)$ is the least upper bound of $f(x,y_2)$  
+$\implies V(y_2)$ is an upper bound of $f(x,y_1)$  
+And $V(y_1) = \sup_{x\in\mathbb{R}} f(x,y_1)$  
+$\implies V(y_1)$ is the least upper bound of $f(x,y_1)$  
+$\implies V(y_1)\leq V(y_2)$ 
+
+<!-- Solution:  
+Take arbitrary $y_1\leq y_2 \in \mathbb{R}$  
+Since $f$ is increasing in $y$,  
+$\implies f(x,y_1)\leq f(x,y_2)$ for all $x$  
+FSOC assume $V(y_1)>V(y_2)$, let $ε = V(y_1) - V(y_2)> 0$  
+$\implies$ exists $x^*$ s.t. 
+$$\begin{aligned} f(x^*,y_1) &> V(y_1) - ε \\
+&= V(y_2) \\
+&\geq f(x^*,y_2)\end{aligned}$$ 
+Contradiction.  -->
+
+> 2018.F2.Q3  
+> Let $V:\mathbb{R}\to\mathbb{R}$ and $F:\mathbb{R}^2\to\mathbb{R}$ be two functions, and $A\subset\mathbb{R}$ a compact, non-empty set.  
+> Assume $F(x,y)\geq F(x',y)$ for all $x,x',y\in\mathbb{R}$ such that $x\geq x'$.  
+> Assume also that there is some $β\in (0,1)$ such that the following equation holds for all $x\in\mathbb{R}$:  
+> $$V(x) =\sup_{y\in A} \ F(x,y) + βV(y)$$
+> Show that $V$ is increasing.
+
+Take arbitrary $x>x', y\in\mathbb{R}$, $F(x,y)\geq F(x',y)$  
+$\implies$ $F(x,y) + βV(y) \geq F(x',y) + βV(y)$  
+$\implies$ upper bound of $F(x,y) + βV(y) \geq$ upper bound of $F(x',y) + βV(y)$  
+$\implies$ $\sup \ F(x,y) + βV(y)\geq\sup \ F(x',y) + βV(y)$  
+$\implies V(x)\geq V(x')$  
+Therefore, $x>x'\implies V(x)\geq V(x')$, $V$ is increasing
+
+> 2017.F1.Q8  
+> Let $\{f_i \ | \ i\in\mathcal{I}\}$ be an arbitrary collection of increasing functions: $[0,1]\to [0,1]$  
+> For each $x\in [0,1]$, define $f(x)\equiv\sup_{i\in\mathcal{I}} f_i(x)$  
+> Prove that $f$ is increasing
+
+Take $a\leq b\in [0,1]$, $f(a) = \sup_{i\in\mathcal{I}} f_i(a)$, $f(b) = \sup_{i\in\mathcal{I}} f_i(b)$  
+Since $f_i$ is increasing for all $i$  
+$\implies f_i(a)\leq f_i(b)$ for all $i$  
+FSOC assume $f(a) = f_j(a)$, $f(b) = f_k(b)$, $f(a)>f(b)$  
+$\implies f_j(a) > f_k(b)$  
+But $f_j(b) \geq f_j(a) > f_k(b)$, contradicts that $f_k(b)$ is supremum  
+$\implies f(a)\leq f(b)$
+
+> 2015.F1.Q3, PS4.Q7  
+> Let $f: \mathbb{R} \to \mathbb{R}$ be a bounded function and $h(y) \equiv \sup_{x\geq y} \big( f(x) \big)$  
+> Show that $h$ is decreasing 
+
+$f$ is bounded $\implies \{ f(x) | x\geq y \}$ is bounded  
+$\implies h(\cdot)$ is well-defined  
+Take $y_1\leq y_2$  
+$\implies \{ f(x)| x\geq y_2\} \subset \{ f(x)| x\geq y_1\}$  
+Since $h(y_1) = \sup_{x\geq y_1} \big( f(x) \big)$ is an upper bound of $\{ f(x)| x\geq y_1\}$  
+$\implies h(y_1)$ is an upper bound of $\{ f(x)| x\geq y_2\}$  
+Since $h(y_2)$ is the least upper bound of $\{ f(x)| x\geq y_2\}$  
+$\implies h(y_1)\geq h(y_2)$  
+
+### Maximum
+
+> 2019.F1.Q5  
+> Let $F:A^2\to\mathbb{R}$ and $V:A\to\mathbb{R}$ be two continuous functions, where $A\subset\mathbb{R}^n$ is a compact, non-empty set.  
+> Let $\bar{F}$ be the maximum of $F$ on $A^2$.  
+> Assume also that there is some $β\in [0, 1)$ s.t. the following equation is satisfied for all $x\in A$:  
+> $$V(x) = \max_{y\in A} \ F(x,y) + β\cdot V(y)$$ 
+> Prove that $V(x)\leq\frac{1}{1-β}\cdot\bar{F}$ for all $x\in A$.
+
+Since $V$ is continuous and $A$ is compact  
+$\implies$ let $\bar{V}$ denote the maximum of $V$ on $A$  
+$$\begin{aligned} F(x,y) + β\cdot V(y) &\leq \bar{F} + β\cdot\bar{V} && \text{for all }x,y\in A \\
+V(x) &\leq \bar{F} + β\cdot\bar{V} && \text{for all }x\in A \\
+\bar{V} &\leq \bar{F} + β\cdot\bar{V} \\
+&\leq \frac{1}{1-β}\cdot\bar{F} \\
+V(x) &\leq \frac{1}{1-β}\cdot\bar{F} \end{aligned}$$
+
+### Maximizer & Argmax
+
+> 2016.F1.Q6  
+> Assume $f: A\to \mathbb{R}$ is continuous, and $A\subset \mathbb{R}^m$ is compact  
+> Prove that $\text{argmax}_{x\in A} f(x)$ is a closed set
+
+Denote $M = \text{argmax}_{x\in A} f(x)$, $y^* = \max_{x\in A} f(x)$  
+$M$ is closed $\iff M^C$ is open  
+FSOC assume $M^C$ is not open  
+$\implies$ for some $x\in M^C$, $B_ε(x)\not\subset M^C$ for all $ε>0$  
+$\implies B_ε(x)\cap M\neq\emptyset$  
+Take a strictly decreasing sequence $(ε_n)_n\to 0$  
+Let $x_n\in B_{ε_n}(x)\cap M$ for every $n$  
+$\implies (x_n)_n\to x$  
+$x_n\in M \implies f(x_n) = y^*$  
+Since $f$ is continuous, $f(x_n) \to f(x) = y^*$  
+$\implies x\in M$, contradiction
+
+> 2016.F1.Q7  
+> Let $f:[0,1]^2\to \mathbb{R}$ continuous and convex  
+> Let $V(y)\equiv \min_{x\in [0,1]} f(x,y)$ for all $y\in [0,1]$  
+> Assume that $\min_{x\in [0,1]} f(x,y)$ exists for all $y$  
+> Show that $V$ is convex
+
+Take arbitrary $y_1, y_2\in [0,1]$  
+Take $x_1\in \text{argmin}_{x\in [0,1]} f(x,y_1)$ and $x_2\in \text{argmin}_{x\in [0,1]} f(x,y_2)$  
+$\implies f(x_1,y_1) = V(y_1)$, and $f(x_2,y_2) = V(y_2)$  
+Take $λ\in (0,1)$  
+$$\begin{aligned} V\big(λy_1 + (1-λ)y_2\big) &= \min_{x\in [0,1]} f\big(x, λy_1 + (1-λ)y_2\big) \\
+&\leq f\Big(λx_1 + (1-λ)x_2, λy_1 + (1-λ)y_2\Big) \\
+&\leq λf(x_1,y_1) + (1-λ)f(x_2,y_2) \\
+&= λV(y_1) + (1-λ)V(y_2) \end{aligned}$$ 
+
+> 2017.F1.Q6, PS10.Q7  
+> Let $f,g: \mathbb{R}^n \to \mathbb{R}$, $A = \{ x \in \mathbb{R}^n | g(x) = 0\}$  
+> Assume exists some $x^* \in A$ s.t. $x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)$  
+> Prove that $x^* \in \text{argmax} _{x\in A} f(x)$ 
+
+Since $x^* \in \text{argmax} _{x\in \mathbb{R}^n} \big(f(x) + g(x)\big)$  
+$$\begin{aligned} f(x^*) + g(x^*) &\geq f(x) + g(x) && \text{for all }x\\
+f(x^*) + g(x^*) &\geq f(x) + g(x) && \text{for all }x\in A \\
+f(x^*) &\geq f(x) && \text{for all }x\in A\end{aligned}$$ 
+$\implies x^* \in \text{argmax} _{x\in A} f(x)$
+
+### Concave & Convex
+
+> 2014.F2.Q7  
+> Let $f:[0, 1]\to\mathbb{R}$ be convex.  
+> Assume that $\frac{1}{2}\in\text{argmax}_{x\in [0,1]} f(x)$.  
+> Show that $f$ is constant.
+
+(?)
+
+<!-- 
+Sice $f$ is convex, for all $λ\in [0,1]$ and all $x,x'\in [0,1]$,  
+$$f\big(λx + (1-λ)x'\big) \leq λf(x) + (1-λ)f(x')$$ 
+FSOC assume exists $x^*\neq\frac{1}{2}$, $f(x^*)\neq f\big(\frac{1}{2}\big)$
+
+1. $x^*<\frac{1}{2}$  
+Take $λ\in (0,1)$ s.t. $\frac{1}{2} = λx^* + (1-λ)1$  
+$$\begin{aligned}f\big(λx^* + (1-λ)1\big) &\leq λf(x^*) + (1-λ)f(1) \\
+&\leq f\big(\frac{1}{2}\big)\end{aligned}$$
+
+
+$\frac{1}{2}\in\text{argmax}_{x} f(x)$  
+$\implies f\big(\frac{1}{2}\big) \geq f(x)$ for all $x\in [0,1]$  
+$$\begin{aligned} f\big(\frac{1}{2}\cdot 0 + \frac{1}{2}\cdot x\big) &\leq \frac{1}{2}f(0) + \frac{1}{2}f(x) \\
+&\leq \frac{1}{2}f\big(\frac{1}{2}\big) + \frac{1}{2}f\big(\frac{1}{2}\big) \\
+&= f\big(\frac{1}{2}\big)\end{aligned}$$
+ -->
+
+> 2019.F1.Q2  
+> Let $\|\cdot\| : \mathbb{R}^n\to\mathbb{R}$ be a norm in $\mathbb{R}^n$.  
+> Show that it is a convex function.
+
+Take arbitrary $x,y\in\mathbb{R}^n$, $λ\in[0,1]$  
+$$\begin{aligned}\|λx + (1-λ)y\| &\leq \|λx\| + \|(1-λ)y\| \\
+&= λ\|x\| + (1-λ)\|y\| \end{aligned}$$
+Therefore, $\|\cdot\|$ is a convex function 
+
+> 2018.F2.Q2  
+> Let $f: \mathbb{R}^n\to\mathbb{R}$ be a convex function.  
+> Prove that for all $x,y,z \in\mathbb{R}^n$ and $λ, γ\in [0, 1]$ s.t. $λ + γ\leq 1$ we have  
+> $$f\big( λx + γy + (1−λ−γ)z\big)\leq λf(x)+γf(y)+(1−λ−γ)f(z)$$
+
+1. $λ=1$, $γ = 0$, $f(x)\leq f(x)$ (trivial)
+2. $λ<1$  
+Since $f$ is convex,  
+$$\begin{aligned}f\big( λx + γy + (1−λ−γ)z\big) &= f\Big( λx + (1-λ)\cdot\frac{γy + (1−λ−γ)z}{1-λ}\Big) \\
+&\leq λf(x) + (1-λ)\cdot f\Big(\frac{γy + (1−λ−γ)z}{1-λ}\Big) \\
+&= λf(x) + (1-λ)\cdot f\bigg(\frac{γ}{1-λ}y + \Big(1-\frac{γ}{1-λ}\Big)z\bigg) \\
+&\leq λf(x) + (1-λ)\cdot\frac{γ}{1-λ}\cdot f(y) + (1-λ)\cdot\Big(1-\frac{γ}{1-λ}\Big)\cdot f(z) \\
+&= λf(x)+γf(y)+(1−λ−γ)f(z)\end{aligned}$$
+
+> 2014.F1.Q5, PS7.Q7  
+> Let $f: \mathbb{R}\to\mathbb{R}$ be strictly convex  
+> Prove that $f$ has at most 2 zeros  
+> (that is, set $A\equiv\{x \in\mathbb{R} \ | \ f(x) = 0\}$ contains at most 2 elements
+
+FSOC assume $f(x) = 0$ has more than two solutions  
+$\implies$ Exist $x<y<z\in\mathbb{R}$ s.t. $f(x) = f(y) = f(z) = 0$  
+Take $λ$ s.t.  
+$$\begin{aligned} y &= λx + (1-λ)z \\
+λ &= \frac{z-y}{z-x}\end{aligned}$$ 
+Since $f$ is strictly convex,  
+$$\begin{aligned} f\big(λx + (1-λ)z\big) &< λf(x) + (1-λ)f(z) \\
+f(y) &< λf(x) + (1-λ)f(z) \\
+0 &< 0+0\end{aligned}$$ 
+Contradiction. 
+
+> 2014.F1.Q6, PS7.Q3  
+> Prove that if $f: \mathbb{R} \to \mathbb{R}$ is convex,  
+> then $\frac{f(y)-f(x)}{y-x}$ is increasing for all $y > x$
+
+Take $x < y_1 \leq y_2$  
+Take $λ$ s.t.  
+$$\begin{aligned} y_1 &= λx + (1-λ)y_2 \\
+1-λ &= \frac{y_1 - x}{y_2 - x} \\ λ &= \frac{y_2-y_1}{y_2 - x}\end{aligned}$$ 
+Since $f$ is convex, 
+$$\begin{aligned} f(y_1) &\leq λf(x) + (1-λ)f(y_2) \\
+f(y_1) - f(x) &\leq λf(x) -f(x) + (1-λ) f(y_2) \\
+&= -(1-λ) f(x) + (1-λ) f(y_2) \\
+&= \frac{y_1 - x}{y_2 - x}\cdot \big(f(y_2) - f(x)\big) \\
+\frac{f(y_1)-f(x)}{y_1 - x} &\leq \frac{f(y_2)-f(x)}{y_2-x}\end{aligned}$$ 
+
+> 2015.F1.Q5, PS7.Q1  
+> Let $f: \mathbb{R} \to \mathbb{R}$ be strictly concave, $x<y<z\in \mathbb{R}$  
+> Prove that $\frac{f(y)-f(x)}{y-x}>\frac{f(z)-f(x)}{z-x}>\frac{f(z)-f(y)}{z-y}$ 
+
+Take $λ$ s.t. 
+$$\begin{aligned} y &= λ x+(1-λ)z \\
+y -x &= -(1-λ)x + (1-λ)z \\
+&= (1-λ)(z-x) \\
+1-λ &= \frac{y-x}{z-x} \\
+λ &= \frac{z-y}{z-x}\end{aligned}$$ 
+Since $f$ is strictly concave,  
+$$\begin{aligned} f(y) &> λf(x) + (1-λ)f(z) \\
+f(y) - f(x) &> λf(x) - f(x) + (1-λ) f(z) \\
+&= (1-λ) \big( f(z) - f(x)\big) \\
+&= \frac{y-x}{z-x} \big(f(z) -f(x)\big) \\
+\frac{f(y)-f(x)}{y-x} &> \frac{f(z)-f(x)}{z-x}\end{aligned}$$ 
+Similarly,  
+$$\begin{aligned} f(y) &> λf(x) + (1-λ)f(z) \\
+f(y)-f(z) &> λf(x) + (1-λ) f(z) - f(z) \\
+&= λ \big(f(x) - f(z)\big) \\
+f(z) - f(y) &< λ\big(f(z)- f(x)\big) \\
+&= \frac{z-y}{z-x}\big(f(z) - f(x)\big) \\
+\frac{f(z)-f(y)}{z-y} &< \frac{f(z)-f(x)}{z-x}\end{aligned}$$ 
+
+> 2017.F1.Q3  
+> Prove that if $f,g: \mathbb{R}\to\mathbb{R}$ are increasing and quasi-convex,  
+> then $g\circ f$ is quasi-convex  
+> Function $f$ is quasi-convex if $f\big[ λx_1 + (1-λ)x_2\big]\leq\max \big[ f(x_1),f(x_2) \big]$ for $λ\in [0,1]$
+
+Take arbitrary $x_1, x_2\in\mathbb{R}$,  
+Denote $f(x_1) = y_1$, $f(x_2) = y_2$  
+$$\begin{aligned} f\big(λx_1 + (1-λ)x_2\big) &\leq \max[a,b] \\
+g\Big( f\big(λx_1 + (1-λ)x_2\big)\Big) &\leq g\big( \max[a,b]\big) \\
+g\circ f \big(λx_1 + (1-λ)x_2\big) &\leq g\big( \max[a,b]\big)\end{aligned}$$ 
+Since $g$ is increasing,  
+$$\begin{aligned} g\circ f \big(λx_1 + (1-λ)x_2\big) &\leq g\big( \max[a,b]\big) \\
+&= \max\big[ g(a),g(b) \big] \\
+&= \max\big[ g\circ f(a),g\circ f(b) \big]\end{aligned}$$ 
+
+> 2018.F1.Q5  
+> Let $f,g : \mathbb{R}^2\to\mathbb{R}$ be two concave functions.  
+> For all $θ$, define $A(θ)\equiv\{x\in\mathbb{R} \ | \ g(x, θ)\geq 0\}$,  
+> assume $V(θ) \equiv\max_{x\in A(θ)} f (x, θ)$ exists for all $θ\in\mathbb{R}$.  
+> Prove that $V$ is concave.
+
+Take arbitrary $θ, θ'\in\mathbb{R}$,  
+Take $x$ be s.t. $V(θ) = f(x, θ) = \max_{x\in A(θ)} f (x, θ)$  
+and $x'$ be s.t. $V(θ') = f(x', θ') = \max_{x\in A(θ')} f (x, θ')$  
+$$\begin{aligned}V\big(λθ + (1-λ)θ'\big) &= \max_{x\in A\big(λθ + (1-λ)θ'\big)} f \big(x, λθ + (1-λ)θ'\big) \\
+&\geq f\big(λx + (1-λ)x', λθ + (1-λ)θ'\big) \\
+&= f\big(λ(x, θ) + (1-λ)(x',θ')\big) \\
+&\geq λ f(x, θ) + (1-λ)f(x',θ') \\
+&= λV(θ) + (1-λ)V(θ')\end{aligned}$$
+
+### Epigraph
+
+## Set × Function
+
+### Injection & Surjection (revisited)
+
+### Finite & Countable
+
+## Sequence
+
+### Convergent
+
+> 2016.F1.Q3, 2017.F1.Q2  
+> Let $f: \mathbb{R}^m \to \mathbb{R}^m$ be a continuous function  
+> Fix $x_1\in\mathbb{R}^m$ and let $(x_n)_n$ be the sequence generated by $x_{n+1} = f(x_n)$ for all $n\in \mathbb{N}$  
+> Prove that if $x_n \to x^*$ for some $x^*\in\mathbb{R}^m$,  
+> then $x^*$ is a steady state of the recurrence relation ($f(x^*) = x^*$)
+
+Let $(x_n)_n \to x^*$  
+$\implies (x_{n+1})_n \to x^*$  
+$\implies \big(f(x_n)\big)_n \to x^*$  
+Since $f$ is continuous, $\big(f(x_n)\big)_n\to f(x^*)$  
+$\implies f(x^*) = x^*$ 
+
+> 2018.F1.Q4  
+> Let $f:\mathbb{R}\to\mathbb{R}$ be a continuous function.  
+> Prove that $x^*\in\mathbb{R}$ is a fixed point of $f$ if and only if $x^*$ is the limit of a convergent sequence $(x_n)_n$ satisfying $x_{n+1} = f(x_n)$ for all $n$.
+
+1. ($\Longrightarrow$)  
+Let $x^*$ be a fixed point of $f$  
+Let $(x_n)_n$ be a sequence of $x_n = x^*$ for all $n$,  
+$\implies (x_n)_n\to x^*$ and $x_{n+1} = f(x_n)$ for all $n$  
+2. ($\Longleftarrow$)  
+Let $x^*$ be the limit of $(x_n)_n$, $x_{n+1} = f(x_n)$ for all $n$  
+$\implies$ exists $N_ε$ s.t. $d(x_n, x^*) < ε$ for all $n>N_ε$  
+$\implies d(f(x_n), x^*) < ε$ for all $n>N_ε$  
+$\implies \big(f(x_n)\big)\to x^*$  
+$\implies f(x^*) = x^*$ 
+
+> 2017.F1.Q4  
+> Let $(x_n)_n$ be a convergent sequence in $\mathbb{R}$  
+> Define $y_n \equiv x_{n+1} − x_n$ for all $n\in\mathbb{N}$  
+> Show that $(y_n)_n$ is convergent
+
+Let $(x_n)_n\to x\in\mathbb{R}$  
+$\implies d(x_n, x^*)<ε$ for all $n>N(ε)$  
+$\implies d(x_n, x^*)<\frac{ε}{2}$ for all $n>N(\frac{ε}{2})$  
+$\implies$ for all $n>N(\frac{ε}{2})$,  
+$$\begin{aligned} d(x_{n+1},x_n) &\leq d(x_n, x^*) + d(x_{n+1}, x^*) \\
+&< \frac{ε}{2} + \frac{ε}{2} \\
+&= ε\end{aligned}$$ 
+$\implies |y_n - 0| < ε$ for all $n>N(\frac{ε}{2})$  
+$\implies (y_n)_n \to 0$
+
+> 2019.F1.Q3  
+> Let $(x_n)_n$ and $(y_n)_n$ be two sequences in a metric space $\langle U,d\rangle$.  
+> Assume $(x_n)_n$ is convergent.  
+> Define, for each $n\in\mathbb{N}$, $z_n\equiv d(x_n,y_n)$.  
+> Assume that the sequence $(z_n)_n$ converges to 0.  
+> Show that $(y_n)_n$ is a convergent sequence.
+
+Let $(x_n)_n\to x^*\in\mathbb{R}$, take arbitrary $ε>0$,  
+$\implies$ exists $N_x$ s.t. for all $n>N_x$, $d(x^*,x_n) < \frac{ε}{2}$  
+Since $(z_n)_n\to 0$, exists $N_z$ s.t. for all $n>N_z$,   
+$$\begin{aligned}z_n &< \frac{ε}{2} \\
+d(x_n,y_n) &< \frac{ε}{2} \end{aligned}$$  
+Let $N = \max\{N_x, N_z\}$, for all $n>N$,  
+$$\begin{aligned}d(x^*,y_n) &\leq d(x^*,x_n) + d(x_n,y_n) \\
+&< \frac{ε}{2} + \frac{ε}{2} \\
+&= ε \end{aligned}$$
+Therefore, $(y_n)_n\to x^*$ 
+
+> 2018.F1.Q1  
+> Consider two sequences $(x_n)_n$ and $(y_n)_n$ s.t. $(x_n)_n$ is bounded and $(y_n)_n$ converges to 0.  
+> Prove that the sequence of products, $(x_ny_n)_n$, converges to 0.
+
+Since $(x_n)_n$ is bounded, exists $M\in\mathbb{R}$ s.t. $(x_n)_n < M$ for all $n\in\mathbb{N}$  
+Since $(y_n)_n \to 0$, let $N_ε$ be s.t. $|y_n| < \frac{ε}{M}$ for all $n>N_ε$  
+$$\begin{aligned}d(x_ny_n, 0) &= |x_ny_n| \\ &= |x_n||y_n| \\ &< M\cdot \frac{ε}{M} && \text{for all }n>N_ε \\
+&= ε\end{aligned}$$ 
+Therefore $(x_ny_n)_n\to 0$
+
+> 2018.F2.Q1  
+> Consider three real sequences $(x_n)_n$, $(y_n)_n$ and $(z_n)_n$ such that $x_n\leq y_n\leq z_n$ for all $n\in\mathbb{N}$.  
+> Assume that $(x_n)_n$ and $(z_n)_n$ converge to 0.  
+> Prove that $(y_n)_n$ converges to 0.
+
+Since $(x_n)_n\to 0$, exists $N_x$ s.t. $d(x_n, 0) = |x_n| <ε$ for all $n>N_x$  
+Since $(z_n)_n\to 0$, exists $N_z$ s.t. $d(z_n, 0) = |z_n| <ε$ for all $n>N_z$  
+Let $N =\max\{N_x, N_z\}$, for all $n>N$,  
+$$\begin{aligned}-ε < x_n\leq y_n\leq z_n < ε \\
+-ε <  y_n < ε \\
+|y_n| < ε \\
+d(y_n) < ε \end{aligned}$$
+Therefore, $(y_n)_n\to 0$  
+
+> 2018.F1.Q6  
+> Let $(x_n)_n$ be a bounded real sequence, and let $β\in [0, 1)$ be a real number.  
+> Show that the sequence of discounted partial sums $(S_n)_n$, with $S_n\equiv\sum^n_{i=1} β^i\cdot x_i$ for all $n$, is convergent.
+
+$(x_n)_n$ is bounded  
+$\implies$ exists $M\in\mathbb{R}$ s.t. $M>|x_n$$ for all $n\in\mathbb{N}$  
+Take arbitrary $S_n, S_m\in (S_n)_n$, $n\geq m$  
+$$\begin{aligned}d(S_n, S_m) &= |S_n - S_m| \\
+&= \bigg| \sum^n_{i=1} β^i\cdot x_i - \sum^m_{i=1} β^i\cdot x_i\bigg| \\
+&= \bigg| \sum^{n}_{i=m+1} β^i\cdot x_i\bigg| \\
+&= \bigg| β^m\cdot\sum^{n-m}_{i=1} β^i\cdot x_{m+i}\bigg| \\
+&\leq β^m\cdot\sum^{n-m}_{i=1} β^i\cdot | x_{m+i} | \\
+&< β^m\cdot M\cdot\sum^{n-m}_{i=1} β^i \\
+&\leq β^m\cdot M\cdot\sum^{\infty}_{i=1} β^i \\
+&= β^m\cdot\frac{M}{1-β}\end{aligned}$$
+$β\in [0, 1)\implies (β^n)_n\to 0$  
+$\implies$ exists $N_ε$ s.t. for all $n>N_ε$,  
+$$\begin{aligned}d(S_n, S_m) &< β^m\cdot\frac{M}{1-β} \\
+&< β^{N_ε}\cdot\frac{M}{1-β} \\
+&< ε\end{aligned}$$
+
+### Limit & Cluster Point
+
+> 2019.F1.Q7  
+> Let $(x_n)_n$ be a bounded sequence in $\mathbb{R}$. Assume it is not convergent.  
+> Prove that there exist two values $x$ and $x'$, $x\neq x'$, and two subsequences of $(x_n)_n$, denoted $(x_{k_n})_n$ and $(x_{j_n})_n$, such that $(x_{k_n})_n$ converges to $x$ and $(x_{j_n})_n$ converges to $x'$.  
+> Hint: you can use the fact that any bounded sequence in $\mathbb{R}$ has a convergent subsequence.
+
+[Mathematics Stack Exchange](https://math.stackexchange.com/questions/298817/let-x-n-be-a-bounded-but-not-convergent-sequence-prove-that-x-n-has-two)
+
+Since $(x_n)_n$ is bounded  
+$\implies (x_n)_n$ has a convergent subsequence, denote as $(x_{k_n})_n\to x$  
+Since $(x_n)_n \not\to x$  
+$\implies$ exists some $ε>0$ s.t. for all $N\in\mathbb{N}$, exists $n > N$ s.t. $d(x_n, x)\geq ε$  
+1. for $n=1$, let $m_1 = \min\{n>0 \ | \ d(x_n, x)\geq ε\}$  
+2. for $n=2$, let $m_2 = \min\{n>j_1 \ | \ d(x_n, x)\geq ε\}$  
+3. for $n>2$, let $m_n = \min\{n>j_{n-1} \ | \ d(x_n, x)\geq ε\}$  
+Since $(m_n)_n$ is strictly increasing, $(x_{m_n})_n$ is a subsequence of $(x_n)_n$  
+$\implies (x_{m_n})_n$ is bounded  
+$\implies (x_{m_n})_n$ has a convergent subsequence, denote as $(x_{j_n})_n\to x'$  
+Since $d(x_{m_n}, x)\geq ε$ for all $m_n$  
+$\implies (x_{m_n})_n \not\to x$  
+$\implies x\neq x'$
+
+### (Un-)bounded
+
+> 2014.F2.Q8  
+> Prove that a bounded increasing sequence $(x_n)_n$ in $\mathbb{R}$ is convergent.  
+> Note: you can use that the supremum of a bounded subset of $\mathbb{R}$ always exists.
+
+Denote $x^* = \sup \{x_n \ | \ n\in\mathbb{N}\}$  
+Take arbitrary $ε > 0$  
+FSOC assume $x_n < x^* - ε$ for all $n$, contradicts that $x^*$ is supremum,  
+$\implies$ exist $x_N\in (x^* - ε, x^*]$ for some $N$  
+Since $(x_n)_n$ is increasing  
+$\implies x_n\in (x^* - ε, x^*]$ for all $n\geq N$  
+$\implies d(x_n, x^*) < ε$ for all $n\geq N$  
+$\implies (x_n)_n$ is convergent 
+
+## Set × Sequence
+
+> 2017.F1.Q5  
+> Let $A,B \subset \mathbb{R}^n$ be two compact and non-empty sets, $A\cap B =\emptyset$  
+> Prove that $\inf\{d(x, y) \ | \ x\in A, y\in B\} > 0$  
+> Hint: you can use that $d: \mathbb{R}^n\times\mathbb{R}^n\to\mathbb{R}_+$ is continuous 
+
+Reference: [Mathematics Stack Exchange](https://math.stackexchange.com/a/109199/380826)
+
+Since distance is non-negative,  
+FSOC assume $\inf\{d(x, y) \ | \ x\in A, y\in B\} = 0$  
+$\implies$ there exist sequences $(x_n)_n\in A$ and $(y_n)_n\in B$ s.t. $d(x_n,y_n)<\frac{1}{n}$ for all $n\in\mathbb{N}$  
+Since $A,B$ are compact,  
+$\implies (x_n)_n$ has a subsequence s.t. $(x_{k(n)})_n\to$ some $x^*\in A$  
+$\implies (y_{k(n)})_n$ has a subsequence s.t. $(y_{j(k(n))})_n\to$ some $y^*\in B$  
+Since $d$ is continuous,  
+$$\begin{aligned} \lim_{n\to\infty} d\left( x_{k(n)}, y_{j(k(n))}\right) &= d(x^*,y^*) \\ &= 0\end{aligned}$$ 
+$\implies x^* = y^* = A\cap B$, contradiction 
+
+
+

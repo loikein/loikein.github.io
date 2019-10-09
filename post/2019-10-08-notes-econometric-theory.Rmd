@@ -1,0 +1,219 @@
+---
+title: "Notes on Econometric Theory"
+author: "loikein"
+date: "2019-10-08"
+slug: "notes-econometric-theory"
+tags: ["notes", "stat"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = FALSE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+wow
+
+<!-- parametric estimation -->
+
+## Literature
+
+Asymptotic Theory:
+
+- Casella, Berger: Statistical Inference
+- Bruce Hansen: Econometrics (Lecture Notes), Ch5
+- Davidson: Econometric Theory
+- White: Asymptotic Theory for Econometricians
+
+M-, Z-, Extremum Estimators:
+
+- ?
+
+<!-- 
+## Asymptotic Statistics
+
+- Observations: $(x_n) = x_1, x_2,\dots$
+    - Assumption: $x_n\to x$
+- Linear model: $y_i = x_i^T\cdot β + ε_i$, $i=1,\dots,m$
+- Estimator: $\hat{β} = \hat{β}_n = \hat{β}_n\big((y_1, x_1),\dots,(y_n,x_n)\big)$
+    - $(\hat{β}_n) = \hat{β}_1, \hat{β}_2$
+    - Consistency: $\hat{β}_n\to β$
+
+## M-Estimators, Z-Estimators, Extremum Estimators
+
+- Assume $\{z_i: i=1,\dots,m\}\overset{iid}{\sim}P_{θ_0}$
+    - $P$ is some distribution
+    - $θ_0 = (μ_0, σ_0^2)$
+- Linear model: $y_i = x_i^T\cdot θ_0 + ε_i$
+    - Assume $E[ε_i\ |\ x_i] = 0\implies E[y_i\ |\ x_i] = x_i^T\cdot θ_0$
+    - Theoretically, $θ_0 = \text{argmin}_{θ\in Θ}\ Q(θ)$
+    - In practice, let $\hat{θ}_0 = \text{argmin}_{θ\in Θ}\ \hat{Q}_n(θ)$
+    - Consistency: $\hat{θ}_n\overset{p}{\to} θ_0$
+    - $\sqrt{m}(\hat{θ}_n - θ_0)\overset{d}{\to} \mathcal{N}(0,Σ)$
+ -->
+
+## Basic Concepts of Probability Theory
+
+### Probability Measures
+
+- $Ω$: sample space, a set of possible outcomes of an experiment
+    - Countable set: $\| Ω \|\leq \mathbb{N}$
+- $A\subset Ω$: event, a collection of possible outcomes
+    - Disjoint sets: $A_i\cap A_j = \emptyset$ for $i\neq j$
+- $\mathcal{A}$: family of $A$
+- Step functions: $F$ is a step function with finitely or countably many jumps $x_1<x_2<\dots$ and jump heights $b_1,b_2,\dots >0$
+
+> Def 1.1. Axioms of probability / Kolmogorov Axioms  
+> A probability measure $P$ on $(Ω,\mathcal{A})$ is a mapping $P:\mathcal{A}\to[0,1]$ with the following properties:
+> 
+> i. $P(\emptyset)= 0$
+> ii. $P(Ω) =1$
+> iii. $P\big(\cup_{i=1}^{\infty} A_i\big) = \sum_{i=1}^{\infty} P(A_i)$ for all $A_i\in\mathcal{A}$ that are disjoint
+
+Remarks:
+
+a. Def 1.1. formally defines the probability $P(A)$ that event $A$ occurs
+b. By (i), the probability that nothing happens is 0  
+By (ii), the probability that something happens is 1
+c. By (iii) $\implies$ finite additivity (σ-additivity) for disjoint $A_i$'s:
+$$P\big(\cup_{i=1}^{I} A_i\big) = \sum_{i=1}^{I} P(A_i)$$
+d. If $Ω$ is countable, we can always take $\mathcal{A} = \mathcal{P}(Ω)$ (power set)
+e. If $Ω$ is uncountable, it is in general impossible to define $P$ for all $A\subset Ω$ s.t. (i) - (iii) are satisfied  
+thus, we cannot set $\mathcal{A} = \mathcal{P}(Ω)$ in general, but have to restrict the class of possible events $A$
+
+> Example: Laplace distribution  
+> Let $Ω$, $\mathcal{A} = \mathcal{P}(Ω)$ the class of all subsets of $Ω$, then  
+> $$P(A) := \frac{|A|}{|Ω|}$$
+
+Consider tossing a fair dice once, $Ω = \{1,\dots,6\}$, then $P(A=\{6\}) = \frac{1}{6}$  
+Consider tossing a fair dice twive, $Ω = \{(1,1),\dots,(6,6)\}$, then $P(A=\{(2,6), (3,5),(4,4)\}) = \frac{3}{36}$
+
+> Prop 1.2.  
+> Let $Ω$ be countable, mapping $p:Ω\to[0,1]$ is $\sum_{w\in Ω}p(w)=1$  
+> Then $P(A):= \sum_{w\in A}p(w)$ for all $A\in\mathcal{P}(Ω)$ defines a probability mapping on $\mathcal{P}(Ω)$
+
+Examples:
+
+1. Laplace distribution  
+2. Bernoulli distribution  
+$Ω = \{0,1\}$, $p(1)=q$ for some $q\in[0,1]$, $p(0)=1-q$  
+3. Binomial distribution  
+$\mathcal{B}(m,p)$, $m\geq 1$, $0\leq q\leq 1$  
+$Ω = \{0,\dots,m\}$, $p(k)=(m, k)^T\cdot q^k\cdot(1-q)^{m-k}$ for some $q\in[0,1]$, $p(0)=1-q$  
+$\sum_{k=0}^{\infty} p(k)= \sum_{k=0}^{\infty} (m, k)^T\cdot q^k\cdot(1-q)^{m-k}= \big(q + (1-q)\big)^m =1$
+4. Poisson distribution  
+$Ω = \mathbb{N}_0$, $p(k)=\frac{λ^k}{k!}\cdot l^{-λ}$  
+$\sum_{k=0}^{\infty} p(k)=\Big(\sum_{k=0}^{\infty}\frac{λ^k}{k!}\Big)\cdot l^{-λ} = l^{λ}\cdot l^{-λ} =1$
+
+Proof: exercise
+
+> Remark 1.1.d.  
+> If $Ω$ is uncountable, it is in general impossible to define $P$ for all $A\subset Ω$ s.t. (i) - (iii) are satisfied  
+
+Solution:  
+
+> Def 1.3. σ-algebra  
+> Define $P$ on $\mathcal{A}\subset\mathcal{P}(Ω)$  
+> If all $A\in\mathcal{A}$ have the following properties, then $\mathcal{A}$ is called a σ-algebra or a σ-field
+> 
+> i. $\emptyset\in\mathcal{A}$ 
+> ii. $A\in\mathcal{A}\implies A^C\in\mathcal{A}$
+> iii. $A_1,A_2,\dots\in\mathcal{A}\implies \cup_{i=1}^{\infty}A_i\in\mathcal{A}$
+
+> Def 1.4. Borel σ-field  
+> Let $Ω=\mathbb{R}$  
+> The σ-field $\mathcal{B}$ that contains all open intervals $(a,b)$ for $-\infty\leq a<b\leq\infty$ is called Borel-σ-field  
+> A set $A\in\mathcal{B}$ is called a Borel set
+
+Remark: $\mathcal{B}\neq\mathcal{P}(Ω)$
+
+> Remark 1.5. Set  
+> $\mathcal{A}_1=\{(a,b]:-\infty\leq a<b<\infty\}$  
+> $\mathcal{A}_2=\{[a,b):-\infty < a<b\leq\infty\}$  
+> $\mathcal{A}_3=\{[a,b]:-\infty < a<b<\infty\}$  
+> $\mathcal{A}_4=\{(-\infty,b]:-\infty <b<\infty\}$  
+> For $j=1,\dots,4$, $\mathcal{B}$ is the smallest σ-field that contains $\mathcal{A}_j$
+
+Proof: exercise  
+e.g. use $(a,b)=\cup_{m=1}^{\infty} \big[a+\frac{1}{m},b-\frac{1}{m}\big]$
+
+> Def 1.6. Distribution function  
+> Let $P$ be a probability measure on $\mathbb{R},\mathcal{B}$  
+> The distribution function $F:\mathbb{R}\to[0,1]$ is defined by setting  
+> $$F(b) = P\big((-\infty,b]\big) \text{ for all } b\in\mathbb{R}$$
+
+Note: $P\big((a,b]\big)=F(b)-F(a)$
+
+> Thm 1.7.  
+> Let $F:\mathbb{R}\to\mathbb{R}$ be a function with the following properties:  
+> 
+> i. Non-decreasing: $F(a)\leq F(b)$ for $a<b$
+> ii. Continuous from above (the right): $F(b_n)\to F(b)$ for $b_n\searrow b$
+> iii. $\lim_{x\to -\infty}F(x)=0$, $\lim_{x\to\infty}F(x)=1$
+> 
+> Then there exists a unique probability measure $P$ on $(\mathbb{R},B)$ s.t. 
+> $$F(b) = P\big((-\infty,b]\big) \text{ for all } b\in\mathbb{R}$$
+
+Remarks:
+
+a. This says that any function $F$ with the properties uniquely characterizes a probability measure on $(\mathbb{R},B)$  
+b. The reverse holds true too, see Thm 1.8. below
+
+> Thm 1.8.  
+> Any distribution function $F$ satisfies properties (i)-(iii) in Thm 1.7.
+
+Remarks:
+
+a. A probability measure $P$ on $(\mathbb{R},B)$ is uniquely determined by the corresponding distribution function $F$ with $F(b) = P\big((-\infty,b]\big)$
+b. Class of distribution fuctions = class of functions with properties (i)-(iii)
+
+Proof: (i) and (iii): exercise  
+(ii):  
+FSOC assume $F:\mathbb{R}\to\mathbb{R}$ is a distribution function that is not continuous from the right  
+$\implies$ exists a sequence $\{b_n\}$, $b_n\searrow b$ monotonically for some $b\in\mathbb{R}$ s.t. $F(b_n)\not\to F(b)$  
+Therefore,
+$$\begin{aligned}1-F(b_n) &= 1-P\big((-\infty, b_n]\big)\\
+&= P\big((b_n,\infty)\big) \\
+&= P\Big[ (b_1,\infty)\cup\big(\cup_{k=2}^n (b_k,b_{k-1}]\big)\Big] \\
+&= P\big((b_1,\infty)\big) + \textstyle{\sum}_{k=2}^n P\big((b_k,b_{k-1}]\big) \\
+:&= p_n\end{aligned}$$
+It is obvious that $p_n$ is monotonically increasing and bounded,  
+$\implies$
+$$\begin{aligned}p_n &\to p \\
+&= P\big((b_1,\infty)\big) + \sum_{k=2}^{\infty} P\big((b_k,b_{k-1}]\big)\\
+&= P\Big[(b_1,\infty)\cup\big(\cup_{k=2}^{\infty}(b_k,b_{k-1}] \big)\Big] \\
+&= P\big((b,\infty)\big) \\
+&= 1 - P\big((-\infty, b]\big) \\
+&= 1 - F(b) \end{aligned}$$
+therefore, $1 - F(b_n) = p_n\to p = 1-F(b)$  
+$\implies 1 - F(b_n)\to 1-F(b)$, contradiction
+
+> Example: Step function
+> Let $F$ be a step function, $P$ be a probability function corresponds to $F$,  
+> $P\big(\{x_i\}\big) = b_i$ with $\sum_{i=1}^{\infty}b_i = 1$  
+> Hence we can regard the sample space as being complete  
+
+In this case, $Ω = \{x_1,x_2,\dots\}$
+
+> Example: Absolutely continuous functions  
+> Let $F$ have the representation $F(x) = \int_{-\infty}^x f(y)\, dy$  
+> where $f$ is bounded & integrable on any interval $[a,b]$ and $\lim_{a,b\to\infty} \int_a^b f(y)\, dy =1$  
+> $f$ is called (probability) density function.  
+> Let $P$ be the corresponding probability measure, it holds that $P(\{x\})=0$ for all $x\in\mathbb{R}$
+
+Example:
+
+1. Uniform distribution on $[a,b]$  
+$f(x) = \frac{1}{b-a}\cdot 1$, $x\in[a,b]$  
+then $F(x)=\begin{cases}0 & x\leq a \\ \frac{x-a}{b-a} & a\leq x\leq b \\ 1 & x\geq b \end{cases}$  
+2. Normal distribution $\mathcal{N}(μ,σ)$, $μ\in\mathbb{R}$, $σ>0$  
+$f_{μ,σ}(x) = \frac{1}{\sqrt{2πσ^2}}\cdot \exp\big(-\frac{1}{2}\cdot\frac{(x-μ)^2}{σ^2}\big)$  
+then $F(x) = \int_{-\infty}^x f_{μ,σ}(y)\, dy$
+
+### Extension to $\mathbb{R}^k$
+
+- Borel σ-field $\mathcal{B}^k = \mathcal{B}$ is defined as the smallest σ-field generated by the open cubes $(a_1,b_1)\times\dots\times (a_k,b_k)$
+- Distribution function $F:\mathbb{R}^k\to\mathbb{R}$ corresponding to the probability measure $P$ is defined as
+$$F(b_1,\dots,b_k)=P\big((x_1,\dots,x_k) : x_1\leq b_1,\dots,x_k\leq b_k\big)$$
+- Absolute continuity: $F$ s.t. exists $f:\mathbb{R}^k\to\mathbb{R}$ s.t.
+$$F(b_1,\dots,b_k) = \int_{-\infty}^{b_1}\cdots\int_{-\infty}^{b_k}f(x_1,\dots,x_k)\, dx_1\dots dx_k$$

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.57.2" />
+
+<title>Notes on Time Series - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Time Series - loikein&#39;s notes">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/post/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">11 min read</span>
+    
+    <h1 class="article-title">Notes on Time Series</h1>
+    
+    <span class="article-date">2019/04/15</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/r'>R</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#definition">Definition</a><ul>
+<li><a href="#property">Property</a></li>
+</ul></li>
+<li><a href="#analysis">Analysis</a><ul>
+<li><a href="#procedure">Procedure</a></li>
+<li><a href="#trend">Trend</a></li>
+<li><a href="#trend-seasonality">Trend &amp; Seasonality</a></li>
+<li><a href="#lag-difference-operator">Lag &amp; Difference Operator</a></li>
+</ul></li>
+<li><a href="#arma">ARMA</a><ul>
+<li><a href="#white-noise">White Noise</a></li>
+<li><a href="#ma">MA</a></li>
+<li><a href="#ma-stationarity">MA Stationarity</a></li>
+<li><a href="#ar">AR</a></li>
+<li><a href="#ar-1-stationarity">AR (1) Stationarity</a></li>
+<li><a href="#ar-p-stationarity">AR (p) Stationarity</a></li>
+<li><a href="#ar-p-as-ma">AR (p) as MA (∞)</a></li>
+<li><a href="#yule-walker-equations">Yule-Walker Equations</a></li>
+<li><a href="#arma-1">ARMA</a></li>
+</ul></li>
+<li><a href="#arch-garch">ARCH &amp; GARCH</a><ul>
+<li><a href="#arch">ARCH</a></li>
+<li><a href="#arch-stationarity">ARCH Stationarity</a></li>
+<li><a href="#garch">GARCH</a></li>
+<li><a href="#garch-stationarity">GARCH Stationarity</a></li>
+</ul></li>
+<li><a href="#old-stuff">Old Stuff</a><ul>
+<li><a href="#integration">Integration</a></li>
+<li><a href="#ols-estimation">OLS Estimation</a></li>
+<li><a href="#ml-estimation">ML Estimation</a></li>
+<li><a href="#model-selection">Model Selection</a></li>
+<li><a href="#spurious-regression">Spurious Regression</a></li>
+<li><a href="#cointegration">Cointegration</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="definition" class="section level2">
+<h2>Definition</h2>
+<ul>
+<li>Time series: collection of observations indexed by date
+<span class="math display">\[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;= \{y_t\}_{t\in\mathbb{Z}} \\
+&amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]</span>
+<ul>
+<li>Observed sample: <span class="math inline">\(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\)</span></li>
+<li>Underlying random variables: <span class="math inline">\(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)</span></li>
+</ul></li>
+<li>Stochastic process: ordered sequence of random variables
+<span class="math display">\[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]</span>
+<ul>
+<li>Probability space: <span class="math inline">\((Ω,\mathcal{A},P)\)</span></li>
+<li>Mapping: <span class="math inline">\(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\)</span> s.t. <span class="math inline">\(\{Y_t(ω) \}_{t\in\mathbb{Z}} = \{Y_t(ω) : t\in\mathbb{Z} \}\)</span></li>
+<li>Fix <span class="math inline">\(t\)</span>, vary <span class="math inline">\(ω\implies\)</span> scalar random variable <span class="math inline">\(Y_t(ω)\)</span></li>
+<li>Fix <span class="math inline">\(ω\)</span>, vary <span class="math inline">\(t\implies\)</span><br />
+Trajectory (realization): <span class="math inline">\(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\)</span></li>
+</ul></li>
+</ul>
+<div id="property" class="section level3">
+<h3>Property</h3>
+<ul>
+<li>First moment: <span class="math inline">\(μ_t = E[Y_t]\)</span></li>
+<li>Second moments
+<ul>
+<li>Variance: <span class="math inline">\(γ_{0t} = E\big[(Y_t - μ_t)^2\big]\)</span></li>
+<li>Covariance: <span class="math inline">\(γ_{jt} = E\big[(Y_t - μ_t)(Y_{t-j} - μ_{t-j})\big]\)</span></li>
+<li><span class="math inline">\(E[Y_t^2]&lt;\infty\implies γ_{jt}&lt;\infty\)</span></li>
+</ul></li>
+<li>Weakly (Covariance) Stationary
+<span class="math display">\[\begin{cases} E[Y_t] = μ &lt; \infty &amp; \text{for all }t \\
+Var(Y_t) = γ_0 &lt; \infty &amp; \text{for all }t\\
+Cov(Y_t, Y_{t-j}) = γ_j &amp; \text{for all }t,j\end{cases}\]</span>
+<ul>
+<li><span class="math inline">\(γ_{j,t} = γ_{j,t+s}\)</span> for all <span class="math inline">\(t,s\)</span></li>
+</ul></li>
+<li>AutoCorrelation Function (ACF)
+<span class="math display">\[ρ_j = \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)} = \frac{γ_j}{γ_0}\]</span>
+<ul>
+<li>Sample ACF: <span class="math display">\[\hat{ρ}_j = \frac{\frac{1}{T-j}\sum^T_{t=j+1}(Y_t-\bar{Y})(Y_{t=j}-\bar{Y})}{\frac{1}{T}\sum^T_{t=1}(Y_t-\bar{Y})^2}\]</span></li>
+<li><span class="math inline">\(\sqrt{T}(\hat{ρ}_j-ρ_j)\to\mathcal{N}(0,\exists v_k)\)</span></li>
+</ul></li>
+<li>Ergodicity for the mean<br />
+For stationary process <span class="math inline">\(Y_t\)</span>,
+<span class="math display">\[\begin{aligned}\bar{Y}_T &amp;= \frac{1}{T}\sum_T y_t \\
+&amp;\overset{p}{\to}μ &amp;&amp; T\to\infty\end{aligned}\]</span>
+<ul>
+<li>Let <span class="math inline">\(Y_t\)</span> be s.t. <span class="math inline">\(\sum_{\infty} |γ_j|&lt;\infty\)</span>, then <span class="math inline">\(Y_t\)</span> is ergodic</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="analysis" class="section level2">
+<h2>Analysis</h2>
+<div id="procedure" class="section level3">
+<h3>Procedure</h3>
+<ol style="list-style-type: decimal">
+<li>Plot and check for
+<ul>
+<li>Trend</li>
+<li>Seasonality</li>
+<li>Abrupt changes</li>
+<li>Outliers</li>
+</ul></li>
+<li>Remove the trend and seasonality to obtain stationary residuals</li>
+<li>Choose a model to fit the residuals (ARMA, GARCH)</li>
+<li>Forecast the residuals</li>
+<li>Invert transformations to forecast the original series</li>
+</ol>
+</div>
+<div id="trend" class="section level3">
+<h3>Trend</h3>
+<ul>
+<li>Model with trend
+<span class="math display">\[\begin{aligned}Y_t &amp;= \underbrace{m_t}_{\text{Trend component}} + \underbrace{X_t}_{\text{Random noise component}} \\
+E[X_t] &amp;= 0\end{aligned}\]</span></li>
+<li>Moving average filter<br />
+For <span class="math inline">\(t = q+1, q+2,\dots, T-q\)</span>,
+<span class="math display">\[\begin{aligned}\hat{m}_t &amp;= \frac{1}{2q+1}\sum_{j=-q}^q Y_{t-j} \\
+&amp;= \frac{1}{2q+1}\sum_{j=-q}^q m_{t-j} + \frac{1}{2q+1}\sum_{j=-q}^q X_{t-j} \\
+&amp;\approx m_t \\
+Y_t - \hat{m}_t &amp;\approx X_t \end{aligned}\]</span></li>
+<li>Exponential smoothing (better for forecasting)
+<span class="math display">\[\begin{aligned}\hat{m}_1 &amp;= Y_1 \\
+\hat{m}_t &amp;= αY_t  + (1-α)\hat{m}_{t-1} \\
+&amp;= \sum_{j=0}^{t-2}α(1-α)^jY_{t-j}  + (1-α)^{t-1}Y_1\end{aligned}\]</span></li>
+<li>Polynomial fitting<br />
+Let <span class="math display">\[m_t = a_0 + a_1t+ a_2t^2 + \dots\]</span>
+Choose <span class="math inline">\(a\)</span>’s as
+<span class="math display">\[\begin{aligned}(\hat{a}_0, \hat{a}_1, \hat{a}_2,\dots) &amp;= \text{argmin} \ \sum^T_{t=1}(Y_t - m_t)^2 \\
+\hat{m}_t &amp;= \hat{a}_0 + \hat{a}_1t + \hat{a}_2t^2 + \dots\end{aligned}\]</span></li>
+<li>Elimination<br />
+For polynomial trend, choose <span class="math inline">\(k\)</span> s.t.
+<span class="math display">\[\begin{aligned}m_t &amp;= a_0 + a_1t + \dots + a_kt^k \\
+Δ^km_t &amp;= k!a_k \\
+Δ^k Y_t &amp;= Δ^km_t + Δ^X_t \\
+&amp;= k!a_k + Δ^X_t \\
+E[Δ^k Y_t] &amp;= k!a_k\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="trend-seasonality" class="section level3">
+<h3>Trend &amp; Seasonality</h3>
+<ul>
+<li>Model with trend &amp; seasonality (period <span class="math inline">\(d\)</span>)
+<span class="math display">\[\begin{aligned}Y_t &amp;= m_t + \underbrace{s_t}_{\text{Seasonal component}} + X_t \\
+E[X_t] &amp;= 0 \\
+s_{t+d} &amp;= s_t \\
+\sum_{j=1}^d s_j &amp;= 0 \end{aligned}\]</span></li>
+<li>Estimation
+<ol style="list-style-type: decimal">
+<li>Estimate trend (moving average)<br />
+For <span class="math inline">\(t = q+1, q+2,\dots, T-q\)</span>, when <span class="math inline">\(d = 2q\)</span><br />
+<span class="math display">\[\begin{aligned}\hat{m} &amp;= \frac{1}{d}\Big(\frac{1}{2}Y_{t-q} + Y_{t-(q-1)} + \dots + Y_{t+(q-1)} + \frac{1}{2}Y_{t+q} \Big) \\ \end{aligned}\]</span>
+When <span class="math inline">\(d = 2q+1\)</span><br />
+<span class="math display">\[\begin{aligned}\hat{m}_t &amp;= \frac{1}{d}\sum_{j=-q}^q Y_{t-j}\end{aligned}\]</span></li>
+<li>Estimate seasonal component<br />
+For <span class="math inline">\(t = 1, 2,\dots, d\)</span><br />
+<span class="math display">\[\begin{aligned}w_t &amp;= \frac{1}{\#\{j: q&lt;t+jd \leq T-q\}}\sum_{j: q&lt;t+jd \leq T-q} (Y_{t+jd} - \hat{m}_{t+jd}) \\
+  \hat{s}_t &amp;= w_t - \frac{1}{d}\sum_{i=1}^d w_i\end{aligned}\]</span></li>
+<li>Re-estimate trend<br />
+De-seasonalized data:
+<span class="math display">\[\begin{aligned}d_t &amp;= Y_t - \hat{s}_t \\
+  \hat{X}_t &amp;= Y_t - \hat{m}_t - \hat{s}_t \end{aligned}\]</span></li>
+</ol></li>
+<li>Elimination<br />
+First liminate seasonality:
+<span class="math display">\[\begin{aligned}Δ_d Y_t &amp;= Y_t - Y_{t-d} \\
+&amp;= m_t - m_{t-d} + X_t - X_{t-d} \end{aligned}\]</span>
+Then <a href="#trend">#eliminate trend</a></li>
+</ul>
+</div>
+<div id="lag-difference-operator" class="section level3">
+<h3>Lag &amp; Difference Operator</h3>
+<ul>
+<li>Lag operator: <span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …
+<ul>
+<li>Lag polynomial
+<span class="math display">\[\begin{aligned} θ(L) &amp;= 1 - θ_1L - θ_2L^2 -\dots - θ_pL^p \\
+  y_t &amp;= θ_1Ly_t -\dots - θ_p L^p y_t + ε_t \\
+  θ(L) y_t &amp;= ε_t\end{aligned}\]</span></li>
+</ul></li>
+<li>Difference operator: <span class="math inline">\(Δ=1-L\)</span>, <span class="math inline">\(Δ^k = (1-L)^k\)</span>
+<ul>
+<li>Difference polynomial
+<span class="math display">\[\begin{aligned}Δ^2 y_t &amp;= Δ(Δ y_t) \\
+  &amp;= (1-L)(1-L)y_t \\
+  &amp;= (1-2L +L^2)y_t \\
+  &amp;= y_t - 2y_{t-1} + y_{t-2}\end{aligned}\]</span></li>
+</ul></li>
+<li>Lag-<span class="math inline">\(d\)</span> differencing operator: <span class="math inline">\(Δ_d = (1 - L^d)\)</span></li>
+</ul>
+</div>
+</div>
+<div id="arma" class="section level2">
+<h2>ARMA</h2>
+<div id="white-noise" class="section level3">
+<h3>White Noise</h3>
+<ul>
+<li>Gaussian White Noise: <span class="math inline">\(ε_t\overset{iid.rvs}{\sim}\mathcal{N}(0,σ^2)\)</span>
+<ul>
+<li>White Noise: <span class="math inline">\(ε_t\overset{iid.rvs}{\sim}(0,σ^2)\)</span></li>
+<li>Stationary</li>
+</ul></li>
+<li>Random walk <span class="math display">\[Y_t = \sum_{s=1}^t ε_s\]</span>
+<ul>
+<li>Not stationary
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= 0 \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= tσ^2 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= 0 \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)}= 0\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="ma" class="section level3">
+<h3>MA</h3>
+<ul>
+<li>MA (1) <span class="math display">\[Y_t = μ + ε_t + θε_{t-1}\]</span>
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot (1 + θ^2) \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} θσ^2 &amp; j=1\\ 0 &amp; j\geq 2\end{cases} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} \frac{θ}{1 + θ^2} \leq \frac{1}{2} &amp; j=1\\ 0 &amp; j\geq 2\end{cases}\end{aligned}\]</span></li>
+<li>MA (q)
+<span class="math display">\[\begin{aligned}Y_t &amp;= μ + ε_t + θ_1 ε_{t-1} +\dots + θ_q ε_{t-q} \\
+&amp;= μ + \sum_{j=0}^q θ_j ε_{t-j}\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot (1 + θ_1^2 + θ_2^2 + \dots + θ_q^2) \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \begin{cases} σ^2\cdot\sum_{i=0}^{q-j} θ_iθ_{i+j} &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= \begin{cases} ? &amp; 0\leq j\leq q\\ 0 &amp; j &gt; q\end{cases}\end{aligned}\]</span></li>
+<li>MA (<span class="math inline">\(\infty\)</span>)
+<span class="math display">\[Y_t = μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\]</span>
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= σ^2\cdot \sum_{i=0}^{\infty} ψ_i^2 = γ_0 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= σ^2\cdot\sum_{i=0}^{\infty} ψ_iψ_{i+j} = γ_j \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= ?\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="ma-stationarity" class="section level3">
+<h3>MA Stationarity</h3>
+<ul>
+<li>Any MA (q) process is stationary</li>
+<li>Any MA (∞) process is stationary
+<ul>
+<li>Absolute summability
+<span class="math display">\[\begin{aligned}&amp;\sum_{j=0}^{\infty} |ψ_j| &lt; \infty \\
+  &amp;γ_k = σ^2\cdot\sum_{j=0}^{\infty} ψ_jψ_{j+k} \\
+  \implies &amp;\sum_{j=0}^{\infty} |γ_j| &lt; \infty\end{aligned}\]</span></li>
+<li>Square summability <span class="math display">\[\sum_{j=0}^{\infty} ψ_j^2 &lt; \infty\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="ar" class="section level3">
+<h3>AR</h3>
+<ul>
+<li>AR (1)
+<span class="math display">\[\begin{aligned}Y_t &amp;= c + φ Y_{t-1} + ε_t \\
+&amp;= c  + ε_t + φ\cdot(c + φY_{t-2} + ε_{t-1}) \\
+&amp;= c + φc + ε_t + φ ε_{t-1} + φ^2Y_{t-2} \\
+&amp;= c + φc + \dots + φ^j c \\
+&amp;\phantom{\ggg} + ε_t + φε_{t-1} +\dots + φ^jε_{t-j} + φ^{j+1}Y_{t-(j+1)} \\
+&amp;= c\cdot\sum_{j=0}^{\infty} φ^j + \sum_{j=0}^{\infty} φ^j\cdot ε_{t-j}\end{aligned}\]</span>
+When <span class="math inline">\(|φ|&lt;1\)</span>, <span class="math inline">\(φ^{j+1}Y_{t-(j+1)}\to 0\)</span> as <span class="math inline">\(j\to\infty\)</span>, AR (1) becomes MA (<span class="math inline">\(\infty\)</span>)
+<ul>
+<li>Absolute summability</li>
+<li>Stationary
+<span class="math display">\[\begin{aligned}MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j\cdot ε_{t-j} \\
+  AR(1) &amp;&amp; Y_t &amp;= \frac{c}{1-φ} + \sum_{j=0}^{\infty} φ^j\cdot ε_{t-j} \\
+  \text{Mean:} &amp;&amp; E[Y_t] &amp;= \frac{c}{1-φ} = μ \\
+  \text{Variance:} &amp;&amp; Var(Y_t) &amp;= \frac{σ^2}{1-φ^2} = γ_0 \\
+  \text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-j}) &amp;= \frac{σ^2φ^j}{1-φ^2}  = γ_j \\
+  \text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-j}) &amp;= φ^j\end{aligned}\]</span></li>
+</ul></li>
+<li>AR (p)
+<span class="math display">\[Y_t = c + φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t\]</span></li>
+<li>ARMA (p,q)
+<span class="math display">\[Y_t = θ_1Y_{t-1} +\dots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\dots + α_q ε_{t-q}\]</span></li>
+</ul>
+<!-- 
+$$\begin{aligned}\text{Mean:} && E[Y_t] &= δ + θ E[Y_{t-1}] \\
+&& &= \frac{δ}{1-θ} \\ 
+&& &= μ \\
+\text{Variance:} && Var(Y_t) &= θ^2Var(Y_{t-1}) + Var(ε_t) \\
+&& &= \frac{σ^2}{1-θ^2} \\
+\text{Covariance:} && Cov(Y_t,Y_{t-j}) &= θ^k\frac{σ^2}{1-θ^2} \\
+\text{ACF:} && Corr(Y_t,Y_{t-j}) &= \frac{Cov(Y_t,Y_{t-j})}{Var(Y_t)} \\
+&& &= θ^k \end{aligned}$$
+ -->
+</div>
+<div id="ar-1-stationarity" class="section level3">
+<h3>AR (1) Stationarity</h3>
+<p>Reference:<br />
+<a href="http://www.real-statistics.com/time-series-analysis/autoregressive-processes/characteristic-equation-autoregressive-processes/">Characteristic Equation AR (p) | Real Statistics Using Excel</a><br />
+<a href="https://stats.stackexchange.com/questions/208656/intuition-behind-the-characteristic-equation-of-an-ar-or-ma-process">Intuition behind the characteristic equation of an AR or MA process</a></p>
+<ul>
+<li>AR (1) with <strong>characteristic equation</strong>
+<span class="math display">\[\begin{aligned} Y_t &amp;= c + φLY_t + ε_t \\
+φ(L) &amp;= 1 - φL \\
+φ(L) \cdot Y_t &amp;= (1 - φL)\cdot Y_t \\
+&amp;= c + ε_t \end{aligned}\]</span></li>
+<li>Characteristic root
+<span class="math display">\[|z|\begin{cases}&lt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &gt;1 &amp; \text{stationary}\end{cases}\]</span></li>
+<li>AR (1) is stationary <span class="math inline">\(\iff φ(L)\)</span> is invertible<br />
+<span class="math inline">\(\iff |z| &gt; 1\)</span> <span class="math inline">\(\implies |φ|&lt;1\)</span>
+<span class="math display">\[\begin{aligned}1 - φ\cdot z &amp;= 0 \\
+|z| &amp;= \Bigg| \frac{1}{φ}\Bigg|&gt; 1 \\
+|φ| &amp;&lt; 1\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}AR (1) &amp;&amp; Y_t &amp;= \frac{c + ε_t}{φ(L)} \\
+&amp;&amp; &amp;= \frac{c}{1-φL} + \frac{ε_t}{1-φL}\\
+&amp;&amp; &amp;= \frac{c}{1-φL} + (ε_t + φLε_t + φ^2 L^2 ε_t + \dots )\\
+&amp;&amp; &amp;= \frac{c}{1-φ} + \sum_{j=0}^{\infty} φ^j\cdot ε_{t-j} \\
+MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="ar-p-stationarity" class="section level3">
+<h3>AR (p) Stationarity</h3>
+<ul>
+<li>A process is <strong>causal form <span class="math inline">\(ε_t\)</span></strong><br />
+<span class="math inline">\(\iff \{Y_t\}\)</span> has a covariance-stationary representation<br />
+<span class="math inline">\(\iff \{Y_t\}\)</span> is stationary
+<span class="math display">\[\begin{cases}Y_t = μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
+\sum_{j=0}^{\infty} |ψ_j| &lt; \infty\end{cases}\]</span></li>
+<li>Some <strong>linear processes</strong> are not causal form <span class="math inline">\(ε_t\)</span><br />
+but <span class="math inline">\(\{ε_t\}\)</span> is stationary <span class="math inline">\(\implies\{Y_t\}\)</span> is stationary
+<span class="math display">\[\begin{cases}Y_t = μ + \sum_{j=-\infty}^{\infty} ψ_j ε_{t-j} \\
+ψ_0 = 1 \\
+\sum_{j=-\infty}^{\infty} |ψ_j| &lt; \infty\end{cases}\]</span></li>
+<li>AR (p) with characteristic equation
+<span class="math display">\[\begin{aligned}Y_t &amp;= c + φ_1LY_t + \dots + φ_p L^p Y_t + ε_t \\
+φ(L) &amp;= 1 - φ_1L - φ_2L^2 -\dots - φ_pL^p \\
+φ(L) Y_t &amp;= c + ε_t \end{aligned}\]</span></li>
+<li>AR (p) has a covariance-stationary representation<br />
+<span class="math inline">\(\iff |z|&gt;1\)</span> for all <span class="math inline">\(z\)</span> (outside the unit circle)<br />
+<span class="math inline">\(\implies\sum_{j=1}^p φ_j &lt;1\)</span><br />
+<span class="math display">\[\begin{aligned}1 - φ_1z - φ_2z^2 - \dots - φ_pz^p &amp;= 0 \\
+|z| &amp;= \Big|\frac{1}{φ_1L + φ_2L^2 + \dots + φ_pL^p}\Big| \\
+&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_jL^j}\Bigg| \\
+&amp;= \Bigg|\frac{1}{\sum_{j=1}^p φ_j}\Bigg| &gt; 1 \\
+\Big|\sum_{j=1}^p φ_j\Big| &amp;&lt; 1\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}AR (p) &amp;&amp;Y_t &amp;= \big(φ(L)\big)^{-1}\cdot (c + ε_t) \\
+&amp;&amp; &amp;= \big(φ(L)\big)^{-1}\cdot c + \big(φ(L)\big)^{-1}\cdot ε_t \\
+MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j}\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="ar-p-as-ma" class="section level3">
+<h3>AR (p) as MA (∞)</h3>
+<ul>
+<li>Compare coefficients<br />
+When <span class="math inline">\(c = μ = 0\)</span>,
+<span class="math display">\[\begin{aligned}φ(L) Y_t &amp;= ε_t \\
+Y_t &amp;= \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
+&amp;= ψ(L) ε_t\\
+φ(L)ψ(L) ε_t &amp;= ε_t \\
+φ(L)ψ(L) &amp;= 1 \end{aligned}\]</span>
+for AR (2),
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}(1 - φ_1L - φ_2L^2)\cdot (ψ_0 + ψ_1L + ψ_2L^2 + ψ_3L^3 + \dots) = 1\\
+&amp;= (ψ_0 + ψ_1L + ψ_2L^2 + ψ_3L^3 + \dots ) - φ_1L(ψ_0 + ψ_1L + ψ_2L^2 + \dots) \\
+&amp;\phantom{\ggg} - φ_2L^2(ψ_0 + ψ_1L + ψ_2L^2 + \dots) \\
+&amp;= ψ_0 + L(ψ_1 - φ_1ψ_0) + L^2(ψ_2 - φ_1ψ_1 - φ_2ψ_0) \\
+&amp;\phantom{\ggg} + L^3(ψ_3 - φ_1ψ_2 - φ_2ψ_1) + \dots\end{aligned}\]</span>
+matching powers of <span class="math inline">\(L\)</span> gives
+<span class="math display">\[\begin{aligned}
+ψ_0 &amp;= 1 \\
+ψ_1 - φ_1ψ_0 &amp;= 0 \\
+ψ_2 - φ_1ψ_1 - φ_2ψ_0 &amp;= 0 \\
+ψ_3 - φ_1ψ_2 - φ_2ψ_1 &amp;= 0 \\
+&amp;\dots \end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}ψ_0 &amp;= 1 \\
+ψ_1 &amp;= φ_1 \\
+ψ_2 &amp;= φ_1^2 + φ_2 \\
+ψ_3 &amp;= φ_1^3 + φ_1φ_2 + φ_2 \\
+&amp;\dots \end{aligned}\]</span></li>
+<li>Impulse response function (IRF)
+<span class="math display">\[\begin{aligned}MA(\infty) &amp;&amp; Y_t &amp;= μ + \sum_{j=0}^{\infty} ψ_j ε_{t-j} \\
+FOC &amp;&amp; \frac{\partial Y_t}{\partial ε_{t-j}} &amp;= ψ_j \\
+&amp;&amp; \frac{\partial Y_{t+j}}{\partial ε_{t}} &amp;= ψ_j\end{aligned}\]</span></li>
+<li>Permanent effect: AR (1)
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\lim_{j\to\infty} \Big(\frac{\partial Y_{t+j}}{\partial ε_{t}} + \frac{\partial Y_{t+j}}{\partial ε_{t+1}} + \dots + \frac{\partial Y_{t+j}}{\partial ε_{t+j}}\Big) \\
+&amp;= \lim_{j\to\infty} (φ^j + φ^{j-1} + \dots + φ^{0}) \\
+&amp;= \frac{1}{1-φ} \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="yule-walker-equations" class="section level3">
+<h3>Yule-Walker Equations</h3>
+<p>Reference:<br />
+<a href="http://www-stat.wharton.upenn.edu/~steele/Courses/956/Resource/YWSourceFiles/YW-Eshel.pdf">The Yule Walker Equations for the AR Coefficients by Gidon Eshel</a><br />
+<a href="https://www.coursera.org/lecture/practical-time-series-analysis/yule-walker-equations-in-matrix-form-yw0tb">Yule-Walker Equations in Matrix Form | Coursera</a></p>
+<ul>
+<li>Take expectation of AR (p)
+<span class="math display">\[\begin{aligned}Y_t &amp;= c + φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t \\
+E[Y_t] &amp;= E[c + φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t] \\
+μ &amp;= c + φ_1 μ +\dots + φ_p μ + 0 \\
+&amp;= \frac{c}{1-φ_1 -\dots - φ_p} \\
+c &amp;= μ\cdot(1-φ_1 -\dots - φ_p)\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned} 
+Y_t &amp;= μ\cdot(1-φ_1 -\dots - φ_p)+ φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t \\
+Y_t - μ &amp;= μ\cdot(-φ_1 -\dots - φ_p)+ φ_1 Y_{t-1} +\dots + φ_p Y_{t-p} + ε_t \\
+&amp;= φ_1 (Y_{t-1}-μ) +\dots + φ_p (Y_{t-p}-μ) + ε_t \\
+(Y_t - μ)(Y_{t-j} - μ) &amp;= φ_1 (Y_{t-1}-μ)(Y_{t-j} - μ) +\dots + φ_p (Y_{t-p}-μ)(Y_{t-j} - μ) + ε_t(Y_{t-j} - μ)\end{aligned}\]</span>
+take expectation
+<span class="math display">\[\begin{aligned}γ_j &amp;= E\big[ (Y_t - μ)(Y_{t-j} - μ)\big] \\
+&amp;= \begin{cases} φ_1γ_{1} + φ_2γ_{2} + \dots + φ_pγ_{p} + σ^2 &amp; j=0\\
+φ_1γ_{j-1} + φ_2γ_{j-2} + \dots + φ_pγ_{j-p} &amp; j&gt;0\end{cases}\end{aligned}\]</span></li>
+<li>Matrix representation<br />
+<!-- 
+Let $\underset{(p+1)\times 1}{γ} = \begin{pmatrix}γ_0 \\ γ_1 \\ \vdots \\ γ_p \end{pmatrix}$, $\underset{(p+1)\times 1}{r} = \begin{pmatrix}σ^2 \\ 0 \\ \vdots \\ 0\end{pmatrix}$,  
+therefore,
+$$\underset{(p+1)\times (p+1)}{Γ_1} = \begin{pmatrix}1 & 0 & 0 & \cdots & 0\\ -φ_1 & 1 & 0 &\cdots &0 \\-φ_2 & -φ_1 & \ddots & \ddots & \vdots \\\vdots & \vdots &\ddots & \ddots & 0\\-φ_p & -φ_{p-1} &\cdots &-φ_1 & 1\end{pmatrix}$$
+and
+$$\underset{(p+1)\times (p+1)}{Γ_2} = \begin{pmatrix}0 & -φ_1 & -φ_2 & \cdots & -φ_p \\ 0 & -φ_2 & \cdots & -φ_p & 0 \\ \vdots & \vdots &\iddots &\iddots &\vdots \\ 0 & -φ_p & 0 &\cdots & 0 \\ 0 & 0 & \cdots & \cdots & 0\end{pmatrix}$$
+Let 
+$$\begin{aligned}Γ &= Γ_1 + Γ_2 \\
+Γ\cdot γ &= r \\
+γ &= Γ^{-1}\cdot r\end{aligned}$$ -->
+Collect all equations for <span class="math inline">\(j&gt;0\)</span>
+<span class="math display">\[\begin{cases}γ_1 = φ_1γ_{0} + φ_2γ_{1} + \dots + φ_pγ_{p-1} \\
+γ_2 = φ_1γ_{1} + φ_2γ_{2} + \dots + φ_pγ_{p-2} \\
+\phantom{=}\cdots \\
+γ_p = φ_1γ_{p-1} + φ_2γ_{p-2} + \dots + φ_pγ_{0}\end{cases}\]</span>
+devide both sides by <span class="math inline">\(γ_0\)</span>
+<span class="math display">\[\begin{cases}ρ_1 = φ_1ρ_{0} + φ_2ρ_{1} + \dots + φ_pρ_{p-1} \\
+ρ_2 = φ_1ρ_{1} + φ_2ρ_{2} + \dots + φ_pρ_{p-2} \\
+\phantom{=}\cdots \\
+ρ_p = φ_1ρ_{p-1} + φ_2ρ_{p-2} + \dots + φ_pρ_{0}\end{cases}\]</span>
+rewrite as matrix, since <span class="math inline">\(ρ_0=1\)</span>,
+<span class="math display">\[\begin{aligned}
+\underbrace{\begin{pmatrix}ρ_1\\ρ_2\\\vdots\\ ρ_{p-1} \\ ρ_p\end{pmatrix}}_{ρ}
+&amp;=\underbrace{\begin{pmatrix}1 &amp; ρ_1 &amp; ρ_2 &amp; \cdots &amp; ρ_{p-1}\\ ρ_1 &amp; 1 &amp; ρ_1 &amp; \cdots &amp; ρ_{p-2}\\ \vdots &amp; &amp; \ddots &amp;\ddots &amp; \vdots\\ ρ_{p-2} &amp; ρ_{p-3} &amp; \cdots &amp; 1 &amp;ρ_1 \\ρ_{p-1} &amp; ρ_{p-2} &amp; \cdots &amp; ρ_1 &amp; 1\end{pmatrix}}_{Ρ}
+\cdot \underbrace{\begin{pmatrix}φ_1\\φ_2\\\vdots\\φ_{p-1} \\ φ_p \end{pmatrix}}_{Φ} \\
+ρ &amp;= Ρ\cdot Φ \\
+Φ &amp;= Ρ^{-1}\cdot ρ\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="arma-1" class="section level3">
+<h3>ARMA</h3>
+</div>
+</div>
+<div id="arch-garch" class="section level2">
+<h2>ARCH &amp; GARCH</h2>
+<div id="arch" class="section level3">
+<h3>ARCH</h3>
+<ul>
+<li>AutoRegressive Conditional Heteroskedasticity
+<ul>
+<li><span class="math inline">\(σ_t^2\neq σ_ε^2\)</span></li>
+</ul></li>
+<li>ARCH (p):
+<span class="math display">\[\begin{aligned}Y_t &amp;= σ_t\cdot ε_t \\
+σ_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(ε_t\overset{iid}{\sim}(0,1)\)</span></li>
+<li><span class="math inline">\(ω&gt;0\)</span>, <span class="math inline">\(α_i\geq 0\)</span>, <span class="math inline">\(p\in\mathbb{N}\)</span></li>
+<li>If <span class="math inline">\(α_i=0\)</span> for all <span class="math inline">\(i\implies\)</span> white noise</li>
+</ul></li>
+</ul>
+</div>
+<div id="arch-stationarity" class="section level3">
+<h3>ARCH Stationarity</h3>
+<ul>
+<li><span class="math inline">\(0\leq \sum_p α_i &lt;1\)</span> <span class="math inline">\(\implies\)</span> stationary, causal <span class="math inline">\(\{Y_t\}\)</span></li>
+<li>For ARCH (1): <span class="math inline">\(E[Y_t^4]&lt;\infty\iff\)</span> <span class="math inline">\(α_1&lt;\frac{1}{\sqrt{3}}\)</span></li>
+<li>For ARCH (p): <span class="math inline">\(E[Y_t^4]=c&lt;\infty\)</span>, then
+<span class="math display">\[\begin{aligned}
+\text{ARCH (p)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2 + η_t \\
+\text{Error}&amp;&amp; η_t &amp;= σ_t^2(ε_t^2 - 1) \\
+\text{AR (p)} &amp;&amp; Y_t &amp;= c + \sum_{i=1}^p φ_i Y_{t-i} + ε_t\end{aligned}\]</span>
+<span class="math inline">\(η_t\)</span> is zero-mean, stationary, uncorrelated error</li>
+</ul>
+</div>
+<div id="garch" class="section level3">
+<h3>GARCH</h3>
+<ul>
+<li>Generalized ARCH</li>
+<li>GARCH (1,1) <span class="math inline">\(\implies\)</span> ARCH(∞)
+<span class="math display">\[\begin{aligned}Y_t &amp;= σ_t\cdot ε_t \\
+σ_t^2 &amp;= ω + α\cdot Y_{t-1}^2 + β\cdot σ_{t-1}^2\end{aligned}\]</span></li>
+<li>GARCH (p,q):
+<span class="math display">\[\begin{aligned}Y_t &amp;= σ_t\cdot ε_t \\
+σ_t^2 &amp;= ω + \sum_{i=1}^p α_i\cdot Y_{t-i}^2 + \sum_{j=1}^p β_j\cdot σ_{t-j}^2\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(ε_t\overset{iid}{\sim}(0,1)\)</span></li>
+<li><span class="math inline">\(ω&gt;0\)</span>, <span class="math inline">\(α_i\geq 0\)</span>, <span class="math inline">\(β_j\geq 0\)</span>, <span class="math inline">\(p,q\in\mathbb{N}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="garch-stationarity" class="section level3">
+<h3>GARCH Stationarity</h3>
+<ul>
+<li><span class="math inline">\(0\leq \sum_p α_i + \sum_q β_j&lt;1\)</span> <span class="math inline">\(\implies\)</span> stationary, causal <span class="math inline">\(\{Y_t\}\)</span></li>
+<li>For GARCH (1,1):</li>
+<li>For GARCH (p,q): <span class="math inline">\(E[Y_t^4]=c&lt;\infty\)</span>, then
+<span class="math display">\[\begin{aligned}
+\text{GARCH (p,q)} &amp;&amp; Y_t^2 &amp;= ω + \sum_{i=1}^{\tilde{p}} \tilde{α}_i\cdot Y_{t-i}^2 + \sum_{j=1}^q β_j\cdot η_{t-j} +η_t \\
+&amp;&amp; \tilde{p} &amp;= \max\{p,q\} \\
+&amp;&amp; \tilde{α}_i&amp;= α_i + β_i \\
+\text{Error}&amp;&amp; η_t &amp;= σ_t^2(ε_t^2 - 1) \\
+\text{ARMA } (\tilde{p},q) &amp;&amp; Y_t &amp;= \sum_{i=1}^{\tilde{p}}θ_iY_{t-i} + \sum_{j=i}^{q} α_jε_{t-j} + ε_t\end{aligned}\]</span>
+<span class="math inline">\(η_t\)</span> is zero-mean, stationary, uncorrelated error</li>
+</ul>
+</div>
+</div>
+<div id="old-stuff" class="section level2">
+<h2>Old Stuff</h2>
+<div id="integration" class="section level3">
+<h3>Integration</h3>
+<ul>
+<li><span class="math inline">\(I(0)\)</span> denotes stationary series
+<ul>
+<li>Mean reverting</li>
+<li>Finite variance</li>
+<li>Limited memory of past behaviour</li>
+</ul></li>
+<li><span class="math inline">\(I(1)\)</span> denotes series that become stationary after first-differencing
+<ul>
+<li>Infinitely long memory</li>
+</ul></li>
+</ul>
+<!--
+### Deterministic (Linear) Trend
+
+- Another possible cause of nonstationarity: $γ\neq 0$ (even when $|θ|<1$) 
+$$Y_t = δ + θY_{t-1}+γ\cdot t + ε_t$$ 
+- Trend stationary
+- Solution: 
+    - Regress $Y_t$ on constant and trend and then use residuals  
+    - include $t$ as additional variable in regression
+-->
+</div>
+<div id="ols-estimation" class="section level3">
+<h3>OLS Estimation</h3>
+<ul>
+<li>For AR (p)
+<ul>
+<li>Consistency: <span class="math inline">\(E[Y_{t-j}ε_t] = 0\)</span> for all <span class="math inline">\(j = 1,2,3,\dots,p\)</span><br />
+</li>
+<li>Small sample bias caused ((A2) violated)</li>
+</ul></li>
+<li>For MA (1) with invertible lag polynomial
+<ul>
+<li>tbe</li>
+</ul></li>
+</ul>
+</div>
+<div id="ml-estimation" class="section level3">
+<h3>ML Estimation</h3>
+<p>tbe</p>
+</div>
+<div id="model-selection" class="section level3">
+<h3>Model Selection</h3>
+<ul>
+<li>Residual analysis (Ljung–Box test)</li>
+<li>AIC &amp; BIC</li>
+<li>Overfitting: to test ARMA (p,q), estimate ARMA (p+1,q) and ARMA (p,q+1)</li>
+</ul>
+</div>
+<div id="spurious-regression" class="section level3">
+<h3>Spurious Regression</h3>
+<p>textbook P352, slide 12 P28</p>
+</div>
+<div id="cointegration" class="section level3">
+<h3>Cointegration</h3>
+<p>textbook P353, slide 12 P31<br />
+<a href="http://staff.utia.cas.cz/barunik/files/appliedecono/Lecture7.pdf">Lecture: Introduction to Cointegration - Applied Econometrics</a></p>
+<ul>
+<li>Cointegration <span class="math inline">\(\implies\)</span> not spurious</li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,386 @@
+---
+title: "Notes on Econometrics - Tests and Statistics"
+author: "loikein"
+date: "2019-02-05"
+slug: "notes-stat-test"
+tags: ["notes","R", "stat"]
+raw: ""
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+
+Warning: under proofreading
+
+Textbook: [A Guide to Modern Econometrics](http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5)
+
+## R^2
+
+textbook P21, slide 3 P4
+
+- Proportion of the sample variance of $y$ that is explained by the model.
+
+$$\begin{aligned}  && R^2 &= \frac{Var(\hat{y}_i)}{Var(y_i)} = 1 - \frac{Var(e_i)}{Var(y_i)} \\
+&& &= 1 - \frac{\sum_N e_i^2}{\sum_N (y_i-\bar{y})^2} \\
+\text{adjusted:} && \bar{R^2} &= 1 - \frac{\frac{1}{N-K}\sum_N  e_i^2}{\frac{1}{N-1}\sum_N  (y_i-\bar{y})^2}\end{aligned}$$ 
+
+> PS2.Q1  
+> Consider two linear regression models:  
+> $$\begin{aligned} y &= X_1 b_{11} + e_1 \\
+y &= X_1 b_{21} + X_2 b_{22} + e_2\end{aligned}$$ 
+> The solution to the minimization problem of the first model is given by $b_{11}$ and for the second model by $b_{21}$ for the regressors in $X_1$ and $b_{22}$ for the regressors in $X_2$.   
+> $e_1$ and $e_2$ denote the residuals.  
+> Denote the $R^2$ for the first model by $R^2_1$ and for the second model by $R^2_2$.   
+> Show that $R^2_2 ≥ R^2_1$ ($R^2$ always increases if we increase the number of regressors in models with intercept)
+
+According to the models,   
+$$\begin{aligned} R^2_1 &= 1- \frac{e_1'e_1}{\sum_{i=1}^N (y_i - \bar{y})^2} \\
+R^2_2 &= 1- \frac{e_2'e_2}{\sum_{i=1}^N (y_i - \bar{y})^2}\end{aligned}$$ 
+Note for model 2, $b_{21}$ and $b_{22}$ are s.t.  
+$$S(\mathbf{\tilde{b_2}}) = \sum^N_{i=1} (y_i - x_i' \mathbf{\tilde{b_2}})$$ 
+is minimized. Therefore,  
+$$\begin{aligned} \sum^N_{i=1} \big(y_i - x_i' (b_{21},b_{22})' \big) &\leq \sum^N_{i=1} \big(y_i - x_i' (b_{1}, 0)' \big) \\
+e_2'e_2 &\leq e_1'e_1 \\ 
+R^2_2 &\geq R^2_1 \end{aligned}$$ 
+
+## t-test
+
+textbook P26, slide 3 P16
+
+- [Normality of b](../../01/notes-stat1-theory/#normality-of-b)
+- $H_0$: $b_k = β^0_k$
+- $H_0$ is rejected if $t_k$ is significantly different to some critical value $\begin{cases}\text{one-sided} & t_{N-K; α} \\ \text{two-sided} & t_{N-K; α/2} \end{cases}$
+
+$$\begin{aligned} z &= \frac{b_k - β_k}{se(b_k)} ∼ \mathcal{N}(0,1) \\
+t_k &= \frac{b_k - β^0_k}{se(b_k)} \end{aligned}$$
+
+$t ∼ t_{N-K} ∼^a \mathcal{N}(0,1)$  
+$N$ is the number of observations, $K$ is the number of $β$ \'s.
+
+> PS4.Q2.9  
+> T/F?  
+> When testing multiple restrictions, a t-test cannot be used.
+
+True.
+
+> PS4.Q2.8  
+> T/F?  
+> When testing a single restriction, a t-test must be used as an F-test cannot be computed for $J = 1$.
+
+False.  
+When testing a single restriction, F-test is equivalent to t-test squared.  
+Check this complete proof by [Juan Manuel](https://jmcanovas.netlify.com/2018/10/29/when-does-the-f-test-reduce-to-t-test/).
+
+## F-test (Joint Test / Model Test)
+
+textbook P26, P70, slide 3 P18
+
+$$\begin{aligned}\text{Unrestricted Model: } y_1 &= β_1 + β_2x_2 + \dots + β_K x_K + ε \\
+\text{Restricted Model: } y_0 &= β_1 + β_2x_2 + \dots + β_{K-J}x_{K-J} + ε\end{aligned}$$
+
+$$\begin{aligned} F &= \frac{(S_0 - S_1) / J}{S_1 / (N-K)} \\
+&= \frac{(R^2_1 - R^2_0) / J}{(1-R^2_1) / (N-K)}\end{aligned}$$
+
+$H_0$: $β_{K-J+1} = β_{K-J+2} = \dots = β_K = 0$,  
+$F ∼ F_{N-K}^J$  
+$N$ is the number of observations, $K$ is the number of $β$ \'s, and $J$ is the number of $β$ \'s to be tested ($= 0$), $F \geq J + 1$.
+
+## Wald Test
+
+textbook P29, P103 (GLS), slide 3 P17
+
+- Always two-sided
+- Set of J Restrictions: $\underbrace{R}_{\text{(J*K)}}\underbrace{β}_{\text{(K*1)}} = \underbrace{q}_{\text{(J*1)}}$
+
+### Wald statistic
+
+- Gauss-Markov Assumptions are not all satisfied
+- The model deviates from linear regression model
+
+$$\begin{aligned} ξ &= (Rb - q)' \big[R\cdot V(b) R' \big]^{-1}(Rb - q) \\
+&= \frac{1}{s^2} (Rb - q)' \big[R(X' X)^{-1} R' \big]^{-1}(Rb - q)\end{aligned}$$ 
+$H_0: ξ ∼ Χ^2_J$  
+$K$ is the number of $β$ \'s, $J$ is the number of $β$ \'s to be tested, $R$ is a $J\times K$ matrix, $Rβ - q = 0$. 
+
+### F-statistic
+
+- Exact sampling distribution under (A1) \~ (A5)
+
+$$F = \frac{ξ}{J} = \frac{1}{J \cdot s^2} (Rb - q)' \big[R(X' X)^{-1} R' \big]^{-1}(Rb - q)$$ 
+$H_0: F ∼ F^J_{N-K}$  
+
+> PS3.Q1.2   
+> For model $\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)$, consider the regression output:  
+> ![](/post-img/notes-stat1--PS3Q1.png){width=406px}  
+> $(X' X)^{-1} = \begin{pmatrix} 5649.38 && 307.02 && \\ && 16.85 && -29.39 \\ -540.33 && && 51.68\end{pmatrix}$  
+> 3. Test the hypothesis of constant returns to scale at $5\%$ level. 
+
+Constant return to scale $\implies β_1 + β_2 = 1$  
+Let $R = \begin{pmatrix} 0 && 1 && 1\end{pmatrix}$, $β = \begin{pmatrix} \log τ \\ β_1 \\ β_2 \end{pmatrix}$, $q = 1 \implies J = 1$.  
+$H_0$: $Rβ = q$  
+$$F = \frac{1}{J \cdot s^2} (Rb - q)' \big[R(X' X)^{-1} R' \big](Rb - q)$$ 
+Since $X'X$ is symmetric, $(X' X)^{-1} = \begin{pmatrix} 5649.38 && 307.02 && -540.33 \\ 307.02 && 16.85 && -29.39 \\ -540.33 && -29.39 && 51.68\end{pmatrix}$  
+Calculate F-statistics:  
+```{r eval = TRUE}
+matrix_x <- matrix(c(5649.38, 307.02, -540.33, 307.02, 16.85, -29.39, -540.33, -29.39, 51.68), nrow = 3, byrow = TRUE)
+matrix_r <- matrix(c(0,1,1), nrow = 1, byrow = TRUE)
+matrix_b <- matrix(c(-5.9395, 0.3593, 0.8045), nrow = 3)
+scalar_q <- 1
+
+# parts
+
+result_1 <- 1 / 0.0381^2
+result_2 <-matrix_r %*% matrix_b - scalar_q
+result_3 <- matrix_r %*% matrix_x %*% t(matrix_r)
+
+# calculate F-statistics
+
+result_1 * t(result_2) * result_3^(-1) * result_2
+```
+Calculate critical value at $5\%$ level, for one restriction and $df = 40$:  
+```{r eval = TRUE}
+qf( 0.95, 1, 40)
+```
+Therefore, $H_0$ is not rejected. 
+
+## BIC & AIC 
+
+### Nested Model
+
+(textbook P69, slide 5 P10)  
+BIC is asymptotically consistent: 
+$$\min \ I(K) = \log\left(\frac{e'e}{N}\right) + \log N\cdot\frac{K}{N}$$ 
+$N$ is the number of observations, $K$ is the number of $β$ \'s, and $e$ is vector of residual.  
+If replace $\log N$ with $2$, becomes AIC (inconsistent for large sample)
+
+### Time Series
+
+(textbook P320, slide 12 P25)  
+$$\min \ BIC = \log \hat{σ}^2 + \log T \cdot\frac{p+q+1}{T}$$ 
+$p,q$ are the orders of ARMA model, and $T$ is the number of periods  
+If replace $\log T$ with $2$, becomes AIC (tend to overparameterize)
+
+## J Test (Non-Nested Model)
+
+(textbook P72, slide 5 P11)  
+$$\begin{aligned} \text{Model A: } y_i &= x_i' β + ε_i \\
+\text{Model B: } y_i &= z_i' γ + v_i \\
+\text{Test Model: } y_i &= \underbrace{(1-δ)x_i' β}_{\text{Model A}} + \underbrace{δ z_i' γ }_{\text{Model B}} + u_i \\
+&=^{H_0} x_i' + δ \hat{y}_{i,B} + u_i \end{aligned}$$ 
+$H_0: \ t_{δ} = \frac{δ}{se(δ)} ∼ t$ 
+
+## PE Test (Linear vs Log)
+
+(textbook P72, slide 5 P13)  
+$$\begin{aligned}\text{Linear Model: }&\hat{y_i} = \dots \\ \text{Log Model: }&\log\tilde{y_i} = \dots \end{aligned}$$ 
+$$\begin{aligned}\text{Test Models: }\phantom{\log} y_i &= x_i' β + δ_{Lin} (\log \underbrace{\hat{y_i}}_{\text{Linear Model}} - \underbrace{\log\tilde{y_i}}_{\text{Log Model}}) + u_i \\
+\log y_i &= (\log x_i)' γ + δ_{Log} \big(\overbrace{\hat{y_i}} - \exp(\overbrace{\log\tilde{y_i}})\big) + u_i \end{aligned}$$ 
+$$\begin{aligned}H_0\text{'s: } &t_{δ_{Lin}} ∼ t \implies\text{linear model is preferred} \\
+&t_{δ_{Log}} ∼ t \implies\text{log model is preferred}\end{aligned}$$ 
+If both $H_0$'s are rejected, should consider more general models. 
+
+> PS4.Q2.5  
+> T/F?  
+> The PE test cannot be applied to compare a linear to an exponential specification.
+
+False.  
+Just $\log$ both of them.
+
+## Chow (Breakpoint) Test
+
+textbook P75, slide 5 P17
+
+$$\begin{aligned}\text{Pooled Model: } y_i &= x_i' β + g_i x_i' γ + ε_i \\ S_R &= e'e \\
+\text{Split Models: } y_i &=  x_i'β_1 + ε_i && i = 1, \dots, T^* \\
+y_i &=  x_i'β_2 + ε_i && i = T^*+1, \dots, n \\
+S_{UR} &= e_1' e_1 + e_2' e_2\end{aligned}$$ 
+$$H_0: \frac{\frac{1}{K} S_R - S_{UR}}{\frac{1}{N-2K}S_{UR}} ∼ F_{N-2K}^K$$ 
+$N$ is the number of observations, $K$ is the number of $β$ \'s, and $T^*$ is the hypothetical breakpoint.  
+Note: Chow test can also test two or more breakpoints / groups. 
+
+> PS4.Q2.6  
+> T/F?  
+> The Chow test cannot be applied in a cross-sectional regression.
+
+False.  
+Chow test can also be used to detach groups in a cross-sectional regression. 
+
+## Heteroskedasticity Test
+
+### Goldfeld-Quandt
+
+slide 6 P20
+
+Assume there are two different groups in the observations, $N_A$ and $N_B$  
+$$\begin{aligned} GQ = \frac{s_A^2}{s_B^2} ∼F^{N_A-K}_{N_B-K}\end{aligned}$$ 
+$s^2_i = \frac{1}{N_i - K}e'e$ is the unbiased estimator for $σ^2_i$, and $K$ is the number of $β$ \'s. 
+
+### Breusch-Pagan Test
+
+textbook P109, slide 6 P20
+
+- [Assumed form of heteroskedasticity](../../01/notes-stat1-theory/#wls-weighted-ls-estimator)
+- Lagrange multiplier (LM) test
+    - No need to estimat restricted model
+    - Auxiliary regression
+
+For $y_i = x_i'β + ε_i$, and $z_i$ (J-dimensional)  
+Heteroskedasticity:  
+$$\begin{aligned} V\{ε_i | x_i\} &= σ_i^2 \\
+&= σ^2\cdot h(z_i \cdot α) \end{aligned}$$ 
+The test:  
+$$\begin{aligned}\text{Auxiliary regression} && e_i^2 &= z_i'α+ v_i\\
+\text{Test statistic} && LM(ξ) &= N\cdot R^2 ∼^a χ^2_J \\
+&& H_0: \ α &= 0 \\
+&& H_1: \ α &\neq 0\end{aligned}$$ 
+$N$ is the number of observations, $R^2$ is the R-quare of auxiliary regression, and $J$ is the dimension of $z_i$. 
+
+## Autocorrelation Test
+
+### Durbin-Watson
+
+textbook P120, slide 7 P7
+
+- (A2) all errors and independent variables are independent
+- Non-zero intercept 
+- No lagged dependent variable ($y_i$)
+
+$$\begin{aligned}dw &= \frac{\sum_N (e_t - e_{t-1})^2}{\sum_N e_t^2} \\
+&\approx 2 - 2\hat{ρ} \\
+&= 2 - 2\cdot\frac{\sum_N e_te_{t-1}}{\sum_N e_{t-1}^2}\end{aligned}$$
+$H_0$: $ρ = 0\iff dw = 2$
+
+### Breusch-Godfrey
+
+textbook P119, slide 7 P12
+
+- LM test
+
+$$\begin{aligned}\text{Assumed form of error:} && ε_t &= ρ_1 ε_{t-1} + \dots + ρ_m ε_{t-m} + v_t \\
+\text{Auxiliary regression:} && e_t &= x_t'β + \underbrace{ρ_1 e_{t-1} + \dots + ρ_m e_{t-m}}_{H_0: = 0} + v_t \\
+\text{Test statistic:} && LM &= T\cdot R^2 ∼^a χ_m^2\end{aligned}$$
+
+### Box-Pierce
+
+slide 7 P12  
+
+$$Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2$$ 
+$H_0$: $Q_m ∼^a χ^2_m$  
+$T$ is number of observations, $m$ is number of lags, and $ρ$ \'s are parameters.
+
+## Instrumental Variable Test
+
+### Durbin-Wu-Hausman (Endogeneity)
+
+textbook P154, slide 9-2 P15
+
+- Assumption: IV is valid 
+- $H_0$: Both OLS and IV estimators are consistent $\iff γ = 0$ 
+- $H_1$: OLS estimators is inconsistent, IV estimators is consistent
+
+$$\begin{aligned}\text{Original model:} && y_i &= β_1x_{1i} + β_2z_{2i} + \underbrace{v_i}_{\text{As error}} \\
+\text{Second regression:} && y_i &= β_1x_{1i} + β_2z_{2i} + \underbrace{γ\cdot v_i}_{\text{As regressor}} + ε_i \\
+\text{Test statistic:} && t &= \frac{γ}{se(γ)} ∼ t\end{aligned}$$
+
+### Sargan (Instrument Validity)
+
+textbook P168, slide 9-2 P14
+
+- Overspecification ($R>K$)
+- [GIVE with optimal weighting matrix](#give-generalized-iv-estimator)
+- $H_0$: instruments are valid (sample moments are close to zero)
+
+$$\begin{aligned}\text{Regress with GIVE:} && y_i &= z_i'\hat{β}_{IV} + \hat{ε}_i \\
+\text{Auxiliary regression:} && \hat{ε}_i &= z_i'\hat{β}_{IV} + v_i \\
+\text{Test statistic:} && LM &= N\cdot R^2 ∼^a χ_{R-K}^2 \\
+&& &= N\cdot Q_N(\hat{β}_{IV})\end{aligned}$$
+
+## DF (Dickey-Fuller) Test 
+
+Almost each version has different critical values  
+DF test and ADF test on the same parameter share the same critical values
+
+### Unit Root
+
+(textbook P302, slide 12 P20)  
+(one-sided)  
+For AR (1): $Y_t = δ + θY_{t-1} + ε_t$  
+Or $ΔY_t = δ + \underbrace{(θ-1)}_{π}Y_{t-1} + ε_t$ 
+$$DF = \frac{\hat{θ}-1}{se(\hat{θ})}$$ 
+$H_0$: $θ = 1$ or $π = 0$ (does not follow standard t-distribution, needs smaller critical values)  
+$H_1$: $θ < 1$ or $π < 0$ 
+
+### Deterministic Trend
+
+(textbook P303, slide 12 P21)  
+For AR (1): $ΔY_t = δ + \underbrace{(θ-1)}_{π}Y_{t-1} + γ\cdot t + ε_t$  
+against random walk: $ΔY_t = δ + ε_t$  
+$$DF_τ = \frac{\hat{θ}-1}{se(\hat{θ})}$$ 
+$H_0$: $γ = 0$ (assume satisfied) and $θ-1 = 0\implies θ = 1$ or $π = 0$  
+$H_1$: $θ < 1$ or $π < 0$, include nothing about $γ$ 
+
+### ADF (Augmented Dickey-Fuller) Test
+
+(textbook P304, slide 12 P23)  
+For AR (p): $ΔY_t = δ + \underbrace{(θ_1 + θ_2 + \dots + θ_p -1)}_{π}Y_{t-1} + \sum_{i=1}^{p-1} c_i\cdot ΔY_{t-i} (+ γ\cdot t) + ε_t$  
+where $c_1,\cdots,c_{p-1}$ are constants,  
+$$DF_{(τ)} = \frac{\hat{π}}{se(\hat{π})}$$ 
+$H_0$: $π = 0$  
+$H_1$: $π < 0$
+
+### Spurious Regression vs Cointegration
+
+(textbook P354, slide 12 P33)  
+For $Y_t = α + βX_t + ε_t$,  
+$$\begin{aligned} \text{Auxiliary regression: } Δe_t = γ_0 + γ_1e_{t-1}+u_t \\
+\text{Test statistic: } DF = \frac{\hat{γ}_1}{se(\hat{γ}_1)}\end{aligned}$$ 
+$H_0$: $γ_1 = 1$ (unit root)  
+$H_1$: $γ_1 < 1$
+
+Use ADF if $e_t$ does not seem to follow AR (1).
+
+## Ljung–Box (Portmanteau) Test (Residual Analysis)
+
+(textbook P319, slide 12 P26)  
+For ARMA (p,q): $Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}$  
+$$Q_K = T(T+2)\sum_{k=1}^K \frac{1}{T-k}r_k^2 ∼ χ^2_{(K-p-q)}$$ 
+$H_0$: residuals are white noise  
+$T$ is the number of periods, $K > p+q$ is some number chosen by the researcher, and $r_k^2$ is the autocorrelation coefficients of residuals
+
+## Hausman Test (FE vs RE)
+
+(textbook P394, slide 13 P36)  
+$$ξ_H = \left(\frac{\hat{β}_{FE} - \hat{β}_{RE}}{\sqrt{Var(\hat{β}_{FE}) - Var(\hat{β}_{RE})}}\right)^2$$ 
+$H_0$: $ξ_H ∼ χ^2_1$ ($\hat{β}_{RE}$ is effecient)
+
+## Read Regression Table
+
+> PS3.Q1.2  
+> For model $\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)$, consider the regression output:  
+> ![](/post-img/notes-stat1--PS3Q1.png){width=406px}  
+> 1. Test the significance of the elasticities at $5\%$ level.  
+
+$H_0$: $β_1 = 0$, $β_2 = 0$  
+$H_1$: $β_1 > 0$, $β_2 >0$  
+Calculate critical value at $5\%$ and $1\%$ level, $df = 40$: 
+```{r eval = TRUE}
+qt( 0.95, 40 )
+qt( 0.99, 40 )
+```
+Therefore, $K$ is significant at $5\%$ level, and $L$ is significant at $1\%$ level.
+
+> PS3.Q1.2  
+> For model $\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)$, consider the regression output:  
+> ![](/post-img/notes-stat1--PS3Q1.png){width=406px}  
+> 2. Conduct a test of explanatory power (all coefficients are zero except the intercept).
+
+$H_0$: $R^2_U = 0$  
+Calculate critical value at $5\%$ level, for two restrictions and $df = 40$:  
+```{r eval = TRUE}
+qf( 0.95, 2, 40)
+```
+As $F = 1936 >$ `r qf( 0.95, 2, 40)`, $H_0$ is rejected. 

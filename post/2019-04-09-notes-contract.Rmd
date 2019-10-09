@@ -1,0 +1,1952 @@
+---
+title: "Notes on Contract & Informational Economics"
+author: "loikein"
+date: "2019-04-09"
+slug: "notes-contract"
+tags: ["notes", "micro", "GT"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = FALSE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+
+## Literature
+
+- [Microeconomic Theory](http://93.174.95.27/book/index.php?md5=7C8A1C3D6A60923AC8D4BB873C31A24D) (MWG)
+- [A Primer in Game Theory](http://93.174.95.27/book/index.php?md5=4DC53E7CCAD53B6356429F6CE80F442B) (PGT)
+- [The Theory of Industrial Organization](http://93.174.95.27/book/index.php?md5=B3C0791C9FB6308FA345C1CA21C68E45) (TIO)
+- [Contract Theory](http://93.174.95.27/book/index.php?md5=3FDF4E91C3B6926C29211A911A8A2B5B) (CT)
+
+
+## Lemon Market: Continuous Quality
+
+- Quality of car: $s\in [0,\bar{s}]$
+    - pdf: $f(s) = α s^{α-1}$
+    - cdf: $F(s) = s^α$
+- Seller's type: $θ_1$
+    - Seller's preferences: $\begin{cases}p & \text{sell} \\ θ_1s & \text{not sell} \end{cases}$
+- Buyer's type: $θ_2$
+    - Consumption possibilities: 1 or 0
+    - Buyer's preferences: $\begin{cases}θ_2s - p & \text{buy}\\ 0 & \text{not buy}\end{cases}$
+- Assume $θ_2 > θ_1$
+
+### Perfect Information
+
+- Trade is efficient since
+$$\begin{aligned}θ_2 &> θ_1 \\
+θ_2s &> θ_1s \\
+p + (θ_2s - p) &> θ_1s + 0\end{aligned}$$
+- Conditions for $p$: $\begin{cases}p \geq θ_1s & \text{(seller)} \\ θ_2s - p \geq 0 & \text{(buyer)}\end{cases}$ hold with $θ_2s \geq p\geq θ_1s$
+
+### Unknown Quality
+
+- Given price $p$
+- Seller sells if 
+$$\begin{aligned}θ_1s \leq p \\ s\leq \frac{p}{θ_1} \end{aligned}$$
+- Buyer's expected quality  
+Let $z = \frac{p}{θ_1}$, expected quality is the center of mass of $f(s)$  
+$$\begin{aligned}E[s \ | \ p] &= E\Big[s \ \big| s\leq \frac{p}{θ_1}\Big] \\
+&= E[s \ | \ s\leq z] \\
+&= \frac{\int^z_0 s\cdot f(s)\, ds}{F(z)} \\
+&= \frac{\int^z_0 s\cdot αs^{α-1}\, ds}{z^α} \\
+&= α\cdot\frac{\int^z_0 s^α\, ds}{z^α} \\
+&= α\cdot\frac{\frac{1}{α+1}s^{α+1}}{z^α} \bigg|_0^z \\
+&= \frac{α}{α+1}\cdot z \\
+&= \frac{α}{α+1}\cdot\frac{p}{θ_1}\end{aligned}$$ 
+- Buyer buys if
+$$\begin{aligned}θ_2\cdot E[s] - p &\geq 0 \\
+θ_2\cdot\frac{α}{α+1}\cdot\frac{p}{θ_1} - p &\geq 0 \\
+θ_2\cdot\frac{α}{α+1}\cdot\frac{1}{θ_1} &\geq 1 \\
+θ_2 &\geq θ_1\cdot\frac{α+1}{α}\end{aligned}$$
+- Since $\frac{α+1}{α}>1$, the market is smaller than efficiency
+
+> PS1.Q1  
+> There are two agents, 1 and 2.  
+> Agent 1 owns a used car of quality $s$.  
+> Agent 1 values his car if he keeps it with $θ_1s$.  
+> Agent 2 values the car with $θ_2s$ (gross of the price to pay).  
+> Assume that $θ_2 > θ_1$.
+> 
+> 1. If both know $s$, when is trade effcient?
+> 2. Assume now that only the seller knows $s$.  
+> The buyer thinks that quality $s$ is distributed in the population of cars with a uniform density on $[0, 1]$.  
+> Suppose that a third person (auctioneer) announces a price $p$ at which the two persons can trade.  
+> When will they trade, i.e. for which values of $s$?
+> 3. Suppose now that the distribution is changed as follows, when will trade occur?
+>    a. $f(s) = \frac{1}{2}s^{-\frac{1}{2}}$ on $[0, 1]$
+>    b. $f(s) = 2s$ on $[0, 1]$
+>    c. $f(s) = 3s^2$ on $[0, 1]$
+>    d. $f(s) = 4s^3$ on $[0, 1]$
+> 4. Discuss the role of taste differences and the distribution of quality for the working of the market (informally).
+
+1. Since
+$$\begin{aligned} θ_2 &> θ_1 \\
+θ_2s &> θ_1s\end{aligned}$$
+trade is always efficient
+2. Seller accepts $p$ if 
+$$\begin{aligned}p &\geq θ_1s \\
+s &\leq \frac{p}{θ_1}\end{aligned}$$
+Buyer accepts $p$ if
+$$\begin{aligned}p &\leq θ_2\cdot E[s|p] \\
+&= θ_2\cdot\frac{1}{2}\cdot\frac{p}{θ_1} \\
+1 &\leq θ_2\cdot\frac{1}{2}\cdot\frac{1}{θ_1} \\
+θ_2 &\geq 2θ_1\end{aligned}$$
+3. Seller accepts $p$ if 
+$$\begin{aligned}p\geq θ_1s \\
+s &\leq \frac{p}{θ_1}\end{aligned}$$
+Buyer accepts $p$ if 
+$$\begin{aligned}θ_2\cdot E[s|p] &\geq p\\
+θ_2 &\geq \frac{p}{E[s|p]} \end{aligned}$$
+    a. For $f(s) = \frac{1}{2}s^{-\frac{1}{2}}$ 
+    $$\begin{aligned}E\big[s|s\leq \frac{p}{θ_1}\big] &= \frac{\int_0^{\frac{p}{θ_1}} s\cdot f(s)\, ds}{F(\frac{p}{θ_1})} \\
+    &= \frac{\int_0^{\frac{p}{θ_1}} s\cdot \frac{1}{2}s^{-\frac{1}{2}}\, ds}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}} \\
+    &= \frac{1}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}}\cdot\int_0^{\frac{p}{θ_1}} \frac{1}{2}s^{\frac{1}{2}}\, ds \\
+    &= \frac{1}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}}\cdot\big[\frac{1}{3}s^{\frac{3}{2}}\big]_0^{\frac{p}{θ_1}} \\
+    &= \frac{1}{\big(\frac{p}{θ_1}\big)^{\frac{1}{2}}}\cdot\frac{1}{3}\cdot\big(\frac{p}{θ_1}\big)^{\frac{3}{2}} \\
+    &= \frac{1}{3}\cdot\frac{p}{θ_1}\end{aligned}$$
+    therefore, trade occurs when $θ_2 \geq \frac{p}{E[s|p]} = 3θ_1$
+    b. For $f(s) = 2s$, $E\big[s|s\leq \frac{p}{θ_1}\big] = \frac{2}{3}\cdot\frac{p}{θ_1}$  
+    therefore, trade occurs when $θ_2\geq\frac{3}{2}θ_1$
+    c. For $f(s) = 3s^2$, $E\big[s|s\leq \frac{p}{θ_1}\big] = \frac{3}{4}\cdot\frac{p}{θ_1}$  
+    therefore, trade occurs when $θ_2\geq\frac{4}{3}θ_1$
+    d. For $f(s) = 4s^3$, $E\big[s|s\leq \frac{p}{θ_1}\big] = \frac{4}{5}\cdot\frac{p}{θ_1}$  
+    therefore, trade occurs when $θ_2\geq\frac{5}{4}θ_1$
+4. As the distribution gets bigger on higher end, the taste difference becomes less important. 
+
+> PS1.Q2  
+> Agent 1 finds an old book in his basement and considers selling it on the flee market.  
+> Agent 1's utility from keeping the book is $θ_1s$, where $s$ is the quality of the book.  
+> On the flee market, agent 2 is potentially willing to buy the book.  
+> Agent 2's utility from buying the book is $θ_2s - p$ if he buys at price $p$.
+> 
+> 1. If $s$ is publicly observed, when is trade effcient?  
+> 2. Suppose now __agent 1__ does not know the value of the book.  
+> Agent 2 knows $s$ but agent 1 knows only that $s\in [0, 1]$ is equally likely.  
+> Suppose that an auctioneer announces a price $p$ at which trade can occur.  
+> What expected value of quality can agent 1 infer from the fact that trade occurs at price $p$?
+> 3. Write down the conditions that both buyer and seller are willing to trade.  
+> Show that for any $θ_2 > θ_1$, it is always possible to find a price $p$ such that some trade occurs, that is, the market does not break down completely.  
+> Find the smallest quality level that can be traded in the market.  
+> Based on this smallest quality level that can be traded, compute the probability that $s$ exceeds the minimum level and show that this probability goes to zero as $θ_2\to θ_1$.
+
+1. Seller sells if $p \geq θ_1 s$
+Buyer buys if $θ_2s - p \geq 0$
+therefore, when $θ_2 \geq θ_1$, trade is efficient. 
+2. Buyer buys if 
+$$\begin{aligned}θ_2s - p &\geq 0 \\
+s &\geq \frac{p}{θ_2} \end{aligned}$$
+Therefore, when the buyer buys, seller's expected value of $s$ is 
+$$\begin{aligned}E\big[s|s\geq \frac{p}{θ_2}\big] &= \frac{\int_{\frac{p}{θ_2}}^1 s\cdot f(s)\, ds}{1 - F(\frac{p}{θ_2})} \\
+&= \frac{\int_{\frac{p}{θ_2}}^1 s\, ds}{1 - \frac{p}{θ_2}} \\
+&= \frac{1}{1 - \frac{p}{θ_2}}\cdot\frac{1}{2}\cdot\big[s^2\big]_{\frac{p}{θ_2}}^1 \\
+&= \frac{1}{2}\cdot\frac{1}{1 - \frac{p}{θ_2}}\cdot\big(1 - \frac{p^2}{θ_2^2}\big) \\
+&= \frac{1}{2}\cdot\big( 1 + \frac{p}{θ_2}\big)\end{aligned}$$
+3. Seller sells if
+$$\begin{aligned}p &\geq θ_1\cdot E[s] \\
+&= θ_1\cdot \frac{1}{2}\cdot\big( 1 + \frac{p}{θ_2}\big) \\
+p\cdot\big(\frac{2}{θ_1} - \frac{1}{θ_2}\big) &\geq 1 \\
+p &\geq \frac{θ_1θ_2}{2θ_2 - θ_1}\end{aligned}$$
+Buyer buys if 
+$$\begin{aligned}θ_2s - p &\geq 0 \\
+θ_2s &\geq p \\
+&\geq\frac{θ_1θ_2}{2θ_2 - θ_1} \\
+s &\geq\frac{θ_1}{2θ_2 - θ_1} \end{aligned}$$
+when $θ_2 > θ_1$,
+$$\begin{aligned}s^* &= \frac{θ_1}{2θ_2 - θ_1} \\
+&< 1 \end{aligned}$$
+therefore, exists some books better than $s^*$ that are traded  
+Probability that $s>s^*$:
+$$\begin{aligned}1 - F(s^*) &= 1 - \frac{θ_1}{2θ_2 - θ_1} \\
+&= \frac{2(θ_2 - θ_1)}{2θ_2 - θ_1}\end{aligned}$$
+as $θ_2\to θ_1$, $\frac{2(θ_2 - θ_1)}{2θ_2 - θ_1}\to 0$
+
+### Competitive Equilibrium
+
+- $s\in [\underline{s},\bar{s}]$
+- $N$ sellers, $N$ buyers
+- Sellers' type: $θ_0$ (all same)
+- Buyers' type: $θ$
+    - pdf: $g(θ)$
+    - cdf: $G(θ)$, $G(\hat{θ}) = Pr(θ\leq \hat{θ})$
+- Perfect information  
+For each seller, willingness to sell: $$p(s) = θ_0\cdot s$$
+For each buyer, willingness to buy: $$p(θ,s) = θ\cdot s$$
+Each buyer will trade with seller with car of quality $s$ if
+$$\begin{aligned} p(θ,s) &\geq p(s) \\
+θ\cdot s &\geq θ_0\cdot s \\
+θ &\geq θ_0\end{aligned}$$
+Volume of trade: 
+$$\begin{aligned} D &= N\cdot Pr(θ\geq θ_0) \\ &= N\cdot\big[ 1 - G(θ_0) \big]\end{aligned}$$
+- Asymmetric information  
+__Given price $p$__, sellers sell if 
+$$\begin{aligned}p &\geq θ_0\cdot s \\
+s &\leq \frac{p}{θ_0} \\
+S(p) &= N\cdot Pr\Big(s\leq \frac{p}{θ_0}\Big) \\
+&= N\cdot F\Big( \frac{p}{θ_0}\Big)\end{aligned}$$
+Buyers' expected quality: $$s^e(p) := E\Big[ s \ \big| \ s\leq \frac{p}{θ_0}\Big]$$
+Buyers buy if 
+$$\begin{aligned} θ\cdot s^e(p) &\geq p \\
+θ &\geq \frac{p}{s^e(p)} \\
+D(p) &= N\cdot Pr\Big(θ \geq \frac{p}{s^e(p)}\Big) \\
+&= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big]\end{aligned}$$
+Market clears when
+$$\begin{aligned}S(p) &= D(p) \\
+N\cdot F\Big( \frac{p}{θ_0}\Big) &= N\Big[ 1 - G\Big(\frac{p}{s^e(p)}\Big) \Big] \\
+F\Big( \frac{p}{θ_0}\Big) &= 1 - G\Big(\frac{p}{s^e(p)}\Big) \end{aligned}$$
+- Locally increasing demand exists when
+$$\begin{aligned}D'(p) = -N\cdot\underbrace{g\Big(\frac{p}{s^e(p)}\Big)}_{>0}\cdot\frac{\partial}{\partial p} \Big(\frac{p}{s^e(p)}\Big) & > 0 \\
+-\frac{\partial}{\partial p} \Big(\frac{p}{s^e(p)}\Big) &> 0 \\
+\frac{s^e(p) - \frac{\partial s^e(p)}{\partial p}\cdot p}{s^e(p)^2} &< 0 \\
+s^e(p) - \frac{\partial s^e(p)}{\partial p}\cdot p &< 0 \\
+\frac{\partial s^e(p)}{\partial p}\cdot\frac{p}{s^e(p)} &> 1 \\
+\frac{\partial s^e(p) / s^e(p)}{\partial p / p} &> 1 \\
+\text{Elasticity of expected quality} &> 1\end{aligned}$$
+
+## Lemon Market: Binary Quality
+
+- Quality of car: $s\in\{\underline{s},\bar{s}\}$
+    - Probability that a car is $\bar{s}$: $α$
+    - Probability that $\bar{s}$ does not need repair: $\bar{s} = r\cdot 1 + (1-r)\cdot 0 = r$
+    - Probability that $\underline{s}$ does not need repair: $\underline{s} = q\cdot 1 + (1-q)\cdot 0 = q$
+    - $r > q$
+- Seller's type: $θ_1$
+    - Seller's preferences: $\begin{cases}p &\text{sell} \\ θ_1\cdot 1 - (1-s)\cdot c &\text{repair} \\ s\cdot θ_1 &\text{not repair} \end{cases}$
+- Buyers' type: $θ_2$, 2 buyers
+    - Buyers' preferences: $\begin{cases}θ_2\cdot 1 - (1-s)\cdot c - p &\text{repair} \\ θ_2\cdot s - p &\text{not repair} \\ 0 &\text{not buy} \end{cases}$
+- Assume $θ_2 > θ_1$
+- Repair cost: $c$
+
+### Cheap Repair
+
+- $c \leq θ_1 < θ_2$
+    - Seller will repair if doesn't sell:
+    $$\begin{aligned}θ_1 - (1-s)\cdot c &\geq s\cdot θ_1 \\
+    θ_1 - c + s\cdot c &\geq s\cdot θ_1 \\
+    (s-1)\cdot c &\geq (s-1)\cdot θ_1 && (s-1<0) \\
+    c &\leq θ_1\end{aligned}$$
+- Seller sells if $$θ_1 - (1-s)\cdot c\leq p$$
+- Buyers' expected quality: 
+$$\begin{aligned} E[s] &= αr + (1-α)q \\
+1 - E[s] &= 1 - \big[αr + (1-α)q\big] \\
+&= 1 - αr - q + αq \\
+&= 1 - αr - q + αq + α - α\\
+&= α(1-r) + (1-α)(1-q)\end{aligned}$$
+Buyers buy if 
+$$\begin{aligned}θ_2\cdot 1 - \big(1-E[s]\big)\cdot c - p &\geq 0 \\
+θ_2 - \big[α(1-r) + (1-α)(1-q)\big]\cdot c &\geq p\end{aligned}$$
+- Price for $\bar{s}$ exists if 
+$$\begin{aligned}θ_2 - \big[α(1-r) + (1-α)(1-q)\big]\cdot c &\geq θ_1 - (1-r)\cdot c \\
+θ_2 &\geq θ_1 + \big[α(1-r) + (1-α)(1-q)\big]\cdot c - (1-r)\cdot c \\
+&\geq θ_1 + (1-α)(r-q)\cdot c\end{aligned}$$
+- Since $(1-α)(r-q)\cdot c > 0$, the market is smaller than efficiency
+
+### Expensive Repair
+
+- $c \geq θ_2 > θ_1$
+    - Seller will not repair if doesn't sell: $c \geq θ_1$
+    - Buyer will not repair if the car needs repair:
+    $$\begin{aligned}θ_2\cdot 1 - (1-s)\cdot c - p &\leq θ_2\cdot s - p \\
+    θ_2\cdot 1 - (1-s)\cdot c &\leq θ_2\cdot s \\
+    (1-s)\cdot θ_2 &\leq (1-s)\cdot c \\
+    θ_2 &\leq c\end{aligned}$$
+- Seller sells if $$s\cdot θ_1 \leq p$$
+- Buyers buy if
+$$\begin{aligned}θ_2\cdot E[s] - p &\geq 0 \\
+θ_2\cdot \big[αr + (1-α)q\big] &\geq p \end{aligned}$$
+- Price for $\bar{s}$ exists if 
+$$\begin{aligned}θ_2\cdot \big[αr + (1-α)q\big] &\geq r\cdot θ_1 \\
+θ_2 &\geq \frac{r\cdot θ_1}{αr + (1-α)q} \end{aligned}$$
+- Since $\frac{r}{αr + (1-α)q} > 1$, the market is smaller than efficiency
+
+## Lemon Market: Signalling 
+
+### Timing
+
+1. Nature chooses quality $s$
+2. Seller chooses whether to issue warranty $w$
+3. Buyers propose $p$
+4. Seller chooses to accept buyer 1, buyer 2 or nobody
+5. (If applicable) repair
+
+### Strategy
+
+- Seller's strategy 
+    - Warranty: $w(s): \{\underline{s},\bar{s}\} \to \{0,1\}$
+    - Acceptance: $a(s,w,p_1,p_2): \{\underline{s},\bar{s}\}\times\{0,1\}\times\mathbb{R}^2 \to \{0,1,2\}$
+- Buyers' strategy: $p(w): \{0,1\}\to\mathbb{R}$
+- Buyers' belief: $μ(w): \{0,1\}\to [0,1]$
+
+### Separating Equilibrium
+
+- Assumptions
+    - Expensive repair: $c \geq θ_2 > θ_1$
+    - Price for $\bar{s}$ does not exist $$θ_2 < \frac{r\cdot θ_1}{αr + (1-α)q}$$
+- For $\bar{s}$ seller,
+$$\begin{aligned}(IC) && \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &\geq \underbrace{q\cdot θ_2}_{\text{Sell w/o warranty}} \\
+\implies && c &\leq \frac{1-q}{1-r}θ_2 \\
+(PC) && \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &\geq \underbrace{r\cdot θ_1}_{\text{Not sell}} \\
+\implies && c &\leq \frac{θ_2 - r\cdot θ_1}{1-r}\end{aligned}$$
+- For $\underline{s}$ seller,
+$$\begin{aligned}(IC) && \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/ warranty}} &\leq \underbrace{q\cdot θ_2}_{\text{Sell w/o warranty}} \\
+\implies && c&\geq θ_2 \\
+(PC) && \underbrace{q\cdot θ_2}_{\text{Sell w/o warranty}} &\geq \underbrace{q\cdot θ_1}_{\text{Not sell}} \\
+\implies && θ_2 &\geq θ_1\end{aligned}$$
+- Equilibrium when $c\leq \frac{θ_2 - r\cdot θ_1}{1-r}$  
+$\begin{cases} w(\bar{s}) = 1 \\ w(\underline{s}) = 0\end{cases}$, $\begin{cases}μ(1) = 1 \\ μ(0) = 0 \end{cases}$, $\begin{cases}p(1) = θ_2 \\ p(0) = q\cdot θ_2 \end{cases}$  
+- When $c> \frac{θ_2 - r\cdot θ_1}{1-r}$, $\bar{s}$ seller never sells
+
+### Pooling Equilibrium
+
+- Pooling equilibrium with no warranty violates the assumption that market is inefficient without warranty
+- Pooling equilibrium with warranty violates the assumption that repair is expensive
+
+> Exercise  
+> Solve the case of cheap (ex post effcient) repairs.
+
+Assumptions:
+
+1. Cheap repair: $c \leq θ_1 < θ_2$
+2. Price for $\bar{s}$ does not exist $θ_2 < θ_1 + (1-α)(r-q)\cdot c$
+
+Results:
+
+1. Pooling equilibrium with warranty  
+Buyers' belief: $\begin{cases}μ(1) = α \\ μ(0) \end{cases}$  
+Buyers' willingness to buy: 
+$$p = \begin{cases} θ_2 & w=1 \\
+θ_2 -\big[μ(0)\cdot (1-r) + \big(1-μ(0)\big)\cdot (1-q)\big]\cdot c & w=0\end{cases}$$
+For $\bar{s}$ seller,
+$$\begin{aligned}(IC) && \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &\geq \underbrace{θ_2 -\big[μ(0)\cdot (1-r) + \big(1-μ(0)\big)\cdot (1-q)\big]\cdot c}_{\text{Sell w/o warranty}} \\
+\implies && \big(1-μ(0)\big)(r-q) &\geq 0 \ \text{(always holds)} \\
+(PC) && \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &\geq \underbrace{θ_1 - (1-r) \cdot c}_{\text{Not sell}} \\
+\implies && θ_2&\geq θ_1\end{aligned}$$
+For $\underline{s}$ seller,
+$$\begin{aligned}(IC) && \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/ warranty}} &\geq \underbrace{θ_2 -\big[μ(0)\cdot (1-r) + \big(1-μ(0)\big)\cdot (1-q)\big]\cdot c}_{\text{Sell w/o warranty}} \\
+\implies && μ(0)(q-r) &\geq 0 \\
+&& μ(0) &\leq 0 \\
+&& μ(0) &= 0 \\
+(PC) && \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/o warranty}} &\geq \underbrace{θ_1 - (1-q) \cdot c}_{\text{Not sell}} \\
+\implies && θ_2 &\geq θ_1\end{aligned}$$
+2. Pooling equilibrium with no warranty does not exist because $\bar{s}$ seller will deviate by issuing warranty
+3. Separating equilibrium  
+Buyers' belief: $\begin{cases}μ(1) = r \\ μ(0) = q \end{cases}$  
+Buyers' willingness to buy: $p = \begin{cases} θ_2 & w=1 \\ θ_2 - (1-q)\cdot c & w=0\end{cases}$  
+For $\bar{s}$ seller,
+$$\begin{aligned}(IC) && \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &\geq \underbrace{θ_2 - (1-q)\cdot c}_{\text{Sell w/o warranty}} \\
+\implies && r &\geq q \\
+(PC) && \underbrace{θ_2 - (1-r) \cdot c}_{\text{Sell w/ warranty}} &\geq \underbrace{θ_1 - (1-r) \cdot c}_{\text{Not sell}} \\
+\implies && θ_2&\geq θ_1\end{aligned}$$
+For $\underline{s}$ seller,
+$$\begin{aligned}(IC) && \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/ warranty}} &\leq \underbrace{θ_2 - (1-q)\cdot c}_{\text{Sell w/o warranty}} \\
+\implies && q &\geq q \\
+(PC) && \underbrace{θ_2 - (1-q) \cdot c}_{\text{Sell w/o warranty}} &\geq \underbrace{θ_1 - (1-q) \cdot c}_{\text{Not sell}} \\
+\implies && θ_2 &\geq θ_1\end{aligned}$$
+4. There is no equilibrium where a $\bar{s}$ seller does not sell
+
+> PS2.Q1  
+> Specify a pooling PBE in the following signaling game, in which both types of senders play R:  
+> (Utility: Sender, Receiver)  
+> ![](/post-img/notes-contract--ps2q1.png){width=500px}
+
+1. Assume there is a pooling PBE when both types senders play R  
+Therefore, receiver's on-track belief is $μ(t_1 | R) = q = 0.5$  
+When sees R, receiver chooses u if 
+$$\begin{aligned}1\cdot 0.5 + 0\cdot 0.5 &\geq 0\cdot 0.5 + 2\cdot 0.5 \\
+0.1 &\geq 1\end{aligned}$$
+therefore ,receiver alway chooses d
+2. Let receiver's off-track belif be: $μ(t_1 | L) = p$,  
+When sees L, receiver chooses u when
+$$\begin{aligned}2\cdot p + 0\cdot (1-p)&\geq 0\cdot p + 1\cdot (1-p) \\
+2p &\geq 1-p \\
+p &\geq \frac{1}{3} \end{aligned}$$
+however, if receiver chooses d when sees L, $t_2$ deviates by playing L since $3>2$  
+therefore, receiver must choose u  
+Pooling PBE: $\big\{(R,R), (u|L, d|R), p\geq \frac{1}{3}, q=0.5\big\}$
+
+> PS2.Q2  
+> The following signaling game with three types begins with a move in which the nature provides all three types with the same probability (not shown in the picture).  
+> Specify a pooling PBE in which all three types of senders play L.  
+> (Utility: Sender, Receiver)  
+> ![](/post-img/notes-contract--ps2q2.png){width=500px}
+
+1. Assume there is a pooling PBE when all types senders play L  
+Therefore, receiver's on-track belief is $μ(t_1 | L) = μ(t_2 | L) = μ(t_3 | L)= \frac{1}{3}$  
+When sees L, receiver always chooses u
+2. Let receiver's off-track belief be $\begin{cases}μ(t_1 | R) = s\\μ(t_2 | R) = r \\μ(t_3 | R) = 1-s-r \end{cases}$  
+When sees R, receiver chooses u when
+$$\begin{aligned} 1\cdot s + 1\cdot r &\geq 1\cdot (1-s-r) \\
+s + r &\geq 1-s-r \\
+s+r &\geq\frac{1}{2}\end{aligned}$$
+however, if receiver chooses d when sees R, $t_3$ deviates by playing R since $2>1$  
+therefore, receiver must choose u  
+Pooling PBE:  
+$\big\{(L,L,L), (u|L, u|R), p=q=\frac{1}{3}, s\geq 0,r\geq 0,1-s-r\geq 0, s+r\geq\frac{1}{2}\big\}$
+
+## Adverse Selection: Continuous Types
+
+MWG Ch 13  
+also see [#Lemon Market Competitive Equilibrium](#competitive-equilibrium)
+
+- Type of workers: $θ\in [\underline{θ},\bar{θ}]$
+    - pdf: $f(θ)$
+    - cdf: $F(θ)$, $F(\hat{θ}) = Pr(θ\leq \hat{θ})$
+- $N$ workers, many firms
+- Wage: $w(θ)$
+- Reservation wage: $r(θ)\geq 0$
+
+### Benchmark
+
+- Existence of wage  
+Worker $θ$ will accept job if $w(θ) \geq r(θ)$  
+Firms will employ worker $θ$ if $w(θ)\leq θ$  
+Worker $θ$ will be employed if 
+$$\begin{aligned}r(θ)&\leq w(θ)\leq θ \\
+r(θ) &\leq θ \\
+w^*(θ) &= θ\end{aligned}$$
+- First best: social planner's problem  
+Since firms' profit is always zero under competition, total surplus equals workers' surplus.  
+Let $I(θ) =\begin{cases}0 &\text{not employed} \\ 1&\text{employed} \end{cases}$
+$$\begin{aligned}\max_{I(θ)} && &\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big] \,dF(θ) \\
+&& &= \int_{\underline{θ}}^{\bar{θ}} N\cdot\Big[ I(θ)\cdot θ + \big(1-I(θ)\big)\cdot r(θ) \Big]\cdot f(θ) \,dθ \\
+&& &I^*(θ) = \begin{cases}0 & θ < r(θ) \\ 1 & θ \geq r(θ) \end{cases}\end{aligned}$$
+- Number of employed workers: $N\cdot\big[\underbrace{1 - \underbrace{F\big(r(θ)\big)}^{Pr\big(θ\leq r(θ)\big)}}_{Pr\big(θ\geq r(θ)\big)}\big]$
+
+### Unknown Type Competitive Equilibrium
+
+- Assumptions $\implies E[θ]< r(\bar{θ})$ (adverse selection)
+    1. $r(θ)\leq θ$ for all $θ \implies$ efficient to employ all workers
+    2. $1 < r'(θ) < 0 \implies$ strictly increasing reservation wage
+- Fixed wage: $w$ for all $θ$
+- Set of workers accept $w$: $Θ(w) = \{θ \ | \ r(θ)\leq w\}$
+- Firms' belief: $μ(w) = E[θ \ | \ r(θ)\leq w]$
+    - Off-track belief: $μ = E[θ]$ when $Θ = \emptyset$
+- Firms' demand for labour: $$z(w) = \begin{cases}0 & μ<w \\ [0, \infty) & μ= w \\\infty & μ>w\end{cases}$$
+- Equilibrium
+$$\begin{aligned}\text{Workers' BR} && Θ^* &= \{θ \ | \ r(θ)\leq w^*\} \\
+\text{Firms' BR} && w^* &= E[θ \ | \ θ\in Θ^*] \\
+&& &= E[θ \ | \ r(θ)\leq w^*]\end{aligned}$$
+- Adverse selection arises in step 4 & 5
+    1. When $w<r(θ)$, no worker accept
+    2. When $w=r(\underline{θ})$, only worker $\underline{θ}$ accepts
+    3. In equilibrium, $E[θ \ | \ r(θ)\leq w^*] = w^*$
+    4. When $w=r(\bar{θ})$, all workers accept, $E[θ \ | \ r(θ)\leq w] = E[θ]$
+    5. When $w>r(\bar{θ})$, since $E[θ] = \text{sup} \ E[θ \ | \ r(θ)\leq w]$, the function stays constant
+
+![MWG Figure 13.B.1](/post-img/notes-institution--adverse-selection-eq.png){width=493px}
+
+### SPNE
+
+- Common knowledge: $F(\cdot)$, $r(\cdot)$ (strictly increasing)
+- Timing
+    1. 2 firms announce fixed wages separately
+    2. Workers decide which firm to work for, randomize if indifferent
+- Proposition 13.B.1
+    - $w^*>r(\underline{θ})$ and exists $ε>0$ s.t. $E\big[ θ|r(θ)\leq w']$ for all $w'\in( w^*-ε,w^*)$  
+    $\implies$ unique pure strategy SPNE: $w=w^*$, $Θ(w^*) = \big\{θ: r(θ)\leq w^*\big\}$
+    - $w^*=r(\underline{θ})$  
+    $\implies$ multiple pure strategy SPNE, workers enjoy utility par to highest competitive outcome
+    - Firms have zero profit under any SPNE
+
+<!--
+- When $w^*>r(\underline{θ})$  
+Let some SPNE be $\big| Θ(\bar{w})\big| = M$,  
+FSOC assume the sum of firms' profit be 
+$$\begin{aligned}Π &= M\cdot \big( E[θ | r(θ)\leq \bar{w}] - \bar{w}\big) \geq 0 \\
+M &\geq 0 \\
+\bar{w} &\geq r(θ) && \text{for some }θ\\
+&\geq r(\underline{θ}) \end{aligned}$$
+-->
+
+### Constrained (Second-Best) Pareto Optimum
+
+- First best $\subset$ second best
+- Government (social planner) intervention
+    - Wage: $w_e$
+    - Unemployment benefit: $w_u$ 
+    - Set of workers accept $w_e$: $Θ = \{θ \ | \ w_u+r(θ)\leq w_e\}$
+- Assume social planner wants to let $θ\leq\hat{θ}$ accept the job  
+$$\begin{aligned}\text{Marginal type} && &w_u + r(\hat{θ}) = w_e \\
+\text{Budget balance} && &\underbrace{w_e\cdot F(\hat{θ})}_{\text{Total wage}} + \underbrace{w_u\cdot\big(1 - F(\hat{θ})\big)}_{\text{Total unemployment benefit}} = \underbrace{\int_θ^{\hat{θ}} θ\cdot f(θ)\, dθ}_{\text{Total productivity}}\end{aligned}$$
+solving the system gives  
+$$\begin{aligned}\big(w_u + r(\hat{θ})\big)&\cdot F(\hat{θ}) + w_u\cdot\big(1 - F(\hat{θ})\big) = \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+w_u(\hat{θ}) &= - r(\hat{θ})\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&= - r(\hat{θ})\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
+&= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\big) \\
+w_e(\hat{θ}) &= r(\hat{θ})\cdot\big(1- F(\hat{θ})\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(\hat{θ})\big) + r(\hat{θ})\end{aligned}$$
+- When $\hat{θ} = θ^*$ in [#Unknown Type Competitive Equilibrium](#unknown-type-competitive-equilibrium)  
+$$\begin{aligned}w_u(θ^*) &= F(θ^*)\cdot \big(E[θ \ | \ θ\leq θ^*] - r(θ^*)\big) \\
+&= F(θ^*)\cdot 0 = 0 \\
+w_e(θ^*) &= w_u(θ^*) + r(θ^*) \\
+&= r(θ^*) = w^*\end{aligned}$$
+- When $\hat{θ} < θ^*$
+$$\begin{aligned}r(\hat{θ}) &< r(θ^*) \\
+w_e(\hat{θ}) &= r(\hat{θ})\cdot\big(\overbrace{1- F(\hat{θ})}^{>0}\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&< r(θ^*)\cdot\big(1- F(\hat{θ})\big) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+w_e(\hat{θ}) - r(θ^*) &< -r(θ^*)\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&= - r(θ^*)\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
+&= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(θ^*)\big) \\
+&= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]\big) \\
+&< 0 \\
+w_e(\hat{θ}) &< r(θ^*) \\
+&= w_e(θ^*)\end{aligned}$$
+Therefore, workers who work both before and after government intervention are strictly worse-off
+- When $\hat{θ} > θ^*$  
+$$\begin{aligned}r(\hat{θ}) &> r(θ^*) \\
+w_u(\hat{θ}) &= -r(\hat{θ})\cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&< -r(θ^*)\cdot \cdot F(\hat{θ}) + \int_{\underline{θ}}^{\hat{θ}} θ\cdot f(θ)\, dθ \\
+&= -r(θ^*)\cdot F(\hat{θ}) + F(\hat{θ})\cdot E[θ \ | \ θ\leq\hat{θ}]\\
+&= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - r(θ^*)\big) \\
+&= F(\hat{θ})\cdot \big(E[θ \ | \ θ\leq\hat{θ}] - E[θ \ | \ θ\leq θ^*]\big) \\
+&< 0 = w_u(θ^*)\\
+w_u(\hat{θ}) &< w_u(θ^*)\end{aligned}$$
+Therefore, workers who don't work both before and after government intervention are strictly worse-off
+
+## Job Market Signalling
+
+- Type of workers: $η\in\{H, L\}$
+    - Utility function: $u(w,e\ |\ θ) = w - c(η,e)$
+    - Reservation wage: $r(θ)\geq 0$
+    - $Pr(η = H) = q$
+- Education (signal): $e\geq 0$
+    - Cost of education: $c(η,e)$
+    - $c(η,0)=0$ for all η
+    - $c_e>0$, $c_{ee}>0$
+    - $c_η<0 \implies c(L,e)>c(H,e)$  
+    $c_{ηe}<0 \implies c_e(L,e)>c_e(H,e)$  
+    $\implies$ cost & marginal cost are lower for high type
+- Firms' productivity: $y(η, e)$
+    - Belief: $μ(e)=Pr(η = H \ | \ e)$  
+    - Optimal wage:
+    $$w(e) = μ(e)\cdot y(H,e) + \big( 1-μ(e)\big)\cdot y(L,e)$$
+
+![PGT Figure 4.2.3 Workers' indifference curves: __single-crossing__](/post-img/notes-contract--job-signal-indiff-curves.png){width=335px}
+
+![PGT Figure 4.2.4 Firms' isoprofit lines](/post-img/notes-contract--job-signal-isoprofit.png){width=440px}
+
+- First best (types are observable)  
+Social planner's problem:
+$$\begin{aligned}\max_e && &\phantom{\ggg}\big(y(η, e) - w\big) + \big( w - c(η,e)\big) \\
+&& &= y(η, e) - c(η,e) \\
+FOC && \frac{\partial}{\partial e} &= \frac{\partial y(η, e)}{\partial e} - \frac{\partial c(η,e)}{\partial e}\overset{!}{=} 0 \\
+&& e^* &= e^*(η)\end{aligned}$$
+    - No envy case
+    $$\begin{aligned}\text{Type L} && e^*(L) \succsim_L e^*(H) \\
+    \text{Type H} && e^*(H) \succsim_H e^*(L)\end{aligned}$$ 
+    ![PGT Figure 4.2.5](/post-img/notes-contract--job-signal-no-envy.png){width=469px}
+    - Envy case
+    $$\begin{aligned}\text{Type L} && e^*(H) \succsim_L e^*(L) \\
+    \text{Type H} && e^*(H) \succsim_H e^*(L)\end{aligned}$$ 
+    ![PGT Figure 4.2.6](/post-img/notes-contract--job-signal-envy.png){width=439px}
+
+### Pooling Equilibria
+
+- Strategy profile: $\{e_p, w(e), μ(e)\}$
+1. One possibility
+- Firms' belief: $μ(e)= \begin{cases}0 & e<e_p \\ q & e=e_p \\ 0 & e> e_p \end{cases}$
+- Optimal wage:
+$$\begin{aligned}w(e) &= μ(e)\cdot y(H,e) + \big( 1-μ(e)\big)\cdot y(L,e)\\
+&= \begin{cases}w_p & e=e_p \\ y(L,e) & e\neq e_p \end{cases}\end{aligned}$$
+- Workers' problem:
+$$\begin{aligned}\max_e && w(e) - c(η,e) \end{aligned}$$
+    - Let $(w',e')\sim_L \big(w^*(L),e^*(L)\big)$
+    - Low type chooses $e = e_p$ when $e_p < e'$
+    - High type chooses $e = e_p$ since $μ(e> e_p)=0$
+
+![PGT Figure 4.2.7](/post-img/notes-contract--job-signal-pooling-1.png){width=521px}
+
+2. Another possibility
+- Firms' belief: $μ(e)= \begin{cases}0 & e<e_p \\ q & e=e_p \\ 0 & e\in(e_p,e''] \\q & e>e''\end{cases}$
+- Optimal wage:
+$$w(e) = \begin{cases}y(L,e) & e<e_p \\ w_p & e=e_p \\ y(L,e) & e\in(e_p,e''] \\ w_p & e>e''\end{cases}$$
+- Workers
+    - Let $(w',e')\sim_L \big(w^*(L),e^*(L)\big)$  
+    $(w'',e'')\sim_H (w_p,e_p)$  
+    - Low type chooses $e = e_p$ when $e^*(L)\leq e_p \leq e'$
+    - High type chooses $e = e_p$ since $μ(e> e'')=q$
+
+![PGT Figure 4.2.8](/post-img/notes-contract--job-signal-pooling-2.png){width=516px}
+
+### Separating Equilibria: Non-Envy Case
+
+- Strategy profile: $\{L:e^*(L), H:e^*(H), w(e), μ(e)\}$
+
+### Separating Equilibria: Envy Case
+
+- Strategy profile: $\{L:e^*(L), H:e_s, w(e), μ(e)\}$
+1. One possibility
+- Firms' belief: $μ(e) = \begin{cases}0 & e<e_s \\ 1 & e\geq e_s \end{cases}$
+- Contraints
+$$\begin{aligned}(IC)_L && w^*(L) - c\big(L, e^*(L)\big) &\geq w(e_s) - c(L, e_s) \\
+(PC)_H && w(e_s) - c(H, e_s) &\geq 0 \\
+\text{Firm} && w(e_s) &= y(H, e_s)\end{aligned}$$
+- Optimal wage: 
+$$w(e) = \begin{cases}y(L,e) & e<e_s \\ y(H,e) & e\geq e_s \end{cases}$$
+- Workers
+    - Let $\big(w(e_s), e_s\big)\sim_L \big(w^*(L),e^*(L)\big)$
+    - Low type chooses $e = e^*(L)$ when $(IC)_L$ holds
+    - High type chooses $e = e_s$ since $μ(e<e_s) = 0$
+
+![PGT Figure 4.2.8](/post-img/notes-contract--job-signal-separate-1.png){width=433px}
+
+2. Another possibility
+- Firms' belief: $μ(e) = \begin{cases}0 & e\leq e^*(H) \\ ε & e\in\big(e^*(H), e_s\big) \\ 1 & e\geq e_s \end{cases}$
+
+> PS3.Q1  
+> Consider the following the signalling model where workers choose education levels to signal their productivity.  
+> Suppose workers have a type $θ\in [0,1]$.  
+> A worker's type determines his cost of acquiring education, e.  
+> For a worker of type $θ > 0$, the cost of education is given by $c(θ,e) = \frac{e^2}{θ}$.  
+> For a worker of type $θ = 0$; the cost of any positive level of education is equal to some (extremely) high level $K$, and the cost of zero education to that worker is zero.  
+> If a worker (with a positive $θ$) gets hired at wage $w$ and chooses education level $e$, then his utility is $u=w-\frac{e^2}{θ}$.  
+> Likewise, the utility of type zero is either $w -K$ or just $w$, depending on whether $e = 0$ or $e > 0$.  
+> Assume that $θ$ is drawn from the unit interval $[0, 1]$, moreover, $θ$ is distributed uniformly over the interval.  
+> If a firm hires a worker of productivity $θ$; the the firm's profit is $π = θ-w$.  
+> Derive a perfect Bayesian equilibrium, where workers below some critical type $θ'$ pool and workers in $θ\in[θ',1]$ separate.  
+> Hints: 
+>
+> 1. Construct an equilibrium where the low types pool on $e = 0$;
+> 2. For the high types ($θ\in[θ',1]$), more precisely, for the education levels that these types choose), assume that there is a differentiable and concave wage function  
+> and then find this wage function assuming that workers optimize and firms compete,  
+> so their profits must be zero type by type over a range where workers separate. 
+> 3. Compute the equilibrium wage for types below $θ'$, that is, the value for the wage function at $e = 0$
+> 4. Verify that type $θ'$ is indifferent between separating and pooling with the low types.
+
+From hint 1:  
+Let all workers with $θ\in [0, θ')$ choose $e=0$  
+therefore, the expected productivity is
+$$\begin{aligned}E[ θ\ |\ θ<θ'] &= \frac{θ'}{2} \\
+w_L &= E[ θ\ |\ θ<θ'] \\
+&= \frac{θ'}{2} \end{aligned}$$
+For $θ\in [θ',1]$, workers' problem:
+$$\begin{aligned}\max_e && w_H - \frac{e^2}{θ}& \\
+FOC && w_H' - 2\cdot\frac{e}{θ} &\overset{!}{=} 0 \end{aligned}$$
+Since firms make zero profit,
+$$\begin{aligned}π &= θ-w = 0 \\
+w_H &= w\big( e(θ)\big) \\
+&= θ\end{aligned}$$
+plug in FOC
+$$\begin{aligned}w_H' - 2\cdot\frac{e}{w_H} &= 0 \\
+w_H'\cdot w_H &= 2e \\
+w_H &= \sqrt{2} e\end{aligned}$$
+plug in
+$$\begin{aligned}\max_e && \sqrt{2} e - \frac{e^2}{θ}& \\
+FOC && \sqrt{2} - 2\cdot\frac{e}{θ} &\overset{!}{=} 0 \\
+&& e^*(θ) &= \frac{θ}{\sqrt{2}} \\
+&& w_H &= θ \\
+&& u &= w - \frac{e^2}{θ} \\
+&& &= \frac{θ}{2}\end{aligned}$$
+(IC) for low type:
+$$\begin{aligned}w_L - 0 &\overset{!}{\geq} w_H - \frac{e^2}{θ} \\
+\frac{θ'}{2} &\overset{!}{\geq} θ - \frac{(θ/\sqrt{2})^2}{θ} \\
+\frac{θ'}{2} &\overset{!}{\geq} \frac{θ}{2}\end{aligned}$$
+this holds for workers with $θ\in [0, θ')$,  
+and holds equal (indifference) for workers with $θ = θ'$.
+
+> Mock.Q3  
+> A worker knows her talent $θ$, but the employer does not.  
+> The value of the worker to the employer is $Ε[θ]$ (given the employers information, including what he learns through the game).  
+> The employer pays the worker a wage equal to this expectation over talent, $w = Ε[θ]$, where the expectation operator is understood as conditional on all information available.  
+> This is a shortcut to model competition between employers.  
+> Prior to meeting the employer, the worker can choose a level of eduction $e$.  
+> The worker's payoff function is $w - \frac{e}{θ}$.  
+> The worker can be of either of two types, $θ\in\{ θ_l, θ_h\}$ with probability $Pr(θ_h) = p$.  
+> $e$ is a continuous variable.  
+> Timing: First, Nature determines the worker's type.  
+> Then the worker observes Nature's move and chooses a level of education.  
+> The employer does not observe Nature's move, but he does observe the worker's education choice and makes wage offers contingent on the education choice.  
+> The equilibrium concept is Perfect Bayesian Equilibrium.
+> 
+> 1. Characterize pooling equilibria where both worker types choose the same level of education.  
+> Be careful to discuss the employer's off equilibrium path beliefs and the resulting wage schedule.
+> 2. Suppose $e^*$ is a pooling level of education.  
+> Assuming that the employer believes that $θ = θ_l$ if $e\neq e^*$, characterize all possible levels of $e^*$.
+> 3. Characterize separating equilibria where the high type chooses a different level of education than the low type.
+> 4. Discuss the worker's (type by type) and the employer's preferences over the different separating equilibria.
+> 5. Is it possible that both worker types are better-off in a pooling equilibrium relative to a separating equilibrium? Discuss.
+
+1. Pooling equilibrium  
+Assume that both types pool on $e = e_p$  
+Employer's belief: $μ(e) = \begin{cases}p & e = e_p \\ 0 & e\neq e_p \end{cases}$  
+When sees $e=e_p$, employer offers
+$$\begin{aligned}w_p &= E[θ] \\ &= pθ_h + (1-p)θ_l\end{aligned}$$
+When sees $e\neq e_p$, employer offers
+$$w = θ_l$$
+High type does not deviate if
+$$\begin{aligned}w_p - \frac{e_p}{θ_h} &\geq \max_{e\neq e_p} \ θ_l - \frac{e}{θ_h} \\
+pθ_h + (1-p)θ_l - \frac{e_p}{θ_h} &\geq θ_l \\
+p(θ_h - θ_l) - \frac{e_p}{θ_h} &\geq 0\end{aligned}$$
+Low type does not deviate if
+$$\begin{aligned}w_p - \frac{e_p}{θ_l} &\geq \max_{e\neq e_p} \ θ_l - \frac{e}{θ_l} \\
+pθ_h + (1-p)θ_l - \frac{e_p}{θ_l} &\geq θ_l \\
+p(θ_h - θ_l) - \frac{e_p}{θ_l} &\geq 0\end{aligned}$$
+2. Since $θ_l< θ_h$,
+$$\begin{aligned}\frac{1}{θ_l} &> \frac{1}{θ_h} \\
+\frac{e_p}{θ_l} &> \frac{e_p}{θ_h} \\
+-\frac{e_p}{θ_l} &< - \frac{e_p}{θ_h} \\
+p(θ_h - θ_l) - \frac{e_p}{θ_l} &< p(θ_h - θ_l) - \frac{e_p}{θ_h}\end{aligned}$$
+therefore, $e_p$ must be s.t. $e_p\leq p(θ_h - θ_l)θ_l$
+3. Seperating equilibrium  
+Assume that high type chooses $e_h$, low type chooses $e_l$  
+Employer's belief: $μ(e) = \begin{cases}1 & e = e_h \\ 0 & e\neq e_l \end{cases}$
+Low type maximize 
+$$\begin{aligned}\max_{e} && θ_l &- \frac{e}{θ_l} \\
+FOC && e_l &= 0 \end{aligned}$$
+High type does not deviate if
+$$\begin{aligned}θ_h - \frac{e_h}{θ_h} &\geq θ_l - \frac{e_l}{θ_h} \\
+θ_h^2 - e_h &\geq θ_hθ_l \\
+e_h &\leq θ_h(θ_h - θ_l)\end{aligned}$$
+Low type does not deviate if
+$$\begin{aligned}θ_l - \frac{e_l}{θ_l} &\geq θ_h - \frac{e_h}{θ_l} \\
+θ_l^2 &\geq θ_hθ_l - e_h \\
+e_h &\geq θ_l(θ_h - θ_l)\end{aligned}$$
+4. In seperating equilibrium, low type's payoff: $θ_l$  
+We know
+$$\begin{aligned}e_h &\in \big[θ_l(θ_h - θ_l), θ_h(θ_h - θ_l)\big] \\
+\frac{e_h}{θ_h} &\in \big[\frac{θ_l}{θ_h}(θ_h - θ_l), (θ_h - θ_l)\big] \end{aligned}$$
+therefore, high type's payoff:
+$$θ_h - \frac{e_h}{θ_h}\in\big[θ_l, θ_h - \frac{θ_l(θ_h - θ_l)}{θ_h}\big]$$
+So the higher $e_h$ is, the worse-off high type is.
+5. In pooling equilibrium, low type's payoff: $pθ_h + (1-p)θ_l - \frac{e_p}{θ_l}$  
+they are better off than in seperating equilibrium when
+$$\begin{aligned}pθ_h + (1-p)θ_l - \frac{e_p}{θ_l} &\geq θ_l \\
+p(θ_h - θ_l) - \frac{e_p}{θ_l} &\geq 0 \\
+p &\geq \frac{e_p}{θ_l(θ_h - θ_l)}\end{aligned}$$
+High type's payoff: $pθ_h + (1-p)θ_l - \frac{e_p}{θ_h}$  
+they are better off than in seperating equilibrium when
+$$\begin{aligned}pθ_h + (1-p)θ_l - \frac{e_p}{θ_h} &\geq θ_h - \frac{e_h}{θ_h} \\
+&\geq θ_h - \frac{θ_l(θ_h - θ_l)}{θ_h} \\
+pθ_h(θ_h - θ_l) &\geq (θ_h - θ_l)^2 \\
+p &\geq \frac{θ_h - θ_l}{θ_h} \\
+&= 1 - \frac{θ_l}{θ_h}\end{aligned}$$
+Therefore, when $p$ is large enough, both types are better-off in pooling equilibrium
+
+### Hybrid (Mixed) Equilibrium
+
+- Strategy profile: $\{L: π\cdot e_h+(1-π)\cdot e^*(L), H: e_h, w(e), μ(e)\}$
+- Firms' belief: $μ(e) = \begin{cases}0 & e<e_h \\ r & e\geq e_h\end{cases}$
+$$\begin{aligned}r &= \frac{q}{q+(1-q)π} \\
+r-q &= \frac{q - q^2 - (1-q)qπ}{q + (1-q) π} \\
+&= \frac{q(1-π) - q^2( 1-π)}{q + (1-q) π} \\
+&= \frac{q(1-q)(1-π)}{q + (1-q) π} > 0 \\
+\implies r> q &\end{aligned}$$
+- Optimal wage: 
+$$w(e) = \begin{cases}y(L,e) & e<e_h \\ r\cdot y(H,e_h) + (1-r)y(L,e_h) & e\geq e_h \end{cases}$$
+
+![PGT Figure 4.2.9](/post-img/notes-contract--job-signal-hybrid.png){width=617px}
+
+> PS2.Q3 (needs check)  
+> Consider the job market signalling model.  
+> In particular, we consider the following economy.  
+> A large number of firms compete to attract a worker.  
+> The outcome of this competition between firms is that all of them offer to pay a salary equal to the expected level of productivity of the worker.  
+> The productivity of the worker depends on ability and education.  
+> There are two types of workers, L and H.  
+> If an individual of type L chooses a level of education $e$, then this individual faces costs of education $c_L (e) = e^2$, and his productivity is $θ_L (e) = 1 + e$.  
+> If an individual of type H chooses education level e, then his costs of education are $c_H (e) = \frac{e^2}{2}$ and his productivity is $θ_H (e) = 2+e$.  
+> The pool of workers has unit mass and a fraction $λ = \frac{1}{2}$ of type L.  
+> We consider the following extensive form.  
+> First, Nature determines the type of the worker, the worker is of low type L with probability $λ$.  
+> The worker observes Nature’s draw and then chooses his level of education.  
+> Firms can observe the level of education chosen but not the underlying ability.  
+> Firms offer wages equal to the expected level of productivity.  
+> The equilibrium concept is Perfect Bayesian Equilibrium.
+> 
+> 1. Compute the education levels $e_p$ that can arise in a pooling equilibrium in which firms have pessimistic beliefs of 
+> $$μ(H|e) = \begin{cases}0 & e<e_p \\ 0.5 & e\geq e_p\end{cases}$$
+> 2. Suppose firms have beliefs 
+> $$μ(H|e) = \begin{cases}0 & e<e_h \\ y & e= e_h \\ 0 & e>e_h\end{cases}$$
+> Compute the education levels in hybrid equilibria where the low type mixes between $e = 0.5$ and $e = e_h$ as a function of $π$, the probability that the low type chooses $e_h$.
+
+0. Separating equilibrium
+Low type's problem:
+$$\begin{aligned}\max_{e} && 1&+e - e^2 \\
+FOC && e^*(L) &= 0.5 \\
+&& 1&+e^*(L) - \big(e^*(L)\big)^2 = 1.25\end{aligned}$$
+plug in high type wage scheme
+$$\begin{aligned}2+e_s - e_s^2 &= 1.25 \\
+e_s &= 1.5 \end{aligned}$$
+High type's problem:
+$$\begin{aligned}\max_{e} && 2&+e - \frac{e^2}{2} \\
+FOC && e^*(H) &= 1 \end{aligned}$$
+therefore, this is an envy case.  
+Low type choose $e = e^*(L) = 0.5$  
+High type choose $e = e_s = 1.5$  
+Firm's rational belief: $μ(H|e) = \begin{cases}0 & e<e_s \\ 1 & e\geq e_s\end{cases}$
+1. Pooling equilibrium  
+With beliefs $μ(H|e) = \begin{cases}0 & e<e_p \\ 0.5 & e\geq e_p\end{cases}$,  
+when facing $e<e_p$, firm gives $w(e) = 1+e$  
+when facing $e\geq e_p$, 
+$$\begin{aligned}w(e) &= E[θ] \\
+&= λ(1+e) + (1-λ)(2+e) \\
+&= 1.5 + e \end{aligned}$$
+therefore, firm offers wage $w(e) = \begin{cases}1 + e & e<e_p \\ 1.5 + e & e\geq e_p\end{cases}$  
+Low type's problem:
+$$\begin{aligned}\max_{e\geq e_p} && 1.5 &+ e - e^2 \\
+FOC && e^* &= 0.5 \end{aligned}$$
+therefore, $e_p\geq\frac{1}{2}$ (not willing to give lower level)  
+(IC)L:
+$$\begin{aligned}1.5 + e_p - e_p^2 &\geq\max_{e< e_p} \ 1+e - e^2 \\
+&\geq 1 + \frac{1}{2} - \big(\frac{1}{2}\big)^2 \\
+&= 1.25 \\
+e_p - e_p^2 &\geq -0.25 \\
+e_p &\in \big[0, \frac{1}{2}(1+\sqrt{2})\big] \end{aligned}$$
+High type's problem:
+$$\begin{aligned}\max_{e\geq e_p} && 1.5 &+ e - \frac{e^2}{2} \\
+FOC && e^* &= 1 \end{aligned}$$
+therefore, $e_p\geq 1$ (not willing to give lower level)  
+(IC)H: (slack) 
+$$\begin{aligned}1.5 + e_p - \frac{e_p^2}{2} &\geq \max_{e< e_p} \ 1+e - \frac{e^2}{2} \\
+&\geq 1 + 1 - \frac{1^2}{2} \\
+&= 1.5 \\
+e_p - \frac{e_p^2}{2} &\geq 0 \\
+e_p &\in [0,2] \end{aligned}$$
+Therefore, $e_p\in\big[1, \frac{1}{2}(1+\sqrt{2})\big]$
+2. Hybrid equilibrium  
+Since type L mixes between $e=0.5$ and $e=e_h$, $π\in[0,1]$,   
+firm's belief according to Bayes' rule is 
+$$\begin{aligned}y &= \frac{0.5}{0.5 + 0.5\cdot π} \\
+&= \frac{1}{1+π} \\
+&\in \big[ \frac{1}{2},1\big] \end{aligned}$$
+With beliefs $μ(H|e) = \begin{cases}0 & e\neq e_h \\ y & e= e_h\end{cases}$  
+When facing $e\neq e_h$, firm gives $w(e) = 1+e$  
+When facing $e= e_h$, 
+$$\begin{aligned}w(e) &= E[θ] \\
+&= (1-y)(1+e) + y(2+e) \\
+&= (1+y) + e \end{aligned}$$
+therefore, firm gives wage $w(e) = \begin{cases}1 + e & e\neq e_h \\ (1+y) + e & e= e_h\end{cases}$  
+(IC)L:
+$$\begin{aligned}(1+y) + e_h - e_h^2 &= \max_{e\neq e_h} \ 1+e - e^2 \\
+(1+y) + e_h - e_h^2 &= 1.25 \\
+e_h - e_h^2 &= 0.25 - y \\
+y &= 0.25 - e_h + e_h^2 \\
+0.25 - e_h + e_h^2 &\in \big[ \frac{1}{2},1\big] \\
+e_h &\in \big[\frac{1}{2}(1+\sqrt{2}),\frac{3}{2}\big]\end{aligned}$$
+(IC)H: (slack) 
+$$\begin{aligned}(1+y) + e_h - \frac{e_h^2}{2}&\geq \max_{e\neq e_h} \ 1+e - \frac{e^2}{2} \\
+(1+y) + e_h - \frac{e_h^2}{2}&\geq 1.5 \\
+e_h - \frac{e_h^2}{2}&\geq 0.5-y \\
+y &\geq 0.5 - e_h +\frac{e_h^2}{2} \\
+e_h &\in [0,2] \end{aligned}$$
+therefore, $e_h\in \big[\frac{1}{2}(1+\sqrt{2}),\frac{3}{2}\big]$
+
+> PS2.Q4  
+> In PS2.Q3, let the cost of the low type be $c_L(e)=e^2$ and let the cost of the high type be $c_H(e)= \frac{e^2}{τ}$ with $τ\geq 1$.  
+> For what levels of $τ$ can you construct a separating equilibrium with __monotonic beliefs__ such that the first-best education choices are chosen in equilibrium.  
+> (i.e. when do you get the envy, when the no-envy case?)  
+
+Assume that exists some $e_s$ s.t.  
+Firm's belief: $μ(H|e) = \begin{cases}0 & e<e_s \\ 1 & e\geq e_s\end{cases}$  
+therefore, firm offers wage $w(e) = \begin{cases}1 + e & e<e_s \\ 2 + e & e\geq e_s\end{cases}$  
+Low type's problem:
+$$\begin{aligned}\max_{e} && 1&+e - e^2 \\
+FOC && e^*(L) &= 0.5 \\
+&& 1&+e^*(L) - \big(e^*(L)\big)^2 = 1.25\end{aligned}$$
+(IC)L:
+$$\begin{aligned}1.25 &\geq 2 + e_s - e_s^2 \\
+e_s &\geq 1.5\end{aligned}$$
+High type's problem:
+$$\begin{aligned}\max_{e} && 2+e &- \frac{e^2}{τ} \\
+FOC && 1 - \frac{2}{τ}e &\overset{!}{=} 0 \\
+&& e^*(H) &= \frac{τ}{2} \geq 1.5 \\
+&& τ&\geq 3 \end{aligned}$$
+therefore, when $τ\geq 3$, there exists a separating equilibrium (non-envy case)
+
+> PS2.Q5  
+> In PS2.Q3, is it possible that a pooling equilibrium is Pareto better than any separating equilibrium?  
+> In particular, vary the parameter $λ$.
+
+<!-- See Mock.Q3.5  
+Compare low type's payoff in SE and PE  
+Compare high type's payoff in SE and PE  
+Conclude the results -->
+
+When varying $λ$, the expected productivity in pooling equilibrium is
+$$\begin{aligned}λ\cdot 1 + (1-λ)\cdot 2 + e &= λ + 2 - 2λ + e \\
+&= 2-λ + e \end{aligned}$$
+In pooling equilibrium, low type gets
+$$\begin{aligned}(2-λ) + e_p - e_p^2 &\geq 1 + 0.5 - 0.5^2 \\
+&= 1.25\end{aligned}$$
+high type gets
+$$\begin{aligned}(2-λ) + e_p - \frac{e_p^2}{2} &\geq 2 + 1.5 - \frac{1.5^2}{2} \\
+&= 2.375\end{aligned}$$
+therefore, pooling equilibrium is Pareto better if
+$$λ \leq\begin{cases}0.75 + e_p - e_p^2 \\ -0.375 + e_p - \frac{e_p^2}{2} \end{cases}$$
+Specially, when $e_p\in [1,1.5]$, $0.75 + e_p - e_p^2\geq -0.375 + e_p - \frac{e_p^2}{2}$, 
+$$λ \leq -0.375 + e_p - \frac{e_p^2}{2}$$
+when $e_p\in\big( 1.5, \frac{1}{2}(1+\sqrt{2})\big]$, $0.75 + e_p - e_p^2 < -0.375 + e_p - \frac{e_p^2}{2}$, 
+$$λ \leq 0.75 + e_p - e_p^2$$
+
+### Perfect Bayesian Equilibrium (PBE)
+
+MWG 9, 13.C, PGT 4.1
+
+- On the equilibrium path  
+An information set that will be readied with $Pr>0$ if the game is played according to the equilibrium strategies
+- Off the equilibrium path  
+An information set that is not to be reached
+- PBE: strategies and beliefs satisfying Requirements 1 ~ 4
+- Requirement 1  
+Player at each information set must have a __belief__, aka a probability distribution over the following nodes
+<!-- At each information set, the player with the move must have a __belief__ about which node in the information set has been reached by the play of the game.  
+For a nonsingleton information set, a belief is a probability distribution over the nodes in the information set;  
+for a singleton information set, the player's belief puts probability one on the single decision node. -->
+- Requirement 2  
+Players' strategies must be __sequentially rational__, aka optimal, given their beliefs and other player's strategies at each information set
+<!-- Given their beliefs, the players' strategies must be __sequentially rational__,  
+At each information set the action taken by the player with the move (and the player's subsequent strategy) must be optimal given the player's belief at that information set and the other players' subsequent strategies.  
+A subsequent strategy is a complete plan of action covering every contingency that might arise after the given information set has been reached). -->
+- Requirement 3 & 4  
+Beliefs are determined by __Bayesian rule__ and the players' equilibrium strategies at information sets
+<!-- At information sets on the equilibrium path, beliefs are determined by Bayesian rule and the players' equilibrium strategies.
+- Requirement 4  
+At information sets off the equilibrium path, beliefs are determined by Bayesian rule and the players' equilibrium strategies when possible. -->
+- Example 1
+    - Player 1 chooses an action which player 2 doesn't know
+    - Player 2 assigns $Pr(L) = p$
+    - (SP)NE: $\{(L,L'), (R,R')\}$
+    - Requirement 1 & 2 eliminates $(R,R')$ as PBE since $L\succ_2 R'$ for any value of $p$
+
+![PGT Figure 4.1.3](/post-img/notes-contract--job-signal-bayesian-1.png){width=390px}
+
+|      |      | P2       |          |
+| ---- | ---- | -------- | -------- |
+|      |      | L'       | R'       |
+| P1   | L    | \*2, 1\* | 0, 0     |
+|      | M    | 0, 2\*   | 0, 1     |
+|      | R    | 1, 3\*   | \*1, 3\* |
+
+- Example 2
+    - Player 2 chooses an action which player 3 doesn't know
+    - Player 3 assigns $Pr(L) = p$
+    - NE: $\{(D,L,R',p=1), (A,L,L',p=0)\}$
+    - Requirement 4 eliminates $(A,L,L',p=0)$ as PBE since $p=0$ does not coincide with $L$
+
+![PGT Figure 4.1.4](/post-img/notes-contract--job-signal-bayesian-2.png){width=393px}
+
+### Equilibrium Refinements
+
+MWG 13.C, 13.Appendix, PGT 4.4
+
+- Signalling dominated strategy  
+$m_j\in M$ is dominated for type $t_i$ if exists $m_j'\in M$ s.t. $$\min_{a_k\in A} U_S(t_i, m_j', a_k)>\max_{a_k\in A} U_S(t_i, m_j, a_k)$$
+- Signalling equilibrium-dominated strategy  
+$m_j\in M$ is equilibrium-dominated for type $t_i$ if $$\underbrace{U^*(t_i)}_{\text{Equilibrium payoff}} > \max_{a_k\in A} \ U_S(t_i, m_j, a_k)$$
+<!-- Given a PBE in a signaling game, message $m_j\in M$ is equilibrium-dominated for type $t_i\in T$ if $t_i$'s equilibrium payoff $U^*(t_i)$ is greater than $t_i$'s highest possible payoff from $m_j$  -->
+- Requirement 5  
+__Off-path beliefs__ should give $Pr=0$ on strictly dominated strategies at any information set
+<!-- If possible, each player's beliefs off the equilibrium path should place zero probability on nodes that are reached only if another player plays a strategy that is strictly dominated beginning at some information set. -->
+- Signalling requirement 5  
+If off-path, belief $μ(t_i\ |\ m_j)\overset{!}{=}0$ for type $t_i$ playing dominated strategy $m_j$
+<!-- If the information set following $m_j$ is off the equilibrium path and $m_j$ is dominated for type $t_i$, then (if possible) the Receiver's belief $μ(t_i\ |\ m_j)$ should place zero probability on type $t_i$.  
+Possible provided $m_j$ is not dominated for all the types in T.-->
+- Signalling requirement 6 (Intuitive criterion)  
+If off-path, belief $μ(t_i\ |\ m_j)\overset{!}{=}0$ for type $t_i$ playing equilibrium-dominated strategy $m_j$
+<!-- If the information set following $m_j$ is off the eqiulibrium path, and $m_j$ is equilibrium-dominated for type $t_i$, then (if possible) the Receiver's belief $μ(t_i\ |\ m_j)$ should place zero probability on type $t_i$.  
+Possible provided $m_j$ is not equilibrium-dominated for all the types  -->
+- Example 3
+    - Player 1 chooses an action which player 2 doesn't know
+    - Player 2 assigns $Pr(L) = p$
+    - PBE: $\{(L,L',p=1), (R,R',p\leq\frac{1}{2})\}$
+    - Requirement 5 eliminates $(R,R',p\leq\frac{1}{2})$ since $M$ is strictly dominated for player 1, therefore $1-p\overset{!}{=}0$
+
+![PGT Figure 4.4.1](/post-img/notes-contract--job-signal-bayesian-3.png){width=463px}
+
+|      |      | P2       |          |
+| ---- | ---- | -------- | -------- |
+|      |      | L'       | R'       |
+| P1   | L    | \*3, 1\* | 0, 0     |
+|      | M    | 1, 0     | 0, 1\*   |
+|      | R    | 2, 2\*   | \*2, 2\* |
+
+- Example 4
+    - Sender: $t\in\{t_1,t_2\}$, $Pr(t_1) = 0.5$
+    - Signal: chooses $m\in\{L,R\}$, $Pr(t_1 : L)=p$, $Pr(t_1 : R)=q$
+    - Pooling PBE: $\big[(L,L), (u,d),p=\frac{1}{2}, q\geq\frac{1}{2}\big]$
+    - Signalling requirement 5 eliminates this since $R$ is strictly dominated for $t_1$, therefore $q\overset{!}{=}0$
+
+![PGT Figure 4.4.2](/post-img/notes-contract--job-signal-bayesian-4.png){width=574px}
+
+- Example 5
+    - Sender: $t\in\{ w, s \}$, $Pr(w)=0.1$
+    - Signal: chooses $m\in\{Q,B\}$, $Pr(w : Q)=p$, $Pr(w : B)=q$
+    - Pooling PBE: $\big[(Q, Q), (n, d), p=0.1, q\geq\frac{1}{2} \big]$
+    - Signalling requirement 6 eliminates this since $B$ is equilibrium-dominated for $w$, therefore $q\overset{!}{=}0$
+
+![PGT Figure 4.4.3](/post-img/notes-contract--job-signal-bayesian-5.png){width=605px}
+
+## Competitive Insurance Market
+
+TIO Ch3, [Rothschild and Stiglitz (1976)](https://www.uh.edu/~bsorense/Rothschild&Stiglitz.pdf)
+
+- Consumer's wealth: $W$
+    - Cost of accident: $d$
+- Probability of accident: $p$
+- Insurance contract: $α = (α_1, α_2)$
+    - Price: $α_1$
+    - Payment: $α_1 + α_2$
+    - Wealth with insurance (no accident): $W_1 = W-α_1$
+    - Wealth with insurance (accident): $W_2 = W - d + α_2$
+- Consumer's expected utility 
+$$\begin{aligned}\hat{V}(p,W_1,W_2) = (1-p)\cdot U(W_1) + p\cdot U(W_2) \end{aligned}$$
+- Firm's expected profit:
+$$\begin{aligned}π(p, α) &= (1-p)\cdot α_1 - p\cdot α_2 \\
+&= α_1 - p(α_1 + α_2)\end{aligned}$$
+(PC) for consumer: $V(p,α) \geq V\big(p,(0,0)\big)$
+- Equilibrium 
+    - Consumer maximizes expected utility
+    - All contracts in the equilibrium makes non-negative profit
+    - All contracts outside the equilibrium makes negative profit
+
+<!-- &= (1-p)\cdot (W - W_1) + p\cdot (W - W_2 - d)\\ &= W - pd - (1-p) W_1 - p\cdot W_2 -->
+
+### Identical Consumers
+
+- 1 type of consumers
+- Consumer's problem:
+$$\begin{aligned}\max_{W_1, W_2} && V(p,α) &= \hat{V}(p,W_1,W_2) \\
+&& &= \hat{V}(p, W-α_1, W - d + α_2) \\
+(PC) && π &= α_1 - p(α_1 + α_2) \\
+&& &= W - p\cdot d - (1-p)\cdot W_1 - p\cdot W_2 \end{aligned}$$
+Lagrangian:
+$$\begin{aligned}\mathcal{L} &= (1-p)U(W_1) + p\cdot U(W_2) \\
+&\phantom{\ggg} + λ\big( W - p\cdot d - (1-p)\cdot W_1 - p\cdot W_2 - π\big) \\
+\frac{\partial\mathcal{L}}{\partial W_1} &= (1-p)U'(W_1) - (1-p)λ \overset{!}{=} 0 \\
+\frac{\partial\mathcal{L}}{\partial W_2} &= p\cdot U'(W_2) - p\cdot λ \overset{!}{=} 0 \\
+U'(W_1) - λ &= U'(W_2) - λ \\
+U'(W_1) &= U'(W_2)\end{aligned}$$
+- Perfect competition gives zero profit 
+$$\begin{aligned}π &= α_1 - p(α_1 + α_2)\\
+&= W - p\cdot d - (1-p)\cdot W_1 - p\cdot W_2 \\
+&= 0 \end{aligned}$$
+- Point $E$: consumer's endowment (outside option)
+- Line $FE$: firm's zero-profit isoprofit
+
+![RS(1976) Figure 1](/post-img/notes-contract--insurance-benchmark.png){width=621px}
+
+### Different Types of Consumers
+
+- Types of consumers: $p\in\{ p_H, p_L\}$, $p_H>p_L$
+    - $Pr(p = p_H) = λ$
+    - Average type: $\bar{p} = λ\cdot p_H + (1-λ)p_L$
+- Point E: $p_H$ and $p_L$'s endowment (outside option)
+- Non-existence of pooling equilibrium:  
+FSOC $α$ is an PE, $α\succ_H E$ and $α\succ_L E$  
+$\implies π = α_1 - \bar{p}(α_1 + α_2) = 0$  
+$\implies$ the slope of line $αE$ is $\frac{1-\bar{p}}{\bar{p}}$  
+Consider $β$: $β\succ_L α$ and $α\succ_H β$  
+$\implies$ L types choose $β$, H types stick with $α$  
+$\implies$ profit decreases
+
+![RS(1976) Figure 2](/post-img/notes-contract--insurance-PE.png){width=500px}
+
+- Potential seperating equilibrium:
+    - Zero-profit isoprofits: $LE$, $HE$
+    - H type: $α_H\succ_H E$, $α_H\sim_H α_L$
+    - L type: $β\succ_L α_L\succ_L E$ , but $β$ is not the L type contract since $β\succ_H α_H$  
+
+![RS(1976) Figure 3](/post-img/notes-contract--insurance-SE1.png){width=517px}
+
+- Non-existence of seperating equilibrium with small $λ$:
+    - $λ\to 0$, $F'E\to LE$
+    - Exists $λ$ s.t. $λ\succ_H α_H$, $λ\succ_L α_L$  
+    $\implies$ pooling  
+    $\implies$ no equilibrium
+    - As long as the green-shaded area between $\bar{U}^L$ and $F'E$ exists, this is the case
+
+![RS(1976) Figure 3](/post-img/notes-contract--insurance-SE2.png){width=505px}
+
+> Mock.Q1  
+> Consider a market for loans to finance investment projects.  
+> Investing requires an outlay of 1 dollar.  
+> There are two types of projects, good and bad. A good project yields profit $π$ with probability $g$ and zero with $1-g$.  
+> A bad project yields profit $π$ with $b$ and zero with $1-b$, where $g>b$.  
+> The fraction of good projects is $λ$.  
+> Entrepreneurs have no money but can borrow from banks, entrepreneurs know their type, banks don't.  
+> A loan contract specifies repayment $R$.  
+> Suppose banks can obtain funds at rate $r$ (or, equivalently, the opportunity cost of one dollar for a bank is $1 + r$).  
+> Everybody is risk neutral, banks are competitive.  
+> Assume that $gπ - (1+r) > 0 > bπ - (1+r)$.
+> 
+> 1. Find the equilibrium level of $R$ and the set of projects financed.
+> 2. Suppose now that the entrepreneur can offer to contribute a fraction $x$ of the initial outlay.  
+> Important: while the entrepreneur has some money to put on the table in the beginning of the game, she cannot store this money; that is, she still can only repay when the outcome of the project is good.  
+> The cost to the entrepreneur is $(1 + ρ) x$ where $ρ > r$.  
+> Write the entrepreneur's payoff function.
+> 3. Suppose the timing of the game is that first the entrepreneur puts $x$ dollars on the table, and then the bank(s) make contract offers specifying $R$.  
+> Describe the separating equilibrium in which the good type's utility is highest.
+
+1. Since E have no money, their repayment to B is zero if the project fails  
+Good E borrows to invest if 
+$$\begin{aligned}g\cdot (π - R) + (1-g)\cdot (0 - 0)&\geq 0 \\
+π - R &\geq 0 \end{aligned}$$
+Bad E borrows to invest if 
+$$\begin{aligned}b\cdot (π - R) + (1-b)\cdot (0 - 0)&\geq 0 \\
+π - R &\geq 0 \end{aligned}$$
+therefore, if $π \geq R$, both types will invest.  
+Under competition, B is willing to lend money if 
+$$\begin{aligned}\underbrace{-1}_{\text{Lend}} + \underbrace{λgR + (1-λ)bR}_{\text{Repayment}} &= r \\
+R\big( λg + (1-λ)b \big) &= 1+r \\
+R &= \frac{1+r}{λg + (1-λ)b} \end{aligned}$$
+Therefore, when $λ$ is s.t. 
+$$\begin{aligned}π - R &\geq 0 \\
+π - \frac{1+r}{λg + (1-λ)b} &\geq 0\end{aligned}$$
+all projects will be undertaken
+2. Good type: $g\big(π-R(x)\big) - (1+ρ)x$  
+Bad type: $b\big(π-R(x)\big) - (1+ρ)x$
+3. Let the separating contract be $\begin{cases}x_g \\ R(x_g) \end{cases}$ and $\begin{cases}x_b \\ R(x_b) \end{cases}$
+    a. Banks offer $R(x_b)$ s.t. they are indifferent between investing and no investing to bad types  
+    $$\begin{aligned}R(x_b)\cdot b  &= (1-x_b)(1+r) \\
+    b\big(π-R(x_b)\big) - (1+ρ)x_b &= bπ - (1-x_b)(1+r) - (1+ρ)x_b \\
+    &= \underbrace{bπ - (1+r)}_{<0} - x_b(\underbrace{ρ-r}_{>0}) \\
+    &< 0\end{aligned}$$
+    therefore, bad types will not finance the investment  
+    b. Banks offer $R(x_g)$ s.t. they are indifferent between investing and no investing to good types  
+    $$\begin{aligned}R(x_g)\cdot g  &= (1-x_g)(1+r) \\
+    g\big(π-R(x_g)\big) - (1+ρ)x_g &= gπ - (1-x_g)(1+r) - (1+ρ)x_g \\
+    &= gπ - (1+r) - x_g(ρ-r)\end{aligned}$$
+    c. $x_g$ must not satisfy bad type's (PC):
+    $$\begin{aligned}b\big(π-R(x_g)\big) - (1+ρ)x_g &\leq 0 \\
+    bπ - R(x_g)\cdot b - (1+ρ)x_g &\leq 0 \\
+    bπ - \frac{b}{g} (1-x_g)(1+r) - (1+ρ)x_g &\leq 0 \\
+    x_g &\geq \frac{bπ - \frac{b}{g}(1+r)}{-\frac{b}{g}(1+r) + (1+ρ)} \\
+    &= x_g^*\end{aligned}$$
+
+<!-- 
+bπ - (1+r) - x_g(ρ-r) &\leq 0 \\
+x_g &\geq \frac{bπ - (1+r)}{ρ-r} \\
+ -->
+
+## Screening: Non-Linear Pricing
+
+- Screening: induce buyers to __self-select__ with a menu of different contracts
+    - Self selection: second degree price discrimination  
+- Selection by indicators: third degree
+- Perfect discrimination: first degree
+- Price discrimination requires no resale
+
+### Perfect Information: Monopoly
+
+- Drivers type: $θ\in\{θ_1, θ_2\}$, $θ_1<θ_2$
+    - $Pr(θ = θ_1) = λ$
+- Utility function: $U=\begin{cases}θ\cdot V(s) - T & \text{Consume }s\text{ and pay }T \\ 0 &\text{Otherwise}\end{cases}$
+    - $V'>0$, $V''<0$
+    - Example: $V(s) = \frac{1-(1-s)^2}{2}$
+- Cost of production: $c$
+    - $c<θ_1<θ_2$
+- Bundle: $(s_1, T_1)$, $(s_2, T_2)$
+- Monopolist's problem:
+$$\begin{aligned}\max_{s_1,s_2,T_1,T_2} && &λ\cdot(T_1 - c\cdot s_1) + (1-λ)\cdot(T_2 - c\cdot s_2) \\
+(PC1) && &θ_1\cdot V(s_1) - T_1 \geq 0 \\
+(PC2) && &θ_2\cdot V(s_2) - T_2 \geq 0\end{aligned}$$
+Plug in 
+$$\begin{aligned}\max_{s_1,s_2} && λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &+ (1-λ)\cdot(θ_2\cdot V(s_2) - c\cdot s_2) \\
+FOC && \frac{\partial}{\partial s_i}θ_i\cdot V(s_i)- c\cdot s_i &= 0 \\
+&& \underbrace{θ_i\cdot V'(s_i^*)}_{MU} &= \underbrace{c}_{MC} \\
+&& T_i^* &= θ_i\cdot V(s_i^*)\end{aligned}$$
+
+### Asymmetric Information
+
+- Monopolist's problem:
+$$\begin{aligned}\max_{s_1,s_2,T_1,T_2} && &λ\cdot(T_1 - c\cdot s_1) + (1-λ)\cdot(T_2 - c\cdot s_2) \\
+(PC1) && &θ_1\cdot V(s_1) - T_1 \geq 0 \\
+(PC2) && &θ_2\cdot V(s_2) - T_2 \geq 0 \\
+(IC1) && &θ_1\cdot V(s_1) - T_1 \geq θ_1\cdot V(s_2) - T_2 \\
+(IC2) && &θ_2\cdot V(s_2) - T_2 \geq θ_2\cdot V(s_1) - T_1 \end{aligned}$$
+(PC1) is binding  
+(IC2) is binding since $θ_2$ type is tempted to choose $(s_1, T_1)$  
+(IC2) $\implies$
+$$\begin{aligned}θ_2\cdot V(s_2) - T_2 &\geq θ_2\cdot V(s_1) - T_1 \\
+&\geq \underbrace{(θ_2-θ_1)\cdot V(s_1)}_{\geq 0} + \underbrace{θ_1\cdot V(s_1)- T_1}_{(PC1)} \\
+&\geq 0\end{aligned}$$
+$\implies$ (PC2) is redundant, therefore, 
+$$\begin{aligned}θ_1\cdot V(s_1) - T_1 &= 0 \\
+T_1 &= θ_1\cdot V(s_1) \\
+&\implies\text{No rent at the bottom} \\
+θ_2\cdot V(s_2) - T_2 &= θ_2\cdot V(s_1) - T_1 \\
+&= θ_2\cdot V(s_1) - θ_1\cdot V(s_1) \\
+&= (θ_2 - θ_1)\cdot V(s_1) \\
+T_2 &= θ_2\cdot V(s_2) - \underbrace{(θ_2 - θ_1)\cdot V(s_1)}_{\text{Information rent}}\end{aligned}$$
+Plug back into monopolist's problem 
+$$\begin{aligned}\max_{s_1,s_2} && λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &+ (1-λ)\cdot\big(θ_2\cdot V(s_2)- (θ_2 - θ_1)\cdot V(s_1) - c\cdot s_2\big) \\
+FOC && \frac{\partial}{\partial s_2} = θ_2\cdot V(s_2)- c\cdot s_2 &= 0 \\
+&& θ_2\cdot V'(s_2^*) &= c \\
+&& &\implies\text{No distortion at the top} \\
+&& \frac{\partial}{\partial s_1} = λ\cdot(θ_1\cdot V(s_1) - c\cdot s_1) &+ (1-λ)\cdot\big(-(θ_2 - θ_1)\cdot V(s_1)\big) = 0\\
+&& θ_1\cdot V'(s_2^*) &= \frac{c}{1-\frac{1-λ}{λ}\cdot\frac{θ_2 - θ_1}{θ_1}} \\
+&& &\implies\text{Distortion below the top}\end{aligned}$$
+
+> PS3.Q2  
+> Consider a market with two buyers.  
+> Preferences of buyer 1 can be described by an inverse demand equal to $p(q_1) = 2 -3q$ and those of buyer 2 by $p(q_2) = 2-q$.  
+> Note that prices can not be negative, so if $q > 2$ for consumer 1 the price is still 0, while similar argument applies to consumer 2 for $q > 2$.  
+> Suppose there is a single seller with marginal cost equal to 0.  
+> 
+> 1. Draw a graph with the two demand functions and the aggregate demand function.  
+> Compute the aggregate demand.  
+> Determine the optimal price $p^*$ the seller will charge if he has to use a linear tariff.  
+> 2. Suppose now that the seller knows the buyers' identity and that he can offer a two part tariff contract $T_i + p_iq$ to each buyer (so he can perfectly discriminate).  
+> A buyer will accept a contract if it gives him a positive net surplus.  
+> The net surplus of a buyer with a linear demand is $S_i(T, p) = \frac{(a-p)^2}{2b} - T$ (see 2.b) when the inverse demand function is given by $p = a$.  
+>    a. Write down the seller's problem with the relevant constraints.  
+>    b. Find the optimal $p_i^{*\prime}$'s and use the constraint to obtain the $T_i^{*\prime}$'s.  
+>    What are the net surplus of the buyers with their contract $T_i +p_iq$?  
+>    c. If the seller were unable to distinguish consumers but offered nevertheless the pair of contracts you just calculated, would any of the buyers want to choose the contract offered to the other buyer?  
+>    If yes, who would that be?
+
+1. Aggregate demand: 
+$$\begin{aligned}p(q_1) &= 2 - 3q \\
+D_1(p) &= \frac{2 - p}{3} \\
+p(q_2) &= 2 - q \\
+D_2(p) &= 2 - p \\
+\hat{D}(p) &= D_1(p) + D_2(p) \\
+&= \frac{8}{3} - \frac{4}{3}p \\
+p(\hat{D}) &=  2 - \frac{3}{4}\hat{D}\end{aligned}$$
+![](/post-img/notes-contract--ps3q2.png){width=339px}  
+Seller's problem:
+$$\begin{aligned}\max_{p} && \Big( \frac{8}{3} - \frac{4}{3}p\Big)\cdot p & \\
+FOC && \frac{8}{3} - \frac{4}{3}\cdot 2\cdot p &\overset{!}{=} 0 \\
+&& p^* &= 1\end{aligned}$$
+2. Let the contract be $T_i = f_i + p_i\cdot q$ for $i=1,2$  
+Notice that $(f_1-f_2)(p_1-p_2)<0$, otherwise both consumers will choose the same contract.  
+    a. Revenue from buyer 1: $f_1 + p_1\cdot D_1(p_1)$  
+    Revenue from buyer 2: $f_2 + p_2\cdot D_2(p_2)$  
+    Firm's problem:
+    $$\begin{aligned}\max_{f_1,f_2,p_1,p_2} && &f_1 + p_1\cdot D_1(p_1) + f_2 + p_2\cdot D_2(p_2) \\
+    (PC)_1 && &S_1(p_1) - f_1\geq 0 \\
+    (PC)_2 && &S_2(p_2) - f_2\geq 0 \end{aligned}$$
+    b. (Omitted)
+    c. When the seller were unable to distinguish consumers, 
+    $$\begin{aligned}(IC)_1 && &S_1(p_1) - f_1\geq S_1(p_2) - f_2 \\
+    (IC)_2 && &S_2(p_2) - f_2\geq S_2(p_1) - f_1\end{aligned}$$
+    Since (PC)1 and (IC)2 are binding,
+    $$\begin{aligned}f_1 &= S_1(p_1) \\
+    f_2 &= S_2(p_2) - S_2(p_1) + f_1 \\
+    &= S_2(p_2) - \big( \underbrace{S_2(p_1) - S_1(p_1)}_{\text{Rent}}\big)\end{aligned}$$
+<!--     $S_1$ and $S_2$ are:
+    $$\begin{aligned}S_1(p_1) &= \frac{(2-p)^2}{2\cdot 3} - f_1 - p_1\cdot D_1(p_1) \\
+    &= \frac{(2-p)^2}{6} - S_1(p_1) - p_1\cdot\frac{2 - p}{3} \\
+    &= \frac{4-8p-3p^2}{12} \\
+    S_2(p_2) &= \frac{(2-p)^2}{2\cdot 1} - f_2 - p_2\cdot D_2(p_2) \\
+    &= \frac{(2-p)^2}{2} - S_2(p_2) + \big(S_2(p_1) - S_1(p_1) \big)- p_2\cdot (2 - p) \\
+    &=  \end{aligned}$$ -->
+    Plug into firm's problem
+    $$\begin{aligned}\max_{p_1,p_2} && &\phantom{\ggg}S_1(p_1) + p_1\cdot D_1(p_1) + S_2(p_2) - \big(S_2(p_1) - S_1(p_1)\big) + p_2\cdot D_2(p_2)\\
+    && &= \frac{(2-p_1)^2}{2\cdot 3} + p_1\cdot \frac{2 - p_1}{3}  \\
+    && &\phantom{\ggg}+ \frac{(2-p_2)^2}{2\cdot 1} - \Big(\frac{(2-p_1)^2}{2\cdot 1} - \frac{(2-p_1)^2}{2\cdot 3} \Big) + p_2\cdot (2 - p_2) \\
+    && &= \frac{2(2-p_1)}{3} - \frac{(2-p_1)^2}{2} + \frac{(2-p_2)^2}{2} + p_2\cdot (2 - p_2) \\
+    FOC && \frac{\partial}{\partial p_1} &= \frac{2}{3}\cdot(-1) +\frac{1}{2}\cdot 2(2-p_1)(-1)\overset{!}{=} 0 \\
+    && p_1^* &= \frac{4}{3} \\
+    && &\implies\text{Too little below the top} \\
+    && \frac{\partial}{\partial p_2} &= \frac{1}{2}\cdot 2(2-p_2)(-1) + (2-p_2) + p_2\cdot(-1)\overset{!}{=} 0 \\
+    && p_2^* &= 0 \\
+    && &\implies\text{No distortion at the top} \\\end{aligned}$$
+
+> PS3.Q3  
+> An airline wishes to determine optimal prices for business class and economy class tickets.  
+> The airline has the following information.  
+> There are two types of buyers.  
+> Some buyers derive a relatively high value from consuming additional space on the airplane. Their utility from consuming $s$ units of space and paying a total airfare of $T$ is given by $8\sqrt{s} - T$.  
+> Other travellers derive a relatively low utility from consuming space on an airplane. Their utility from consuming $s$ units of space and paying an airfare of $T$ is given by $2\sqrt{s} - T$.  
+> The companies cost of producing $s$ units of space is equal to $s$; thus, there are no fixed costs and the marginal cost of producing space is equal to one.  
+> The total mass of consumers is unity.  
+> A fraction $γ$ derives a high marginal utility from consuming additional space, a fraction $1-γ$ derives a low marginal utility from consuming additional space.  
+> The company cannot observe which customer has a high or a low demand; it wishes to offer two optimal bundles $\{\underline{s},\underline{T}\}$ and $\{\bar{s},\bar{T}\}$ to the two customer groups.  
+> 
+> 1. Write down the firm's maximization problem, including the relevant constraints.  
+> 2. Derive $\{\underline{s},\underline{T}\}$ and $\{\bar{s},\bar{T}\}$, assuming that $γ$ is very small (see 3).
+> 3. At which level of $γ$ is there a qualitative change in the optimal menu offered to consumers?  
+> Explain why this change occurs.
+
+1. Firm's problem:
+$$\begin{aligned}\max_{\underline{s},\underline{T},\bar{s},\bar{T}} && &γ\cdot(\bar{T}-\bar{s}) + (1-γ)\cdot(\underline{T}-\underline{s}) \\
+(PC)_H && &8\sqrt{\bar{s}} - \bar{T} \geq 0 \\
+(PC)_L && &2\sqrt{\underline{s}} - \underline{T}\geq 0 \\
+(IC)_H && &8\sqrt{\bar{s}} - \bar{T} \geq 8\sqrt{\underline{s}} - \underline{T} \\
+(IC)_L && &2\sqrt{\underline{s}} - \underline{T}\geq 2\sqrt{\bar{s}} - \bar{T}\end{aligned}$$
+2. Since (PC)L and (IC)H are binding,
+$$\begin{aligned}\underline{T} &= 2\sqrt{\underline{s}} \\
+\bar{T} &= 8\sqrt{\bar{s}} - 8\sqrt{\underline{s}} + \underline{T} \\
+&= 8\sqrt{\bar{s}} - \big(\underbrace{8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}}_{\text{Rent}}\big)\end{aligned}$$
+plug into firm's problem
+$$\begin{aligned}\max_{\underline{s},\bar{s}} && &\phantom{\ggg}γ\cdot\Big(8\sqrt{\bar{s}} - \big(8\sqrt{\underline{s}} - 2\sqrt{\underline{s}}\big)-\bar{s}\Big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
+&& &= γ\cdot\big(8\sqrt{\bar{s}}-\bar{s} - 6\sqrt{\underline{s}}\big) + (1-γ)\cdot(2\sqrt{\underline{s}}-\underline{s}) \\
+FOC && \frac{\partial}{\partial\bar{s}} &= γ\cdot\big(8\cdot\frac{1}{2}\cdot\bar{s}^{\frac{1}{2}} - 1\big) \overset{!}{=} 0\\
+&& \bar{s}^* &= 16 \implies\text{No distortion at top} \\
+&& \frac{\partial}{\partial\underline{s}} &= -6γ\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}} + (1-γ)\cdot\Big( 2\cdot\frac{1}{2}\cdot\underline{s}^{-\frac{1}{2}}-1\Big) \overset{!}{=} 0 \\
+&& \underline{s}^* &= \Big(\frac{1-4γ}{1-γ}\Big)^2 \end{aligned}$$
+3. When $\underline{s}$ exists, 
+$$\begin{aligned}\sqrt{\underline{s}} &\geq 0 \\
+\frac{1-4γ}{1-γ} &\geq 0 \\
+(1-4γ)(1-γ) &\geq 0 \\
+γ &\leq\frac{1}{4} \end{aligned}$$
+therefore, when $γ>\frac{1}{4}$, low types are excluded from the menu.  
+$\implies$ downwards distortion below the top 
+
+> Mock.Q2  
+> An airline has the exclusive right to transport passengers between two islands.  
+> The island is visited by tourists and bankers.  
+> The airline cannot tell whether any given passenger is a tourist or a banker.  
+> Tourists and bankers differ with respect to their preferences.  
+> If a traveller buys a ticket at price $P$ a time span $W$ before travelling, then his utility is
+> $$\begin{aligned}\text{Tourist} && v - θ_TP - W \\ \text{Banker} && v - θ_BP - W\end{aligned}$$
+> where $θ_T > θ_B > 0$. Thus, a tourist dislikes increases in the price more than a banker does.  
+> Both of them dislike buying their ticket in advance.  
+> The airline wishes to design a pricing scheme $\{P_T, W_T\}$ and $\{P_B, W_B\}$ so as to maximize its profits 
+> $$λP_T + (1-λ)P_B$$
+> where $λ$ is the fraction of tourists and $(1-λ)$ is the fraction of bankers.  
+> Note that the airline's profit does not directly depend on how early travellers buy their tickets in advance.  
+> The airline can only set non- negative prices, $P_T,P_B \geq 0$ and the tickets must be bought prior to travelling $W_T, W_B\geq 0$.  
+> Passengers cannot be forced to travel, so they must be happy to do so if the airline wishes to serve them.  
+> Note also that the marginal cost of transporting passengers is zero.
+> 
+> 1. Draw the indifference curves of the two customer types and the isoprofit lines of the airline in the contract space. Explain your graph.
+> 2. Formulate the airline's problem and explain the constraints you impose.
+> 3. Which of the constraints in the problem must be binding at the optimum? Explain!
+> 4. Solve now the problem. How does the solution depend on the parameters?  
+> Under what conditions are both customer types served?
+> 5. What are the classical features of optimal allocations in a screening problem?  
+> Do you find these classical predictions confirmed in your solution?  
+> Comment on the properties of the optimal allocation.
+
+1. Let $u$ be
+$$\begin{aligned}u_i &= v - θ_iP - W \\
+W &= (v - u_i) - θ_iP \end{aligned}$$
+
+![](/post-img/notes-contract--mockq2.png){width=566px}
+
+2. Airline's problem:
+$$\begin{aligned}\max_{P_i,W_i} && &λP_T + (1-λ)P_B \\
+(PC)_T && &v - θ_TP_T - W_T\geq 0 \\
+(PC)_B && &v - θ_BP_B - W_B\geq 0\\
+(IC)_T && &v - θ_TP_T - W_T\geq v - θ_TP_B - W_B\\
+(IC)_B && &v - θ_BP_B - W_B\geq v - θ_BP_T - W_T \end{aligned}$$
+3. Adding up (IC)T and (IC)B gives 
+$$\begin{aligned}v - θ_TP_T - W_T + v - θ_BP_B - W_B &\geq v - θ_TP_B - W_B + v - θ_BP_T - W_T \\
+-θ_TP_T - θ_BP_B &\geq - θ_TP_B - θ_BP_T \\
+θ_T(P_B - P_T) + θ_B(P_T - P_B) &\geq 0 \\
+(θ_T - θ_B)(P_B - P_T) &\geq 0\end{aligned}$$
+since $θ_T > θ_B$, we have $P_B > P_T$  
+(IC)B $\implies$
+$$\begin{aligned}v - θ_BP_B - W_B &\geq v - θ_BP_T - W_T \\
+&\geq v - θ_TP_T - W_T \\
+&\geq 0 \implies (PC)_B\end{aligned}$$
+therefore, (PC)B is slack $\implies$ (PC)T and (IC)B are binding
+4. Since (PC)T and (IC)B are binding, we have
+$$\begin{aligned}v - θ_TP_T - W_T &= 0 \\
+P_T &= \frac{v-W_T}{θ_T}\end{aligned}$$
+and
+$$\begin{aligned}v - θ_BP_B - W_B &= v - θ_BP_T - W_T \\
+P_B &= \frac{W_T - W_B}{θ_B} + P_T \\
+&= \frac{W_T - W_B}{θ_B} + \frac{v-W_T}{θ_T} \end{aligned}$$
+plug into airline's problem
+$$\begin{aligned}\max_{W_i} && &\phantom{\ggg}λP_T + (1-λ)P_B \\
+&& &= λ\cdot \frac{v-W_T}{θ_T} + (1-λ)\cdot\big(\frac{W_T - W_B}{θ_B} + \frac{v-W_T}{θ_T}\big) \\
+&& &= \frac{v-W_T}{θ_T} + (1-λ)\frac{W_T - W_B}{θ_B} \\
+FOC && &\frac{\partial}{\partial W_B} = -\frac{1-λ}{θ_B} < 0 \implies W_B^* = 0 \\
+&& &\frac{\partial}{\partial W_T} = -\frac{1}{θ_T} + \frac{1-λ}{θ_B} \end{aligned}$$
+    a. When $-\frac{1}{θ_T} + \frac{1-λ}{θ_B}\geq 0$  
+    $W_T^*$ is set to maximum
+    $$\begin{aligned}W_T^* &= v \\
+    P_T^* &= \frac{v-W_T^*}{θ_T} \\
+    &= 0 \\
+    P_B^* &= \frac{W_T^* - W_B^*}{θ_B} + P_T^* \\
+    &= \frac{v}{θ_B} \end{aligned}$$
+    b. When $-\frac{1}{θ_T} + \frac{1-λ}{θ_B}< 0$  
+    $$\begin{aligned}W_T^* &= 0 \\
+    P_T^* &= \frac{v-W_T^*}{θ_T} \\
+    &= \frac{v}{θ_T} \\
+    P_B^* &= \frac{W_T^* - W_B^*}{θ_B} + P_T^* \\
+    &= \frac{v}{θ_T}\end{aligned}$$
+5. Seperating:  
+No distortion at the top, downward distortion at the bottom.  
+This occurs if the waiting time is positive, when the bottom group is excluded.  
+Pooling:  
+Positive rent to the top, both groups are included.
+
+### Continuous Types: Mechanism Approach
+
+[Maskin and Riley (1984)](https://www.jstor.org/stable/pdf/2555674.pdf)
+
+- Revelation principle
+- Consumers' type: $θ\in [\underline{θ}, \bar{θ}]$
+    - pdf: $f(θ)$
+    - cdf: $F(θ)$
+    - Consumers' statement: $\hat{θ}$
+- Utility function: $U=\begin{cases}θ\cdot V(s) - T & \text{Consume }s\text{ and pay }T \\ 0 &\text{Otherwise}\end{cases}$
+    - $V'>0$, $V''<0$
+    - Example: $V(s) = \frac{1-(1-s)^2}{2}$
+- Cost of production: $c< \underline{θ}$
+- Consumers' problem:
+$$\begin{aligned}\max_s && &θ\cdot V(s) - T(s) \\
+\implies && &s^*(θ) \\
+&& &T\big(s^*(θ)\big)\end{aligned}$$
+- Price scheme: $\Big( s(θ), T\big(s(θ)\big)\Big)$ for all $θ$
+- Firm's problem:
+$$\begin{aligned}\max_{T(θ),s(θ)} && \int_{\underline{θ}}^{\bar{θ}} \big(T(θ) - c\cdot s(θ)\big)f(θ) \, dθ& \\
+(PC) && θ\cdot V\big(s(θ)\big) - T(θ) &\geq 0 \\
+(IC) && θ\cdot V\big(s(θ)\big) - T(θ) &\geq θ\cdot V(s(\hat{θ})) - T(\hat{θ})\end{aligned}$$
+(IC) for type $θ$ and type $θ'\implies$ 
+$$\begin{cases}θ\cdot V\big(s(θ)\big) - T(θ) \geq θ\cdot V\big(s(θ')\big) - T(θ') \\
+θ'\cdot V\big(s(θ')\big) - T(θ') \geq θ'\cdot V\big(s(θ)\big) - T(θ) \end{cases}$$
+therefore,
+$$\begin{aligned}(θ-θ')\cdot \Big( V\big(s(θ)\big) -  V\big(s(θ')\big)\Big) \geq 0 \end{aligned}$$
+Assume $s(θ)$ is monotonic, $s'(θ)\geq 0$  
+$\implies V\big(s(θ)\big)$ is monotonic  
+$\implies V\big(s(θ)\big)$ is differentiable almost everywhere  
+$\implies$ FOC holds
+- Consumer concerning statement $\hat{θ}$:
+$$\begin{aligned}\max_{\hat{θ}} && &θ\cdot V\big(s(\hat{θ})\big) - T(\hat{θ}) \\
+FOC && &θ\cdot V'\big(s(\hat{θ})\big)\cdot s'(\hat{θ}) - T'(\hat{θ})|_{\hat{θ}=θ} \overset{!}{=}0\end{aligned}$$
+$$\begin{aligned}U(θ) &= \max_{\hat{θ}} \ θ\cdot V\big(s(\hat{θ})\big) - T(\hat{θ})\\
+U'(θ) &= V\big(s(θ)\big) + \Big(\underbrace{θ\cdot V'\big(s(\hat{θ})\big)\cdot s'(\hat{θ}) - T'(\hat{θ})}_{FOC}\Big)\frac{d\hat{θ}}{dθ} \\
+&= V\big(s(θ)\big) \geq 0\end{aligned}$$
+$\implies$ (PC) is only binding at $\underline{θ}$, and slack anywhere else  
+$\implies U(\underline{θ}) = 0$  
+therefore,
+$$\begin{aligned}U(θ) &= U(\underline{θ}) + \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du \\
+&= \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du \\
+&= θ\cdot  V\big(s(θ)\big) - T(θ) \\
+T(θ) &= \underbrace{θ\cdot  V\big(s(θ)\big)}_{\text{Surplus}} - \underbrace{\int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du}_{\text{Information rent}}\end{aligned}$$
+- Firm's problem:
+$$\begin{aligned}\max_{T(θ),s(θ)} && \int_{\underline{θ}}^{\bar{θ}} \big(T(θ) -c\cdot s(θ) \big)\cdot f(θ)\, dθ\end{aligned}$$
+plug in $T(θ)$
+$$\begin{aligned}\max_{s(θ)} && &\int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big) - \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du -c\cdot s(θ) \Big)\cdot f(θ)\, dθ \\
+(IC) && &s'(θ)\geq 0\end{aligned}$$
+Let $h'(θ) = V\big(s(θ)\big)$, integration by parts gives
+$$\begin{aligned}&\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} \Big(\underbrace{\int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du}_{h(θ)}  \Big)\cdot \underbrace{f(θ)}_{F'(θ)}\, dθ \\
+&= \Big(\int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du\Big) \cdot F(θ)\Big|_{\underline{θ}}^{\bar{θ}} - \int_{\underline{θ}}^{\bar{θ}} V\big(s(θ)\big)\cdot F(θ)\, dθ \\
+&= \int_{\underline{θ}}^{\bar{θ}} V\big(s(u)\big)\, du\cdot 1- \int_{\underline{θ}}^{\bar{θ}} V\big(s(u)\big)\, du \cdot F(θ) \\
+&= \int_{\underline{θ}}^{\bar{θ}} V\big(s(u)\big)\cdot \big(1-F(θ)\big)\, du\end{aligned}$$
+plug back into firm's problem
+$$\begin{aligned}\max_{s(θ)} && &\phantom{\ggg}\int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big) - \int_{\underline{θ}}^{θ} V\big(s(u)\big)\, du -c\cdot s(θ) \Big)\cdot f(θ)\, dθ \\
+&& &= \int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big)-c\cdot s(θ) \Big)\cdot f(θ)\, dθ - \int_{\underline{θ}}^{\bar{θ}} V\big(s(θ)\big)\cdot \big(1-F(θ)\big)\, dθ \\
+&& &= \int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big)-c\cdot s(θ) \Big)\cdot f(θ)\, dθ - \int_{\underline{θ}}^{\bar{θ}} V\big(s(θ)\big)\cdot \big(\frac{1-F(θ)}{f(θ)}\big)\, f(θ)dθ \\
+&& &= \int_{\underline{θ}}^{\bar{θ}} \Big(θ\cdot  V\big(s(θ)\big)-c\cdot s(θ) - V\big(s(θ)\big)\cdot \frac{1-F(θ)}{f(θ)} \Big)\cdot f(θ)\, dθ\end{aligned}$$
+$$\begin{aligned}FOC && \frac{\partial}{\partial s(θ)} = θ\cdot V'(s(θ)) - c - V'(s(θ)) \cdot\frac{1-F(θ)}{f(θ)} &\overset{!}{=} 0 \\
+&& \Big( θ\cdot V'\big(s(θ)\big) - c\Big) f(θ) &= V'\big(s(θ)\big) \cdot \big(1-F(θ)\big) \\
+&& \frac{θ\cdot V'\big(s(θ)\big) - c}{V'\big(s(θ)\big)} &= \frac{\big(1-F(θ)\big)}{f(θ)} \end{aligned}$$
+
+
+## Moral Hazard
+
+CT Ch4
+
+- Outcome: $q\in\{0,1\}$
+    - $Pr(q=1\ |\ a) = p(a)$
+    - $p(0)=0$, $p(\infty)=1$
+    - $p'>0$, $p''<0$
+- Principal's utility: $V(q-w)$
+    - $V'>0$, $V''\leq 0$
+- Agent's utility: $u(w) - a$
+
+### First Best
+
+- Assumption: $a$ is observable  
+$\implies$ can write contract on effort: $\begin{cases}w_0 & a=a^*\text{, fail} \\ w_1 &a=a^*\text{, success} \\ K\to 0 & a\neq a^* \end{cases}$
+- Social planner's problem:
+$$\begin{aligned}\max_{a,w_i} && &p(a)\cdot V(1-w_1) + \big(1-p(a)\big)\cdot V(0-w_0) \\
+(PC) && &p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a\geq 0\end{aligned}$$
+let (PC) be binding, Lagrangian function:
+$$\begin{aligned}\mathcal{L} &= p(a)\cdot V(1-w_1) + \big(1-p(a)\big)\cdot V(0-w_0) \\
+&\phantom{\ggg} +λ\Big(p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a \Big) \\
+\frac{\partial\mathcal{L}}{\partial w_1} &= p(a)\cdot V'(1-w_1)\cdot (-1) + λ\cdot p(a)\cdot u'(w_1) \overset{!}{=} 0 \\
+\frac{\partial\mathcal{L}}{\partial w_0} &= \big(1-p(a)\big)\cdot V'(-w_0)\cdot (-1) + λ\cdot\big(1-p(a)\big)\cdot u'(w_0) \overset{!}{=} 0 \\
+\frac{\partial\mathcal{L}}{\partial a} &= p'(a)\cdot\big(V(1-w_1) - V(-w_0) \big) + λ\Big(p'(a)\cdot\big(u(w_1) - u(w_0)\big) - 1\Big) \overset{!}{=} 0\end{aligned}$$
+$\frac{\partial\mathcal{L}}{\partial w_1}$ and $\frac{\partial\mathcal{L}}{\partial w_0}$ give
+$$\begin{aligned}V'(1-w_1) &= λ\cdot u'(w_1) \\
+V'(-w_0) &= λ\cdot u'(w_0) \\
+λ = \frac{V'(1-w_1)}{u'(w_1)} &= \frac{V'(-w_0)}{u'(w_0)} \\
+\frac{V'(1-w_1)}{V'(-w_0)} &= \frac{u'(w_1)}{u'(w_0)} \\
+\text{Principal's } MRS &= \text{Agent's } MRS\end{aligned}$$
+$\frac{\partial\mathcal{L}}{\partial a}$ gives
+$$\begin{aligned}p'(a)\cdot\big(V(1-w_1) - V(-w_0) \big) + λ\Big(p'(a)\cdot\big(u(w_1) - u(w_0)\big) - 1\Big) &= 0 \\
+p'(a)\cdot\big(V(1-w_1) - V(-w_0) \big) + λp'(a)\cdot\big(u(w_1) - u(w_0)\big) - λ &= 0 \\
+p'(a)\cdot\big(V(1-w_1) - V(-w_0) + λu(w_1) - λu(w_0)\big) &= λ\end{aligned}$$
+$$p'(a) = \frac{V'(1-w_1)\cdot V'(-w_0)}{V'(-w_0)\cdot\big(V(1-w_1)\cdot u(w_1)\big)' - V'(1-w_1)\cdot\big(V(-w_0)\cdot u(w_0)\big)'}$$
+
+### Second Best
+
+- Assumption: $a$ is unobservable
+- Principal's problem:
+$$\begin{aligned}\max_{w_i} && &p(a)\cdot V(1-w_1) + \big(1-p(a)\big)\cdot V(0-w_0) \\
+(PC) && &p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a\geq 0 \\
+(IC) && &a\in\max_{\hat{a}} \ p(\hat{a})\cdot u(w_1) + \big(1-p(\hat{a})\big)\cdot u(w_0) - \hat{a} \end{aligned}$$
+solve (IC) (agent's maximization problem):
+$$\begin{aligned}FOC && p'(a)\cdot \big( u(w_1) -u(w_0)\big)-1 \overset{!}{=} 0 \end{aligned}$$
+plug back into principal's problem: 
+$$\begin{aligned}\max_{w_i} && &p(a)\cdot V(1-w_1) + \big(1-p(a)\big)\cdot V(0-w_0) \\
+(PC) && &p(a)\cdot u(w_1) + \big(1-p(a)\big)\cdot u(w_0) - a\geq 0 \\
+(IC)' && &p'(a)\cdot \big( u(w_1) -u(w_0)\big)-1 = 0 \end{aligned}$$
+
+> PS4.Q1  
+> Consider a principal-agent problem with three exogenous states of nature, $θ_1$, $θ_2$ and $θ_3$; two possible effort levels $a_L$ and $a_H$; and two output levels, distributed as follows as a function of state of nature and the effort level: 
+> 
+> | State of nature    | $θ_1$ | $θ_2$ | $θ_3$ |
+> | ------------------ | ----- | ----- | ----- |
+> | Probability        | 0.25  | 0.5   | 0.25  |
+> | Output under $a_H$ | 18    | 18    | 1     |
+> | Output under $a_L$ | 18    | 1     | 1     |
+> 
+> The principal is risk neutral, while the agent has a utility function: 
+> $$u(w,a) = \sqrt{w} - c(a)$$
+> where $c(a_L) = 0$ and $c(a_H) = 0.1$.  
+> The agent's outside option is worth 0.1 to him.
+> 
+> 1. Derive the first-best contract.
+> 2. Derive the second-best contract when only output levels are observable.
+> 3. Assume that the principal can buy an information system for a price of $0.1$, that allows the parties to verify whether state of nature $θ_3$ happened or not.  
+> Will the principal by this information system? Discuss.
+
+1. First best  
+Let the contract be $w$, desired effort be $a_H$  
+Social planner's problem:
+$$\begin{aligned}\max_{a,w_i} && &0.75\cdot 18 + 0.25\cdot 1 - w \\
+(PC) && &\sqrt{w} - 0.1 \geq 0.1\end{aligned}$$
+Let (PC) be binding, 
+$$\begin{aligned}\sqrt{w} - 0.1 &= 0.1 \\
+w &= 0.2^2 = 0.04 \end{aligned}$$
+<!-- 
+(Correct but far too complicated)
+Let the contract be $w =\begin{cases}w_1 & a=a_H, q=18 \\ w_0 & a=a_H, q=1 \\ K & a=a_L \end{cases}$  
+Let $Pr(q = 18|a) = p(a)$, we know $p(a_H) = 0.75$, $p(a_L) = 0.25$  
+Let the desired effort be $a_H$, social planner's problem:
+$$\begin{aligned}\max_{a,w_i} && &0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+(PC) && &0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.1 \end{aligned}$$
+Let (PC) be binding, the Lagrangian can be written as
+$$\begin{aligned}\mathcal{L} &= 0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) + λ\cdot\Big(0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.2 \Big) \\
+\frac{\partial\mathcal{L}}{\partial w_1}&= -0.75 + λ\cdot 0.75\cdot \frac{1}{2}\cdot w_1^{-\frac{1}{2}} \overset{!}{=}0 \\
+λ &= 2 \sqrt{w_1}\\
+\frac{\partial\mathcal{L}}{\partial w_1}&= -0.25 + λ\cdot 0.25\cdot\frac{1}{2}\cdot w_0^{-\frac{1}{2}} \overset{!}{=}0 \\
+λ &= 2 \sqrt{w_0} \end{aligned}$$
+Therefore, $w_0 = w_1$
+$$\begin{aligned}0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1 &= 0.1 \\
+\sqrt{w_1} = \sqrt{w_0} &= 0.2 \\
+w_1 = w_0 &= 0.04\end{aligned}$$
+ -->
+2. Second best  
+Let the contract be $w =\begin{cases}w_1 & q=18 \\ w_0 & q=1\end{cases}$  
+Principal's problem:
+$$\begin{aligned}\max_{a,w_i} && &0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+(PC) && &0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.1 \\
+(IC) && &0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1\geq 0.25\cdot\sqrt{w_1} + 0.75\cdot\sqrt{w_0}\end{aligned}$$
+Simplifying (IC) and let it be binding
+$$\begin{aligned}\sqrt{w_1} - \sqrt{w_0} &= 0.2 \\
+\sqrt{w_1} &= \sqrt{w_0} + 0.2\end{aligned}$$
+Plug into (PC)
+$$\begin{aligned}0.75\cdot\sqrt{w_1} + 0.25\cdot\sqrt{w_0} - 0.1 &= 0.1 \\
+0.75\cdot(\sqrt{w_0} + 0.2) + 0.25\cdot\sqrt{w_0} &= 0.2 \\
+\sqrt{w_0} &= 0.05 \\
+w_0 &= 0.0025\end{aligned}$$ 
+therefore,
+$$\begin{aligned}\sqrt{w_1} &= 0.05 + 0.2 \\
+w_1 &= 0.0625 \end{aligned}$$
+3. Information system  
+Pricipal's payoff from second best contract:
+$$\begin{aligned} &\phantom{\ggg}0.75\cdot(18 - w_1 ) + 0.25\cdot(1 - w_0) \\
+&= 0.75\cdot(18 - 0.0625 ) + 0.25\cdot(1 - 0.0025) \\
+&= 13.7025\end{aligned}$$
+Pricipal's payoff from first best contract:
+$$\begin{aligned} &\phantom{\ggg}0.75\cdot 18 + 0.25\cdot 1 - w \\
+&= 0.75\cdot 18 + 0.25\cdot 1 - 0.04 \\
+&= 13.71\end{aligned}$$
+Since $13.71 - 13.7025 = 0.0075 < 0.1$,  
+the principal would not buy the system
+
+> PS4.Q3  
+> Consider an insurance market subject to moral hazard.  
+> A consumer has von-Neumann-Morgenstern utility of wealth $u (w) = \sqrt{w}$.  
+> The initial endowment of wealth is 100.  
+> There are two possible loss levels, either $l = 0$ or $l = 51$.  
+> The probability distribution over the loss levels depends on an effort level $e$ chosen by the consumer as follows
+> 
+> |       | $l=0$         | $l=51$        |
+> | ----- | ------------- | ------------- |
+> | $e=0$ | $\frac{1}{3}$ | $\frac{2}{3}$ |
+> | $e=1$ | $\frac{2}{3}$ | $\frac{1}{3}$ |
+> 
+> The cost of effort is zero for $e=0$ and equal to 1 for $e=1$.  
+> Moreover, there is one risk neutral insurance company.
+> 
+> 1. To determine the consumer's reservation utility, suppose he does not buy any insurance.  
+> What effort level does he choose in this case and what is his expected level of utility?
+> 
+> Consider now the design of the insurance scheme.  
+> You can think of insurance as of a payment $α$ from the consumer to the insurance company in case the loss is $l = 0$ and of a payment $β$ from the insurance company to the consumer in case the loss is $l = 51$. 
+> 
+> 2. Write the insurer's expected profit in terms of $α$ and $β$.  
+> Now, rewrite the insurer's expected profit in terms of the vNM-utility levels offered to the consumer in each state, using $u^2 = w$. 
+> 3. Suppose information is symmetric, that is the effort level of the consumer is observable.  
+> Characterize the optimal insurance scheme.
+> 4. Suppose now information is asymmetric, that is effort is not observable.  
+> Characterize the optimal insurance scheme.
+> 5. In which of the situations (3) or (4) does the insurance company make higher profits? Discuss.
+
+1.  When the consumer does not buy insurance, he pays 0 for whatever event  
+$$\begin{aligned}\text{Utility of }e=0 && \frac{1}{3}\sqrt{100-0} + \frac{2}{3}\sqrt{100-51} &= 8 \\
+\text{Utility of }e=1 && \frac{2}{3}\sqrt{100-0} + \frac{1}{3}\sqrt{100-51} - \frac{1}{3} &= 8+\frac{2}{3} \end{aligned}$$
+Since $8+\frac{2}{3}> 8$, consumer prefers $e=1$,  
+his reservation utility is $8+\frac{2}{3}$
+2. Assume when consumer chooses $e$, $Pr(l=51)=p$  
+Let consumer's wealth with insurance be $\begin{cases}w_1 = 100-α & l=0 \\ w_2 = 49+β & l=51 \end{cases}$  
+Insurer's expected profit:
+$$\begin{aligned}π &= (1-p)α - p\cdot β \\
+&= (1-p)\cdot(100 - w_1) - p(49-w_2) \\
+&= (1-p)100- p\cdot 49 + (1-p)w_1 + p\cdot w_2 \\
+&= (1-p)100- p\cdot 49 + (1-p)u^2(w_1) + p\cdot u^2(w_2)  \end{aligned}$$
+3. Symmetric information  
+The desired level of effort is $e=1$  
+Let the contract with $e=1$ be $(α,β)$  
+Firm's problem:
+$$\begin{aligned}\max_{α,β} && &α - \frac{1}{3}(α + β) \\
+(PC) && &\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3} \geq 8+\frac{2}{3} \end{aligned}$$
+<!-- 
+Let (PC) be binding, 
+$$\begin{aligned}\frac{2}{3}\cdot u(w-α) + \frac{1}{3}\cdot u(w-51+β) - \frac{1}{3} &= 8+\frac{2}{3} \\
+2 u(w-α) + u(w-51+β)  &= 27 \\
+u(w-51+β) &= 27 - 2 u(w-α) \end{aligned}$$
+Plug into firm's problem
+$$\begin{aligned}π &= α - \frac{1}{3}(α + β) \\
+&= u^2(w) - (1-p)\cdot u^2(w_1) - p\cdot u^2(w_2) - 51p \\
+&= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot u^2(w-51+β) - 51p \\
+&= u^2(w) - (1-p)\cdot u^2(w-α) - p\cdot \big(27 - 2 u(w-α)\big)^2 - 51p \\\end{aligned}$$
+FOC yields
+$$\begin{aligned}\frac{\partial π}{\partial α} &= -(1-p)\cdot 2u(w-α)\cdot(-1) \\
+&\phantom{\ggg}- 2p\cdot\big(27-2u(w-α)\big)\cdot(-2)\cdot(-1)\overset{!}{=} 0 \\
+&= 2(1-p)\cdot u(w-α) - 4p\cdot\big(27-2u(w-α)\big) \\
+u(w-α) &= \frac{54p}{1+3p} \\
+u(w-51+β) &= \frac{27(1-p)}{1+3p}\end{aligned}$$
+ -->
+4. Asymmetric information  
+Firm's problem:
+$$\begin{aligned}\max_{α,β} && &α - \frac{1}{3}(α + β) \\
+(PC) && &\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3}\geq 8+\frac{2}{3} \\
+(IC) && &\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3}\geq \frac{1}{3}\cdot u(100-α) + \frac{2}{3}\cdot u(49+β) \end{aligned}$$
+Let (IC) be binding,
+$$\begin{aligned}\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3} &= \frac{1}{3}\cdot u(100-α) + \frac{2}{3}\cdot u(49+β) \\
+2\cdot u(100-α) + u(49+β) - 1 &= u(100-α) + 2\cdot u(49+β) \\
+u(100-α)  - 1 &= u(49+β) \end{aligned}$$
+Let (PC) be binding,
+$$\begin{aligned}\frac{2}{3}\cdot u(100-α) + \frac{1}{3}\cdot u(49+β) - \frac{1}{3} &= 8+\frac{2}{3} \\
+2\cdot u(100-α) + u(49+β) - 1 &= 24 + 2 \\
+2\cdot u(100-α) + \big(u(100-α)  - 1\big) - 1 &= 24 + 2 \\
+3\cdot u(100-α) &= 28 \\
+u^*(100-α) &= \frac{28}{3} \\
+u^*(49+β) &= \frac{25}{3}\end{aligned}$$
+5. Firm's profit with symmetric information:
+$$\begin{aligned}π &= (1-p)100- p\cdot 49 + (1-p)u^2(w_1) + p\cdot u^2(w_2) \end{aligned}$$
+Firm's profit with asymmetric information:
+$$\begin{aligned}π &= (1-p)100- p\cdot 49 + (1-p)u^2(w_1) + p\cdot u^2(w_2) \\
+&= \frac{2}{3}\cdot\big( 100 - (\frac{28}{3})^2\big) + \frac{1}{3}\cdot \big( 49 - (\frac{25}{3})^2\big)\\
+&= \frac{16}{9}\end{aligned}$$
+
+### Risk Neutral Parties & Unlimited Liability
+
+- RN assumptions: $V(x) = x$, $u(w) = w$
+- Principal's problem:
+$$\begin{aligned}\max_{a,w_i} && &p(a)\cdot (1-w_1) + \big(1-p(a)\big)\cdot (0-w_0) \\
+(PC) && &p(a)\cdot w_1 + \big(1-p(a)\big)\cdot w_0 - a\geq 0 \\
+(IC) && &a\in\max_{\hat{a}} \ p(\hat{a})\cdot w_1 + \big(1-p(\hat{a})\big)\cdot w_0 - \hat{a} \end{aligned}$$
+Let (PC) be binding,
+$$\begin{aligned}p(a)\cdot w_1 + \big(1-p(a)\big)\cdot w_0 - a &= 0 \\
+p(a)\cdot (-w_1) + \big(1-p(a)\big)\cdot (-w_0) &= -a \\
+p(a)\cdot (1-w_1) + \big(1-p(a)\big)\cdot (-w_0) &= p(a)-a\end{aligned}$$
+plug into principal's problem
+$$\begin{aligned}\max_{a} && p(a)-a &\phantom{\ggg} \\
+FOC && p'(a) - 1 &\overset{!}{=} 0 \\
+&& p'(a^*) &= 1\end{aligned}$$
+Plug into (IC) (agent's maximization problem) gives:
+$$\begin{aligned}\max_{a} && p(a)\cdot w_1 + \big(1-p(a)\big)\cdot w_0 &- a \\
+FOC && p'(a^*)\cdot ( w_1 -w_0)-1 &\overset{!}{=} 0 \\
+&& w_1 -w_0 &= 1 \end{aligned}$$
+plug into (PC)
+$$\begin{aligned}p(a^*)\cdot (w_0+1) + \big(1-p(a^*)\big)\cdot w_0 &= a^* \\
+p(a^*) + w_0 &= a^* \\
+\underbrace{p(a^*) - a^*}_{\text{Social surplus}} &= -w_0 \end{aligned}$$
+$\implies$ franchise contract with fee $w_0$ obtains first best soluition  
+$a^* = a^{FB}$
+
+### Risk Neutral Parties & Limited Liability
+
+- RN assumptions: $V(x) = x$, $u(w) = w$
+- LL assumptions: $w_1\geq w_0\geq 0\implies w_0=0$
+- Principal's problem becomes: 
+$$\begin{aligned}\max_{a,w_1} && &p(a)(1-w_1) \\
+(PC) && &p(a)\cdot w_1 - a\geq 0 \\
+(IC) && &a\in\text{argmax}_{\hat{a}} \ p(\hat{a})\cdot w_1 - \hat{a} \end{aligned}$$
+(PC) is slack under (IC)  
+Solving (IC) (agent's maximization problem):
+$$\begin{aligned}\max_{a} && p(a)\cdot w_1 &- a \\
+FOC && p'(a^*)\cdot w_1 -1 &\overset{!}{=} 0 \\
+&& p'(a^*)\cdot w_1 &= 1 \\
+&& w_1 &= \frac{1}{p'(a^*)}\end{aligned}$$
+Plugging into principal's problem gives unconstrained problem:
+$$\begin{aligned}\max_{a} && p(a)\big(1-\frac{1}{p'(a)}\big)& \\
+FOC && p'(a^{**}) - \frac{\big(p'(a^{**})\big)^2 - p''(a^{**})\cdot p(a^{**})}{\big(p'(a^{**})\big)^2} &\overset{!}{=} 0 \\
+&& p'(a^{**}) = 1-\frac{p''(a^{**})\cdot p(a^{**})}{\big(p'(a^{**})\big)^2} &< 1\end{aligned}$$
+Therefore, $a^{**} < a^{FB}$ 
+
+## Moral Hazard: Constant Absolute Risk Aversion (CARA)
+
+CT 4.2
+
+- Principal's utility: (RN) $V(x) = x$
+- Agent's utility: (RA) $$u(w,a) = -\exp\Big(-r\cdot\big(w-g(a)\big)\Big)$$
+    - Cost of effort: $g(a) = \frac{c}{2}a^2$
+    - Risk aversion coefficient: $r=-\frac{u''}{u'}$
+    - Effort: $a$
+    - Performance: $q=a+ε$  
+    $ε\sim\mathcal{N}(0,σ^2)\implies q\sim\mathcal{N}(a,σ^2)$
+    - pdf of $q$: $f(q|a)$
+    - Likelihood ratio:
+    $$\begin{aligned}f(q|a) &= \frac{1}{\sqrt{2πσ}}\cdot\exp\Big(- \frac{(q-a)^2}{2σ^2}\Big)\\
+    \frac{f_a(q|a)}{f(q|a)} &= \frac{q-a}{σ^2} \\
+    &\in (-\infty, \infty)\end{aligned}$$
+
+### Linear Contract
+
+- Contract: $$w = β + αq$$
+    - Efficient incentive (all risk on agent): $α = 1$
+    - Efficient risk-sharing (all risk on principal, flat wage): $α = 0$
+- Principal's problem:
+$$\begin{aligned}\max_{a, α,β} && &\phantom{\ggg}E[ q-w] \\
+&& &= E\big[q - (β + αq) \big] \\
+&& &= E\big[(1-α)q - β\big] \\
+&& &= a(1-α) - β \\
+(PC) && &E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg]\geq -\exp(-r\cdot 0) \\
+(IC) && &a\in\text{argmax}_{\hat{a}} \ E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(\hat{a})\big)\Big) \bigg]\end{aligned}$$
+Solving (IC) (agent's maximization problem) gives
+$$\begin{aligned}\max_a && &\phantom{\ggg}E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg] \\
+&& &= -E\bigg[\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big)\bigg] \\
+&& &= -E\bigg[\exp\Big(-r\cdot\big(β + rαa + αε - g(a)\big)\Big)\bigg] \\
+&& &= -E\big[\exp(-r\cdot αε)\big]\cdot\exp\Big(-r\cdot\big(β + αa - g(a)\big)\Big) \\
+&& &= -\exp\Big(\frac{r^2α^2σ^2}{2}\Big)\cdot\exp\Big(-r\cdot\big(β + αa - g(a)\big)\Big) \\
+&& &= -\exp\Big(-r\cdot\big(\underbrace{\frac{-rα^2σ^2}{2} - g(a) +β +αa}_{\text{Certainty equivalent compensation}}\big)\Big) \end{aligned}$$
+since $-\exp(\cdot)$ is decreasing, let 
+$$\begin{aligned}\hat{w}(a) &= \frac{-rα^2σ^2}{2}- g(a) +β +αa  \\
+\hat{w}'(a) &= -g'(a) + α \\
+&=-\frac{1}{2}\cdot 2ac + α \overset{!}{=} 0 \\
+a^* &= \frac{α}{c} \end{aligned}$$
+let (PC) be binding: 
+$$\begin{aligned}E\bigg[-\exp\Big(-r\cdot\big(β + αq - g(a)\big)\Big) \bigg]&= -\exp(-r\cdot 0) \\
+-\exp\Big(-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big)\Big) &= -\exp(-r\cdot 0) \\
+-r\cdot\big(\frac{-rα^2σ^2}{2} - g(a) +β +αa\big) &= -r\cdot 0 \\
+\frac{-rα^2σ^2}{2} - g(a)+β +αa &= 0 \\
+\frac{-rα^2σ^2 - a^2c}{2} +αa &= -β \end{aligned}$$
+plug back into principal's problem:
+$$\begin{aligned}\max_{a, α} && &\phantom{\ggg}a(1-α) - β\\
+&& &= a(1-α) + \frac{-rα^2σ^2 - a^2c}{2} +αa \\
+&& &= a + \frac{-rα^2σ^2 - a^2c}{2} \end{aligned}$$
+plug in $a^*$ gives unconstrained problem:
+$$\begin{aligned}\max_{α} && &\phantom{\ggg}\frac{α}{c} + \frac{-rα^2σ^2 - (\frac{α}{c})^2c}{2} \\
+&& &=\frac{α}{c} - \frac{α^2}{2c} - \frac{rα^2σ^2}{2} \\
+FOC && &\frac{1}{c} - 2\cdot\frac{α}{2c} - 2\cdot\frac{rασ^2}{2}\overset{!}{=} 0 \\
+&& &α^* = \frac{1}{1+crσ^2} < 1\end{aligned}$$
+$\implies$ less than efficient incentive
+- When effort is observable ($q=a$),  
+principal's problem:
+$$\begin{aligned}\max_{a, α,β} && &\phantom{\ggg} a - (β + αa) \\
+&& &= (1-α)a - β \\
+(PC) && &\frac{-rα^2 - a^2c}{2}+β +αa = 0\end{aligned}$$
+plug in
+$$\begin{aligned}\max_{a, α} && &\phantom{\ggg} (1-α)a + \frac{-rα^2 - a^2c}{2} +αa \\
+&& &= a + \frac{-rα^2 - a^2c}{2} \\
+FOC && &\frac{\partial}{\partial a} = 1 - 2\cdot \frac{ca}{2}\overset{!}{=} 0 \\
+&& &a^{**} = \frac{1}{c} \\
+&& &\frac{\partial}{\partial α} = -2\cdot\frac{rα}{2}\overset{!}{=} 0 \\
+&& &α^{**} = 0\end{aligned}$$
+$\implies$ efficient risk-sharing
+
+> PS4.Q2  
+> Consider the following contracting problem between a risk neutral principal and a risk averse agent.  
+> The agent has utility function 
+> $$u(w,a) = -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)$$
+> where $w$ is income, $a$ is effort, $ρ>0$ is the coefficient of absolute risk aversion and $c > 0$ is a cost parameter.  
+> Suppose the agent's effort affects output in periods 1, 2 according to
+> $$\begin{aligned}q_1 &= a + ε_{q_1} \\ q_2 &= a + ε_{q_2} \end{aligned}$$
+> where $ε_{q_i}\overset{iid}{\sim}\mathcal{N}(0,σ_q^2)$.  
+> The agent retires at the end of period one, so that his pay cannot be made contingent directly on $q_2$.  
+> However, the agent's pay can depend on the stock price:
+> $P = 2a + ε_P$ 
+> where $ε_{P}\sim\mathcal{N}(0,σ_P^2)$.  
+> 
+> 1. Derive the optimal compensation contract within the class of linear compensation schemes of the form:
+> $$w = α+ f\cdot q_1 + s\cdot P$$
+> To do this, you need to compute the variance of a linear combination of normally distributed random variables.  
+> Note that $ε_P$ and $ε_{q_i}$ need not be independent.  
+> 2. Discuss how the solution depends on the correlation between the noise terms.  
+> How does the optimal level of $f$ compare to the optimal level of $s$ if the noise terms are independent?
+
+1. Optimal linear contract  
+$$\begin{aligned}w &= α+ f\cdot q_1 + s\cdot P\\
+E[w] &= E\big[α + f\cdot (a + ε_{q_1}) + s\cdot (2a + ε_P)\big] \\
+&= α + fa + 2sa \\
+Var(w) &= E\big[(w - E[w])^2\big] \\
+&= E\big[(fε_{q_1} + sε_P)^2\big] \\
+&= f^2σ_{q_1}^2 + s^2σ_P^2 + 2fs\underbrace{σ_{qP}}_{Corr(qP)}\end{aligned}$$
+(IC): (Certainty equivalent of agent):
+$$\hat{w} = -\exp\Big( -ρ\big(- \frac{ρ}{2}(f^2σ_{q_1}^2 + s^2σ_P^2 + 2fsσ_{qP}) + (α + fa + 2sa) - \frac{1}{2}ca^2\big)\Big)$$
+$a^*$ solves maximizing (IC):
+$$\begin{aligned}\max_{\hat{a}} && &-ρ\big(α + fa + 2sa - \frac{1}{2}ca^2\big)\\
+&& &a^* = \frac{f+2s}{c}\end{aligned}$$
+Let (PC) be binding, substitude $a^*$ gives
+$$\begin{aligned}f^* &= \frac{σ^2_P - 2σ_{qP}}{2σ^2_q + \frac{1}{2}σ^2_P + ρc(σ^2_Pσ^2_q - σ^2_{qP})} \\
+s^* &= \frac{2σ^2_q - σ_{qP}}{2σ^2_q + \frac{1}{2}σ^2_P + ρc(σ^2_Pσ^2_q - σ^2_{qP})} \end{aligned}$$
+1. My solution  
+Principal's problem:
+$$\begin{aligned}\max_{α,f,s} && &\phantom{\ggg} E[q_1 + q_2 - w] \\
+&& &= E\big[(a + ε_{q_1}) + (a + ε_{q_2}) - (α+ f\cdot q_1 + s\cdot P)\big] \\
+&& &= E\big[ 2a + ε_{q_1} + ε_{q_2} - α - f\cdot (a + ε_{q_1}) - s\cdot (2a + ε_P)\big] \\
+&& &= E\big[ 2a + ε_{q_1} + ε_{q_2} - α - fa - fε_{q_1} - 2sa - sε_P\big] \\
+&& &= E\big[ a(2 - f - 2s)- α + ε_{q_1}(1-f) + ε_{q_2} - sε_P\big] \\
+&& &= a(2 - f - 2s)- α \end{aligned}$$
+s.t. 
+$$\begin{aligned}(PC) && &E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)\Big] \geq -\exp(-ρ\cdot 0) \\
+(IC) && &a\in\text{argmax}_{\hat{a}} \ E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}c\hat{a}^2 \big)\Big)\Big] \end{aligned}$$
+(IC) gives agent's problem:
+$$\begin{aligned}\max_a && &\phantom{\ggg}E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&& &= -E\Big[\exp\Big(-ρ\cdot\big( (α+ f\cdot q_1 + s\cdot P) - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&& &= -E\Big[\exp\Big(-ρ\cdot\big( α+ f\cdot (a + ε_{q_1}) + s\cdot (2a + ε_P) - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&& &= -E\Big[\exp\Big(-ρ\cdot\big( α+ fa + fε_{q_1} + 2sa + sε_P - \frac{1}{2}ca^2 \big)\Big)\Big] \\
+&& &= -E\big[\exp\big(-ρ\cdot(fε_{q_1} + sε_P)\big)\big]\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\end{aligned}$$
+since $ε_{q_i}\overset{iid}{\sim}\mathcal{N}(0,σ_q^2)$, $ε_{P}\sim\mathcal{N}(0,σ_P^2)$,  
+$\implies fε_{q_i}\overset{iid}{\sim}\mathcal{N}(0,f^2σ_q^2)$, $sε_{P}\sim\mathcal{N}(0,s^2σ_P^2)$,  
+$fε_{q_1} + sε_P\sim \mathcal{N}(0,f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)$, where $r = Corr(fε_{q_1} , sε_P)$  
+therefore,
+$$\begin{aligned}&\phantom{\ggg}-E\big[\exp\big(-ρ\cdot(fε_{q_1} + sε_P)\big)\big]\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\\
+&= -\exp\big(\frac{ρ^2\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2}\big)\cdot\exp\Big(-ρ\cdot\big(α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\\
+&= -\exp\Big(-ρ\cdot\big(\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big)\end{aligned}$$
+since $-\exp(\cdot)$ is decreasing, let 
+$$\begin{aligned}\hat{w}(a) &= \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2 \\
+\hat{w}'(a) &= f + 2s - ca \overset{!}{=} 0 \\
+a^* &= \frac{f+2s}{c}\end{aligned}$$
+Let (PC) be binding,
+$$\begin{aligned}E\Big[ -\exp\Big(-ρ\cdot\big( w - \frac{1}{2}ca^2 \big)\Big)\Big] &= -\exp(-ρ\cdot 0) \\
+-\exp\Big(-ρ\cdot\big(\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2\big)\Big) &= -\exp(-ρ\cdot 0) \\
+\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + α+ fa + 2sa - \frac{1}{2}ca^2 &= 0 \\
+\frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} + fa + 2sa - \frac{1}{2}ca^2 &= -α \end{aligned}$$
+plug $a^*,α$ into principal's problem gives unconstrained maximization problem:
+$$\begin{aligned}\max_{f,s} && &\phantom{\ggg}a(2 - f - 2s)- α \\
+&& &= a(2 - f - 2s) + \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} \\
+&& &\phantom{\ggg}+ fa + 2sa - \frac{1}{2}ca^2 \\
+&& &= \frac{f+2s}{c}(2 - f - 2s) + \frac{-ρ\cdot(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)}{2} \\
+&& &\phantom{\ggg}+ \frac{(f+2s)^2}{c} - \frac{c}{2}\cdot\big(\frac{f+2s}{c}\big)^2 \\
+&& &= \frac{1}{c}\big(2-\frac{1}{2}f - s\big)(f+2s) - \frac{ρ}{2}(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)\\
+&& &= \frac{1}{c}\big(2f -\frac{1}{2}f^2 - 2sf + 4s - 2s^2\big) - \frac{ρ}{2}(f^2σ_q^2 + s^2σ_P^2 + 2rfσ_qsσ_P)\end{aligned}$$
+FOC gives
+$$\begin{aligned}\frac{\partial}{\partial f}&= \frac{1}{c}(2 - f - 2s) - \frac{ρ}{2}(2fσ_q^2 + 2rσ_qsσ_P) \overset{!}{=}0 \\
+f &= \frac{4 - 4s - 2crsρσ_qσ_P}{2 + 2cρσ_q^2} \\
+\frac{\partial}{\partial s}&= \frac{1}{c}(-2f + 4 - 4s) - \frac{ρ}{2}(2sσ_P^2 + 2rfσ_qσ_P)\overset{!}{=}0 \\
+f &= \frac{8-8s-2csρσ_P^2}{4+2rcρσ_qσ_P}\\
+s &= \frac{-2rσ_qσ_P + 4σ_q^2}{r(-4σ_qσ_P - cρσ_q^2σ_P^2)+ σ_P^2 + 4σ_q^2 + cρσ_q^2σ_P^2} \end{aligned}$$
+2. When noises are independent, and $σ^2_q = σ^2_P$,
+$\implies s^* = 2f^*$  
+The ratio of diversification is the same as in the ratio of effort in output and stock price.
+
+### Step Contract
+
+CT 4.3  
+[Mirrlees (1975)](https://www.jstor.org/stable/pdf/2566946.pdf)  
+[Monotone likelihood ratio \- Wikipedia](https://en.wikipedia.org/wiki/Monotone_likelihood_ratio)
+
+- Assumptions
+    - Monotone likelihood ratio property (MLRP)
+    $$\begin{aligned}\frac{f_a(q|a)}{f(q|a)} &= \frac{q-a}{σ^2} \\
+    \frac{\partial}{\partial q}\frac{f_a(q|a)}{f(q|a)} &\geq 0 \end{aligned}$$
+    - $\lim_{q\to -\infty}\frac{f_a(q|a)}{f(q|a)} = -\infty$
+- Step contract: $w=\begin{cases}w^* & q\geq\underline{q} \\ K & q<\underline{q} \end{cases}$ where $K$ is very small
+- When implementing $a=a^*$, Principal's problem:
+$$\begin{aligned}\max_{K, w^*} && &E[q - w] \\
+(PC) && &\int_{-\infty}^{\underline{q}}u(K)\cdot f(q|a^*)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f(q|a^*)\, dq - g(a^*) \\
+&& &\geq\int_{-\infty}^{\infty} u(w^*)\cdot f(q|a^*)\, dq \\
+(IC) && &a^*\in\text{argmax}_{\hat{a}} \ \int_{-\infty}^{\underline{q}}u(K)\cdot f(q|a)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f(q|a)\, dq - g(a)\end{aligned}$$
+- Why not: ?? why (PC)??
+$$\begin{aligned}\text{Proposed }(PC) && &\int_{-\infty}^{\underline{q}}u(K)\cdot f(q|a^*)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f(q|a^*)\, dq - g(a^*) \\
+&& &\geq \int_{-\infty}^{\underline{q}}u(K)\cdot f(q|0)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f(q|0)\, dq - g(0) \end{aligned}$$
+- To induce first best effort level $a^*$,  
+set $K$ be s.t. (IC) (agent's maximization problem):
+$$\begin{aligned}\max_{\hat{a}} && &\int_{-\infty}^{\underline{q}}u(K)\cdot f(q|a)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f(q|a)\, dq - g(a) \\
+FOC && &\int_{-\infty}^{\underline{q}}u(K)\cdot f_a(q|a^*)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f_a(q|a^*)\, dq \overset{!}{=} g'(a^*) \end{aligned}$$
+Let (PC) be binding, it is violated by
+$$\begin{aligned}&\phantom{\ggg}\int_{-\infty}^{\infty} u(w^*)\cdot f(q|a^*)\, dq \\
+&\phantom{\ggg} - \Big[ \int_{-\infty}^{\underline{q}} u(K)\cdot f(q|a^*)\, dq + \int_{\underline{q}}^{\infty} u(w^*)\cdot f(q|a^*)\, dq \Big] \\
+&=\int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f(q|a^*)\, dq >0 \\
+&\overset{?}{\to} 0\end{aligned}$$
+By assumption, for any $M$, exists some $\underline{q}$ s.t. for all $q<\underline{q}$, 
+$$\begin{aligned}\frac{\partial}{\partial q}\frac{f_a(q|a)}{f(q|a)} &\geq 0 \\
+\lim_{q\to -\infty}\frac{f_a(q|a)}{f(q|a)} &= -\infty \\
+\implies \frac{f_a(q|a)}{f(q|a)} &< -M \\
+f(q|a) &< -\frac{1}{M}\cdot f_a(q|a) \\
+\int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f(q|a^*)\, dq &< -\frac{1}{M}\cdot \int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f_a(q|a^*)\, dq \\
+&< -\frac{1}{M}\cdot\Big( \int_{-\infty}^{\underline{q}} u(w^*)\cdot f_a(q|a^*)\, dq - g'(a^*)\Big) \end{aligned}$$
+choose $M$ large enough, then we have 
+$$\int_{-\infty}^{\underline{q}}\big( u(w^*) - u(K) \big)\cdot f(q|a^*)\, dq >0 \overset{?}{\to} 0$$
+
+
+### First Order Approach
+
+CT 4.4  
+[Ian Jewitt (1988)](https://www.jstor.org/stable/pdf/1911363.pdf)  
+[Stochastic dominance \- Wikipedia](https://en.wikipedia.org/wiki/Stochastic_dominance)
+
+- Principal's utility (RA): $V(q-w)$
+    - $V'>0$, $V''<0$
+- Agent's utility (RA): $u(w) - g(a)$
+    - $u'>0$, $u''<0$
+    - $g'>0$, $g''>0$
+    - Output: $q\in[\underline{q},\bar{q}]$
+    - cdf: $F(q|a)$
+    - pdf: $f(q|a)$
+    - Non-moving support: $F(\bar{q}|a) = 1$, $F(\underline{q}|a) = 0$ are independent with $a$  
+    $\implies F_a(q|a)\Big|_{\underline{q}}^{\bar{q}} = 0$
+- Assumptions
+    - Convexity of the distribution function condition (CDFC): $$F_{aa}(q|a)\geq 0$$
+    - Monotone likelihood ratio property (MLRP) $$\frac{\partial}{\partial q}\frac{f_a(q|a)}{f(q|a)} \geq 0$$
+    - First order stochastic dominance (FOSD): $$\hat{a}>a\implies F(q|\hat{a})\leq F(q|a)$$
+    ![CT Figure 4.1](/post-img/notes-contract--FOSD.png){width=537px}
+    - MLRP $\implies$ FOSD
+- Principal's problem:
+$$\begin{aligned}\max_{w(q),a} && &\int_{\underline{q}}^{\bar{q}}V\big(q-w(q)\big)\cdot f(q|a)\, dq \\
+(PC) && &\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big)\cdot f(q|a)\, dq - g(a) \geq \bar{u} =0 \\ 
+(IC) && &a^*\in\text{argmax}_{\hat{a}} \ \int_{\underline{q}}^{\bar{q}} u\big(w(q)\big)\cdot f(q|\hat{a})\, dq - g(\hat{a}) \end{aligned}$$
+Solving (IC) (agent's maximization problem) gives
+$$\begin{aligned}FOC && &\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq \overset{!}{=} g'(a) \end{aligned}$$
+$$\begin{aligned}&\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} u\big(w(q)\big) \cdot f_a(q|a)\, dq \\
+&= \underbrace{u\big(w(q)\big) \cdot F_a(q|a)}_{\text{Non-moving support}}\Big|_{\underline{q}}^{\bar{q}} - \int_{\underline{q}}^{\bar{q}} u'\big(w(q)\big)\cdot w'(q) \cdot F_a(q|a)\, dq \\
+&= (0 -0) - \int_{\underline{q}}^{\bar{q}} u'\big(w(q)\big)\cdot w'(q) \cdot \underbrace{F_a(q|a)}_{FOSD:\leq 0}\, dq \\
+&= - \int_{\underline{q}}^{\bar{q}} u'\big(w(q)\big)\cdot w'(q) \cdot F_a(q|a)\, dq \end{aligned}$$
+1. Lagrangian
+$$\begin{aligned}\mathcal{L} = \int_{\underline{q}}^{\bar{q}}\Big( V\big(q-w(q)\big)\cdot f(q|a) + λ\big(\underbrace{u(w(q))\cdot f(q|a) - g(a)}_{(PC)}\big) \\
++μ\big(\underbrace{u(w(q))\cdot f_a(q|a) - g'(a)}_{(IC)}\big) \Big)\, dq \end{aligned}$$
+2. Show that $μ>0$
+    - FOC to Lagrangian: 
+    $$\begin{aligned}\frac{\partial\mathcal{L}}{\partial a}\int_{\underline{q}}^{\bar{q}}\Big(V\big(q-w(q)\big)\cdot f_a(q|a) + λ\big(u(w(q))\cdot f_a(q|a) -g'(a)\big)& \\
+    +μ\big(u(w(q))\cdot f_{aa}(q|a) -g''(a)\big)\Big)\, dq &= 0 \end{aligned}$$
+    Let $w^{FB}(q)$ denote first-best wage scheme (PC only),
+    $$\begin{aligned}V'\big(q -w^{FB}(q) \big) &= λ\cdot u'\big(w^{FB}(q)\big) \\
+    \frac{V'\big(q -w^{FB}(q) \big)}{u'\big(w^{FB}(q)\big)} &= λ \end{aligned}$$
+    compare to second best:
+    $$\frac{V'\big(q -w(q) \big)}{u'\big(w(q)\big)} = λ + μ\cdot\frac{f_a(q|a)}{f(q|a)}$$
+    FSOC $μ\leq 0$  
+    $\implies w(q)\leq w^{FB}(q)$ for $q$ s.t. $f_a(q|a)>0$  
+    and $w(q)\geq w^{FB}(q)$ for $q$ s.t. $f_a(q|a)<0$  
+    therefore
+    $$\int_{\underline{q}}^{\bar{q}} V\big(q-w(q)\big)\cdot f_a(q|a)\, dq \geq \int_{\underline{q}}^{\bar{q}} V\big(q-w^{FB}(q)\big)\cdot f_a(q|a)\, dq$$
+    However, using integration by parts,
+    $$\begin{aligned}&\phantom{\ggg}\int_{\underline{q}}^{\bar{q}} V\big(q-w^{FB}(q)\big)\cdot f_a(q|a)\, dq \\
+    &= \underbrace{V\big(q-w^{FB}(q)\big)\cdot F_a(q|a)}_{\text{Non-moving support}}\Big|_{\underline{q}}^{\bar{q}} - \int_{\underline{q}}^{\bar{q}}V'\big(q-w^{FB}(q)\big)\cdot\big(1-w^{FB\prime}(q)\big)\cdot F_a(q|a)\, dq \\
+    &= - \int_{\underline{q}}^{\bar{q}}V'\big(q-w^{FB}(q)\big)\cdot\big(1-w^{FB\prime}(q)\big)\cdot F_a(q|a)\, dq\end{aligned}$$
+    Since $\frac{\partial\mathcal{L}}{\partial a}$ gives
+    $$\begin{aligned}\int_{\underline{q}}^{\bar{q}} V\big(q-w(q)\big)\cdot f_a(q|a) + μ\cdot u\big(w(q)\big)\cdot f_{aa}(a|a) \, dq - g''(a) = 0 \\
+    \underbrace{\int_{\underline{q}}^{\bar{q}} V\big(q-w(q)\big)\cdot f_a(q|a)\, dq}_{>0} = -μ\cdot\underbrace{\int_{\underline{q}}^{\bar{q}}u\big(w(q)\big)\cdot f_{aa}(a|a)\, dq - g''(a)}_{<0} \end{aligned}$$
+    $\implies μ>0$ 
+3. Show MLRP implies $w'(q)\geq 0$
+4. Show MLRP & CDFC $\implies$ FOC applies
+
+
+
+
+

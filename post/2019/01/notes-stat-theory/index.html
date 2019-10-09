@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.57.2" />
+
+<title>Notes on Econometrics - Theory Part - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Econometrics - Theory Part - loikein&#39;s notes">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/post/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">37 min read</span>
+    
+    <h1 class="article-title">Notes on Econometrics - Theory Part</h1>
+    
+    <span class="article-date">2019/01/11</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/r'>R</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#ols-model">OLS Model</a><ul>
+<li><a href="#ols-method">OLS Method</a></li>
+<li><a href="#statistical-model">Statistical Model</a></li>
+<li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
+<li><a href="#linear-loglinear">Linear &amp; Loglinear</a></li>
+<li><a href="#elasticity">Elasticity</a></li>
+</ul></li>
+<li><a href="#ols-estimator">OLS Estimator</a><ul>
+<li><a href="#derive-b">Derive b</a></li>
+<li><a href="#unbiasedness-of-b">Unbiasedness of b</a></li>
+<li><a href="#blue">BLUE</a></li>
+<li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
+</ul></li>
+<li><a href="#normality-assumption">Normality Assumption</a><ul>
+<li><a href="#normality-of-">Normality of ε</a></li>
+<li><a href="#normality-of-b">Normality of b</a></li>
+</ul></li>
+<li><a href="#asymptotic-property">Asymptotic Property</a><ul>
+<li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
+<li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
+<li><a href="#consistency-of-b">Consistency of b</a></li>
+<li><a href="#consistency-of-s2">Consistency of s^2</a></li>
+<li><a href="#asymptotic-nomality">Asymptotic Nomality</a></li>
+</ul></li>
+<li><a href="#data-problems">Data Problems</a><ul>
+<li><a href="#multicollinearity">Multicollinearity</a></li>
+<li><a href="#outliers">Outliers</a></li>
+</ul></li>
+<li><a href="#error-problems">Error Problems</a><ul>
+<li><a href="#heteroskedasticity">Heteroskedasticity</a></li>
+<li><a href="#autocorrelation-serial-correlation">Autocorrelation (Serial Correlation)</a></li>
+<li><a href="#white-hc-standard-error">White (HC) Standard Error</a></li>
+<li><a href="#newey-west-hac-standard-error">Newey-West (HAC) Standard Error</a></li>
+<li><a href="#gls-generalized-least-squares-estimator">GLS (Generalized Least Squares) Estimator</a></li>
+<li><a href="#egls-feasible-estimated-gls-estimator">EGLS (Feasible Estimated GLS) Estimator</a></li>
+<li><a href="#wls-weighted-ls-estimator">WLS (Weighted LS) Estimator</a></li>
+</ul></li>
+<li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a><ul>
+<li><a href="#lagged-dependent-variable">Lagged Dependent Variable</a></li>
+<li><a href="#measurement-error">Measurement Error</a></li>
+<li><a href="#omitted-variable-bias">Omitted Variable Bias</a></li>
+<li><a href="#reverse-causality">Reverse Causality</a></li>
+<li><a href="#iv-instrumental-variable">IV (Instrumental Variable)</a></li>
+<li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
+</ul></li>
+<li><a href="#ml-maximum-likelihood-model">ML (Maximum Likelihood) Model</a><ul>
+<li><a href="#assumption">Assumption</a></li>
+<li><a href="#property-of-">Property of ^θ</a></li>
+<li><a href="#asymptotic-covariance-matrix">Asymptotic Covariance Matrix</a></li>
+</ul></li>
+<li><a href="#binary-choice-model">Binary Choice Model</a><ul>
+<li><a href="#regression-model">Regression Model</a></li>
+<li><a href="#probit-model">Probit Model</a></li>
+<li><a href="#logit-model">Logit Model</a></li>
+<li><a href="#likelihood-ratio">Likelihood Ratio</a></li>
+</ul></li>
+<li><a href="#time-series">Time Series</a><ul>
+<li><a href="#types-of-process">Types of Process</a></li>
+<li><a href="#lag-operator">Lag Operator</a></li>
+<li><a href="#stationary">Stationary</a></li>
+<li><a href="#difference-operator-integration">Difference Operator &amp; Integration</a></li>
+<li><a href="#deterministic-linear-trend">Deterministic (Linear) Trend</a></li>
+<li><a href="#ols-estimation">OLS Estimation</a></li>
+<li><a href="#model-selection">Model Selection</a></li>
+<li><a href="#spurious-regression">Spurious Regression</a></li>
+<li><a href="#cointegration">Cointegration</a></li>
+</ul></li>
+<li><a href="#panel-data">Panel Data</a><ul>
+<li><a href="#entity-fixed-effect">Entity Fixed Effect</a></li>
+<li><a href="#time-fixed-effect">Time Fixed Effect</a></li>
+<li><a href="#least-squares-dummy-variable-lsdv-estimator">Least Squares Dummy Variable (LSDV) Estimator</a></li>
+<li><a href="#within-estimator">Within Estimator</a></li>
+<li><a href="#first-difference-estimator">First Difference Estimator</a></li>
+<li><a href="#entity-and-time-fixed-effect-2-way">Entity and Time Fixed Effect (2-way)</a></li>
+<li><a href="#random-effect">Random Effect</a></li>
+<li><a href="#feasible-gls-egls-estimator">Feasible GLS (EGLS) Estimator</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>Warning: under proofreading</p>
+<p>All I wanted was a clear &amp; complete guidance.<br />
+Textbook: <a href="http://93.174.95.27/book/index.php?md5=744048ECF4C4A865F45A5877AA7C2BD5">A Guide to Modern Econometrics</a></p>
+<div id="ols-model" class="section level2">
+<h2>OLS Model</h2>
+<div id="ols-method" class="section level3">
+<h3>OLS Method</h3>
+<ul>
+<li>Regressand: <span class="math inline">\(y = [y_1, y_2, \dots, y_N]\)</span> (N*1)</li>
+<li>Regressor: <span class="math inline">\(x_i = [1, x_{i2}, \dots, x_{iK}]\)</span> (K*1), <span class="math inline">\(X = [x_1&#39;, x_2&#39;, \dots, x_N&#39;]\)</span> (N*K)</li>
+<li>Estimator: <span class="math inline">\(β = [β_1, β_2, \dots, β_K]\)</span> (K*1)</li>
+<li>Let the difference between observation and estimation be<br />
+<span class="math display">\[y - X β\]</span>
+OLS chooses <span class="math inline">\(β\)</span> s.t.
+<span class="math display">\[\begin{aligned}\min_{β} &amp;&amp; S(β) = (y - Xβ)&#39;(y - Xβ) &amp; \\
+FOC &amp;&amp; -2\cdot X&#39;(y - Xβ) &amp;= 0 \\
+&amp;&amp; X&#39;y - X&#39;Xβ &amp;= 0 \\
+&amp;&amp; X&#39;X β &amp;= X&#39;y \end{aligned}\]</span></li>
+<li>No-Multicollinearity Assumption: if <span class="math inline">\(X&#39;X\)</span> is invertible,<br />
+<span class="math display">\[\begin{aligned} b &amp;\equiv β^* \\ &amp;= (X&#39;X)^{-1}X&#39;y\end{aligned}\]</span></li>
+<li>Best Linear Approximation:
+<span class="math display">\[\begin{aligned}\hat{y} &amp;= Xb \\
+&amp;= \underbrace{X \ (X&#39;X)^{-1}X&#39;}_{\text{Projection Matrix}} \ y \\
+&amp;= P_X\cdot y\end{aligned}\]</span></li>
+</ul>
+<!--
+&= \underbrace{X' \ \lefteqn{\overbrace{\phantom{(X'X)^{-1}X'\cdot y}}^{b}} (X'X)^{-1}X'}_{\text{Projection Matrix}}\ y \\
+-->
+<ul>
+<li>Residual:
+<span class="math display">\[\begin{aligned} e &amp;= y - \hat{y} \\
+&amp;= y - Xb \\
+&amp;= (1 - P_X)\cdot y \\
+&amp;= M_X \cdot y \\
+S(b) &amp;= (y - Xb)&#39;(y - Xb) \\
+&amp;= e&#39;e\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}X&#39;e &amp;= X&#39;(y - Xβ) \\
+&amp;= 0\end{aligned}\]</span></li>
+<li>Property of Projection Matrix:
+<span class="math display">\[\begin{aligned} M_X + P_X &amp;= I \\
+M_X\cdot P_X &amp;= 0\end{aligned}\]</span>
+<ul>
+<li>Symmetric <span class="math display">\[\begin{aligned} P_X&#39; &amp;= P_X\end{aligned}\]</span></li>
+<li>Idempotent <span class="math display">\[\begin{aligned} P_X&#39;\cdot P_X &amp;= P_X \\
+  M_X&#39;\cdot M_X &amp;= M_X\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="statistical-model" class="section level3">
+<h3>Statistical Model</h3>
+<ul>
+<li>Dependent Variable: <span class="math inline">\(y\)</span></li>
+<li>Independent Variable / Explanatory Variable / Regressor: <span class="math inline">\(x\)</span></li>
+<li>Population Parameter: <span class="math inline">\(β\)</span></li>
+<li>Error Term / Disturbance Term: <span class="math inline">\(ε\)</span></li>
+<li>Number of Observations: <span class="math inline">\(N\)</span></li>
+<li>True Model:
+<span class="math display">\[y = Xβ + ε\]</span></li>
+<li>Assumptions:
+<ul>
+<li>Exogenous Explanatory Variables <span class="math inline">\(\Longleftarrow\)</span> (A1) + (A2)
+<span class="math display">\[\begin{aligned}E[ε_i \ | \ x_i] &amp;= 0 \\ E[y_i \ | \ x_i] &amp;= x_i&#39; \cdot β \end{aligned}\]</span></li>
+<li>Ceteris Paribus</li>
+</ul></li>
+<li>OLS Estimator: <span class="math inline">\(b\)</span></li>
+<li>OLS Residuals: <span class="math inline">\(e\)</span></li>
+</ul>
+</div>
+<div id="gauss-markov-assumptions" class="section level3">
+<h3>Gauss-Markov Assumptions</h3>
+<p>(A1) ~ (A4): textbook P15, slide 2 P23 = BLUE<br />
+(A5): textbook P19, slide 2 P29 = (A1) + (A3) + (A4) + normal<br />
+(A6): textbook P34, slide 4 P10<br />
+(A7): textbook P35 141, slide 4 P11 &lt; (A1) + (A2) / (A8)<br />
+(A8): textbook P37 &lt; (A2)<br />
+(A9): textbook P101<br />
+(A10): textbook P102 &gt; (A7)<br />
+(A11): textbook P140 &lt; (A5)<br />
+(A12): textbook P141 &lt; (A11)</p>
+<p>Original assumptions:</p>
+<p>(A1): <span class="math inline">\(E[ε_i] = 0\)</span><br />
+(A2): <span class="math inline">\(\{ε_1, \dots , ε_n\}\)</span> and <span class="math inline">\(\{x_1, \dots , x_N\}\)</span> are independent<br />
+(A3): Homoskedasticity <span class="math inline">\(Var(ε_i) = σ^2\)</span><br />
+(A4): No Autocorrelation <span class="math inline">\(Cov(ε_i, ε_j) = 0\)</span> for all <span class="math inline">\(i\neq j\)</span></p>
+<p>Alternative assumptions:</p>
+<p>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N) \iff ε_i ∼ NID (0, σ^2)\)</span><br />
+(A6): <span class="math inline">\(\frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx}\)</span><br />
+(A7): <span class="math inline">\(E[ε_i x_i] = 0\)</span><br />
+(A8): <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(x_i\)</span> are independent<br />
+(A9): Diagonal Heteroskedasticity <span class="math inline">\(Var(ε \ | \ X) = σ^2\cdot Diag(h_i^2)\)</span><br />
+(A10): <span class="math inline">\(E[ε \ | \ X] = 0\)</span><br />
+(A11): <span class="math inline">\(ε_i ∼ IID (0, σ^2)\)</span><br />
+(A12): Unknown Heteroskedasticity <span class="math inline">\(ε_t\)</span> are serially uncorrelated, <span class="math inline">\(E[ε_t] = 0\)</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+1. What does the independence imply for <span class="math inline">\(E[x_t ε_t]\)</span>?</p>
+</blockquote>
+<p>Since <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent, they are not correlated
+<span class="math display">\[\begin{aligned} Corr(x_t, ε_t) = \frac{Cov(x_t, ε_t)}{\sqrt{Var(x_t) Var(ε_t)}} &amp;= 0 \\
+Cov(x_t ε_t) &amp;= 0 \\ &amp;= E[x_t ε_t] - E[x_t] E[ε_t] \\ &amp;= E[x_t ε_t]\end{aligned}\]</span>
+<span class="math inline">\(\implies E[x_t ε_t] = 0\)</span></p>
+</div>
+<div id="linear-loglinear" class="section level3">
+<h3>Linear &amp; Loglinear</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Dependent Var</th>
+<th>Independent Var</th>
+<th><span class="math inline">\(β\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>level-level</td>
+<td><span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(Δy = β Δx\)</span></td>
+</tr>
+<tr class="even">
+<td>level-log</td>
+<td><span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(\log x\)</span></td>
+<td><span class="math inline">\(Δy = \frac{β}{100}\% Δx\)</span></td>
+</tr>
+<tr class="odd">
+<td>log-level</td>
+<td><span class="math inline">\(\log y\)</span></td>
+<td><span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(\% Δy = (100\cdot β)Δx\)</span></td>
+</tr>
+<tr class="even">
+<td>log-log</td>
+<td><span class="math inline">\(\log y\)</span></td>
+<td><span class="math inline">\(\log x\)</span></td>
+<td><span class="math inline">\(\% Δy = β\% Δx\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Mock.Q1.1<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+1. Linearize the relationship and state a corresponding linear regression model with parameters <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span>.<br />
+2. Explain whether your regression model is a (i) level-level, (ii) level-log, (iii) log-level or (iv) log-log specification.<br />
+3. How should the slope parameter in your derived regression model be interpreted?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + ε_t\)</span>, where <span class="math inline">\(β_1 = \log α\)</span> and <span class="math inline">\(β_2 = γ\)</span><br />
+</li>
+<li>This is a log-level model, since the dependent variable is in <span class="math inline">\(\log\)</span> form and the independent variable is not.<br />
+</li>
+<li><span class="math display">\[\begin{aligned} Δ\log y_t &amp;= Δ x_t\cdot β_2 \\
+β_2 &amp;= \frac{Δ\log y_t}{Δ x_t}\end{aligned}\]</span>
+Therefore, <span class="math inline">\(β_2\)</span> can be interpreted as the expected percentage change of <span class="math inline">\(y_t\)</span> given one unit change of <span class="math inline">\(x_t\)</span>, held everhthing else constant</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.2<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+1. Which assumptions on the error term in your regression model are needed s.t. <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> be an appropriate estimator for the covariance matrix of the OLS estimator <span class="math inline">\(b\)</span> for <span class="math inline">\((β_1, β_2)&#39;\)</span>?<br />
+(<span class="math inline">\(X\)</span> denotes the full-rank regressor matrix in your regression model, and <span class="math inline">\(s^2\)</span> is an unbiased estimator of the residual variance <span class="math inline">\(σ^2\)</span>.)<br />
+2. Explain the influence of the variation in (i) the residuals and (ii) the regressor matrix on the precision of the OLS estimator based oh the covariance matrix <span class="math inline">\(σ^2(X&#39;X)^{-1}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(s^2(X&#39;X)^{-1}\)</span> is an appropriate estimator for <span class="math inline">\(b\)</span>, all four Gauss-Markov assumptions are needed.<br />
+<span class="math inline">\(E[ε_t] = 0\)</span>, <span class="math inline">\(Var(ε_t) = σ^2\)</span>, <span class="math inline">\(Cov(ε_t, ε_t&#39;) = 0\)</span> for normal errors, and independence between <span class="math inline">\(ε\)</span> and <span class="math inline">\(x\)</span>.<br />
+</li>
+<li>Larger variance in residuals causes larger variance (less precise) of the OLS estimator,<br />
+while larger variance in the regressors causes the OLS estimator to be more precise.</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.3<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+Suppose that you are unsure whether to include an additional regressor <span class="math inline">\(z_t\)</span> to your linear regression model.<br />
+1. Describe three valid procedures to decide whether the additional regressor shall be included or not.<br />
+2. Give two conditions under which the omission of <span class="math inline">\(z_t\)</span> is unproblematic for the OLS estimator in your linearized model (excluding <span class="math inline">\(z_t\)</span>).</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li>Regress the model <span class="math inline">\(\log y_t = β_1 + β_2\cdot x_t + β_3\cdot z_t + ε_t\)</span>, and test with <span class="math inline">\(H_0\)</span>: <span class="math inline">\(β_3=0\)</span><br />
+</li>
+<li>Compare <span class="math inline">\(\bar{R^2}\)</span> of the two specifications<br />
+</li>
+<li>Compare AIC or BIC of the two specifications<br />
+</li>
+</ol></li>
+<li>If <span class="math inline">\(β_3=0\)</span> is not rejected, or AIC / BIC is not decreased by the inclusion of <span class="math inline">\(z_t\)</span>, then it is ok to omit it.</li>
+</ol>
+<blockquote>
+<p>Mock.Q1.4<br />
+Consider the following nonlinear relationship between two economic variables <span class="math inline">\(y_t&gt;0\)</span> and <span class="math inline">\(x_t\)</span>, <span class="math inline">\(α&gt;0\)</span> and <span class="math inline">\(γ&gt;0\)</span> are parameters:<br />
+<span class="math display">\[y_t = α \exp(γ\cdot x_t)\]</span>
+As an alternative to linearization, one may directly consider the nonlinear regression model <span class="math inline">\(y_t = α \exp(γ\cdot x_t)+ε_t\)</span> with the additional assumption that <span class="math inline">\(ε_t∼^{iid} \mathcal{N}(0,σ^2)\)</span><br />
+1. Outline two appropriate estimntors for <span class="math inline">\((α,γ)&#39;\)</span> other than the OLS estimator (maximal 4 sentences)<br />
+2. For a comparison between your linear regression specification and the given nonlinear one, would it be correct to consider the (adjusted) <span class="math inline">\(R^2\)</span> values?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Maximum likelihood model (does not assume the errors are normal)<br />
+Non-linear model: <span class="math inline">\(y_t = α \exp(γ\cdot x_t) + ε_t\)</span><br />
+</li>
+<li>No, because <span class="math inline">\(R^2\)</span> is conditional on the form of <span class="math inline">\(y_t\)</span></li>
+</ol>
+</div>
+<div id="elasticity" class="section level3">
+<h3>Elasticity</h3>
+<ul>
+<li>Elasticity measures the relative change in the dependent variable owing to a relative change in one of the <span class="math inline">\(x_i\)</span> variables.<br />
+</li>
+<li>For <span class="math inline">\(\log y_i = (\log x_i)&#39; γ + v_i\)</span>, elasticity:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&amp;\approx \frac{\partial E[\log y_i | \log x_i]}{\partial \log x_{ik}} \\ &amp;= γ_k \end{aligned}\]</span></li>
+<li>For <span class="math inline">\(y_i = x_i&#39; β + ε_i\)</span>, elasticity:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial E[y_i|x_i] / E[y_i|x_i]}{\partial x_{ik} / x_{ik}} &amp;= \frac{\partial E[y_i|x_i]}{\partial x_{ik}} \cdot \frac{\partial x_{ik}}{E[y_i|x_i]} \\
+&amp;= β_k \cdot \frac{x_{ik}}{x_i&#39; β} \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>PS3.Q1.1<br />
+Consider the Cobb-Douglas production function:<br />
+<span class="math display">\[Y =F(K,L)=τK^{β_1}L^{β_2}\]</span>
+where <span class="math inline">\(F\)</span> is the production function, <span class="math inline">\(K\)</span> capital and <span class="math inline">\(L\)</span> labor.<br />
+Technology is assumed to be constant and represented by <span class="math inline">\(τ\)</span>.<br />
+1. Which coefficients are elasticities?</p>
+</blockquote>
+<p>For <span class="math inline">\(K\)</span>:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial K}\cdot\frac{K}{Y} &amp;= τβ_1K^{β_1-1}L^{β_2} \cdot \frac{K}{Y} \\
+&amp;= \frac{τβ_1K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&amp;= β_1\end{aligned}\]</span>
+For <span class="math inline">\(L\)</span>:<br />
+<span class="math display">\[\begin{aligned} \frac{\partial Y}{\partial L}\cdot\frac{L}{Y} &amp;= τβ_2K^{β_1}L^{β_2-1} \cdot \frac{K}{Y} \\
+&amp;= \frac{τβ_2K^{β_1}L^{β_2}}{τK^{β_1}L^{β_2}} \\
+&amp;= β_2\end{aligned}\]</span>
+Therefore, <span class="math inline">\(β_1\)</span> and <span class="math inline">\(β_2\)</span> are the elasticities.</p>
+<blockquote>
+<p>PS3.Q1.1<br />
+2. Specify the econometric model you think is appropriate to estimate the coefficients of the production function.</p>
+</blockquote>
+<p>Take log:<br />
+<span class="math display">\[\log{Y_t} = \log τ + β_1\log K_t + β_2\log L_t (+ ε_t)\]</span></p>
+<blockquote>
+<p>PS2.Q3<br />
+Consider the wage regressions from slide 5 (text P86).<br />
+<img src="/post-img/notes-stat1--PS2Q3-6.png" width="393" /><br />
+6. Find the estimated elasticities for the effect of experience for males and females.<br />
+At which conventional level is the gender effect of experience significant?<br />
+Is the gender effect (measured by the male dummy coefficient) significant at <span class="math inline">\(10 \%\)</span> or <span class="math inline">\(5 \%\)</span> level when using a one-sided alternative (namely, positive coefficient)?</p>
+</blockquote>
+<p>Elasticity for female: <span class="math inline">\(0.207\)</span><br />
+Elasticity for male: <span class="math inline">\(0.207 + 0.041 = 0.248\)</span><br />
+Gender effect: <span class="math inline">\(0.041\)</span><br />
+t-ratio: <span class="math inline">\(1.891\)</span></p>
+<pre class="r"><code># calculate critical value
+qnorm( 0.90 )
+## [1] 1.281552
+qnorm( 0.95 )
+## [1] 1.644854</code></pre>
+<p>Therefore, <span class="math inline">\(H_0\)</span> is rejected at <span class="math inline">\(10 \%\)</span> level, but not rejected at <span class="math inline">\(5 \%\)</span> level.</p>
+</div>
+</div>
+<div id="ols-estimator" class="section level2">
+<h2>OLS Estimator</h2>
+<div id="derive-b" class="section level3">
+<h3>Derive b</h3>
+<blockquote>
+<p>PS1.Q1.3<br />
+Consider the linear model <span class="math inline">\(y = Xβ + ε\)</span>.<br />
+The OLS estimator minimizes the sum of squared residuals:<br />
+<span class="math display">\[S(\tilde{β}) = ε′ε = (y − X\tilde{β})&#39; (y − X\tilde{β})\]</span>
+1. Derive the first order condition of <span class="math inline">\(S(\tilde{β})\)</span>.<br />
+~~ Find the solution of the minimization problem and state all needed assumptions.<br />
+2. Check whether the solution in (1) is a minimum. Do you need any further assumption to verify that?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Solve minimization problem<br />
+<span class="math display">\[\begin{aligned} S(β) &amp;= (y − Xβ)&#39; (y − Xβ) \\
+&amp;= (y&#39; - β&#39;X&#39;)(y − Xβ) \\ &amp;= y&#39;y - y&#39;Xβ -β&#39; X&#39; y + β&#39; X&#39; Xβ \\
+&amp;= y&#39;y -2β&#39; X&#39; y + β&#39;X&#39;Xβ\end{aligned}\]</span>
+FOC<br />
+<span class="math display">\[\begin{aligned} \frac{\partial S(β)}{\partial β} = -2 X&#39; y + 2X&#39;X \hat{β} &amp;= 0 \\
+X&#39;X \hat{β} &amp;= X&#39; y \\ \hat{β} &amp;= (X&#39;X)^{-1} X&#39; y\end{aligned}\]</span>
+Assuming <span class="math inline">\(X&#39;X\)</span> is invertible <span class="math inline">\(\Longleftarrow X\)</span> is full-rank.<br />
+</li>
+<li>Check whether is minimum<br />
+SOC<br />
+<span class="math display">\[\frac{\partial ^2 S(β)}{\partial β \partial β&#39;} = 2X&#39; X\]</span>
+<span class="math inline">\(\implies\)</span> the solution is a minimum if <span class="math inline">\(X&#39; X\)</span> is positive semi-definite.<br />
+Take arbitrary <span class="math inline">\(a\neq 0\)</span>, let<br />
+<span class="math display">\[\begin{aligned} q &amp;= a&#39; X&#39; Xa \\ &amp;= \sum^N_{i=0} x_i^2 a_i^2 \\ &amp;\geq 0\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> For all <span class="math inline">\(a\neq 0\)</span>, <span class="math inline">\(q &gt; 0\)</span>, <span class="math inline">\(X&#39; X\)</span> is positive semi-definite, no further assumptions needed.</li>
+</ol>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+2. Verify that the OLS estimator can be written as<br />
+<span class="math display">\[b = β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t\]</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} b &amp;= (X&#39;X)^{−1} X&#39; y \\
+&amp;= β + (X&#39;X)^{-1} X&#39;ε \\
+&amp;= β + \left[ \sum_{t=1}^N x_t^2 \right] ^{-1} \sum_{t=1}^N x_t ε_t \end{aligned}\]</span></p>
+</div>
+<div id="unbiasedness-of-b" class="section level3">
+<h3>Unbiasedness of b</h3>
+<p>textbook P16, slide 2 P24</p>
+<ul>
+<li>OLS estimator is unbiased when <span class="math inline">\(E[b] = β\)</span><br />
+<span class="math display">\[\begin{aligned}E[b] &amp;= E\big[(X&#39;X)^{-1}X&#39;y\big] \\ &amp;= E\big[β + (X&#39;X)^{-1}X&#39;ε\big] \\
+&amp;= β + E\big[(X&#39;X)^{-1}X&#39;ε\big] \\
+&amp;= β + E\big[(X&#39;X)^{-1}X&#39;\big]\cdot E[ε] &amp;&amp; \text{(A2)} \\
+&amp;= β + E\big[(X&#39;X)^{-1}X&#39;\big]\cdot 0 &amp;&amp; \text{(A1)}\\ &amp;= β \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>PS4.Q2.1<br />
+T/F?<br />
+Under heteroskedastiticity and/or autocorrelation of the errors, the OLS estimator is still unbiased.</p>
+</blockquote>
+<p>True.<br />
+Unbiasedness is only conditional on the average of errors and independence between error and <span class="math inline">\(x\)</span>'s.</p>
+</div>
+<div id="blue" class="section level3">
+<h3>BLUE</h3>
+<p>textbook P17, slide 2 P26</p>
+<ul>
+<li>BLUE (Best Linear Unbiased Estimator): <strong>Unbiased + Efficient + OLS</strong></li>
+<li>Gauss–Markov Theorem: OLS estimator is BLUE if (A1) ~ (A4) are all satisfied</li>
+<li>Efficienty (best): minimal variance<br />
+<span class="math inline">\(V(b) \leq V(\tilde{b})\)</span> for all <span class="math inline">\(\tilde{b} \iff V(\tilde{b}) - V(b)\)</span> is positive semi-definite
+<span class="math display">\[\begin{aligned}Var(b \ | \ X) &amp;= E\big[ (b - β) (b - β)&#39;\big] \\
+&amp;= E\big[ (X&#39;X)^{-1}X&#39;ε \cdot ε&#39;X(X&#39;X)^{-1}\big] \\
+&amp;= E\big[ (X&#39;X)^{-1}X&#39;\big]\cdot E[εε&#39;] \cdot E\big[ X(X&#39;X)^{-1}\big] &amp;&amp; \text{(A2)}\\
+&amp;= (X&#39;X)^{-1}X&#39;\cdot (σ^2 \cdot I_N) \cdot X(X&#39;X)^{-1} &amp;&amp; \text{(A3) + (A4)}\\
+&amp;= σ^2 \cdot (X&#39;X)^{-1}X&#39;\cdot X(X&#39;X)^{-1} \\ &amp;= σ^2(X&#39;X)^{-1} \\\end{aligned}\]</span></li>
+<li>With sample variance, estimated variance: (see <a href="#unbiasedness-of-s2">#Unbiasedness of s^2</a>)<br />
+<span class="math display">\[V(b) = s^2(X&#39;X)^{-1}\]</span></li>
+<li>Standard Error / Estimated Standard Deviation:
+<span class="math display">\[\begin{aligned} se(b) &amp;= \sqrt{V(b)} \\
+&amp;= s\sqrt{(X&#39;X)^{-1}} \\
+&amp;\equiv s\sqrt{c_{kk}}\end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>PS1.Q4<br />
+Assume that all Gauss-Markov assumptions are valid, and treat the regressor matrix as fixed.<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
+1. Verify that <span class="math inline">\(W X = I\)</span> holds due to unbiasedness (similar to <span class="math inline">\(CX = I\)</span>).</p>
+</blockquote>
+<p>Take expectation<br />
+<span class="math display">\[\begin{aligned} E[\tilde{b}] &amp;= E[Wy] \\ &amp;= E\big[ W(Xβ + ε)\big] \\
+&amp;= WXβ + W \cdot E[ε] \\ &amp;= WXβ\end{aligned}\]</span>
+Since <span class="math inline">\(\tilde{b}\)</span> is unbiased,<br />
+<span class="math display">\[\begin{aligned} E[\tilde{b}] = WXβ &amp;= β \\ WX &amp;= I\end{aligned}\]</span></p>
+<blockquote>
+<p>PS1.Q4<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
+2. Find the covariance matrix of <span class="math inline">\(\tilde{b}\)</span>, i.e. <span class="math inline">\(V(\tilde{b})\)</span>.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} V(\tilde{b}) &amp;= E \big[ (\tilde{b} - β)(\tilde{b} - β)&#39; \big] \\
+&amp;= E \big[ (WXβ + Wε - β)(WXβ + Wε - β)&#39; \big] \\ &amp;= E \big[ (Iβ + Wε - β)(Iβ + Wε - β)&#39; \big] \\ &amp;= E[ Wε ε&#39; W&#39;] \\
+&amp;= W \cdot E[ε ε&#39;] \cdot W&#39; \\ &amp;= σ^2 WW&#39; \end{aligned}\]</span></p>
+<blockquote>
+<p>PS1.Q4<br />
+Consider the linear and unbiased OLS estimator:<br />
+<span class="math display">\[b = (X′X)^{−1} X′y = Cy\]</span>
+And another linear and unbiased estimator:<br />
+<span class="math display">\[\tilde{b} = Wy, \ W = W(X)\]</span>
+3. Compare the covariance matrices of <span class="math inline">\(\tilde{b}\)</span> and <span class="math inline">\(b\)</span> by building their difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span>.<br />
+~~ Show in the final step that the difference between the covariance matrices is positive semi-definite.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} V (\tilde{b}) − V (b) &amp;= σ^2 WW&#39; - σ^2 (X&#39;X)^{-1} \\
+&amp;= σ^2 \big[ WW&#39; - (X&#39;X)^{-1} \big] \\
+&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1}\cdot (WX)&#39; \big] \\
+&amp;= σ^2 \big[ WW&#39; - WX \cdot (X&#39;X)^{-1} \cdot X&#39;W&#39; \big] \\
+&amp;= σ^2 \left\{ W \big[ I - X(X&#39;X)^{-1}X&#39; \big] W&#39; \right\} \\
+&amp;= σ^2 W M_X W&#39;\end{aligned}\]</span>
+Take arbitrary <span class="math inline">\(a \neq 0\)</span><br />
+<span class="math display">\[\begin{aligned} a&#39; (σ^2 W M_X W&#39;) a &amp;= σ^2 a&#39; W M_X W&#39; a \\
+&amp;= σ^2 a&#39; W M_X M_X W&#39; a \\
+&amp;= σ^2 (M_X W&#39; a)&#39; (M_X W&#39; a) \\ &amp;\geq 0\end{aligned}\]</span>
+Therefore, the difference <span class="math inline">\(V (\tilde{b}) − V (b)\)</span> is positive semi-definite.<br />
+<span class="math inline">\(\implies\)</span> Any unbiased linear estimator cannot offer a variance smaller than the OLS estimator.</p>
+</div>
+<div id="unbiasedness-of-s2" class="section level3">
+<h3>Unbiasedness of s^2</h3>
+<p>textbook P18, slide 2 P27</p>
+<ul>
+<li>Population Variance of Error Terms: <span class="math inline">\(σ^2\)</span></li>
+<li>Unbiased Sample Variance of Residuals <span class="math display">\[s^2 = \frac{1}{N-K} e&#39;e\]</span></li>
+<li>Obtained if (A1) ~ (A4) are satisfied</li>
+</ul>
+<blockquote>
+<p>PS1.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[\begin{aligned} y_i =x^′_i β+ε_i &amp;&amp; i=1, \dots ,N\end{aligned}\]</span>
+with <span class="math inline">\(ε^i ∼ NID(0,σ2)\)</span>.<br />
+Denote by K the number of regressors including the intercept.<br />
+Show that <span class="math inline">\(\tilde{s}^2 = \frac{1}{N-1} \sum^N_{i=1} e_i^2\)</span> is a biased estimator, and <span class="math inline">\(s^2 = \frac{1}{N-K} \sum^N_{i=1} e_i^2\)</span> an unbiased estimator for <span class="math inline">\(σ^2\)</span>.<br />
+Hint: Treat <span class="math inline">\(X\)</span> as fixed or deterministic (or alternatively, think of working conditionally on outcomes <span class="math inline">\(X\)</span>).<br />
+~~~~ <span class="math inline">\(tr(AB) = tr(BA)\)</span> and <span class="math inline">\(tr(A + B) = tr(A) + tr(B)\)</span>.</p>
+</blockquote>
+<p>Rewrite the model in matrix form:<br />
+<span class="math display">\[\mathbb{y} = X β + ε\]</span>
+Let <span class="math inline">\(P_X \equiv X(X&#39; X)^{-1} X&#39;\)</span>, <span class="math inline">\(M_X = I_N - P_X\)</span>,<br />
+<span class="math display">\[\begin{aligned} M_X X &amp;= \big( I_N − X (X&#39; X)^{-1} X&#39;\big) \cdot X \\
+&amp;= X − X (X&#39; X)^{-1} X&#39; X \\ &amp;= X − X \\ &amp;= 0\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} e &amp;= M_X \cdot \mathbb{y} \\ &amp;= M_X (X β + ε) \\ &amp;= M_X Xβ + M_X ε \\ &amp;= M_X ε\end{aligned}\]</span>
+Sum of squared error:<br />
+<span class="math display">\[\begin{aligned} \sum^N_{i=1} e_i^2 &amp;= e&#39;e \\ &amp;= tr(e&#39;e) \\
+&amp;= tr(ε&#39; M_X&#39; M_X ε) \\ &amp;= tr(ε&#39; M_X ε) \\ &amp;= tr(M_X ε ε&#39;)\end{aligned}\]</span>
+Take expectation of both sides<br />
+<span class="math display">\[\begin{aligned} E[e&#39;e] &amp;= tr \big( M_X \cdot E [ε ε&#39;] \big) \\
+&amp;= σ^2 \cdot tr(M_X) \\ &amp;= σ^2 \cdot tr \big( I_N - X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X(X&#39; X)^{-1} X&#39; \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr \big( X&#39; X(X&#39; X)^{-1} \big) \\
+&amp;= σ^2 \cdot tr(I_N) - σ^2 \cdot tr(I_K) \\ &amp;= σ^2(N - K)\end{aligned}\]</span>
+Therefore,<br />
+<span class="math display">\[\begin{aligned} E[s^2] &amp;= \frac{1}{N-K} \cdot E \left[ \sum^N_{i=1} e_i^2 \right] \\
+&amp;= \frac{1}{N-K} \cdot σ^2(N - K) \\ &amp;= σ^2\end{aligned}\]</span>
+<span class="math inline">\(\implies s^2\)</span> is unbiased.<br />
+And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \implies \tilde{s}^2\)</span> is biased for small <span class="math inline">\(N\)</span>’s.</p>
+</div>
+</div>
+<div id="normality-assumption" class="section level2">
+<h2>Normality Assumption</h2>
+<div id="normality-of-" class="section level3">
+<h3>Normality of ε</h3>
+<ul>
+<li>(A1) + (A3) + (A4) + <span class="math inline">\(ε\)</span> is Nomally Distributed <span class="math inline">\(\implies\)</span></li>
+<li>(A5): <span class="math inline">\(ε ∼ \mathcal{N} (0, σ^2I_N)\)</span>
+<ul>
+<li>or: <span class="math inline">\(ε_i ∼ NID (0, σ^2)\)</span><br />
+</li>
+</ul></li>
+<li>Implies nomality of <span class="math inline">\(y_i \ | \ x_i\)</span></li>
+</ul>
+</div>
+<div id="normality-of-b" class="section level3">
+<h3>Normality of b</h3>
+<p>textbook P19, slide 2 P30</p>
+<ul>
+<li>OLS estimator is normally distributed with
+<span class="math display">\[\begin{aligned}b &amp;∼ \mathcal{N}\big(β, σ^2(X&#39;X)^{-1} \big) \\
+b_k &amp;∼ \mathcal{N}(β_k, σ^2c_{kk})\end{aligned}\]</span></li>
+<li>Obtained if<br />
+<span class="math display">\[\begin{cases} \{ε_1, \dots , ε_n\} \text{ and } \{x_1, \dots , x_N\} \text{ are independent} &amp;&amp; \text{(A2)} \\ε ∼ \mathcal{N} (0, σ^2I_N) &amp;&amp; \text{(A5)} \end{cases}\]</span></li>
+</ul>
+<blockquote>
+<p>PS4.Q2.2<br />
+T/F?<br />
+Under heteroskedastiticity and/or autocorrelation of the errors, the covariance matrix of the OLS estimator does not change in comparison to the case of homoscedasticity and absence of autocorrelation.</p>
+</blockquote>
+<p>False.<br />
+Under heteroskedastiticity or autocorrelation,<br />
+the covariance of the errors is different from benchmark case,<br />
+thus the covariance matrix of OLS estimator also changes.</p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+3. Use the LLN to find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span>.<br />
+~~ What does <span class="math inline">\(\frac{1}{N^k} \sum^N_{t=1} x_t^2\)</span> converge to?<br />
+Hint: Find <span class="math inline">\(E[x_t]\)</span> to characterize the object to which the scaled sum converges.</p>
+</blockquote>
+<p>LLN suggests <span class="math inline">\(k=1\)</span><br />
+Since <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, <span class="math inline">\(E[x_t] = 0\)</span>, <span class="math inline">\(Var(x_t) = σ_x^2\)</span><br />
+<span class="math display">\[\begin{aligned} \frac{1}{N} \sum^N_{t=1} x_t^2 &amp;\to^p E[x_t^2] \\
+&amp;= σ_x^2\end{aligned}\]</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+4. To find the appropriate scaling factor <span class="math inline">\(k\)</span> in <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>, first find the variance of <span class="math inline">\(N^{−k} \sum^N_{t=1} x_t ε_t\)</span>.<br />
+For which unique choice of <span class="math inline">\(k\)</span> does this variance neither approach zero, nor explode?<br />
+Hence, find the value for <span class="math inline">\(k\)</span> which stabilizes the variance.</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned}Var\left( N^{−k} \textstyle{\sum}^N_{t=1} x_t ε_t \right) &amp;= (N^{-k})^2 \cdot Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right) \\
+&amp;= N^{-2k} \cdot Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right)\\
+Var\left( \textstyle{\sum}^N_{i=1} x_t ε_t \right) &amp;= Var(x_1 ε_1 + x_2 ε_2 + \cdots +x_N ε_N) \\
+&amp;= \textstyle{\sum}^N_{i=1} Var(x_t ε_t ) \\
+&amp;= \textstyle{\sum}^N_{i=1} \left[ Var(x_t) \cdot Var( ε_t ) \right] \\
+&amp;= \textstyle{\sum}^N_{i=1} σ^2_x σ^2_ε  \\
+&amp;= N \cdot σ^2_x σ^2_ε \\
+Var\left( N^{−k} \textstyle{\sum}^N_{t=1} x_t ε_t \right) &amp;= N^{-2k} \cdot N \cdot σ^2_x σ^2_ε \\
+&amp;= N^{1-2k} \cdot σ^2_x σ^2_ε\end{aligned}\]</span>
+Set <span class="math inline">\(1 - 2k = 1\)</span>, <span class="math inline">\(k = \frac{1}{2}\)</span><br />
+<span class="math display">\[\frac{1}{\sqrt{N}}\sum^N_{t=1} x_t ε_t \to^p σ^2_x σ^2_ε\]</span></p>
+<blockquote>
+<p>PS2.Q2<br />
+Consider the linear regression model:<br />
+<span class="math display">\[y_t = β x_t + ε_t\]</span>
+where <span class="math inline">\(ε_t ∼ N(0,σ_ε^2)\)</span>, <span class="math inline">\(x_t ∼ N(0,σ_x^2)\)</span>, and <span class="math inline">\(ε_t\)</span> and <span class="math inline">\(x_t\)</span> are independent.<br />
+5. Consider the difference <span class="math inline">\(b − β\)</span>.<br />
+Combine (3) and (4) to find the implied appropriate scaling (i.e. the convergence rate) of <span class="math inline">\(b − β\)</span>.</p>
+</blockquote>
+<p>We know<br />
+<span class="math display">\[b-β = \left(\sum^N_{i=1} x_t^2 \right)^{-1} \sum^N_{i=1}x_t ε_t\]</span>
+From (3) and (4):<br />
+<span class="math display">\[\begin{aligned} \frac{1}{N} \sum^N_{t=1} x_t^2 &amp;\to^p σ_x^2 \\
+\frac{1}{\sqrt{N}}\sum^N_{t=1} x_t ε_t &amp;\to^p σ_x^2 σ_ε^2 \end{aligned}\]</span>
+Assume <span class="math inline">\(N^k(b-β)\)</span> converges in distribution, therefore<br />
+<span class="math display">\[\begin{aligned} N^k(b-β) &amp;= N^k \cdot \left(\sum^N_{i=1} x_t^2 \right)^{-1} \sum^N_{i=1} x_t ε_t \\
+&amp;= \left(\frac{1}{N}\sum^N_{i=1} x_t^2 \right)^{-1} \frac{1}{\sqrt{N}}\sum^N_{i=1} x_t ε_t \\
+N^k &amp;= N \cdot \frac{1}{\sqrt{N}} \\
+k &amp;= \frac{1}{2}\end{aligned}\]</span>
+Therefore <span class="math inline">\(\sqrt{N}\)</span> is the implied convergence rate of <span class="math inline">\(b − β\)</span>.<br />
+<span class="math display">\[\sqrt{N}(b − β) \to^d \mathcal{N} \big(0, (σ_x^2 σ_ε^2)(σ_x^2)^{-1} \big)\]</span>
+Note that under standard notation, <span class="math inline">\(σ^2 \equiv σ_x^2 σ_ε^2\)</span>, <span class="math inline">\(Σ_{xx} \equiv σ_x^2\)</span><br />
+<span class="math inline">\(\implies \sqrt{N}(b − β) \to^d \mathcal{N} (0, σ^2 Σ_{xx}^{-1})\)</span></p>
+</div>
+</div>
+<div id="asymptotic-property" class="section level2">
+<h2>Asymptotic Property</h2>
+<ul>
+<li>Gauss-Markov Assumptions</li>
+<li>No Normality</li>
+</ul>
+<div id="converge-in-probability-mean-square" class="section level3">
+<h3>Converge in Probability &amp; Mean Square</h3>
+<ul>
+<li>Vector sequence <span class="math inline">\(\{x_n\}\)</span> converges in p when <span class="math inline">\(\mathbb{P}\{ \|x_n - x\| &gt; \exists δ\} \to 0\)</span> as <span class="math inline">\(N \to \infty\)</span></li>
+<li>Also: <span class="math inline">\(x_n \to^p x\)</span> or <span class="math inline">\(\text{plim } x_n = x\)</span></li>
+<li><span class="math inline">\(x_n \to^p x \implies g(x_n) \to^p g(x)\)</span> for all continuous function <span class="math inline">\(g\)</span></li>
+</ul>
+<p>~</p>
+<ul>
+<li>Scalar sequence <span class="math inline">\(\{x_n\}\)</span> converges in ms when <span class="math inline">\(E\big[ (x_n - x)^2 \big] \to 0\)</span> as <span class="math inline">\(N \to \infty\)</span></li>
+<li>Also: <span class="math inline">\(x_n \to^{ms} x\)</span></li>
+<li><span class="math inline">\(x_n \to^{ms} x \implies x_n \to^p x\)</span></li>
+<li><span class="math inline">\(x_n \to^{ms} α \implies E[x_n] \to α\)</span> and <span class="math inline">\(Var(x_n) \to 0\)</span></li>
+</ul>
+</div>
+<div id="lln-law-of-large-numbers" class="section level3">
+<h3>LLN (Law of Large Numbers)</h3>
+<ul>
+<li><span class="math inline">\(\frac{1}{N}\sum^N_{i=1} x_n \to^p E[x]\)</span> as <span class="math inline">\(N \to \infty\)</span>, if <span class="math inline">\(\{x_n\}\)</span> are <span class="math inline">\(i.i.d\)</span> copies of <span class="math inline">\(\mathbb{x}\)</span></li>
+<li>(A6) + (A7) + LLN = <a href="#consistency-of-b">Consistency of b</a></li>
+</ul>
+<p>Under LLN:<br />
+<span class="math display">\[\begin{aligned}\frac{1}{N} \sum^N_{i=1} x_i x_i&#39; \to^p Σ_{xx}^{-1} &amp;&amp; \text{(A6)}\end{aligned}\]</span>
+and<br />
+<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i]\end{aligned}\]</span></p>
+<blockquote>
+<p>PS4.Q2.7<br />
+T/F?<br />
+The LLN states that sample moments converge in probability to their population counterparts.</p>
+</blockquote>
+<p>True.<br />
+According to LLN:<br />
+<span class="math display">\[\begin{aligned} \frac{1}{N}\sum x_i ε_i &amp;\to^p E[x_i ε_i] \\
+\implies \frac{1}{N}\sum y_i^2 &amp;\to^p E[y_i^2]\end{aligned}\]</span></p>
+</div>
+<div id="consistency-of-b" class="section level3">
+<h3>Consistency of b</h3>
+<p>textbook P35</p>
+<ul>
+<li>OLS estimator is consistent if for all <span class="math inline">\(δ &gt; 0​\)</span>,
+<span class="math display">\[\begin{aligned}\lim P\{ |b_k - β_k| &gt; δ \} &amp;= 0​ \\
+\text{plim} b &amp;= β\end{aligned}\]</span>
+<ul>
+<li>If <span class="math inline">\(g(\cdot)\)</span> is a continuous function, then <span class="math inline">\(\text{plim} g(b) = g(β)\)</span></li>
+</ul></li>
+<li>When unbiasedness is not feasible, consistency is the minimal requirement for an estimator.
+<span class="math display">\[\begin{aligned}b - β &amp;= (X&#39;X)^{-1}X&#39;ε \\
+\text{plim} (b-β) &amp;= Σ_{xx}^{-1}\cdot X&#39;ε &amp;&amp; \text{(A6)} \\
+&amp;= Σ_{xx}^{-1}\cdot 0 &amp;&amp; \text{(A7)} \\
+&amp;= 0\end{aligned}\]</span></li>
+<li>denote the Consistent estimator as <span class="math inline">\(\hat{β}\)</span></li>
+</ul>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model with a latent (unobserved) variable <span class="math inline">\(y_i^*\)</span>:<br />
+<span class="math display">\[y_i^∗ = x&#39;_i β + ε_i\]</span>
+where <span class="math inline">\(ε_i ∼^{iid} N(0,σ^2_ε)\)</span> and is independent of <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_i ∼^{iid} N(μ,σ^2_x)\)</span>.<br />
+The dependent variable is observed with measurement error, i.e., <span class="math inline">\(y_i = y_i^∗ + v_i\)</span>,<br />
+where <span class="math inline">\(v_i ∼^{iid} N(0,σ^2_v)\)</span> is independent of both <span class="math inline">\(x_j\)</span> and <span class="math inline">\(ε_j ∀j\)</span>.<br />
+(The unobserved <span class="math inline">\(y_i\)</span> is sometimes called a latent variable.)<br />
+Regress <span class="math inline">\(y_i\)</span> on <span class="math inline">\(x_i\)</span> to obtain an OLS estimate <span class="math inline">\(\tilde{β}\)</span>.<br />
+1. Is <span class="math inline">\(\tilde{β}\)</span> a consistent estimator of <span class="math inline">\(β\)</span> ?</p>
+</blockquote>
+<p>Rewrite the model:<br />
+<span class="math display">\[\begin{aligned} y_i - v_i &amp;= x_i&#39; β + ε_i \\ y_i &amp;= x_i&#39; β + ε_i + v_i\end{aligned}\]</span>
+where <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are uncorrelated.<br />
+Let <span class="math inline">\(ε_i + v_i = u_i \implies u_i ∼^{iid}N(0, σ^2_ε + σ^2_v)\)</span><br />
+OLS estimator can be written as:<br />
+<span class="math display">\[\begin{aligned} \tilde{β} &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N} \sum^N_{i=1} x_i y_i \\
+&amp;= β + \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \\
+\tilde{β} - β &amp;= \left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right) ^{-1} \frac{1}{N}\sum^N_{i=1} x_i u_i \end{aligned}\]</span>
+Apply LLN:
+<span class="math display">\[\begin{aligned} \tilde{β} - β &amp;\to^p \text{plim}(\tilde{β} - β) \\
+&amp;= \frac{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i u_i \right)}{\text{plim}\left(\frac{1}{N}\sum^N_{i=1} x_i x_i&#39; \right)} \\
+&amp;= \frac{E[x_i u_i]}{Σ_{xx}}\end{aligned}\]</span></p>
+<p>where <span class="math inline">\(x&#39;x \to Σ_{xx}\)</span> (A6).<br />
+As long as <span class="math inline">\(E[x_i u_i] = 0\)</span> (A7), <span class="math inline">\(\tilde{β}\)</span> is consistent.</p>
+<blockquote>
+<p>PS5.Q4<br />
+Consider the model<br />
+<span class="math display">\[y^∗_i = x&#39;_i β + ε_i\]</span>
+2. What happens to the consistency of <span class="math inline">\(\tilde{β}\)</span> if <span class="math inline">\(ε_i\)</span> and <span class="math inline">\(v_i\)</span> are correlated?</p>
+</blockquote>
+<p>Variance of <span class="math inline">\(u_i\)</span> changes as follows:<br />
+<span class="math display">\[Var(u_i) = σ^2_ε + ε^2_v + 2Cov(ε_i, v_i)\]</span>
+<span class="math inline">\(\implies u_i ∼^{iid}N \left( 0, σ^2_ε + ε^2_v + 2Cov(ε_i, v_i) \right)\)</span><br />
+While everything remaining is unchanged, therefore the consistency of <span class="math inline">\(\tilde{β}\)</span>.</p>
+</div>
+<div id="consistency-of-s2" class="section level3">
+<h3>Consistency of s^2</h3>
+<p>textbook P35</p>
+<ul>
+<li>The least square estimator <span class="math inline">\(s^2\)</span> for error variance <span class="math inline">\(σ^2\)</span> is consistent if:<br />
+<span class="math display">\[\begin{cases} V(ε_i) = σ^2 &amp;&amp; \text{(A3)} \\ \frac{1}{N} \sum^N_{i=1} x_ix_i&#39; \to^p \exists Σ_{xx} &amp;&amp; \text{(A6)} \\ E[ε_i x_i] = 0 &amp;&amp; \text{(A7)}  \end{cases}\]</span></li>
+</ul>
+</div>
+<div id="asymptotic-nomality" class="section level3">
+<h3>Asymptotic Nomality</h3>
+<p>textbook P36 141, slide 4 P13</p>
+<ul>
+<li>Asymptotic Distribution: distribution as <span class="math inline">\(N\to\infty\)</span>
+<ul>
+<li>Asymptotic distribution of <span class="math inline">\(\sqrt{N}\cdot(\hat{β} - β)\)</span> is a nomal distribution</li>
+<li>Rate of Convergence: <span class="math inline">\(\sqrt{N}\)</span></li>
+</ul></li>
+<li>OLS estimator is CAN (Consistent and Asymptotically Normal) if<br />
+<span class="math display">\[\begin{aligned} \sqrt{N} (b-β) &amp;\to^a \mathcal{N}(0, \ σ^2\cdot Σ_{xx}^{-1}) \\
+b &amp;∼^a \mathcal{N}\Big(β, \ σ^2\cdot\frac{Σ_{xx}^{-1}}{N}\Big) \\
+&amp;∼^a \mathcal{N}\Big(β, \ s^2\cdot\sum_N x_ix_i&#39;\Big) &amp;&amp; \text{(A5) + (A6)}\end{aligned}\]</span>
+<ul>
+<li>Weaker: (A6) + (A8) + (A11)</li>
+<li>Weaker: (A6) + (A7) + (A12)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="data-problems" class="section level2">
+<h2>Data Problems</h2>
+<div id="multicollinearity" class="section level3">
+<h3>Multicollinearity</h3>
+<p>slide 3 P22, textbook P59</p>
+<ul>
+<li>Approximate linear relationship among some x’s <span class="math inline">\(\implies\)</span> unreliable regression estimates
+<ul>
+<li><span class="math inline">\(X&#39;X\)</span> may not be invertible</li>
+<li>Violates No-Multicollinearity Assumption in <a href="#ols-method">#OLS Method</a></li>
+<li><span class="math inline">\(b\)</span> is still unbiased</li>
+</ul></li>
+<li>Signs
+<ul>
+<li>High se, low t-stat</li>
+<li>Hight <span class="math inline">\(R^2\)</span></li>
+<li>Dummy Variable Trap</li>
+</ul></li>
+<li>Solution
+<ul>
+<li>Large <span class="math inline">\(N\)</span> and large variations in variables</li>
+<li>Transformation: <span class="math inline">\(\log x\)</span> or <span class="math inline">\(\sqrt{x}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="outliers" class="section level3">
+<h3>Outliers</h3>
+</div>
+</div>
+<div id="error-problems" class="section level2">
+<h2>Error Problems</h2>
+<ul>
+<li>Error terms do not have identical variances
+<ul>
+<li>Violate (A3) and (A4) in <a href="#gauss-markov-assumptions">#Gauss-Markov Assumptions</a></li>
+<li><span class="math inline">\(Var(ε_i) = σ^2\cdot Ψ\)</span>, <span class="math inline">\(Ψ\neq I\)</span></li>
+<li>OLS estimator still unbiased, but not <a href="#blue">BLUE</a>:
+<span class="math display">\[\begin{aligned} Var(b) &amp;= Var\big( (X&#39;X)^{-1}X&#39;ε\big) \\
+  &amp;= (X&#39;X)^{-1}X&#39;\cdot Var(ε) \cdot X(X&#39;X)^{-1} \\
+  &amp;= σ^2\underbrace{(X&#39;X)^{-1}\cdot X&#39;ΨX\cdot }_{\text{was }I}(X&#39;X)^{-1}\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+<div id="heteroskedasticity" class="section level3">
+<h3>Heteroskedasticity</h3>
+<ul>
+<li>Different error terms do not have identical variances, the diagonal elements of the covariance matrix are not the same
+<ul>
+<li>Exist different groups in the data</li>
+</ul></li>
+<li>Scatter plot</li>
+<li>Solution
+<ul>
+<li>Use another specification</li>
+<li>White Standard Error</li>
+<li>HAC Standard Error</li>
+<li><a href="#gls-generalized-least-squares-estimator">GLS Estimator</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="autocorrelation-serial-correlation" class="section level3">
+<h3>Autocorrelation (Serial Correlation)</h3>
+<ul>
+<li>Different error terms are correlated, covariance matrix is nondiagonal
+<ul>
+<li>Data have a time / space dimension: not randomly sampled, time series / panel</li>
+<li><span class="math inline">\(Ψ\)</span> is NOT diagonal matrix</li>
+<li>Wrong funcitonal form, omitted variable, lacking dynamics</li>
+</ul></li>
+<li>Signs
+<ul>
+<li>Serial trend in scatter plot</li>
+<li>Error follows <a href="#types-of-process">AR(1)</a> <span class="math display">\[\begin{aligned}ε_t &amp;= ρε_{t-1} + v_t \\
+  E[v_t^2] &amp;= σ^2_v \\
+  Var(ε_t) &amp;= \frac{σ^2_v}{1 - ρ^2} \\
+  Cov(ε_t, ε_{t-s}) &amp;= ρ^s\cdot\frac{σ^2_v}{1 - ρ^2} \\
+  Corr(ε_t, ε_{t-s}) &amp;= ρ^s\end{aligned}\]</span></li>
+</ul></li>
+<li>Solution
+<ul>
+<li>Use another specification: include more variables <span class="math inline">\(\implies\)</span> tests are used as mis-specification tests</li>
+<li>HAC Standard Error</li>
+<li><a href="#gls-generalized-least-squares-estimator">GLS Estimator</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="white-hc-standard-error" class="section level3">
+<h3>White (HC) Standard Error</h3>
+<p>slide 6 P18, textbook P105, Greene P163</p>
+<p><span class="math display">\[\begin{aligned}Var(β) &amp;= σ^2 (X&#39;X)^{-1}\cdot X&#39;ΨX \cdot (X&#39;X)^{-1} \\
+ \hat{Var}(b) &amp;= (X&#39;X)^{-1}\cdot X&#39; (e&#39;e) X\cdot (X&#39;X)^{-1}\end{aligned}\]</span></p>
+<blockquote>
+<p>PS4.Q2.4<br />
+T/F?<br />
+When applying White robust standard errors under heteroskedasticity, the t-statistics change in comparison to the case of regular standard errors assuming homoskedasticity.</p>
+</blockquote>
+<p>True.</p>
+</div>
+<div id="newey-west-hac-standard-error" class="section level3">
+<h3>Newey-West (HAC) Standard Error</h3>
+<p>textbook P128, slide 7 P14</p>
+<blockquote>
+<p>PS4.Q2.3<br />
+T/F?<br />
+When applying robust standard errors, the <strong>OLS point estimates</strong> (estimators) do not change.</p>
+</blockquote>
+<p>True.</p>
+</div>
+<div id="gls-generalized-least-squares-estimator" class="section level3">
+<h3>GLS (Generalized Least Squares) Estimator</h3>
+<p>textbook P99, slide 6 P12</p>
+<ul>
+<li>Covariance matrix of OLS estimator: <span class="math display">\[Var(b) = σ^2(X&#39;X)^{-1}\cdot X&#39;ΨX\cdot(X&#39;X)^{-1}\]</span>
+Find some transformation matrix <span class="math inline">\(P\)</span> s.t. <span class="math display">\[\begin{aligned}Ψ^{-1} &amp;= P&#39;P \\
+Ψ &amp;= (P&#39;P)^{-1} \\
+&amp;= P^{-1}(P&#39;)^{-1} \\
+P&#39;ΨP &amp;= I\end{aligned}\]</span>
+Covariance matrix of error becomes <span class="math display">\[\begin{aligned}Var(Pε) &amp;= P\cdot Var(ε)\cdot P&#39; \\
+&amp;= σ^2\cdot P&#39;ΨP \\
+&amp;= σ^2I \end{aligned}\]</span></li>
+<li>Transformed model: <span class="math display">\[\begin{aligned}Py &amp;= PXβ + Pε \\
+y^* &amp;= X^*β + ε^* \end{aligned}\]</span></li>
+<li>GLS Estimator: <span class="math display">\[\begin{aligned}\hat{β} &amp;= (X^{*\prime} X^*)^{-1}X^{*\prime}y^* \\
+&amp;= (X&#39;Ψ^{-1}X)^{-1}X&#39;Ψ^{-1}y \end{aligned}\]</span>
+<ul>
+<li>BLUE</li>
+<li>Covariance matrix: <span class="math display">\[\begin{aligned}Var(\hat{β}) &amp;= σ^2(X^{*\prime} X^*)^{-1} \\ &amp;= σ^2(X&#39;Ψ^{-1}X)^{-1} \end{aligned}\]</span></li>
+</ul></li>
+<li>Estimated error variance: <span class="math display">\[\begin{aligned}\hat{σ}^2 &amp;= \frac{1}{N-K}(y^* - X^* \hat{β})&#39;\cdot (y^* - X^* \hat{β}) \\
+&amp;= \frac{1}{N-K}(y - X\hat{β})&#39; \cdot Ψ^{-1}\cdot (y - X\hat{β})\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="egls-feasible-estimated-gls-estimator" class="section level3">
+<h3>EGLS (Feasible Estimated GLS) Estimator</h3>
+<ul>
+<li>Use estimated value of <span class="math inline">\(Ψ\)</span></li>
+<li>Consistent, asymptotically best, but not BLUE</li>
+</ul>
+</div>
+<div id="wls-weighted-ls-estimator" class="section level3">
+<h3>WLS (Weighted LS) Estimator</h3>
+<p>slide 16 P16, textbook P102 106</p>
+<ul>
+<li>Form of heteroskedasticity: <span class="math display">\[\begin{aligned}Ψ &amp;= Diag(h_i^2) \\Var(ε_i) &amp;= σ^2 h_i^2 \\ 
+\underbrace{\frac{y_i}{h_i}}_{y_i^*} &amp;= \Big( \underbrace{\frac{x_i}{h_i}}_{x_i^*}\Big)&#39; β + \underbrace{\frac{ε_i}{h_i}}_{ε_i^*}\end{aligned}\]</span></li>
+<li>WLS Estimator: <span class="math display">\[\begin{aligned} \hat{β} &amp;= \Big( \sum_N x_i^*x_i^{*\prime} \Big)^{-1} \sum_N x_i^*y_i^* \\
+&amp;= \bigg(\sum_N \frac{x_ix_i&#39;}{h_i^2}\bigg)^{-1} \sum_N \frac{x_iy_i}{h_i^2}\end{aligned}\]</span></li>
+<li>Estimated form of heteroskedasticity: <span class="math display">\[\begin{aligned} Var(ε_i) &amp;= σ_i^2 \\
+&amp;= σ^2 \cdot \exp(z_i&#39;α) \\
+\log (σ_i^2) &amp;= \log(σ^2) + z_i&#39;α \\
+\log (e_i^2) &amp;= \log(σ^2) + z_i&#39;α + \underbrace{v_i}_{\text{Error}} \\
+e_i^2 &amp;= σ^2 \cdot \exp(z_i&#39;α) \cdot \exp(v_i) \\
+\frac{e_i^2}{σ^2} &amp;= \exp(z_i&#39;α)\cdot \exp(v_i)\end{aligned}\]</span>
+OLS estimation yeilds <span class="math display">\[\hat{h}_i^2 = \exp(z_i&#39;\hat{α})\]</span></li>
+</ul>
+</div>
+</div>
+<div id="regressor-problem-endogeneity" class="section level2">
+<h2>Regressor Problem: Endogeneity</h2>
+<ul>
+<li>Explanatory variables are correlated with error term
+<ul>
+<li>OLS estimator biased but consistent if assumption <a href="#gauss-markov-assumptions">(A7) or (A8)</a> are satisfied</li>
+</ul></li>
+<li><span class="math inline">\(E[ε_tx_t]\neq 0\implies\)</span> OLS estimator biased and inconsistent
+<ul>
+<li>Lagged <span class="math inline">\(y\)</span></li>
+<li>Measurement error</li>
+<li>Omitted variable bias</li>
+<li>Reverse causality (simultaneity)</li>
+</ul></li>
+<li>Solution
+<ul>
+<li>Instrument Variable</li>
+<li>Generalized Method of Moments</li>
+<li><a href="#ml-maximum-likelihood-model">Maximum likelihood</a></li>
+</ul></li>
+</ul>
+<div id="lagged-dependent-variable" class="section level3">
+<h3>Lagged Dependent Variable</h3>
+<p>textbook P143, slide 8 P4</p>
+<ul>
+<li>For <span class="math inline">\(y_t = βy_{t-1} + ε_t\)</span>, <span class="math inline">\(E[y_{t-1}ε_t] = 0\implies\)</span> OLS estimator is consistent</li>
+<li>But if error follows <span class="math display">\[ε_t = ρε_{t-1} + v_t\]</span>
+Real model becomes <span class="math display">\[y_t = (β + ρ)y_{t-1} - βρy_{t-2} + v_t\]</span>
+So regressing <span class="math inline">\(y_t = βy_{t-1} + ε_t\)</span> leads to <span class="math inline">\(E[y_{t-1}ε_t] \neq 0\)</span>
+<ul>
+<li>OLS estimator is inconsistent</li>
+<li>Durbin-Watson test is invalid</li>
+<li>Breusch-Godfrey test is still valid!</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Mock.Q2.3<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span>
+One can show that<br />
+<span class="math display">\[\text{plim }b = \frac{β+ρ}{1+βρ}\]</span>
+where <span class="math inline">\(b\)</span> denotes the OLS estimator for <span class="math inline">\(β\)</span> obtained from the regression model.<br />
+Suppose that the true <span class="math inline">\(β\)</span> equals 0.54 and that <span class="math inline">\(ρ\in (0,1)\)</span>.<br />
+1. Explain whether the OLS estimator <span class="math inline">\(b\)</span> is biased and if so in which direction?<br />
+2. What happens in the limiting cases where <span class="math inline">\(ρ\to 0\)</span> or <span class="math inline">\(ρ\to 1\)</span>?<br />
+3. Would the endogeneity bias be circumvented by estimating the following alternative regression?<br />
+<span class="math display">\[y_t = β_1 y_{t-1} + β_2 y_{t-2} + β_3 y_{t-3} + w_t\]</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Yes.<br />
+<span class="math display">\[\begin{aligned} \text{plim }b &amp;= \frac{β+ρ}{1+βρ} \\
+&amp;= \frac{1+\frac{ρ}{β}}{\frac{1}{β}+ρ} \\
+&amp;= \frac{1+\frac{ρ}{β}+ βρ - βρ}{\frac{1}{β}+ρ} \\
+&amp;= \frac{1+ βρ}{\frac{1}{β}+ρ} + \frac{\frac{ρ}{β}- βρ}{\frac{1}{β}+ρ} \\
+&amp;= β + \frac{\frac{1}{β}- β}{\frac{1}{β}+ρ}\cdot ρ \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(ρ\to 0\)</span>, <span class="math inline">\(\text{plim }b\to β\)</span> (unbiasedness)<br />
+When <span class="math inline">\(ρ\to 1\)</span>, <span class="math inline">\(\text{plim }b\to 1\)</span><br />
+</li>
+<li>Yes, yet with efficiency loss if include <span class="math inline">\(t-3\)</span> term.<br />
+Rewrite the original model with lag operater:<br />
+<span class="math display">\[\begin{aligned} y_t &amp;= βL y_t + ε_t \\
+(1-βL) y_t &amp;= ε_t \end{aligned}\]</span>
+Therefore, two lags will be sufficient.</li>
+</ol>
+</div>
+<div id="measurement-error" class="section level3">
+<h3>Measurement Error</h3>
+<ul>
+<li>Real model: <span class="math display">\[\begin{aligned} y_i &amp;= β_1 + β_2w_t + v_t \\
+E[v_t \ | \ w_t] &amp;= 0\end{aligned}\]</span></li>
+<li>Measurement error: <span class="math inline">\(x_t = w_t + u_t\)</span></li>
+<li>Estimated model: <span class="math display">\[y_i = β_1 + β_2x_t + \underbrace{ε_t}_{v_t - β_2u_t}\]</span>
+<ul>
+<li><span class="math inline">\(x_t\)</span> depends on <span class="math inline">\(u_t\)</span>, <span class="math inline">\(ε_t\)</span> depends on <span class="math inline">\(u_t\implies E[x_tε_t]\neq 0\)</span></li>
+<li>Inconsistency of one estimator carries over to all other estimators
+<span class="math display">\[\begin{aligned}\text{plim} (b_2 - β_2) &amp;= β_2\Big(- \frac{σ^2_u}{σ^2_w + σ^2_u}\Big) \\
+  \text{plim} (b_1 - β_1) &amp;= -\text{plim} (b_2 - β_2)\cdot E[x_t]\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="omitted-variable-bias" class="section level3">
+<h3>Omitted Variable Bias</h3>
+<ul>
+<li>Omitted regressor / factor is correlated with included regressors
+<ul>
+<li>Violates ceteris paribus condition when interpreting the <a href="#statistical-model">model</a></li>
+</ul></li>
+<li>Real model: <span class="math display">\[y_i = x_{1i}&#39;β_1 + x_{2i}&#39;β_2 + u_iγ + v_i\]</span>
+<ul>
+<li>Estimated model: <span class="math display">\[\begin{aligned} y_i = β_1x_{1i} + β_2x_{2i} + \underbrace{ε_i}_{u_iγ + v_i}\end{aligned}\]</span></li>
+<li>Assume <span class="math inline">\(E[x_i v_i] = 0\)</span>, <span class="math display">\[\text{plim} (b - β) = Σ_{xx}^{-1} \cdot E[x_i u_i]\cdot \underbrace{γ}_{\neq 0}\]</span></li>
+<li><span class="math inline">\(E[x_i u_i]\neq 0\implies \text{plim} (b - β)\neq 0\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="reverse-causality" class="section level3">
+<h3>Reverse Causality</h3>
+<ul>
+<li><span class="math inline">\(y\)</span> has impact on some of the <span class="math inline">\(x\)</span></li>
+<li>Example: Keynesian consumption function <span class="math display">\[\begin{aligned}&amp;&amp; y_t &amp;= β_1 + β_2 x_{2t} + ε_t \\
+&amp;&amp; x_{2t} &amp;= y_t + z_{2t} \\
+\text{Assume:} &amp;&amp; E[z_{2t} ε_t] &amp;= 0\end{aligned}\]</span>
+<ul>
+<li>Simultaneous equations model in structural form (structural model)</li>
+<li>Reduced form: <span class="math display">\[\begin{aligned}y_t &amp;= \frac{β_1}{1-β_2} + \frac{β_2}{1-β_2}z_{2t} +  \frac{1}{1-β_2}ε_t \\
+  x_t &amp;= \frac{β_1}{1-β_2} + \frac{1}{1-β_2}z_{2t} +  \frac{1}{1-β_2}ε_t \\
+  \text{plim} (b_2 - β_2) &amp;= (1-β_2) \frac{σ^2}{Var(z_{2t})+σ^2} \geq 0\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="iv-instrumental-variable" class="section level3">
+<h3>IV (Instrumental Variable)</h3>
+<p>textbook P150, slide 9-1</p>
+<ul>
+<li>Consider Keynesian consumption model <span class="math display">\[y_i = β_1x_{1i} + β_2x_{2i} + ε_i\]</span></li>
+<li>Moment conditions:<br />
+<span class="math display">\[\begin{aligned} E[ε_i x_{1i}] &amp;= E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) x_{1i}\right] = 0 &amp;&amp; \text{(1)}\\
+E[ε_i x_{2i}] &amp;= E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) x_{2i}\right] = 0 &amp;&amp; \text{(2)}\end{aligned}\]</span>
+But <span class="math inline">\(E[ε_i x_{2i}] \neq 0\)</span></li>
+<li>Find instrument variable <span class="math inline">\(z_{2i}\)</span> s.t. <span class="math inline">\(\begin{cases}E[z_{2i} ε_i] = 0 &amp; \text{(exogeneity)} \\ Cov(x_{2t},z_{2t})\neq 0 &amp; \text{(relevance)} \end{cases}\)</span>
+<ul>
+<li>Exclusion restriction: (moment condition for IV)
+<span class="math display">\[\begin{aligned} E[ε_i z_{2i}] = E\left[ (y_i - β_1x_{1i} - β_2x_{2i}) z_{2i}\right] = 0  &amp;&amp; \text{(3)} \end{aligned}\]</span></li>
+<li>Solving (1) and (3) gives consistent estimator <span class="math display">\[\hat{β}_{IV} = (Z&#39;X)^{-1}Z&#39;y\]</span></li>
+<li><span class="math inline">\(Z = [x_1&#39;, z_2&#39;]\)</span> (2*K)</li>
+</ul></li>
+<li><span class="math inline">\(\hat{β}_{IV}\)</span> is consistent if <span class="math inline">\(\text{plim} \frac{1}{N}\sum_N z_ix_i&#39; = Σ_{zx}\)</span> (K*K) is finite and invertable</li>
+</ul>
+<!--
+$$\text{Auxiliary Regression: }x_{2i} = x_{1i}' π_1 + z_{2i} π_2 + v_i$$ 
+should yield $π_2 \neq 0$. 
+-->
+<blockquote>
+<p>PS5.Q2<br />
+In model <span class="math inline">\(y = Xβ+ε\)</span>,<br />
+Derive the covariance matrix of IV estimator <span class="math inline">\(\hat{β}_{IV} = (Z&#39;X)^{−1}Z&#39;y\)</span> with homoskedastic and serially uncorrelated errors.<br />
+Argue why the correlation between instruments and regressors matter for the precision of the IV estimator.<br />
+What happens in the limiting case when this correlation approaches zero?</p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned}\hat{β}_{IV} &amp;= (Z&#39;X)^{−1}Z&#39;y \\
+&amp;= (Z&#39;X)^{-1}Z&#39;(Xβ+ε) \\
+&amp;= (Z&#39;X)^{-1}Z&#39;Xβ + (Z&#39;X)^{-1}Z&#39;ε \\
+&amp;= β + (Z&#39;X)^{-1}Z&#39;ε\end{aligned}\]</span>
+Derive <span class="math inline">\(V(\hat{β}_{IV})\)</span>:<br />
+<span class="math display">\[\begin{aligned}Var(\hat{β}_{IV}) &amp;= E\left[ (\hat{β}_{IV} - β)^2 \right] \\
+&amp;= E \left[ \left( (Z&#39;X)^{-1}Z&#39;ε \right)^2 \right] \\
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span></p>
+</div>
+<div id="give-generalized-iv-estimator" class="section level3">
+<h3>GIVE (Generalized IV Estimator)</h3>
+<p>textbook P166, slide 9-2 P8</p>
+<ul>
+<li>Also as: 2SLS (two-stage least squares) estimator</li>
+<li>Consider model: <span class="math display">\[y_i = \underbrace{x_i&#39;}_{\text{K}}β + ε_i\]</span>
+<ul>
+<li>K moment conditions: <span class="math inline">\(E[ε_ix_i] = E[(y_i - x_i&#39;β)x_i] = 0\)</span></li>
+<li>R exclusion restrictions: <span class="math inline">\(E[ε_iz_i] = E[(y_i - x_i&#39;β)z_i] = 0\)</span></li>
+<li><span class="math inline">\(R&gt;K\)</span></li>
+</ul></li>
+<li>Choose <span class="math inline">\(β\)</span> to minimize R sample moments: <span class="math inline">\(\frac{1}{N}\sum_N (y_i - x_i&#39;β)z_i\)</span>
+<ul>
+<li>Weighting matrix: <span class="math inline">\(W_N\)</span></li>
+<li>Solve <span class="math inline">\(\min \ Q_N(β) = \Big[ \frac{1}{N}Z&#39; (y - X β) \Big]&#39; W_N \Big[ \frac{1}{N}Z&#39; (y - X β) \Big]\)</span></li>
+<li>GIVE: <span class="math inline">\(\hat{β}_{IV} =(X&#39;ZW_N Z&#39;X)^{−1}X&#39;ZW_N Z&#39;y\)</span></li>
+<li>When <span class="math inline">\(R = K\)</span>, GIVE reduces to <span class="math inline">\(\hat{β}_{IV} =(Z&#39;X)^{−1}Z&#39;y\)</span></li>
+</ul></li>
+<li>Optimal weighting matrix: <span class="math inline">\(W_N^o = \big(\frac{1}{N}Z&#39;Z\big)^{-1}\)</span>
+<ul>
+<li>GIVE: <span class="math inline">\(\hat{β}_{IV} = \big(X&#39;Z (Z&#39;Z)^{-1} Z&#39;X\big)^{−1} X&#39;Z(Z&#39;Z)^{-1} Z&#39;y\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>PS5.Q1<br />
+Show that <span class="math inline">\(\hat{β}_{IV} =(X&#39;ZW_N Z&#39;X)^{−1}X&#39;ZW_N Z&#39;y\)</span> minimizes<br />
+<span class="math display">\[\begin{aligned} Q_N(β) &amp;= \bigg[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \bigg]&#39; W_N \bigg[ \frac{1}{N}\sum_{i=1}^N (y_i - x_i&#39; β)z_i \bigg] \\
+&amp;= \bigg[ \frac{1}{N}Z&#39; (y - X β) \bigg]&#39; W_N \bigg[ \frac{1}{N}Z&#39; (y - X β) \bigg] \end{aligned}\]</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned} Q_N(β) &amp;=  \frac{1}{N^2}\Big[ (y&#39; - β&#39;X&#39;)Z \cdot W_N \cdot (Z&#39;y - Z&#39;X β) \Big]
+\\ &amp;= \frac{1}{N^2}\Big[ y&#39;ZW_NZ&#39;y - y&#39;ZW_N Z&#39;Xβ - β&#39;X&#39;Z W_N Z&#39;y + β&#39;X&#39; Z W_N Z&#39;Xβ \Big] \\
+&amp;= \frac{1}{N^2}\Big[ y&#39;ZW_NZ&#39;y - 2\big( β&#39;X&#39;Z W_N Z&#39;y \big)  + β&#39;X&#39; Z W_N Z&#39;Xβ \Big] \end{aligned}\]</span>
+FOC<br />
+<span class="math display">\[\begin{aligned}\frac{\partial Q}{\partial β} &amp;= -2 X&#39;ZW_N Z&#39;y + 2X&#39;ZW_N Z&#39;Xβ = 0  \\
+\hat{β} &amp;= (X&#39;ZW_N Z&#39;X)^{-1} (X&#39;ZW_N Z&#39;y) \end{aligned}\]</span></p>
+<blockquote>
+<p>PS5.Q3<br />
+Derive the GIVE.<br />
+1. Start with the first stage regression <span class="math inline">\(X = Zγ + v\)</span> and obtain its fitted values <span class="math inline">\(\hat{X}\)</span>.<br />
+~~ Show that the first stage fit <span class="math inline">\(\hat{X}\)</span> is given by <span class="math inline">\(P_ZX\)</span> with <span class="math inline">\(P_Z = Z(Z′Z)^{−1}Z′\)</span>.<br />
+2. Consider OLS estimator in the second stage, based on fitted values <span class="math inline">\(\hat{X}\)</span>: <span class="math inline">\(y = \hat{X} β + ε\)</span>.<br />
+~~ Show that the resulting estimator equals the GIVE.<br />
+3. Derive the covariance matrix of the GIVE under homoskedasticity and absence of autocorrelation.<br />
+~~ Compare the results with PS5.Q2.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><p>First stage regression: <span class="math inline">\(X = Zγ + v\)</span><br />
+According to OLS, <span class="math inline">\(\hat{γ} = (Z&#39;Z)^{-1}Z&#39;X\)</span><br />
+Fitted values:<br />
+<span class="math display">\[\begin{aligned}\hat{X} &amp;= Z \cdot\hat{γ} \\&amp;= Z(Z&#39;Z)^{-1}Z&#39;X \\ &amp;= P_Z X\end{aligned}\]</span>
+<span class="math inline">\(P_Z\)</span> is symmetric:<br />
+<span class="math display">\[\begin{aligned} P_Z&#39; &amp;= \left[Z(Z&#39;Z)^{-1}Z&#39; \right]&#39; \\ &amp;= Z(Z&#39;Z)^{-1}Z&#39; \\ &amp;= P_Z\end{aligned}\]</span>
+<span class="math inline">\(P_Z\)</span> is idopotent:<br />
+<span class="math display">\[\begin{aligned} P_ZP_Z &amp;= Z(Z&#39;Z)^{-1}Z&#39; \cdot Z(Z&#39;Z)^{-1}Z&#39; \\
+&amp;= Z(Z&#39;Z)^{-1}Z \\
+&amp;= P_Z\end{aligned}\]</span></p></li>
+<li><p>Second stage regression: <span class="math inline">\(y = \hat{X}β+ ε\)</span><br />
+According to OLS, <span class="math inline">\(b = \big(\hat{X}&#39;\hat{X}\big)^{-1} \hat{X}&#39;y\)</span><br />
+Therefore<br />
+<span class="math display">\[\begin{aligned} \hat{X} &amp;= P_Z X \\
+\hat{X}&#39; &amp;= X&#39;P_Z&#39; \\
+&amp;= X&#39;P_Z\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}b &amp;= (X&#39;P_Z P_ZX)^{-1} X&#39;P_Z y \\
+&amp;= (X&#39;P_ZX)^{-1} X&#39;P_Z y \\
+&amp;= \big( X&#39;Z(Z&#39;Z)^{-1}ZX\big)^{-1} X&#39;Z(Z&#39;Z)^{-1}Z&#39; y \end{aligned}\]</span></p></li>
+<li><p>Variance: (checked)
+<span class="math display">\[\begin{aligned}Var(b) &amp;= σ^2 (\hat{X}&#39; \hat{X})^{-1} \\
+&amp;= σ^2 (X&#39;P_Z X)^{-1} \\
+&amp;= σ^2 (X&#39;Z(Z&#39;Z)^{-1}Z&#39; X)^{-1} \\
+&amp;= σ^2 (Z&#39;X)^{-1}Z&#39;Z(X&#39;Z)^{-1}\end{aligned}\]</span>
+Note that this is the exact same variance matrix as in PS5.Q2</p></li>
+</ol>
+<!-- ### GMM (Generalized Method of Moments) -->
+</div>
+</div>
+<div id="ml-maximum-likelihood-model" class="section level2">
+<h2>ML (Maximum Likelihood) Model</h2>
+<ul>
+<li>Given <span class="math inline">\(X = (x_1, \dots, x_N)&#39;\)</span> and <span class="math inline">\(y = (y_1, \dots, y_N)&#39;\)</span>, and <span class="math inline">\(\dim (θ) = K\)</span></li>
+<li>Likelihood Distribution of observation<br />
+= Probability Mass Function (pmf, pdf for discrete observations):
+<span class="math display">\[L_i(θ) = f(y_i \ | \ x_i, θ)\]</span></li>
+<li>Likelihood Function<br />
+= Joint Probability Mass Function:
+<span class="math display">\[L(θ) = f(y \ | \ X, θ) = \prod_{i=1}^N f(y_i \ | \ x_i, θ)\]</span></li>
+<li>Log Likelihood Function: <span class="math display">\[\log L(θ) = \sum_{i=1}^N \log f(y_i \ | \ x_i, θ)\]</span></li>
+<li>ML Estimation: <span class="math display">\[\begin{aligned}\max &amp;&amp; \log L(θ \ | \ y, X)\end{aligned}\]</span></li>
+<li>FOC<br />
+= Score Vector:
+<span class="math display">\[\begin{aligned} \frac{\partial\log L(θ \ | \ y, X)}{\partial θ} &amp;= \sum_{i=1}^N \frac{\partial\log f(y_i \ | \ x_i, θ)}{\partial θ} \\
+&amp;= \sum_{i=1}^N  s_i(θ) \\
+&amp;= 0 \ |_{θ = \hat{θ}}\end{aligned}\]</span></li>
+<li>ML Estimator: <span class="math inline">\(\hat{θ}\)</span> (usually numerical)</li>
+</ul>
+<div id="assumption" class="section level3">
+<h3>Assumption</h3>
+</div>
+<div id="property-of-" class="section level3">
+<h3>Property of ^θ</h3>
+<ul>
+<li>Consistent: <span class="math inline">\(\text{plim} \ \hat{θ} = θ\)</span></li>
+<li>Asymptotically Efficient: <span class="math inline">\(Var(\hat{θ})\)</span></li>
+<li>Asymptotically Normal: <span class="math inline">\(\sqrt{N}(\hat{θ} - θ) \to^a \mathcal{N}(0,V)\)</span></li>
+</ul>
+</div>
+<div id="asymptotic-covariance-matrix" class="section level3">
+<h3>Asymptotic Covariance Matrix</h3>
+<ul>
+<li><span class="math inline">\(V = I(θ)^{-1}\)</span></li>
+<li>Information Matrix:
+<span class="math display">\[\begin{aligned} I(θ) &amp;\equiv \lim_{N\to\infty}\frac{1}{N} \sum_{i=1}^N I_i(θ) \\
+&amp;= \lim_{N\to\infty}\frac{1}{N}\sum_{i=1}^N -E\left[ \frac{\partial^2 \log f(y_i \ | \ x_i, θ)}{\partial θ \partial θ&#39;} \right] \\
+&amp;= \lim_{N\to\infty} -E\left[ \frac{1}{N}\cdot\frac{\partial^2 \log L(θ)}{\partial θ \partial θ&#39;} \right]\end{aligned}\]</span></li>
+<li>When observations are iid, <span class="math inline">\(I(θ) = I_i(θ)\)</span></li>
+<li>Consistent (Hessian) Estimator of <span class="math inline">\(V\)</span>:
+<span class="math display">\[\begin{aligned} \hat{V}_H &amp;= \left( \frac{1}{N} \sum_{i=1}^N I_i(θ) \ \Bigg|_{θ = \hat{θ}}\right)^{-1} \\
+&amp;= \left(\frac{1}{N}\sum_{i=1}^N \frac{\partial^2 \log f(y_i \ | \ x_i, θ)}{\partial θ \partial θ&#39;} \ \Bigg|_{θ = \hat{θ}}\right)^{-1} \end{aligned}\]</span></li>
+<li>Alternative: BHHH (Berndt–Hall–Hall–Hausman) (Gradient) Estimator: <span class="math inline">\(\hat{V}_G &gt; 0\)</span></li>
+</ul>
+</div>
+</div>
+<div id="binary-choice-model" class="section level2">
+<h2>Binary Choice Model</h2>
+<div id="regression-model" class="section level3">
+<h3>Regression Model</h3>
+<ul>
+<li>Latent Model: <span class="math display">\[\begin{aligned} y_i^* &amp;= x_i&#39;β + ε_i \\ y_i &amp;= \begin{cases} 1 &amp;&amp; \text{if } y_i^* &gt; 0 \\ 0 &amp;&amp; \text{if } y_i^* \leq 0 \end{cases}\end{aligned}\]</span></li>
+<li>assumed that <span class="math display">\[\begin{aligned} Pr(y_i= 1) &amp;= Pr(y_i^*&gt;0) \\ &amp;= P(x_i&#39;β + ε_i &gt; 0) \\ &amp;= P(-ε_i \leq x_i&#39;β) \\ &amp;= \underbrace{G(x_i,β)}_{\text{distribution of }-ε_i}\end{aligned}\]</span></li>
+<li>General Model: <span class="math display">\[Pr( y_i=1 \ | \ x_i) = \underbrace{G(x_i,β)}_{\text{link function}}\]</span></li>
+<li>Likelihood Function: <span class="math display">\[\begin{aligned} L(β) &amp;= \prod_{i=1}^N \big(P(y_i = 1 \ | \ x_i,β)\big)^{y_i}\cdot\big(P(y_i = 0 \ | \ x_i,β)\big)^{1-y_i} \\
+&amp;= \prod_{i=1}^N \big(G(x_i,β)\big)^{y_i}\cdot\big(1-G(x_i,β)\big)^{1-y_i} \\
+\log L(β) &amp;= \sum_{i=1}^N y_i\cdot\log\big(G(x_i,β)\big) + \sum_{i=1}^N (1-y_i)\cdot\log \big(1-G(x_i,β)\big)\end{aligned}\]</span></li>
+<li>FOC: <span class="math display">\[\frac{\partial\log L(β)}{\partial β} = \sum_{i=1}^N\bigg[\underbrace{\frac{y_i - G(x_i,β)}{G(x_i,β)\big(1-G(x_i,β)\big)}\cdot \overbrace{g(x_i,β)}^{\text{p.d.f.}}}_{\text{Generalized Residual}}\bigg]\cdot x_i = 0\]</span></li>
+<li>Solving FOC gives maximum likelihood estimator <span class="math inline">\(\hat{β}\)</span></li>
+<li>SOC: negative definite <span class="math inline">\(\implies\log L(β)\)</span> is globally concave <span class="math inline">\(\implies\)</span> convergence</li>
+</ul>
+</div>
+<div id="probit-model" class="section level3">
+<h3>Probit Model</h3>
+<ul>
+<li>Probit Model: <span class="math display">\[\begin{aligned}G(x_i,β) &amp;= Φ(x_i&#39;β) \\ &amp;= \int^{x_i&#39;β}_{-\infty}\frac{1}{\sqrt{2π}}\cdot\exp\left( -\frac{t^2}{2}\right)dt\end{aligned}\]</span></li>
+<li>Marginal Effect of changes in <span class="math inline">\(x\)</span> to <span class="math inline">\(P\)</span>: <span class="math display">\[\frac{\partial Φ(x_i&#39;β)}{\partial x_{ik}} = φ(x_i&#39;β)\cdot β_k\]</span></li>
+</ul>
+</div>
+<div id="logit-model" class="section level3">
+<h3>Logit Model</h3>
+<ul>
+<li>Logit Model: <span class="math display">\[\begin{aligned} G(x_i,β) &amp;= Λ(x_i&#39;β) \\ &amp;= \frac{e^{x_i&#39;β}}{1+e^{x_i&#39;β}}\end{aligned}\]</span></li>
+<li>Marginal Effect of changes in <span class="math inline">\(x\)</span> to <span class="math inline">\(P\)</span>: <span class="math display">\[\frac{\partial Λ(x_i&#39;β)}{\partial x_{ik}} = \frac{e^{x_i&#39;β}}{(1+e^{x_i&#39;β})^2}\cdot β_k\]</span></li>
+<li>FOC: <span class="math display">\[\frac{\partial\log L(β)}{\partial β} = \sum_{i=1}^N\bigg[ y_i - \frac{e^{x_i&#39;β}}{1+e^{x_i&#39;β}}\bigg]\cdot x_i = 0\]</span></li>
+<li>Estimated Probability: <span class="math display">\[\begin{aligned} \hat{p}_i(y_i = 1 \ | \ x_i) &amp;= \frac{e^{x_i&#39;\hat{β}}}{1+e^{x_i&#39;\hat{β}}} \\
+\implies\sum_{i=1}^N {p}_i\cdot x_i &amp;= \sum_{i=1}^N y_i\cdot x_i\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="likelihood-ratio" class="section level3">
+<h3>Likelihood Ratio</h3>
+<ul>
+<li>Let <span class="math inline">\(\log L_1 = \log L(β)\)</span>, <span class="math display">\[\log L_0 = Ν_1\cot\log\big(\frac{N_1}{N}\big)+ (Ν-Ν_1)\cot\log\big(\frac{N-N_1}{N}\big)\]</span></li>
+<li><span class="math inline">\(\text{McFadden-}R^2 = 1- \frac{\log L_1}{\log L_0} &lt; 0\)</span></li>
+</ul>
+<blockquote>
+<p>PS6.Q1<br />
+1. Explain why the log-likelihood function in binary choice models is always negative<br />
+2. Use this fact to argue why the McFadden pseudo-<span class="math inline">\(R^2\)</span> formula <span class="math inline">\(1 −\frac{\ln L_1}{\ln L_0}\)</span> is then meaningful<br />
+3. Briefly discuss why the likelihood ratio test statistic (for the null hypothesis that all parameters except of the intercept are jointly equal to zero) given as <span class="math inline">\(−2(\ln L_0 − \ln L_1)\)</span> is always positive<br />
+Note that it is distributed in the limit as a <span class="math inline">\(χ^2\)</span> random variable</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>The log-likelihood function of a binary choice model is a summation of 0 or 1 multiplied by log of a probability in <span class="math inline">\([0,1]\)</span> (result of the link function), which is always negative.<br />
+</li>
+<li>Since a restricted model always has a lower log-likelihood value than an unrestricted one,<br />
+<span class="math inline">\(\implies \ln L_0 \leq\ln L_1 &lt; 0\)</span><br />
+<span class="math inline">\(\implies \frac{\ln L_1}{\ln L_0}\in(0,1)\)</span><br />
+<span class="math inline">\(\implies 1- \frac{\ln L_1}{\ln L_0}\in(0,1)\)</span>, with larger value indicating better fitness<br />
+When the restrictions does not hold, <span class="math inline">\(\frac{\ln L_1}{\ln L_0}\to 0\)</span>, <span class="math inline">\(1 −\frac{\ln L_1}{\ln L_0}\to 1\)</span><br />
+Otherwise, <span class="math inline">\(\frac{\ln L_1}{\ln L_0}\to 0\)</span>, <span class="math inline">\(1 −\frac{\ln L_1}{\ln L_0}\to 1\)</span><br />
+</li>
+<li><span class="math inline">\(−2(\ln L_0 − \ln L_1)\)</span> is always positive because <span class="math inline">\(\ln L_0 \leq\ln L_1\)</span></li>
+</ol>
+</div>
+</div>
+<div id="time-series" class="section level2">
+<h2>Time Series</h2>
+<p>See also <a href="../../04/notes-time-series">Notes on Time Series</a></p>
+<div id="types-of-process" class="section level3">
+<h3>Types of Process</h3>
+<ul>
+<li>White Noise: <span class="math inline">\(ε_t\)</span>
+<ul>
+<li>Zero mean, homoskedastic (<span class="math inline">\(σ^2\)</span>), zero covariance / autocorrelation</li>
+</ul></li>
+<li>MA (1): <span class="math inline">\(Y_t = μ + ε_t + αε_{t-1}\)</span>
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= (1 + α^2)σ^2 \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= \begin{cases} ασ^2 &amp; k=1\\ 0 &amp; k\geq 2\end{cases} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \begin{cases} \frac{α}{1 + α^2} \leq \frac{1}{2} &amp; k=1\\ 0 &amp; k\geq 2\end{cases}\end{aligned}\]</span>
+<ul>
+<li>Always stationary</li>
+</ul></li>
+<li>AR (1): <span class="math inline">\(Y_t = δ + θ Y_{t-1} + ε_t\)</span><br />
+When stationary,
+<span class="math display">\[\begin{aligned}\text{Mean:} &amp;&amp; E[Y_t] &amp;= δ + θ E[Y_{t-1}] \\
+&amp;&amp; &amp;= \frac{δ}{1-θ} \\ 
+&amp;&amp; &amp;= μ \\
+\text{Variance:} &amp;&amp; Var(Y_t) &amp;= θ^2Var(Y_{t-1}) + Var(ε_t) \\
+&amp;&amp; &amp;= \frac{σ^2}{1-θ^2} \\
+\text{Covariance:} &amp;&amp; Cov(Y_t,Y_{t-k}) &amp;= θ^k\frac{σ^2}{1-θ^2} \\
+\text{ACF:} &amp;&amp; Corr(Y_t,Y_{t-k}) &amp;= \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} \\
+&amp;&amp; &amp;= θ^k \end{aligned}\]</span>
+<ul>
+<li>Let <span class="math inline">\(y_t \equiv Y_t - μ\)</span>, <span class="math inline">\(y_t = θy_{t-1} + ε_t\)</span></li>
+</ul></li>
+<li>MA (q): <span class="math inline">\(Y_t = ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span>
+<ul>
+<li><span class="math inline">\(Cov(Y_t,Y_{t-k}) = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+</ul></li>
+<li>AR (p): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t\)</span></li>
+<li>ARMA (p,q): <span class="math inline">\(Y_t = θ_1Y_{t-1} +\cdots + θ_pY_{t-p} + ε_t + α_1 ε_{t-1} +\cdots + α_q ε_{t-q}\)</span></li>
+</ul>
+</div>
+<div id="lag-operator" class="section level3">
+<h3>Lag Operator</h3>
+<ul>
+<li><span class="math inline">\(L^0=1\)</span>, <span class="math inline">\(Ly_t = y_{t-1}\)</span>, <span class="math inline">\(L^2 y_t = y_{t-2}\)</span>, …</li>
+<li>Characteristic equation: <span class="math inline">\(1-θz = 0\)</span></li>
+<li>Characteristic root: <span class="math inline">\(|z|=\left|\frac{1}{θ}\right|\)</span>, <span class="math inline">\(|θ| \begin{cases}&gt;1 &amp; \text{explosive} \\ =1 &amp; \text{unit root (explosive)} \\ &lt;1 &amp; \text{stationary}\end{cases}\)</span></li>
+<li>For AR (1):
+<ul>
+<li><span class="math inline">\(1-θL\)</span> is invertible if <span class="math inline">\(|θ|&lt;1\)</span>
+<span class="math display">\[\begin{aligned} y_t &amp;= θLy_t + ε_t \\ (1-θL) y_t &amp;= ε_t \end{aligned}\]</span></li>
+</ul></li>
+<li>For AR (p):
+<ul>
+<li>Lag Polynomial: <span class="math display">\[\begin{aligned} θ(L) &amp;= 1 - θ_1L - θ_2L^2 -\cdots - θ_pL^p \\ y_t &amp;= θ_1Ly_t -\cdots - θ_p L^p y_t + ε_t \\ θ(L) y_t &amp;= ε_t \\ \end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="stationary" class="section level3">
+<h3>Stationary</h3>
+<ul>
+<li>Weakly (Covariance) Stationary
+<span class="math display">\[\begin{cases} E[Y_t] = μ &lt; \infty \\ Var(Y_t) = Var(Y_{t&#39;}) = γ_0 &lt; \infty \\ Cov(Y_t, Y_{t-k}) = γ_k\end{cases}\]</span></li>
+<li>ACF (AutoCorrelation Function) (textbook P316)
+<span class="math display">\[ρ_k = \frac{Cov(Y_t,Y_{t-k})}{Var(Y_t)} = \frac{γ_k}{γ_0}\]</span>
+<ul>
+<li>For MA (q) <span class="math inline">\(ρ_k = 0\)</span> for <span class="math inline">\(k\geq q+1\)</span></li>
+<li>For AR (1): <span class="math inline">\(ρ_k = θ^k\to 0\)</span> exponentially</li>
+<li>Sample ACF: <span class="math display">\[\hat{ρ}_k = \frac{\frac{1}{T-k}\sum^T_{t=k+1}(Y_t-\bar{Y})(Y_{t=k}-\bar{Y})}{\frac{1}{T}\sum^T_{t=1}(Y_t-\bar{Y})^2}\]</span></li>
+<li><span class="math inline">\(\sqrt{T}(\hat{ρ}_k-ρ_k)\to\mathcal{N}(0,\exists v_k)\)</span></li>
+</ul></li>
+<li>AR (1) is stationary <span class="math inline">\(\iff\)</span> <span class="math inline">\(1-θL\)</span> is invertible <span class="math inline">\(\iff\)</span> characteristic root <span class="math inline">\(|z| &gt; 1\)</span></li>
+</ul>
+<blockquote>
+<p>Mock.Q2.1<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span>
+Provide a simple condition for consistency of the OLS estimator for <span class="math inline">\(β\)</span></p>
+</blockquote>
+<p>The general condition for the OLS estimator for <span class="math inline">\(β\)</span> is <span class="math inline">\(E[x_tε_t] = 0\)</span>,<br />
+here can be written as <span class="math inline">\(E[y_{t-1}ε_t] = 0\)</span></p>
+<blockquote>
+<p>Mock.Q2.2<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span>
+Suppose that the error term <span class="math inline">\(ε_t\)</span> follows the process <span class="math inline">\(ε_t = ρ ε_{t-1} + v_t\)</span> where <span class="math inline">\(v_t∼^{iid} \mathcal{N}(0,σ_v^2)\)</span><br />
+1. How is the process for <span class="math inline">\(ε_t\)</span> called?<br />
+2. For which values of <span class="math inline">\(ρ\)</span> is <span class="math inline">\(ε_t\)</span> positively autocorrelated? (No derivation needed.)<br />
+3. For which values of <span class="math inline">\(ρ\)</span> is <span class="math inline">\(ε_t\)</span> stationary? Derive! (Maximal 5 lines).</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>AR (1)<br />
+</li>
+<li><span class="math inline">\(ACF = ρ\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(ρ &gt; 0\)</span><br />
+</li>
+<li>Rewrite <span class="math inline">\(ε_t = ρ ε_{t-1} + v_t\)</span> with lag operater:<br />
+<span class="math display">\[\begin{aligned} ε_t &amp;= ρ Lε_t + v_t \\
+(1-ρL) ε_t &amp;= v_t\end{aligned}\]</span>
+Characteristic equation:<br />
+<span class="math display">\[\begin{aligned} 1-ρz &amp;= 0 \\
+|z| &amp;= \left| \frac{1}{ρ}\right|\end{aligned}\]</span>
+Condition for <span class="math inline">\(ε_t\)</span> to be stationary:<br />
+<span class="math display">\[\begin{aligned} |z| &amp;&gt; 1 \\
+|ρ| &amp;&lt; 1\end{aligned}\]</span>
+<!-- Therefore,  
+$$\begin{aligned} Var(ε_t) &= Var(ε_{t-1}) \\
+Var(ρ ε_{t-1} + v_t) &= Var(ε_{t-1}) \\
+ρ\cdot Var(ε_{t-1}) + Var(v_t) &= Var(ε_{t-1}) \\
+Var(ε_{t-1}) &= \frac{σ_v^2}{1-ρ} > 0 \\
+ρ &< 1\end{aligned}$$ --></li>
+</ol>
+<blockquote>
+<p>Mock.Q2.4<br />
+Consider the following regression model with a lagged dependent variable only:<br />
+<span class="math display">\[y_t = βy_{t-1} + ε_t\]</span>
+In order to test for autocorrelation in the residuals <span class="math inline">\(\hat{ε_t}\)</span> (epsilonhat) from the regression <span class="math inline">\(y_t = βy_{t-1} + ε_t\)</span> use the Box-Pierce statistic <span class="math inline">\(Q_m =T\cdot\sum_{j=1}^m \hat{ρ_j}^2\)</span>,<br />
+where <span class="math inline">\(T = 280\)</span> denotes the sample size and <span class="math inline">\(\hat{ρ_j}\)</span> is the empirical <span class="math inline">\(j\)</span>th-order autocorrelation coefficient.<br />
+Carry out the test for <span class="math inline">\(m = 2\)</span> and use the information in the corrupted R output below in combination with the estimation results reported in the table:<br />
+(Autocorrelations of series epsilonhat, by lag)</p>
+<table>
+<thead>
+<tr class="header">
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.000</td>
+<td></td>
+<td>0.212</td>
+<td>0.152</td>
+<td>-0.253</td>
+<td>-1.000</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>dynlm( formula = epsilonhat ~ L(epsilonhat, 1 ))
+
+# Residuals:
+#     Min     1Q Median     3Q Max
+# -4.0487 0.3869 0.0345 0.3575 3.5857
+
+# Coefficients:
+#                  Estimate Std. Error t value Pr(&gt;|t|)
+# (Intercept)     -0.001806   0.046903  -0.038    0.969
+# L(epsilonhat,1)  0.437636   0.053792   8.136 1.36e-14 ***</code></pre>
+<ol style="list-style-type: decimal">
+<li>State the null and the alternative hypothesis.<br />
+</li>
+<li>Select the appropriate <span class="math inline">\(5\%\)</span>-critical value from the following set and interpret the test decision:<br />
+<span class="math display">\[\begin{aligned} F^{280-2}_2 &amp;= 3.03 \\ F^2_{280-2} &amp;= 19.49 \\ χ_2^2 &amp;= 5.99 \\ χ_{280-2}^2 &amp;= 317.89 \\ t_2 &amp;= 2.92 \\ t_{280-2} &amp;= 1.65 \end{aligned}\]</span></li>
+<li>Why is the Durbin-Watson test invalid in this setting? (Max 3 sentences)</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(ε_t\)</span> has no autocorrelation (first two lags have zero coefficient)<br />
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(ε_t\)</span> has autocorrelation<br />
+</li>
+<li>Critical value: <span class="math inline">\(χ_2^2 = 5.99\)</span> with <span class="math inline">\(df = 2\)</span><br />
+<span class="math display">\[\begin{aligned} Q_2 &amp;= 280\cdot\sum_{j=1}^2 \hat{ρ_j}^2 \\
+&amp;= 280\times (0.4376^2 + 0.212^2) \\
+&amp;= 66.2 &gt; 5.99\end{aligned}\]</span>
+Therefore, <span class="math inline">\(H_0\)</span> is rejected, and <span class="math inline">\(ε_t\)</span> has autocorrelation<br />
+</li>
+<li>Because the dependent variable (<span class="math inline">\(ε_t\)</span>) is lagged.</li>
+</ol>
+</div>
+<div id="difference-operator-integration" class="section level3">
+<h3>Difference Operator &amp; Integration</h3>
+<ul>
+<li>Difference Operator: <span class="math inline">\(Δ \equiv 1-L\)</span>
+<ul>
+<li>First difference: <span class="math inline">\(ΔY_t = Y_t - Y_{t-1}\)</span></li>
+<li>Second difference: <span class="math inline">\(Δ^2 Y_t = ΔY_t - ΔY_{t-1}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(I(0)\)</span> denotes stationary series
+<ul>
+<li>Mean reverting</li>
+<li>Finite variance</li>
+<li>Limited memory of past behaviour</li>
+</ul></li>
+<li><span class="math inline">\(I(1)\)</span> denotes series that become stationary after first-differencing
+<ul>
+<li>Infinitely long memory</li>
+</ul></li>
+</ul>
+</div>
+<div id="deterministic-linear-trend" class="section level3">
+<h3>Deterministic (Linear) Trend</h3>
+<ul>
+<li>Another possible cause of nonstationarity: <span class="math inline">\(γ\neq 0\)</span> (even when <span class="math inline">\(|θ|&lt;1\)</span>)
+<span class="math display">\[Y_t = δ + θY_{t-1}+γ\cdot t + ε_t\]</span></li>
+<li>Trend stationary</li>
+<li>Solution:
+<ul>
+<li>Regress <span class="math inline">\(Y_t\)</span> on constant and trend and then use residuals<br />
+</li>
+<li>include <span class="math inline">\(t\)</span> as additional variable in regression</li>
+</ul></li>
+</ul>
+</div>
+<div id="ols-estimation" class="section level3">
+<h3>OLS Estimation</h3>
+<ul>
+<li>For AR (p)
+<ul>
+<li>Consistency: <span class="math inline">\(E[Y_{t-j}ε_t] = 0\)</span> for all <span class="math inline">\(j = 1,2,3,\dots,p\)</span><br />
+</li>
+<li>Small sample bias caused ((A2) violated)</li>
+</ul></li>
+<li>For MA (1) with invertible lag polynomial
+<ul>
+<li>tbe</li>
+</ul></li>
+</ul>
+<!-- ### ML Estimation
+
+tbe -->
+</div>
+<div id="model-selection" class="section level3">
+<h3>Model Selection</h3>
+<ul>
+<li>Residual analysis (Ljung–Box test)</li>
+<li>AIC &amp; BIC</li>
+<li>Overfitting: to test ARMA (p,q), estimate ARMA (p+1,q) and ARMA (p,q+1)</li>
+</ul>
+</div>
+<div id="spurious-regression" class="section level3">
+<h3>Spurious Regression</h3>
+<p>textbook P352, slide 12 P28</p>
+</div>
+<div id="cointegration" class="section level3">
+<h3>Cointegration</h3>
+<p>textbook P353, slide 12 P31<br />
+<a href="http://staff.utia.cas.cz/barunik/files/appliedecono/Lecture7.pdf">Lecture: Introduction to Cointegration - Applied Econometrics</a></p>
+<ul>
+<li>Cointegration <span class="math inline">\(\implies\)</span> not spurious</li>
+</ul>
+</div>
+</div>
+<div id="panel-data" class="section level2">
+<h2>Panel Data</h2>
+<ul>
+<li><span class="math inline">\(y_{it} = α + β x_{it} + u_{it}\)</span> (pooled model)</li>
+<li><span class="math inline">\(N\)</span> is the number of entities, <span class="math inline">\(T\)</span> is the number of periods, <span class="math inline">\(N\cdot T\)</span> is the number of total observations (if balanced)</li>
+<li>Micro panel (large <span class="math inline">\(N\)</span>, small <span class="math inline">\(T\)</span>) &amp; Macro panel (small <span class="math inline">\(N\)</span>, large <span class="math inline">\(T\)</span>)</li>
+<li>Balanced panel: no missing observation (number <span class="math inline">\(=N\cdot T\)</span>)</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>True Model \ Method</th>
+<th>Random Effect</th>
+<th>Fixed Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random Effect</td>
+<td>consistent + efficient</td>
+<td>consistent</td>
+</tr>
+<tr class="even">
+<td>Fixed Effect</td>
+<td>inconsistent</td>
+<td>consistent + efficient</td>
+</tr>
+</tbody>
+</table>
+<div id="entity-fixed-effect" class="section level3">
+<h3>Entity Fixed Effect</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = ( α + μ_i )+ β x_{it} + u_{it}\)</span></li>
+<li>Entity Fixed Effect: <span class="math inline">\(μ_i\)</span></li>
+<li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span></li>
+</ul>
+</div>
+<div id="time-fixed-effect" class="section level3">
+<h3>Time Fixed Effect</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = ( α + λ_t )+ β x_{it} + u_{it}\)</span></li>
+<li>Time Fixed Effect: <span class="math inline">\(λ_t\)</span></li>
+<li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span></li>
+</ul>
+</div>
+<div id="least-squares-dummy-variable-lsdv-estimator" class="section level3">
+<h3>Least Squares Dummy Variable (LSDV) Estimator</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + \sum_{j=2}^N μ_j\cdot D_{ij} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(j\)</span> is an index for dummy variables, <span class="math inline">\(D_{ij}\begin{cases}1 &amp; i=j \\ 0 &amp; i\neq j \end{cases}\)</span></li>
+<li>F-test for <span class="math inline">\(μ_1 = μ_2 = \dots = μ_N = 0\)</span> (in comparison with pooled model)</li>
+<li>Breusch-Pagan Test (?)</li>
+</ul>
+</div>
+<div id="within-estimator" class="section level3">
+<h3>Within Estimator</h3>
+<p>Let time-mean: <span class="math inline">\(\bar{y}_{i} =\frac{1}{T}\sum_{t=1}^T y_{it}\)</span>, <span class="math inline">\(\bar{x}_{i} =\frac{1}{T}\sum_{t=1}^T x_{it}\)</span>, and <span class="math inline">\(\bar{u}_{i} =\frac{1}{T}\sum_{t=1}^T u_{it}\)</span><br />
+Therefore, <span class="math inline">\(\bar{y}_{i} = ( α + μ_i )+ β \bar{x}_{i} + \bar{u}_{i}\)</span></p>
+<ul>
+<li><span class="math inline">\(y_{it} - \bar{y}_{i} = β (x_{it} -\bar{x}_{i}) + (u_{it} - \bar{u}_{i})\)</span></li>
+<li>OLS estimator: (identical to LSDV Estimator)
+<span class="math display">\[\hat{β}_{FE} = \frac{\sum_{i=1}^N \sum_{t=1}^T (x_{it} - \bar{x}_{i})(y_{it}-\bar{y}_{i})}{\sum_{i=1}^N \sum_{t=1}^T(x_{it}-\bar{x}_{i})^2}\]</span></li>
+<li><span class="math inline">\(\hat{u}_i = \bar{y}_{i} - \hat{β}\cdot\bar{x}_{i}\)</span></li>
+</ul>
+</div>
+<div id="first-difference-estimator" class="section level3">
+<h3>First Difference Estimator</h3>
+<ul>
+<li>For model: <span class="math display">\[y_{it} = ( α + μ_i )+ β x_{it} + u_{it}\]</span><br />
+Take first difference:
+<span class="math display">\[\begin{aligned} Δy_{it} &amp;= Δ( α + μ_i ) + Δ(β x_{it}) + Δu_{it} \\
+&amp;= βΔx_{it} + Δu_{it} \\
+y_{it} - y_{i,t-1} &amp;= β(x_{it}, x_{i,t-1}) + (u_{it} - u_{i,t-1})\end{aligned}\]</span></li>
+<li>OLS estimator:<br />
+<span class="math display">\[\hat{β}_{FD} = \frac{\sum_{i=1}^N \sum_{t=2}^T Δx_{it}Δy_{it}}{\sum_{i=1}^N \sum_{t=2}^T(Δx_{it})^2}\]</span></li>
+<li>Large difference between <span class="math inline">\(\hat{β}_{FD}\)</span> and <span class="math inline">\(\hat{β}_{FE}\)</span> indicates misspecification</li>
+</ul>
+</div>
+<div id="entity-and-time-fixed-effect-2-way" class="section level3">
+<h3>Entity and Time Fixed Effect (2-way)</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + \sum_{j=2}^N μ_j\cdot D_{ij} + \sum_{k=2}^T λ_k\cdot D_{tk} + β x_{it} + u_{it}\)</span></li>
+<li><span class="math inline">\(j\)</span> is an index for entity dummy variables, <span class="math inline">\(D_{ij}\begin{cases}1 &amp; i=j \\ 0 &amp; i\neq j \end{cases}\)</span></li>
+<li><span class="math inline">\(k\)</span> is an index for time dummy variables, <span class="math inline">\(D_{tk}\begin{cases}1 &amp; t=k \\ 0 &amp; t\neq k \end{cases}\)</span></li>
+</ul>
+</div>
+<div id="random-effect" class="section level3">
+<h3>Random Effect</h3>
+<ul>
+<li><span class="math inline">\(y_{it} = α + β x_{it} + ( u_{it} + μ_i)\)</span></li>
+<li>Entity Random Effect: <span class="math inline">\(μ_i\)</span></li>
+<li><span class="math inline">\(u_{it} ∼ \mathcal{N}(0,σ_u^2)\)</span>, <span class="math inline">\(μ_i ∼ \mathcal{N}(0,σ_μ^2)\)</span></li>
+</ul>
+</div>
+<div id="feasible-gls-egls-estimator" class="section level3">
+<h3>Feasible GLS (EGLS) Estimator</h3>
+<ul>
+<li>Let <span class="math inline">\(Ψ = \frac{σ_u^2}{T\cdot σ_μ^2 + σ_u^2}\)</span><br />
+</li>
+<li>Let <span class="math inline">\(θ = 1 - \sqrt{ψ} = 1 - \sqrt{\frac{σ_u^2}{σ_u^2 + T\cdot σ_μ^2}}\)</span>, <span class="math inline">\(θ\in [0,1]\)</span><br />
+</li>
+<li>Quasi-demeaning transformation:<br />
+<span class="math display">\[y_{it} - θ \bar{y}_{i}= α (1-θ) + β (x_{it} - θ\bar{x}_{i}) + (u_{it} + μ_i)\]</span></li>
+<li>OLS estimator: <span class="math inline">\(\hat{β}_{RE}\)</span></li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>

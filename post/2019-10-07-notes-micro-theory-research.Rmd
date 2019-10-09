@@ -1,0 +1,82 @@
+---
+title: "Notes on Microeconomics Theory Research"
+author: "loikein"
+date: "2019-10-07"
+slug: "notes-micro-theory-research"
+tags: ["notes", "micro"]
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = FALSE, tidy = FALSE, echo = TRUE, eval = FALSE)
+```
+
+## Dynamic Programming: Discrete Time
+
+also see [Notes on Mathematics \- Optimization and Dynamics](/../01/notes-math-optimization-dynamics/#dynamics)
+
+### Example: Growing Corn
+
+- Time: $t=0,1,2,\dots$
+- Initial # of seeds: $k_0$
+- Plant: $k_t$
+- Harvest: $f(k_t)$
+- Consumption: $c_t\leq f(k_t)$
+- Next period plant: $k_{t+1} = f(k_t) - c_t$
+- Utility function: $U(c_t)$
+    - Increasing & concave
+- Discount: $0<β<1$
+- Sequence Problem (SP):
+$$\begin{aligned}\max_{c_t} && \sum_{t=0}^{\infty} β^t\cdot U(c_t) \end{aligned}$$
+s.t.
+$$\begin{aligned}(BC) && k_{t+1} = f(k_t) - c_t \end{aligned}$$
+- Substituting for $c_t$:
+$$\begin{aligned}\max_{k_t} && \sum_{t=0}^{\infty} β^t\cdot U\big(f(k_t) - k_{t+1}\big) \end{aligned}$$
+s.t.
+$$\begin{aligned}(BC) && k_{t+1} \in\big[ 0, f(k_t)\big]\end{aligned}$$
+- Find optimal policy (plan) that maximises SP:
+$$\begin{aligned}k_{t+1} &= g(k_t) \\ &\in\big[ 0, f(k_t)\big] \end{aligned}$$
+    - Time-invariant
+    - Recursive approach
+
+### Sequence Problem
+
+- SP:
+$$\begin{aligned}\max && \sum_{t=0}^{\infty} β^t\cdot F(x_t, x_{t+1}) \end{aligned}$$
+s.t. $x_{t+1}\in Γ(x_t)$ for all $t$, and $x_0$ is given
+- Elements of SP
+    - State space: $X$, $x_t\in X$ for all $t$
+    - Initial state: $x_0\in X$
+    - Feasibility correspondence: $Γ(x_t)\in X$
+    - One period reward function: $F(x_t, x_{t+1})$
+    - Discount factor: $β$
+
+### Bellman Equation
+
+- Bellman Equation (Functional Equation, FE):
+$$v(x) = \max_{y\in Γ(x)} \ \big\{ F(x,y) + β\cdot v(y) \big\}$$
+- Value Function (VF) for SP: 
+$$v^*(x_0) = \max_{x_1,x_2,\dots} \ \sum_{t=0}^{\infty} β^t\cdot F(x_t,x_{t+1}$$
+s.t. $x_{t+1} \in Γ(x_t)$  
+Let $s=t-1$, VF can be rewritten as:
+$$\begin{aligned}v^*(x_0) &= \max_{x_1\in Γ(x_0)}\Big\{ \underbrace{F(x_0,x_1)}_{t=0} + \max_{x_2,x_3,\dots} \ \sum_{t=1}^{\infty} β^t\cdot F(x_t,x_{t+1}\Big\} \\
+&= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^{s+1}\cdot F(x_{s+1},x_{s+2}\Big\} \\
+&= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + β\cdot \Big[ \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^s\cdot F(x_{s+1},x_{s+2}\Big]\Big\} \\
+&= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + β\cdot v^*(x_1)\Big\} \end{aligned}$$
+therefore, an optimal $x_1$ for SP must also maximise RHS of VF
+- How to find $v$?
+    - Start with a guess: $v_0: X\to\mathbb{R}$
+    - Compute $$v_{j+1}(x) = \max_{y\in Γ(x)}\Big\{ F(x,y) + β\cdot v_j(y) \Big\}$$ for $j=0,1,2,\dots$
+    - Converges to function $v$ s.t. 
+    $$v(x) = \max_{y\in Γ(x)}\Big\{ F(x,y) + β\cdot v(y) \Big\}$$
+- Conditions for $v = v^*$
+    - $F$ is __Continuous + Bounded__
+    - $Γ(x)$ is __Compact__
+
+### Dynamic Programming
+
+
+
+

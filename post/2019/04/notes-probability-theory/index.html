@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.57.2" />
+
+<title>Notes on Probability Theory - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Probability Theory - loikein&#39;s notes">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/post/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">6 min read</span>
+    
+    <h1 class="article-title">Notes on Probability Theory</h1>
+    
+    <span class="article-date">2019/04/03</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/math'>math</a>
+    
+    <a href='/tags/stat'>stat</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#literature">Literature</a><ul>
+<li><a href="#personal-reference">Personal Reference</a></li>
+</ul></li>
+<li><a href="#measure-theory">Measure Theory</a><ul>
+<li><a href="#algebra">σ-algebra</a></li>
+<li><a href="#ring">Ring</a></li>
+<li><a href="#dynkin-system--system">Dynkin System (λ-system)</a></li>
+<li><a href="#system">π-system</a></li>
+<li><a href="#measures">Measures</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>I dropped this course.</p>
+<div id="literature" class="section level2">
+<h2>Literature</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://93.174.95.27/book/index.php?md5=4F6782B53B6396C81FF68A3279106592">Probability &amp; Measure Theory</a></li>
+<li>Probability Theory and Elements of Measure Theory (Bauer, H.)</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=CD96EC194D0DA18DE6BE8ADA770E755A">Probability and Measure</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=D02302BD293B5CB1EB410DB892B2AE11">Probability Theory: Independence, Interchangeability, Martingales</a> ★ measure</li>
+<li><a href="http://93.174.95.27/book/index.php?md5=1EC33C81975E516DD15B89F3B371A68F">A Course in Probability Theory</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=4FF793A06AD870677D72048C1991007F">Real Analysis and Probability</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=FF89DA49E1912593C8C03134CE3E2964">Probability: theory and examples</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=3EDB18869B6F4EBFDA4E3FDA340C2952">An Introduction to Probability Theory and Its Applications, Vol 1</a><br />
+<a href="http://93.174.95.27/book/index.php?md5=5212ABB6938A6997C82D2578B347D222">An Introduction to Probability Theory and Its Applications, Vol 2</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=6275DDA19DF9420CE75DF73179373ACD">Probability and Random Processes</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=355BB740EEC2E4D0E359FC6CA5B61B4A">Probability essentials</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=EA1C2FA08729ACEB22A2470CA9B1D3A4">Foundations of the Theory of Probability</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=0AB14C456F028A3BDB350119B51BD1E7">Theory of probability and random processes</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=57B0DB931A9C16CE78078E90CE255244">A Probability Path</a><br />
+<a href="http://93.174.95.27/book/index.php?md5=A86D30A53A7484125781E3A3EC266C4D">A probability path - Solution Manual</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=6149DD924DAB69AB32ADBA6682ED558B">Probability</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=24B24662B7B0F475569740834FF36A5C">Mathematics of Probability</a></li>
+<li><a href="http://93.174.95.27/book/index.php?md5=E62685F87278E9077C10A61CCE830EB1">Knowing the Odds: An Introduction to Probability</a></li>
+</ol>
+<div id="personal-reference" class="section level3">
+<h3>Personal Reference</h3>
+<p><a href="https://en.wikipedia.org/wiki/Algebra_of_sets">Algebra of sets - Wikipedia</a><br />
+<a href="https://www.zhihu.com/question/50628809">测度论入门教材推荐</a><br />
+<a href="http://sparkandshine.net/algebraic-structure-primer-group-ring-field-vector-space/#4">代数结构入门：群、环、域、向量空间 - Spark &amp; Shine</a></p>
+<p><a href="https://math.stackexchange.com/questions/2042362/union-of-sigma-algebras-is-a-pi-system">Union of σ-algebras is a π-system?</a><br />
+<a href="https://math.stackexchange.com/questions/380177/what-is-the-difference-between-a-ring-and-an-algebra">What is the difference between a Ring and an Algebra?</a></p>
+</div>
+</div>
+<div id="measure-theory" class="section level2">
+<h2>Measure Theory</h2>
+<ul>
+<li>Carrier set: <span class="math inline">\(M = \mathbb{R}^n\)</span></li>
+<li>For vectors <span class="math inline">\(a=(a_1,\dots, a_n)\)</span> and <span class="math inline">\(b=(b_1,\dots, b_n) \in M\)</span>
+<ul>
+<li><span class="math inline">\(a\leq b \iff a_i\leq b_i\)</span> for all <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(a&lt;b \iff a_i&lt; b_i\)</span> for all <span class="math inline">\(i\)</span></li>
+</ul></li>
+</ul>
+<table>
+<colgroup>
+<col width="1%" />
+<col width="23%" />
+<col width="20%" />
+<col width="26%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>σ-algebra</th>
+<th>Algebra</th>
+<th>Ring</th>
+<th>Dynkin System</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(M\in \mathcal{A}\)</span></td>
+<td><span class="math inline">\(M \in \mathcal{A}\)</span></td>
+<td><span class="math inline">\(\emptyset \in \mathcal{R}\)</span></td>
+<td><span class="math inline">\(M\in\mathcal{D}\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(A\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies A^c \in \mathcal{A}\)</span></td>
+<td><span class="math inline">\(A\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies A^c \in \mathcal{A}\)</span></td>
+<td><span class="math inline">\(A,B\in \mathcal{R}\)</span> <br /><span class="math inline">\(\implies A\cap B^c \in\mathcal{R}\)</span></td>
+<td><span class="math inline">\(D_1\subset D_2\in \mathcal{D}\)</span> <br /><span class="math inline">\(\implies D_2\cap D_1^c\in\mathcal{D}\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(A_i\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i \in \mathcal{A}​\)</span></td>
+<td><span class="math inline">\(A_i\in \mathcal{A}\)</span> <br /><span class="math inline">\(\implies \cup_{i=1}^n A_i \in \mathcal{A}\)</span></td>
+<td><span class="math inline">\(A,B\in \mathcal{R}\)</span> <br /><span class="math inline">\(\implies A\cup B^c \in\mathcal{R}\)</span></td>
+<td>Disjoint <span class="math inline">\(D_i\in\mathcal{D}\)</span> <br /><span class="math inline">\(\implies\cup_{i=1}^{\infty}D_i\in\mathcal{D}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Note: <span class="math inline">\(A^c = M\cap A^c\)</span></p>
+<div id="algebra" class="section level3">
+<h3>σ-algebra</h3>
+<blockquote>
+<p>Definition 1.1<br />
+Let <span class="math inline">\(\mathcal{A}\)</span> be a collection of subsets of set <span class="math inline">\(M\)</span>, <span class="math inline">\(\mathcal{A}\)</span> is called a σ-algebra on <span class="math inline">\(M\iff\)</span><br />
+A1: <span class="math inline">\(M\in \mathcal{A}\)</span><br />
+A2: <span class="math inline">\(A\in \mathcal{A}\implies A^c \in \mathcal{A}\)</span><br />
+A3: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in \mathcal{A}\implies \cup_{i=1}^{\infty} A_i \in \mathcal{A}\)</span></p>
+</blockquote>
+<blockquote>
+<p>Remark 1.2<br />
+Let <span class="math inline">\(\mathcal{A}\)</span> be a σ-algebra, then<br />
+a) A3’: For every sequence <span class="math inline">\((A_1, A_2,\dots)\)</span> of <span class="math inline">\(A_i\in \mathcal{A}\implies \cap_{i=1}^{\infty} A_i \in \mathcal{A}\)</span><br />
+b) For finite many sets <span class="math inline">\(A_1,\dots,A_n\in \mathcal{A}\implies\cup_{i=1}^n A_i \in \mathcal{A}\)</span> and <span class="math inline">\(\cap_{i=1}^n A_i \in \mathcal{A}\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>A3’<br />
+Let <span class="math inline">\(A_i\in \mathcal{A}\)</span><br />
+(A2) <span class="math inline">\(\implies A_i^c\in \mathcal{A}\)</span><br />
+(A3) <span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i^c \in \mathcal{A}\)</span><br />
+(A2) <span class="math inline">\(\implies \big( \cup_{i=1}^{\infty} A_i^c \big) ^c = \cap_{i=1}^{\infty} A_i \in \mathcal{A}\)</span></li>
+<li>Let <span class="math inline">\(A_n = A_{n+1} = A_{n+2} =\dots\)</span><br />
+(A3) <span class="math inline">\(\implies \cup_{i=1}^n A_i \in \mathcal{A}\)</span><br />
+(A3’) <span class="math inline">\(\implies \cap_{i=1}^n A_i \in \mathcal{A}\)</span></li>
+</ol>
+<blockquote>
+<p>Example 1.3 (Reference: <a href="https://en.wikipedia.org/wiki/Sigma-algebra?oldformat=true#Simple_set-based_examples">Wikipedia</a>)<br />
+a) Power set <span class="math inline">\(\mathcal{P}(M)\)</span> is a σ-algebra on <span class="math inline">\(M\)</span><br />
+b) Let <span class="math inline">\(T\neq\emptyset\)</span> be an arbitrary index set, let <span class="math inline">\(\mathcal{A}_t\)</span> be a σ-algebra on M for all <span class="math inline">\(t\in T\)</span>, then <span class="math inline">\(\cap_{t\in T}\mathcal{A}_t\)</span> is a σ-algebra on <span class="math inline">\(M\)</span><br />
+c) <span class="math inline">\(\{M,\emptyset\}\)</span> is a σ-algebra on <span class="math inline">\(M\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li><span class="math inline">\(M \in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies M\in \cap_{t\in T}\mathcal{A}_t\)</span></li>
+<li>Let <span class="math inline">\(A\in \cap_{t\in T}\mathcal{A}_t\)</span><br />
+<span class="math inline">\(\implies A\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies A^c\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies A^c\in\cap_{t\in T}\mathcal{A}_t\)</span></li>
+<li>Let <span class="math inline">\(A_i\in \cap_{t\in T}\mathcal{A}_t\)</span> for <span class="math inline">\(i = 1,2,\dots\)</span><br />
+<span class="math inline">\(\implies A_i\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span> and all <span class="math inline">\(i = 1,2,\dots\)</span><br />
+<span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i\in \mathcal{A}_t\)</span> for all <span class="math inline">\(t\in T\)</span><br />
+<span class="math inline">\(\implies \cup_{i=1}^{\infty} A_i\in \cap_{t\in T}\mathcal{A}_t\)</span></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>Theorem 1.4<br />
+Let <span class="math inline">\(\mathcal{C}\)</span> be a set of subsets of <span class="math inline">\(M\)</span><br />
+Then there is a unique smallest σ-algebra <span class="math inline">\(σ(\mathcal{C})\)</span> on <span class="math inline">\(M\)</span> s.t. <span class="math inline">\(\mathcal{C}\subset σ(\mathcal{C})\)</span><br />
+Smallest: for all σ-algebra <span class="math inline">\(\mathcal{A}\)</span> on <span class="math inline">\(M\)</span> s.t. <span class="math inline">\(\mathcal{C}\subset \mathcal{A}\implies σ(\mathcal{C})\subset \mathcal{A}\)</span></p>
+<p>Definition 1.5<br />
+<span class="math inline">\(σ(\mathcal{C})\)</span> is called the σ-algebra on <span class="math inline">\(M\)</span> generated by <span class="math inline">\(\mathcal{C}\)</span><br />
+<span class="math inline">\(\mathcal{C}\)</span> is called a generator of <span class="math inline">\(σ(\mathcal{C})\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Smallest<br />
+Let <span class="math inline">\(Φ\)</span> be a set of all σ-algebras on <span class="math inline">\(M\)</span> that includes <span class="math inline">\(\mathcal{C}\)</span><br />
+<span class="math inline">\(\mathcal{P}(M)\in Φ\implies Φ\neq \emptyset\)</span><br />
+Let <span class="math inline">\(σ(\mathcal{C}):= \cap_{\mathcal{A}\in Φ}\mathcal{A}\)</span><br />
+(Example 1.3.b) <span class="math inline">\(\implies σ(\mathcal{C})\)</span> is a σ-algebra on <span class="math inline">\(M\)</span><br />
+Since <span class="math inline">\(\mathcal{C}\subset \mathcal{A}\)</span> for all <span class="math inline">\(\mathcal{A}\in Φ\)</span><br />
+<span class="math inline">\(\implies\mathcal{C}\subset σ(\mathcal{C})\)</span><br />
+(Def of <span class="math inline">\(Φ\)</span>) <span class="math inline">\(\implies σ(\mathcal{C})\)</span> is a smallest σ-algebra on <span class="math inline">\(M\)</span></li>
+<li>Unique<br />
+Let <span class="math inline">\(\mathcal{A}&#39;\)</span> be another smallest σ-algebra on <span class="math inline">\(M\)</span><br />
+<span class="math inline">\(\implies \mathcal{A}&#39;\subset σ(\mathcal{C})\)</span> and <span class="math inline">\(σ(\mathcal{C})\subset \mathcal{A}&#39;\)</span><br />
+<span class="math inline">\(\implies \mathcal{A}&#39; = σ(\mathcal{C})\)</span></li>
+</ol>
+</div>
+<div id="ring" class="section level3">
+<h3>Ring</h3>
+<blockquote>
+<p>Definition 1.6<br />
+Let <span class="math inline">\(\mathcal{R}\)</span> be a set of subsets of a set <span class="math inline">\(M\)</span>, <span class="math inline">\(\mathcal{R}\)</span> is called a ring on <span class="math inline">\(M\iff\)</span><br />
+R1: <span class="math inline">\(\emptyset \in \mathcal{R}\)</span><br />
+R2: <span class="math inline">\(A,B\in \mathcal{R}\implies A\cap B^c \in\mathcal{R}\)</span><br />
+R3: <span class="math inline">\(A,B\in \mathcal{R}\implies A\cup B^c \in\mathcal{R}\)</span></p>
+<p>If in addition,<br />
+R4: <span class="math inline">\(M\in\mathcal{R}\)</span><br />
+Then <span class="math inline">\(\mathcal{R}\)</span> is an <strong>algebra</strong> on <span class="math inline">\(M\)</span></p>
+</blockquote>
+<blockquote>
+<p>Remark 1.7<br />
+a) <span class="math inline">\(\mathcal{R}=\{\emptyset\}\)</span> is a ring, but not an algebra on <span class="math inline">\(M\)</span> unless <span class="math inline">\(M =\emptyset\)</span><br />
+b) Set <span class="math inline">\(\mathcal{A}\in\mathcal{P}(M)\)</span> is called an algebra on <span class="math inline">\(M\iff\)</span><br />
+A1: <span class="math inline">\(M\in \mathcal{A}\)</span><br />
+A2: <span class="math inline">\(A\in \mathcal{A}\implies A^c \in \mathcal{A}\)</span><br />
+A3’’: For finite many sets <span class="math inline">\(A_1, A_2,\dots,A_n\in \mathcal{A} \implies \cup_{i=1}^n A_i \in \mathcal{A}\)</span><br />
+c) Every σ-algebra is an algebra, the converse is not true in general</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Counterexample<br />
+Let <span class="math inline">\(M = \mathbb{N}\)</span>, let <span class="math inline">\(\mathcal{A} = \{A\subset M : |A|&lt;\infty\)</span> or <span class="math inline">\(|A^c|&lt;\infty\}\)</span><br />
+<span class="math inline">\(\mathcal{A}\)</span> is an algebra but not a σ-algebra<br />
+For example, let <span class="math inline">\(A_i = \{ (2_i)_i\}\)</span> for all <span class="math inline">\(i\in\mathbb{N}\)</span><br />
+<span class="math inline">\(\implies A_i \in\mathcal{A}\)</span> all <span class="math inline">\(i\in\mathbb{N}\)</span><br />
+But <span class="math inline">\(\cup_{i=1}^{\infty} A_i \not\in\mathcal{A}\)</span> since <span class="math inline">\(\big|\cup_{i=1}^{\infty} A_i\big| = \infty\)</span></li>
+</ol>
+<blockquote>
+<ul>
+<li>Set of half-open intervals: <span class="math inline">\(\mathcal{I}^n:= \{]a,b] : a,b\in M, \ a\leq b \}\)</span>
+<ul>
+<li>Half-open interval: <span class="math inline">\(]a,b] = \{x\in M : a&lt;x\leq b\}\)</span></li>
+</ul></li>
+<li>Set of figures: <span class="math inline">\(\mathcal{F}^n := \{F\subset \mathbb{R}^n :\)</span> exists <span class="math inline">\(r\in\mathbb{N}\)</span>, exists <span class="math inline">\(I_1,\dots,I_r \in\mathcal{I}^n\)</span> s.t. <span class="math inline">\(F=\cup _{j=1}^r I_j \}\)</span>
+<ul>
+<li><span class="math inline">\(\emptyset =]a,a] \in\mathcal{I}^n\)</span></li>
+<li><span class="math inline">\(\mathcal{I}^n\subset \mathcal{F}^n\)</span></li>
+</ul></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Lemma 1.8<br />
+a) <span class="math inline">\(I_1,I_2\in \mathcal{I}^n\implies\)</span> <span class="math inline">\(\begin{cases}I_1\cap I_2\in \mathcal{I}^n \\ I_1\cap I_2^c\in \mathcal{F}^n\end{cases}\)</span><br />
+b) <span class="math inline">\(F\in \mathcal{F}^n\implies\)</span> exists disjoint intervals <span class="math inline">\(I_1,\dots, I_r\in \mathcal{I}^n\)</span> for some <span class="math inline">\(r\in\mathbb{N}\)</span>, s.t. <span class="math inline">\(F= \cup_{j=1}^r I_j\)</span><br />
+c) <span class="math inline">\(F,G\in \mathcal{F}^n\implies F\cap G\in \mathcal{F}^n\)</span></p>
+</blockquote>
+<p>Proof: Exercise 3</p>
+<blockquote>
+<p>Theorem 1.9<br />
+<span class="math inline">\(\mathcal{F}^n\)</span> is a ring on <span class="math inline">\(M\)</span></p>
+<p>Remark 1.10<br />
+<span class="math inline">\(\mathcal{F}^n\)</span> is the ring on <span class="math inline">\(M\)</span> generated by <span class="math inline">\(\mathcal{I}^n\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\emptyset \in \mathcal{I}^n\subset \mathcal{F}^n\)</span></li>
+<li>Let <span class="math inline">\(F = \cup_{i=1}^r I_i\)</span>, <span class="math inline">\(G = \cup_{j=1}^s I_j&#39;\)</span>, <span class="math inline">\(I_i,I_j&#39; \in \mathcal{I}^n\)</span><br />
+<span class="math display">\[\begin{aligned}\implies F \cap G^c &amp;= \big( \cup_{i=1}^r I_i\big)\cap\big( \cap_{j=1}^s I_j^{&#39;c} \big) \\
+&amp;=\cup_{i=1}^r \cap_{j=1}^s \big( I_i\cap I_j^{&#39;c} \big)\end{aligned}\]</span>
+(Lemma 1.8.a) <span class="math inline">\(\implies I_i\cap I_j^{&#39;c} \in \mathcal{F}^n\)</span><br />
+(Lemma 1.8.c) <span class="math inline">\(\implies \cap_{j=1}^s \big( I_i\cap I_j^{&#39;c} \big)\in \mathcal{F}^n\)</span><br />
+(Def of <span class="math inline">\(\mathcal{F}^n\)</span>) <span class="math inline">\(\implies \cup_{i=1}^r \cap_{j=1}^s \big( I_i\cap I_j^{&#39;c} \big)\in \mathcal{F}^n\)</span></li>
+<li>Trivial by definition of <span class="math inline">\(\mathcal{F}^n\)</span></li>
+</ol>
+</div>
+<div id="dynkin-system--system" class="section level3">
+<h3>Dynkin System (λ-system)</h3>
+<blockquote>
+<p>Definition 1.11<br />
+Let <span class="math inline">\(\mathcal{D}\)</span> be a collection of subsets of <span class="math inline">\(M\)</span>. <span class="math inline">\(\mathcal{D}\)</span> is called a Dynkin system <span class="math inline">\(\iff\)</span><br />
+D1: <span class="math inline">\(M\in\mathcal{D}\)</span><br />
+D2: <span class="math inline">\(D_1\subset D_2\in\mathcal{D}\implies\)</span> <span class="math inline">\(D_2\backslash D_1 = D_2\cap D_1^c\in\mathcal{D}\)</span><br />
+D3: For every sequence <span class="math inline">\((D_1,D_2,\dots)\)</span> of disjoint sets <span class="math inline">\(D_i\in\mathcal{D}\implies \cup_{i=1}^{\infty}D_i\in\mathcal{D}\)</span></p>
+</blockquote>
+<blockquote>
+<p>Remark 1.12<br />
+<span class="math inline">\(\mathcal{A}\)</span> is a σ-algebra <span class="math inline">\(\implies\mathcal{A}\)</span> is a Dynkin system, the converse is not true in general</p>
+</blockquote>
+<p>Counterexample:<br />
+Let <span class="math inline">\(M=\{1,2,3,4\}\)</span>, <span class="math inline">\(\mathcal{D} = \{ D\subset M : D\)</span> has 0, 2 or 4 elements}<br />
+Since union of sets of 2 elements may end up have 3 elements,<br />
+<span class="math inline">\(\implies \mathcal{D}\)</span> is a Dynkin system but not a (σ-)algebra</p>
+</div>
+<div id="system" class="section level3">
+<h3>π-system</h3>
+<blockquote>
+<p>Definition 1.13.0<br />
+Let <span class="math inline">\(\mathcal{C}\)</span> be a collection of subsets of <span class="math inline">\(M\)</span>. <span class="math inline">\(\mathcal{C}\)</span> is called a π-system<br />
+if for all <span class="math inline">\(A_1, A_2\in\mathcal{C}\implies A_1\cap A_2\in\mathcal{C}\)</span></p>
+<p>Lemma 1.13<br />
+Let <span class="math inline">\(\mathcal{D}\)</span> be a π-system and a Dynkin system on set <span class="math inline">\(M\)</span><br />
+<span class="math inline">\(\implies\mathcal{D}\)</span> is a σ-algebra on <span class="math inline">\(M\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>A1 <span class="math inline">\(\iff\)</span> D1</li>
+<li>A2</li>
+<li>A3</li>
+</ol>
+</div>
+<div id="measures" class="section level3">
+<h3>Measures</h3>
+<blockquote>
+<p>ES1.Exercise 2<br />
+Let <span class="math inline">\(S\)</span> be a finite set containing at least two elements.<br />
+Let <span class="math inline">\(S^{\infty}\)</span> be the set of all infinite sequences of elements of <span class="math inline">\(S\)</span>.<br />
+For each <span class="math inline">\(k\in\mathbb{N}\)</span> and <span class="math inline">\(ω\in S^{\infty}\)</span> let <span class="math inline">\(z_k(ω)\)</span> be the <span class="math inline">\(k\)</span>-th term of <span class="math inline">\(ω\)</span>.<br />
+Then, <span class="math inline">\(ω = \big( z_1(ω), z_2(ω),\dots\big)\)</span>.<br />
+A <strong>cylinder of rank</strong> <span class="math inline">\(n\in\mathbb{N}\)</span> is a set of the form<br />
+<span class="math display">\[\{ ω\in S^{\infty} : \big( z_1(ω), z_2(ω),\dots, z_n(ω)\big)\in H\]</span>
+where <span class="math inline">\(H\in S^n\)</span>. Let <span class="math inline">\(\mathcal{C}\)</span> be the set of all cylinders of all ranks.<br />
+a) Show that <span class="math inline">\(S^{\infty}\)</span> is uncountable.<br />
+b)</p>
+</blockquote>
+</div>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
