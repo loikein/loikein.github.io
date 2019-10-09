@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.58.3" />
+
+<title>Notes on Industrial Organization - loikein</title>
+<meta property="og:title" content="Notes on Industrial Organization - loikein">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+    <h1 class="article-title">Notes on Industrial Organization</h1>
+    
+    <span class="article-date">2019/10/07</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/micro'>micro</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#basic-ideas">Basic Ideas</a><ul>
+<li><a href="#firm">Firm</a></li>
+<li><a href="#consumer">Consumer</a></li>
+<li><a href="#discrete-choice-model">Discrete Choice Model</a></li>
+<li><a href="#discrete-choice-model-asymmetric-information">Discrete Choice Model: Asymmetric Information</a></li>
+<li><a href="#representative-consumer-model">Representative Consumer Model</a></li>
+<li><a href="#welfare">Welfare</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="basic-ideas" class="section level2">
+<h2>Basic Ideas</h2>
+<div id="firm" class="section level3">
+<h3>Firm</h3>
+<ul>
+<li>Firm: transforms inputs into outputs</li>
+<li>Profit: <span class="math inline">\(Π = R(q) - C(q)\)</span></li>
+<li>Sales: <span class="math inline">\(q = f(k,l)\)</span></li>
+<li>Cost: technology, expenditure minimization<br />
+Let <span class="math inline">\(q = \tilde{q}\)</span>, isovalue of production: <span class="math inline">\(f(k,l) = \tilde{q}\)</span><br />
+Let <span class="math inline">\(p_k\)</span> be price of k, <span class="math inline">\(p_l\)</span> be price of l, given <span class="math inline">\(E\)</span>, isovalue of expenditure: <span class="math inline">\(k = -\frac{p_l}{p_k}\cdot l + \frac{E}{p_k}\)</span><br />
+Therefore, cost: <span class="math inline">\(c(\tilde{q})=p_k\cdot\tilde{k} + p_l\cdot\tilde{l}\)</span></li>
+<li>Revenue: demand, market interaction</li>
+</ul>
+</div>
+<div id="consumer" class="section level3">
+<h3>Consumer</h3>
+<ul>
+<li>Income: <span class="math inline">\(I\)</span></li>
+<li>Demand: <span class="math inline">\(Q(p)\)</span>
+<ul>
+<li>Individual demand: <span class="math inline">\(Q_i(p_i, p_{-i}, T)\)</span></li>
+<li>Shift in <span class="math inline">\(p_i\)</span> moves along the curve, shift in other variables moves the curve</li>
+</ul></li>
+<li>Inverse demand: <span class="math inline">\(P(q) = Q^{-1}(p)\)</span></li>
+</ul>
+</div>
+<div id="discrete-choice-model" class="section level3">
+<h3>Discrete Choice Model</h3>
+<ul>
+<li><span class="math inline">\(M\)</span> consumers, unit demand</li>
+<li>Willingness to pay: <span class="math inline">\(v_i\)</span> (known)
+<ul>
+<li><span class="math inline">\(v_1\geq v_2\geq\dots\)</span></li>
+</ul></li>
+<li>Consumer’s utility: <span class="math inline">\(u_i(p)=\begin{cases}v_i-p &amp;\text{buy} \\ 0 &amp;\text{no buy}\end{cases}\)</span>
+<ul>
+<li>Buy <span class="math inline">\(\iff v_i\geq p\)</span></li>
+</ul></li>
+<li>Demand: <span class="math display">\[Q(p) = \max_\{i \text{ s.t. } v_i\geq p\}\]</span>
+<ul>
+<li>Decreasing in <span class="math inline">\(p\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="discrete-choice-model-asymmetric-information" class="section level3">
+<h3>Discrete Choice Model: Asymmetric Information</h3>
+<ul>
+<li>cdf of <span class="math inline">\(v\)</span>: <span class="math inline">\(F(v)\)</span>
+<ul>
+<li><span class="math inline">\(v\in[\underline{v},\bar{v}]\)</span></li>
+</ul></li>
+<li>Expected demand: <span class="math display">\[\begin{aligned}Q(p) &amp;= M\cdot Pr(v\geq p) \\ &amp;= M\cdot\big(1-F(p)\big)\end{aligned}\]</span>
+<ul>
+<li>Decreasing in <span class="math inline">\(p\)</span></li>
+<li>When <span class="math inline">\(F(v)\)</span> is uniform, <span class="math inline">\(Q(p)\)</span> is linear</li>
+</ul></li>
+</ul>
+</div>
+<div id="representative-consumer-model" class="section level3">
+<h3>Representative Consumer Model</h3>
+<ul>
+<li>Identical consumers</li>
+<li>Consumer’s utility:
+<span class="math display">\[U(q_0, q_1,\dots, q_I) &amp;= q_0 + u_1(q_1) + u_2(q_2) +\dots+u_I(q_I)\]</span>
+<ul>
+<li>Goods: <span class="math inline">\(i\in\{1,\dots, I\}\)</span></li>
+<li>Money left (Hicksian composite good): <span class="math inline">\(q_0\)</span>, <span class="math inline">\(p_0=1\)</span></li>
+<li>Concave utility function: <span class="math inline">\(u_i\)</span></li>
+</ul></li>
+<li>Each consumer’s problem:
+<span class="math display">\[\begin{aligned}\max_{q_i\geq 0} &amp;&amp; &amp;\phantom{\ggg}U(q_0, q_1,\dots, q_I)\\
+&amp;&amp; &amp;= q_0 + u_1(q_1) + u_2(q_2) +\dots+u_I(q_I) \\
+\text{s.t.} &amp;&amp; &amp;q_0 + p_1q_1 + p_2q_2 + \dots + p_Iq_I \leq I\end{aligned}\]</span>
+Lagrangian:
+<span class="math display">\[\begin{aligned}\mathcal{L} &amp;= q_0 + u_1(q_1) + u_2(q_2) +\dots+u_I(q_I)\\
+&amp;\phantom{\ggg}-λ(q_0 + p_1q_1 + p_2q_2 + \dots + p_Iq_I - I)\end{aligned}\]</span>
+FOC: <span class="math display">\[\begin{aligned}\frac{\partial\mathcal{L}}{\partial q_0} &amp;= 1-λ \overset{!}{=} 0\\
+λ &amp;= 1 \\
+\frac{\partial\mathcal{L}}{\partial q_i} &amp;= u_i&#39;(q_i) - λ\cdot p_i \overset{!}{=} 0\\
+u_i&#39;(q_i) &amp;= p_i \\
+q_i &amp;= (u_i&#39;)^{-1}(p_i) \\
+p_i(q_i)&amp;= u_i&#39;(q_i)\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(q_i\)</span> is increasing in <span class="math inline">\(p_i\)</span> if <span class="math inline">\(u&#39;&#39;&lt;0\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="welfare" class="section level3">
+<h3>Welfare</h3>
+<ul>
+<li>Partial equilibrium
+<ul>
+<li>Assume 1: change in <span class="math inline">\(p_i\)</span> does not affect <span class="math inline">\(q_{-i}\)</span></li>
+<li>Assume 2: no serious substitution effects</li>
+</ul></li>
+<li>Measure
+<ul>
+<li>Firm: profit</li>
+<li>Consumer: surplus (triangle)</li>
+<li>Walfare = profit + consumer surplus</li>
+</ul></li>
+<li>Discrete choice: <span class="math inline">\(u_i(p)=\begin{cases}v_i-p &amp;\text{buy} \\ 0 &amp;\text{no buy}\end{cases}\)</span>
+<span class="math display">\[\begin{aligned}CS &amp;= \sum_{i=1}^m u_i(\tilde{p}) \\
+&amp;= \int_{\tilde{p}}^{\bar{p}} Q(p)\, dp\end{aligned}\]</span></li>
+<li>Representative consumer: <span class="math inline">\(p_i(q_i)= u_i&#39;(q_i)\)</span>
+<span class="math display">\[\begin{aligned}CS &amp;= \int_{0}^{Q_i(\tilde{p}_i)} P(q_i) - \tilde{p}_i\, dq_i \\
+&amp;= \int_{0}^{Q_i(\tilde{p}_i)} u_i&#39;(q_i) - \tilde{p}_i\, dq_i \\
+&amp;= \big[ u_i(q_i) - \tilde{p}_i\cdot q_i \big]_{0}^{Q_i(\tilde{p}_i)} \\
+&amp;= u_i\big(Q_i(\tilde{p}_i)\big) - \tilde{p}_i\cdot Q_i(\tilde{p}_i)\end{aligned}\]</span></li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>

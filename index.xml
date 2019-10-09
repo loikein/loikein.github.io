@@ -6,10 +6,42 @@
     <description>Recent content on loikein</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Econometric Theory</title>
+      <link>/2019/10/notes-econometric-theory/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/notes-econometric-theory/</guid>
+      <description>Literature Basic Concepts of Probability Theory Probability Measures Extension to \(\mathbb{R}^k\)    Literature Asymptotic Theory:
+ Casella, Berger: Statistical Inference Bruce Hansen: Econometrics (Lecture Notes), Ch5 Davidson: Econometric Theory White: Asymptotic Theory for Econometricians  M-, Z-, Extremum Estimators:
+ ?   Basic Concepts of Probability Theory Probability Measures  \(Ω\): sample space, a set of possible outcomes of an experiment  Countable set: \(\| Ω \|\leq \mathbb{N}\)  \(A\subset Ω\): event, a collection of possible outcomes  Disjoint sets: \(A_i\cap A_j = \emptyset\) for \(i\neq j\)  \(\mathcal{A}\): family of \(A\) Step functions: \(F\) is a step function with finitely or countably many jumps \(x_1&amp;lt;x_2&amp;lt;\dots\) and jump heights \(b_1,b_2,\dots &amp;gt;0\)   Def 1.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Industrial Organization</title>
+      <link>/2019/10/notes-industrial-organization/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/notes-industrial-organization/</guid>
+      <description>Basic Ideas Firm Consumer Discrete Choice Model Discrete Choice Model: Asymmetric Information Representative Consumer Model Welfare    Basic Ideas Firm  Firm: transforms inputs into outputs Profit: \(Π = R(q) - C(q)\) Sales: \(q = f(k,l)\) Cost: technology, expenditure minimization
+Let \(q = \tilde{q}\), isovalue of production: \(f(k,l) = \tilde{q}\)
+Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expenditure: \(k = -\frac{p_l}{p_k}\cdot l + \frac{E}{p_k}\)</description>
+    </item>
+    
+    <item>
+      <title>Notes on Microeconomics Theory Research</title>
+      <link>/2019/10/notes-micro-theory-research/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/10/notes-micro-theory-research/</guid>
+      <description>Dynamic Programming: Discrete Time Example: Growing Corn Sequence Problem Bellman Equation Dynamic Programming    Dynamic Programming: Discrete Time also see Notes on Mathematics - Optimization and Dynamics
+Example: Growing Corn  Time: \(t=0,1,2,\dots\) Initial # of seeds: \(k_0\) Plant: \(k_t\) Harvest: \(f(k_t)\) Consumption: \(c_t\leq f(k_t)\) Next period plant: \(k_{t+1} = f(k_t) - c_t\) Utility function: \(U(c_t)\)  Increasing &amp;amp; concave  Discount: \(0&amp;lt;β&amp;lt;1\) Sequence Problem (SP): \[\begin{aligned}\max_{c_t} &amp;amp;&amp;amp; \sum_{t=0}^{\infty} β^t\cdot U(c_t) \end{aligned}\] s.</description>
+    </item>
     
     <item>
       <title>Introduction to Python 3</title>
@@ -66,7 +98,8 @@ ch4
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-mechanism-social/</guid>
-      <description>Mechanism Design Problem Environment Mechanism Induced Game Social Choice Function &amp;amp; Implementation    Textbook: (MWG) Microeconomic Theory
+      <description>Mechanism Design Problem Environment Mechanism Induced Game Social Choice Function &amp;amp; Implementation    I dropped this course.
+Textbook: (MWG) Microeconomic Theory
 Mechanism Design Problem Reference
 Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible alternatives: \(x\in X\)  \(x\) is single-valued (MWG Definition 21.E.1)  Type profile: \(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)  pdf of \(θ\) over \(Θ\): \(f\) Agent \(i\)’s type: \(θ_i \in Θ_i\)  Agent \(i\)’s vNM utility function: \(u_i(x,θ)\)  Allow for selflessness Allow for reference  Independent private values environment assumption  Private value: \(u_i(x,θ) = u_i(x,θ_i)\) Independent type: \(f_i(θ_i)\) s.</description>
     </item>
@@ -86,7 +119,8 @@ Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible altern
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/04/notes-probability-theory/</guid>
-      <description>Literature Personal Reference  Measure Theory σ-algebra Ring Dynkin System (λ-system) π-system Measures    Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real Analysis and Probability Probability: theory and examples An Introduction to Probability Theory and Its Applications, Vol 1
+      <description>Literature Personal Reference  Measure Theory σ-algebra Ring Dynkin System (λ-system) π-system Measures    I dropped this course.
+Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real Analysis and Probability Probability: theory and examples An Introduction to Probability Theory and Its Applications, Vol 1
 An Introduction to Probability Theory and Its Applications, Vol 2 Probability and Random Processes Probability essentials Foundations of the Theory of Probability Theory of probability and random processes A Probability Path</description>
     </item>
     
