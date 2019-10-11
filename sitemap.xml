@@ -33,6 +33,11 @@
   </url>
   
   <url>
+    <loc>/tags/math/</loc>
+    <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/micro/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
   </url>
@@ -43,7 +48,7 @@
   </url>
   
   <url>
-    <loc>/post/2019/10/notes-micro-theory-research/</loc>
+    <loc>/post/2019/10/notes-research-dynamic-prog/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -100,11 +105,6 @@
   <url>
     <loc>/post/2019/04/notes-game-theory/</loc>
     <lastmod>2019-04-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/math/</loc>
-    <lastmod>2019-04-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>

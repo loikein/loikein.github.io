@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.58.3" />
+
+<title>Notes on Research: Dnyamic Programming - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Research: Dnyamic Programming - loikein&#39;s notes">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/post/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/post/">Posts</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">GitHub</a></li>
+    
+  </ul>
+</nav>
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+    <h1 class="article-title">Notes on Research: Dnyamic Programming</h1>
+    
+    <span class="article-date">2019/10/07</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/micro'>micro</a>
+    
+    <a href='/tags/math'>math</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+
+<div id="TOC">
+<ul>
+<li><a href="#dynamic-programming-discrete-time">Dynamic Programming: Discrete Time</a><ul>
+<li><a href="#example-corn-planting">Example: Corn Planting</a></li>
+<li><a href="#sequence-problem">Sequence Problem</a></li>
+<li><a href="#bellman-equation">Bellman Equation</a></li>
+<li><a href="#bounded-and-continuous-rewards">Bounded and Continuous Rewards</a></li>
+<li><a href="#bellman-operator">Bellman Operator</a></li>
+</ul></li>
+<li><a href="#stochastic-dynamic-programming">Stochastic Dynamic Programming</a><ul>
+<li><a href="#example-corn-rain">Example: Corn &amp; Rain</a></li>
+<li><a href="#random-shocks">Random Shocks</a></li>
+<li><a href="#example-kiefer-1989">Example: <span>Kiefer (1989)</span></a></li>
+</ul></li>
+<li><a href="#dynamic-programming-continuous-time">Dynamic Programming: Continuous Time</a></li>
+</ul>
+</div>
+
+<p>wrt means with respect to</p>
+<div id="dynamic-programming-discrete-time" class="section level2">
+<h2>Dynamic Programming: Discrete Time</h2>
+<p>also see <a href="../../01/notes-math-optimization-dynamics/#dynamics">Notes on Mathematics - Optimization and Dynamics</a></p>
+<div id="example-corn-planting" class="section level3">
+<h3>Example: Corn Planting</h3>
+<ul>
+<li>Time: <span class="math inline">\(t=0,1,2,\dots\)</span></li>
+<li>Initial # of seeds: <span class="math inline">\(k_0\)</span></li>
+<li>Plant: <span class="math inline">\(k_t\)</span></li>
+<li>Harvest: <span class="math inline">\(f(k_t)\)</span></li>
+<li>Consumption: <span class="math inline">\(c_t\leq f(k_t)\)</span></li>
+<li>Next period plant: <span class="math inline">\(k_{t+1} = f(k_t) - c_t\)</span></li>
+<li>Utility function: <span class="math inline">\(U(c_t)\)</span>
+<ul>
+<li>Increasing &amp; concave</li>
+</ul></li>
+<li>Discount: <span class="math inline">\(0&lt;β&lt;1\)</span></li>
+<li>Sequence Problem (SP):
+<span class="math display">\[\begin{aligned}\max_{c_t} &amp;&amp; \sum_{t=0}^{\infty} β^t\cdot U(c_t) \end{aligned}\]</span>
+s.t.
+<span class="math display">\[\begin{aligned}(BC) &amp;&amp; k_{t+1} = f(k_t) - c_t \end{aligned}\]</span></li>
+<li>Substituting for <span class="math inline">\(c_t\)</span>:
+<span class="math display">\[\begin{aligned}\max_{k_t} &amp;&amp; \sum_{t=0}^{\infty} β^t\cdot U\big(f(k_t) - k_{t+1}\big) \end{aligned}\]</span>
+s.t.
+<span class="math display">\[\begin{aligned}(BC) &amp;&amp; k_{t+1} \in\big[ 0, f(k_t)\big]\end{aligned}\]</span></li>
+<li>Find optimal policy (plan) that maximises SP:
+<span class="math display">\[\begin{aligned}k_{t+1} &amp;= g(k_t) \\ &amp;\in\big[ 0, f(k_t)\big] \end{aligned}\]</span>
+<ul>
+<li>Time-invariant</li>
+<li>Recursive approach</li>
+</ul></li>
+</ul>
+</div>
+<div id="sequence-problem" class="section level3">
+<h3>Sequence Problem</h3>
+<ul>
+<li>SP:
+<span class="math display">\[\begin{aligned}\max_{x_1,x_2,\dots} &amp;&amp; \sum_{t=0}^{\infty} β^t\cdot F(x_t, x_{t+1}) \end{aligned}\]</span>
+s.t. <span class="math inline">\(x_{t+1}\in Γ(x_t)\)</span> for all <span class="math inline">\(t\)</span><br />
+and <span class="math inline">\(x_0 = x\)</span></li>
+<li>Elements of SP
+<ul>
+<li>State space: <span class="math inline">\(X\)</span>, <span class="math inline">\(x_t\in X\)</span> for all <span class="math inline">\(t\)</span></li>
+<li>Initial state: <span class="math inline">\(x_0\in X\)</span></li>
+<li>Feasibility correspondence: <span class="math inline">\(Γ(x_t)\in X\)</span> for all <span class="math inline">\(t\)</span></li>
+<li>One period reward function: <span class="math inline">\(F(x_t, x_{t+1})\)</span></li>
+<li>Discount factor: <span class="math inline">\(β\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="bellman-equation" class="section level3">
+<h3>Bellman Equation</h3>
+<ul>
+<li>Bellman Equation (Functional Equation): (<span class="math inline">\(y := x_{t+1}\)</span>)
+<span class="math display">\[\begin{aligned}(FE) &amp;&amp; v(x) = \max_{y\in Γ(x)} \ \big\{ F(x,y) + β\cdot v(y) \big\} \end{aligned}\]</span>
+<ul>
+<li>Solution: Value function <span class="math inline">\(v^*()\)</span></li>
+<li>any optimal solution <span class="math inline">\(x\)</span> given by <span class="math inline">\(v^*()\)</span> must achieve the max</li>
+</ul></li>
+<li>Value Function for SP:
+<span class="math display">\[\begin{aligned}(VF) &amp;&amp; v^*(x_0) = \max_{x_1,x_2,\dots} \ \sum_{t=0}^{\infty} β^t\cdot F(x_t,x_{t+1}) \end{aligned}\]</span>
+s.t. <span class="math inline">\(x_{t+1} \in Γ(x_t)\)</span><br />
+Let <span class="math inline">\(s=t-1\)</span>, VF can be rewritten as:
+<span class="math display">\[\begin{aligned}v^*(x_0) &amp;= \max_{x_1\in Γ(x_0)}\Big\{ \underbrace{F(x_0,x_1)}_{t=0} + \max_{x_2,x_3,\dots} \ \sum_{t=1}^{\infty} β^t\cdot F(x_t,x_{t+1}\Big\} \\
+&amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^{s+1}\cdot F(x_{s+1},x_{s+2}\Big\} \\
+&amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + β\cdot \Big[ \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^s\cdot F(x_{s+1},x_{s+2}\Big]\Big\} \\
+&amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + β\cdot v^*(x_1)\Big\} \end{aligned}\]</span>
+therefore, an optimal <span class="math inline">\(x_1\)</span> for SP must also maximise RHS of VF</li>
+<li>How to find <span class="math inline">\(v\)</span>?
+<ul>
+<li>Start with a guess: <span class="math inline">\(v_0: X\to\mathbb{R}\)</span></li>
+<li>Compute <span class="math display">\[v_{j+1}(x) = \max_{y\in Γ(x)}\Big\{ F(x,y) + β\cdot v_j(y) \Big\}\]</span> for <span class="math inline">\(j=0,1,2,\dots\)</span></li>
+<li>Converges to function <span class="math inline">\(v\)</span> s.t.
+<span class="math display">\[v(x) = \max_{y\in Γ(x)}\Big\{ F(x,y) + β\cdot v(y) \Big\}\]</span></li>
+</ul></li>
+</ul>
+<!-- 
+- Conditions for $v = v^*$
+    - $F$ is __Continuous + Bounded__
+    - $Γ(x)$ is __Compact__
+ -->
+</div>
+<div id="bounded-and-continuous-rewards" class="section level3">
+<h3>Bounded and Continuous Rewards</h3>
+<ul>
+<li><span class="math inline">\(X\subset \mathbb{R}^l\)</span></li>
+<li>For all <span class="math inline">\(x\in X\)</span>, <span class="math inline">\(Γ(x)\subset X\)</span></li>
+<li><span class="math inline">\(Γ(x)\neq\emptyset\)</span></li>
+<li><span class="math inline">\(Γ(x)\)</span> varies continuously with <span class="math inline">\(x\)</span></li>
+<li>Let <span class="math inline">\(A\)</span> be the (hypo- or sub-)graph of <span class="math inline">\(Γ\)</span>
+<span class="math display">\[A = \{(x,y)\in X\times X : y\in Γ(x)\}\]</span>
+<ul>
+<li><span class="math inline">\(F: A\to\mathbb{R}\)</span> is <strong>Bounded + Continuous</strong></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Observation<br />
+<span class="math inline">\(v^*\)</span> is bounded</p>
+</blockquote>
+<p>Suppose <span class="math inline">\(-L\leq F(x,y)\leq L\)</span> for some <span class="math inline">\(L&gt;0\)</span>, and <span class="math inline">\((x,y)\in A\)</span>
+<span class="math display">\[\begin{aligned}\sum_{t=0}^{\infty} β^t\cdot F(x_t,x_{t+1}) &amp;\leq \sum_{t=0}^{\infty} β^t\cdot L = \frac{L}{1-β} \\
+\sum_{t=0}^{\infty} β^t\cdot F(x_t,x_{t+1}) &amp;\geq \sum_{t=0}^{\infty} β^t\cdot (-L) = -\frac{L}{1-β} \end{aligned}\]</span>
+Therefore, one can define <span class="math inline">\(C(X)\)</span> the set of all bounded and continuous functions for <span class="math inline">\(X\to\mathbb{R}\)</span><br />
+<span class="math inline">\(\implies v^*\in C(X)\)</span></p>
+<blockquote>
+<p>Theorem<br />
+<span class="math inline">\(v^*\)</span> is the unique solution of (FE) in <span class="math inline">\(C(X)\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(G(x) = \text{argmax}_{y\in Γ(x)} \ \{F(x,y) + β\cdot v^*(y) \}\)</span><br />
+<span class="math inline">\(G(x)\neq\emptyset\)</span><br />
+<span class="math inline">\(\implies\)</span> plan <span class="math inline">\((x_1,x_2,\dots)\)</span> is optimal <span class="math inline">\(\iff x_{t+1}\in G(x_t)\)</span> for all <span class="math inline">\(t\geq 0\)</span><br />
+Given any <span class="math inline">\(v_0\in C(X)\)</span>, let <span class="math inline">\(v_n = T_v^n = T\cdots T_{v_0}\)</span><br />
+<span class="math inline">\(\implies v_n\to v^*\)</span> as <span class="math inline">\(n\to\infty\)</span></p>
+</div>
+<div id="bellman-operator" class="section level3">
+<h3>Bellman Operator</h3>
+<ul>
+<li>Bellman operator: <span class="math inline">\(T: C(X)\to C(X)\)</span><br />
+for any <span class="math inline">\(v\in C(X)\)</span>, <span class="math inline">\(T_v\in C(X)\)</span> gives<br />
+<span class="math display">\[(T_v)(x) = \max_{y\in Γ(x)} \ \{F(x,y) + β\cdot v(y) \}\]</span>
+<ul>
+<li>Monotonic</li>
+<li>Concave (Discounting?)</li>
+<li>Differentiable</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Bellman operator is monotonic</p>
+</blockquote>
+<p>Suppose:<br />
+<span class="math inline">\(F\)</span> is strictly increasing wrt current state <span class="math inline">\(x_t\)</span><br />
+<span class="math inline">\(Γ\)</span> is monotonic: <span class="math inline">\(x\leq x&#39;\implies Γ(x)\leq Γ(x&#39;)\)</span><br />
+<span class="math inline">\(\implies v^*\)</span> is strictly increasing<br />
+Idea: <span class="math inline">\(T\)</span> preserves monotonicity, so the fixed point must be monotonic too</p>
+<blockquote>
+<p>Bellman operator is concave</p>
+</blockquote>
+<p>Suppose:<br />
+<span class="math inline">\(X\subset \mathbb{R}^l\)</span> is convex<br />
+<span class="math inline">\(F\)</span> is strictly concave wrt the current state<br />
+<span class="math inline">\(Γ\)</span> is convex: <span class="math inline">\(A\)</span> is convex<br />
+<span class="math inline">\(\implies v^*\)</span> is strictly concave<br />
+and optimal policy correspondence <span class="math inline">\(G(x)\)</span> is single-valued<br />
+<span class="math inline">\(\implies G(x)\)</span> is continuous<br />
+<span class="math inline">\(\implies\)</span> exists a unique optimal plan for <span class="math inline">\(t=0,1,\dots\)</span>:
+<span class="math display">\[x_{t+1} = g(x_t)\]</span></p>
+<blockquote>
+<p>Bellman operator is differentiable</p>
+</blockquote>
+<p>Suppose:<br />
+<span class="math inline">\(F\)</span> is continuously differentiable wrt current state <span class="math inline">\(x_t\in\text{int} (A)\)</span><br />
+<span class="math inline">\(\implies v^*\)</span> is continuously differentiable for <span class="math inline">\(x\in\text{int} (A)\)</span></p>
+</div>
+</div>
+<div id="stochastic-dynamic-programming" class="section level2">
+<h2>Stochastic Dynamic Programming</h2>
+<div id="example-corn-rain" class="section level3">
+<h3>Example: Corn &amp; Rain</h3>
+<ul>
+<li>Shocks hit before actions</li>
+<li>In each period <span class="math inline">\(t\)</span>, timing:
+<ol style="list-style-type: decimal">
+<li>Plant <span class="math inline">\(k_t\)</span></li>
+<li>Rain amount <span class="math inline">\(z_t\)</span></li>
+<li>Harvest <span class="math inline">\(f(k_t, z_t)\)</span></li>
+<li>Save <span class="math inline">\(k_{t+1}\)</span> for next period</li>
+</ol></li>
+</ul>
+</div>
+<div id="random-shocks" class="section level3">
+<h3>Random Shocks</h3>
+<ul>
+<li>Current state: <span class="math inline">\((x,z)\)</span></li>
+<li>Shock <span class="math inline">\(z\)</span> follows a Markov chain
+<ul>
+<li>Distribution of <span class="math inline">\(z&#39;:= z_{t+1}\)</span> depends on only <span class="math inline">\(z := z_t\)</span></li>
+</ul></li>
+<li>Bellman Equation:
+<span class="math display">\[\begin{aligned}(FE) &amp;&amp; v(x,z) = \max_{y\in Γ(x,z)} \ \{ F(x,y,z) + β\cdot E\big[v(y, z&#39;)\big| z\big]\} \end{aligned}\]</span></li>
+<li>iid shocks:</li>
+</ul>
+</div>
+<div id="example-kiefer-1989" class="section level3">
+<h3>Example: <a href="https://www.sciencedirect.com/science/article/pii/0165188989900183">Kiefer (1989)</a></h3>
+<ul>
+<li>Monopolist</li>
+<li>Inverse demand: <span class="math inline">\(p = α + βq + ε\)</span></li>
+<li>Assumptions
+<ul>
+<li><span class="math inline">\(ε\overset{iid}{\sim}\)</span> some known distribution, <span class="math inline">\(E[ε]=0\)</span></li>
+<li>Possible states: <span class="math inline">\((α,β)\in\{(a_1,b_1), \ (a_2,b_2)\}\)</span></li>
+</ul></li>
+<li>Belief (state variable):
+<span class="math display">\[μ_t = Pr\big((α,β) = (a_1,b_1)\ \big|\text{ info till period } t\big)\]</span></li>
+<li>Profit:
+<span class="math display">\[π = E\Big[\sum δ^t\cdot\big(p_t q_t - c(q_t)\big)\Big]\]</span></li>
+<li>Predictive distribution for <span class="math inline">\(p\ |\ q\)</span>:
+<span class="math display">\[\begin{aligned}f_1(p\ |\ q) &amp;= \text{density of }p\text{ when } (α,β) = (a_1,b_1) \\
+f_2(p\ |\ q) &amp;= \text{density of }p\text{ when } (α,β) = (a_2,b_2) \\
+f(p\ |\ q,μ_t) &amp;= μ_t\cdot f_1(p\ |\ q) + (1-μ_t)\cdot f_2(p\ |\ q) \end{aligned}\]</span></li>
+<li>Updating belief (<span class="math inline">\(Γ\)</span>) (Bayes’ Rule):
+<span class="math display">\[\begin{aligned}Pr(A\ |\ B)&amp;= \frac{Pr(A\cap B)}{Pr(B)} = \frac{Pr(A)\cdot Pr(B\ |\ A)}{Pr(B)} \\
+Pr(\text{next state is also 1}) &amp;= \frac{Pr(\text{state 1})}{Pr(\text{seeing }p\ |\ q)} \\
+μ_{t+1} &amp;= \frac{μ_t\cdot f_1(p\ |\ q)}{f(p\ |\ q,μ_t)} \\\end{aligned}\]</span></li>
+<li>Bellman Equation:
+<span class="math display">\[\begin{aligned}(FE) &amp;&amp; v(μ) = \max_{q\geq 0}\ \Big\{ &amp;\overbrace{μ(a_1 + b_1\cdot q)\cdot q + (1-μ)(a_2 + b_2\cdot q)\cdot q - c(q)}^{\text{Expected current reward}} \\
+&amp;&amp; &amp;+ \underbrace{δ\cdot E[v(μ&#39;)\ |\ q] }_{\text{Future rewards}}\Big\} \end{aligned}\]</span></li>
+</ul>
+</div>
+</div>
+<div id="dynamic-programming-continuous-time" class="section level2">
+<h2>Dynamic Programming: Continuous Time</h2>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>

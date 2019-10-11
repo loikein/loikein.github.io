@@ -17,19 +17,20 @@
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-industrial-organization/</guid>
-      <description>Basic Ideas Firm Consumer Discrete Choice Model Discrete Choice Model: Asymmetric Information Representative Consumer Model Welfare    Basic Ideas Firm  Firm: transforms inputs into outputs Profit: \(Π = R(q) - C(q)\) Sales: \(q = f(k,l)\) Cost: technology, expenditure minimization
+      <description>Basic Ideas Firm Consumer Discrete Choice Model Discrete Choice Model: Asymmetric Information Representative Consumer Model Welfare Perfect Competition    Basic Ideas Firm  Firm: transforms inputs into outputs Profit: \(Π = R(q) - C(q)\) Sales: \(q = f(k,l)\) Cost: technology, expenditure minimization
 Let \(q = \tilde{q}\), isovalue of production: \(f(k,l) = \tilde{q}\)
 Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expenditure: \(k = -\frac{p_l}{p_k}\cdot l + \frac{E}{p_k}\)</description>
     </item>
     
     <item>
-      <title>Notes on Microeconomics Theory Research</title>
-      <link>/post/2019/10/notes-micro-theory-research/</link>
+      <title>Notes on Research: Dnyamic Programming</title>
+      <link>/post/2019/10/notes-research-dynamic-prog/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/10/notes-micro-theory-research/</guid>
-      <description>Dynamic Programming: Discrete Time Example: Growing Corn Sequence Problem Bellman Equation Dynamic Programming    Dynamic Programming: Discrete Time also see Notes on Mathematics - Optimization and Dynamics
-Example: Growing Corn  Time: \(t=0,1,2,\dots\) Initial # of seeds: \(k_0\) Plant: \(k_t\) Harvest: \(f(k_t)\) Consumption: \(c_t\leq f(k_t)\) Next period plant: \(k_{t+1} = f(k_t) - c_t\) Utility function: \(U(c_t)\)  Increasing &amp;amp; concave  Discount: \(0&amp;lt;β&amp;lt;1\) Sequence Problem (SP): \[\begin{aligned}\max_{c_t} &amp;amp;&amp;amp; \sum_{t=0}^{\infty} β^t\cdot U(c_t) \end{aligned}\] s.</description>
+      <guid>/post/2019/10/notes-research-dynamic-prog/</guid>
+      <description>Dynamic Programming: Discrete Time Example: Corn Planting Sequence Problem Bellman Equation Bounded and Continuous Rewards Bellman Operator  Stochastic Dynamic Programming Example: Corn &amp;amp; Rain Random Shocks Example: Kiefer (1989)  Dynamic Programming: Continuous Time   wrt means with respect to
+Dynamic Programming: Discrete Time also see Notes on Mathematics - Optimization and Dynamics
+Example: Corn Planting  Time: \(t=0,1,2,\dots\) Initial # of seeds: \(k_0\) Plant: \(k_t\) Harvest: \(f(k_t)\) Consumption: \(c_t\leq f(k_t)\) Next period plant: \(k_{t+1} = f(k_t) - c_t\) Utility function: \(U(c_t)\)  Increasing &amp;amp; concave  Discount: \(0&amp;lt;β&amp;lt;1\) Sequence Problem (SP): \[\begin{aligned}\max_{c_t} &amp;amp;&amp;amp; \sum_{t=0}^{\infty} β^t\cdot U(c_t) \end{aligned}\] s.</description>
     </item>
     
     <item>

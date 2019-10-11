@@ -6,10 +6,21 @@
     <description>Recent content in math on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Research: Dnyamic Programming</title>
+      <link>/post/2019/10/notes-research-dynamic-prog/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/10/notes-research-dynamic-prog/</guid>
+      <description>Dynamic Programming: Discrete Time Example: Corn Planting Sequence Problem Bellman Equation Bounded and Continuous Rewards Bellman Operator  Stochastic Dynamic Programming Example: Corn &amp;amp; Rain Random Shocks Example: Kiefer (1989)  Dynamic Programming: Continuous Time   wrt means with respect to
+Dynamic Programming: Discrete Time also see Notes on Mathematics - Optimization and Dynamics
+Example: Corn Planting  Time: \(t=0,1,2,\dots\) Initial # of seeds: \(k_0\) Plant: \(k_t\) Harvest: \(f(k_t)\) Consumption: \(c_t\leq f(k_t)\) Next period plant: \(k_{t+1} = f(k_t) - c_t\) Utility function: \(U(c_t)\)  Increasing &amp;amp; concave  Discount: \(0&amp;lt;β&amp;lt;1\) Sequence Problem (SP): \[\begin{aligned}\max_{c_t} &amp;amp;&amp;amp; \sum_{t=0}^{\infty} β^t\cdot U(c_t) \end{aligned}\] s.</description>
+    </item>
     
     <item>
       <title>Notes on Probability Theory</title>
