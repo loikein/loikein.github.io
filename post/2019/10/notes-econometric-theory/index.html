@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">10 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -179,6 +179,48 @@ By (ii), the probability that something happens is 1</li>
 thus, we cannot set <span class="math inline">\(\mathcal{A} = \mathcal{P}(Ω)\)</span> in general, but have to restrict the class of possible events <span class="math inline">\(A\)</span></li>
 </ol>
 <blockquote>
+<p>PS1.Q3<br />
+Let <span class="math inline">\(Ω\)</span> be a non-empty set, <span class="math inline">\(\mathcal{A}\)</span> a σ-field on <span class="math inline">\(Ω\)</span> and <span class="math inline">\(A_1,\dots,A_n\in \mathcal{A}\)</span>.<br />
+Show that a probability measure <span class="math inline">\(P\)</span> on <span class="math inline">\((Ω, \mathcal{A})\)</span> has the following properties:</p>
+<ol style="list-style-type: lower-roman">
+<li>Let <span class="math inline">\(A_1,\dots,A_n\)</span> be pairwise disjoint, then <span class="math inline">\(P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)\)</span></li>
+<li><span class="math inline">\(P(A^c)=1−P(A)\)</span></li>
+<li><span class="math inline">\(A_1\subset A_2\implies P(A_2\backslash A_1)=P(A_2)−P(A_1)\)</span></li>
+<li><span class="math inline">\(A_1\subset A_2\implies P(A_1)\leq P(A_2)\)</span></li>
+<li><span class="math inline">\(P(\cup_{i=1}^n A_i)\leq \sum_{i=1}^n P (A_i)\)</span></li>
+<li><span class="math inline">\(P(A_1\cup A_2)=P(A_1)+P(A_2)−P(A_1\cup A_2)\)</span></li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-roman">
+<li>Construct <span class="math inline">\(A_i = \emptyset\)</span> for all <span class="math inline">\(i\geq n+1\)</span>,
+<span class="math display">\[\begin{aligned}P(\cup_{i=1}^n A_i) &amp;= P(\cup_{i=1}^{\infty} A_i) \\
+&amp;= \sum_{i=1}^{\infty} P(A_i) \\
+&amp;= \sum_{i=1}^n P(A_i) + \sum_{i=n+1}^{\infty} \underbrace{P(A_i)}_{=0} \\
+&amp;= \sum_{i=1}^n P(A_i)\end{aligned}\]</span></li>
+<li>For all <span class="math inline">\(A\in Ω\)</span>,
+<span class="math display">\[\begin{aligned}P(Ω) = 1 &amp;= P(A\cup A^C) \\
+&amp;= P(A) + P(A^C)\end{aligned}\]</span></li>
+<li><span class="math inline">\(A_1\subset A_2\implies\)</span>
+<span class="math display">\[\begin{aligned}A_2 &amp;= A_1\cup (A_2\backslash A_1) \\
+P(A_2) &amp;= P(A_1) + P(A_2\backslash A_1) \end{aligned}\]</span></li>
+<li>Following (iii), <span class="math inline">\(A_1\subset A_2\implies\)</span>
+<span class="math display">\[\begin{aligned}P(A_1) &amp;= P(A_2) - P(A_2\backslash A_1) \\
+&amp;\leq P(A_2)\end{aligned}\]</span></li>
+<li>Way 1: By induction using (vi)<br />
+Way 2: Let <span class="math inline">\(A_1,\dots,A_n\in\mathcal{A}\)</span>,<br />
+Define <span class="math inline">\(B_1 = A_1\)</span>, <span class="math inline">\(B_2 = A_2\backslash A_1\)</span>, <span class="math inline">\(B_3 = A_3\backslash(A_1\cup A_2)\)</span>…<br />
+Therefore, following (iv),
+<span class="math display">\[\begin{aligned}P\big( \cup_{i=1}^{\infty} A_i) &amp;= P\big( \cup_{i=1}^{\infty} B_i) \\
+&amp;= \sum_{i=1}^{\infty} \underbrace{P(B_i)}_{\leq P(A_i)} \\
+&amp;\leq \sum_{i=1}^{\infty} P(A_i) \end{aligned}\]</span></li>
+<li>If <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span> are not disjoint,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} P(A_1)+P(A_2)−2P(A_1\cup A_2) \\
+&amp;= P\big(A_1\backslash (A_1\cup A_2)\big) + P\big(A_2\backslash (A_1\cup A_2)\big) \\
+&amp;= P\big[ \big(A_1\backslash (A_1\cup A_2)\big)\cup\big(A_2\backslash (A_1\cup A_2)\big)\big] \\
+&amp;= P\big((A_1\cup A_2)\backslash (A_1\cap A_2) \big) \\
+&amp;= P(A_1\cup A_2) - P(A_1\cap A_2)\end{aligned}\]</span></li>
+</ol>
+<blockquote>
 <p>Example: Laplace distribution<br />
 Let <span class="math inline">\(Ω\)</span>, <span class="math inline">\(\mathcal{A} = \mathcal{P}(Ω)\)</span> the class of all subsets of <span class="math inline">\(Ω\)</span>, then<br />
 <span class="math display">\[P(A) := \frac{|A|}{|Ω|}\]</span></p>
@@ -186,11 +228,22 @@ Let <span class="math inline">\(Ω\)</span>, <span class="math inline">\(\mathca
 <p>Consider tossing a fair dice once, <span class="math inline">\(Ω = \{1,\dots,6\}\)</span>, then <span class="math inline">\(P(A=\{6\}) = \frac{1}{6}\)</span><br />
 Consider tossing a fair dice twive, <span class="math inline">\(Ω = \{(1,1),\dots,(6,6)\}\)</span>, then <span class="math inline">\(P(A=\{(2,6), (3,5),(4,4)\}) = \frac{3}{36}\)</span></p>
 <blockquote>
-<p>Prop 1.2.<br />
-Let <span class="math inline">\(Ω\)</span> be countable, mapping <span class="math inline">\(p:Ω\to[0,1]\)</span> is <span class="math inline">\(\sum_{w\in Ω}p(w)=1\)</span><br />
-Then <span class="math inline">\(P(A):= \sum_{w\in A}p(w)\)</span> for all <span class="math inline">\(A\in\mathcal{P}(Ω)\)</span> defines a probability mapping on <span class="math inline">\(\mathcal{P}(Ω)\)</span></p>
+<p>Prop 1.2., PS1.Q4<br />
+Let <span class="math inline">\(Ω\)</span> be countable, mapping <span class="math inline">\(p:Ω\to[0,1]\)</span> is <span class="math inline">\(\sum_{ω\in Ω}p(ω)=1\)</span><br />
+Then <span class="math inline">\(P(A):= \sum_{ω\in A}p(ω)\)</span> for all <span class="math inline">\(A\in\mathcal{P}(Ω)\)</span> defines a probability measure on <span class="math inline">\(\mathcal{P}(Ω)\)</span></p>
 </blockquote>
-<p>Examples:</p>
+<p>Proof: check Kolmogorov Axioms</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(P(\emptyset) = \sum_{ω\in\emptyset} p(ω)= 0\)</span></li>
+<li><span class="math inline">\(P(Ω) = \sum_{ω\in Ω} p(ω)= 1\)</span></li>
+<li>Let <span class="math inline">\(A_1,A_2,\dots\)</span> be disjoint<br />
+<span class="math inline">\(\implies\)</span> for any <span class="math inline">\(ω\in A_i\)</span>, <span class="math inline">\(ω\not\in A_j\)</span> for any <span class="math inline">\(j\neq i\)</span><br />
+<span class="math display">\[\begin{aligned}P\big(\cup_{i=1}^{\infty} A_i\big) &amp;= \sum_{ω\in \cup_{i=1}^{\infty} A_i} p(ω) \\
+&amp;= \sum_{i=1}^{\infty}\underbrace{\sum_{ω\in A_i} p(ω)}_{P(A_i)} \\
+&amp;= \sum_{i=1}^{\infty} P(A_i)\end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>Example: Probability measure</p>
 <ol style="list-style-type: decimal">
 <li>Laplace distribution<br />
 </li>
@@ -205,12 +258,39 @@ Then <span class="math inline">\(P(A):= \sum_{w\in A}p(w)\)</span> for all <span
 <span class="math inline">\(Ω = \mathbb{N}_0\)</span>, <span class="math inline">\(p(k)=\frac{λ^k}{k!}\cdot l^{-λ}\)</span><br />
 <span class="math inline">\(\sum_{k=0}^{\infty} p(k)=\Big(\sum_{k=0}^{\infty}\frac{λ^k}{k!}\Big)\cdot l^{-λ} = l^{λ}\cdot l^{-λ} =1\)</span></li>
 </ol>
-<p>Proof: exercise</p>
+</blockquote>
+<blockquote>
+<p>PS1.Q5<br />
+Suppose that for a probability measure <span class="math inline">\(P\)</span> and a sequence of sets <span class="math inline">\(A_1,A_2,\dots\)</span>, it holds that <span class="math inline">\(P(A_i) = 0\)</span>.<br />
+Which value has <span class="math inline">\(P\big(\sum_{i=1}^{\infty} A_i\big)\)</span>?</p>
+</blockquote>
+<p>Way 1:</p>
+<ol style="list-style-type: lower-roman">
+<li>For finite union, prove <span class="math inline">\(P\big(\sum_{i=1}^n A_i\big) = 0\)</span><br />
+Following PS1.Q3 (vi), for <span class="math inline">\(n=2\)</span>,
+<span class="math display">\[\begin{aligned}P(A_1\cup A_2) &amp;= \underbrace{P(A_1)}_{\geq 0} + \underbrace{P(A_2)}_{\geq 0} - P(A_1\cap A_2) \\
+&amp;\geq 0 \\
+P(A_1\cap A_2) &amp;= 0 \end{aligned}\]</span>
+By induction on <span class="math inline">\(n\)</span>, it follows that <span class="math inline">\(P\big(\sum_{i=1}^n A_i\big) = 0\)</span></li>
+<li>For countably infinite union, prove <span class="math inline">\(P\big(\sum_{i=1}^{\infty} A_i\big) = 0\)</span><br />
+Following (i),
+<span class="math display">\[P\big(\cup_{i=1}^{\infty} A_i\big) = P\big(\cup_{i=1}^{\infty} A_i \backslash \cup_{i=n+1}^n A_i\big) + \underbrace{P\big(\cup_{i=n+1}^n A_i\big)}_{=0}\]</span>
+Therefore, set <span class="math inline">\(B_n = \cup_{i=1}^{\infty} A_i \backslash \cup_{i=n+1}^n A_i\)</span> is monotonicly decreasing
+<span class="math display">\[\begin{aligned}\lim_{n\to\infty} B_n &amp;= P\big(\cap_{i=1}^{\infty} B_1\big) \\
+&amp;= P\big(\cup_{i=1}^{\infty} A_i \backslash \cup_{i=n+1}^{\infty} A_i \big) \\
+&amp;= P(\emptyset) \\&amp;= 0 \end{aligned}\]</span></li>
+</ol>
+<p>Way 2: follow PS1.Q3 (v) way 2,<br />
+Define <span class="math inline">\(B_1 = A_1\)</span>, <span class="math inline">\(B_2 = A_2\backslash A_1\)</span>, <span class="math inline">\(B_3 = A_3\backslash(A_1\cup A_2)\)</span>…<br />
+<span class="math display">\[\begin{aligned}P\big(\cup_{i=1}^{\infty} A_i\big) &amp;= P\big(\cup_{i=1}^{\infty} B_i\big) \\
+&amp;= \sum_{i=1}^{\infty} \underbrace{P(B_i)}_{\leq P(A_i)} \\
+&amp;\leq \sum_{i=1}^{\infty} P(A_i) \\
+&amp;= 0 \end{aligned}\]</span></p>
 <blockquote>
 <p>Remark 1.1.d.<br />
-If <span class="math inline">\(Ω\)</span> is uncountable, it is in general impossible to define <span class="math inline">\(P\)</span> for all <span class="math inline">\(A\subset Ω\)</span> s.t. (i) - (iii) are satisfied</p>
+If <span class="math inline">\(Ω\)</span> is uncountable, it is in general impossible to define <span class="math inline">\(P\)</span> for all <span class="math inline">\(A\subset Ω\)</span> s.t. Kolmogorov Axioms are satisfied</p>
 </blockquote>
-<p>Solution:</p>
+<p>Solution: σ- &amp; Borel Field</p>
 <div id="borel-field" class="section level3">
 <h3>σ- &amp; Borel Field</h3>
 <blockquote>
@@ -223,6 +303,22 @@ If all <span class="math inline">\(A\in\mathcal{A}\)</span> have the following p
 <li><span class="math inline">\(A_1,A_2,\dots\in\mathcal{A}\implies \cup_{i=1}^{\infty}A_i\in\mathcal{A}\)</span></li>
 </ol>
 </blockquote>
+<blockquote>
+<p>PS1.Q2<br />
+Let <span class="math inline">\(Ω\)</span> be a non-empty set and <span class="math inline">\(\mathcal{A}\)</span> a σ-field on <span class="math inline">\(Ω\)</span>. Show the following two statements:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(Ω\in\mathcal{A}\)</span></li>
+<li>If <span class="math inline">\(A_1, A_2\in\mathcal{A}\)</span>, then <span class="math inline">\(A_1\cap A_2\in\mathcal{A}\)</span></li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-roman">
+<li>Since the properties of <span class="math inline">\(\mathcal{A}\)</span>, <span class="math inline">\(\emptyset\in\mathcal{A}\)</span><br />
+So <span class="math inline">\(\emptyset ^C = Ω\in\mathcal{A}\)</span></li>
+<li>Since <span class="math inline">\(A_1\in\mathcal{A}\implies A_1^C\in\mathcal{A}\)</span><br />
+And <span class="math inline">\(A_2\in\mathcal{A}\implies A_2^C\in\mathcal{A}\)</span><br />
+Therefore, <span class="math inline">\((A_1^C)\cup(A_2^C)\in\mathcal{A}\)</span><br />
+<span class="math inline">\(\implies \big(A_1^C)\cup(A_2^C)\big)^C = A_1\cap A_2\in\mathcal{A}\)</span></li>
+</ol>
 <blockquote>
 <p>Def 1.4. Borel σ-field<br />
 Let <span class="math inline">\(Ω=\mathbb{R}\)</span><br />
@@ -361,7 +457,7 @@ Define the probability that <span class="math inline">\(X\in B\)</span> by <span
 <p>Example: Tossing a coin 3 times<br />
 <span class="math display">\[Ω=\big\{ω =(ω_1, ω_2, ω_3) : ω_j\in\{0,1\}\big\}\]</span>
 P: Laplace distribution on <span class="math inline">\(Ω\)</span>:
-<span class="math display">\[P(A) = |A|/|Ω| = |A|/8\]</span>
+<span class="math display">\[P(A) = |A|\backslash |Ω| = |A|\backslash 8\]</span>
 Define the random variable <span class="math inline">\(X:Ω\to\mathbb{R}\)</span>:
 <span class="math display">\[ω =(ω_1, ω_2, ω_3) \mapsto \sum_{j=1}^3 ω_j\]</span>
 therefore, <span class="math inline">\(X\in\{0,1,2,3\}\)</span><br />
@@ -369,10 +465,25 @@ therefore, <span class="math inline">\(X\in\{0,1,2,3\}\)</span><br />
 P^X\big(\{1\}\big) &amp;= P\big(\{ω\in Ω : X(ω) = 1\}\big) \\&amp;= P\big(\{1,0,0\},\{0,1,0\},\{0,0,1\}\big) \\&amp;=\frac{3}{8}\end{aligned}\]</span>
 and so on</p>
 </blockquote>
+<blockquote>
+<p>PS1.Q1<br />
+Consider the experiment of tossing a dice three times.</p>
+<ol style="list-style-type: lower-roman">
+<li>Write down the sample space <span class="math inline">\(Ω\)</span> for this experiment.</li>
+<li>Write down the event <span class="math inline">\(A_1\)</span> that “5” occurs exactly two times.</li>
+<li>What is the probability of event <span class="math inline">\(A_1\)</span> assuming a Laplace distribution?</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(Ω = \big\{(i,j,k) : i,j,k\in\{1,2,\dots,6\}\big\}\)</span></li>
+<li><span class="math inline">\(A_1 = \{(5,5,i)\}\cup\{(5,i,5)\}\cup\{(i,5,5)\}\)</span> where <span class="math inline">\(i\in\{1,2,3,4,6\}\)</span></li>
+<li><span class="math display">\[\begin{aligned}Pr(A_1) &amp;= |A|\backslash |Ω| \\
+&amp;= \frac{15}{216}\end{aligned}\]</span></li>
+</ol>
 <div id="expectation" class="section level3">
 <h3>Expectation</h3>
 <blockquote>
-<p>Def 1.10. Discrete / Continuous<br />
+<p>Def 1.10. Discrete Continuous<br />
 Random variable <span class="math inline">\(X\)</span> is</p>
 <ol style="list-style-type: lower-roman">
 <li>Discrete if its distribution is discrete,<br />
@@ -383,7 +494,7 @@ with some bounded, integrable density function <span class="math inline">\(f\)</
 </ol>
 </blockquote>
 <blockquote>
-<p>Def 1.11. Mean / Expectation<br />
+<p>Def 1.11. Mean Expectation<br />
 The mean of <span class="math inline">\(X\)</span> is defined as</p>
 <ol style="list-style-type: lower-roman">
 <li>Provided that <span class="math inline">\(\sum_{i=1}^{\infty} p_i\cdot x_i&lt;\infty\)</span>,
@@ -428,7 +539,7 @@ Let <span class="math inline">\(g:\mathbb{R}\to\mathbb{R}\)</span> be bounded in
 <div id="variance" class="section level3">
 <h3>Variance</h3>
 <blockquote>
-<p>Def 1.14 Variance &amp; SD
+<p>Def 1.14 Variance &amp; SD<br />
 Let <span class="math inline">\(X\)</span> be <span class="math inline">\(E[X^2]&lt;\infty\)</span>, the variance and standard deviation of <span class="math inline">\(X\)</span> are defined as
 <span class="math display">\[\begin{aligned}Var(X) &amp;= E\big[(X - E[X])^2\big] \\ σ&amp;= \sqrt{Var(X)} \end{aligned}\]</span></p>
 </blockquote>
