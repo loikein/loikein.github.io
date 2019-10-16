@@ -94,7 +94,7 @@ if (!doNotTrack) {
 <li><a href="#dynamic-programming-discrete-time">Dynamic Programming: Discrete Time</a><ul>
 <li><a href="#example-corn-planting">Example: Corn Planting</a></li>
 <li><a href="#sequence-problem">Sequence Problem</a></li>
-<li><a href="#bellman-equation">Bellman Equation</a></li>
+<li><a href="#functional-bellman-equation">Functional (Bellman) Equation</a></li>
 <li><a href="#bounded-and-continuous-rewards">Bounded and Continuous Rewards</a></li>
 <li><a href="#bellman-operator">Bellman Operator</a></li>
 </ul></li>
@@ -107,7 +107,8 @@ if (!doNotTrack) {
 </ul>
 </div>
 
-<p>wrt means with respect to</p>
+<p>wrt means with respect to<br />
+Textbook: <a href="http://93.174.95.27/book/index.php?md5=95BF65ECABD0CB44AF57089D7668D426">Nancy L. Stokey, Robert E. Lucas Jr., Edward C. Prescott - Recursive Methods in Economic Dynamics</a> (S&amp;L)</p>
 <div id="dynamic-programming-discrete-time" class="section level2">
 <h2>Dynamic Programming: Discrete Time</h2>
 <p>also see <a href="../../01/notes-math-optimization-dynamics/#dynamics">Notes on Mathematics - Optimization and Dynamics</a></p>
@@ -158,29 +159,29 @@ and <span class="math inline">\(x_0 = x\)</span></li>
 </ul></li>
 </ul>
 </div>
-<div id="bellman-equation" class="section level3">
-<h3>Bellman Equation</h3>
+<div id="functional-bellman-equation" class="section level3">
+<h3>Functional (Bellman) Equation</h3>
 <ul>
-<li>Bellman Equation (Functional Equation): (<span class="math inline">\(y := x_{t+1}\)</span>)
-<span class="math display">\[\begin{aligned}(FE) &amp;&amp; v(x) = \max_{y\in Γ(x)} \ \big\{ F(x,y) + β\cdot v(y) \big\} \end{aligned}\]</span>
+<li>Functional Equation (FE): (<span class="math inline">\(y := x_{t+1}\)</span>)
+<span class="math display">\[\begin{aligned}(FE) &amp;&amp; v(x) = \max_{y\in Γ(x)} \ \big\{ \underbrace{F(x,y)}_{\text{Current reward}} + \underbrace{β\cdot v(y)}_{\text{Continuation value}} \big\} \end{aligned}\]</span>
 <ul>
-<li>Solution: Value function <span class="math inline">\(v^*()\)</span></li>
-<li>any optimal solution <span class="math inline">\(x\)</span> given by <span class="math inline">\(v^*()\)</span> must achieve the max</li>
+<li>Solution: Value Function <span class="math inline">\(v^*(x)\)</span></li>
+<li>any optimal solution <span class="math inline">\(x\)</span> given by <span class="math inline">\(v^*(x)\)</span> must achieve the max</li>
 </ul></li>
-<li>Value Function for SP:
+<li>Value Function (VF) for SP:
 <span class="math display">\[\begin{aligned}(VF) &amp;&amp; v^*(x_0) = \max_{x_1,x_2,\dots} \ \sum_{t=0}^{\infty} β^t\cdot F(x_t,x_{t+1}) \end{aligned}\]</span>
 s.t. <span class="math inline">\(x_{t+1} \in Γ(x_t)\)</span><br />
 Let <span class="math inline">\(s=t-1\)</span>, VF can be rewritten as:
-<span class="math display">\[\begin{aligned}v^*(x_0) &amp;= \max_{x_1\in Γ(x_0)}\Big\{ \underbrace{F(x_0,x_1)}_{t=0} + \max_{x_2,x_3,\dots} \ \sum_{t=1}^{\infty} β^t\cdot F(x_t,x_{t+1}\Big\} \\
-&amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^{s+1}\cdot F(x_{s+1},x_{s+2}\Big\} \\
-&amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + β\cdot \Big[ \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^s\cdot F(x_{s+1},x_{s+2}\Big]\Big\} \\
+<span class="math display">\[\begin{aligned}v^*(x_0) &amp;= \max_{x_1\in Γ(x_0)}\Big\{ \underbrace{F(x_0,x_1)}_{t=0} + \max_{x_2,x_3,\dots} \ \sum_{t=1}^{\infty} β^t\cdot F(x_t,x_{t+1})\Big\} \\
+&amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^{s+1}\cdot F(x_{s+1},x_{s+2})\Big\} \\
+&amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + β\cdot \Big[ \max_{x_2,x_3,\dots} \ \sum_{s=0}^{\infty} β^s\cdot F(x_{s+1},x_{s+2})\Big]\Big\} \\
 &amp;= \max_{x_1\in Γ(x_0)}\Big\{ F(x_0,x_1) + β\cdot v^*(x_1)\Big\} \end{aligned}\]</span>
 therefore, an optimal <span class="math inline">\(x_1\)</span> for SP must also maximise RHS of VF</li>
-<li>How to find <span class="math inline">\(v\)</span>?
+<li>How to find <span class="math inline">\(v(x)\)</span>?
 <ul>
 <li>Start with a guess: <span class="math inline">\(v_0: X\to\mathbb{R}\)</span></li>
-<li>Compute <span class="math display">\[v_{j+1}(x) = \max_{y\in Γ(x)}\Big\{ F(x,y) + β\cdot v_j(y) \Big\}\]</span> for <span class="math inline">\(j=0,1,2,\dots\)</span></li>
-<li>Converges to function <span class="math inline">\(v\)</span> s.t.
+<li>Compute for <span class="math inline">\(j=0,1,2,\dots\)</span> <span class="math display">\[v_{j+1}(x) = \max_{y\in Γ(x)}\Big\{ F(x,y) + β\cdot v_j(y) \Big\}\]</span></li>
+<li>Converges to function <span class="math inline">\(v(x)\)</span> s.t.
 <span class="math display">\[v(x) = \max_{y\in Γ(x)}\Big\{ F(x,y) + β\cdot v(y) \Big\}\]</span></li>
 </ul></li>
 </ul>
@@ -314,7 +315,7 @@ Pr(\text{next state is also 1}) &amp;= \frac{Pr(\text{state 1})}{Pr(\text{seeing
 μ_{t+1} &amp;= \frac{μ_t\cdot f_1(p\ |\ q)}{f(p\ |\ q,μ_t)} \\\end{aligned}\]</span></li>
 <li>Bellman Equation:
 <span class="math display">\[\begin{aligned}(FE) &amp;&amp; v(μ) = \max_{q\geq 0}\ \Big\{ &amp;\overbrace{μ(a_1 + b_1\cdot q)\cdot q + (1-μ)(a_2 + b_2\cdot q)\cdot q - c(q)}^{\text{Expected current reward}} \\
-&amp;&amp; &amp;+ \underbrace{δ\cdot E[v(μ&#39;)\ |\ q] }_{\text{Future rewards}}\Big\} \end{aligned}\]</span></li>
+&amp;&amp; &amp;+ \underbrace{δ\cdot E[v(μ&#39;)\ |\ q] }_{\text{Expected continuous value}}\Big\} \end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
