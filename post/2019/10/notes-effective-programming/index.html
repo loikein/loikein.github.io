@@ -97,7 +97,10 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#slides">Slides</a></li>
-<li><a href="#shell-basic">Shell Basic</a></li>
+<li><a href="#shell-basic">Shell Basic</a><ul>
+<li><a href="#pipeline">Pipeline</a></li>
+</ul></li>
+<li><a href="#git">Git</a></li>
 </ul>
 </div>
 
@@ -119,18 +122,50 @@ Loikein ttys000  Oct 15 08:49
 Loikein
 
 ~ who am i
-Loikein ttys000  Oct 15 08:49 
-
-~ ls                            list
+Loikein ttys000  Oct 15 08:49</code></pre>
+<pre class="console"><code>~ ls                            list
 ~ pwd                           print working directory
 
 ~ cd                            change directory
 ~ mkdir                         make directory (new folder)
 ~ mv                            move (change name of directory)
-~ rm                            remove
+~ rm -r                         remove directory
 
 ~ man                           manual
-~ subl                          sublime</code></pre>
+~ [command] -h                  help</code></pre>
+<pre class="console"><code>~ subl something.txt            sublime create or open
+
+~ cp something.txt nothing.txt  copy
+
+~ ls *.*                        any file
+~ ls *thing*                    any file include &quot;thing&quot;
+~ ls some?hing.txt              one unknown character
+
+~ rm nothing.txt                delete</code></pre>
+<pre class="console"><code>~ cat something.txt             print 
+~ head -2 something.txt         print first 2 lines
+~ tail -3 something.txt         print last 3 lines
+
+~ less something.txt            view (type &quot;q&quot; to quit)
+~ more something.txt            view &amp; print</code></pre>
+<div id="pipeline" class="section level3">
+<h3>Pipeline</h3>
+</div>
+</div>
+<div id="git" class="section level2">
+<h2>Git</h2>
+<pre class="console"><code>~ git status
+
+~ git config --global core.editor &quot;atom --wait&quot;
+~ git config --global core.editor &quot;subl -n -w&quot;
+
+~ git init
+~ git add something.txt
+
+~ git commit -m &quot;New ideas for PS1&quot;
+~ git commit -a -m &quot;Add a line&quot;
+
+~ git log</code></pre>
 </div>
 
     </div>
