@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">7 min read</span>
     
     <h1 class="article-title">Notes on Research: Dnyamic Programming</h1>
     
@@ -102,6 +102,11 @@ if (!doNotTrack) {
 <li><a href="#example-corn-rain">Example: Corn &amp; Rain</a></li>
 <li><a href="#random-shocks">Random Shocks</a></li>
 <li><a href="#example-kiefer-1989">Example: <span>Kiefer (1989)</span></a></li>
+</ul></li>
+<li><a href="#controlled-diffusion-and-optimal-stopping">Controlled Diffusion and Optimal Stopping</a><ul>
+<li><a href="#wiener-process">Wiener Process</a></li>
+<li><a href="#diffusion-process">Diffusion Process</a></li>
+<li><a href="#itos-lemma">Ito’s Lemma</a></li>
 </ul></li>
 <li><a href="#dynamic-programming-continuous-time">Dynamic Programming: Continuous Time</a></li>
 </ul>
@@ -302,7 +307,7 @@ and optimal policy correspondence <span class="math inline">\(G(x)\)</span> is s
 <li>Possible states: <span class="math inline">\((α,β)\in\{(a_1,b_1), \ (a_2,b_2)\}\)</span></li>
 </ul></li>
 <li>Belief (state variable):
-<span class="math display">\[μ_t = Pr\big((α,β) = (a_1,b_1)\ \big|\text{ info till period } t\big)\]</span></li>
+<span class="math display">\[μ_t = Pr\big((α,β) = (a_1,b_1)\ \big|\text{ info till period } t-1\big)\]</span></li>
 <li>Profit:
 <span class="math display">\[π = E\Big[\sum δ^t\cdot\big(p_t q_t - c(q_t)\big)\Big]\]</span></li>
 <li>Predictive distribution for <span class="math inline">\(p\ |\ q\)</span>:
@@ -316,6 +321,120 @@ Pr(\text{next state is also 1}) &amp;= \frac{Pr(\text{state 1})}{Pr(\text{seeing
 <li>Bellman Equation:
 <span class="math display">\[\begin{aligned}(FE) &amp;&amp; v(μ) = \max_{q\geq 0}\ \Big\{ &amp;\overbrace{μ(a_1 + b_1\cdot q)\cdot q + (1-μ)(a_2 + b_2\cdot q)\cdot q - c(q)}^{\text{Expected current reward}} \\
 &amp;&amp; &amp;+ \underbrace{δ\cdot E[v(μ&#39;)\ |\ q] }_{\text{Expected continuous value}}\Big\} \end{aligned}\]</span></li>
+<li><span class="math inline">\(v^*\)</span> is a convex function of <span class="math inline">\(μ\)</span><br />
+given <span class="math inline">\(μ_0\)</span> and <span class="math inline">\(v^*_0\)</span>, overall payoff for plan <span class="math inline">\(π_0\)</span> is <span class="math display">\[μ\cdot\text{payoff in state 1}+(1-μ)\cdot\text{payoff in state 2}\]</span>
+<span class="math inline">\(\implies\)</span> payoff for <span class="math inline">\(π_0\)</span> is linear in <span class="math inline">\(μ\)</span><br />
+<span class="math inline">\(\implies\)</span> following the same plan <span class="math inline">\(π_0\)</span> for some <span class="math inline">\(μ_0&#39;\)</span>, the payoff is linear<br />
+<span class="math inline">\(\implies\)</span> re-optimize <span class="math inline">\(v^*\)</span> gives weakly larger than the linear payoff<br />
+This ends up in risk-loving behaviour wrs <span class="math inline">\(μ\)</span>: more information is good</li>
+</ul>
+</div>
+</div>
+<div id="controlled-diffusion-and-optimal-stopping" class="section level2">
+<h2>Controlled Diffusion and Optimal Stopping</h2>
+<div id="wiener-process" class="section level3">
+<h3>Wiener Process</h3>
+<ul>
+<li>Stochastic process <span class="math inline">\(z(t)\)</span>, <span class="math inline">\(t\in\mathbb{R}_+\)</span></li>
+<li>Definition
+<ul>
+<li><span class="math inline">\(z(0)=0\)</span></li>
+<li>Normal increments: for all <span class="math inline">\(t&#39;&gt;t\)</span>, <span class="math display">\[\begin{aligned}\big(z(t&#39;) - z(t)\big) &amp;\sim \mathcal{N}(0, t&#39;-t) \\z(t&#39;) - z(t) &amp;= ε\sqrt{t&#39;-t} \\ ε\sim\mathcal{N}(0,1) \\ dz &amp;= ε\sqrt{dt} \end{aligned}\]</span></li>
+<li>Independent increments: for all <span class="math inline">\(t_0&lt;t_1&lt;t_2&lt;t_3\)</span>, <span class="math display">\[E\big[\big(z(t_1)-z(t_0)\big)\cdot\big(z(t_3)-z(t_2)\big)\big]=0\]</span></li>
+<li>All sample paths are continuous</li>
+</ul></li>
+<li>Conclusion
+<ul>
+<li>Stationary &amp; independent Gaussian increments</li>
+<li>Sample path are nowhere differentiable</li>
+<li>Markov process</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Wiener process as the continuous limit of a discrete random walk</p>
+</blockquote>
+<p>Divide the timeline <span class="math inline">\([0,\infty)\)</span> into intervals of equal length <span class="math inline">\(Δt&gt;0\)</span><br />
+Consider random walk <span class="math inline">\(x(t)\)</span> that goes up or down independently by <span class="math inline">\(h\)</span> at the end of each <span class="math inline">\(Δt\)</span><br />
+<span class="math display">\[\begin{aligned}Δx &amp;= x(t+Δt) - x(t) =\begin{cases}h &amp; Pr=p \\ -h &amp; Pr=1-p \end{cases}\\
+E[Δx] &amp;= p\cdot h + (1-p)\cdot(-h)\\
+&amp;= h(2p-1) \\
+Var(Δx) &amp;= E[(Δx)^2] - \big(E[Δx]\big)^2 \\
+&amp;= h - h^2(2p-1)^2\\
+&amp;= 4h^2\cdot p(1-p)\end{aligned}\]</span>
+Let <span class="math inline">\(t&#39;-t = n\cdot Δt\)</span> s.t. there are <span class="math inline">\(n\)</span> steps of size <span class="math inline">\(Δt\)</span> between <span class="math inline">\(t\)</span> and <span class="math inline">\(t&#39;\)</span><br />
+Since increments are independent,
+<span class="math display">\[\begin{aligned}E\big[x(t&#39;)-x(t)\big] &amp;= E\Big[\sum_{k=1}^n \big(x(t+k\cdot Δt - x(t + (k-1)\cdot Δt)\big) \Big] \\
+&amp;= n\cdot E[Δx] \\
+&amp;= n\cdot h(2p-1) \\
+&amp;= \frac{t&#39;-t}{Δt}\cdot h(2p-1)\\
+Var\big(x(t&#39;)-x(t)\big) &amp;= n\cdot Var(Δx) \\
+&amp;= \frac{t&#39;-t}{Δt}\cdot 4h^2\cdot p(1-p)\end{aligned}\]</span>
+We want <span class="math inline">\(E\big[x(t&#39;)-x(t)\big] \overset{!}{=} E\big[z(t&#39;) - z(t)\big]=0\)</span><br />
+<span class="math inline">\(\implies p=\frac{1}{2}\)</span>
+We want <span class="math inline">\(Var\big(x(t&#39;)-x(t)\big) \overset{!}{=} Var\big(z(t&#39;) - z(t)\big) = t&#39;-t\)</span><br />
+<span class="math inline">\(\implies h^2 = Δt\)</span><br />
+Therefore, the increment <span class="math inline">\(x(t&#39;)-x(t)\)</span> when <span class="math inline">\(Δt\to 0\)</span> and <span class="math inline">\(n\to\infty\)</span> is the sum of infinitely many Bernoulli variables<br />
+By CLT, <span class="math inline">\(x(t&#39;)-x(t)\sim\mathcal{N}(0,t&#39;-t)\)</span><br />
+<span class="math inline">\(\implies x(t)\)</span> is a Wiener Process</p>
+<blockquote>
+<p>Infinite variation
+Over the length of <span class="math inline">\(t&#39;-t\)</span>, all paths of Wiener process travel an infinite distance</p>
+</blockquote>
+<p>As <span class="math inline">\(Δt\to 0\)</span>,
+<span class="math display">\[\begin{aligned}n\cdot h &amp;= \frac{t&#39;-t}{Δt}\cdot\sqrt{Δt} \\
+&amp;= \frac{t&#39;-t}{\sqrt{Δt}}\to \infty \end{aligned}\]</span></p>
+<blockquote>
+<p>All sample paths of Wiener process are nowhere differentiable</p>
+</blockquote>
+<p>As <span class="math inline">\(Δt\to 0\)</span>,
+<span class="math display">\[\begin{aligned}\frac{|Δx|}{Δt} &amp;= \frac{h}{Δt} \\
+&amp;= \frac{\sqrt{Δt}}{Δt} \\
+&amp;= \frac{1}{\sqrt{Δt}} \to\infty\end{aligned}\]</span></p>
+</div>
+<div id="diffusion-process" class="section level3">
+<h3>Diffusion Process</h3>
+<ul>
+<li>Diffusion process:
+<span class="math display">\[dx = \underbrace{a(t,x)\, dt}_{\text{Drift}} + \underbrace{b(t,x)\, dz}_{\text{Noise (Diffusion)}} \]</span>
+<ul>
+<li>Stochastic differential equation (SDE)</li>
+<li>If only has <span class="math inline">\(a(t,x)\, dt\)</span>, can re-write as <span class="math inline">\(\frac{dx}{dt}=a(t,x)\)</span> (ODE)</li>
+<li><span class="math inline">\(z\)</span> is a Wiener process: <span class="math inline">\(\frac{dx}{dz}\)</span> is not defined!</li>
+</ul></li>
+<li>Since <span class="math inline">\(dz = ε\sqrt{dt}\)</span>
+<span class="math display">\[\begin{aligned}E[dz] &amp;= E[ε\sqrt{dt}] = 0\\
+Var(dz) &amp;= E\big[(ε\sqrt{dt})^2\big] = dt \end{aligned}\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned}E[dx] &amp;= a(t,x)\, dt + b(t,x)\, E[dz] = a(t,x)\, dt\\
+Var(dx) &amp;= E[(dx)^2] - E[dx]^2 \\
+&amp;= E\big[(a(t,x)\, dt)^2 + 2a(t,x)b(t,x)\, dtdz + b(t,x)^2\, (dz)^2 \big] - (a(t,x)\, dt)^2\\
+&amp;= E\big[2a(t,x)b(t,x)\, dtdz + b(t,x)^2\, (dz)^2 \big]\\
+&amp;= b(t,x)^2\, dt\end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>Examples</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Brownian motion: <span class="math inline">\(α,σ\in\mathbb{R}\)</span>
+<span class="math display">\[\begin{aligned}dx &amp;= α\, dt + σ\, dz \\
+x(t) &amp;= x(0) +αt + σz(t) \end{aligned}\]</span></li>
+<li>Geometric Brownian motion (standard asset price model)
+<span class="math display">\[dx = αx\, dt + σx\, dz\]</span></li>
+<li>Mean-reverting process (Ornstein-Uhlenbeck process) (interest rate model)
+<span class="math display">\[dx = α(\bar{x}-x)\, dt + σ\, dz \]</span></li>
+</ol>
+</div>
+<div id="itos-lemma" class="section level3">
+<h3>Ito’s Lemma</h3>
+<ul>
+<li>Functions that take a diffusion process as argument
+<span class="math display">\[\begin{aligned}dx &amp;= a(t,x)\, dt+ b(t,x)\, dz\\
+y(t) &amp;= f(t, x(t)) \end{aligned}\]</span></li>
+<li>Ito’s lemma: let <span class="math inline">\(z(t)\)</span> be a Wiener process, <span class="math inline">\(x(t)\)</span> a diffusion process, <span class="math inline">\(y(t) = f(t, x(t))\)</span><br />
+If <span class="math inline">\(f\)</span> has continuous direvatives <span class="math inline">\(f_t\)</span>, <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_{xx}\)</span>,<br />
+then <span class="math inline">\(y(t)\)</span> is a diffusion process s.t.
+<span class="math display">\[\begin{aligned}dy &amp;= f_t(t,x)\, dt + \underbrace{f_x(t,x)\, dx} + \frac{1}{2} b(t,x)^2\cdot f_{xx}(t,x)\, dt \\
+&amp;= \Big[f_t(t,x) + \underbrace{a(t,x)\cdot f_x(t,x)} + \frac{1}{2} b(t,x)^2\cdot f_{xx}(t,x) \Big]\, dt + \underbrace{b(t,x)\cdot f_x(t,x)\, dz}\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
