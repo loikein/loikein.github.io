@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.59.0" />
 
 <title>Notes on Econometric Theory - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Econometric Theory - loikein&#39;s notes">
@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">16 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -99,11 +99,13 @@ if (!doNotTrack) {
 <li><a href="#expectation">Expectation</a></li>
 <li><a href="#variance">Variance</a></li>
 <li><a href="#moments-of-rk">Moments of R^k</a></li>
-<li><a href="#convergence-in-expectations">Convergence in Expectations</a></li>
 </ul></li>
 <li><a href="#stochastic-convergence">Stochastic Convergence</a><ul>
+<li><a href="#convergence-in-expectations-almost-sure-convergence">Convergence in Expectations &amp; Almost Sure Convergence</a></li>
 <li><a href="#convergence-in-probability">Convergence in Probability</a></li>
-<li><a href="#almost-convergence-vs.-convergence-in-probability">Almost Convergence vs. Convergence in Probability</a></li>
+<li><a href="#convergence-in-probability-vs.-almost-convergence">Convergence in Probability vs. Almost Convergence</a></li>
+<li><a href="#convergence-in-probability-vs.-covergence-in-p-th-mean">Convergence in Probability vs. Covergence in p-th Mean</a></li>
+<li><a href="#convergence-in-distribution">Convergence in Distribution</a></li>
 </ul></li>
 </ul>
 </div>
@@ -588,8 +590,15 @@ The absolute s-th moment is defined as <span class="math inline">\(E[|X|^s]\)</s
 The s-th central moment is defined as <span class="math inline">\(E\big[(X-E[X])^s\big]\)</span></p>
 </blockquote>
 </div>
-<div id="convergence-in-expectations" class="section level3">
-<h3>Convergence in Expectations</h3>
+</div>
+<div id="stochastic-convergence" class="section level2">
+<h2>Stochastic Convergence</h2>
+<div class="figure">
+<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/46c94668666d71613847f157ca27de5b4e938023" alt="" />
+<p class="caption">Source: <a href="https://zh.wikipedia.org/wiki/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%94%B6%E6%95%9B">wiki</a></p>
+</div>
+<div id="convergence-in-expectations-almost-sure-convergence" class="section level3">
+<h3>Convergence in Expectations &amp; Almost Sure Convergence</h3>
 <ul>
 <li><span class="math inline">\(X\)</span> is a real-valued random variable</li>
 <li><span class="math inline">\(\{X_n\}\)</span> a sequence of real valued random variables s.t. <span class="math inline">\(X_n(ω)\to X(ω)\)</span> for all <span class="math inline">\(ω\in Ω\)</span></li>
@@ -603,7 +612,8 @@ The s-th central moment is defined as <span class="math inline">\(E\big[(X-E[X])
 <blockquote>
 <p>Does <span class="math inline">\(X_n(ω)\to X(ω)\)</span> for all <span class="math inline">\(ω\in Ω\)</span> implies <span class="math inline">\(E[X_n]\to E[X]\)</span>?</p>
 </blockquote>
-<p>No. Proof: exercise</p>
+<p>No.<br />
+Proof: exercise</p>
 <blockquote>
 <p>Thm 1.18. Monotone Convergence Theorem<br />
 <span class="math inline">\(E[X_n]\to E[X]\)</span> if for all <span class="math inline">\(ω\in Ω\)</span>,</p>
@@ -695,9 +705,6 @@ Therefore, by Thm 1.19, <span class="math inline">\(E\big[f_n(X)\big]\to E\big[f
 </tbody>
 </table>
 </div>
-</div>
-<div id="stochastic-convergence" class="section level2">
-<h2>Stochastic Convergence</h2>
 <div id="convergence-in-probability" class="section level3">
 <h3>Convergence in Probability</h3>
 <ul>
@@ -723,8 +730,9 @@ in other words, <span class="math inline">\(P\big(\{ω\in Ω: X_n(ω)\to X(ω)\}
 </ol>
 </blockquote>
 </div>
-<div id="almost-convergence-vs.-convergence-in-probability" class="section level3">
-<h3>Almost Convergence vs. Convergence in Probability</h3>
+<div id="convergence-in-probability-vs.-almost-convergence" class="section level3">
+<h3>Convergence in Probability vs. Almost Convergence</h3>
+<p>Reference: <a href="https://www.probabilitycourse.com/chapter7/7_2_7_almost_sure_convergence.php">Almost Sure Convergence</a></p>
 <blockquote>
 <p>Convergence in probability does not imply almost convergence</p>
 </blockquote>
@@ -739,13 +747,13 @@ X_5(ω) &amp;=\begin{cases}1 &amp; \frac{1}{12}\leq ω\leq \frac{1}{12}+\frac{1}
 &amp;\dots\end{aligned}\]</span></p>
 <p>Conclusions:</p>
 <ol style="list-style-type: lower-roman">
-<li>:) <span class="math inline">\(X_n\overset{P}{\to} X \equiv 0\)</span><br />
+<li><span class="math inline">\(X_n\overset{P}{\to} X \equiv 0\)</span><br />
 Since for <span class="math inline">\(0&lt;ε&lt;1\)</span>,
 <span class="math display">\[\begin{aligned}P(|X_n-X|&gt;ε) &amp;= P(|X_n|&gt;ε)\\ &amp;= P(X_n=1) \\ &amp;= \frac{1}{n} \to 0 \end{aligned}\]</span></li>
-<li>:) <span class="math inline">\(X_n\overset{a.s.}{\not\to} X \equiv 0\)</span><br />
+<li><span class="math inline">\(X_n\overset{a.s.}{\not\to} X \equiv 0\)</span><br />
 Since <span class="math inline">\(\sum_{n=1}^{\infty} \frac{1}{n}=\infty\)</span>,<br />
-in other words, if we find <span class="math inline">\(N\)</span> s.t. <span class="math inline">\(X_N(ω)=1\)</span>, there is always <span class="math inline">\(N&#39;&gt;N\)</span> s.t. <span class="math inline">\(X_{N&#39;}(ω)=1\)</span>
-<span class="math display">\[\begin{aligned}P(X_n\to X) &amp;= P(X_n\to 0)\\ &amp;= P\big(\{ω\in Ω : X_n(ω)\to 0\}\big) = 0 \end{aligned}\]</span></li>
+<span class="math display">\[\begin{aligned}P(X_n\to X) &amp;= P(X_n\to 0)\\ &amp;= P\big(\{ω\in Ω : X_n(ω)\to 0\}\big) = 0 \end{aligned}\]</span>
+in other words, if we find <span class="math inline">\(N\)</span> s.t. <span class="math inline">\(X_N(ω)=1\)</span>, there is always <span class="math inline">\(N&#39;&gt;N\)</span> s.t. <span class="math inline">\(X_{N&#39;}(ω)=1\)</span></li>
 </ol>
 <blockquote>
 <p>Thm 2.2. Almost convergence implies convergence in probability<br />
@@ -765,6 +773,114 @@ therefore, <span class="math inline">\(X_n\overset{P}{\to} X\)</span></p>
 <p>Exercise: find some random variable <span class="math inline">\(X\)</span> s.t.<br />
 <span class="math inline">\(|E[X]&lt;\infty|\)</span> but <span class="math inline">\(E[|X|]=\infty\)</span></p>
 </blockquote>
+</div>
+<div id="convergence-in-probability-vs.-covergence-in-p-th-mean" class="section level3">
+<h3>Convergence in Probability vs. Covergence in p-th Mean</h3>
+<blockquote>
+<p>Thm 2.3. Markov Inequality<br />
+Let <span class="math inline">\(X\)</span> be a random variable and <span class="math inline">\(g:[0,\infty)\to[0,\infty)\)</span> a monototnic increasing function<br />
+Then for any <span class="math inline">\(ε&gt;0\)</span>,
+<span class="math display">\[P\big(\|X\|\geq ε\big)\leq\frac{E\big[g(\|X\|)\big]}{g(ε)}\]</span></p>
+</blockquote>
+<p>Proof:<br />
+Since <span class="math inline">\(1(\|X\|\geq ε)\leq \frac{g(\|X\|)}{g(ε)}\)</span>,
+<span class="math display">\[\begin{aligned}P\big(\|X\|\geq ε\big) &amp;= E\big[1(\|X\|\geq ε)\big] \\
+&amp;\leq E\Big[\frac{g(\|X\|)}{g(ε)}\Big] \\
+&amp;= \frac{E\big[g(\|X\|)\big]}{g(ε)} \end{aligned}\]</span></p>
+<blockquote>
+<p>Corollary 2.4. Chebyshev Inequality<br />
+For a real-valued random variabe <span class="math inline">\(X\)</span> and <span class="math inline">\(ε&gt;0\)</span>,
+<span class="math display">\[P\big(|X|\geq ε\big)\leq\frac{E[X^2]}{ε^2}\]</span></p>
+</blockquote>
+<p>Proof: Apply Thm 2.3. with <span class="math inline">\(g(x)=x^2\)</span></p>
+<blockquote>
+<p>Thm 2.5. Covergence in p-th mean implies convergence in probability<br />
+<span class="math inline">\(X_n\to X\)</span> in p-th mean <span class="math inline">\(\implies X_n\overset{P}{\to}X\)</span></p>
+</blockquote>
+<p>Proof:<br />
+Apply Thm 2.3. with <span class="math inline">\(g(x)=x^P\)</span><br />
+Since <span class="math inline">\(E[\|X_n-X\|^P]\to 0\)</span><br />
+<span class="math display">\[P\big(\|X_n-X\|&gt; ε\big) \leq \frac{E\big[\|X_n-X\|^P\big]}{ε^p}\to 0\]</span>
+<span class="math inline">\(\implies X_n\overset{P}{\to}X\)</span></p>
+<blockquote>
+<p>Thm. 2.6. Weak law of large numbers, WLLN<br />
+Let <span class="math inline">\(X_1, X_2,\dots\)</span> be a sequence of random variables with the following properties, then
+<span class="math display">\[\begin{aligned}\bar{X}_n &amp;:= \frac{1}{n}\sum_{i=1}^n X_i \\ &amp;\overset{P}{\to} μ \end{aligned}\]</span></p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(X_1, X_2,\dots\)</span> are uncorrelated, i.e., for <span class="math inline">\(i\neq j\)</span>,
+<span class="math display">\[Cov(X_i,X_j)=E[X_iX_j] - E[X_i]\cdot E[X_j]=0\]</span></li>
+<li><span class="math inline">\(E[X_1]=E[X_2]=\dots = μ\)</span></li>
+<li><span class="math inline">\(Var(Χ_i)&lt;σ^2\)</span> for all <span class="math inline">\(i\)</span></li>
+</ol>
+</blockquote>
+<p>Proof:<br />
+:) <span class="math inline">\(\bar{X}_n\overset{P}{\to} μ\)</span><br />
+Therefore, consider
+<span class="math display">\[\begin{aligned}E\big[(\bar{X}_n-μ)^2\big] &amp;= Var(\bar{X}_n)\\
+&amp;= Var\Big(\frac{1}{n}\textstyle{\sum}_{i=1}^n X_i \Big) \\
+&amp;= \frac{1}{n^2}\cdot Var\big(\textstyle{\sum}_{i=1}^n X_i \big) \\
+&amp;= \frac{1}{n^2}\cdot \textstyle{\sum}_{i=1}^n Var(X_i) \\
+&amp;\leq \frac{σ^2}{n}\end{aligned}\]</span>
+By Cor. 2.4.,
+<span class="math display">\[\begin{aligned}P\big(\|\bar{X}_n-μ\|&gt; ε\big) &amp;\leq \frac{E\big[(\bar{X}_n-μ)^2\big]}{ε^2} \\
+&amp;\leq \frac{σ^2}{n\cdot ε^2} \to 0 \end{aligned}\]</span></p>
+</div>
+<div id="convergence-in-distribution" class="section level3">
+<h3>Convergence in Distribution</h3>
+<ul>
+<li><span class="math inline">\(X_n, X\)</span>: <span class="math inline">\(\mathbb{R}^k\)</span> valued random variables
+<ul>
+<li>not necessarily in the same prob. space</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Def 2.7. Convergence in distribution<br />
+<span class="math inline">\(X_n\overset{d}{\to} X\)</span> or <span class="math inline">\(X_n\overset{\mathcal{L}}{\to} X\)</span> if for all <span class="math inline">\(f:\mathbb{R}^k\to\mathbb{R}\)</span> continuous and bounded
+<span class="math display">\[E\big[f(X_n)\big]\to E\big[f(X)\big]\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thm 2.8.<br />
+Let <span class="math inline">\(X_n, X\)</span> be real-valued with distribution functions <span class="math inline">\(F_n,F\)</span><br />
+<span class="math inline">\(X_n\overset{d}{\to} X \iff F_n(x)\to F(x)\)</span> at all continuity points <span class="math inline">\(x\)</span> of <span class="math inline">\(F\)</span></p>
+</blockquote>
+<p>Example:<br />
+<span class="math inline">\(X_n = \frac{1}{n}\to X=0\)</span> with <span class="math inline">\(F_n(x) = \begin{cases}1 &amp; x\geq\frac{1}{n} \\ 0 \end{cases}\)</span> and <span class="math inline">\(F(x) = \begin{cases}1 &amp; x\geq 0\\ 0 \end{cases}\)</span><br />
+A reasonable definititon of convergence in distribution should include this case!<br />
+We know <span class="math inline">\(F_n(x)\to F(x)\)</span> for all continuity points: <span class="math inline">\(x\neq 0\)</span><br />
+Consider <span class="math inline">\(x=0\)</span>, <span class="math inline">\(F_n(0)=0\)</span> for all <span class="math inline">\(n\)</span>, and <span class="math inline">\(F(0)=1\)</span><br />
+therefore, <span class="math inline">\(F_n(0)\not\to F(0)\)</span></p>
+<p>Outline of Proof:<br />
+(<span class="math inline">\(\implies\)</span>)<br />
+Let <span class="math inline">\(g(y) = 1(y\leq x):=\begin{cases}1 &amp; y\leq x \\ 0 \end{cases}\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned}F_n(x) &amp;= P(X_n\leq x)\\
+&amp;= E\big[1(X_n\leq x)\big] \\
+&amp;= E\big[g(X_n)\big]\end{aligned}\]</span>
+Define continuous versions of <span class="math inline">\(g(y)\)</span>: <span class="math inline">\(g_δ^{-}\)</span> and <span class="math inline">\(g_δ^{+}\)</span><br />
+Since <span class="math inline">\(g_δ^{-}\)</span> and <span class="math inline">\(g_δ^{+}\)</span> are continuous and bounded, <span class="math inline">\(X_n\overset{d}{\to} X\)</span>,<br />
+By Def 2.7., we have
+<span class="math display">\[\begin{aligned}E\big[g_δ^{-}(X_n)\big]&amp;\to E\big[g_δ^{-}(X)\big] \\
+E\big[g_δ^{+}(X_n)\big]&amp;\to E\big[g_δ^{+}(X)\big]\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}E\big[g_δ^{-}(X_n)\big] \leq E\big[g(X_n)\big] &amp;= F_n(X) \leq E\big[g_δ^{+}(X_n)\big] \\
+E\big[g_δ^{-}(X)\big] \leq E\big[g(X)\big] &amp;= F(X) \leq E\big[g_δ^{+}(X)\big] \end{aligned}\]</span>
+We know
+<span class="math display">\[\begin{aligned}F(x-δ) = E\big[1(X\leq x-δ) \big] &amp;\leq E\big[g_δ^{-}(X)\big]\\
+&amp;\leq  E\big[g_δ^{+}(X)\big] \\
+&amp;\leq E\big[1(X\leq x+δ) \big] = F(x+δ) \end{aligned}\]</span>
+If <span class="math inline">\(F\)</span> is continuous at <span class="math inline">\(x\)</span>, then <span class="math inline">\(F(x+δ)-F(x-δ)\to 0\)</span> as <span class="math inline">\(δ\to 0\)</span><br />
+therefore, we have <span class="math inline">\(E\big[g(X_n)\big]\to E\big[g(X)\big]\)</span><br />
+<span class="math inline">\(\implies F_n(X)\to F(X)\)</span> at any continuity point of <span class="math inline">\(F\)</span></p>
+<blockquote>
+<p>Thm 2.9. Contunuous mapping theorem<br />
+Let <span class="math inline">\(X_n, X\)</span> be <span class="math inline">\(\mathbb{R}^k\)</span> valued random variables, assume that <span class="math inline">\(X_n\overset{d}{\to}X\)</span><br />
+Let <span class="math inline">\(f:\mathbb{R}^k\to\mathbb{R}^l\)</span> be continuous, then
+<span class="math display">\[f(X_n)\overset{d}{\to} f(X)\]</span></p>
+</blockquote>
+<p>Proof:<br />
+:) <span class="math inline">\(E\big[g(f(X_n)) \big]\to E\big[g(f(X)) \big]\)</span> for all <span class="math inline">\(g\)</span> continuous and bounded<br />
+We know <span class="math inline">\(E\big[h(X_n) \big]\to E\big[h(X) \big]\)</span> for all <span class="math inline">\(h\)</span> continuous and bounded<br />
+Since <span class="math inline">\(g\circ f\)</span> is bounded and continuous, <span class="math inline">\(h\implies g\circ f\)</span></p>
 </div>
 </div>
 

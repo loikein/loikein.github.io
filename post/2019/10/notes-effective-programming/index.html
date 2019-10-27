@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.59.0" />
 
-<title>Notes on Effective Programming - loikein&#39;s notes</title>
-<meta property="og:title" content="Notes on Effective Programming - loikein&#39;s notes">
+<title>Notes on Effective Programming Practice - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Effective Programming Practice - loikein&#39;s notes">
 
 
 <script type="application/javascript">
@@ -68,9 +68,9 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
-    <h1 class="article-title">Notes on Effective Programming</h1>
+    <h1 class="article-title">Notes on Effective Programming Practice</h1>
     
     <span class="article-date">2019/10/15</span>
     
@@ -101,6 +101,7 @@ if (!doNotTrack) {
 <li><a href="#pipeline">Pipeline</a></li>
 </ul></li>
 <li><a href="#git">Git</a></li>
+<li><a href="#complete-process-of-setting-up-a-project">Complete Process of Setting Up A Project</a></li>
 </ul>
 </div>
 
@@ -123,7 +124,12 @@ Loikein
 
 ~ who am i
 Loikein ttys000  Oct 15 08:49</code></pre>
-<pre class="console"><code>~ ls                            list
+<pre class="console"><code>~ alias                         show all alias commands
+
+~ ls                            list
+~ ls -lh                        list in long format and file size
+~ ls -lha                       list all files in long format and file size
+
 ~ pwd                           print working directory
 
 ~ cd                            change directory
@@ -154,18 +160,54 @@ Loikein ttys000  Oct 15 08:49</code></pre>
 </div>
 <div id="git" class="section level2">
 <h2>Git</h2>
-<pre class="console"><code>~ git status
-
-~ git config --global core.editor &quot;atom --wait&quot;
+<p>Ref:</p>
+<ul>
+<li><a href="https://git-scm.com/book/zh/v2/">Git - Book (Chinese)</a></li>
+<li><a href="https://www.bootcss.com/p/git-guide/">git 使用简易指南</a><br />
+</li>
+<li><a href="https://juejin.im/post/5bd2debfe51d457abc710b57">规范你的 commit message 并且根据 commit 自动生成 CHANGELOG.md</a></li>
+</ul>
+<pre class="console"><code>~ git config --global core.editor &quot;atom --wait&quot;
 ~ git config --global core.editor &quot;subl -n -w&quot;
+~ git config color.ui true</code></pre>
+<pre class="console"><code>~ git status
 
 ~ git init
 ~ git add something.txt
+~ git add -all
+
+~ git reset                         ignore all changes
 
 ~ git commit -m &quot;New ideas for PS1&quot;
 ~ git commit -a -m &quot;Add a line&quot;
 
-~ git log</code></pre>
+~ git commit --amend                change commit message</code></pre>
+<pre class="console"><code>~ git diff                      working tree vs index file
+~ git diff --cached             index file vs commit
+
+~ git diff --color-words        only show changed words
+
+~ git log                       commit history
+~ git log --name-only           commit history w/ file names</code></pre>
+</div>
+<div id="complete-process-of-setting-up-a-project" class="section level2">
+<h2>Complete Process of Setting Up A Project</h2>
+<pre class="console"><code>conda env create -f environment.yml     setup
+
+conda activate exercise_1
+
+python waf.py configure                 setup
+
+subl .gitignore
+
+#### some changes to the files ####
+
+python waf.py build
+
+git add -all
+git commit -a -m &quot;Some meaningful messages&quot;
+
+# git push</code></pre>
 </div>
 
     </div>

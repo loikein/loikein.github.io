@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on loikein&#39;s notes</title>
@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>Notes on Effective Programming</title>
+      <title>Notes on Effective Programming Practice</title>
       <link>/post/2019/10/notes-effective-programming/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-effective-programming/</guid>
-      <description>Slides Shell Basic Pipeline  Git   Slides  Effective programming practices for economists: Slides — Hans-Martin von Gaudecker Templates for Reproducible Research Projects in Economics — Tutorial: Templates for reproducible research projects Dropbox - prog-econ-log   Shell Basic ~ who Loikein console Oct 13 18:28 Loikein ttys000 Oct 15 08:49 ~ whoami Loikein ~ who am i Loikein ttys000 Oct 15 08:49 ~ ls list ~ pwd print working directory ~ cd change directory ~ mkdir make directory (new folder) ~ mv move (change name of directory) ~ rm -r remove directory ~ man manual ~ [command] -h help ~ subl something.</description>
+      <description>Slides Shell Basic Pipeline  Git Complete Process of Setting Up A Project   Slides  Effective programming practices for economists: Slides — Hans-Martin von Gaudecker Templates for Reproducible Research Projects in Economics — Tutorial: Templates for reproducible research projects Dropbox - prog-econ-log   Shell Basic ~ who Loikein console Oct 13 18:28 Loikein ttys000 Oct 15 08:49 ~ whoami Loikein ~ who am i Loikein ttys000 Oct 15 08:49 ~ alias show all alias commands ~ ls list ~ ls -lh list in long format and file size ~ ls -lha list all files in long format and file size ~ pwd print working directory ~ cd change directory ~ mkdir make directory (new folder) ~ mv move (change name of directory) ~ rm -r remove directory ~ man manual ~ [command] -h help ~ subl something.</description>
     </item>
     
     <item>

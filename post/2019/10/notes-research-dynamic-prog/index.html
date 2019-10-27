@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.59.0" />
 
 <title>Notes on Research: Dnyamic Programming - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Research: Dnyamic Programming - loikein&#39;s notes">
@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">9 min read</span>
     
     <h1 class="article-title">Notes on Research: Dnyamic Programming</h1>
     
@@ -107,8 +107,10 @@ if (!doNotTrack) {
 <li><a href="#wiener-process">Wiener Process</a></li>
 <li><a href="#diffusion-process">Diffusion Process</a></li>
 <li><a href="#itos-lemma">Ito’s Lemma</a></li>
+<li><a href="#example-geometric-brownian-motion">Example: Geometric Brownian Motion</a></li>
+<li><a href="#optimal-control">Optimal Control</a></li>
+<li><a href="#irreversible-investment-under-uncertainty">Irreversible Investment Under Uncertainty</a></li>
 </ul></li>
-<li><a href="#dynamic-programming-continuous-time">Dynamic Programming: Continuous Time</a></li>
 </ul>
 </div>
 
@@ -437,9 +439,84 @@ then <span class="math inline">\(y(t)\)</span> is a diffusion process s.t.
 &amp;= \Big[f_t(t,x) + \underbrace{a(t,x)\cdot f_x(t,x)} + \frac{1}{2} b(t,x)^2\cdot f_{xx}(t,x) \Big]\, dt + \underbrace{b(t,x)\cdot f_x(t,x)\, dz}\end{aligned}\]</span></li>
 </ul>
 </div>
+<div id="example-geometric-brownian-motion" class="section level3">
+<h3>Example: Geometric Brownian Motion</h3>
+<p>Geometric Brownian Motion:
+<span class="math display">\[dx = αx\, dt + σx\, dz\]</span>
+<span class="math inline">\(f(x) = \ln (x)\implies f&#39;(x) = \frac{1}{x}\)</span>, <span class="math inline">\(f&#39;&#39;(x) = -\frac{1}{x^2}\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned}dy &amp;= f&#39;αx + \frac{1}{2}σ^2x^2f&#39;&#39;\, dt \\
+&amp;= \frac{1}{x}(αx\, dt + σx\, dz) + \frac{1}{2}σ^2x^2(-\frac{1}{x^2})\, dt \\
+&amp;= \underbrace{(α-\frac{1}{2}σ^2)}_{\text{Concavity}}\, dt + σ\, dz \end{aligned}\]</span>
+write out <span class="math inline">\(y\)</span>
+<span class="math display">\[\begin{aligned}y(t) = y_0 + (α-\frac{1}{2}σ^2)t + σz(t) \end{aligned}\]</span>
+since <span class="math inline">\(y=\ln (x)\)</span>, <span class="math inline">\(x=e^y\)</span>
+<span class="math display">\[\begin{aligned}x(t) &amp;= \exp\big( y_0 +(α-\frac{1}{2}σ^2)t + σz(t)\big) \\
+&amp;= x_0\cdot\exp\big((α-\frac{1}{2}σ^2)t + σz(t)\big)  \end{aligned}\]</span>
+Conclusions:</p>
+<ul>
+<li>If <span class="math inline">\(x_0\neq 0\)</span>, then <span class="math inline">\(x(t)\)</span> never reaches <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(x(t)\sim\mathcal{N}\)</span></li>
+<li>Mean of <span class="math inline">\(x(t)\)</span>:
+<span class="math display">\[\begin{aligned}E[x(t)] &amp;= E[e^{y(t)}]\\&amp;= x_0\cdot E\Big[\exp\big((α-\frac{1}{2}σ^2)t + σz(t)\big)\Big]\\&amp;= x_0\cdot\exp\big((α-\frac{1}{2}σ^2)t+\frac{1}{2}σ^2t\big)\\&amp;=x_0\cdot e^{αt}\end{aligned}\]</span></li>
+</ul>
 </div>
-<div id="dynamic-programming-continuous-time" class="section level2">
-<h2>Dynamic Programming: Continuous Time</h2>
+<div id="optimal-control" class="section level3">
+<h3>Optimal Control</h3>
+<ul>
+<li>Problem: <span class="math display">\[\begin{aligned}\max &amp;&amp; E\Big[\int_0^{\infty} e^{-rt}y\big(t,x(t),u(t)\big)\, dt \Big] \end{aligned}\]</span></li>
+<li><span class="math inline">\(r&gt;0\)</span></li>
+<li><span class="math inline">\(x\)</span> is a controlled diffusion process:
+<span class="math display">\[dx = a(t,x,u)\, dt + b(t,x,u)\, dz\]</span></li>
+<li>Constraints: <span class="math inline">\(u\in U\)</span></li>
+<li>Initial state: <span class="math inline">\(x(0)=x_0\)</span></li>
+<li>Highest possible value (VF) of objective from some <span class="math inline">\(t_0\)</span>, discounting future rewards:
+<span class="math display">\[v(t_0,x_0) = \max\ E\Big[\int_{t_0}^{\infty} e^{-r(t-t_0)}y\big(t,x(t),u(t)\big)\, dt \Big]\]</span>
+s.t. <span class="math inline">\(dx = a(t,x,u)\, dt + b(t,x,u)\, dz\)</span>, <span class="math inline">\(u\in U\)</span></li>
+<li>Recursive process: let <span class="math inline">\(Δt&gt;0\)</span>,
+<span class="math display">\[\begin{aligned}v(t_0,x_0) &amp;= \max\ E\Big[\int_{t_0}^{\infty} e^{-r(t-t_0)}y\, dt \Big]\\
+&amp;= \max\bigg\{ E\Big[\int_{t_0}^{t_0+Δt} e^{-r(t-t_0)}y\, dt \Big] + E\Big[\int_{t_0+Δt}^{\infty} e^{-r(t-t_0)}y\, dt \Big]\bigg\} \\
+&amp;= \max\bigg\{ E\Big[\int_{t_0}^{t_0+Δt} e^{-r(t-t_0)}y\, dt \Big] + e^{-rΔt}E\Big[\int_{t_0+Δt}^{\infty} e^{-r(t-t_0-Δt)}y\, dt \Big]\bigg\} \\
+&amp;= \max\bigg\{ E\Big[\int_{t_0}^{t_0+Δt} e^{-r(t-t_0)}y\, dt \Big] + e^{-rΔt}E\big[ v(t_0+Δt,x_0+Δx)\big]\bigg\} \end{aligned}\]</span>
+subtract <span class="math inline">\(v(t_0,x_0)\)</span> from both sides
+<span class="math display">\[0 = \max\bigg\{ E\Big[\int_{t_0}^{t_0+Δt} e^{-r(t-t_0)}y\, dt \Big] + e^{-rΔt}E\big[ v(t_0+Δt,x_0+Δx)\big] - v(t_0,x_0)\bigg\}\]</span>
+divide by <span class="math inline">\(Δt\)</span>, let <span class="math inline">\(Δt\to 0\)</span> (<span class="math inline">\(\approx\)</span> differentiation)
+<span class="math display">\[\begin{aligned}0 &amp;= \max\bigg\{ E\Big[\frac{1}{Δt}\int_{t_0}^{t_0+Δt} e^{-r(t-t_0)}y\, dt \Big] + \frac{1}{Δt}\underbrace{e^{-rΔt}E\big[ v(t_0+Δt,x_0+Δx)\big]}_{\text{Chain rule}} - \frac{1}{Δt}v(t_0,x_0) \bigg\}\\
+&amp;\to\max\bigg\{ y\big(t_0,x(t_0),u(t_0)\big)- rv(t_0,x_0) + \frac{1}{dt}E\big[ dv\ |\ t_0,x_0,u(t_0)\big]\bigg\} \end{aligned}\]</span>
+replacing <span class="math inline">\(t_0,x_0\)</span> by <span class="math inline">\(t,x\)</span>,
+<span class="math display">\[\begin{aligned}0 &amp;= \max\bigg\{ y\big(t,x,u\big)- rv(t,x) + \frac{1}{dt}E\big[ dv\ |\ t,x,u\big]\bigg\} \\
+rv(t,x) &amp;= \max_{u\in U}\bigg\{ y(t,x,u) + \frac{1}{dt}E\big[ dv\ |\ t,x,u\big]\bigg\}\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> arbitrage condition<br />
+LHS: fair rate of return (should equal to)<br />
+RHS: current divident + expected capital gain<br />
+by Ito’s lemma,
+<span class="math display">\[\begin{aligned}E\big[ dv\ |\ t,x,u\big] &amp;=\big\{ v_t(t,x)+a(t,x,u)\cdot v_x(t,x) + \frac{1}{2}b(t,x,u)^2\cdot v_{xx}\big\}\, dt \\
+\frac{1}{dt}E\big[ dv\ |\ t,x,u\big] &amp;= v_t(t,x)+a(t,x,u)\cdot v_x(t,x) + \frac{1}{2}b(t,x,u)^2\cdot v_{xx} \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Hamilton-Jacobi-Bellman (HJB) equation:
+<span class="math display">\[\begin{aligned}rv(t,x) &amp;= \max_{u\in U}\bigg\{ y(t,x,u) + v_t(t,x)+a(t,x,u)\cdot v_x(t,x) + \frac{1}{2}b(t,x,u)^2\cdot v_{xx}\bigg\} \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="irreversible-investment-under-uncertainty" class="section level3">
+<h3>Irreversible Investment Under Uncertainty</h3>
+<p><a href="http://leonardo3.dse.univr.it/safe/Workshops/PhD/2003/McDonaldSiegel86.pdf">McDonald &amp; Siegel (1986)</a>, <a href="https://watermark.silverchair.com/101-4-707.pdf">backup link</a><br />
+Dixit &amp; Pindyck (1994)</p>
+<ul>
+<li>Investment: <span class="math inline">\(I\)</span>
+<ul>
+<li>Sunk cost payable in return for a project of net present value <span class="math inline">\(x\)</span></li>
+</ul></li>
+<li>Stopping payoff: <span class="math inline">\(ω(x) = x-I\)</span></li>
+<li><span class="math inline">\(x\)</span> follows Brownian motion
+<ul>
+<li><span class="math inline">\(dx = αx\, dt+σx\, dz\)</span></li>
+<li><span class="math inline">\(E[x_t] = x_0\cdot e^{αt}\)</span></li>
+</ul></li>
+<li>Interest rate: <span class="math inline">\(r\)</span></li>
+<li>Value of investment opportunity if current value if <span class="math inline">\(x\)</span>
+<span class="math display">\[v(x) = \sup_{T\geq 0} \ E\big[e^{-rT}(x_T - I)\ |\ x_0=x \big]\]</span></li>
+<li>Assumption: <span class="math inline">\(α&lt;r\)</span> (otherwise wait forever)</li>
+</ul>
+</div>
 </div>
 
     </div>
