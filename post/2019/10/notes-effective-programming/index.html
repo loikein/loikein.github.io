@@ -100,7 +100,9 @@ if (!doNotTrack) {
 <li><a href="#shell-basic">Shell Basic</a><ul>
 <li><a href="#pipeline">Pipeline</a></li>
 </ul></li>
-<li><a href="#git">Git</a></li>
+<li><a href="#git">Git</a><ul>
+<li><a href="#late-.gitignore">Late <code>.gitignore</code></a></li>
+</ul></li>
 <li><a href="#complete-process-of-setting-up-a-project">Complete Process of Setting Up A Project</a></li>
 </ul>
 </div>
@@ -189,6 +191,17 @@ Loikein ttys000  Oct 15 08:49</code></pre>
 
 ~ git log                       commit history
 ~ git log --name-only           commit history w/ file names</code></pre>
+<div id="late-.gitignore" class="section level3">
+<h3>Late <code>.gitignore</code></h3>
+<p>Ref: <a href="https://stackoverflow.com/a/1139797">Ignore files that have already been committed to a Git repository</a></p>
+<pre class="console"><code>~ git commit -m &quot;add .gitignore&quot;
+
+~ git rm -r --cached .
+
+~ git add .
+
+~ git commit -m &quot;.gitignore is now working&quot;</code></pre>
+</div>
 </div>
 <div id="complete-process-of-setting-up-a-project" class="section level2">
 <h2>Complete Process of Setting Up A Project</h2>
