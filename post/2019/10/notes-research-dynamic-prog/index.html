@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">12 min read</span>
     
     <h1 class="article-title">Notes on Research: Dnyamic Programming</h1>
     
@@ -109,7 +109,10 @@ if (!doNotTrack) {
 <li><a href="#itos-lemma">Ito’s Lemma</a></li>
 <li><a href="#example-geometric-brownian-motion">Example: Geometric Brownian Motion</a></li>
 <li><a href="#optimal-control">Optimal Control</a></li>
-<li><a href="#irreversible-investment-under-uncertainty">Irreversible Investment Under Uncertainty</a></li>
+<li><a href="#binary-case-optimal-stopping">Binary Case: Optimal Stopping</a></li>
+<li><a href="#example-irreversible-investment-under-uncertainty">Example: Irreversible Investment Under Uncertainty</a></li>
+<li><a href="#poisson-process">Poisson Process</a></li>
+<li><a href="#optimal-exploration-in-two-armed-bandit-problem">Optimal Exploration in Two-Armed Bandit Problem</a></li>
 </ul></li>
 </ul>
 </div>
@@ -496,8 +499,15 @@ by Ito’s lemma,
 <span class="math display">\[\begin{aligned}rv(t,x) &amp;= \max_{u\in U}\bigg\{ y(t,x,u) + v_t(t,x)+a(t,x,u)\cdot v_x(t,x) + \frac{1}{2}b(t,x,u)^2\cdot v_{xx}\bigg\} \end{aligned}\]</span></li>
 </ul>
 </div>
-<div id="irreversible-investment-under-uncertainty" class="section level3">
-<h3>Irreversible Investment Under Uncertainty</h3>
+<div id="binary-case-optimal-stopping" class="section level3">
+<h3>Binary Case: Optimal Stopping</h3>
+<ul>
+<li>At each period, choose <span class="math inline">\(U=\)</span> { stop, continue }
+<span class="math display">\[rv(t,x) = \max_{u\in U}\big\{rω(t,x), y(t,x) + \frac{1}{dt}E[dv\ |\ t,x]\big\}\]</span></li>
+</ul>
+</div>
+<div id="example-irreversible-investment-under-uncertainty" class="section level3">
+<h3>Example: Irreversible Investment Under Uncertainty</h3>
 <p><a href="http://leonardo3.dse.univr.it/safe/Workshops/PhD/2003/McDonaldSiegel86.pdf">McDonald &amp; Siegel (1986)</a>, <a href="https://watermark.silverchair.com/101-4-707.pdf">backup link</a><br />
 <a href="http://93.174.95.27/book/index.php?md5=E5C252386E127800AA284F01CF5B4F41">Dixit &amp; Pindyck (1994)</a></p>
 <ul>
@@ -512,10 +522,108 @@ by Ito’s lemma,
 <li><span class="math inline">\(E[x_t] = x_0\cdot e^{αt}\)</span></li>
 </ul></li>
 <li>Interest rate: <span class="math inline">\(r\)</span></li>
-<li>Value of investment opportunity if current value if <span class="math inline">\(x\)</span>
+<li>Value of investment opportunity if current value is <span class="math inline">\(x\)</span>
 <span class="math display">\[v(x) = \sup_{T\geq 0} \ E\big[e^{-rT}(x_T - I)\ |\ x_0=x \big]\]</span></li>
 <li>Assumption: <span class="math inline">\(α&lt;r\)</span> (otherwise wait forever)</li>
+<li>Continuation region: by Ito’s lemma, 2nd ODE:
+<span class="math display">\[\begin{aligned}rv &amp;= \frac{E[dv]}{dt}\\&amp;= αxv&#39; + \frac{1}{2}σ^2x^2v&#39;&#39;\\
+0 &amp;\overset{!}{=} \frac{1}{2}σ^2x^2v&#39;&#39; + αxv&#39; - rv \end{aligned}\]</span>
+Guess solution:
+<span class="math display">\[\begin{aligned}v(x) &amp;= A\cdot x^β \\
+v&#39; &amp;= Aβx^{β-1} \\
+v&#39;&#39; &amp;= Aβ(β-1)x^{β-2} \end{aligned}\]</span>
+plug back in
+<span class="math display">\[\begin{aligned}\frac{1}{2}σ^2x^2\cdot Aβ(β-1)x^{β-2} + αx\cdot Aβx^{β-1} - r\cdot A\cdot x^β &amp;= 0\\
+Q(β) := \frac{1}{2}σ^2\cdot Aβ(β-1) + α\cdot Aβ - r\cdot A &amp;= 0\end{aligned}\]</span>
+since <span class="math inline">\(Q(0)=-r&lt;0\)</span>, <span class="math inline">\(Q(1)=α-r&lt;0\)</span><br />
+<span class="math inline">\(\implies β_1&gt;1\)</span> and <span class="math inline">\(β_2&lt;0\)</span><br />
+Therefore, the general solution for the 2nd ODE:
+<span class="math display">\[v(x) = A_1 x^{β_1} + A_2 x^{β_2}\]</span>
+Since <span class="math inline">\(A_2 x^{β_2}\to\pm\infty\)</span> as <span class="math inline">\(x\to 0\)</span><br />
+we know <span class="math inline">\(v(0) = 0\implies A_2=0\)</span><br />
+</li>
+<li>Value matching
+<span class="math display">\[\begin{aligned}v(x) &amp;= A_1 x^{β_1} \\
+v(x^*) &amp;= ω(x^*) = x^* - I \\
+A_1 (x^*)^{β_1} &amp;= x^* - I \\
+A_1 &amp;= \frac{x^* - I}{(x^*)^{β_1}} \end{aligned}\]</span></li>
+<li>Smooth pasting
+<span class="math display">\[\begin{aligned}v&#39;(x^*) &amp;= ω&#39;(x^*) = 1 \\
+A_1β_1(x^*)^{β_1-1} &amp;= 1 \\
+A_1β_1(x^*)^{β_1} &amp;= x^* \\
+\frac{x^* - I}{(x^*)^{β_1}}\cdot β_1(x^*)^{β_1} &amp;= x^* \\
+(x^* - I)β_1 &amp;= x^* \\
+x^* &amp;= \frac{Iβ_1}{β_1 - 1} &gt; I\end{aligned}\]</span></li>
 </ul>
+</div>
+<div id="poisson-process" class="section level3">
+<h3>Poisson Process</h3>
+<ul>
+<li>Poisson process: <span class="math inline">\(N_t\)</span>, <span class="math inline">\(t\geq 0\)</span> with intensity <span class="math inline">\(λ&gt;0\)</span></li>
+<li><span class="math inline">\(N_t\in\{0,1,2,3,\dots\}\)</span> for all <span class="math inline">\(t\)</span></li>
+<li>Sample path are right-continuous (continuous from right) with left limits</li>
+<li><span class="math inline">\(N_t-N_s\)</span> is independent of the path up to <span class="math inline">\(s\)</span> for all <span class="math inline">\(t&gt;s\)</span><br />
+and has a Poisson distribution with <span class="math inline">\(λ(t-s)\)</span>, i.e.
+<span class="math display">\[Pr(N_t-N_s=k)=e^{λ(t-s)}\cdot\frac{[λ(t-s)]^k}{k!}\]</span></li>
+<li>On average <span class="math inline">\(λ\)</span> jumps in an interval
+<span class="math display">\[\begin{aligned}E[N_t-N_s\ |\ N_s] = λ(t-s) \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="optimal-exploration-in-two-armed-bandit-problem" class="section level3">
+<h3>Optimal Exploration in Two-Armed Bandit Problem</h3>
+<p><a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1468-0262.2005.00564.x">Keller, Rady, Cripps (2005)</a></p>
+<ul>
+<li>Two arms (actions): R(isky), S(afe)</li>
+<li>Continuous time: <span class="math inline">\(t\geq 0\)</span></li>
+<li>Payoff of S: <span class="math inline">\(s\)</span> per unit of time</li>
+<li>Payoff of R: <span class="math inline">\(μ_θ\)</span>
+<ul>
+<li>Unknown state of the world: <span class="math inline">\(θ\)</span></li>
+<li>Known probability: <span class="math inline">\(Pr(θ=1)=p\)</span></li>
+<li>Simple case: <span class="math inline">\(θ\in\{0,1\}\)</span>, <span class="math inline">\(\begin{cases}μ_0&lt;s \\ μ_1&gt;s \end{cases}\)</span><br />
+</li>
+</ul></li>
+<li>Wiener process w/ unknown drift: <span class="math display">\[π(R) = μ_θ\cdot t+ z\, dz\]</span>
+<ul>
+<li><span class="math inline">\(λ_0&lt;s&lt;λ_1\)</span></li>
+<li>Prior belief: <span class="math inline">\(p\)</span></li>
+<li>Posterior belief: <span class="math inline">\(p_t\)</span> (diffusion)</li>
+</ul></li>
+<li>Poisson process w/ unknown perameter: <span class="math display">\[π(R) = h\cdot N_t^θ\]</span>
+<ul>
+<li>Average lump-sum payoff: <span class="math inline">\(h\)</span></li>
+<li><span class="math inline">\(0\leq λ_0 &lt; λ_1\)</span><br />
+Conclusive news: <span class="math inline">\(λ_0=0\)</span><br />
+Inconclusive news: <span class="math inline">\(λ_0\geq 0\)</span></li>
+<li>Expected payoff: <span class="math inline">\(λ_θh = μ_θ\)</span></li>
+<li>Assumption: <span class="math inline">\(λ_0h&lt;s&lt;λ_1h\)</span></li>
+<li>Prior belief: <span class="math inline">\(p\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Suppose <span class="math inline">\(λ_0=0\)</span>, <span class="math inline">\(λ_1=λ\)</span>,<br />
+The agent have used R up to time <span class="math inline">\(t\)</span> w/o a “breakthrough”</p>
+</blockquote>
+<p>Posterior (Bayesian) belief:
+<span class="math display">\[\begin{aligned}p_t &amp;=\frac{Pr(θ=1 \text{ and no success})}{Pr(\text{no success})}\\
+&amp;= Pr(θ=1\ |\ \text{no success up to }t) \\
+&amp;= \frac{p\cdot e^{-λt}}{p\cdot e^{-λt} + (1-p)}\\
+\bar{p}_t &amp;= \frac{dp_t}{dt}\\ &amp;= -λ\cdot p_t(1-p_t) \end{aligned}\]</span>
+Optimal strategy: play S for <span class="math inline">\(p_t\leq p^*\)</span><br />
+Continuation region: play R
+<span class="math display">\[rv = pλh + \frac{E[dv]}{dt}\]</span>
+with <span class="math inline">\(Pr=e^{-λdt}=1-λdt\)</span>, no jump, <span class="math inline">\(p_{t+dt} = p-λp(1-p)\, dt\)</span><br />
+with <span class="math inline">\(Pr=1-e^{-λdt}=λdt\)</span>, jump, <span class="math inline">\(p_{t+dt} =1\)</span><br />
+therefore, effect of marginal change in belief result in marginal change in value function:
+<span class="math display">\[\begin{aligned}dv &amp;= (1-λdt)\cdot v&#39;[-λp(1-p)]\, dt + (λdt)\cdot[v(1)-v(p)]\\
+&amp;= \big\{-λp(1-p)v&#39; + λ[v(1)-v(p)]\big\}\, dt + \text{some higher order terms} \\
+rv &amp;= -λp(1-p)v&#39; + λ[v(1) - v(p)]+pλh\end{aligned}\]</span>
+where <span class="math inline">\(v(1)\)</span> is the payoff when the agent is sure that R is good (?)<br />
+Value function:
+<span class="math display">\[\begin{aligned}v(p) &amp;= \max\ E\bigg[\int_0^{\infty}\big\{\underbrace{re^{-rt}}_{\text{discount}}\cdot k_t λ_t h + (1-k_t)s\big\}\, dt\bigg] \end{aligned}\]</span>
+where <span class="math inline">\(k_t=1\)</span> means play R, <span class="math inline">\(k_t=0\)</span> means play S<br />
+and <span class="math inline">\(re^{-rt}\)</span> is discounting since <span class="math inline">\(\int re^{-rt}\, dt =1\)</span><br />
+<span class="math inline">\(\implies v(1) = λh\)</span></p>
 </div>
 </div>
 

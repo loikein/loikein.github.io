@@ -168,6 +168,7 @@ Loikein ttys000  Oct 15 08:49</code></pre>
 <li><a href="https://www.bootcss.com/p/git-guide/">git 使用简易指南</a><br />
 </li>
 <li><a href="https://juejin.im/post/5bd2debfe51d457abc710b57">规范你的 commit message 并且根据 commit 自动生成 CHANGELOG.md</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解 - 阮一峰的网络日志</a></li>
 </ul>
 <pre class="console"><code>~ git config --global core.editor &quot;atom --wait&quot;
 ~ git config --global core.editor &quot;subl -n -w&quot;
@@ -194,10 +195,9 @@ Loikein ttys000  Oct 15 08:49</code></pre>
 <div id="late-.gitignore" class="section level3">
 <h3>Late <code>.gitignore</code></h3>
 <p>Ref: <a href="https://stackoverflow.com/a/1139797">Ignore files that have already been committed to a Git repository</a></p>
-<pre class="console"><code>~ git commit -m &quot;add .gitignore&quot;
+<pre class="console"><code>~ git commit -m &quot;add/change .gitignore&quot;
 
 ~ git rm -r --cached .
-
 ~ git add .
 
 ~ git commit -m &quot;.gitignore is now working&quot;</code></pre>
@@ -205,22 +205,22 @@ Loikein ttys000  Oct 15 08:49</code></pre>
 </div>
 <div id="complete-process-of-setting-up-a-project" class="section level2">
 <h2>Complete Process of Setting Up A Project</h2>
-<pre class="console"><code>conda env create -f environment.yml     setup
+<pre class="console"><code>~ conda env create -f environment.yml     setup
 
-conda activate exercise_1
+~ conda activate exercise_1
 
-python waf.py configure                 setup
+~ python waf.py configure                 setup
 
-subl .gitignore                         setup
+~ subl .gitignore                         setup
 
 #### some changes to the files ####
 
-python waf.py build
+~ python waf.py build
 
 git add -all
 git commit -a -m &quot;Some meaningful messages&quot;
 
-# git push</code></pre>
+~ git push</code></pre>
 </div>
 
     </div>
