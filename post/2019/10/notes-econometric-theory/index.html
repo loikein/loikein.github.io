@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">18 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -106,6 +106,9 @@ if (!doNotTrack) {
 <li><a href="#convergence-in-probability-vs.-almost-convergence">Convergence in Probability vs. Almost Convergence</a></li>
 <li><a href="#convergence-in-probability-vs.-covergence-in-p-th-mean">Convergence in Probability vs. Covergence in p-th Mean</a></li>
 <li><a href="#convergence-in-distribution">Convergence in Distribution</a></li>
+<li><a href="#convergence-in-distribution-vs.-convergence-in-probability">Convergence in Distribution vs. Convergence in Probability</a></li>
+<li><a href="#central-limit-theorem">Central Limit Theorem</a></li>
+<li><a href="#stochastic-boundedness-tightness">Stochastic Boundedness (Tightness)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -597,6 +600,8 @@ The s-th central moment is defined as <span class="math inline">\(E\big[(X-E[X])
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/46c94668666d71613847f157ca27de5b4e938023" alt="" />
 <p class="caption">Source: <a href="https://zh.wikipedia.org/wiki/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%94%B6%E6%95%9B">wiki</a></p>
 </div>
+<p>a.s. =&gt; P =&gt; d =&gt; Op(1)<br />
+p-th =&gt;</p>
 <div id="convergence-in-expectations-almost-sure-convergence" class="section level3">
 <h3>Convergence in Expectations &amp; Almost Sure Convergence</h3>
 <ul>
@@ -726,7 +731,7 @@ for all <span class="math inline">\(d&gt;0\)</span>, exists <span class="math in
 <span class="math display">\[P(X_n\to X)=1\]</span>
 in other words, <span class="math inline">\(P\big(\{ω\in Ω: X_n(ω)\to X(ω)\}\big) = 1\)</span></li>
 <li>Convergence in p-th mean: <span class="math inline">\(X_n\overset{L_p}{\to}X\)</span> if<br />
-<span class="math display">\[E[\|X_n - X\|^p]\to 0\]</span></li>
+<span class="math display">\[E\big[\|X_n - X\|^p\big]\to 0\]</span></li>
 </ol>
 </blockquote>
 </div>
@@ -835,7 +840,7 @@ By Cor. 2.4.,
 </ul>
 <blockquote>
 <p>Def 2.7. Convergence in distribution<br />
-<span class="math inline">\(X_n\overset{d}{\to} X\)</span> or <span class="math inline">\(X_n\overset{\mathcal{L}}{\to} X\)</span> if for all <span class="math inline">\(f:\mathbb{R}^k\to\mathbb{R}\)</span> continuous and bounded
+<span class="math inline">\(X_n\overset{d}{\to} X\)</span> or <span class="math inline">\(X_n\overset{\mathcal{L}}{\to} X\iff\)</span> for all <span class="math inline">\(f:\mathbb{R}^k\to\mathbb{R}\)</span> continuous and bounded
 <span class="math display">\[E\big[f(X_n)\big]\to E\big[f(X)\big]\]</span></p>
 </blockquote>
 <blockquote>
@@ -881,6 +886,139 @@ Let <span class="math inline">\(f:\mathbb{R}^k\to\mathbb{R}^l\)</span> be contin
 :) <span class="math inline">\(E\big[g(f(X_n)) \big]\to E\big[g(f(X)) \big]\)</span> for all <span class="math inline">\(g\)</span> continuous and bounded<br />
 We know <span class="math inline">\(E\big[h(X_n) \big]\to E\big[h(X) \big]\)</span> for all <span class="math inline">\(h\)</span> continuous and bounded<br />
 Since <span class="math inline">\(g\circ f\)</span> is bounded and continuous, <span class="math inline">\(h\implies g\circ f\)</span></p>
+<blockquote>
+<p>Thm 2.10. Cramér-Wold device<br />
+Let <span class="math inline">\(X_n, X\)</span> be <span class="math inline">\(\mathbb{R}^k\)</span> valued random variables,<br />
+<span class="math inline">\(X_n \overset{d}{\to}X \iff a^T X_n\overset{d}{\to} a^T X\)</span> for all <span class="math inline">\(a\in\mathbb{R}^k\)</span></p>
+</blockquote>
+<p>Proof: by characteristic functions</p>
+</div>
+<div id="convergence-in-distribution-vs.-convergence-in-probability" class="section level3">
+<h3>Convergence in Distribution vs. Convergence in Probability</h3>
+<ul>
+<li>Convergence in distribution is weaker than convergence in probability</li>
+</ul>
+<blockquote>
+<p>Example<br />
+Let <span class="math inline">\(X\sim\mathcal{N}(0,1)\)</span>, define <span class="math inline">\(X_n=(-1)^n\cdot X\)</span>, <span class="math inline">\(X_n\sim\mathcal{N}(0,1)\)</span><br />
+Therefore, <span class="math inline">\(X_n\overset{d}{\to} X\)</span> but <span class="math inline">\(X_n\overset{p}{\not\to} X\)</span></p>
+</blockquote>
+<p>Proof:<br />
+Since <span class="math inline">\(X_{2n+1} = -X\)</span>,
+<span class="math display">\[\begin{aligned}P\big(|X_{2n+1}-X|&gt;ε\big) &amp;= P\big(|-X-X|&gt;ε\big) \\
+&amp;= P\Big(|X|&gt;\frac{ε}{2}\Big)\\
+&amp;\not\to 0 \end{aligned}\]</span></p>
+<p>Remark:<br />
+By def, <span class="math inline">\(X_n\overset{d}{\to} X\)</span> if <span class="math inline">\(E[f(X_n)]\to E[f(X)]\)</span> for all bounded and continuous <span class="math inline">\(f\)</span><br />
+Which <strong>does not</strong> imply that <span class="math inline">\(E[X_n]\to E[X]\)</span> since <span class="math inline">\(f(x)=x\)</span> is continuous but not bounded</p>
+<blockquote>
+<p>Thm 2.11.<br />
+<span class="math inline">\(X_n\overset{p}{\to} X\implies X_n\overset{d}{\to} X\)</span></p>
+</blockquote>
+<p>Proof:<br />
+Let <span class="math inline">\(ε&gt;0\)</span>, <span class="math inline">\(f\)</span> be bounded and continuous<br />
+WLOG let <span class="math inline">\(|f|\leq 1\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\Big| E\big[f(X_n)\big] - E\big[f(X)\big]\Big| \\
+&amp;\leq E\Big[\big|f(X_n) - f(X) \big| \Big] \\
+&amp;= E\Big[\big|f(X_n) - f(X)\cdot 1(\|X\|&gt; c) \big| \Big] + E\Big[\big|f(X_n) - f(X)\cdot 1(\|X\|\leq c) \big| \Big] \\
+&amp;= E\Big[\big|\underbrace{f(X_n) - f(X)}_{|\cdot|\leq 2}\cdot 1(\|X\|&gt; c) \big| \Big] \\
+&amp;\phantom{\ggg}+ E\Big[\big|f(X_n) - f(X)\cdot 1(\|X\|\leq c,\ \|X_n-X\|\leq δ) \big| \Big] \\
+&amp;\phantom{\ggg}+ E\Big[\big|\underbrace{f(X_n) - f(X)}_{|\cdot|\leq 2}\cdot 1(\|X\|\leq c,\ \|X_n-X\|&gt; δ) \big| \Big] \\
+&amp;\leq 2\cdot P\big(\| X\|&gt; c\big) + 2\cdot P\big(\| X_n-X\|&gt; δ\big)\\
+&amp;\phantom{\ggg}+ \sup\Big\{|f(v)-f(u)\big| : \|v\|\leq c,\ \|v-u\|\leq δ\Big\}\end{aligned}\]</span>
+:) <span class="math inline">\(E[f(X_n)]\to E[f(X)]\)</span>, i.e.,<br />
+:) <span class="math inline">\(\Big|E\big[f(X_n)\big]- E\big[f(X)\big]\Big|\leq ε\)</span> for all <span class="math inline">\(n\geq N\)</span><br />
+Choose <span class="math inline">\(c&gt;0\)</span> s.t. <span class="math inline">\(P(\|X\|&gt;c)\leq \frac{ε}{6}\)</span>,<br />
+choose <span class="math inline">\(δ&gt;0\)</span> s.t. <span class="math inline">\(\sup\Big\{|f(v)-f(u)\big| : \|v\|\leq c,\ \|v-u\|\leq δ\Big\}\leq \frac{ε}{3}\)</span><br />
+choose <span class="math inline">\(N\in\mathbb{N}\)</span> s.t. <span class="math inline">\(P\big(\| X_n-X\|&gt; δ\big)\leq\frac{ε}{6}\)</span> for all <span class="math inline">\(n\geq N\)</span><br />
+<span class="math inline">\(\implies\)</span> we have <span class="math inline">\(\Big| E\big[f(X_n)\big] - E\big[f(X)\big]\Big| \leq ε\)</span></p>
+<blockquote>
+<p>Thm 2.12.<br />
+Let <span class="math inline">\(c\in\mathbb{R}^k\)</span>, then <span class="math inline">\(X_n\overset{p}{\to} c\iff X_n\overset{d}{\to}\)</span></p>
+</blockquote>
+<p>Proof: exercises</p>
+</div>
+<div id="central-limit-theorem" class="section level3">
+<h3>Central Limit Theorem</h3>
+<ul>
+<li>Let <span class="math inline">\(X_1,\dots,X_n\)</span> be real valued random variables, <span class="math inline">\(\bar{X}_n=\frac{1}{n}\sum X_i\)</span><br />
+</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>If for all <span class="math inline">\(i\)</span>, <span class="math inline">\(X_i\)</span> are independent, and <span class="math inline">\(X_i\sim\mathcal{N}(μ,σ^2)\)</span>, then
+<ul>
+<li><span class="math inline">\(\bar{X}_n\sim\mathcal{N}(μ,\frac{σ^2}{n})\)</span></li>
+<li><span class="math inline">\(\sqrt{n}(\frac{\bar{X}_n-μ}{σ})\sim\mathcal{N}(0,1)\)</span></li>
+</ul></li>
+<li>If <span class="math inline">\(X_i\)</span> are iid, and <span class="math inline">\(E[X_i]=μ\)</span>, <span class="math inline">\(Var(X_i)=σ^2\)</span>, then
+<ul>
+<li><span class="math inline">\(\sqrt{n}(\frac{\bar{X}_n-μ}{σ})\overset{d}{\to}\mathcal{N}(0,1)\)</span></li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Thm 2.13. Central Limit Theorem (real valued iid sequences)<br />
+Let <span class="math inline">\(X_1,\dots,X_n\)</span> be iid real valued random variables,<br />
+<span class="math inline">\(E[X_i]=μ\)</span>, <span class="math inline">\(Var(X_i)=σ^2\)</span>, then
+<span class="math display">\[\sqrt{n}(\frac{\bar{X}_n-μ}{σ})\overset{d}{\to}\mathcal{N}(0,1)\]</span></p>
+</blockquote>
+<p>also written as:
+<span class="math display">\[\begin{aligned}\sqrt{n}(\frac{\bar{X}_n-μ}{σ}) &amp;= \sqrt{n}(\frac{\frac{1}{n}\sum X_i-μ}{σ})\\
+&amp;= \frac{\frac{1}{\sqrt{n}}\sum X_i-μ}{σ} \overset{d}{\to}\mathcal{N}(0,1) \end{aligned}\]</span>
+by Thm 2.9. (CMT),
+<span class="math display">\[\begin{aligned}\frac{1}{\sqrt{n}}\sum(X_i-μ) \overset{d}{\to}\mathcal{N}(0,σ^2) \end{aligned}\]</span></p>
+<blockquote>
+<p>Thm 2.14. Central Limit Theorem (multivariable iid sequences)<br />
+Let <span class="math inline">\(X_1,\dots,X_n\)</span> be iid <span class="math inline">\(\mathbb{R}^k\)</span> valued random variables,<br />
+<span class="math inline">\(E[X_i]=μ\)</span>, <span class="math inline">\(Var(X_i)=Σ\)</span>, then
+<span class="math display">\[\frac{1}{\sqrt{n}}\sum(X_i-μ)\overset{d}{\to}\mathcal{N}(0,Σ)\]</span></p>
+</blockquote>
+<p>Proof:<br />
+Apply Thm 2.13. and Thm 2.10.<br />
+Let <span class="math inline">\(a\in\mathbb{R}^k\)</span>,<br />
+<span class="math inline">\(\implies a^TX_1,\dots,a^TX_n\)</span> are k-demensional iid with mean <span class="math inline">\(a^Tμ\)</span> and variance <span class="math inline">\(a^TΣa\)</span><br />
+therefore, by Thm 2.13.,
+<span class="math display">\[\frac{1}{\sqrt{n}}\sum\Big(\frac{a^TX_i - a^Tμ}{\sqrt{a^TΣa}}\Big) \overset{d}{\to}\mathcal{N}(0,1)\]</span>
+by Thm 2.9. (CMT),
+<span class="math display">\[\begin{aligned}a^T \frac{1}{\sqrt{n}} (X_i-μ) &amp;\overset{d}{\to} \mathcal{N}(0,a^TΣa) \\
+&amp;\sim a^T X &amp;&amp; X\sim\mathcal{N}(0,Σ) \\
+a^T \frac{1}{\sqrt{n}} (X_i-μ) &amp;\overset{d}{\to} a^T X \end{aligned}\]</span>
+by Thm 2.10.,
+<span class="math display">\[\frac{1}{\sqrt{n}}\sum(X_i-μ)\overset{d}{\to} X\]</span></p>
+</div>
+<div id="stochastic-boundedness-tightness" class="section level3">
+<h3>Stochastic Boundedness (Tightness)</h3>
+<ul>
+<li><span class="math inline">\(X_n\)</span>: sequence of random variables that are not necessarily defined on the same probability space</li>
+</ul>
+<blockquote>
+<p>Def 2.15. Stochastic boundedness<br />
+<span class="math inline">\(\{X_n\}\)</span> is stochastically bounded, <span class="math inline">\(X_n=O_p(1)\)</span> if<br />
+for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(c&gt;0\)</span> and <span class="math inline">\(N\in\mathbb{N}\)</span> s.t. for all <span class="math inline">\(n\geq N\)</span>,
+<span class="math display">\[P\big(\|X_n\|\leq c\big)\geq 1-ε\]</span></p>
+</blockquote>
+<p>Example:<br />
+<span class="math inline">\(X_n=X\sim\mathcal{N}(0,1)\)</span><br />
+for any <span class="math inline">\(c&gt;0\)</span>, always exists <span class="math inline">\(X_i\)</span> s.t. <span class="math inline">\(|X_i|&gt;c\)</span><br />
+therefore, cannot use <span class="math inline">\(P\big(\|X_n\|\leq c\big)=1\)</span><br />
+$P(|X_n|c)</p>
+<blockquote>
+<p>Thm 2.16.<br />
+<span class="math inline">\(X_n\overset{d}{\to} X\implies X_n=O_p(1)\)</span></p>
+</blockquote>
+<p>Proof: assume</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(X_n, X\)</span> are real valued</li>
+<li>Distribution function <span class="math inline">\(F\)</span> of <span class="math inline">\(X\)</span> is continuous</li>
+</ol>
+<p>For <span class="math inline">\(ε&gt;0\)</span>, choose <span class="math inline">\(X_ε^-\)</span> and <span class="math inline">\(X_ε^+\)</span> s.t. <span class="math inline">\(F(X_ε^-)&lt;\frac{ε}{2}\)</span> and <span class="math inline">\(F(X_ε^+)&gt;1-\frac{ε}{2}\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned}P(X_ε^-&lt;X\leq X_ε^+) &amp;= F_n(X_ε^+) - F_n(X_ε^-)\\
+&amp;\to F(X_ε^+) - F(X_ε^-)\\
+&amp;&gt; 1-ε\end{aligned}\]</span>
+Choose <span class="math inline">\(c=\max\{|X_ε^-|, |X_ε^+|\}\)</span>, therefore,<br />
+<span class="math display">\[\begin{aligned}P(|X|\leq c)&amp;\geq P(X_ε^-&lt;X\leq X_ε^+ )\\
+&amp;\geq 1-ε \end{aligned}\]</span></p>
 </div>
 </div>
 

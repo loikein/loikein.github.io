@@ -68,7 +68,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">4 min read</span>
     
     <h1 class="article-title">Notes on Effective Programming Practice</h1>
     
@@ -97,13 +97,20 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#slides">Slides</a></li>
-<li><a href="#shell-basic">Shell Basic</a><ul>
+<li><a href="#shell">Shell</a><ul>
 <li><a href="#pipeline">Pipeline</a></li>
 </ul></li>
 <li><a href="#git">Git</a><ul>
+<li><a href="#escape-vim">Escape Vim</a></li>
 <li><a href="#late-.gitignore">Late <code>.gitignore</code></a></li>
+<li><a href="#multiple-branches">Multiple Branches</a></li>
+<li><a href="#tagging">Tagging</a></li>
+<li><a href="#example-process-of-setting-up-a-project">Example Process of Setting Up A Project</a></li>
 </ul></li>
-<li><a href="#complete-process-of-setting-up-a-project">Complete Process of Setting Up A Project</a></li>
+<li><a href="#python">Python</a><ul>
+<li><a href="#setup-ipython-kernel">Setup iPython Kernel</a></li>
+</ul></li>
+<li><a href="#license">License</a></li>
 </ul>
 </div>
 
@@ -115,47 +122,47 @@ if (!doNotTrack) {
 <li><a href="https://www.dropbox.com/sh/0rk6k43bx2xqme2/AACLJFsQ9uG2_pUTR6JMk39Ga?dl=0">Dropbox - prog-econ-log</a></li>
 </ul>
 </div>
-<div id="shell-basic" class="section level2">
-<h2>Shell Basic</h2>
-<pre class="console"><code>~ who
-Loikein console  Oct 13 18:28
-Loikein ttys000  Oct 15 08:49
+<div id="shell" class="section level2">
+<h2>Shell</h2>
+<pre class="console"><code>$ who
+# Loikein console  Oct 13 18:28
+# Loikein ttys000  Oct 15 08:49
 
-~ whoami
-Loikein
+$ whoami
+# Loikein
 
-~ who am i
-Loikein ttys000  Oct 15 08:49</code></pre>
-<pre class="console"><code>~ alias                         show all alias commands
+$ who am i
+# Loikein ttys000  Oct 15 08:49</code></pre>
+<pre class="console"><code>$ alias                         # show all alias commands
 
-~ ls                            list
-~ ls -lh                        list in long format and file size
-~ ls -lha                       list all files in long format and file size
+$ ls                            # list
+$ ls -lh                        # list in long format and file size
+$ ls -lha                       # list all files in long format and file size
 
-~ pwd                           print working directory
+$ pwd                           # print working directory
 
-~ cd                            change directory
-~ mkdir                         make directory (new folder)
-~ mv                            move (change name of directory)
-~ rm -r                         remove directory
+$ cd                            # change directory
+$ mkdir                         # make directory (new folder)
+$ mv                            # move (change name of directory)
+$ rm -r                         # remove directory
 
-~ man                           manual
-~ [command] -h                  help</code></pre>
-<pre class="console"><code>~ subl something.txt            sublime create or open
+$ man                           # manual
+$ [command] -h                  # help</code></pre>
+<pre class="console"><code>$ subl something.txt            sublime create or open
 
-~ cp something.txt nothing.txt  copy
+$ cp something.txt nothing.txt  copy
 
-~ ls *.*                        any file
-~ ls *thing*                    any file include &quot;thing&quot;
-~ ls some?hing.txt              one unknown character
+$ ls *.*                        # any file
+$ ls *thing*                    # any file include &quot;thing&quot;
+$ ls some?hing.txt              # one unknown character
 
-~ rm nothing.txt                delete</code></pre>
-<pre class="console"><code>~ cat something.txt             print 
-~ head -2 something.txt         print first 2 lines
-~ tail -3 something.txt         print last 3 lines
+$ rm nothing.txt                # delete</code></pre>
+<pre class="console"><code>$ cat something.txt             # print 
+$ head -2 something.txt         # print first 2 lines
+$ tail -3 something.txt         # print last 3 lines
 
-~ less something.txt            view (type &quot;q&quot; to quit)
-~ more something.txt            view &amp; print</code></pre>
+$ less something.txt            # view (type &quot;q&quot; to quit)
+$ more something.txt            # view &amp; print</code></pre>
 <div id="pipeline" class="section level3">
 <h3>Pipeline</h3>
 </div>
@@ -170,57 +177,136 @@ Loikein ttys000  Oct 15 08:49</code></pre>
 <li><a href="https://juejin.im/post/5bd2debfe51d457abc710b57">规范你的 commit message 并且根据 commit 自动生成 CHANGELOG.md</a></li>
 <li><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解 - 阮一峰的网络日志</a></li>
 </ul>
-<pre class="console"><code>~ git config --global core.editor &quot;atom --wait&quot;
-~ git config --global core.editor &quot;subl -n -w&quot;
-~ git config color.ui true</code></pre>
-<pre class="console"><code>~ git status
+<pre class="console"><code>$ git config --global core.editor &quot;atom --wait&quot;
+$ git config --global core.editor &quot;subl -n -w&quot;
+$ git config color.ui true</code></pre>
+<pre class="console"><code>$ git status
 
-~ git init
-~ git add something.txt
-~ git add -all
+$ git init
+$ git add something.txt
+$ git add -all
 
-~ git reset                         ignore all changes
+$ git reset                         # ignore all changes
 
-~ git commit -m &quot;New ideas for PS1&quot;
-~ git commit -a -m &quot;Add a line&quot;
+$ git commit -m &quot;New ideas for PS1&quot;
+$ git commit -a -m &quot;Add a line&quot;
 
-~ git commit --amend                change commit message</code></pre>
-<pre class="console"><code>~ git diff                      working tree vs index file
-~ git diff --cached             index file vs commit
+$ git commit --amend                # change commit message</code></pre>
+<pre class="console"><code>$ git diff                      # working tree vs index file
+$ git diff --cached             # index file vs commit
 
-~ git diff --color-words        only show changed words
+$ git diff --color-words        # only show changed words
 
-~ git log                       commit history
-~ git log --name-only           commit history w/ file names</code></pre>
+$ git log                       # commit history
+$ git log --name-only           # commit history w/ file names</code></pre>
+<div id="escape-vim" class="section level3">
+<h3>Escape Vim</h3>
+<ul>
+<li>No save: press <code>Esc</code> and press <code>:q</code></li>
+<li>Save: press <code>Esc</code> and press <code>:wq</code></li>
+</ul>
+</div>
 <div id="late-.gitignore" class="section level3">
 <h3>Late <code>.gitignore</code></h3>
 <p>Ref: <a href="https://stackoverflow.com/a/1139797">Ignore files that have already been committed to a Git repository</a></p>
-<pre class="console"><code>~ git commit -m &quot;add/change .gitignore&quot;
+<pre class="console"><code>$ git commit -m &quot;add/change .gitignore&quot;
 
-~ git rm -r --cached .
-~ git add .
+$ git rm -r --cached .
+$ git add .
 
-~ git commit -m &quot;.gitignore is now working&quot;</code></pre>
+$ git commit -m &quot;.gitignore is now working&quot;</code></pre>
 </div>
-</div>
-<div id="complete-process-of-setting-up-a-project" class="section level2">
-<h2>Complete Process of Setting Up A Project</h2>
-<pre class="console"><code>~ conda env create -f environment.yml     setup
+<div id="multiple-branches" class="section level3">
+<h3>Multiple Branches</h3>
+<pre class="console"><code>#### commit everything! ####
 
-~ conda activate exercise_1
+$ git branch great-new-branch
 
-~ python waf.py configure                 setup
+$ git branch
+# * master
+#   great-new-branch
 
-~ subl .gitignore                         setup
+$ git checkout great-new-branch
+# Switched to branch &#39;great-new-branch&#39;
+
+$ git branch
+#   master
+* great-new-branch
 
 #### some changes to the files ####
 
-~ python waf.py build
+$ git checkout master
 
-git add -all
-git commit -a -m &quot;Some meaningful messages&quot;
+$ git merge great-new-branch
+# CONFLICT (follow the message)</code></pre>
+</div>
+<div id="tagging" class="section level3">
+<h3>Tagging</h3>
+<pre class="console"><code>$ git checkout -b (HASH10)
 
-~ git push</code></pre>
+$ git tag submittable_version -m &quot;In case everything else fails&quot;
+
+$ git checkout master
+
+$ git tag
+# submittable_version</code></pre>
+</div>
+<div id="example-process-of-setting-up-a-project" class="section level3">
+<h3>Example Process of Setting Up A Project</h3>
+<pre class="console"><code>$ conda env create -f environment.yml     # setup
+
+$ conda activate exercise_1
+
+$ python waf.py configure                 # setup
+
+$ subl .gitignore                         # setup
+
+#### some changes to the files ####
+
+$ python waf.py build
+
+$ git add -all
+$ git commit -a -m &quot;Some meaningful messages&quot;
+
+$ git push</code></pre>
+</div>
+</div>
+<div id="python" class="section level2">
+<h2>Python</h2>
+<pre class="console"><code>$ python</code></pre>
+<pre class="python"><code>print(&quot;hello world&quot;)
+# hello world
+
+print(&quot;hello&quot; &quot;world&quot;)
+# helloworld
+
+exit()</code></pre>
+<div id="setup-ipython-kernel" class="section level3">
+<h3>Setup iPython Kernel</h3>
+<pre class="console"><code>ipython</code></pre>
+</div>
+</div>
+<div id="license" class="section level2">
+<h2>License</h2>
+<ul>
+<li>You are free:
+– to Share to copy, distribute and transmit the work
+– to Remix to adapt the work</li>
+<li>Under the following conditions:
+<ul>
+<li>Attribution You must attribute the work in the manner speci- fied by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).</li>
+</ul></li>
+<li>With the understanding that:
+<ul>
+<li>Waiver Any of the above condition scan be waived if you get permission from the copyright holder.</li>
+<li>Public Domain Wh ere the work or any of its elements in the public domain under applicable law, that status is in no way affected by the license.</li>
+</ul></li>
+<li>In no way are any of the following rights affected by the license:
+– Your fair dealing or fair use rights, or other applicable copy-right exceptions and limitations;
+– The author’s moral rights;
+– Rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.</li>
+<li>Notice For any reuse or distribution, you must make clear to others the license terms of this work.</li>
+</ul>
 </div>
 
     </div>
@@ -266,6 +352,9 @@ git commit -a -m &quot;Some meaningful messages&quot;
 
 
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
     
 <script type="application/javascript">
 var doNotTrack = false;
