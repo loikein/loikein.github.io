@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">18 min read</span>
+    <span class="article-duration">21 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -336,16 +336,84 @@ The σ-field <span class="math inline">\(\mathcal{B}\)</span> that contains all 
 A set <span class="math inline">\(A\in\mathcal{B}\)</span> is called a Borel set</p>
 </blockquote>
 <p>Remark: <span class="math inline">\(\mathcal{B}\neq\mathcal{P}(Ω)\)</span></p>
+<!-- > $\mathcal{A}_1=\{(a,b]:-\infty\leq a<b<\infty\}$  
+> $\mathcal{A}_2=\{[a,b):-\infty < a<b\leq\infty\}$  
+> $\mathcal{A}_3=\{[a,b]:-\infty < a<b<\infty\}$  
+> $\mathcal{A}_4=\{(-\infty,b]:-\infty <b<\infty\}$  
+> For $j=1,\dots,4$, $\mathcal{B}$ is the smallest σ-field that contains $\mathcal{A}_j$
+ -->
 <blockquote>
-<p>Remark 1.5. Set<br />
-<span class="math inline">\(\mathcal{A}_1=\{(a,b]:-\infty\leq a&lt;b&lt;\infty\}\)</span><br />
-<span class="math inline">\(\mathcal{A}_2=\{[a,b):-\infty &lt; a&lt;b\leq\infty\}\)</span><br />
-<span class="math inline">\(\mathcal{A}_3=\{[a,b]:-\infty &lt; a&lt;b&lt;\infty\}\)</span><br />
-<span class="math inline">\(\mathcal{A}_4=\{(-\infty,b]:-\infty &lt;b&lt;\infty\}\)</span><br />
-For <span class="math inline">\(j=1,\dots,4\)</span>, <span class="math inline">\(\mathcal{B}\)</span> is the smallest σ-field that contains <span class="math inline">\(\mathcal{A}_j\)</span></p>
+<p>Remark 1.5., PS2.Q2<br />
+Let <span class="math inline">\(\mathcal{B}\)</span> be the Borel σ-field on R, i.e., the smallest σ-field which contains all open intervals <span class="math inline">\((a,b)\)</span> with <span class="math inline">\(-\infty\leq a&lt;b\leq\infty\)</span>.<br />
+Furthermore, define <span class="math inline">\(\mathcal{B}^*\)</span> to be the smallest σ-field on R that contains all half-open intervals <span class="math inline">\((a, b]\)</span> with <span class="math inline">\(-\infty\leq a&lt;b&lt;\infty\)</span>.<br />
+Show <span class="math inline">\(\mathcal{B}=\mathcal{B}^*\)</span>.</p>
+<p>Hint:<br />
+Verify that <span class="math inline">\(\mathcal{B}\subset\mathcal{B}^*\)</span> and <span class="math inline">\(\mathcal{B}^*\subset\mathcal{B}\)</span>.<br />
+To show that <span class="math inline">\(\mathcal{B}\subset\mathcal{B}^*\)</span>, proceed as follows:<br />
+First argue that <span class="math inline">\(\mathcal{B}\subset\mathcal{B}^*\)</span> if all open intervals <span class="math inline">\((a, b)\)</span> are elements of <span class="math inline">\(\mathcal{B}^*\)</span>,<br />
+then verify that indeed <span class="math inline">\((a, b)\in\mathcal{B}^*\)</span> for any <span class="math inline">\(a, b\)</span>.</p>
 </blockquote>
-<p>Proof: exercise<br />
-e.g. use <span class="math inline">\((a,b)=\cup_{m=1}^{\infty} \big[a+\frac{1}{m},b-\frac{1}{m}\big]\)</span></p>
+<p>Proof:</p>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\subset\)</span>)<br />
+Let <span class="math inline">\(-\infty\leq a&lt;b\leq\infty\)</span>
+<ol style="list-style-type: lower-roman">
+<li>When <span class="math inline">\(b=\infty\)</span>,
+<span class="math display">\[\begin{aligned}(a,b) &amp;= (a,\infty) \\
+ &amp;= \underbrace{\cup_{k\in\mathbb{N}} \overbrace{(a, a+k]}^{\in\mathcal{B}^*}}_{\in\mathcal{B}^*} \\
+ &amp;\in \mathcal{B}^* \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(b&lt;\infty\)</span>,
+<span class="math display">\[\begin{aligned}(a,b) &amp;= \cup_{k\in\mathbb{N}}\Big(a, b-\frac{1}{k}\Big] \\
+ &amp;\in \mathcal{B}^* \end{aligned}\]</span></li>
+<li>Therefore, <span class="math inline">\((a,b)\in\mathcal{B}^* \implies \mathcal{B}\in\mathcal{B}^*\)</span></li>
+</ol></li>
+<li>(<span class="math inline">\(\supset\)</span>)<br />
+Let <span class="math inline">\(-\infty\leq a&lt;b&lt;\infty\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned}(a,b] &amp;= \cap_{k\in\mathbb{N}}\Big(a,b+\frac{1}{k}\Big) \\
+&amp;= \Bigg[ \underbrace{\cup_{k\in\mathbb{N}} \bigg(\overbrace{\Big(a, b+\frac{1}{k}\Big)}^{\in\mathcal{B}}\bigg)^C}_{\in\mathcal{B}}\Bigg]^C \\
+&amp;\in \mathcal{B} \end{aligned}\]</span>
+<span class="math inline">\(\implies \mathcal{B}^*\in\mathcal{B}\)</span></li>
+</ol>
+<blockquote>
+<p>PS2.Q1.<br />
+Let <span class="math inline">\(Ω\)</span> be a non-empty set.</p>
+<ol style="list-style-type: lower-roman">
+<li>Suppose that <span class="math inline">\(\mathcal{A}_i\)</span> are σ-fields on <span class="math inline">\(Ω\)</span>, <span class="math inline">\(i\in I\)</span>, <span class="math inline">\(I\)</span> is an arbitrary index set.<br />
+Show that <span class="math inline">\(\cap_{i\in I}\mathcal{A}_i\)</span> is a σ-field on <span class="math inline">\(Ω\)</span>.</li>
+<li>Let <span class="math inline">\(\mathcal{A}^*\)</span> be a class of subsets of <span class="math inline">\(Ω\)</span>.<br />
+Apply (i) to show that the smallest σ-field <span class="math inline">\(\mathcal{A}\)</span> with <span class="math inline">\(\mathcal{A}^*\subset\mathcal{A}\)</span> is well defined.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-roman">
+<li><ol style="list-style-type: decimal">
+<li>Since <span class="math inline">\(\emptyset\in \mathcal{A}_i\)</span> for all <span class="math inline">\(i\)</span>,<br />
+<span class="math inline">\(\emptyset\in\cap\mathcal{A}_i\)</span></li>
+<li>Let <span class="math inline">\(A\in\cap\mathcal{A}_i\)</span><br />
+<span class="math inline">\(\implies A\in\mathcal{A}_i\)</span> for all <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(\implies A^C\in\mathcal{A}_i\)</span> for all <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(\implies A^C\in\cap\mathcal{A}_i\)</span></li>
+<li>Let <span class="math inline">\(A_1,A_2,\dots\in\in\cap\mathcal{A}_i\)</span><br />
+<span class="math inline">\(\implies A_1,A_2\in\mathcal{A}_i\)</span> for all <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(\implies (\cup_{n\in\mathbb{N}}A_n)\in\mathcal{A}_i\)</span> for all <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(\implies (\cup_{n\in\mathbb{N}}A_n)\in\cap\mathcal{A}_i\)</span></li>
+</ol></li>
+<li><ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\mathbb{A}\)</span> be the collection of all σ-fields on <span class="math inline">\(Ω\)</span> s.t.<br />
+for all <span class="math inline">\(\mathcal{A}\in \mathbb{A}\)</span>, <span class="math inline">\(\mathcal{A}^*\in \mathbb{A}\)</span><br />
+Let <span class="math inline">\(σ(\mathcal{A}^*) := \cap_{\mathcal{A}\in \mathbb{A}} \mathcal{A}\)</span><br />
+therefore, by (i), <span class="math inline">\(σ(\mathcal{A}^*)\)</span> is a σ-field on <span class="math inline">\(Ω\)</span>, <span class="math inline">\(\mathcal{A}^*\in σ(\mathcal{A}^*)\)</span></li>
+<li>:) <span class="math inline">\(σ(\mathcal{A}^*)\)</span> is the smallest σ-field on <span class="math inline">\(Ω\)</span><br />
+FSOC assume exsits <span class="math inline">\(\mathcal{B}\)</span> containing <span class="math inline">\(\mathcal{A}^*\)</span> s.t. <span class="math inline">\(σ(\mathcal{A}^*)\not\subset \mathcal{B}\)</span><br />
+Since <span class="math inline">\(\mathcal{A}^*\in\mathcal{B}\)</span><br />
+<span class="math inline">\(\implies \mathcal{B}\in\mathbb{A}\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned}σ(\mathcal{A}^*) &amp;=\cap_{\mathcal{A}\in \mathbb{A}} \mathcal{A}\\
+&amp;= \cap_{\mathcal{A}\in \mathbb{A}\backslash \mathcal{B}} \cap \{\mathcal{B}\}\\
+&amp;\subset \mathcal{B} \end{aligned}\]</span>
+Contradiction.</li>
+</ol></li>
+</ol>
 </div>
 <div id="distribution-function" class="section level3">
 <h3>Distribution Function</h3>
@@ -403,6 +471,35 @@ It is obvious that <span class="math inline">\(p_n\)</span> is monotonically inc
 therefore, <span class="math inline">\(1 - F(b_n) = p_n\to p = 1-F(b)\)</span><br />
 <span class="math inline">\(\implies 1 - F(b_n)\to 1-F(b)\)</span>, contradiction</p>
 <blockquote>
+<p>PS2.Q3<br />
+Prove that any distribution function <span class="math inline">\(F:\mathbb{R}\to [0, 1]\)</span> has the following properties:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(F\)</span> is non-decreasing.</li>
+<li><span class="math inline">\(\lim_{x\searrow −\infty}F(x)=0\)</span> and <span class="math inline">\(\lim_{x\nearrow\infty}F(x)=1\)</span>.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-roman">
+<li>Let <span class="math inline">\(l&gt;l&#39;\in\mathbb{R}\)</span>,<br />
+<span class="math display">\[\begin{aligned}F(l) &amp;= P((-\infty, l]) \\
+F(l&#39;) &amp;= P((-\infty, l&#39;]) \\
+F(l) - F(l&#39;) &amp;= P((l&#39;,l]) \geq 0\\
+F(l)&amp;\geq F(l&#39;)\end{aligned}\]</span></li>
+<li><ol style="list-style-type: decimal">
+<li>When <span class="math inline">\(x_n\searrow -\infty\)</span><br />
+<span class="math display">\[\begin{aligned}1-F(x_n) &amp;= 1-P((-\infty,x_n]) \\
+&amp;= P((x_n, \infty)) \\
+&amp;= P\Big(\cup_{i=2}^n (x_i,x_{i-1}]\cup (x_1,\infty)\Big) \\
+&amp;= P((x_1,\infty)) + \sum_{i=2}^n P((x_i, x_{i-1}]) := p_n \\
+p_n &amp;\to p \\
+:&amp;= P((x_1,\infty)) + \sum_{i=2}^{\infty} P((x_i, x_{i-1}]) \\
+&amp;= P\Big(\cup_{i=2}^{\infty} (x_i,x_{i-1}]\cup (x_1,\infty) \Big) \\
+&amp;= P(\mathbb{R}) =1 \\
+1-F(x_n) &amp;\to 1\\
+F(x_n) &amp;\to 0\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(x_n\nearrow\infty\)</span> (similarly)</li>
+</ol></li>
+</ol>
+<blockquote>
 <p>Example: Step function
 Let <span class="math inline">\(F\)</span> be a step function, <span class="math inline">\(P\)</span> be a probability function corresponds to <span class="math inline">\(F\)</span>,<br />
 <span class="math inline">\(P\big(\{x_i\}\big) = b_i\)</span> with <span class="math inline">\(\sum_{i=1}^{\infty}b_i = 1\)</span><br />
@@ -425,6 +522,61 @@ then <span class="math inline">\(F(x)=\begin{cases}0 &amp; x\leq a \\ \frac{x-a}
 <li>Normal distribution <span class="math inline">\(\mathcal{N}(μ,σ)\)</span>, <span class="math inline">\(μ\in\mathbb{R}\)</span>, <span class="math inline">\(σ&gt;0\)</span><br />
 <span class="math inline">\(f_{μ,σ}(x) = \frac{1}{\sqrt{2πσ^2}}\cdot \exp\big(-\frac{1}{2}\cdot\frac{(x-μ)^2}{σ^2}\big)\)</span><br />
 then <span class="math inline">\(F(x) = \int_{-\infty}^x f_{μ,σ}(y)\, dy\)</span></li>
+</ol>
+<blockquote>
+<p>PS2.Q4<br />
+Consider a probability measure <span class="math inline">\(P\)</span> on the real line <span class="math inline">\(\mathbb{R}\)</span> endowed with the Borel σ-field <span class="math inline">\(\mathcal{B}\)</span>.</p>
+<ol style="list-style-type: lower-roman">
+<li>Let <span class="math inline">\(g:\mathbb{R}\to \mathbb{R}\)</span> be measurable,<br />
+i.e., for each Borel set <span class="math inline">\(B\)</span>, the set <span class="math inline">\(g^{−1}(B) = \{x : g(x)\in B\}\)</span> is also a Borel set.<br />
+Show that for <span class="math inline">\(B\in\mathcal{B}\)</span>, <span class="math inline">\(Q(B):=P(g^{-1}(B))\)</span> is a probability measure,<br />
+i.e., check that <span class="math inline">\(Q\)</span> fulfills the axioms of probability.<br />
+Hint: Derive a simple expression for <span class="math inline">\(g^{−1}(\cup_{i=1}^{\infty} B_i)\)</span></li>
+<li>Suppose that the distribution function <span class="math inline">\(F\)</span> of <span class="math inline">\(P\)</span> is strictly increasing and continuous, set <span class="math inline">\(g = F\)</span>.<br />
+Show that with this choice, <span class="math inline">\(Q\)</span> is the uniform distribution on <span class="math inline">\([0, 1]\)</span><br />
+i.e. the density of <span class="math inline">\(Q\)</span> is equal to 1 on <span class="math inline">\([0, 1]\)</span> and vanishes outside this interval.</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-roman">
+<li><ol style="list-style-type: decimal">
+<li>Since <span class="math inline">\(P(\emptyset)=0\)</span>,
+<span class="math inline">\(Q(\emptyset) = P\big(g^{-1}(\emptyset)\big)= 0\)</span></li>
+<li><span class="math inline">\(Q(\mathbb{R}) = P\big(g^{-1}(\mathbb{R})\big) = 1\)</span></li>
+<li>Let disjoint <span class="math inline">\(B_1,B_2,\dots\in\mathcal{B}\)</span><br />
+<span class="math display">\[\begin{aligned}Q(\cup B_i) &amp;= P\big(g^{-1}(\cup B_i)\big) \\
+&amp;= P\big(\{x:g(x)\in\cup B_i\}\big) \\
+&amp;= P(\cup\{x:g(x)\in B_i\}) \\
+&amp;= P(\cup g^{-1}(B_i)) \\
+&amp;= \textstyle{\sum} P( g^{-1}(B_i)) \\
+&amp;= \textstyle{\sum} Q(B_i)\end{aligned}\]</span></li>
+</ol></li>
+<li>Since <span class="math inline">\(F\)</span> is strictly increasing,<br />
+exists <span class="math inline">\(F^{-1}:[0,1]\to \mathbb{R}\)</span> s.t.
+<span class="math display">\[\begin{aligned}F\circ F^{-1}(x) &amp;= x &amp;&amp; x\in[0,1] \\
+F^{-1}\circ F(x) &amp;= x &amp;&amp; x\in\mathbb{R} \end{aligned}\]</span>
+Let <span class="math inline">\(x\in\mathbb{R}\)</span>, let <span class="math inline">\(G:\mathbb{R}\to[0,1]\)</span> be the density function of <span class="math inline">\(Q\)</span>,
+<span class="math display">\[\begin{aligned}G(x) &amp;= Q\big((-\infty, x]\big)\\
+&amp;= P\big(F^{-1}(-\infty,x]\big) \end{aligned}\]</span>
+If <span class="math inline">\(x&lt;0\)</span>,
+<span class="math display">\[\begin{aligned}F^{-1}\big((-\infty,x]\big) &amp;= \emptyset \\
+G(x) &amp;= P(\emptyset) = 0 \end{aligned}\]</span>
+If <span class="math inline">\(x=0\)</span>,
+<span class="math display">\[\begin{aligned}F^{-1}\big((-\infty,x]\big) &amp;= F^{-1}(0) \\
+G(x) &amp;= P\big(F^{-1}(0)\big) = 0 \end{aligned}\]</span>
+If <span class="math inline">\(0&lt;x\leq 1\)</span>,
+<span class="math display">\[\begin{aligned}F^{-1}\big((-\infty,x]\big) &amp;= F^{-1}\big((-\infty,0)\big)\cup F^{-1}\big([0,x]\big) \\
+&amp;= F^{-1}\big((-\infty,0)\big)\cup \big[F^{-1}(0), F^{-1}(x)\big] \\
+P\Big(F^{-1}\big((-\infty,x]\big)\Big) &amp;= 0 + P\Big(F^{-1}\big([0,x]\big)\Big) \\
+&amp;= P\Big(\big(F^{-1}(0), F^{-1}(x)\big]\Big) \\
+&amp;= F\big(F^{-1}(x)\big) - F\big(F^{-1}(0)\big) \\
+&amp;= x - 0 = x \end{aligned}\]</span>
+If <span class="math inline">\(x&gt;1\)</span>,
+<span class="math display">\[\begin{aligned}F^{-1}\big((-\infty,x]\big) &amp;\geq F^{-1}\big((-\infty,1]\big)\\
+&amp;= \mathbb{R}\\
+G(x) &amp;= 1\end{aligned}\]</span>
+Let <span class="math inline">\(\tilde{g}(x) = 1(x)\)</span>,
+<span class="math display">\[G(x) = \int_{-\infty}^x \tilde{g}(y)\, dy\]</span>
+<span class="math inline">\(\implies \tilde{g}(x)\)</span> is the density function of <span class="math inline">\(G\)</span></li>
 </ol>
 </div>
 <div id="extension-to-rk" class="section level3">
@@ -775,9 +927,16 @@ By Thm 1.19., <span class="math inline">\(E[z_n]\to 0\)</span>
 &amp;= E[z_n]\to 0 \end{aligned}\]</span>
 therefore, <span class="math inline">\(X_n\overset{P}{\to} X\)</span></p>
 <blockquote>
-<p>Exercise: find some random variable <span class="math inline">\(X\)</span> s.t.<br />
-<span class="math inline">\(|E[X]&lt;\infty|\)</span> but <span class="math inline">\(E[|X|]=\infty\)</span></p>
+<p>PS2.Q5<br />
+Are there real valued random variable <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(\big|E[X]\big|&lt;\infty\)</span> but <span class="math inline">\(E\big[|X|\big]=\infty\)</span>?</p>
 </blockquote>
+<p><span class="math display">\[\begin{aligned}X &amp;= \underbrace{X\cdot 1(X&gt; 0)}_{X^+} + \underbrace{X\cdot 1(X\leq 0)}_{X^-}\\
+E[X] &amp;= E[X^+ + X^-] \\
+&amp;= E[X^+] + E[X^-] \end{aligned}\]</span>
+<span class="math inline">\(\big|E[X]\big|&lt;\infty\implies \big|E[X^+]\big|&lt;\infty\)</span> and <span class="math inline">\(\big|E[X^-]\big|&lt;\infty\)</span><br />
+Therefore,
+<span class="math display">\[\begin{aligned} E\big[|X|\big] &amp;= E[X^+] - E[X^-] \\
+&amp;&lt; \infty\end{aligned}\]</span></p>
 </div>
 <div id="convergence-in-probability-vs.-covergence-in-p-th-mean" class="section level3">
 <h3>Convergence in Probability vs. Covergence in p-th Mean</h3>
