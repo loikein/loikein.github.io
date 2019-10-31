@@ -68,7 +68,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">4 min read</span>
+    <span class="article-duration">5 min read</span>
     
     <h1 class="article-title">Notes on Effective Programming Practice</h1>
     
@@ -108,7 +108,10 @@ if (!doNotTrack) {
 <li><a href="#example-process-of-setting-up-a-project">Example Process of Setting Up A Project</a></li>
 </ul></li>
 <li><a href="#python">Python</a><ul>
+<li><a href="#reference">Reference</a></li>
 <li><a href="#setup-ipython-kernel">Setup iPython Kernel</a></li>
+<li><a href="#simple-examples">Simple Examples</a></li>
+<li><a href="#list-loop">List &amp; Loop</a></li>
 </ul></li>
 <li><a href="#license">License</a></li>
 </ul>
@@ -253,7 +256,9 @@ $ git tag
 </div>
 <div id="example-process-of-setting-up-a-project" class="section level3">
 <h3>Example Process of Setting Up A Project</h3>
-<pre class="console"><code>$ conda env create -f environment.yml     # setup
+<pre class="console"><code>$ git init                                # setup
+
+$ conda env create -f environment.yml     # setup
 
 $ conda activate exercise_1
 
@@ -265,14 +270,35 @@ $ subl .gitignore                         # setup
 
 $ python waf.py build
 
-$ git add -all
-$ git commit -a -m &quot;Some meaningful messages&quot;
+$ git add --all
+$ git commit -m &quot;Some meaningful messages&quot;
 
 $ git push</code></pre>
 </div>
 </div>
 <div id="python" class="section level2">
 <h2>Python</h2>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 -- Style Guide for Python Code | Python.org</a>
+<ul>
+<li><a href="https://alvinzhu.xyz/2017/10/07/python-pep-8/">Python PEP-8编码风格指南中文版</a></li>
+</ul></li>
+<li><a href="https://www.onlinegdb.com/online_python_compiler">Online Python Compiler</a></li>
+</ul>
+</div>
+<div id="setup-ipython-kernel" class="section level3">
+<h3>Setup iPython Kernel</h3>
+<p>ref: <a href="https://www.cnblogs.com/hgl0417/p/8204221.html">jupyter中添加conda环境 - LeonHuo - 博客园</a></p>
+<!--
+```console
+$ ipython
+```
+-->
+</div>
+<div id="simple-examples" class="section level3">
+<h3>Simple Examples</h3>
 <pre class="console"><code>$ python</code></pre>
 <pre class="python"><code>print(&quot;hello world&quot;)
 # hello world
@@ -281,9 +307,77 @@ print(&quot;hello&quot; &quot;world&quot;)
 # helloworld
 
 exit()</code></pre>
-<div id="setup-ipython-kernel" class="section level3">
-<h3>Setup iPython Kernel</h3>
-<pre class="console"><code>ipython</code></pre>
+<pre class="python"><code>&quot;&quot;&quot;Compute the output of a Cobb-Douglas earnings function.
+&quot;&quot;&quot;
+# Define the parameters of the technology.
+a = 7.5
+gamma_cogn = 2
+gamma_noncogn = 3
+
+# Define the values of the inputs.
+iq_demeaned = -5
+locus_of_control = 3
+grit = 7
+
+# Compute the earnings.
+earnings = (
+    a
+    * iq_demeaned ** gamma_cogn
+    * ((locus_of_control + grit) / 2) ** gamma_noncogn
+)
+
+# Display the results.
+print(&quot;Annual earnings in Euros:&quot;, earnings)</code></pre>
+</div>
+<div id="list-loop" class="section level3">
+<h3>List &amp; Loop</h3>
+<pre class="python"><code># Define the values of the inputs.
+a = 7.5
+gamma_cogn = 2
+gamma_noncogn = 3
+iq_raw_scores = [95, 105]
+locus_of_control = 3
+grit = 7
+
+for iq_raw in iq_raw_scores:
+    # Compute the earnings.
+    earnings = (
+        a
+        * iq_raw ** gamma_cogn
+        * ((locus_of_control + grit) / 2) ** gamma_noncogn
+    )
+    
+    # Display the results.
+    print(
+    &quot;Annual earnings in Euros, IQ =&quot;, iq_raw,
+    &quot;:&quot;,
+    earnings,
+    )</code></pre>
+<pre class="python"><code># Define the values of the inputs.
+a = 7.5
+gamma_cogn = 2
+gamma_noncogn = 3
+iq_raw_scores = [95, 105]
+locus_of_control = 3
+grit = 7
+
+# Compute the earnings.
+earnings = []
+for iq_raw in iq_raw_scores:
+    earnings.append(
+        a
+        * iq_raw ** gamma_cogn
+        * ((locus_of_control + grit) / 2) ** gamma_noncogn
+    )
+
+# Display the results.
+for i, iq_raw in enumerate(iq_raw_scores):
+    print(
+        &quot;Annual earnings in Euros, IQ =&quot;,
+        iq_raw,
+        &quot;:&quot;,
+        earnings[i],
+    )</code></pre>
 </div>
 </div>
 <div id="license" class="section level2">
