@@ -97,23 +97,32 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#slides">Slides</a></li>
+<li><a href="#example-process-of-setting-up-a-project">Example Process of Setting Up A Project</a></li>
 <li><a href="#shell">Shell</a><ul>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#basics">Basics</a></li>
 <li><a href="#pipeline">Pipeline</a></li>
 </ul></li>
 <li><a href="#git">Git</a><ul>
+<li><a href="#reference-1">Reference</a></li>
+<li><a href="#basics-1">Basics</a></li>
 <li><a href="#escape-vim">Escape Vim</a></li>
 <li><a href="#late-.gitignore">Late <code>.gitignore</code></a></li>
 <li><a href="#multiple-branches">Multiple Branches</a></li>
 <li><a href="#tagging">Tagging</a></li>
-<li><a href="#example-process-of-setting-up-a-project">Example Process of Setting Up A Project</a></li>
+</ul></li>
+<li><a href="#anaconda">(Ana)Conda</a><ul>
+<li><a href="#reference-2">Reference</a></li>
+<li><a href="#setup-for-zsh">Setup for Zsh</a></li>
+<li><a href="#create-delete-environment">Create &amp; Delete Environment</a></li>
+<li><a href="#kernels">Kernels</a></li>
+<li><a href="#use-sublime-with-sendcode">Use Sublime with SendCode</a></li>
 </ul></li>
 <li><a href="#python">Python</a><ul>
-<li><a href="#reference">Reference</a></li>
-<li><a href="#setup-ipython-kernel">Setup iPython Kernel</a></li>
+<li><a href="#reference-3">Reference</a></li>
 <li><a href="#simple-examples">Simple Examples</a></li>
 <li><a href="#list-loop">List &amp; Loop</a></li>
 </ul></li>
-<li><a href="#license">License</a></li>
 </ul>
 </div>
 
@@ -125,142 +134,13 @@ if (!doNotTrack) {
 <li><a href="https://www.dropbox.com/sh/0rk6k43bx2xqme2/AACLJFsQ9uG2_pUTR6JMk39Ga?dl=0">Dropbox - prog-econ-log</a></li>
 </ul>
 </div>
-<div id="shell" class="section level2">
-<h2>Shell</h2>
-<pre class="console"><code>$ who
-# Loikein console  Oct 13 18:28
-# Loikein ttys000  Oct 15 08:49
-
-$ whoami
-# Loikein
-
-$ who am i
-# Loikein ttys000  Oct 15 08:49</code></pre>
-<pre class="console"><code>$ alias                         # show all alias commands
-
-$ ls                            # list
-$ ls -lh                        # list in long format and file size
-$ ls -lha                       # list all files in long format and file size
-
-$ pwd                           # print working directory
-
-$ cd                            # change directory
-$ mkdir                         # make directory (new folder)
-$ mv                            # move (change name of directory)
-$ rm -r                         # remove directory
-
-$ man                           # manual
-$ [command] -h                  # help</code></pre>
-<pre class="console"><code>$ subl something.txt            sublime create or open
-
-$ cp something.txt nothing.txt  copy
-
-$ ls *.*                        # any file
-$ ls *thing*                    # any file include &quot;thing&quot;
-$ ls some?hing.txt              # one unknown character
-
-$ rm nothing.txt                # delete</code></pre>
-<pre class="console"><code>$ cat something.txt             # print 
-$ head -2 something.txt         # print first 2 lines
-$ tail -3 something.txt         # print last 3 lines
-
-$ less something.txt            # view (type &quot;q&quot; to quit)
-$ more something.txt            # view &amp; print</code></pre>
-<div id="pipeline" class="section level3">
-<h3>Pipeline</h3>
-</div>
-</div>
-<div id="git" class="section level2">
-<h2>Git</h2>
-<p>Ref:</p>
-<ul>
-<li><a href="https://git-scm.com/book/zh/v2/">Git - Book (Chinese)</a></li>
-<li><a href="https://www.bootcss.com/p/git-guide/">git 使用简易指南</a><br />
-</li>
-<li><a href="https://juejin.im/post/5bd2debfe51d457abc710b57">规范你的 commit message 并且根据 commit 自动生成 CHANGELOG.md</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解 - 阮一峰的网络日志</a></li>
-</ul>
-<pre class="console"><code>$ git config --global core.editor &quot;atom --wait&quot;
-$ git config --global core.editor &quot;subl -n -w&quot;
-$ git config color.ui true</code></pre>
-<pre class="console"><code>$ git status
-
-$ git init
-$ git add something.txt
-$ git add -all
-
-$ git reset                         # ignore all changes
-
-$ git commit -m &quot;New ideas for PS1&quot;
-$ git commit -a -m &quot;Add a line&quot;
-
-$ git commit --amend                # change commit message</code></pre>
-<pre class="console"><code>$ git diff                      # working tree vs index file
-$ git diff --cached             # index file vs commit
-
-$ git diff --color-words        # only show changed words
-
-$ git log                       # commit history
-$ git log --name-only           # commit history w/ file names</code></pre>
-<div id="escape-vim" class="section level3">
-<h3>Escape Vim</h3>
-<ul>
-<li>No save: press <code>Esc</code> and press <code>:q</code></li>
-<li>Save: press <code>Esc</code> and press <code>:wq</code></li>
-</ul>
-</div>
-<div id="late-.gitignore" class="section level3">
-<h3>Late <code>.gitignore</code></h3>
-<p>Ref: <a href="https://stackoverflow.com/a/1139797">Ignore files that have already been committed to a Git repository</a></p>
-<pre class="console"><code>$ git commit -m &quot;add/change .gitignore&quot;
-
-$ git rm -r --cached .
-$ git add .
-
-$ git commit -m &quot;.gitignore is now working&quot;</code></pre>
-</div>
-<div id="multiple-branches" class="section level3">
-<h3>Multiple Branches</h3>
-<pre class="console"><code>#### commit everything! ####
-
-$ git branch great-new-branch
-
-$ git branch
-# * master
-#   great-new-branch
-
-$ git checkout great-new-branch
-# Switched to branch &#39;great-new-branch&#39;
-
-$ git branch
-#   master
-* great-new-branch
-
-#### some changes to the files ####
-
-$ git checkout master
-
-$ git merge great-new-branch
-# CONFLICT (follow the message)</code></pre>
-</div>
-<div id="tagging" class="section level3">
-<h3>Tagging</h3>
-<pre class="console"><code>$ git checkout -b (HASH10)
-
-$ git tag submittable_version -m &quot;In case everything else fails&quot;
-
-$ git checkout master
-
-$ git tag
-# submittable_version</code></pre>
-</div>
-<div id="example-process-of-setting-up-a-project" class="section level3">
-<h3>Example Process of Setting Up A Project</h3>
-<pre class="console"><code>$ git init                                # setup
-
+<div id="example-process-of-setting-up-a-project" class="section level2">
+<h2>Example Process of Setting Up A Project</h2>
+<pre class="sh"><code># creat an environment from an environment.yml file
 $ conda env create -f environment.yml     # setup
 
 $ conda activate exercise_1
+$ git init                                # setup
 
 $ python waf.py configure                 # setup
 
@@ -275,10 +155,250 @@ $ git commit -m &quot;Some meaningful messages&quot;
 
 $ git push</code></pre>
 </div>
+<div id="shell" class="section level2">
+<h2>Shell</h2>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<p>TBA</p>
+</div>
+<div id="basics" class="section level3">
+<h3>Basics</h3>
+<pre class="sh"><code>$ who
+# Loikein console  Oct 13 18:28
+# Loikein ttys000  Oct 15 08:49
+
+$ whoami
+# Loikein
+
+$ who am i
+# Loikein ttys000  Oct 15 08:49</code></pre>
+<pre class="sh"><code>$ alias                         # show all alias commands
+
+$ ls                            # list
+$ ls -lh                        # list in long format
+$ ls -lha                       # list all files in long format
+
+$ pwd                           # print working directory
+
+$ cd                            # change directory
+$ mkdir                         # make directory (new folder)
+$ mv                            # move (change name of directory)
+$ rm -r                         # remove directory
+
+$ man                           # manual
+$ [command] -h                  # help</code></pre>
+<pre class="sh"><code>$ subl something.txt            #sublime create or open
+
+$ cp something.txt nothing.txt  #copy
+
+$ ls *.*                        # any file
+$ ls *thing*                    # any file include &quot;thing&quot;
+$ ls some?hing.txt              # one unknown character
+
+$ rm nothing.txt                # delete</code></pre>
+<pre class="sh"><code>$ cat something.txt             # print 
+$ head -2 something.txt         # print first 2 lines
+$ tail -3 something.txt         # print last 3 lines
+
+$ less something.txt            # view (type &quot;q&quot; to quit)
+$ more something.txt            # view &amp; print</code></pre>
+</div>
+<div id="pipeline" class="section level3">
+<h3>Pipeline</h3>
+<p>TBA</p>
+</div>
+</div>
+<div id="git" class="section level2">
+<h2>Git</h2>
+<div id="reference-1" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li><a href="https://git-scm.com/book/zh/v2/">Git - Book (Chinese)</a></li>
+<li><a href="https://www.bootcss.com/p/git-guide/">git 使用简易指南</a><br />
+</li>
+<li><a href="https://juejin.im/post/5bd2debfe51d457abc710b57">规范你的 commit message 并且根据 commit 自动生成 CHANGELOG.md</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解 - 阮一峰的网络日志</a></li>
+</ul>
+</div>
+<div id="basics-1" class="section level3">
+<h3>Basics</h3>
+<pre class="sh"><code>$ git config --global core.editor &quot;atom --wait&quot;
+$ git config --global core.editor &quot;subl -n -w&quot;
+$ git config color.ui true</code></pre>
+<pre class="sh"><code>$ git status
+
+$ git init
+$ git add something.txt
+$ git add -all
+
+$ git reset                     # ignore all changes
+
+$ git commit -m &quot;New ideas for PS1&quot;
+$ git commit -a -m &quot;Add a line&quot;
+
+$ git commit --amend            # change commit message</code></pre>
+<pre class="sh"><code>$ git diff                      # working tree vs index file
+$ git diff --cached             # index file vs commit
+
+$ git diff --color-words        # only show changed words
+
+$ git log                       # commit history
+$ git log --name-only           # commit history w/ file names</code></pre>
+</div>
+<div id="escape-vim" class="section level3">
+<h3>Escape Vim</h3>
+<ul>
+<li>No save: press <code>Esc</code> and press <code>:q</code></li>
+<li>Save: press <code>Esc</code> and press <code>:wq</code></li>
+</ul>
+</div>
+<div id="late-.gitignore" class="section level3">
+<h3>Late <code>.gitignore</code></h3>
+<p>Ref: <a href="https://stackoverflow.com/a/1139797">Ignore files that have already been committed to a Git repository</a></p>
+<pre class="sh"><code>$ git commit -m &quot;add/change .gitignore&quot;
+
+$ git rm -r --cached .
+$ git add .
+
+$ git commit -m &quot;.gitignore is now working&quot;</code></pre>
+</div>
+<div id="multiple-branches" class="section level3">
+<h3>Multiple Branches</h3>
+<pre class="sh"><code>#### commit everything first! ####
+
+$ git branch great-new-branch
+
+$ git branch
+# * master
+#   great-new-branch
+
+$ git checkout great-new-branch
+# Switched to branch &#39;great-new-branch&#39;
+
+$ git branch
+#   master
+# * great-new-branch
+
+#### some changes to the files ####
+
+$ git checkout master
+
+$ git merge great-new-branch
+# CONFLICT (follow the message)</code></pre>
+</div>
+<div id="tagging" class="section level3">
+<h3>Tagging</h3>
+<pre class="sh"><code>$ git checkout -b (HASH10)
+
+$ git tag submittable_version -m &quot;In case everything else fails&quot;
+
+$ git checkout master
+
+$ git tag
+# submittable_version</code></pre>
+</div>
+</div>
+<div id="anaconda" class="section level2">
+<h2>(Ana)Conda</h2>
+<div id="reference-2" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li><a href="https://stackoverflow.com/a/57974390">How do I prevent Conda from activating the base environment by default?</a></li>
+<li><a href="https://medium.com/python4u/%E7%94%A8conda%E5%BB%BA%E7%AB%8B%E5%8F%8A%E7%AE%A1%E7%90%86python%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83-b61fd2a76566">用conda建立及管理python虛擬環境 - Python4U - Medium</a></li>
+<li><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Managing environments — conda documentation</a></li>
+</ul>
+</div>
+<div id="setup-for-zsh" class="section level3">
+<h3>Setup for Zsh</h3>
+<pre class="sh"><code>$ conda init zsh
+
+$ echo -n &#39;CONDA_AUTO_ACTIVATE_BASE=false&#39; &gt;&gt; ~/.zshrc
+$ source ~/.zshrc
+
+$ conda info
+$ conda env list
+# or
+$ conda info --envs
+
+$ conda udate --all</code></pre>
+</div>
+<div id="create-delete-environment" class="section level3">
+<h3>Create &amp; Delete Environment</h3>
+<pre class="sh"><code>#### do not git before activate for the first time! ####
+
+# create new environment with a name
+$ conda create --name someEnv
+# install packages to any environment
+$ conda install -n someEnv numpy
+
+$ conda activate                        # activate base
+$ conda activate someEnv                # activate someEnv
+$ git init
+
+$ conda deactivate                      # deactivate someEnv
+$ conda deactivate                      # deactivate base
+
+$ conda remove -n someEnv --all
+# or
+$ conda env remove -n someEnv</code></pre>
+</div>
+<div id="kernels" class="section level3">
+<h3>Kernels</h3>
+<p>ref:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/44072803">How do I add python3 kernel to jupyter (IPython)</a></li>
+<li><a href="https://jupyter-client.readthedocs.io/en/latest/kernels.html">Making kernels for Jupyter — jupyter_client documentation</a></li>
+</ul>
+<pre class="sh"><code>$ conda activate                        # activate base
+
+$ jupyter kernelspec lists
+# Available kernels:
+#   python3    /usr/local/anaconda3/share/jupyter/kernels/python3
+#### note: this is iPython kernel ####
+
+$ jupyter --paths
+# config:
+#    …
+# data:
+#    …
+# runtime:
+#    …</code></pre>
+<!--
+### Hermes with Sublime Text 3
+
+Find the `kernel.json` in path of kernel, see as from `jupyter kernelspec lists`.  
+Mine looks like this:  
+Paste everything into Hermes: Connect Kernel
+
+```JSON
+{
+ "argv": [
+  "/usr/local/anaconda3/bin/python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python 3",
+ "language": "python"
+}
+```
+-->
+</div>
+<div id="use-sublime-with-sendcode" class="section level3">
+<h3>Use Sublime with SendCode</h3>
+<ol style="list-style-type: decimal">
+<li>Press <code>command + shift + P</code> to start Command Palette</li>
+<li>Install <a href="https://github.com/randy3k/SendCode">randy3k/SendCode</a> via Package Control</li>
+<li>Choose <code>SendCode: Choose Program</code> (e.g. terminal)</li>
+<li><code>$ ipython</code></li>
+<li>Press <code>command + return</code> to run the selected line(s)</li>
+</ol>
+</div>
 </div>
 <div id="python" class="section level2">
 <h2>Python</h2>
-<div id="reference" class="section level3">
+<div id="reference-3" class="section level3">
 <h3>Reference</h3>
 <ul>
 <li><a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 -- Style Guide for Python Code | Python.org</a>
@@ -288,18 +408,9 @@ $ git push</code></pre>
 <li><a href="https://www.onlinegdb.com/online_python_compiler">Online Python Compiler</a></li>
 </ul>
 </div>
-<div id="setup-ipython-kernel" class="section level3">
-<h3>Setup iPython Kernel</h3>
-<p>ref: <a href="https://www.cnblogs.com/hgl0417/p/8204221.html">jupyter中添加conda环境 - LeonHuo - 博客园</a></p>
-<!--
-```console
-$ ipython
-```
--->
-</div>
 <div id="simple-examples" class="section level3">
 <h3>Simple Examples</h3>
-<pre class="console"><code>$ python</code></pre>
+<pre class="sh"><code>$ python</code></pre>
 <pre class="python"><code>print(&quot;hello world&quot;)
 # hello world
 
@@ -378,29 +489,24 @@ for i, iq_raw in enumerate(iq_raw_scores):
         &quot;:&quot;,
         earnings[i],
     )</code></pre>
+<!-- 
+## License
+
+- You are free
+    – to copy, distribute and transmit the work
+    – to adapt the work
+- Under the following conditions
+    - You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).
+- With the understanding that
+    - Any of the above condition scan be waived if you get permission from the copyright holder.
+    - Where the work or any of its elements in the public domain under applicable law, that status is in no way affected by the license.
+- In no way are any of the following rights affected by the license
+    – Your fair dealing or fair use rights, or other applicable copy-right exceptions and limitations
+    – The author's moral rights
+    – Rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.
+- Notice For any reuse or distribution, you must make clear to others the license terms of this work.
+ -->
 </div>
-</div>
-<div id="license" class="section level2">
-<h2>License</h2>
-<ul>
-<li>You are free:
-– to Share to copy, distribute and transmit the work
-– to Remix to adapt the work</li>
-<li>Under the following conditions:
-<ul>
-<li>Attribution You must attribute the work in the manner speci- fied by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).</li>
-</ul></li>
-<li>With the understanding that:
-<ul>
-<li>Waiver Any of the above condition scan be waived if you get permission from the copyright holder.</li>
-<li>Public Domain Wh ere the work or any of its elements in the public domain under applicable law, that status is in no way affected by the license.</li>
-</ul></li>
-<li>In no way are any of the following rights affected by the license:
-– Your fair dealing or fair use rights, or other applicable copy-right exceptions and limitations;
-– The author’s moral rights;
-– Rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.</li>
-<li>Notice For any reuse or distribution, you must make clear to others the license terms of this work.</li>
-</ul>
 </div>
 
     </div>
