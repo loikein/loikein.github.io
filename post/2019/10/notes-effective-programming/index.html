@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.59.1" />
 
 <title>Notes on Effective Programming Practice - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Effective Programming Practice - loikein&#39;s notes">
@@ -222,7 +222,7 @@ $ more something.txt            # view &amp; print</code></pre>
 </div>
 <div id="basics-1" class="section level3">
 <h3>Basics</h3>
-<pre class="sh"><code>$ git config --global core.editor &quot;atom --wait&quot;
+<pre class="sh"><code># git config --global core.editor &quot;atom --wait&quot;
 $ git config --global core.editor &quot;subl -n -w&quot;
 $ git config color.ui true</code></pre>
 <pre class="sh"><code>$ git status
@@ -236,7 +236,9 @@ $ git reset                     # ignore all changes
 $ git commit -m &quot;New ideas for PS1&quot;
 $ git commit -a -m &quot;Add a line&quot;
 
-$ git commit --amend            # change commit message</code></pre>
+$ git commit --amend            # change commit message
+
+$ git log</code></pre>
 <pre class="sh"><code>$ git diff                      # working tree vs index file
 $ git diff --cached             # index file vs commit
 

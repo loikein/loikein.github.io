@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.59.1" />
 
 <title>Notes on Research: Dnyamic Programming - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Research: Dnyamic Programming - loikein&#39;s notes">
@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">12 min read</span>
+    <span class="article-duration">13 min read</span>
     
     <h1 class="article-title">Notes on Research: Dnyamic Programming</h1>
     
@@ -114,6 +114,17 @@ if (!doNotTrack) {
 <li><a href="#poisson-process">Poisson Process</a></li>
 <li><a href="#optimal-exploration-in-two-armed-bandit-problem">Optimal Exploration in Two-Armed Bandit Problem</a></li>
 </ul></li>
+<li><a href="#presentation">Presentation</a><ul>
+<li><a href="#besanko-tong-wu-2018">Besanko Tong Wu 2018</a></li>
+<li><a href="#bonatti-hoerner-2011">Bonatti Hoerner 2011</a></li>
+<li><a href="#branco-sun-villas-boas-2012">Branco Sun Villas-Boas 2012</a></li>
+<li><a href="#che-hoerner-2018">Che Hoerner 2018</a></li>
+<li><a href="#halac-kartik-liu-2016">Halac Kartik Liu 2016</a></li>
+<li><a href="#kremer-mansour-perry-2014">Kremer Mansour Perry 2014</a></li>
+<li><a href="#manso-2011">Manso 2011</a></li>
+<li><a href="#strulovici-2010">Strulovici 2010</a></li>
+</ul></li>
+<li><a href="#term-paper">Term Paper</a></li>
 </ul>
 </div>
 
@@ -610,21 +621,107 @@ The agent have used R up to time <span class="math inline">\(t\)</span> w/o a �
 &amp;= \frac{p\cdot e^{-λt}}{p\cdot e^{-λt} + (1-p)}\\
 \bar{p}_t &amp;= \frac{dp_t}{dt}\\ &amp;= -λ\cdot p_t(1-p_t) \end{aligned}\]</span>
 Optimal strategy: play S for <span class="math inline">\(p_t\leq p^*\)</span><br />
-Continuation region: play R
-<span class="math display">\[rv = pλh + \frac{E[dv]}{dt}\]</span>
+Continuation region: play R (<span class="math inline">\(k=1\)</span>):
+<span class="math display">\[rv = rpλh + \frac{E[dv]}{dt}\]</span> <!-- corrected -->
 with <span class="math inline">\(Pr=e^{-λdt}=1-λdt\)</span>, no jump, <span class="math inline">\(p_{t+dt} = p-λp(1-p)\, dt\)</span><br />
 with <span class="math inline">\(Pr=1-e^{-λdt}=λdt\)</span>, jump, <span class="math inline">\(p_{t+dt} =1\)</span><br />
-therefore, effect of marginal change in belief result in marginal change in value function:
-<span class="math display">\[\begin{aligned}dv &amp;= (1-λdt)\cdot v&#39;[-λp(1-p)]\, dt + (λdt)\cdot[v(1)-v(p)]\\
+therefore, by Ito’s Lemma, effect of marginal change in belief result in marginal change in value function:
+<span class="math display">\[\begin{aligned}dp &amp;= -λp(1-p)\, dt \\
+dv &amp;= (1-λdt)\cdot v&#39;[-λp(1-p)]\, dt + (λdt)\cdot[v(1)-v(p)]\\
 &amp;= \big\{-λp(1-p)v&#39; + λ[v(1)-v(p)]\big\}\, dt + \text{some higher order terms} \\
-rv &amp;= -λp(1-p)v&#39; + λ[v(1) - v(p)]+pλh\end{aligned}\]</span>
+rv &amp;= -λp(1-p)v&#39; + λp[v(1) - v(p)] + rpλh\end{aligned}\]</span> <!-- corrected -->
 where <span class="math inline">\(v(1)\)</span> is the payoff when the agent is sure that R is good (?)<br />
 Value function:
-<span class="math display">\[\begin{aligned}v(p) &amp;= \max\ E\bigg[\int_0^{\infty}\big\{\underbrace{re^{-rt}}_{\text{discount}}\cdot k_t λ_t h + (1-k_t)s\big\}\, dt\bigg] \end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}v(p) &amp;= \max\ E\bigg[\int_0^{\infty}\big\{\underbrace{\overbrace{r}e^{-rt}}_{\text{discount}}\cdot k_t λ_t h + (1-k_t)s\big\}\, dt\bigg] \end{aligned}\]</span>
 where <span class="math inline">\(k_t=1\)</span> means play R, <span class="math inline">\(k_t=0\)</span> means play S<br />
 and <span class="math inline">\(re^{-rt}\)</span> is discounting since <span class="math inline">\(\int re^{-rt}\, dt =1\)</span><br />
-<span class="math inline">\(\implies v(1) = λh\)</span></p>
+<span class="math inline">\(\implies v(1) = λh\)</span><br />
+Let <span class="math inline">\(μ=\frac{r}{λ}\)</span>, <span class="math inline">\(g=λh\)</span><br />
+<span class="math display">\[\begin{aligned}rv &amp;= -λp(1-p)v&#39; + λp[g - v] + rp\underbrace{λh} \\
+μv &amp;= -p(1-p)v&#39; + p[g - v] + μpg \\
+p(1-p)v&#39; + (μ+p)v &amp;= (μ+1)pg &amp;&amp; (ODE)\end{aligned}\]</span>
+particular solution: <span class="math inline">\(v_1=pg\)</span>, <span class="math inline">\(v_1&#39; = g\)</span> (expected value of playing R forever)<br />
+homogeneous equation:
+<span class="math display">\[p(1-p)v&#39; + (μ+p)v = 0\]</span>
+by seperation of variables,
+<span class="math display">\[v_0 = (1-p)(\frac{1-p}{p})^μ\]</span>
+therefore, the general solution of the ODE:
+<span class="math display">\[v=v_1 + C\cdot v_0\]</span>
+Value matching: <span class="math inline">\(v(p^*) = s\)</span>
+Smooth pasting: <span class="math inline">\(v&#39;(p^*) =0\)</span>
+plug back into ODE,
+<span class="math display">\[\begin{aligned}(μ+p^*)s &amp;= (μ+1)p^*g \\
+p^* &amp;= \frac{μs}{(μ+1)(g-s)+μs} \end{aligned}\]</span>
+Comparative statics: <span class="math inline">\(r\narrow\)</span> or <span class="math inline">\(λ\sarrow\impliesμ\narrow\)</span> <span class="math inline">\(\implies p^*\narrow\)</span></p>
 </div>
+</div>
+<div id="presentation" class="section level2">
+<h2>Presentation</h2>
+<ul>
+<li>Real world motivation</li>
+<li>Explan the model mathematically</li>
+<li>Precise result</li>
+<li>Intuition</li>
+<li>Own words!!</li>
+</ul>
+<div id="besanko-tong-wu-2018" class="section level3">
+<h3>Besanko Tong Wu 2018</h3>
+<ul>
+<li>Subsidising research</li>
+<li>Private <span class="math inline">\(λ\)</span></li>
+<li>Maxmin the result</li>
+</ul>
+</div>
+<div id="bonatti-hoerner-2011" class="section level3">
+<h3>Bonatti Hoerner 2011</h3>
+<ul>
+<li>Moral hazard in research teams</li>
+</ul>
+</div>
+<div id="branco-sun-villas-boas-2012" class="section level3">
+<h3>Branco Sun Villas-Boas 2012</h3>
+<ul>
+<li>Optimal stopping for researching for purchasing decision</li>
+</ul>
+</div>
+<div id="che-hoerner-2018" class="section level3">
+<h3>Che Hoerner 2018</h3>
+<ul>
+<li>Spam vs tell everything to the consumer w/ recommender system</li>
+</ul>
+</div>
+<div id="halac-kartik-liu-2016" class="section level3">
+<h3>Halac Kartik Liu 2016</h3>
+<ul>
+<li>Principal hiring agent for research</li>
+<li>Adverse selection, moral hazard &amp; private learning</li>
+</ul>
+</div>
+<div id="kremer-mansour-perry-2014" class="section level3">
+<h3>Kremer Mansour Perry 2014</h3>
+<ul>
+<li>Social planning on recommender system</li>
+</ul>
+</div>
+<div id="manso-2011" class="section level3">
+<h3>Manso 2011</h3>
+<ul>
+<li>Subsidising research for 2 period</li>
+</ul>
+</div>
+<div id="strulovici-2010" class="section level3">
+<h3>Strulovici 2010</h3>
+<ul>
+<li>Collective learning</li>
+</ul>
+</div>
+</div>
+<div id="term-paper" class="section level2">
+<h2>Term Paper</h2>
+<ul>
+<li>Introduction: how does this study fit into the research body</li>
+<li>Conclusion: link back to the introduction</li>
+</ul>
 </div>
 
     </div>
