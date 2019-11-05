@@ -6,10 +6,19 @@
     <description>Recent content in notes on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Behavioural Public Policy</title>
+      <link>/post/2019/11/notes-behaviour-public/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/11/notes-behaviour-public/</guid>
+      <description>  Allcott &amp;amp; Kessler(2019)   Allcott &amp;amp; Kessler(2019) Nudge sets \(\hat{f}=f\) Without nudge \(\hat{f}=f\)   </description>
+    </item>
     
     <item>
       <title>Notes on Econometric Theory</title>
@@ -17,7 +26,7 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-econometric-theory/</guid>
-      <description>Literature Probability Measures σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables Expectation Variance Moments of R^k  Stochastic Convergence Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness)     Uppercase variables: random variables Lowercase variables: deterministic variables  Literature Asymptotic Theory:</description>
+      <description>Literature Probability Measures σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables Expectation Variance Moments of R^k  Stochastic Convergence Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators Linear Regression Model Parametric Model     Uppercase variables: random variables Lowercase variables: deterministic variables  Literature Asymptotic Theory:</description>
     </item>
     
     <item>

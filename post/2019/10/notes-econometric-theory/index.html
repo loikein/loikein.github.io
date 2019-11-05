@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">21 min read</span>
+    <span class="article-duration">24 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -109,6 +109,11 @@ if (!doNotTrack) {
 <li><a href="#convergence-in-distribution-vs.-convergence-in-probability">Convergence in Distribution vs. Convergence in Probability</a></li>
 <li><a href="#central-limit-theorem">Central Limit Theorem</a></li>
 <li><a href="#stochastic-boundedness-tightness">Stochastic Boundedness (Tightness)</a></li>
+<li><a href="#calculus-for-convergence-in-probability-tightness">Calculus for Convergence in Probability &amp; Tightness</a></li>
+</ul></li>
+<li><a href="#m-estimators">M-Estimators</a><ul>
+<li><a href="#linear-regression-model">Linear Regression Model</a></li>
+<li><a href="#parametric-model">Parametric Model</a></li>
 </ul></li>
 </ul>
 </div>
@@ -875,7 +880,7 @@ Therefore, by Thm 1.19, <span class="math inline">\(E\big[f_n(X)\big]\to E\big[f
 <blockquote>
 <p>Def 2.1.</p>
 <ol style="list-style-type: lower-roman">
-<li>Convergence in probability: <span class="math inline">\(X_n\overset{P}{\to}X\)</span> if for any <span class="math inline">\(ε&gt;0\)</span>,
+<li>Convergence in probability: <span class="math inline">\(X_n\overset{P}{\to}X\)</span>, or <span class="math inline">\(X_n=X+o_p(1)\)</span> if for any <span class="math inline">\(ε&gt;0\)</span>,
 <span class="math display">\[\underbrace{P\big(\| X_n - X \|&gt;ε\big)}_{:= a_n(ε)}\to 0\]</span>
 in other words,<br />
 for all <span class="math inline">\(d&gt;0\)</span>, exists <span class="math inline">\(N\in\mathbb{N}\)</span> s.t. <span class="math inline">\(a_n(ε)\leq d\)</span> for all <span class="math inline">\(n\geq N\)</span></li>
@@ -1094,7 +1099,7 @@ choose <span class="math inline">\(N\in\mathbb{N}\)</span> s.t. <span class="mat
 <span class="math inline">\(\implies\)</span> we have <span class="math inline">\(\Big| E\big[f(X_n)\big] - E\big[f(X)\big]\Big| \leq ε\)</span></p>
 <blockquote>
 <p>Thm 2.12.<br />
-Let <span class="math inline">\(c\in\mathbb{R}^k\)</span>, then <span class="math inline">\(X_n\overset{p}{\to} c\iff X_n\overset{d}{\to}\)</span></p>
+Let <span class="math inline">\(c\in\mathbb{R}^k\)</span>, then <span class="math inline">\(X_n\overset{p}{\to} c\iff X_n\overset{d}{\to}c\)</span></p>
 </blockquote>
 <p>Proof: exercises</p>
 </div>
@@ -1178,6 +1183,132 @@ Therefore,
 Choose <span class="math inline">\(c=\max\{|X_ε^-|, |X_ε^+|\}\)</span>, therefore,<br />
 <span class="math display">\[\begin{aligned}P(|X|\leq c)&amp;\geq P(X_ε^-&lt;X\leq X_ε^+ )\\
 &amp;\geq 1-ε \end{aligned}\]</span></p>
+</div>
+<div id="calculus-for-convergence-in-probability-tightness" class="section level3">
+<h3>Calculus for Convergence in Probability &amp; Tightness</h3>
+<ul>
+<li>Convergence in Probability: <span class="math inline">\(X_n=X+o_p(1)\)</span> means <span class="math inline">\(X_n\overset{P}{\to} X\)</span></li>
+<li>Tightness: <span class="math inline">\(X_n=O_p(1)\)</span></li>
+<li>Let <span class="math inline">\(\{r_n\}\)</span> be a real sequence
+<ul>
+<li>If <span class="math inline">\(r_n^{-1}\cdot X_n = O_p(1)\)</span>, then <span class="math inline">\(X_n\)</span> is of order <span class="math inline">\(r_n\)</span>: <span class="math display">\[X_n=O_p(\underline{r_n})\]</span></li>
+<li>If <span class="math inline">\(r_n^{-1}\cdot X_n = o_p(1)\)</span>, then <span class="math inline">\(X_n\)</span> is of smaller order than <span class="math inline">\(r_n\)</span>: <span class="math display">\[X_n=o_p(\underline{r_n})\]</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Thm 2.17.</p>
+<ol style="list-style-type: lower-roman">
+<li>Let <span class="math inline">\(c\in\mathbb{R}\)</span>,<br />
+then <span class="math inline">\(X_n=c+o_p(1)\implies X_n=O_p(1)\)</span></li>
+<li>For <span class="math inline">\(X_n,Y_n=o_p(1)\)</span>, <span class="math inline">\(U_n,W_n=O_p(1)\)</span>,
+<span class="math display">\[\begin{aligned}(a) &amp;&amp; X_n+Y_n&amp;=o_p(1)\\ (b) &amp;&amp; U_n+W_n&amp;=O_p(1) \\(c) &amp;&amp; U_n\cdot W_n&amp;=O_p(1)\\(d) &amp;&amp; X_n\cdot U_n&amp;=o_p(1)\end{aligned}\]</span></li>
+<li>Slutsky’s Lemma<br />
+Let <span class="math inline">\(g:\mathbb{R}^k\to\mathbb{R}^l\)</span> continuous at <span class="math inline">\(x_0\)</span>, <span class="math inline">\(X_n = x_0+o_p(1)\)</span>,<br />
+then <span class="math inline">\(g(X_n)=g(x_0) + o_p(1)\)</span></li>
+<li>Let <span class="math inline">\(A_n\)</span> random matrix, <span class="math inline">\(A\)</span> deterministic invertible matrix, <span class="math inline">\(A_n=A+o_p(1)\)</span>,<br />
+then <span class="math inline">\(A_n^{-1}\)</span> exists with probability approaching 1, <span class="math inline">\(A_n^{-1}=A^{-1}+o_p(1)\)</span></li>
+</ol>
+</blockquote>
+<p>Proof:</p>
+<ol style="list-style-type: lower-roman">
+<li>Thm 2.12</li>
+<li>Exercise</li>
+<li></li>
+<li><ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(A\)</span> is invertible, then all <span class="math inline">\(B\)</span> with <span class="math inline">\(\|B-A\|\leq ε\)</span> are invertible,<br />
+therefore, since <span class="math inline">\(A_n=A+o_p(1)\)</span>,
+<span class="math display">\[\begin{aligned}P(A_n^{-1}\text{ exists})&amp;\geq P(\|A_n-A\|\leq ε)\\&amp;\to 1 \end{aligned}\]</span></li>
+<li><span class="math inline">\(A_n^{-1}=A^{-1}+o_p(1)\)</span> since matrix inversion is a continuous mapping<br />
+Let <span class="math inline">\(g(B)=B^{-1}\)</span> for invertible matrix <span class="math inline">\(B\)</span>,<br />
+<span class="math inline">\(\implies g\)</span> is continuous at <span class="math inline">\(B=A\)</span><br />
+therefore, by (iii),
+<span class="math display">\[g(A_n) = g(A) + o_p(1)\]</span></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>Examples</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[\begin{aligned} &amp;&amp; \sqrt{n}\cdot X &amp;= O_p(1) \\
+\iff &amp;&amp; X_n &amp;= O_p(\frac{1}{\sqrt{n}})\\
+\iff &amp;&amp; X_n &amp;= \underbrace{\frac{1}{\sqrt{n}}}_{=o_p(1)} \cdot O_p(1) = o_p(1) \end{aligned}\]</span>
+Set <span class="math inline">\(X_n=(\hat{θ}_n-θ)\)</span>, <span class="math inline">\(\hat{θ}_n\)</span> is an estimation of <span class="math inline">\(θ\)</span>, then
+<span class="math display">\[\begin{aligned}&amp;&amp;\sqrt{n}\cdot (\hat{θ}_n-θ)&amp;= O_p(1) \\
+\iff &amp;&amp; \hat{θ}_n&amp;= θ+O_p(\frac{1}{\sqrt{n}}) \end{aligned}\]</span></li>
+<li>For <span class="math inline">\(X_n = O_p(r_n)\)</span>,
+<span class="math display">\[P(|X_n|\leq c\cdot r_n)\geq 1-ε\text{ for all }n\geq N\]</span></li>
+<li>For <span class="math inline">\(Z_n=o_p(r_n)\)</span>,
+<span class="math display">\[P(|Z_n|\leq ε\cdot r_n)\to 1\]</span></li>
+</ol>
+</div>
+</div>
+<div id="m-estimators" class="section level2">
+<h2>M-Estimators</h2>
+<div id="linear-regression-model" class="section level3">
+<h3>Linear Regression Model</h3>
+<ul>
+<li>Standard model: <span class="math display">\[\begin{aligned}Y &amp;= X^T \cdot θ_0 + ε \\ &amp;= θ_{0,1}X_1 + \dots + θ_{0,d}X_d + ε \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(E[ε\ |\ X] = 0\)</span>, <span class="math inline">\(E[ε^2\ |\ X]=σ^2\)</span></li>
+<li><span class="math inline">\(E[Y\ |\ X] = E[X^T \cdot θ_0 + ε\ |\ X] = X^T \cdot θ_0\)</span></li>
+</ul></li>
+<li><span class="math inline">\(θ_0\)</span> is the minimizer: <span class="math display">\[θ_0 \in\text{argmin}_{θ\in\mathbb{R}^d}\ Q(θ)= E[(Y-X^T \cdot θ)^2]\]</span>
+since
+<span class="math display">\[\begin{aligned}E[(Y-X^T \cdot θ)^2] &amp;= E[(X^T \cdot θ_0 + ε - X^T \cdot θ)^2]\\
+&amp;= E[ε^2] + 2\underbrace{E[εX^T(θ_0-θ)]}_{=0}+ E[(X^T(θ_0-θ))^2] \\
+&amp;= σ^2 + E[(θ_0-θ)^TXX^T(θ_0-θ)] \\
+&amp;= σ^2 + (θ_0-θ)^TE[XX^T](θ_0-θ)\end{aligned}\]</span></li>
+<li>Estimator <span class="math inline">\(\hat{θ}\)</span><br />
+Suppose have iid data, replace <span class="math inline">\(Q(θ)\)</span> by empirical data (sample mean):
+<span class="math display">\[\begin{aligned} \min &amp;&amp; Q_n(θ) &amp;= \frac{1}{n}\sum (Y_i-X_i^T \cdot θ)^2 \\
+&amp;&amp; \hat{θ} &amp;= \text{argmin}_{θ\in\mathbb{R}^d} \ Q_n(θ) \end{aligned}\]</span>
+the problem has a closed form solution:
+<span class="math display">\[\begin{aligned} \hat{θ} &amp;= \Big(\frac{1}{n}\sum X_iX_i^T\Big)^{-1}\Big(\frac{1}{n}\sum X_iY_i\Big)\\
+&amp;= θ_0 + \Big(\frac{1}{n}\sum X_iX_i^T\Big)^{-1}\Big(\frac{1}{n}\sum X_iε_i\Big)\end{aligned}\]</span></li>
+<li>Asymptotics of <span class="math inline">\(\hat{θ}\)</span>:<br />
+by applying LLN and CLT, under standard conditions,
+<span class="math display">\[\begin{aligned}\frac{1}{n}\sum X_iX_i^T &amp;\overset{P}{\to} E[X_iX_i^T] \\
+\frac{1}{\sqrt{n}}\sum X_iε_i &amp;\overset{d}{\to} \mathcal{N}(0,σ^2E[X_iX_i^T]) \\
+\sqrt{n}(\hat{θ}-θ_0) &amp;\overset{d}{\to} \mathcal{N}(0,\frac{1}{σ^2E[X_iX_i^T]}) \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="parametric-model" class="section level3">
+<h3>Parametric Model</h3>
+<ul>
+<li><span class="math inline">\(Z\)</span>: <span class="math inline">\(\mathbb{R}^d\)</span> value random variable
+<ul>
+<li>Distribution function: <span class="math inline">\(Z\sim P\)</span></li>
+</ul></li>
+<li>Model for <span class="math inline">\(Z\)</span>: known up to finite dimensional parameter <span class="math inline">\(θ_0\in Θ\subset \mathbb{R}^k\)</span></li>
+<li><span class="math inline">\(θ_0\)</span> is the minimizer for criterian function <span class="math inline">\(Q(θ)=E[q(Z,θ)]\)</span>
+<span class="math display">\[\begin{aligned}Z &amp;= (Y,X)\\ Q(θ) &amp;= E[(Y-X^Tθ)^2] \\ θ_0 &amp;=\text{argmax}_{θ\in\mathbb{R}^k}\ Q(θ) \end{aligned}\]</span></li>
+<li>Sample: (iid) <span class="math inline">\(\{Z_i: i=1,\dots, n\}\)</span>, <span class="math inline">\(Z_i\sim P\)</span>
+<ul>
+<li>Sample criterian function:
+<span class="math display">\[Q_n(θ) = \frac{1}{n}\sum q(Z_i, θ)\]</span>
+by LLN, <span class="math inline">\(Q_n(θ)\overset{P}{\to}Q(θ)\)</span> pointwise as <span class="math inline">\(n\to\infty\)</span></li>
+<li>M-estimator: <span class="math display">\[\hat{θ}=\hat{θ}_n=\text{argmax} \ Q_n(θ)\]</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Examples<br />
+Do we get consistency: <span class="math inline">\(\hat{θ}_n\to θ\)</span><br />
+or asymptotic normality: <span class="math inline">\(\sqrt{n}(\hat{θ}_n-θ)\overset{d}{\to}\mathcal{N}(0,Σ)\)</span>?</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>OLS<br />
+<span class="math inline">\(Z=(Y,X)\)</span>, <span class="math inline">\(q(Z,θ)=(Y-X^Tθ)^2\)</span>,
+<span class="math display">\[\begin{aligned}Q(θ) &amp;= E[q(Z,θ)]\\&amp;=E[(Y-X^Tθ)^2] \\ Q_n(θ) &amp;= \frac{1}{n}\sum q(Z_i,θ) \\ &amp;= \frac{1}{n}\sum (Y_i-X_i^Tθ)^2 \end{aligned}\]</span>
+OLS estimator: <span class="math inline">\(\hat{θ}=\text{argmax}_{θ\in\mathbb{R}^k}\ Q_n(θ)\)</span></li>
+<li>Non-linear Least Squares<br />
+<span class="math inline">\(Z=(Y,X)\)</span>, <span class="math inline">\(Y=g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε\ |\ X] = 0\)</span> and <span class="math inline">\(g\)</span> is a function known up to <span class="math inline">\(θ_0\)</span><br />
+<span class="math inline">\(E[Y\ |\ X] = g(X,θ_0)\)</span>, <span class="math inline">\(θ\in\text{argmax}_{θ\in Θ}\ E[(Y-g(X,θ_0))^2]\)</span><br />
+Let <span class="math inline">\(q(Z,θ)=(Y-g(X,θ_0))^2\)</span>,
+<span class="math display">\[\begin{aligned}Q(θ) &amp;= E[q(Z,θ)]\\&amp;=E[(Y-g(X,θ_0))^2]\\ Q_n(θ) &amp;= \frac{1}{n}\sum q(Z_i,θ) \\ &amp;= \frac{1}{n}\sum (Y_i - g(X_i,θ))^2 \end{aligned}\]</span></li>
+<li>Maximum Likelihood Estimator</li>
+<li>General Method of Moments</li>
+<li>Quantiles</li>
+</ol>
 </div>
 </div>
 
