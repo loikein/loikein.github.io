@@ -118,10 +118,9 @@ if (!doNotTrack) {
 <li><a href="#kernels">Kernels</a></li>
 <li><a href="#use-sublime-with-sendcode">Use Sublime with SendCode</a></li>
 </ul></li>
-<li><a href="#python">Python</a><ul>
-<li><a href="#reference-3">Reference</a></li>
-<li><a href="#simple-examples">Simple Examples</a></li>
-<li><a href="#list-loop">List &amp; Loop</a></li>
+<li><a href="#python">Python</a></li>
+<li><a href="#waf">Waf</a><ul>
+<li><a href="#config">Config</a></li>
 </ul></li>
 </ul>
 </div>
@@ -393,6 +392,7 @@ Paste everything into Hermes: Connect Kernel
 <li>Press <code>command + shift + P</code> to start Command Palette</li>
 <li>Install <a href="https://github.com/randy3k/SendCode">randy3k/SendCode</a> via Package Control</li>
 <li>Choose <code>SendCode: Choose Program</code> (e.g. terminal)</li>
+<li><code>$ conda activate</code></li>
 <li><code>$ ipython</code></li>
 <li>Press <code>command + return</code> to run the selected line(s)</li>
 </ol>
@@ -400,97 +400,23 @@ Paste everything into Hermes: Connect Kernel
 </div>
 <div id="python" class="section level2">
 <h2>Python</h2>
-<div id="reference-3" class="section level3">
-<h3>Reference</h3>
+<p>see <a href="../../06/intro-python/">Notes on Python</a></p>
+</div>
+<div id="waf" class="section level2">
+<h2>Waf</h2>
 <ul>
-<li><a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 -- Style Guide for Python Code | Python.org</a>
-<ul>
-<li><a href="https://alvinzhu.xyz/2017/10/07/python-pep-8/">Python PEP-8编码风格指南中文版</a></li>
-</ul></li>
-<li><a href="https://www.onlinegdb.com/online_python_compiler">Online Python Compiler</a></li>
+<li>Like a master <code>.do</code> file</li>
+<li>Declarative programming</li>
 </ul>
-</div>
-<div id="simple-examples" class="section level3">
-<h3>Simple Examples</h3>
-<pre class="sh"><code>$ python</code></pre>
-<pre class="python"><code>print(&quot;hello world&quot;)
-# hello world
-
-print(&quot;hello&quot; &quot;world&quot;)
-# helloworld
-
-exit()</code></pre>
-<pre class="python"><code>&quot;&quot;&quot;Compute the output of a Cobb-Douglas earnings function.
-&quot;&quot;&quot;
-# Define the parameters of the technology.
-a = 7.5
-gamma_cogn = 2
-gamma_noncogn = 3
-
-# Define the values of the inputs.
-iq_demeaned = -5
-locus_of_control = 3
-grit = 7
-
-# Compute the earnings.
-earnings = (
-    a
-    * iq_demeaned ** gamma_cogn
-    * ((locus_of_control + grit) / 2) ** gamma_noncogn
-)
-
-# Display the results.
-print(&quot;Annual earnings in Euros:&quot;, earnings)</code></pre>
-</div>
-<div id="list-loop" class="section level3">
-<h3>List &amp; Loop</h3>
-<pre class="python"><code># Define the values of the inputs.
-a = 7.5
-gamma_cogn = 2
-gamma_noncogn = 3
-iq_raw_scores = [95, 105]
-locus_of_control = 3
-grit = 7
-
-for iq_raw in iq_raw_scores:
-    # Compute the earnings.
-    earnings = (
-        a
-        * iq_raw ** gamma_cogn
-        * ((locus_of_control + grit) / 2) ** gamma_noncogn
-    )
-    
-    # Display the results.
-    print(
-    &quot;Annual earnings in Euros, IQ =&quot;, iq_raw,
-    &quot;:&quot;,
-    earnings,
-    )</code></pre>
-<pre class="python"><code># Define the values of the inputs.
-a = 7.5
-gamma_cogn = 2
-gamma_noncogn = 3
-iq_raw_scores = [95, 105]
-locus_of_control = 3
-grit = 7
-
-# Compute the earnings.
-earnings = []
-for iq_raw in iq_raw_scores:
-    earnings.append(
-        a
-        * iq_raw ** gamma_cogn
-        * ((locus_of_control + grit) / 2) ** gamma_noncogn
-    )
-
-# Display the results.
-for i, iq_raw in enumerate(iq_raw_scores):
-    print(
-        &quot;Annual earnings in Euros, IQ =&quot;,
-        iq_raw,
-        &quot;:&quot;,
-        earnings[i],
-    )</code></pre>
+<div id="config" class="section level3">
+<h3>Config</h3>
+<pre class="python"><code>def configure(ctx):
+    ctx.env.PYTHONPATH = os.getcwd()
+    # Need shell-escape for converting eps to pdf on the fly, necessary e.g. for Stata # Vector graphics output in batch mode.
+    ctx.env.PDFLATEXFLAGS = [&quot;-halt-on-error&quot;]
+    ctx.load(&quot;run_py_script&quot;)
+    ctx.load(&quot;write_project_headers&quot;)
+    ctx.load(&quot;tex&quot;)</code></pre>
 <!-- 
 ## License
 
