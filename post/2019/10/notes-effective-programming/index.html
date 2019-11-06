@@ -97,7 +97,7 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#slides">Slides</a></li>
-<li><a href="#example-process-of-setting-up-a-project">Example Process of Setting Up A Project</a></li>
+<li><a href="#example-process-of-a-project">Example Process of A Project</a></li>
 <li><a href="#shell">Shell</a><ul>
 <li><a href="#reference">Reference</a></li>
 <li><a href="#basics">Basics</a></li>
@@ -136,19 +136,25 @@ Please use Google to tailor your own version.</p>
 <li><a href="https://www.dropbox.com/sh/0rk6k43bx2xqme2/AACLJFsQ9uG2_pUTR6JMk39Ga?dl=0">Dropbox - prog-econ-log</a></li>
 </ul>
 </div>
-<div id="example-process-of-setting-up-a-project" class="section level2">
-<h2>Example Process of Setting Up A Project</h2>
-<pre class="sh"><code># creat an environment from an environment.yml file
-$ conda env create -f environment.yml     # setup
+<div id="example-process-of-a-project" class="section level2">
+<h2>Example Process of A Project</h2>
+<pre class="sh"><code>#### set up ####
+
+# clone
+$ git clone https://github.com/path-to-your-repo 
+
+# creat an environment from an environment.yml file
+$ conda env create -f environment.yml
 
 $ conda activate exercise_1
-$ git init                                # setup
 
-$ python waf.py configure                 # setup
+$ python waf.py configure
 
-$ subl .gitignore                         # setup
+$ subl .gitignore
 
-#### some changes to the files ####
+#### do the following everytime ####
+
+# after some changes to the files
 
 $ python waf.py build
 

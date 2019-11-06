@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">24 min read</span>
+    <span class="article-duration">26 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -702,6 +702,14 @@ Let <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)<
 Let <span class="math inline">\(g:\mathbb{R}\to\mathbb{R}\)</span> be bounded integrable function, then<br />
 <span class="math display">\[E[g(X)] = \int_{-\infty}^{\infty} g(x)\cdot f(x)\, dx\]</span></p>
 </blockquote>
+<blockquote>
+<p>PS3.Q1<br />
+A function <span class="math inline">\(f:\mathbb{R}\to[0,\infty)\)</span> is given by<br />
+<span class="math display">\[f(x)=\begin{cases}c(x+2) &amp; -2\leq x&lt;0 \\ c(2-x) &amp; 0\leq x&lt;2 \\ 0 \end{cases}\]</span>
+Chose <span class="math inline">\(c\)</span> s.t. <span class="math inline">\(\int f(x)\, dx = 1\)</span></p>
+</blockquote>
+<p><span class="math display">\[\begin{aligned}4c &amp;= \int f(x)\, dx \\
+c&amp;=1/4 \end{aligned}\]</span></p>
 </div>
 <div id="variance" class="section level3">
 <h3>Variance</h3>
@@ -732,6 +740,19 @@ Therefore,
 &amp;= \textstyle{\sum}_{i=1}^n E[X_i^2] + \underbrace{\textstyle{\sum}_{i\neq j} E[X_iX_j]}_{=0} \\
 &amp;= \textstyle{\sum}_{i=1}^n E[X_i^2] \\
 &amp;= \textstyle{\sum}_{i=1}^n Var(X_i) \end{aligned}\]</span></p>
+<blockquote>
+<p>PS3.Q2<br />
+Let <span class="math inline">\(X\)</span> be a real valued random variable with the density
+<span class="math display">\[f(x)=\frac{1}{\sqrt{2πσ^2}}\exp\big(-\frac{(x-μ)^2}{σ^2} \big)\]</span>
+Show that <span class="math inline">\(μ = E[X]\)</span> and <span class="math inline">\(σ^2 = Var(X)\)</span></p>
+</blockquote>
+<p>We already know <span class="math inline">\(μ = E[X]\)</span>
+<span class="math display">\[\begin{aligned}E[X] &amp;= \int x^2 f(x)\, dx \\
+&amp;= \int x^2\cdot\frac{1}{\sqrt{2πσ^2}}\exp\big(-\frac{(x-μ)^2}{σ^2} \big)\, dx \\
+&amp;= 2μ\cdot\underbrace{\int xf(x)\, dx}_{=μ}-μ^2\cdot\underbrace{\int f(x)\, dx}_{=1} + \int (x-μ)^2\cdot\frac{1}{\sqrt{2πσ^2}}\exp\big(-\frac{(x-μ)^2}{σ^2} \big)\, dx \\
+&amp;= μ^2 + \int y^2\cdot\frac{1}{\sqrt{2πσ^2}}\exp\big(-\frac{y^2}{σ^2} \big)\, dy \\
+&amp;= μ^2 + σ^2\end{aligned}\]</span>
+Since <span class="math inline">\(Var(x) &amp;= E[X^2] - (E[X])^2\)</span>, …</p>
 </div>
 <div id="moments-of-rk" class="section level3">
 <h3>Moments of R^k</h3>
@@ -866,6 +887,25 @@ Therefore, by Thm 1.19, <span class="math inline">\(E\big[f_n(X)\big]\to E\big[f
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>PS3.Q3<br />
+Construct a probability space <span class="math inline">\((Ω, \mathcal{A}, P)\)</span> and a sequence of random variables <span class="math inline">\(\{X_n : n\in N\}\)</span> with the following property:<br />
+<span class="math inline">\(X_n(ω)\to 0\)</span> for all <span class="math inline">\(ω\in Ω\)</span> but <span class="math inline">\(E[X_n]\not\to 0\)</span></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\((Ω, \mathcal{A}, P)=(\mathbb{N}, P(\mathbb{N}),P)\)</span><br />
+<span class="math inline">\(P(A)=\sum p(n)\)</span> for all <span class="math inline">\(A\in\mathcal{A}\)</span>, <span class="math inline">\(p(n)=2^{-n}\)</span><br />
+<span class="math display">\[X_n(ω)=\begin{cases}2^n &amp; ω\in\mathbb{N}\backslash\{1,\dots,n\}\\ \frac{1}{n} &amp; ω\in\{1,\dots,n\} \end{cases}\]</span>
+Therefore, <span class="math inline">\(X_n\to 0\)</span> pointwise, but
+<span class="math display">\[\begin{aligned}E[X_n] &amp;= \textstyle{\sum}^{\infty} p(i)X_n(i)\\
+&amp;= \textstyle{\sum}^n_{i=1} p(i)X_n(i) + \textstyle{\sum}_{i=n+1}^{\infty} p(i)X_n(i)\\
+&amp;= \frac{1}{n}\cdot\textstyle{\sum}^n_{i=1}2^{-i} + 2^n\cdot\textstyle{\sum}_{i=n+1}^{\infty}2^{-i} \\
+&amp;= \underbrace{\frac{1}{n}\cdot\textstyle{\sum}^n_{i=1}2^{-n}}_{\to 0} + 1 \to 1 \end{aligned}\]</span></li>
+<li>Let <span class="math inline">\((Ω, \mathcal{A}, P)=([0,1], \mathcal{B},\text{uniform dist.})\)</span><br />
+<span class="math display">\[X_n(ω)=\begin{cases}0 &amp; ω=0 \\ n^2 &amp; 0&lt;ω&lt;\frac{1}{n} \\ 0 &amp; \frac{1}{n}\leq ω\leq 1 \end{cases}\]</span>
+Therefore, <span class="math inline">\(X_n(ω)\to X(ω)= 0\)</span> pointwise for all <span class="math inline">\(ω\in[0,1]\)</span>, but
+<span class="math display">\[\begin{aligned}E[X_n] &amp;= \frac{1}{n} \cdot n^2 \\ &amp;= n\to\infty \end{aligned}\]</span></li>
+</ol>
 </div>
 <div id="convergence-in-probability" class="section level3">
 <h3>Convergence in Probability</h3>
@@ -1165,7 +1205,7 @@ for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math i
 <span class="math inline">\(X_n=X\sim\mathcal{N}(0,1)\)</span><br />
 for any <span class="math inline">\(c&gt;0\)</span>, always exists <span class="math inline">\(X_i\)</span> s.t. <span class="math inline">\(|X_i|&gt;c\)</span><br />
 therefore, cannot use <span class="math inline">\(P\big(\|X_n\|\leq c\big)=1\)</span><br />
-$P(|X_n|c)</p>
+<span class="math inline">\(\implies P\big(\|X_n\|\leq c\big)\)</span></p>
 <blockquote>
 <p>Thm 2.16.<br />
 <span class="math inline">\(X_n\overset{d}{\to} X\implies X_n=O_p(1)\)</span></p>
@@ -1308,6 +1348,52 @@ Let <span class="math inline">\(q(Z,θ)=(Y-g(X,θ_0))^2\)</span>,
 <li>Maximum Likelihood Estimator</li>
 <li>General Method of Moments</li>
 <li>Quantiles</li>
+</ol>
+<blockquote>
+<p>PS3.Q4: Lemma of Fatou<br />
+Consider a sequence of non-negative random variables <span class="math inline">\(X_n\)</span> (defined on the same probability space <span class="math inline">\((Ω, \mathcal{A}, P)\)</span>)<br />
+Define <span class="math inline">\(X(ω)= \text{lim inf}_{n\to\infty} X_n(ω) = \lim_{n\to\infty}\inf_{k\geq n} X_k(ω)\)</span><br />
+Apply the monotone convergence theorem to show that
+<span class="math display">\[E[X] = E[\text{lim inf}_{n\to\infty} X_n]\leq \text{lim inf}_{n\to\infty} E[X_n]\]</span></p>
+</blockquote>
+<p>Since <span class="math inline">\(X_n\)</span> is non-negative, <span class="math inline">\((\inf_{k\geq n} X_k(ω))_{k\in\mathbb{N}}\)</span> is monotonic increasing,
+<span class="math display">\[\begin{aligned}E[X] &amp;= E[\text{lim inf}_{n\to\infty} X_n] \\
+&amp;= \lim_{n\to\infty} E[\inf_{k\geq n} X_k]\end{aligned}\]</span>
+Let <span class="math inline">\(Y=\inf_{k\geq n} X_k\)</span><br />
+<span class="math inline">\(\implies Y\leq X_k\)</span> for all <span class="math inline">\(k\geq n\)</span><br />
+<span class="math inline">\(\implies E[Y]\leq E[X_k]\)</span> for all <span class="math inline">\(k\geq n\)</span><br />
+Take inf of RHS,
+<span class="math display">\[\begin{aligned}E[Y] &amp;\leq \inf_{k\geq n}E[X_k] \\
+E[\inf_{k\geq n} X_k] &amp;\leq \inf_{k\geq n}E[X_k] \\
+E[\text{lim inf}_{n\to\infty} X_n] &amp;\leq \text{lim inf}_{n\to\infty} E[X_n]\end{aligned}\]</span></p>
+<blockquote>
+<p>PS3.Q5: Cauchy-Schwarz Inequality<br />
+Let <span class="math inline">\(X, Y\)</span> be real valued random variables with <span class="math inline">\(E[X^2],E[Y^2]&lt;\infty\)</span>.<br />
+Hint:</p>
+<ol style="list-style-type: decimal">
+<li>Show that <span class="math inline">\((E[XY])^2\leq E[X^2]E[Y^2]\)</span></li>
+<li>What does hold if <span class="math inline">\((E[XY])^2= E[X^2]E[Y^2]\)</span>?</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>Since <span class="math display">\[\begin{aligned}|X\cdot Y|&amp;\leq X^2 + Y^2 \\
+E[|X\cdot Y|] &amp;\leq E[X^2 + Y^2] \\
+&amp;= E[X^2] + E[Y^2] &lt;\infty \end{aligned}\]</span>
+Pick arbitrary <span class="math inline">\(α,β\in\mathbb{R}\)</span>,
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(E[X\cdot Y]\geq 0\)</span>
+<span class="math display">\[\begin{aligned}0&amp;\leq E[(αX-βY)^2] \\&amp;= α^2E[X^2] - 2αβE[XY] + β^2E[Y^2] \\
+ 2E[XY] &amp;\leq \frac{α}{β}E[X^2] + \frac{β}{α}E[Y^2] \\
+ 2E[XY] &amp;\leq \frac{\sqrt{E[Y^2]}}{\sqrt{E[X^2]}}E[X^2] + \frac{\sqrt{E[X^2]}}{\sqrt{E[Y^2]}}E[Y^2] \\
+ &amp;= 2\sqrt{E[X^2]}\sqrt{E[Y^2]} \\
+ E[(XY)^2] &amp;\leq E[X^2]E[Y^2]\end{aligned}\]</span></li>
+<li><span class="math inline">\(E[X\cdot Y]&lt; 0\)</span>, use <span class="math inline">\(0\leq E[(αX+βY)^2]\)</span></li>
+</ol></li>
+<li>Assume <span class="math inline">\(E[X^2],E[Y^2]\neq 0\)</span>,<br />
+<span class="math display">\[\begin{aligned}(E[XY])^2 &amp;= E[X^2]E[Y^2] \\
+E[(\frac{X}{\sqrt{E[X^2]}}\pm\frac{Y}{\sqrt{E[Y^2]}} )^2] &amp;= 0 &amp;&amp;\pm\text{ holds or} \\
+\frac{X}{\sqrt{E[X^2]}}\pm\frac{Y}{\sqrt{E[Y^2]}} &amp;= 0 &amp;&amp; \text{almost surely} \\
+X &amp;= C\dots Y &amp;&amp;\text{ almost surely for }c\neq 0 \end{aligned}\]</span></li>
 </ol>
 </div>
 </div>
