@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">28 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -1284,6 +1284,17 @@ Set <span class="math inline">\(X_n=(\hat{θ}_n-θ)\)</span>, <span class="math 
 </div>
 <div id="m-estimators" class="section level2">
 <h2>M-Estimators</h2>
+<ul>
+<li>Assume random variables <span class="math inline">\(Z\sim P_{θ_0}\)</span>, <span class="math inline">\(P_{θ_0}\in\{P_{θ} : θ\in Θ \}\)</span>
+<ul>
+<li><span class="math inline">\(θ_0 = \text{argmax}_{θ\in Θ} \ Q(θ)\)</span></li>
+</ul></li>
+<li>Let <span class="math inline">\(\{Z_i : i=1,\dots, n\}\)</span> be iid data with <span class="math inline">\(Z_i\sim P_{θ_0}\)</span>
+<ul>
+<li>Approximate <span class="math inline">\(Q(θ)\)</span> by <span class="math inline">\(Q_n(θ) = Q_n(θ, Z_1,\dots, Z_n)\)</span></li>
+<li>M-Estimator: <span class="math inline">\(\hat{θ} =\text{argmax}_{θ\in Θ} \ Q_n(θ)\)</span></li>
+</ul></li>
+</ul>
 <div id="linear-regression-model" class="section level3">
 <h3>Linear Regression Model</h3>
 <ul>
@@ -1344,11 +1355,70 @@ OLS estimator: <span class="math inline">\(\hat{θ}=\text{argmax}_{θ\in\mathbb{
 <span class="math inline">\(Z=(Y,X)\)</span>, <span class="math inline">\(Y=g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε\ |\ X] = 0\)</span> and <span class="math inline">\(g\)</span> is a function known up to <span class="math inline">\(θ_0\)</span><br />
 <span class="math inline">\(E[Y\ |\ X] = g(X,θ_0)\)</span>, <span class="math inline">\(θ\in\text{argmax}_{θ\in Θ}\ E[(Y-g(X,θ_0))^2]\)</span><br />
 Let <span class="math inline">\(q(Z,θ)=(Y-g(X,θ_0))^2\)</span>,
-<span class="math display">\[\begin{aligned}Q(θ) &amp;= E[q(Z,θ)]\\&amp;=E[(Y-g(X,θ_0))^2]\\ Q_n(θ) &amp;= \frac{1}{n}\sum q(Z_i,θ) \\ &amp;= \frac{1}{n}\sum (Y_i - g(X_i,θ))^2 \end{aligned}\]</span></li>
-<li>Maximum Likelihood Estimator</li>
-<li>General Method of Moments</li>
-<li>Quantiles</li>
+<span class="math display">\[\begin{aligned}Q(θ) &amp;= E[q(Z,θ)]\\&amp;=E[(Y-g(X,θ_0))^2]\\
+Q_n(θ) &amp;= \frac{1}{n}\sum q(Z_i,θ) \\
+&amp;= \frac{1}{n}\sum (Y_i - g(X_i,θ))^2 \end{aligned}\]</span></li>
+<li>Maximum Likelihood Estimator<br />
+<span class="math inline">\(Z\sim f_Z(\cdot,θ)\)</span>, joint density of <span class="math inline">\((Z_1,\dots, Z_n)\)</span>: <span class="math inline">\(f_{Z_1,\dots,Z_n}(Z_1,\dots,Z_n) = \prod f_Z(Z_i, θ_0)\)</span><br />
+Estimator:
+<span class="math display">\[\begin{aligned}\hat{θ}&amp;=\text{argmax}_{θ\in Θ}\ \prod f_Z(Z_i, θ_0)\\
+&amp;= \text{argmax}_{θ\in Θ}\ \sum \log\big(f_Z(Z_i, θ_0)\big) \\
+&amp;= \text{argmin} \ -\sum \log\big(f_Z(Z_i, θ_0)\big)\end{aligned}\]</span>
+Let <span class="math inline">\(q(Z,θ) = -\log\big(f_Z(Z_i, θ_0)\big)\)</span>
+<span class="math display">\[\begin{aligned}Q(θ) &amp;= E[q(Z,θ)] \\
+&amp;= -E[\log\big(f_Z(Z_i, θ_0)\big)] \\
+Q_n(θ) &amp;= \frac{1}{n}\sum q(Z_i,θ) \\
+&amp;= -\frac{1}{n}\sum \log\big(f_Z(Z_i, θ_0)\big) \\
+\hat{θ}&amp;= \text{argmin}_{θ\in Θ}\ Q_n(θ) \end{aligned}\]</span></li>
+<li>General Method of Moments (GMM)<br />
+Suppose for some function <span class="math inline">\(h:\mathbb{R}^d\times Θ\to\mathbb{R}^L\)</span><br />
+that <span class="math inline">\(E[h_l(Z,θ_0)] = 0\)</span> for <span class="math inline">\(l=1,dots, L\)</span><br />
+Choose <span class="math inline">\(Q(θ) = E[h(Z,θ)^T]\cdot W\cdot E[h(Z,θ)]\)</span> for some weighting matrix <span class="math inline">\(W(L\times L)\)</span><br />
+<span class="math inline">\(Q_n(θ) = \big(\frac{1}{n}\sum h(Z_i,θ)^T\big)\cdot W_n\cdot\big(\frac{1}{n}\sum h(Z_i,θ)\big)\)</span> for some sequence of weighting matrices <span class="math inline">\(W(L\times L)\)</span><br />
+If <span class="math inline">\(W_n\overset{P}{\to}W\)</span>, then bt LLN,
+<span class="math display">\[\begin{aligned}Q_n(θ) &amp;\overset{P}{\to} Q(θ) \text{ pointwise} \\
+\hat{θ} &amp;= \text{argmin}_{θ\in Θ} \ Q_n(θ) \end{aligned}\]</span></li>
 </ol>
+<blockquote>
+<p>Example: Quantile function</p>
+</blockquote>
+<p>Let <span class="math inline">\(Z\)</span> be a real valued random variable with <span class="math inline">\(F\)</span>,<br />
+Define τ-quantile: for any <span class="math inline">\(0&lt;τ&lt;1\)</span>, any <span class="math inline">\(θ_τ\in\mathbb{R}\)</span> satisfying
+<span class="math display">\[\begin{cases}P(Z\leq θ_τ)\geq τ \\ P(Z\geq θ_τ)\geq 1-τ \end{cases}\]</span>
+Define the check function: <span class="math inline">\(f_τ(n) = n\cdot (τ-1(n&lt;0))\)</span> for <span class="math inline">\(n\in\mathbb{R}\)</span>,<br />
+Then <span class="math inline">\(θ(τ)\)</span> minimises the check function:
+<span class="math display">\[\begin{aligned}Q_τ(θ) &amp;= E[f_τ(Z-θ)] \\
+&amp;= τ\cdot E[(Z-θ)\cdot 1(Z\geq θ)] + (τ+1)\cdot E[(Z-θ)\cdot 1(Z&lt; θ)] \\
+\frac{\partial Q_τ(θ)}{θ_+} &amp;= \lim_{δ\to 0}\ \frac{1}{|δ|}\big(Q_τ(θ+|δ|) - Q_τ(θ)\big) \\
+Q_τ(θ+|δ|) - Q_τ(θ) &amp;= τ\cdot\bigg(E\Big[\big(Z-(θ+|δ|)\big)\cdot 1(Z\geq θ+|δ|)\Big] - E\big[(Z-θ)\cdot 1(Z\geq θ)\big]\bigg) \\
+&amp;\phantom{\ggg} (1-τ)\cdot\bigg(E\Big[\big(Z-(θ+|δ|)\big)\cdot 1(Z&lt; θ+|δ|)\Big] - E\big[(Z-θ)\cdot 1(Z&lt; θ)\big]\bigg) \\
+&amp;= τ\Big(-|δ|\cdot P(Z\geq θ+|δ|) - \underbrace{E\big[(Z-θ)\cdot 1(θ\leq Z&lt; θ+|δ|)\big]}_{\leq |δ|\cdot P(θ&lt;Z\leq θ+|δ|)}\Big) \\
+&amp;\phantom{\ggg} (1-τ)\cdot\Big(-|δ|\cdot P(Z&lt; θ+|δ|) - \underbrace{E\big[(Z-θ)\cdot 1(θ\leq Z&lt; θ+|δ|)\big]}\Big) \\
+|δ|\cdot P(θ&lt;Z\leq θ+|δ|) &amp;= |δ|\cdot\big( F(θ+|δ|) - F(θ)\big) \\
+&amp;\to 0 \text{ as }|δ|\to 0 \\
+Q_τ(θ+|δ|) - Q_τ(θ) &amp;= -τ|δ| P(Z\geq θ+|δ|) - (τ-1)|δ|P(Z&lt; θ+|δ|) + o(|δ|) \\
+&amp;= -τ|δ| +|δ|\underbrace{P((Z&lt; θ+|δ|)}_{=P(Z\leq θ) + P(θ&lt;Z&lt;θ+|δ|)} + o(|δ|) \\
+&amp;= -τ|δ| +|δ|\cdot P(Z\leq θ)+ o(|δ|) \\
+\frac{\partial Q_τ(θ)}{θ_+} &amp;= \lim_{δ\to 0}\ -τ|δ| +|δ|\cdot P(Z\leq θ) + o(|δ|) \\
+&amp;= -τ +\cdot P(Z\leq θ)\\
+\frac{\partial Q_τ(θ)}{θ_-} &amp;= -τ + P(Z&lt; θ)\\\end{aligned}\]</span>
+For any <span class="math inline">\(θ\in\mathbb{R}\)</span> with <span class="math inline">\(F(θ)=P(Z\leq θ)&gt;F(θ(τ))\geq τ\)</span>,<br />
+we have <span class="math inline">\(=P(Z&lt; θ) = F(θ) - P(Z-θ)\geq τ\)</span>,<br />
+therefore, for any <span class="math inline">\(θ\in\mathbb{R}\)</span> with <span class="math inline">\(F(θ)&gt;F(θ(τ))\)</span>,
+<span class="math display">\[\begin{cases}\frac{\partial Q_τ(θ)}{θ_+} &gt;0 \\ \frac{\partial Q_τ(θ)}{θ_-} \geq 0 \end{cases}\]</span>
+moreover, for any <span class="math inline">\(θ\in\mathbb{R}\)</span> with <span class="math inline">\(F(θ)&lt;F(θ(τ))\)</span>,
+<span class="math display">\[\begin{cases}\frac{\partial Q_τ(θ)}{θ_+} &lt;0 \\ \frac{\partial Q_τ(θ)}{θ_-} &lt; 0 \end{cases}\]</span>
+Therefore, <span class="math inline">\(θ(τ)\)</span> minimises <span class="math inline">\(Q_τ(θ)\)</span></p>
+<p>Define <span class="math inline">\(Q_{n,τ}(θ) = \frac{1}{n}\sum f_τ (Z_i-θ)\)</span>,<br />
+<span class="math inline">\(\hat{θ}(τ) \in\text{argmin} \ Q_{n,τ}(θ)\)</span></p>
+<p>Remarks:</p>
+<ul>
+<li>For any <span class="math inline">\(0&lt;τ&lt;1\)</span>, value <span class="math inline">\(θ_τ = θ(τ)\)</span> is a τ-quantile of <span class="math inline">\(Z\)</span></li>
+<li>If <span class="math inline">\(F\)</span> is strictly increasing, <span class="math inline">\(θ(τ) = F^{-1}(τ)\)</span></li>
+<li>If <span class="math inline">\(F\)</span> is continuous at <span class="math inline">\(θ\)</span>, then <span class="math inline">\(\frac{\partial Q_τ(θ)}{θ_+}=\frac{\partial Q_τ(θ)}{θ_-}=-τ+F(θ)\)</span></li>
+<li>If <span class="math inline">\(F\)</span> has a jump at <span class="math inline">\(θ\)</span>, i.e. <span class="math inline">\(P(X=θ)&gt;0\)</span>, then <span class="math inline">\(Q_τ\)</span> has a kink at <span class="math inline">\(θ\)</span></li>
+<li><span class="math inline">\(Q_τ\)</span> is continuous of <span class="math inline">\(θ\)</span> in any case</li>
+</ul>
 <blockquote>
 <p>PS3.Q4: Lemma of Fatou<br />
 Consider a sequence of non-negative random variables <span class="math inline">\(X_n\)</span> (defined on the same probability space <span class="math inline">\((Ω, \mathcal{A}, P)\)</span>)<br />

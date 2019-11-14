@@ -111,6 +111,7 @@ if (!doNotTrack) {
 <li><a href="#late-.gitignore">Late <code>.gitignore</code></a></li>
 <li><a href="#multiple-branches">Multiple Branches</a></li>
 <li><a href="#tagging">Tagging</a></li>
+<li><a href="#collaboration">Collaboration</a></li>
 </ul></li>
 <li><a href="#anaconda">(Ana)Conda</a><ul>
 <li><a href="#reference-2">Reference</a></li>
@@ -121,7 +122,10 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#python">Python</a></li>
 <li><a href="#waf">Waf</a><ul>
+<li><a href="#reference-3">Reference</a></li>
 <li><a href="#config">Config</a></li>
+<li><a href="#build">Build</a></li>
+<li><a href="#miscellaneous">Miscellaneous</a></li>
 </ul></li>
 </ul>
 </div>
@@ -141,7 +145,7 @@ Please use Google to tailor your own version.</p>
 <pre class="sh"><code>#### set up ####
 
 # clone
-$ git clone https://github.com/path-to-your-repo 
+$ git clone https://github.com/path-to-your-repo
 
 # creat an environment from an environment.yml file
 $ conda env create -f environment.yml
@@ -235,6 +239,10 @@ $ more something.txt            # view &amp; print</code></pre>
 <div id="basics-1" class="section level3">
 <h3>Basics</h3>
 <pre class="sh"><code>$ git config --global core.editor &quot;subl -n -w&quot;
+
+$ git config --global user.name &quot;me&quot;
+$ git config --global user.email &quot;me@me.com&quot;
+
 $ git config color.ui true</code></pre>
 <pre class="sh"><code>$ git status
 
@@ -309,6 +317,12 @@ $ git checkout master
 
 $ git tag
 # submittable_version</code></pre>
+</div>
+<div id="collaboration" class="section level3">
+<h3>Collaboration</h3>
+<pre class="sh"><code>#### after some changes by others ####
+$ git pull                              # = fetch + merge
+# CONFLICT (content): Merge conflict</code></pre>
 </div>
 </div>
 <div id="anaconda" class="section level2">
@@ -412,7 +426,7 @@ Paste everything into Hermes: Connect Kernel
 </div>
 <div id="python" class="section level2">
 <h2>Python</h2>
-<p>see <a href="../../06/intro-python/">Notes on Python</a></p>
+<p>see <a href="../../06/intro-python/#notes-from-effective-programming">Notes on Python</a></p>
 </div>
 <div id="waf" class="section level2">
 <h2>Waf</h2>
@@ -420,15 +434,54 @@ Paste everything into Hermes: Connect Kernel
 <li>Like a master <code>.do</code> file</li>
 <li>Declarative programming</li>
 </ul>
+<div id="reference-3" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li><a href="https://waf.io/apidocs/tutorial.html">Waf tutorial — Waf 2.0.18 documentation</a></li>
+<li><a href="https://blog.csdn.net/u010312436/article/details/81093847">学习笔记：waf帮助构建及编译系统 - fanchenxinok的专栏 - CSDN博客</a></li>
+</ul>
+</div>
 <div id="config" class="section level3">
 <h3>Config</h3>
+<pre class="sh"><code>$ subl wscript</code></pre>
 <pre class="python"><code>def configure(ctx):
     ctx.env.PYTHONPATH = os.getcwd()
     # Need shell-escape for converting eps to pdf on the fly, necessary e.g. for Stata # Vector graphics output in batch mode.
     ctx.env.PDFLATEXFLAGS = [&quot;-halt-on-error&quot;]
     ctx.load(&quot;run_py_script&quot;)
     ctx.load(&quot;write_project_headers&quot;)
-    ctx.load(&quot;tex&quot;)</code></pre>
+    ctx.load(&quot;tex&quot;)
+    print(&quot;configure!&quot;)</code></pre>
+<pre class="sh"><code>$ python waf.py configure
+# configure!</code></pre>
+</div>
+<div id="build" class="section level3">
+<h3>Build</h3>
+<pre class="sh"><code>$ cd source
+$ subl wscript</code></pre>
+<pre class="python"><code>def build(ctx):
+    ctx(
+        features=&quot;run_py_script&quot;,
+        source=&quot;production_standalone.py&quot;,
+        target=[
+            ctx.path_to(ctx, &quot;OUT_ANALYSIS&quot;, &quot;standalone&quot;, &quot;cobb_douglas_result.json&quot;),
+            ctx.path_to(ctx, &quot;OUT_ANALYSIS&quot;, &quot;standalone&quot;, &quot;ces_result.json&quot;),
+            ctx.path_to(ctx, &quot;OUT_ANALYSIS&quot;, &quot;standalone&quot;, &quot;robust_ces_result.json&quot;),
+        ],
+        name=&quot;production_standalone&quot;,)
+    print(&quot;build!&quot;)</code></pre>
+<pre class="sh"><code>$ cd ..
+$ python waf.py build
+# build!</code></pre>
+</div>
+<div id="miscellaneous" class="section level3">
+<h3>Miscellaneous</h3>
+<pre class="sh"><code># clean all build files and compile from zero
+$ python waf.py disctlean
+$ python waf.py build
+
+# build step-by-step
+$ python waf.py -j1</code></pre>
 <!-- 
 ## License
 
