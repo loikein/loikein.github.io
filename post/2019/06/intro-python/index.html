@@ -114,6 +114,7 @@ if (!doNotTrack) {
 <li><a href="#function">Function</a></li>
 <li><a href="#module">Module</a></li>
 </ul></li>
+<li><a href="#package-pandas">Package: <code>Pandas</code></a></li>
 </ul>
 </div>
 
@@ -810,6 +811,19 @@ for i, obs in enumerate(data):
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 95}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 3, &#39;grit&#39;: 7, &#39;social&#39;: 3}} : 15152.245001868689
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 105}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 2, &#39;grit&#39;: 5}} : 9093.272925080726
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 100}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 7, &#39;grit&#39;: 1}} : 12739.429457711914</code></pre>
+</div>
+</div>
+<div id="package-pandas" class="section level2">
+<h2>Package: <code>Pandas</code></h2>
+<pre class="python"><code># Import numpy and pandas with the usual conventions. 
+import numpy as np
+import pandas as pd
+
+# Import household data and create DataFrame object. 
+household = pd.read_table(&#39;household.csv&#39;)
+
+
+</code></pre>
 <!-- 
 ## Lab
 
@@ -818,7 +832,6 @@ for i, obs in enumerate(data):
 <div data-datacamp-exercise="" data-height="500" data-lang="python">
 <code data-type="sample-code"></code></div></div>
  -->
-</div>
 </div>
 
     </div>

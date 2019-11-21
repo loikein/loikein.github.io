@@ -36,7 +36,7 @@ Please use Google to tailor your own version.</description>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-econometric-theory/</guid>
-      <description>Literature Probability Measures σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables Expectation Variance Moments of R^k  Stochastic Convergence Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators Linear Regression Model Parametric Model     Uppercase variables: random variables Lowercase variables: deterministic variables  Literature Asymptotic Theory:</description>
+      <description>Literature Probability Measures σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables Expectation Variance Moments of R^k  Stochastic Convergence Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators Linear Regression Model Parametric Model Consistency     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed the PS4 class)  Literature Asymptotic Theory:</description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/06/intro-python/</guid>
-      <description>Notes from DataCamp Slides Basics Functions Methods Packages Package: Numpy  Notes from Effective Programming Reference Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditionals Function Module    Repl.it - Online Python Editor and IDE
+      <description>Notes from DataCamp Slides Basics Functions Methods Packages Package: Numpy  Notes from Effective Programming Reference Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditionals Function Module  Package: Pandas   Repl.it - Online Python Editor and IDE
 Visualize Python, Java, JavaScript, C, C++, Ruby code execution
 Notes from DataCamp Slides ch1
 ch2

@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">28 min read</span>
+    <span class="article-duration">31 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -114,6 +114,7 @@ if (!doNotTrack) {
 <li><a href="#m-estimators">M-Estimators</a><ul>
 <li><a href="#linear-regression-model">Linear Regression Model</a></li>
 <li><a href="#parametric-model">Parametric Model</a></li>
+<li><a href="#consistency">Consistency</a></li>
 </ul></li>
 </ul>
 </div>
@@ -122,6 +123,7 @@ if (!doNotTrack) {
 <ul>
 <li>Uppercase variables: random variables</li>
 <li>Lowercase variables: deterministic variables</li>
+<li>(I missed the PS4 class)</li>
 </ul>
 <div id="literature" class="section level2">
 <h2>Literature</h2>
@@ -1465,6 +1467,128 @@ E[(\frac{X}{\sqrt{E[X^2]}}\pm\frac{Y}{\sqrt{E[Y^2]}} )^2] &amp;= 0 &amp;&amp;\pm
 \frac{X}{\sqrt{E[X^2]}}\pm\frac{Y}{\sqrt{E[Y^2]}} &amp;= 0 &amp;&amp; \text{almost surely} \\
 X &amp;= C\dots Y &amp;&amp;\text{ almost surely for }c\neq 0 \end{aligned}\]</span></li>
 </ol>
+</div>
+<div id="consistency" class="section level3">
+<h3>Consistency</h3>
+<ul>
+<li>Consistent estimator: <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span> under appropriate conditions</li>
+<li>Standard consistency result
+<ul>
+<li>Not sufficient: <span class="math inline">\(Q_n(θ)\overset{P}{\to} Q(θ)\)</span> pointwise for each <span class="math inline">\(θ\in Θ\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Def 2.1.<br />
+<span class="math inline">\(Q_n\)</span> converges uniformly to <span class="math inline">\(Q\)</span> in probability if
+<span class="math display">\[\sup_{θ\in Θ} \ \big| Q_n(θ) - Q(θ)\big| \overset{P}{\to} 0\]</span>
+meanwhile, the following does not give uniform convergence:
+<span class="math display">\[\sup_{θ\in [0,1]} \ \big| Q_n(θ) - Q(θ)\big| = \bar{y} - \underline{y}&gt; 0\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thm 2.2.<br />
+If the following assumptions are satisfied, then <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span></p>
+<ol style="list-style-type: decimal">
+<li>(A1) Identification (unique minimizer &amp; enough separation)<br />
+For all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(δ&gt;0\)</span> s.t. <span class="math inline">\(\inf_{θ:\|θ-θ_0\|&gt;ε} \ Q(θ)\geq Q_{θ_0}+δ\)</span><br />
+</li>
+<li>(A2) Uniform convergence<br />
+<span class="math inline">\(\sup_{θ\in Θ} \ \big| Q_n(θ) - Q(θ)\big| \overset{P}{\to} 0\)</span></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Example<br />
+Proof: show that <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span>, that is, <span class="math inline">\(P(\|\hat{θ}-θ_0\|&gt;ε)\to 0\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(ε&gt;0\)</span><br />
+By (A1), exists <span class="math inline">\(δ&gt;0\)</span> s.t.
+<span class="math display">\[\begin{aligned}\|θ-θ_0\| &amp;&gt; ε \\
+\implies Q(θ) &amp;\geq Q(θ_0) + δ \\
+Q(θ) - Q(θ_0) &amp;\geq δ \\
+|Q(θ) - Q(θ_0)| &amp;\geq δ \end{aligned}\]</span>
+hence, <span class="math inline">\(\implies\)</span> (*)
+<span class="math display">\[\begin{aligned}P(\|\hat{θ}-θ_0\|&gt;ε) &amp;\leq P\big(|Q(\hat{θ}) - Q(θ_0)| \geq δ\big) \\
+&amp;\leq P\big(|Q(\hat{θ}) - Q(θ_0)| \geq δ\big) \\
+&amp;\leq P\big(|Q(\hat{θ}) - Q_n(\hat{θ})| + |Q_n(\hat{θ}) - Q(θ_0)| \geq δ\big) \\
+&amp;\leq P\big(|Q(\hat{θ}) - Q_n(\hat{θ})|\geq\frac{δ}{2}\text{ or }|Q_n(\hat{θ})- Q(θ_0)|\geq\frac{δ}{2}\big) \\
+&amp;\leq P\big(|Q(\hat{θ}) - Q_n(\hat{θ})|\geq\frac{δ}{2}\big) + P\big(Q_n(\hat{θ})- Q(θ_0)|\geq\frac{δ}{2}\big)\end{aligned}\]</span>
+Assumption (A2), <span class="math inline">\(\implies\)</span> (+)
+<span class="math display">\[\begin{aligned}P\big(|Q(\hat{θ}) - Q_n(\hat{θ})|\geq\frac{δ}{2}\big) &amp;\leq P\big(\sup_{θ\in Θ} |Q(θ) - Q_n(θ)|\geq\frac{δ}{2}\big) \\
+&amp;\to 0 \end{aligned}\]</span>
+Moreover,
+<span class="math display">\[\begin{aligned}Q_n(\hat{θ}) &amp;\geq Q(θ_0) \\
+\implies 0 &amp;\leq Q_n(\hat{θ}) - Q(θ_0) \\
+&amp;\leq Q_n(θ) - Q(θ_0) \\
+&amp;\leq \sup_{θ\in Θ} |Q_n(θ) - Q(θ)|\end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}Q_n(\hat{θ}) &amp;\leq Q(θ_0) \\
+\implies 0 &amp;\leq Q(θ_0) -Q_n(\hat{θ}) \\
+&amp;\leq Q(\hat{θ}) - Q_n(\hat{θ}) \\
+&amp;\leq \sup_{θ\in Θ} |Q(θ) - Q_n(θ)|\end{aligned}\]</span>
+therefore,
+<span class="math display">\[|Q_n(\hat{θ}) - Q(θ_0)| \leq \sup_{θ\in Θ} |Q_n(θ) - Q(θ)|\]</span>
+Assumption (A2) <span class="math inline">\(\implies\)</span> (++)
+<span class="math display">\[\begin{aligned}P\big(|Q_n(\hat{θ}) - Q(θ_0)|\geq\frac{δ}{2}\big) &amp;\leq P\big(\sup_{θ\in Θ} |Q_n(θ) - Q(θ)|\geq\frac{δ}{2}\big) \\
+&amp;\overset{P}{\to} 0\end{aligned}\]</span>
+Plugging (+) and (++) into (*), we have
+<span class="math display">\[P(\|\hat{θ}-θ_0\|&gt;ε)\to 0\]</span></p>
+<blockquote>
+<p>Lemma 2.3.<br />
+(A1) in Thm 2.2 is satisfied if</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(Θ\subset \mathbb{R}^k\)</span> is compact</li>
+<li><span class="math inline">\(Q\)</span> is continuous,<br />
+</li>
+<li>(!) <span class="math inline">\(Q(θ)\geq Q(θ_0)\)</span>, equality only holds for <span class="math inline">\(θ=θ_0\)</span></li>
+</ol>
+</blockquote>
+<p>Proof: exercise</p>
+<blockquote>
+<p>Example: OLS<br />
+Let <span class="math inline">\(Y = g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε|X] = 0\)</span><br />
+Show that <span class="math inline">\(Q(θ) = E[\big(Y-g(X,θ)\big)^2]\)</span> has a unique minimizer <span class="math inline">\(θ_0\)</span>, given assumptions:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(Q(θ_0) = E[\big(Y-g(X,θ_0)\big)^2]&lt;\infty\)</span> for all <span class="math inline">\(θ\in Θ\)</span></li>
+<li>For all <span class="math inline">\(θ\neq θ_0\)</span>, <span class="math inline">\(g(X,θ)\neq g(X,θ_0)\)</span> with non-zero probability</li>
+</ol>
+</blockquote>
+<p>Given (b) <span class="math inline">\(\implies\)</span>
+<span class="math display">\[\begin{aligned}E[\big(g(θ) - g(θ_0)\big)^2] &amp;&gt; 0 \\
+Q(θ) &amp;= E[\big(Y-g(X,θ)\big)^2] \\
+&amp;= E[\big(\underbrace{Y- g(θ_0)}_{=ε} +g(θ_0) -g(θ)\big)^2] \\
+&amp;= E[ε^2] + 2\underbrace{E[ε\cdot \big(g(θ_0) - g(θ)\big)]}_{=0} + \underbrace{E[\big(g(θ_0) - g(θ)\big)^2]}_{&gt;0} \\
+&amp;&gt; E[ε^2] \\
+&amp;= E[\big(Y- g(θ_0)\big)^2] \\
+&amp;= Q(θ_0) \end{aligned}\]</span></p>
+<blockquote>
+<p>Example: Maximum likelihood<br />
+Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by <span class="math inline">\(Q_n(θ) = \prop^n f_Z(Z_i, θ)\)</span><br />
+The ML-estimator of <span class="math inline">\(θ_0\)</span> is
+<span class="math display">\[\begin{aligned}\hat{θ}&amp;=\text{argmax}_{θ\in Θ} Q_n(θ)\\
+&amp;=\text{argmax}_{θ\in Θ}\log Q_n(θ)\\
+&amp;=\text{argmax}_{θ\in Θ}\frac{1}{n}\sum\log f_Z(Z_i, θ)\\
+&amp;=\text{argmin}_{θ\in Θ}\underbrace{-\frac{1}{n}\sum\log f_Z(Z_i, θ)}_{\overset{P}{\to}\log f_Z(Z, θ)}\\
+Q(θ) &amp;= -E[\log f_Z(Z,θ)]\end{aligned}\]</span>
+Show that <span class="math inline">\(Q(θ)\)</span> has a unique minimum <span class="math inline">\(θ_0\)</span>, given assumptions:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(E[\big|\log f_Z(Z,θ)\big|]&lt;\infty\)</span> for all <span class="math inline">\(θ\in Θ\)</span></li>
+<li>For all <span class="math inline">\(θ\neq θ_0\)</span>, <span class="math inline">\(f_Z(Z,θ)\neq f_Z(Z,θ_0)\)</span> with non-zero probability</li>
+</ol>
+</blockquote>
+<p>:) <span class="math inline">\(E\big[g(X)\big] &lt; g\big(E[X]\big)\)</span><br />
+Let</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(X\)</span> be non-degenerate real valued random variable</li>
+<li><span class="math inline">\(g\)</span> be strictly concave</li>
+<li><span class="math inline">\(E\big[g(X)\big]\)</span> and <span class="math inline">\(g\big(E[X]\big)\)</span> exist</li>
+</ol>
+<p>By Jensen’s Inequality, for all <span class="math inline">\(θ\in Θ\)</span>,
+<span class="math display">\[\begin{aligned}Q(θ) - Q(θ_0) &amp;= -E\big[\log f_Z(θ)] + E[\log f_Z(θ_0)\big] \\
+&amp;= -E\big[\log f_Z(θ) - \log f_Z(θ_0)\big] \\
+&amp;= -E\Big[\log\frac{f_Z(θ)}{f_Z(θ_0)}\Big] \\
+&amp;&gt; -\log E\Big[\frac{f_Z(θ)}{f_Z(θ_0)}\Big] \\
+&amp;= -\log\int \frac{f_Z(θ)}{f_Z(θ_0)}\cdot f_Z(θ_0)\, dZ \\
+&amp;\geq -\log\underbrace{\int f_Z(θ)\, dZ}_{=1} \\
+&amp;= 0 \end{aligned}\]</span></p>
 </div>
 </div>
 
