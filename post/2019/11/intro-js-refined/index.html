@@ -190,7 +190,9 @@ if (!doNotTrack) {
 </div>
 <div id="basics" class="section level2">
 <h2>Basics</h2>
-<pre class="javascript"><code>console.log( &#39;hello, world&#39;);
+<pre class="js"><code>&quot;use strict&quot;;
+
+console.log( &#39;hello, world&#39;);
 alert( &#39;hello, world&#39; );
 
 // comment
@@ -205,9 +207,9 @@ console.log( &#39;orange&#39; === &#39;apple&#39; ); // false
 console.log( &#39;orange&#39; !== &#39;apple&#39;);  // true</code></pre>
 <div id="constant-variable" class="section level3">
 <h3>Constant &amp; Variable</h3>
-<pre class="javascript"><code>const someConst = &#39;do not change&#39;;
+<pre class="js"><code>const someConst = &#39;do not change&#39;;
 someConst = &#39;hey&#39;;                   // Error!</code></pre>
-<pre class="javascript"><code>var someNumber = 7;
+<pre class="js"><code>var someNumber = 7;
 var someString = &#39;what&#39;;
 
 let someBoolean = true;
@@ -224,7 +226,7 @@ console.log( typeof changeType);     // number</code></pre>
 </div>
 <div id="string" class="section level3">
 <h3>String</h3>
-<pre class="javascript"><code>console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; ); // mind the gap
+<pre class="js"><code>console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; ); // mind the gap
 
 let favoriteAnimal = &#39;panda&#39;;
 
@@ -233,11 +235,11 @@ console.log( `My favorite animal: ${favoriteAnimal}` ); // My favorite animal: p
 </div>
 <div id="property" class="section level3">
 <h3>Property</h3>
-<pre class="javascript"><code>console.log( &#39;Count me&#39;.length );</code></pre>
+<pre class="js"><code>console.log( &#39;Count me&#39;.length );</code></pre>
 </div>
 <div id="method" class="section level3">
 <h3>Method</h3>
-<pre class="javascript"><code>console.log( &#39;hello&#39;.toUpperCase() );            // HELLO
+<pre class="js"><code>console.log( &#39;hello&#39;.toUpperCase() );            // HELLO
 
 console.log( &#39;hello&#39;.startsWith(&#39;a&#39;) );          // false
 
@@ -245,19 +247,19 @@ console.log(&#39;    Remove whitespace   &#39;.trim() ); // Remove whitespace</c
 </div>
 <div id="built-in-objects" class="section level3">
 <h3>Built-in Objects</h3>
-<pre class="javascript"><code>console.log( Math.random() );        // random number 0~1
+<pre class="js"><code>console.log( Math.random() );        // random number 0~1
 console.log( Math.random() * 100 );
 
 console.log( Math.floor( 43.8 ));    // 43
 console.log( Math.ceil( 43.8 ));     // 44</code></pre>
-<pre class="javascript"><code>console.log(Number.isInteger( 2019 )); // true</code></pre>
+<pre class="js"><code>console.log(Number.isInteger( 2019 )); // true</code></pre>
 </div>
 </div>
 <div id="conditionals" class="section level2">
 <h2>Conditionals</h2>
 <div id="if-else-if" class="section level3">
 <h3><code>if</code> &amp; <code>else if</code></h3>
-<pre class="javascript"><code>let sale = false;
+<pre class="js"><code>let sale = false;
 let holiday = true;
 
 if( sale &amp;&amp; holiday ){
@@ -265,7 +267,7 @@ if( sale &amp;&amp; holiday ){
 } else {
   console.log( &#39;Wait for a sale.&#39; );
 }                                    // Wait for a sale.</code></pre>
-<pre class="javascript"><code>let season = &#39;summer&#39;;
+<pre class="js"><code>let season = &#39;summer&#39;;
 
 if (season === &#39;spring&#39;) {
   console.log( &#39;It\&#39;s spring&#39; );
@@ -281,7 +283,7 @@ if (season === &#39;spring&#39;) {
 </div>
 <div id="truthy-and-falsy" class="section level3">
 <h3>Truthy and Falsy</h3>
-<pre class="javascript"><code>let falsyNum = 0;
+<pre class="js"><code>let falsyNum = 0;
 let falsyString = &#39;&#39;;
 
 if (falsyNum || falsyString) {
@@ -292,7 +294,7 @@ if (falsyNum || falsyString) {
 </div>
 <div id="short-circuit-evaluation" class="section level3">
 <h3>Short-Circuit Evaluation</h3>
-<pre class="javascript"><code>let userName = &#39;&#39;;
+<pre class="js"><code>let userName = &#39;&#39;;
 let yourName = userName || &#39;Stranger&#39;;
 console.log( yourName );             // Stranger
 
@@ -302,14 +304,14 @@ console.log( myName );               // rw</code></pre>
 </div>
 <div id="ternary-operator" class="section level3">
 <h3>Ternary Operator</h3>
-<pre class="javascript"><code>let answer = 99;
+<pre class="js"><code>let answer = 99;
 answer === 100 ?
   console.log(&#39;Correct&#39;) :
   console.log(&#39;Incorrect&#39;);          // Incorrect</code></pre>
 </div>
 <div id="switch" class="section level3">
 <h3><code>switch</code></h3>
-<pre class="javascript"><code>let season = &#39;summer&#39;;
+<pre class="js"><code>let season = &#39;summer&#39;;
 
 switch( season ){
   case &#39;spring&#39;:
@@ -332,45 +334,45 @@ switch( season ){
 </div>
 <div id="function" class="section level2">
 <h2>Function</h2>
-<pre class="javascript"><code>function hello(name = &#39;world&#39; ){
+<pre class="js"><code>function hello(name = &#39;world&#39; ){
   console.log( &#39;hello &#39; + name );
 }
 hello();                             // hello world
 hello( &#39;rw&#39; );                       // hello rw</code></pre>
-<pre class="javascript"><code>const hello = function( name = &#39;world&#39; ){
+<pre class="js"><code>const hello = function( name = &#39;world&#39; ){
   return( &#39;hello &#39; + name );
 }
 
 console.log( hello());               // hello world
 console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
-<pre class="javascript"><code>function someFunctionWithAnnoyinglyLongName(){
+<pre class="js"><code>function someFunctionWithAnnoyinglyLongName(){
   console.log( &#39;busy!&#39; );
 }
 
 const busy = someFunctionWithAnnoyinglyLongName;
 busy();                              // busy!
 console.log( busy.name );            // someFunctionWithAnnoyinglyLongName</code></pre>
-<pre class="javascript"><code>function makeShoppingList( item1 = &#39;milk&#39;, item2 = &#39;bread&#39;, item3 = &#39;eggs&#39; ){
+<pre class="js"><code>function makeShoppingList( item1 = &#39;milk&#39;, item2 = &#39;bread&#39;, item3 = &#39;eggs&#39; ){
   console.log( `Remember to buy ${item1}` );
   console.log( `Remember to buy ${item2}` );
   console.log( `Remember to buy ${item3}` );
 }</code></pre>
 <div id="arrow-function" class="section level3">
 <h3>Arrow Function</h3>
-<pre class="javascript"><code>const hello = ( name = &#39;world&#39; ) =&gt; {
+<pre class="js"><code>const hello = ( name = &#39;world&#39; ) =&gt; {
   return( &#39;hello &#39; + name );
 }
 
 console.log( hello());               // hello world
 console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
-<pre class="javascript"><code>const hello = name =&gt; &#39;hello &#39; + name;
+<pre class="js"><code>const hello = name =&gt; &#39;hello &#39; + name;
 
 console.log( hello( &#39;world&#39; ));      // hello world
 console.log( hello( &#39;rw&#39; ));         // hello rw</code></pre>
 </div>
 <div id="function-in-function" class="section level3">
 <h3>Function in Function</h3>
-<pre class="javascript"><code>let price = 10;
+<pre class="js"><code>let price = 10;
 
 function count( row, col ){
   return row * col;
@@ -381,7 +383,7 @@ function cost ( row, col ){
 }
 
 console.log( cost( 5,4 ));           // 200</code></pre>
-<pre class="javascript"><code>function addFive( num ){
+<pre class="js"><code>function addFive( num ){
   return num + 5;
 }
 
@@ -400,7 +402,7 @@ console.log( checkTwice( addFive, 2 ));          // Correct</code></pre>
 </div>
 <div id="scope" class="section level2">
 <h2>Scope</h2>
-<pre class="javascript"><code>// Scope Pollution!
+<pre class="js"><code>// Scope Pollution!
 
 let someNumber = 1;
 
@@ -411,7 +413,7 @@ function change(){
 
 change();                            // 2
 console.log( someNumber );           // 2</code></pre>
-<pre class="javascript"><code>// Good Scoping
+<pre class="js"><code>// Good Scoping
 
 let someNumber = 1;
 
@@ -425,7 +427,7 @@ console.log( someNumber );           // 1</code></pre>
 </div>
 <div id="array" class="section level2">
 <h2>Array</h2>
-<pre class="javascript"><code>let someArray = [&#39;hello&#39;, &#39;there&#39;];
+<pre class="js"><code>let someArray = [&#39;hello&#39;, &#39;there&#39;];
 let first = someArray[0];
 console.log( first );                // hello
 console.log( first[0] );             // h
@@ -434,7 +436,7 @@ someArray[0] = &#39;hallo&#39;;
 console.log( someArray );            // [ &#39;hallo&#39;, &#39;there&#39; ]
 
 console.log( someArray.length );     // 2</code></pre>
-<pre class="javascript"><code>let varArray = [&#39;hello&#39;, &#39;there&#39;];
+<pre class="js"><code>let varArray = [&#39;hello&#39;, &#39;there&#39;];
 const constArray = [&#39;stay&#39;, &#39;hungry&#39;];
 
 varArray = &#39;hi&#39;;
@@ -446,7 +448,7 @@ constArray[1] = &#39;foolish&#39;;
 console.log( constArray );           // [ &#39;stay&#39;, &#39;foolish&#39; ]</code></pre>
 <div id="array-methods" class="section level3">
 <h3>Array Methods</h3>
-<pre class="javascript"><code>const constArray = [&#39;stay&#39;, &#39;hungry&#39;];
+<pre class="js"><code>const constArray = [&#39;stay&#39;, &#39;hungry&#39;];
 
 constArray.push( &#39;stay&#39;, &#39;foolish&#39; );
 console.log( constArray );           // [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ]
@@ -467,20 +469,20 @@ console.log( constArray.indexOf( &#39;stay&#39; ));      // 0</code></pre>
 </div>
 <div id="nested-array" class="section level3">
 <h3>Nested Array</h3>
-<pre class="javascript"><code>let moreArray = [ [1,2], [3,4], [5,6] ];
+<pre class="js"><code>let moreArray = [ [1,2], [3,4], [5,6] ];
 
 let six = moreArray[2][1];
 console.log( six )                   // 6</code></pre>
 </div>
 <div id="for" class="section level3">
 <h3><code>for</code></h3>
-<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+<pre class="js"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
 
 console.log( &#39;I want to&#39; );
 for( let i = 0; i &lt; someArray.length; i++ ){
   console.log( someArray[i] );
 }                                    // I want to stay hungry stay foolish</code></pre>
-<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+<pre class="js"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
 const yourFollowers = [ &#39;Susa&#39;, &#39;Kate&#39;, &#39;Lia&#39; ];
 let mutualFollowers = [];
 
@@ -496,7 +498,7 @@ console.log( mutualFollowers );      // [ &#39;Lia&#39;, &#39;Susa&#39; ]</code>
 </div>
 <div id="while" class="section level3">
 <h3><code>while</code></h3>
-<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+<pre class="js"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
 
 console.log( &#39;I want to&#39; );
 
@@ -508,7 +510,7 @@ while( i &lt; someArray.length ){
 </div>
 <div id="do-...-while" class="section level3">
 <h3><code>do ... while</code></h3>
-<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+<pre class="js"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
 
 console.log( &#39;I want to&#39; );
 
@@ -520,7 +522,7 @@ do {
 </div>
 <div id="break" class="section level3">
 <h3><code>break</code></h3>
-<pre class="javascript"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
+<pre class="js"><code>const someArray = [ &#39;stay&#39;, &#39;hungry&#39;, &#39;stay&#39;, &#39;foolish&#39; ];
 
 console.log( &#39;I want to&#39; );
 
@@ -535,7 +537,7 @@ do {
 </div>
 <div id="iteration" class="section level3">
 <h3>Iteration</h3>
-<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+<pre class="js"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
 
 myFollowers.forEach(
   follower =&gt; console.log( follower + &#39; is following me&#39;)
@@ -554,7 +556,7 @@ myFollowers.forEach(
     console.log( follower + &#39; is following me&#39;);
   }
 ); */</code></pre>
-<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+<pre class="js"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
 
 console.log(
   myFollowers.map( follower =&gt; follower + &#39; is following me&#39; )
@@ -566,7 +568,7 @@ console.log(
   &#39;Cath is following me&#39;,
   &#39;Dean is following me&#39; ]
 */</code></pre>
-<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+<pre class="js"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
 
 console.log(
   myFollowers.filter( follower =&gt; follower.length &gt; 3 )
@@ -575,7 +577,7 @@ console.log(
 /*
 [ &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ]
 */</code></pre>
-<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+<pre class="js"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
 
 console.log(
   myFollowers.findIndex( follower =&gt; follower.length &gt; 3 )
@@ -584,7 +586,7 @@ console.log(
 /*
 1
 */</code></pre>
-<pre class="javascript"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
+<pre class="js"><code>const myFollowers = [ &#39;Lia&#39;, &#39;Susa&#39;, &#39;Cath&#39;, &#39;Dean&#39; ];
 
 const myFollowersList = myFollowers.reduce(
   ( list, nextName ) =&gt; list + &#39; &#39; + nextName
@@ -599,7 +601,7 @@ My followers are Lia Susa Cath Dean
 </div>
 <div id="object" class="section level2">
 <h2>Object</h2>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
 };
@@ -615,7 +617,7 @@ myComputer = { brand: &#39;ThinkPad&#39;, };
 // delete myComputer.brand;</code></pre>
 <div id="destructured-assignment" class="section level3">
 <h3>Destructured Assignment</h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
 };
@@ -625,7 +627,7 @@ console.log( brand );                // Apple</code></pre>
 </div>
 <div id="method-1" class="section level3">
 <h3>Method</h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   startUp(){ console.log( &#39;Duang!&#39; )},
@@ -636,7 +638,7 @@ myComputer.startUp();                // Duang!</code></pre>
 </div>
 <div id="built-in-method" class="section level3">
 <h3>Built-in Method</h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   startUp(){ console.log( &#39;Duang!&#39; )},
@@ -665,7 +667,7 @@ console.log( myNewComputer );
 </div>
 <div id="nested-object" class="section level3">
 <h3>Nested Object</h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   startUp(){ console.log( &#39;Duang!&#39; )},
@@ -679,7 +681,7 @@ console.log( myComputer.apps.finder.user );      // admin</code></pre>
 </div>
 <div id="pass-by-reference" class="section level3">
 <h3>Pass by Reference</h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
 };
@@ -695,7 +697,7 @@ console.log( myComputer );
 { brand: &#39;Apple&#39;,
   color: &#39;black&#39; }
 */</code></pre>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
 };
@@ -714,7 +716,7 @@ console.log( myComputer );
 </div>
 <div id="loop-in-object" class="section level3">
 <h3>Loop in Object</h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   apps: {
@@ -734,14 +736,14 @@ timeMachine is used by all
 </div>
 <div id="this" class="section level3">
 <h3><code>this</code></h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   claimFail: () =&gt; console.log( &quot;I&#39;m produced by &quot; + this.brand ),
 };
 
 myComputer.claimFail();              // I&#39;m produced by undefined</code></pre>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   brand: &#39;Apple&#39;,
   color: &#39;black&#39;,
   claimSuccess(){ console.log( &quot;I&#39;m produced by &quot; + this.brand )},
@@ -751,7 +753,7 @@ myComputer.claimSuccess();           // I&#39;m produced by Apple</code></pre>
 </div>
 <div id="get" class="section level3">
 <h3><code>get</code></h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   _brand: &#39;Apple&#39;,
   _color: &#39;black&#39;,
   _battery: 50,
@@ -764,7 +766,7 @@ console.log( myComputer.battery);    // 50% charged</code></pre>
 </div>
 <div id="set" class="section level3">
 <h3><code>set</code></h3>
-<pre class="javascript"><code>const myComputer = {
+<pre class="js"><code>const myComputer = {
   _brand: &#39;Apple&#39;,
   _color: &#39;black&#39;,
   _battery: 50,
@@ -785,7 +787,7 @@ myComputer.battery = &#39;charged&#39;;      // Invalid battery status</code></p
 </div>
 <div id="factory-function" class="section level3">
 <h3>Factory Function</h3>
-<pre class="javascript"><code>const computer = ( brand, color ) =&gt; {
+<pre class="js"><code>const computer = ( brand, color ) =&gt; {
   return{
     brand,
     color,
@@ -799,7 +801,7 @@ myComputer.startUp();                // Duang!</code></pre>
 </div>
 <div id="class" class="section level2">
 <h2>Class</h2>
-<pre class="javascript"><code>class Computer{
+<pre class="js"><code>class Computer{
   constructor( brand, color ){
     this._brand = brand;
     this._color = color;
@@ -824,7 +826,7 @@ myComputer.charge( 50 );
 console.log( myComputer._battery );              // 100</code></pre>
 <div id="static-method" class="section level3">
 <h3>Static Method</h3>
-<pre class="javascript"><code>class Computer{
+<pre class="js"><code>class Computer{
   constructor( brand, color ){
     this._brand = brand;
     this._color = color;
@@ -853,7 +855,7 @@ console.log( myComputer.generateSerial );        // undefined</code></pre>
 </div>
 <div id="inheritance" class="section level3">
 <h3>Inheritance</h3>
-<pre class="javascript"><code>class Appliance{
+<pre class="js"><code>class Appliance{
   constructor( brand, color ){
     this._brand = brand;
     this._color = color;
@@ -902,7 +904,7 @@ Computer {
 <li>Add some properties</li>
 <li>Export the object as a module</li>
 </ol>
-<pre class="javascript"><code>const Computer = {
+<pre class="js"><code>const Computer = {
   brand: &#39;Apple&#39;,
   startUp(){ console.log( &#39;Duang!&#39; )},
 };
@@ -920,7 +922,7 @@ export default Computer;
 <li>Import a module</li>
 <li>Use properties of the module</li>
 </ol>
-<pre class="javascript"><code>const Computer = require( &#39;./computer.js&#39; );
+<pre class="js"><code>const Computer = require( &#39;./computer.js&#39; );
 
 /*
 or in ES6:
@@ -932,7 +934,7 @@ Computer.startUp();                              // Duang!</code></pre>
 </div>
 <div id="named-export-import-es6" class="section level3">
 <h3>Named Export &amp; Import (ES6)</h3>
-<pre class="javascript"><code>const brand = &#39;Apple&#39;;
+<pre class="js"><code>const brand = &#39;Apple&#39;;
 function startUp(){ console.log( &#39;Duang!&#39; )};
 
 export{ brand as computerBrand, startUp };
@@ -942,7 +944,7 @@ or:
 export const computerBrand = &#39;Apple&#39;;
 export function startUp(){ console.log( &#39;Duang!&#39; )};
 */</code></pre>
-<pre class="javascript"><code>import{ computerBrand, startUp as computerStartUp } from &#39;./computer&#39;;
+<pre class="js"><code>import{ computerBrand, startUp as computerStartUp } from &#39;./computer&#39;;
 
 console.log( computerBrand );                    // Apple
 computerStartUp();                               // Duang!
@@ -958,7 +960,7 @@ Computer.startUp();                              // Duang!
 </div>
 <div id="promise" class="section level2">
 <h2>Promise</h2>
-<pre class="javascript"><code>let someNumber = 7;
+<pre class="js"><code>let someNumber = 7;
 
 function executorFunction( resolve, reject ){
   if( someNumber &gt; 5 ) {
@@ -984,7 +986,7 @@ const checkNumber = () =&gt;{
 console.log( checkNumber());                     // Greater than 5</code></pre>
 <div id="settimeout" class="section level3">
 <h3><code>setTimeout</code></h3>
-<pre class="javascript"><code>console.log( &#39;The first line&#39; );
+<pre class="js"><code>console.log( &#39;The first line&#39; );
 
 function startUp(){
   console.log( &#39;Duang!&#39; );
@@ -1002,7 +1004,7 @@ Duang!
 </div>
 <div id="then-catch" class="section level3">
 <h3><code>then</code> &amp; <code>catch</code></h3>
-<pre class="javascript"><code>const checkNumber = ( num ) =&gt; {
+<pre class="js"><code>const checkNumber = ( num ) =&gt; {
   return new Promise(
     function( resolve, reject ){
       if( num &gt; 5 ){ resolve( &#39;Greater than 5&#39; ); }
@@ -1040,7 +1042,7 @@ checkNumber( 7 ).then( onFulfilled )
 </div>
 <div id="multiple-promises-composition" class="section level3">
 <h3>Multiple Promises (Composition)</h3>
-<pre class="javascript"><code>const checkNumber = ( num ) =&gt; {
+<pre class="js"><code>const checkNumber = ( num ) =&gt; {
   return new Promise(
     function( resolve, reject ){
       if( num &gt; 5 ){ 
@@ -1077,7 +1079,7 @@ Smaller than 10
 </div>
 <div id="promise.all" class="section level3">
 <h3><code>Promise.all</code></h3>
-<pre class="javascript"><code>const checkNumber = ( num ) =&gt; {
+<pre class="js"><code>const checkNumber = ( num ) =&gt; {
   return new Promise(
     function( resolve, reject ){
       if( num &gt; 5 ){ 
@@ -1123,7 +1125,7 @@ Smaller than 10
 </div>
 <div id="async" class="section level3">
 <h3><code>async</code></h3>
-<pre class="javascript"><code>async function someFunc(){
+<pre class="js"><code>async function someFunc(){
   // some code
 }
 
@@ -1132,7 +1134,7 @@ Smaller than 10
 const someFunc = async () =&gt; {
   // some code
 }</code></pre>
-<pre class="javascript"><code>async function checkNumber( num ){
+<pre class="js"><code>async function checkNumber( num ){
   if( num &gt; 5 ){
     return( &#39;Greater than 5&#39; );
   }else{
@@ -1161,7 +1163,7 @@ checkNumber( 7 );
 </div>
 <div id="await" class="section level3">
 <h3><code>await</code></h3>
-<pre class="javascript"><code>const chooseNumber = () =&gt; {
+<pre class="js"><code>const chooseNumber = () =&gt; {
   return new Promise(
     function( resolve, reject ){
       setTimeout( () =&gt; {
@@ -1203,7 +1205,7 @@ Smaller than 10
 </div>
 <div id="late-await" class="section level3">
 <h3>late await</h3>
-<pre class="javascript"><code>const chooseNumber = () =&gt; {
+<pre class="js"><code>const chooseNumber = () =&gt; {
   return new Promise(
     function( resolve, reject ){
       setTimeout( () =&gt; {
@@ -1224,7 +1226,7 @@ printNumber();               // 6</code></pre>
 </div>
 <div id="await-promise.all" class="section level3">
 <h3><code>await Promise.all</code></h3>
-<pre class="javascript"><code>const chooseNumber = () =&gt; {
+<pre class="js"><code>const chooseNumber = () =&gt; {
   return new Promise(
     function( resolve, reject ){
       setTimeout( () =&gt; {
@@ -1266,7 +1268,7 @@ Smaller than 10
 </div>
 <div id="try-...-catch" class="section level3">
 <h3><code>try ... catch</code></h3>
-<pre class="javascript"><code>async function checkNumber( num ){
+<pre class="js"><code>async function checkNumber( num ){
   try{
     if( num &gt; 5 ){
       console.log( &#39;Greater than 5&#39; );
@@ -1286,7 +1288,7 @@ checkNumber( 7 );            // Greater than 5</code></pre>
 <p>AJAX (Asynchronous JavaScript and XML)</p>
 <div id="xhr-get" class="section level3">
 <h3>XHR GET</h3>
-<pre class="javascript"><code>const xhr = new XMLHttpRequest();
+<pre class="js"><code>const xhr = new XMLHttpRequest();
 const url = &#39;http://api-to-call.com/endpoint&#39;;
 
 xhr.responseType = &#39;json&#39;;
@@ -1303,7 +1305,7 @@ xhr.send();</code></pre>
 </div>
 <div id="xhr-post" class="section level3">
 <h3>XHR POST</h3>
-<pre class="javascript"><code>const xhr = new XMLHttpRequest();
+<pre class="js"><code>const xhr = new XMLHttpRequest();
 const url = &#39;http://api-to-call.com/endpoint&#39;;
 const data = JSON.stringify({ id:&#39;200&#39; });
 
@@ -1320,7 +1322,7 @@ xhr.send( data );</code></pre>
 </div>
 <div id="fetch-get" class="section level3">
 <h3>Fetch GET</h3>
-<pre class="javascript"><code>fetch( &#39;http://api-to-call.com/endpoint&#39; )
+<pre class="js"><code>fetch( &#39;http://api-to-call.com/endpoint&#39; )
 .then( response =&gt; {
   if( response.ok ){
     return response.json();
@@ -1334,7 +1336,7 @@ xhr.send( data );</code></pre>
 </div>
 <div id="fecth-post" class="section level3">
 <h3>Fecth POST</h3>
-<pre class="javascript"><code>fetch( &#39;http://api-to-call.com/endpoint&#39;,
+<pre class="js"><code>fetch( &#39;http://api-to-call.com/endpoint&#39;,
        { method: &#39;POST&#39;, body: JSON.stringify({id:&#39;200&#39;}) })
 .then( response =&gt; {
   if( response.ok ){
@@ -1349,7 +1351,7 @@ xhr.send( data );</code></pre>
 </div>
 <div id="async-get" class="section level3">
 <h3>Async GET</h3>
-<pre class="javascript"><code>async function getData(){
+<pre class="js"><code>async function getData(){
   try{
     const response = await fetch( &#39;http://api-to-call.com/endpoint&#39; );
     if( response.ok ){
@@ -1366,7 +1368,7 @@ xhr.send( data );</code></pre>
 </div>
 <div id="async-post" class="section level3">
 <h3>Async POST</h3>
-<pre class="javascript"><code>async function getData(){
+<pre class="js"><code>async function getData(){
   try{
     const response = await fetch( &#39;http://api-to-call.com/endpoint&#39;,
                                   { method: &#39;POST&#39;, body: JSON.stringify({id:&#39;200&#39;}) });
