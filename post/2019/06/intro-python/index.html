@@ -94,7 +94,9 @@ if (!doNotTrack) {
 
 <div id="TOC">
 <ul>
-<li><a href="#notes-from-datacamp">Notes from DataCamp</a><ul>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#notes-from-datacamp">Notes from DataCamp</a>
+<ul>
 <li><a href="#slides">Slides</a></li>
 <li><a href="#basics">Basics</a></li>
 <li><a href="#functions">Functions</a></li>
@@ -102,8 +104,8 @@ if (!doNotTrack) {
 <li><a href="#packages">Packages</a></li>
 <li><a href="#package-numpy">Package: <code>Numpy</code></a></li>
 </ul></li>
-<li><a href="#notes-from-effective-programming">Notes from <span>Effective Programming</span></a><ul>
-<li><a href="#reference">Reference</a></li>
+<li><a href="#notes-from-effective-programming">Notes from <span>Effective Programming</span></a>
+<ul>
 <li><a href="#simple-examples">Simple Examples</a></li>
 <li><a href="#containers">Containers</a></li>
 <li><a href="#converting-between-types">Converting Between Types</a></li>
@@ -118,8 +120,19 @@ if (!doNotTrack) {
 </ul>
 </div>
 
-<p><a href="https://repl.it/languages/python3">Repl.it - Online Python Editor and IDE</a><br />
-<a href="http://www.pythontutor.com/visualize.html#mode=edit">Visualize Python, Java, JavaScript, C, C++, Ruby code execution</a></p>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 -- Style Guide for Python Code | Python.org</a>
+<ul>
+<li><a href="https://alvinzhu.xyz/2017/10/07/python-pep-8/">Python PEP-8编码风格指南中文版</a></li>
+</ul></li>
+<li><a href="https://repl.it/languages/python3">Repl.it - Online Python Editor and IDE</a><br />
+</li>
+<li><a href="http://www.pythontutor.com/visualize.html#mode=edit">Visualize Python, Java, JavaScript, C, C++, Ruby code execution</a></li>
+<li><a href="https://runestone.academy/runestone/books/published/thinkcspy/index.html">How to Think like a Computer Scientist: Interactive Edition</a></li>
+</ul>
+</div>
 <div id="notes-from-datacamp" class="section level2">
 <h2>Notes from DataCamp</h2>
 <div id="slides" class="section level3">
@@ -264,16 +277,6 @@ np.std(x)           # stand deviation</code></pre>
 </div>
 <div id="notes-from-effective-programming" class="section level2">
 <h2>Notes from <a href="../../10/notes-effective-programming/">Effective Programming</a></h2>
-<div id="reference" class="section level3">
-<h3>Reference</h3>
-<ul>
-<li><a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 -- Style Guide for Python Code | Python.org</a>
-<ul>
-<li><a href="https://alvinzhu.xyz/2017/10/07/python-pep-8/">Python PEP-8编码风格指南中文版</a></li>
-</ul></li>
-<li><a href="https://www.onlinegdb.com/online_python_compiler">Online Python Compiler</a></li>
-</ul>
-</div>
 <div id="simple-examples" class="section level3">
 <h3>Simple Examples</h3>
 <pre class="sh"><code>$ python</code></pre>
@@ -820,10 +823,7 @@ import numpy as np
 import pandas as pd
 
 # Import household data and create DataFrame object. 
-household = pd.read_table(&#39;household.csv&#39;)
-
-
-</code></pre>
+household = pd.read_table(&#39;household.csv&#39;)</code></pre>
 <!-- 
 ## Lab
 

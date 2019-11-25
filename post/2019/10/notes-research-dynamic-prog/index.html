@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">14 min read</span>
     
     <h1 class="article-title">Notes on Research: Dynamic Programming</h1>
     
@@ -91,19 +91,22 @@ if (!doNotTrack) {
 
 <div id="TOC">
 <ul>
-<li><a href="#dynamic-programming-discrete-time">Dynamic Programming: Discrete Time</a><ul>
+<li><a href="#dynamic-programming-discrete-time">Dynamic Programming: Discrete Time</a>
+<ul>
 <li><a href="#example-corn-planting">Example: Corn Planting</a></li>
 <li><a href="#sequence-problem">Sequence Problem</a></li>
 <li><a href="#functional-bellman-equation">Functional (Bellman) Equation</a></li>
 <li><a href="#bounded-and-continuous-rewards">Bounded and Continuous Rewards</a></li>
 <li><a href="#bellman-operator">Bellman Operator</a></li>
 </ul></li>
-<li><a href="#stochastic-dynamic-programming">Stochastic Dynamic Programming</a><ul>
+<li><a href="#stochastic-dynamic-programming">Stochastic Dynamic Programming</a>
+<ul>
 <li><a href="#example-corn-rain">Example: Corn &amp; Rain</a></li>
 <li><a href="#random-shocks">Random Shocks</a></li>
 <li><a href="#example-kiefer-1989">Example: <span>Kiefer (1989)</span></a></li>
 </ul></li>
-<li><a href="#controlled-diffusion-and-optimal-stopping">Controlled Diffusion and Optimal Stopping</a><ul>
+<li><a href="#controlled-diffusion-and-optimal-stopping">Controlled Diffusion and Optimal Stopping</a>
+<ul>
 <li><a href="#wiener-process">Wiener Process</a></li>
 <li><a href="#diffusion-process">Diffusion Process</a></li>
 <li><a href="#itos-lemma">Ito’s Lemma</a></li>
@@ -114,21 +117,25 @@ if (!doNotTrack) {
 <li><a href="#poisson-process">Poisson Process</a></li>
 <li><a href="#optimal-exploration-in-two-armed-bandit-problem">Optimal Exploration in Two-Armed Bandit Problem</a></li>
 </ul></li>
-<li><a href="#presentation-term-paper">Presentation &amp; Term Paper</a><ul>
+<li><a href="#presentation-term-paper">Presentation &amp; Term Paper</a>
+<ul>
 <li><a href="#besanko-tong-wu-2018">Besanko Tong Wu 2018</a></li>
 <li><a href="#bonatti-hoerner-2011">Bonatti Hoerner 2011</a></li>
 <li><a href="#branco-sun-villas-boas-2012">Branco Sun Villas-Boas 2012</a></li>
 <li><a href="#che-hoerner-2018">Che Hoerner 2018</a></li>
 <li><a href="#halac-kartik-liu-2016">Halac Kartik Liu 2016</a></li>
-<li><a href="#kremer-mansour-perry-2014">Kremer Mansour Perry 2014</a></li>
 <li><a href="#manso-2011">Manso 2011</a></li>
 <li><a href="#strulovici-2010">Strulovici 2010</a></li>
+</ul></li>
+<li><a href="#kremer-mansour-perry-2014-my-bit">Kremer Mansour Perry 2014 (My Bit)</a>
+<ul>
+<li><a href="#model">Model</a></li>
 </ul></li>
 </ul>
 </div>
 
-<p>wrt means with respect to<br />
-Textbook: <a href="http://93.174.95.27/book/index.php?md5=95BF65ECABD0CB44AF57089D7668D426">Nancy L. Stokey, Robert E. Lucas Jr., Edward C. Prescott - Recursive Methods in Economic Dynamics</a> (S&amp;L)</p>
+<p>wrt means with respect to</p>
+<p>Textbook: <a href="http://93.174.95.27/book/index.php?md5=95BF65ECABD0CB44AF57089D7668D426">Nancy L. Stokey, Robert E. Lucas Jr., Edward C. Prescott - Recursive Methods in Economic Dynamics</a> (S&amp;L)</p>
 <div id="dynamic-programming-discrete-time" class="section level2">
 <h2>Dynamic Programming: Discrete Time</h2>
 <p>also see <a href="../../01/notes-math-optimization-dynamics/#dynamics">Notes on Mathematics - Optimization and Dynamics</a></p>
@@ -724,12 +731,6 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <li>Adverse selection, moral hazard &amp; private learning</li>
 </ul>
 </div>
-<div id="kremer-mansour-perry-2014" class="section level3">
-<h3>Kremer Mansour Perry 2014</h3>
-<ul>
-<li>Social planning on recommender system</li>
-</ul>
-</div>
 <div id="manso-2011" class="section level3">
 <h3>Manso 2011</h3>
 <ul>
@@ -740,6 +741,41 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <h3>Strulovici 2010</h3>
 <ul>
 <li>Collective learning</li>
+</ul>
+</div>
+</div>
+<div id="kremer-mansour-perry-2014-my-bit" class="section level2">
+<h2>Kremer Mansour Perry 2014 (My Bit)</h2>
+<ul>
+<li>Social planning on recommender system</li>
+</ul>
+<div id="model" class="section level3">
+<h3>Model</h3>
+<ul>
+<li>Set of possible actions: <span class="math inline">\(A=\{a_1,a_2\}\)</span></li>
+<li>Unknown reward of <span class="math inline">\(a_i\)</span>: <span class="math inline">\(R_i\sim π_i\)</span>
+<ul>
+<li><span class="math inline">\(π\)</span> has full support (all values have positive probability)</li>
+<li>Expected value: <span class="math inline">\(μ_i= E_{R_i\sim π_i}[R_i]\)</span></li>
+<li><span class="math inline">\(μ_1&gt;μ_2\)</span> but <span class="math inline">\(Pr(R_1&lt;μ_2)&gt;0\)</span></li>
+</ul></li>
+<li>Planner
+<ul>
+<li>Goal: <span class="math inline">\(\max \ E\big[\frac{1}{T}\sum R^t\big]\)</span></li>
+<li>Message: <span class="math inline">\(\{\tilde{M}^1,\tilde{M}^2,\dots,\tilde{M}^T\}\)</span></li>
+</ul></li>
+<li>Agents: <span class="math inline">\(t\in T\)</span>
+<ul>
+<li>Goal: <span class="math inline">\(\max \ E[R^t\ |\ M^t]\)</span></li>
+<li>Strategy: <span class="math inline">\(σ^t: M^t\to A\)</span></li>
+</ul></li>
+<li>Timing
+<ol style="list-style-type: decimal">
+<li>Agent <span class="math inline">\(t\)</span> arrives</li>
+<li>Chooses action <span class="math inline">\(a^t\)</span></li>
+<li><span class="math inline">\(R_{a^t}\)</span> is realised</li>
+<li>Agent <span class="math inline">\(t+1\)</span> arrives</li>
+</ol></li>
 </ul>
 </div>
 </div>
