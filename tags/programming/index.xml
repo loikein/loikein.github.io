@@ -6,10 +6,19 @@
     <description>Recent content in Programming on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introduction to JavaScript, Refined</title>
+      <link>/post/2019/11/intro-js-refined/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/11/intro-js-refined/</guid>
+      <description>References Basics  Constant &amp;amp; Variable String Property Method Built-in Objects  Conditionals  if &amp;amp; else if Truthy and Falsy Short-Circuit Evaluation Ternary Operator switch  Function  Arrow Function Function in Function  Scope Array  Array Methods Nested Array for while do ... while break Iteration  Object  Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop in Object this get set Factory Function  Class  Static Method Inheritance  Module  Create Module Use Module Named Export &amp;amp; Import (ES6)  Promise  setTimeout then &amp;amp; catch Multiple Promises (Composition) Promise.</description>
+    </item>
     
     <item>
       <title>Notes on Effective Programming Practice</title>
@@ -29,15 +38,6 @@ Please use Google to tailor your own version.</description>
       <guid>/post/2019/06/intro-python/</guid>
       <description>Reference Notes from DataCamp  Slides Basics Functions Methods Packages Package: Numpy  Notes from Effective Programming  Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditionals Function Module  Package: Pandas   Reference  PEP 8 -- Style Guide for Python Code | Python.org  Python PEP-8编码风格指南中文版  Repl.it - Online Python Editor and IDE
  Visualize Python, Java, JavaScript, C, C++, Ruby code execution How to Think like a Computer Scientist: Interactive Edition   Notes from DataCamp Slides ch1</description>
-    </item>
-    
-    <item>
-      <title>Introduction to JavaScript</title>
-      <link>/post/2019/02/intro-js/</link>
-      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/02/intro-js/</guid>
-      <description>Basics Constant Variable Assignment Operator Increment Operator String + Varible Property Method  Built-in Object Math Number  Conditional Statement if Truthy and Falsy Short-Circuit Evaluation Ternary Operator else if switch  Function Default Argument Arrow Function Function in Function  Scope Scope Pollution Good Scoping  Array let &amp;amp; const Array Method Nested Array  Loop for while do ... while break Iteration  Object Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop in Object this get set Factory Function  Class Static Method Inheritance  Module Create Module Use Module Named Export &amp;amp; Import (ES6)  Promise setTimeout then &amp;amp; catch Multiple Promises (Composition) Promise.</description>
     </item>
     
     <item>
