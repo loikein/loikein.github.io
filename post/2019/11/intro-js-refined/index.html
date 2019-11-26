@@ -207,16 +207,23 @@ console.log( &#39;orange&#39; === &#39;apple&#39; ); // false
 console.log( &#39;orange&#39; !== &#39;apple&#39;);  // true</code></pre>
 <div id="constant-variable" class="section level3">
 <h3>Constant &amp; Variable</h3>
-<pre class="js"><code>const someConst = &#39;do not change&#39;;
+<ul>
+<li>Variable names are case-sensitive</li>
+</ul>
+<pre class="js"><code>// constant
+
+const someConst = &#39;do not change&#39;;
 someConst = &#39;hey&#39;;                   // Error!</code></pre>
-<pre class="js"><code>var someNumber = 7;
-var someString = &#39;what&#39;;
+<pre class="js"><code>// variable
+
+let someNumber = 7;
+let someString = &#39;what&#39;;
+someNumber = 9;
 
 let someBoolean = true;
 someBoolean = false;
-console.log( someBoolean );          // false
-
-// change type
+console.log( someBoolean );          // false</code></pre>
+<pre class="js"><code>// change type
 
 let changeType = &#39;hey!&#39;;
 console.log( typeof changeType);     // string
@@ -226,24 +233,25 @@ console.log( typeof changeType);     // number</code></pre>
 </div>
 <div id="string" class="section level3">
 <h3>String</h3>
-<pre class="js"><code>console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; ); // mind the gap
+<pre class="js"><code>console.log( &#39;mind &#39; + &#39;the&#39; + &#39; &#39; + &#39;gap&#39; );           // mind the gap
+console.log( &quot;mind &quot; + &quot;the&quot; + &quot; &quot; + &quot;gap&quot; );           // mind the gap
 
-let favoriteAnimal = &#39;panda&#39;;
+let favoriteAnimal = &#39;cat&#39;;
 
-console.log( &#39;My favorite animal: &#39; + favoriteAnimal ); // My favorite animal: panda
-console.log( `My favorite animal: ${favoriteAnimal}` ); // My favorite animal: panda</code></pre>
+console.log( &#39;My favorite animal: &#39; + favoriteAnimal ); // My favorite animal: cat
+console.log( `My favorite animal: ${favoriteAnimal}` ); // My favorite animal: cat</code></pre>
 </div>
 <div id="property" class="section level3">
 <h3>Property</h3>
-<pre class="js"><code>console.log( &#39;Count me&#39;.length );</code></pre>
+<pre class="js"><code>console.log( &#39;Count me&#39;.length );               </code></pre>
 </div>
 <div id="method" class="section level3">
 <h3>Method</h3>
-<pre class="js"><code>console.log( &#39;hello&#39;.toUpperCase() );            // HELLO
+<pre class="js"><code>console.log( &#39;hello&#39;.toUpperCase() );                   // HELLO
 
-console.log( &#39;hello&#39;.startsWith(&#39;a&#39;) );          // false
+console.log( &#39;hello&#39;.startsWith(&#39;a&#39;) );                 // false
 
-console.log(&#39;    Remove whitespace   &#39;.trim() ); // Remove whitespace</code></pre>
+console.log(&#39;    Remove whitespace   &#39;.trim() );        // Remove whitespace</code></pre>
 </div>
 <div id="built-in-objects" class="section level3">
 <h3>Built-in Objects</h3>

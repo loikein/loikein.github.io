@@ -151,6 +151,10 @@ Please use Google to tailor your own version.</p>
 # clone
 $ git clone https://github.com/path-to-your-repo
 
+# new branch
+$ git branch loikein
+$ git checkout loikein
+
 # creat an environment from an environment.yml file
 $ conda env create -f environment.yml
 
@@ -159,6 +163,13 @@ $ conda activate exercise_1
 $ python waf.py configure
 
 $ subl .gitignore
+# add the following:
+# .DS_Store
+# */.DS_Store
+
+# pre-commit hooks
+$ pre-commit install
+$ pre-commit run
 
 #### do the following everytime ####
 
@@ -166,8 +177,9 @@ $ subl .gitignore
 
 $ python waf.py build
 
-$ git add --all
-$ git commit -m &quot;Some meaningful messages&quot;
+$ git status                                # gst
+$ git add --all                             # gaa
+$ git commit -m &quot;Some meaningful messages&quot;  # gcmsg
 
 $ git push</code></pre>
 </div>
@@ -449,6 +461,7 @@ Paste everything into Hermes: Connect Kernel
 <h3>Reference</h3>
 <ul>
 <li><a href="https://waf.io/apidocs/tutorial.html">Waf tutorial — Waf 2.0.18 documentation</a></li>
+<li><a href="https://waf.io/book/">The Waf Book</a></li>
 <li><a href="https://blog.csdn.net/u010312436/article/details/81093847">学习笔记：waf帮助构建及编译系统 - fanchenxinok的专栏 - CSDN博客</a></li>
 </ul>
 </div>

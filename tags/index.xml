@@ -84,6 +84,15 @@
     </item>
     
     <item>
+      <title>Archived</title>
+      <link>/tags/archived/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/archived/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>GT</title>
       <link>/tags/gt/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
@@ -93,29 +102,11 @@
     </item>
     
     <item>
-      <title>Archived</title>
-      <link>/tags/archived/</link>
-      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/archived/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>finance</title>
       <link>/tags/finance/</link>
       <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/finance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>C</title>
-      <link>/tags/c/</link>
-      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/c/</guid>
       <description></description>
     </item>
     

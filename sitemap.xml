@@ -93,7 +93,17 @@
   </url>
   
   <url>
-    <loc>/post/2019/04/notes-time-series/</loc>
+    <loc>/tags/archived/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/archive/</loc>
+    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/archive/notes-time-series/</loc>
     <lastmod>2019-04-15T00:00:00+00:00</lastmod>
   </url>
   
@@ -118,7 +128,7 @@
   </url>
   
   <url>
-    <loc>/post/2019/04/notes-mechanism-social/</loc>
+    <loc>/archive/notes-mechanism-social/</loc>
     <lastmod>2019-04-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -128,7 +138,7 @@
   </url>
   
   <url>
-    <loc>/post/2019/04/notes-probability-theory/</loc>
+    <loc>/archive/notes-probability-theory/</loc>
     <lastmod>2019-04-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -140,16 +150,6 @@
   <url>
     <loc>/post/2019/03/notes-micro-final/</loc>
     <lastmod>2019-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/archived/</loc>
-    <lastmod>2019-02-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/archive/</loc>
-    <lastmod>2019-02-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -208,12 +208,7 @@
   </url>
   
   <url>
-    <loc>/tags/c/</loc>
-    <lastmod>2018-05-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/2018/05/intro-c-rmd/</loc>
+    <loc>/archive/intro-c-rmd/</loc>
     <lastmod>2018-05-24T00:00:00+00:00</lastmod>
   </url>
   

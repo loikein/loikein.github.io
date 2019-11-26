@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">31 min read</span>
+    <span class="article-duration">33 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -90,17 +90,20 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#literature">Literature</a></li>
-<li><a href="#probability-measures">Probability Measures</a><ul>
-<li><a href="#borel-field">σ- &amp; Borel Field</a></li>
+<li><a href="#probability-measures">Probability Measures</a>
+<ul>
+<li><a href="#σ--borel-field">σ- &amp; Borel Field</a></li>
 <li><a href="#distribution-function">Distribution Function</a></li>
 <li><a href="#extension-to-rk">Extension to R^k</a></li>
 </ul></li>
-<li><a href="#random-variables">Random Variables</a><ul>
+<li><a href="#random-variables">Random Variables</a>
+<ul>
 <li><a href="#expectation">Expectation</a></li>
 <li><a href="#variance">Variance</a></li>
 <li><a href="#moments-of-rk">Moments of R^k</a></li>
 </ul></li>
-<li><a href="#stochastic-convergence">Stochastic Convergence</a><ul>
+<li><a href="#stochastic-convergence">Stochastic Convergence</a>
+<ul>
 <li><a href="#convergence-in-expectations-almost-sure-convergence">Convergence in Expectations &amp; Almost Sure Convergence</a></li>
 <li><a href="#convergence-in-probability">Convergence in Probability</a></li>
 <li><a href="#convergence-in-probability-vs.-almost-convergence">Convergence in Probability vs. Almost Convergence</a></li>
@@ -111,10 +114,12 @@ if (!doNotTrack) {
 <li><a href="#stochastic-boundedness-tightness">Stochastic Boundedness (Tightness)</a></li>
 <li><a href="#calculus-for-convergence-in-probability-tightness">Calculus for Convergence in Probability &amp; Tightness</a></li>
 </ul></li>
-<li><a href="#m-estimators">M-Estimators</a><ul>
+<li><a href="#m-estimators">M-Estimators</a>
+<ul>
 <li><a href="#linear-regression-model">Linear Regression Model</a></li>
 <li><a href="#parametric-model">Parametric Model</a></li>
 <li><a href="#consistency">Consistency</a></li>
+<li><a href="#uniform-convergence-in-probability">Uniform Convergence in Probability</a></li>
 </ul></li>
 </ul>
 </div>
@@ -308,7 +313,7 @@ Define <span class="math inline">\(B_1 = A_1\)</span>, <span class="math inline"
 If <span class="math inline">\(Ω\)</span> is uncountable, it is in general impossible to define <span class="math inline">\(P\)</span> for all <span class="math inline">\(A\subset Ω\)</span> s.t. Kolmogorov Axioms are satisfied</p>
 </blockquote>
 <p>Solution: σ- &amp; Borel Field</p>
-<div id="borel-field" class="section level3">
+<div id="σ--borel-field" class="section level3">
 <h3>σ- &amp; Borel Field</h3>
 <blockquote>
 <p>Def 1.3. σ-field (algebra)<br />
@@ -682,12 +687,15 @@ The mean of <span class="math inline">\(X\)</span> is defined as</p>
 <span class="math inline">\(X(ω)=\begin{cases}1 &amp; \text{odd} \\ -1 \end{cases}\)</span> gain<br />
 <span class="math display">\[\begin{aligned}P(X=1) &amp;= \frac{18}{37} \\ P(X=-1) &amp;= \frac{19}{37} \\ E[X] &amp;= 1\cdot\frac{18}{37} + (-1)\cdot\frac{19}{37} &amp;= -\frac{1}{37} \end{aligned}\]</span></li>
 <li>Normal distribution<br />
-<span class="math display">\[\begin{aligned}f(x) &amp;=\frac{1}{\sqrt{2πσ^2}}\cdot\exp\big(-\frac{(x-μ)^2}{2σ^2}\big) \\
-E[X] &amp;= \int_{-\infty}^{\infty} x\cdot f(x)\, dx\\
-&amp;= \int_{-\infty}^{\infty} (y+μ)\cdot\frac{1}{\sqrt{2πσ^2}}\cdot\exp\big(-\frac{y^2}{2σ^2}\big)\, dy \\
-&amp;= \underbrace{\int_{-\infty}^{\infty} y\cdot\frac{1}{\sqrt{2πσ^2}}\cdot\exp\big(-\frac{y^2}{2σ^2}\big)\, dy}_{=0} + μ\cdot\underbrace{\int_{-\infty}^{\infty}\frac{1}{\sqrt{2πσ^2}}\cdot\exp\big(-\frac{y^2}{2σ^2}\big)\, dy}_{=1} \\
-&amp;= μ\end{aligned}\]</span></li>
+$$\begin{aligned}f(x) &amp;=(-) \
+E[X] &amp;= <em>{-}^{} xf(x), dx\
+&amp;= </em>{-}^{} (y+μ)(-), dy \
+&amp;= _{=0}</li>
 </ol>
+<ul>
+<li>μ_{=1} \
+&amp;= μ\end{aligned}$$</li>
+</ul>
 </blockquote>
 <blockquote>
 <p>Thm 1.12. Prepulis of Expectation<br />
@@ -1489,8 +1497,8 @@ meanwhile, the following does not give uniform convergence:
 If the following assumptions are satisfied, then <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span></p>
 <ol style="list-style-type: decimal">
 <li>(A1) Identification (unique minimizer &amp; enough separation)<br />
-For all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(δ&gt;0\)</span> s.t. <span class="math inline">\(\inf_{θ:\|θ-θ_0\|&gt;ε} \ Q(θ)\geq Q_{θ_0}+δ\)</span><br />
-</li>
+For all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(δ&gt;0\)</span> s.t.
+<span class="math display">\[\inf_{θ:\|θ-θ_0\|&gt;ε} \ Q(θ)\geq Q_{θ_0}+δ\]</span></li>
 <li>(A2) Uniform convergence<br />
 <span class="math inline">\(\sup_{θ\in Θ} \ \big| Q_n(θ) - Q(θ)\big| \overset{P}{\to} 0\)</span></li>
 </ol>
@@ -1536,9 +1544,8 @@ Plugging (+) and (++) into (*), we have
 (A1) in Thm 2.2 is satisfied if</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(Θ\subset \mathbb{R}^k\)</span> is compact</li>
-<li><span class="math inline">\(Q\)</span> is continuous,<br />
-</li>
-<li>(!) <span class="math inline">\(Q(θ)\geq Q(θ_0)\)</span>, equality only holds for <span class="math inline">\(θ=θ_0\)</span></li>
+<li>(!) <span class="math inline">\(Q(θ)&gt; Q(θ_0)\)</span> for all <span class="math inline">\(θ\neq θ_0\)</span></li>
+<li><span class="math inline">\(Q\)</span> is continuous</li>
 </ol>
 </blockquote>
 <p>Proof: exercise</p>
@@ -1589,6 +1596,115 @@ Let</p>
 &amp;= -\log\int \frac{f_Z(θ)}{f_Z(θ_0)}\cdot f_Z(θ_0)\, dZ \\
 &amp;\geq -\log\underbrace{\int f_Z(θ)\, dZ}_{=1} \\
 &amp;= 0 \end{aligned}\]</span></p>
+</div>
+<div id="uniform-convergence-in-probability" class="section level3">
+<h3>Uniform Convergence in Probability</h3>
+<ul>
+<li>Ordinary contiuity: <span class="math inline">\(f:Θ\to \mathbb{R}^m\)</span> is continuous at <span class="math inline">\(θ\)</span><br />
+if for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(δ(ε,θ)&gt;0\)</span> s.t. for <span class="math inline">\(\|θ-θ&#39;\|&lt;δ\)</span>,
+<span class="math display">\[\sup_{θ&#39;}\| f(θ) -f(θ&#39;)\| &lt; ε \]</span></li>
+<li>Uniform contiuity: <span class="math inline">\(f:Θ\to \mathbb{R}^m\)</span> is uniformly continuous<br />
+if for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(δ(ε)&gt;0\)</span> s.t. for <span class="math inline">\(\|θ-θ&#39;\|&lt;δ\)</span>,
+<span class="math display">\[\sup_{(θ,θ&#39;)}\| f(θ) -f(θ&#39;)\| &lt; ε \]</span></li>
+<li>Equicontinuity</li>
+<li>Stochastic contiuity</li>
+</ul>
+<blockquote>
+<p>Def 2.4. Equicontinuity<br />
+A sequence <span class="math inline">\(\{f_n\}\)</span> of functions <span class="math inline">\(f_n:Θ\to \mathbb{R}^m\)</span> is equicontinuous<br />
+if for all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(δ&gt;0\)</span> s.t. for all <span class="math inline">\(n\)</span>, for <span class="math inline">\(\|θ-θ&#39;\|&lt;δ\)</span>,
+<span class="math display">\[\sup_{(θ,θ&#39;)}\| f_n(θ) -f_n(θ&#39;)\| &lt; ε \]</span></p>
+</blockquote>
+<p>Remark:<br />
+Equicontinuity <span class="math inline">\(\approx\)</span> uniform contiuity of all <span class="math inline">\(f_n\)</span>, <span class="math inline">\(δ(n)\)</span></p>
+<blockquote>
+<p>Def 2.5. Stochastic equicontinuity<br />
+A sequence <span class="math inline">\(\{Q_n\}\)</span> of random functions <span class="math inline">\(Q_n:Θ\to \mathbb{R}^m\)</span> is stochastically equicontinuous<br />
+if for all <span class="math inline">\(ε,η&gt;0\)</span>, exists <span class="math inline">\(δ&gt;0\)</span> s.t. for sufficiently large <span class="math inline">\(n\)</span>, for <span class="math inline">\(\|θ-θ&#39;\|&lt;δ\)</span>,
+<span class="math display">\[P\big(\sup_{(θ,θ&#39;)}\| Q_n(θ) -Q_n(θ&#39;)\|&gt;η\big) &lt; ε \]</span></p>
+</blockquote>
+<blockquote>
+<p>Thm 2.6. Uniform law of large numbers<br />
+Let <span class="math inline">\(\{Q_n\}\)</span> be a sequence of random functions,<br />
+<span class="math display">\[\sup_{θ}\| Q_n(θ) -Q(θ)\|\overset{P}{\to} 0\]</span>
+If:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(Θ\)</span> is compact</li>
+<li><span class="math inline">\(Q_n(θ)\overset{P}{\to}Q(θ)\)</span> pointwise for any <span class="math inline">\(θ\in Θ\)</span></li>
+<li><span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous, <span class="math inline">\(Q\)</span> is continuous</li>
+</ol>
+</blockquote>
+<p>Proof:<br />
+Let <span class="math inline">\(ε,η&gt;0\)</span>, open ball <span class="math inline">\(B(θ,δ)=\{s\in Θ:\|s-θ\|&lt;δ\}\)</span><br />
+Since <span class="math inline">\(Θ\)</span> is compact, <span class="math inline">\(Θ\)</span> can be covered by finitely many balls,<br />
+<span class="math inline">\(\implies\)</span> exists <span class="math inline">\(θ_1,\dots,θ_K\in Θ\)</span> s.t. <span class="math inline">\(Θ=\cup_{k=1}^K B(θ_k,δ)\)</span><br />
+<span class="math display">\[\|Q_n(θ) -Q(θ)\|\leq\|Q_n(θ) -Q_n(θ_k)\|+\|Q_n(θ_k) -Q(θ_k)\|+\|Q(θ_k) -Q(θ)\|\]</span>
+Therefore,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}P\big(\sup_{θ\in Θ}\| Q_n(θ) -Q_n(θ)\|&gt;η\big)\\
+&amp;= P\big(\max_{k}\sup_{(θ\in B(θ_k))}\ \| Q_n(θ) -Q_n(θ&#39;)\|&gt;η\big)\\
+&amp;= P\big(\max_{k}\sup_{(θ\in B(θ_k))}\ \| Q_n(θ) -Q_n(θ_k)\|&gt;\frac{η}{3}\big) &amp;&amp; \text{(I)}\\
+&amp;\phantom{\ggg}+ P\big(\max_{k}\sup_{(θ\in B(θ_k))}\ \| Q_n(θ_k) -Q(θ_k)\|&gt;\frac{η}{3}\big) &amp;&amp; \text{(II)}\\
+&amp;\phantom{\ggg}+ P\big(\max_{k}\sup_{(θ\in B(θ_k))}\ \| Q(θ_k) -Q(θ)\|&gt;\frac{η}{3}\big) &amp;&amp; \text{(III)}\end{aligned}\]</span></p>
+<p>For (III):<br />
+As <span class="math inline">\(Q\)</span> is continuous and <span class="math inline">\(Θ\)</span> is compact, <span class="math inline">\(Q\)</span> is uniformly continuous<br />
+Therefore,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} \max_k\sup_{θ\in B(θ_k)}\ \| Q(θ_k) -Q(θ)\| \\
+&amp;\leq \sup_{(θ,θ&#39;:\|θ-θ&#39;\|&lt;δ)}\ \| Q(θ) -Q(θ&#39;)\|\\
+&amp;\leq \frac{η}{3}\end{aligned}\]</span>
+therefore, (III) <span class="math inline">\(\to 0\)</span> for <span class="math inline">\(δ\)</span> small enough</p>
+<p>For (I):<br />
+For <span class="math inline">\(δ\)</span> small enough, <span class="math inline">\(n\)</span> sufficiently large,<br />
+since <span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}P\big(\max_{k}\sup_{θ\in B(θ_k)}\ \| Q_n(θ_k) -Q(θ_k)\|&gt;\frac{η}{3}\big) \\
+&amp;\leq P\big(\sup_{(θ,θ&#39;:\|θ-θ&#39;\|&lt;δ)}\ \| Q_n(θ) -Q(θ&#39;)\|&gt;\frac{η}{3}\big)\\
+&amp;\leq \frac{ε}{2} \end{aligned}\]</span></p>
+<p>For (II):<br />
+For <span class="math inline">\(n\)</span> sufficiently large, by (A2),<br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}P\big(\max_{k}\sup_{(θ\in B)}\ \| Q_n(θ_k) -Q(θ_k)\|&gt;\frac{η}{3}\big) \\
+&amp;= P\big(\max_{k}\ \| Q_n(θ_k) -Q(θ_k)\|&gt;\frac{η}{3}\big) \\
+&amp;\leq \textstyle{\sum}_{k=1}^K \underbrace{P\big(\| Q_n(θ_k) -Q(θ_k)\|&gt;\frac{η}{3}\big)}_{\to 0 \text{as} n\to\infty} \\
+&amp;\leq \frac{ε}{2}\end{aligned}\]</span></p>
+<p>Summing up, for <span class="math inline">\(n\)</span> sufficiently large,
+<span class="math display">\[\begin{aligned}P\big(\sup_{θ\in Θ}\| Q_n(θ) -Q_n(θ)\|&gt;η\big) &amp;\leq \text{(I)} + \text{(II)} + \text{(III)}\\
+&amp;\leq \frac{ε}{2} + \frac{ε}{2} =ε \end{aligned}\]</span></p>
+<p>Remark:<br />
+Thm 2.6 can be strengthened as:<br />
+Uniform convergence <span class="math inline">\(\iff \{Q_n\}\)</span> is stochastically equicontinuous and <span class="math inline">\(Q\)</span> is continuous<br />
+If:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(Θ\)</span> is compact<br />
+</li>
+<li><span class="math inline">\(Q_n(θ)\overset{P}{\to}Q(θ)\)</span> pointwise for any <span class="math inline">\(θ\in Θ\)</span></li>
+</ol>
+<blockquote>
+<p>Thm 2.7.<br />
+Suppose <span class="math inline">\(B_n=O_p(1)\)</span> is stochastic sequence depending on <span class="math inline">\(θ\)</span>,<br />
+Function <span class="math inline">\(h:\mathbb{R}_+\to\mathbb{R}_+\)</span> s.t. <span class="math inline">\(h(δ)\searrow 0\)</span> as <span class="math inline">\(δ\searrow 0\)</span><br />
+And for all <span class="math inline">\(θ,θ&#39;\in Θ\)</span>,
+<span class="math display">\[\begin{aligned}\|Q_n(θ)-Q_n(θ&#39;)\leq B_n\cdot h(\|θ-θ&#39;\|)\| &amp;&amp; \text{(*)}\end{aligned}\]</span>
+Then <span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous on set <span class="math inline">\(Θ\)</span></p>
+</blockquote>
+<p>Proof:<br />
+Let <span class="math inline">\(ε,η&gt;0\)</span>, by (*), for <span class="math inline">\(δ\)</span> small enough,
+<span class="math display">\[P\big(B_n\cdot \sup_{\|θ-θ&#39;\|&lt;δ}\ h(\|θ-θ&#39;\|) &gt; η\big) \leq P(B_n\cdot h(δ)&gt;η)\]</span>
+Since <span class="math inline">\(B_n=O_p(1)\)</span>, for <span class="math inline">\(n\)</span> large enough, exists <span class="math inline">\(C&gt;0\)</span> s.t. <span class="math inline">\(P(B_n&gt;C\cdot η)&lt;ε\)</span><br />
+For <span class="math inline">\(δ\)</span> small enough, <span class="math inline">\(h(δ)&lt;\frac{1}{C}\implies\)</span><br />
+<span class="math display">\[\begin{aligned}P(B_n\cdot h(δ)&gt;η) &amp;\leq P(B_n\cdot\frac{1}{C} &gt;η)\\
+&amp;= P(B_n &gt; C\cdot η) &lt; ε \end{aligned}\]</span>
+therefore, for <span class="math inline">\(δ\)</span> small enough, for <span class="math inline">\(n\)</span> large enough,
+<span class="math display">\[P(\sup_{\|θ-θ&#39;\|&lt;δ}\ \|Q_n(θ)-Q_n(θ&#39;)\|&gt;η)&lt;ε\]</span>
+<span class="math inline">\(\implies \{Q_n\}\)</span> is stochastically equicontinuous</p>
+<blockquote>
+<p>Col 2.8.<br />
+<span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous and <span class="math inline">\(Q\)</span> is continuous if</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(Θ\)</span> is compact</li>
+<li><span class="math inline">\(E[\|q(Z,θ)\|]&lt;\infty\)</span> for all <span class="math inline">\(θ\in Θ\)</span></li>
+<li>Exists function <span class="math inline">\(b\)</span> not depending on <span class="math inline">\(θ\)</span>, <span class="math inline">\(E[b(Z)]&lt;\infty\)</span>,
+<span class="math display">\[\|q(Z,θ)-q(Z,θ&#39;)\| \leq b(Z)\cdot h(\|θ-θ&#39;\|)\]</span></li>
+</ol>
+</blockquote>
+<p>Proof: exercise</p>
 </div>
 </div>
 

@@ -26,7 +26,7 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-econometric-theory/</guid>
-      <description>Literature Probability Measures σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables Expectation Variance Moments of R^k  Stochastic Convergence Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators Linear Regression Model Parametric Model Consistency     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed the PS4 class)  Literature Asymptotic Theory:</description>
+      <description>Literature Probability Measures  σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables  Expectation Variance Moments of R^k  Stochastic Convergence  Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators  Linear Regression Model Parametric Model Consistency Uniform Convergence in Probability     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed the PS4 class)  Literature Asymptotic Theory:</description>
     </item>
     
     <item>
@@ -47,15 +47,6 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
       
       <guid>/post/2019/10/notes-research-dynamic-prog/</guid>
       <description>Dynamic Programming: Discrete Time  Example: Corn Planting Sequence Problem Functional (Bellman) Equation Bounded and Continuous Rewards Bellman Operator  Stochastic Dynamic Programming  Example: Corn &amp;amp; Rain Random Shocks Example: Kiefer (1989)  Controlled Diffusion and Optimal Stopping  Wiener Process Diffusion Process Ito’s Lemma Example: Geometric Brownian Motion Optimal Control Binary Case: Optimal Stopping Example: Irreversible Investment Under Uncertainty Poisson Process Optimal Exploration in Two-Armed Bandit Problem  Presentation &amp;amp; Term Paper  Besanko Tong Wu 2018 Bonatti Hoerner 2011 Branco Sun Villas-Boas 2012 Che Hoerner 2018 Halac Kartik Liu 2016 Manso 2011 Strulovici 2010  Kremer Mansour Perry 2014 (My Bit)  Model    wrt means with respect to</description>
-    </item>
-    
-    <item>
-      <title>Notes on Time Series</title>
-      <link>/post/2019/04/notes-time-series/</link>
-      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/04/notes-time-series/</guid>
-      <description>Definition Property  Analysis Procedure Trend Trend &amp;amp; Seasonality Lag &amp;amp; Difference Operator  ARMA White Noise MA MA Stationarity AR AR (1) Stationarity AR (p) Stationarity AR (p) as MA (∞) Yule-Walker Equations ARMA  ARCH &amp;amp; GARCH ARCH ARCH Stationarity GARCH GARCH Stationarity  Old Stuff Integration OLS Estimation ML Estimation Model Selection Spurious Regression Cointegration    Definition  Time series: collection of observations indexed by date \[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;amp;= \{y_t\}_{t\in\mathbb{Z}} \\ &amp;amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]  Observed sample: \(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\) Underlying random variables: \(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)  Stochastic process: ordered sequence of random variables \[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]  Probability space: \((Ω,\mathcal{A},P)\) Mapping: \(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\) s.</description>
     </item>
     
     <item>
@@ -83,18 +74,6 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
       
       <guid>/post/2019/04/notes-institution/</guid>
       <description>Literature Moral Hazard: Hidden Action Timing Benchmark (Unlimited Liability) Limited Liability Agent Offers Contract  Moral Hazard: Hidden Information One-Sided Two-Sided  Adverse Selection One-Sided: Timing First Best Second Best Agent Offers Contract Two-Sided: Timing Benchmark Impossible Case  Hold-Up Problem First Best Observable &amp;amp; Non-Verifiable Information Private Information &amp;amp; Self-Investment Private Information &amp;amp; Cross-Investment  Property Rights Vertical Integration Joint Venture Privatization    Literature Contract Theory Game Theory (multi-stage games) Institutions and Economic Theory (very general and theoretical) Institutional Economics: An Introduction (Groenewegen, J.</description>
-    </item>
-    
-    <item>
-      <title>Notes on Mechanism Design &amp; Social Choice</title>
-      <link>/post/2019/04/notes-mechanism-social/</link>
-      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/04/notes-mechanism-social/</guid>
-      <description>Mechanism Design Problem Environment Mechanism Induced Game Social Choice Function &amp;amp; Implementation    I dropped this course.
-Textbook: (MWG) Microeconomic Theory
-Mechanism Design Problem Reference
-Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible alternatives: \(x\in X\)  \(x\) is single-valued (MWG Definition 21.E.1)  Type profile: \(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)  pdf of \(θ\) over \(Θ\): \(f\) Agent \(i\)’s type: \(θ_i \in Θ_i\)  Agent \(i\)’s vNM utility function: \(u_i(x,θ)\)  Allow for selflessness Allow for reference  Independent private values environment assumption  Private value: \(u_i(x,θ) = u_i(x,θ_i)\) Independent type: \(f_i(θ_i)\) s.</description>
     </item>
     
     <item>

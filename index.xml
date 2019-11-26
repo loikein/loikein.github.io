@@ -45,7 +45,7 @@ Please use Google to tailor your own version.</description>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-econometric-theory/</guid>
-      <description>Literature Probability Measures σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables Expectation Variance Moments of R^k  Stochastic Convergence Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators Linear Regression Model Parametric Model Consistency     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed the PS4 class)  Literature Asymptotic Theory:</description>
+      <description>Literature Probability Measures  σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables  Expectation Variance Moments of R^k  Stochastic Convergence  Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators  Linear Regression Model Parametric Model Consistency Uniform Convergence in Probability     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed the PS4 class)  Literature Asymptotic Theory:</description>
     </item>
     
     <item>
@@ -80,11 +80,11 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
     
     <item>
       <title>Notes on Time Series</title>
-      <link>/post/2019/04/notes-time-series/</link>
+      <link>/archive/notes-time-series/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/04/notes-time-series/</guid>
-      <description>Definition Property  Analysis Procedure Trend Trend &amp;amp; Seasonality Lag &amp;amp; Difference Operator  ARMA White Noise MA MA Stationarity AR AR (1) Stationarity AR (p) Stationarity AR (p) as MA (∞) Yule-Walker Equations ARMA  ARCH &amp;amp; GARCH ARCH ARCH Stationarity GARCH GARCH Stationarity  Old Stuff Integration OLS Estimation ML Estimation Model Selection Spurious Regression Cointegration    Definition  Time series: collection of observations indexed by date \[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;amp;= \{y_t\}_{t\in\mathbb{Z}} \\ &amp;amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]  Observed sample: \(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\) Underlying random variables: \(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)  Stochastic process: ordered sequence of random variables \[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]  Probability space: \((Ω,\mathcal{A},P)\) Mapping: \(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\) s.</description>
+      <guid>/archive/notes-time-series/</guid>
+      <description>Definition  Property  Analysis  Procedure Trend Trend &amp;amp; Seasonality Lag &amp;amp; Difference Operator  ARMA  White Noise MA MA Stationarity AR AR (1) Stationarity AR (p) Stationarity AR (p) as MA (∞) Yule-Walker Equations ARMA  ARCH &amp;amp; GARCH  ARCH ARCH Stationarity GARCH GARCH Stationarity  Old Stuff  Integration OLS Estimation ML Estimation Model Selection Spurious Regression Cointegration    Definition  Time series: collection of observations indexed by date \[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;amp;= \{y_t\}_{t\in\mathbb{Z}} \\ &amp;amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]  Observed sample: \(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\) Underlying random variables: \(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)  Stochastic process: ordered sequence of random variables \[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]  Probability space: \((Ω,\mathcal{A},P)\) Mapping: \(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\) s.</description>
     </item>
     
     <item>
@@ -116,11 +116,11 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
     
     <item>
       <title>Notes on Mechanism Design &amp; Social Choice</title>
-      <link>/post/2019/04/notes-mechanism-social/</link>
+      <link>/archive/notes-mechanism-social/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/04/notes-mechanism-social/</guid>
-      <description>Mechanism Design Problem Environment Mechanism Induced Game Social Choice Function &amp;amp; Implementation    I dropped this course.
+      <guid>/archive/notes-mechanism-social/</guid>
+      <description>Mechanism Design Problem  Environment Mechanism Induced Game Social Choice Function &amp;amp; Implementation    I dropped this course.
 Textbook: (MWG) Microeconomic Theory
 Mechanism Design Problem Reference
 Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible alternatives: \(x\in X\)  \(x\) is single-valued (MWG Definition 21.E.1)  Type profile: \(θ = (θ_1, θ_2,\dots, θ_n)\in Θ = Θ_1\times Θ_2\times\dots\times Θ_n\)  pdf of \(θ\) over \(Θ\): \(f\) Agent \(i\)’s type: \(θ_i \in Θ_i\)  Agent \(i\)’s vNM utility function: \(u_i(x,θ)\)  Allow for selflessness Allow for reference  Independent private values environment assumption  Private value: \(u_i(x,θ) = u_i(x,θ_i)\) Independent type: \(f_i(θ_i)\) s.</description>
@@ -137,13 +137,12 @@ Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible altern
     
     <item>
       <title>Notes on Probability Theory</title>
-      <link>/post/2019/04/notes-probability-theory/</link>
+      <link>/archive/notes-probability-theory/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/04/notes-probability-theory/</guid>
-      <description>Literature Personal Reference  Measure Theory σ-algebra Ring Dynkin System (λ-system) π-system Measures    I dropped this course.
-Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real Analysis and Probability Probability: theory and examples An Introduction to Probability Theory and Its Applications, Vol 1
-An Introduction to Probability Theory and Its Applications, Vol 2 Probability and Random Processes Probability essentials Foundations of the Theory of Probability Theory of probability and random processes A Probability Path</description>
+      <guid>/archive/notes-probability-theory/</guid>
+      <description>Literature  Personal Reference  Measure Theory  σ-algebra Ring Dynkin System (λ-system) π-system Measures    I dropped this course.
+Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real Analysis and Probability Probability: theory and examples An Introduction to Probability Theory and Its Applications, Vol 1</description>
     </item>
     
     <item>
@@ -270,11 +269,11 @@ Feel free to point out any mistakes or compliment my aesthetic talent.</descript
     
     <item>
       <title>Introduction to C Language</title>
-      <link>/post/2018/05/intro-c-rmd/</link>
+      <link>/archive/intro-c-rmd/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018/05/intro-c-rmd/</guid>
-      <description>0419 1.2 プリント 2.a 変数 2.b 変数の型 2.c 演算子 2.d プリント2 3.a プリントと変数 3.b プリント：出力指定 3.3 円の面積 3.4 演算子2 4.a 読み込み 4.2 読み込みと円の面積 4.3 読み込みと三角形の面積 5.a 型の変換 5.b 型の変換2 5.3 型の変換と平均値 6.2 数学関数と円の面積  0426 7.c if else：大きい方を出力 7.2 if else：等さの判断 7.3 if else：偶数か奇数かの判断 7.4 if else：等さの判断2 8.a if else：入れ子 8.b ３つの整数の最大値判断 8.4 ３つの整数の最小値判断 8.5 BMIの計算・判定 8.6 閏年 8.7 自販機 9.b switch 10.a ループ：for 10.b ループ：合計の計算 10.c ループ：合計の計算2 10.</description>
+      <guid>/archive/intro-c-rmd/</guid>
+      <description>0419  1.2 プリント 2.a 変数 2.b 変数の型 2.c 演算子 2.d プリント2 3.a プリントと変数 3.b プリント：出力指定 3.3 円の面積 3.4 演算子2 4.a 読み込み 4.2 読み込みと円の面積 4.3 読み込みと三角形の面積 5.a 型の変換 5.b 型の変換2 5.3 型の変換と平均値 6.2 数学関数と円の面積  0426  7.c if else：大きい方を出力 7.2 if else：等さの判断 7.3 if else：偶数か奇数かの判断 7.4 if else：等さの判断2 8.a if else：入れ子 8.b ３つの整数の最大値判断 8.4 ３つの整数の最小値判断 8.5 BMIの計算・判定 8.6 閏年 8.7 自販機 9.b switch 10.a ループ：for 10.b ループ：合計の計算 10.</description>
     </item>
     
     <item>
