@@ -39,6 +39,9 @@ if (!doNotTrack) {
 <link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
 
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/clumsy-findme.css" media="all">
+
 
 
   </head>
@@ -68,7 +71,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">19 min read</span>
+    <span class="article-duration">20 min read</span>
     
     <h1 class="article-title">Notes on Python 3</h1>
     
@@ -97,7 +100,6 @@ if (!doNotTrack) {
 <li><a href="#reference">Reference</a></li>
 <li><a href="#python-on-datacamp">Python on DataCamp</a>
 <ul>
-<li><a href="#slides">Slides</a></li>
 <li><a href="#basics">Basics</a></li>
 <li><a href="#boolean-comparison">Boolean &amp; Comparison</a></li>
 <li><a href="#functions">Functions</a></li>
@@ -108,7 +110,6 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#package-numpy-on-datacamp">Package: <code>Numpy</code> on DataCamp</a>
 <ul>
-<li><a href="#slides-1">Slides</a></li>
 <li><a href="#basics-1">Basics</a></li>
 <li><a href="#comparison">Comparison</a></li>
 <li><a href="#methods-1">Methods</a></li>
@@ -116,7 +117,6 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#package-pandas-on-datacamp">Package: <code>Pandas</code> on DataCamp</a>
 <ul>
-<li><a href="#slides-2">Slides</a></li>
 <li><a href="#create-dataframe">Create DataFrame</a></li>
 <li><a href="#import-export-dataframe">Import &amp; Export DataFrame</a></li>
 <li><a href="#access-dataframe">Access DataFrame</a></li>
@@ -125,7 +125,12 @@ if (!doNotTrack) {
 <li><a href="#manipulate-dataframe">Manipulate DataFrame</a></li>
 <li><a href="#control-flows-1">Control Flows</a></li>
 </ul></li>
-<li><a href="#package-matplotlib-on-datacamp">Package: <code>Matplotlib</code> on DataCamp</a></li>
+<li><a href="#package-matplotlib-on-datacamp">Package: <code>Matplotlib</code> on DataCamp</a>
+<ul>
+<li><a href="#line-scatter-plot">Line &amp; Scatter Plot</a></li>
+<li><a href="#histogram">Histogram</a></li>
+<li><a href="#plotting-options">Plotting Options</a></li>
+</ul></li>
 <li><a href="#notes-from-effective-programming">Notes from <span>Effective Programming</span></a>
 <ul>
 <li><a href="#simple-examples">Simple Examples</a></li>
@@ -157,9 +162,8 @@ if (!doNotTrack) {
 </div>
 <div id="python-on-datacamp" class="section level2">
 <h2>Python on DataCamp</h2>
-<div id="slides" class="section level3">
-<h3>Slides</h3>
 <ul>
+<li><a href="https://datacamp-community-prod.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612">Cheatsheet</a></li>
 <li>Intro
 <ul>
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch1_slides.pdf">ch1</a><br />
@@ -177,7 +181,6 @@ if (!doNotTrack) {
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch5_slides.pdf">ch5: case study</a></li>
 </ul></li>
 </ul>
-</div>
 <div id="basics" class="section level3">
 <h3>Basics</h3>
 <pre class="python"><code>print(&quot;Hello world&quot;)
@@ -377,11 +380,7 @@ print(&quot;Area: &quot; + str(A))</code></pre>
 <div id="package-numpy-on-datacamp" class="section level2">
 <h2>Package: <code>Numpy</code> on DataCamp</h2>
 <ul>
-<li>Numpy arrays can only contain data of the same type</li>
-</ul>
-<div id="slides-1" class="section level3">
-<h3>Slides</h3>
-<ul>
+<li>Numpy arrays can only contain data of the same type!!</li>
 <li>Intro
 <ul>
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch4_slides.pdf">ch4</a></li>
@@ -392,7 +391,6 @@ print(&quot;Area: &quot; + str(A))</code></pre>
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch4_slides.pdf">ch4</a></li>
 </ul></li>
 </ul>
-</div>
 <div id="basics-1" class="section level3">
 <h3>Basics</h3>
 <pre class="python"><code>import numpy as np
@@ -468,8 +466,6 @@ for room in np.nditer(houses):
 </div>
 <div id="package-pandas-on-datacamp" class="section level2">
 <h2>Package: <code>Pandas</code> on DataCamp</h2>
-<div id="slides-2" class="section level3">
-<h3>Slides</h3>
 <ul>
 <li>Intermediate Python
 <ul>
@@ -482,7 +478,6 @@ for room in np.nditer(houses):
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_2357/slides/ch1_slides.pdf">ch1</a></li>
 </ul></li>
 </ul>
-</div>
 <div id="create-dataframe" class="section level3">
 <h3>Create DataFrame</h3>
 <ul>
@@ -795,6 +790,101 @@ cars[&quot;lengthOfName&quot;] = cars[&quot;country&quot;].apply(len)</code></pr
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch1_slides.pdf">ch1</a></li>
 </ul></li>
 </ul>
+<div id="line-scatter-plot" class="section level3">
+<h3>Line &amp; Scatter Plot</h3>
+<pre class="python"><code>import matplotlib.pyplot as plt
+
+from gapminder import gapminder as gm
+# see https://pypi.org/project/gapminder/
+# to shorten the code, assume that we are using only data from 2007
+# or use https://python-graph-gallery.com/341-python-gapminder-animation/
+
+# Make a line plot: year on the x-axis, pop on the y-axis
+plt.plot(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;])
+
+# or make a scatter plot!
+plt.clf()
+plt.scatter(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;])
+
+# Display the plot
+plt.show()</code></pre>
+</div>
+<div id="histogram" class="section level3">
+<h3>Histogram</h3>
+<pre class="python"><code>import matplotlib.pyplot as plt
+from gapminder import gapminder as gm
+
+# Create histogram of life_exp data
+plt.hist(x=gm[&quot;lifeExp&quot;], bins=20)
+
+# Display histogram
+plt.show()
+
+# clean up
+plt.clf()
+
+# try another bin number
+plt.hist(x=gm[&quot;lifeExp&quot;], bins=30)
+plt.show()</code></pre>
+</div>
+<div id="plotting-options" class="section level3">
+<h3>Plotting Options</h3>
+<pre class="python"><code>#### title, label &amp; scale ####
+
+import matplotlib.pyplot as plt
+from gapminder import gapminder as gm
+
+plt.scatter(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;])
+
+# add title
+plt.title(&quot;Gap Minder in 2007&quot;)
+
+# axis labels
+plt.xlable(&quot;GDP per capita (USD)&quot;)
+plt.ylable(&quot;Life expecancy (years)&quot;)
+
+# change the starting point
+ages = list(range(0, 100, 10))
+plt.yticks(ages)
+
+# Put the x-axis on a logarithmic scale
+plt.xscale(&#39;log&#39;)
+
+# Adapt the ticks on the x-axis
+x_tick_val = [1000, 10000, 100000]
+x_tick_lab = [&#39;1k&#39;, &#39;10k&#39;, &#39;100k&#39;]
+plt.xticks(x_tick_val, x_tick_lab)
+
+plt.show()</code></pre>
+<pre class="python"><code>#### more axis ####
+
+import matplotlib.pyplot as plt
+from gapminder import gapminder as gm
+
+# colour!
+colourDict = {&#39;Asia&#39;:&#39;red&#39;,&#39;Europe&#39;:&#39;green&#39;,
+              &#39;Africa&#39;:&#39;blue&#39;,&#39;Americas&#39;:&#39;yellow&#39;,
+              &#39;Oceania&#39;:&#39;black&#39;}
+gm[&quot;colour&quot;] = gm[&quot;continent&quot;].map(colourDict)
+
+# size! colour! transparency!
+plt.scatter(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;],
+            s=gm[&quot;pop&quot;], c=gm[&quot;colour&quot;], alpha=0.5)
+
+# Add grid
+plt.grid(True)
+
+# mark something on the plot
+plt.text(1550, 71, &#39;India&#39;)
+plt.text(5700, 80, &#39;China&#39;)
+
+# title &amp; friends
+plt.title(&quot;Gap Minder in 2007&quot;)
+plt.xlable(&quot;GDP per capita (USD)&quot;)
+plt.ylable(&quot;Life expecancy (years)&quot;)
+
+plt.show()</code></pre>
+</div>
 </div>
 <div id="notes-from-effective-programming" class="section level2">
 <h2>Notes from <a href="../../10/notes-effective-programming/">Effective Programming</a></h2>
