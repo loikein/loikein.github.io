@@ -22,13 +22,12 @@ Please use Google to tailor your own version.</description>
     </item>
     
     <item>
-      <title>Introduction to Python 3</title>
-      <link>/post/2019/06/intro-python/</link>
+      <title>Notes on Python 3</title>
+      <link>/post/2019/06/notes-python-3/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/06/intro-python/</guid>
-      <description>Reference Notes from DataCamp  Slides Basics Functions Methods Packages Package: Numpy  Notes from Effective Programming  Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditionals Function Module  Package: Pandas   Reference  PEP 8 -- Style Guide for Python Code | Python.org  Python PEP-8编码风格指南中文版  Repl.it - Online Python Editor and IDE
- Visualize Python, Java, JavaScript, C, C++, Ruby code execution How to Think like a Computer Scientist: Interactive Edition   Notes from DataCamp Slides ch1</description>
+      <guid>/post/2019/06/notes-python-3/</guid>
+      <description>Reference Python on DataCamp  Slides Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Packages  Package: Numpy on DataCamp  Slides Basics Comparison Methods Control Flows  Package: Pandas on DataCamp  Slides Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows  Package: Matplotlib on DataCamp Notes from Effective Programming  Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditions Function Module  Package: Pandas   Reference  PEP 8 -- Style Guide for Python Code | Python.</description>
     </item>
     
   </channel>

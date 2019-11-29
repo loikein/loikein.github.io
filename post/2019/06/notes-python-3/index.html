@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.59.1" />
+<meta name="generator" content="Hugo 0.60.1" />
 
-<title>Introduction to Python 3 - loikein&#39;s notes</title>
-<meta property="og:title" content="Introduction to Python 3 - loikein&#39;s notes">
+<title>Notes on Python 3 - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Python 3 - loikein&#39;s notes">
 
 
 <script type="application/javascript">
@@ -68,9 +68,9 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">12 min read</span>
+    <span class="article-duration">19 min read</span>
     
-    <h1 class="article-title">Introduction to Python 3</h1>
+    <h1 class="article-title">Notes on Python 3</h1>
     
     <span class="article-date">2019/06/16</span>
     
@@ -95,15 +95,37 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#reference">Reference</a></li>
-<li><a href="#notes-from-datacamp">Notes from DataCamp</a>
+<li><a href="#python-on-datacamp">Python on DataCamp</a>
 <ul>
 <li><a href="#slides">Slides</a></li>
 <li><a href="#basics">Basics</a></li>
+<li><a href="#boolean-comparison">Boolean &amp; Comparison</a></li>
 <li><a href="#functions">Functions</a></li>
+<li><a href="#condition-control-flows">Condition &amp; Control Flows</a></li>
 <li><a href="#methods">Methods</a></li>
+<li><a href="#dictionary">Dictionary</a></li>
 <li><a href="#packages">Packages</a></li>
-<li><a href="#package-numpy">Package: <code>Numpy</code></a></li>
 </ul></li>
+<li><a href="#package-numpy-on-datacamp">Package: <code>Numpy</code> on DataCamp</a>
+<ul>
+<li><a href="#slides-1">Slides</a></li>
+<li><a href="#basics-1">Basics</a></li>
+<li><a href="#comparison">Comparison</a></li>
+<li><a href="#methods-1">Methods</a></li>
+<li><a href="#control-flows">Control Flows</a></li>
+</ul></li>
+<li><a href="#package-pandas-on-datacamp">Package: <code>Pandas</code> on DataCamp</a>
+<ul>
+<li><a href="#slides-2">Slides</a></li>
+<li><a href="#create-dataframe">Create DataFrame</a></li>
+<li><a href="#import-export-dataframe">Import &amp; Export DataFrame</a></li>
+<li><a href="#access-dataframe">Access DataFrame</a></li>
+<li><a href="#dataframe-series">DataFrame &amp; Series</a></li>
+<li><a href="#filter-dataframe">Filter DataFrame</a></li>
+<li><a href="#manipulate-dataframe">Manipulate DataFrame</a></li>
+<li><a href="#control-flows-1">Control Flows</a></li>
+</ul></li>
+<li><a href="#package-matplotlib-on-datacamp">Package: <code>Matplotlib</code> on DataCamp</a></li>
 <li><a href="#notes-from-effective-programming">Notes from <span>Effective Programming</span></a>
 <ul>
 <li><a href="#simple-examples">Simple Examples</a></li>
@@ -111,8 +133,8 @@ if (!doNotTrack) {
 <li><a href="#converting-between-types">Converting Between Types</a></li>
 <li><a href="#alias">Alias</a></li>
 <li><a href="#list-loop">List &amp; Loop</a></li>
-<li><a href="#dictionary">Dictionary</a></li>
-<li><a href="#conditionals">Conditionals</a></li>
+<li><a href="#dictionary-1">Dictionary</a></li>
+<li><a href="#conditions">Conditions</a></li>
 <li><a href="#function">Function</a></li>
 <li><a href="#module">Module</a></li>
 </ul></li>
@@ -133,14 +155,28 @@ if (!doNotTrack) {
 <li><a href="https://runestone.academy/runestone/books/published/thinkcspy/index.html">How to Think like a Computer Scientist: Interactive Edition</a></li>
 </ul>
 </div>
-<div id="notes-from-datacamp" class="section level2">
-<h2>Notes from DataCamp</h2>
+<div id="python-on-datacamp" class="section level2">
+<h2>Python on DataCamp</h2>
 <div id="slides" class="section level3">
 <h3>Slides</h3>
-<p><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch1_slides.pdf">ch1</a><br />
-<a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch2_slides.pdf">ch2</a><br />
-<a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch3_slides.pdf">ch3</a><br />
-<a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch4_slides.pdf">ch4</a></p>
+<ul>
+<li>Intro
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch1_slides.pdf">ch1</a><br />
+</li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch2_slides.pdf">ch2</a><br />
+</li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch3_slides.pdf">ch3</a><br />
+</li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch4_slides.pdf">ch4</a></li>
+</ul></li>
+<li>Intermediate
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch3_slides.pdf">ch3</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch4_slides.pdf">ch4</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch5_slides.pdf">ch5: case study</a></li>
+</ul></li>
+</ul>
 </div>
 <div id="basics" class="section level3">
 <h3>Basics</h3>
@@ -195,6 +231,28 @@ del(years2[0])
 years2                  # [2016]
 years                   # [2017, 2016]</code></pre>
 </div>
+<div id="boolean-comparison" class="section level3">
+<h3>Boolean &amp; Comparison</h3>
+<pre class="python"><code># Comparison of booleans
+True == False               # False
+True &gt;= False               # True
+
+# Comparison of integers
+-5*15 != 75                 # True
+
+# Comparison of strings
+&quot;pyscript&quot; == &quot;PyScript&quot;    # False
+
+# Compare a boolean with an integer
+True == 1                   # True</code></pre>
+<pre class="python"><code>True and True               # True
+5&gt;4 and 5&lt;3                 # False
+
+False or False              # False
+5&gt;4 or 5&lt;3                  # True
+
+not True                    # False</code></pre>
+</div>
 <div id="functions" class="section level3">
 <h3>Functions</h3>
 <pre class="python"><code>?max
@@ -205,6 +263,43 @@ max(years)              # 2019
 round(3.1415926535, 3)  # 3.142
 
 len(years)              # 4</code></pre>
+</div>
+<div id="condition-control-flows" class="section level3">
+<h3>Condition &amp; Control Flows</h3>
+<pre class="python"><code>x = 4
+
+if x%2 == 0:
+    print(&quot;x is even&quot;)
+elif x%2 == 1:
+    print(&quot;x is odd&quot;)
+else:
+    print(&quot;checking&quot; + str(x))
+    print(&quot;Error!!&quot;)</code></pre>
+<pre class="python"><code>x = 50
+
+while x&gt;1:
+    x /= 4
+    print(x)</code></pre>
+<pre class="python"><code>fam = [1.7, 1.6, 1.7, 1.8]
+
+for height in fam:
+    print(height)
+
+for index, height in enumerate(fam):
+    print(str(index+1) + &quot; is &quot; + str(height))
+
+for char in &quot;hello world&quot;:
+    print(char.capitalize())</code></pre>
+<pre class="python"><code># house list of lists
+house = [[&quot;hallway&quot;, 11.25], 
+         [&quot;kitchen&quot;, 18.0], 
+         [&quot;living room&quot;, 20.0], 
+         [&quot;bedroom&quot;, 10.75], 
+         [&quot;bathroom&quot;, 9.50]]
+
+# for list of lists
+for i in house:
+    print(&quot;the &quot; + i[0] + &quot; is &quot; + str(i[1]) + &quot; sqm&quot;)</code></pre>
 </div>
 <div id="methods" class="section level3">
 <h3>Methods</h3>
@@ -218,6 +313,32 @@ mood.count(&quot;o&quot;)             # 2
 mood.capitalize()           # &#39;Oh no&#39;
 mood.upper()                # &#39;OH NO&#39;
 mood.replace(&quot;o&quot;, &quot;oo&quot;)     # &#39;ooh noo&#39;</code></pre>
+</div>
+<div id="dictionary" class="section level3">
+<h3>Dictionary</h3>
+<pre class="python"><code># Definition of dictionary
+europe = {&#39;spain&#39;:&#39;madrid&#39;,
+          &#39;france&#39;:&#39;paris&#39;,
+          &#39;germany&#39;:&#39;berlin&#39;,
+          &#39;norway&#39;:&#39;oslo&#39;}
+
+# Print out the keys in europe
+print(europe.keys())            # dict_keys([&#39;spain&#39;, &#39;france&#39;, &#39;norway&#39;, &#39;germany&#39;])
+
+# Print out value that belongs to key &#39;norway&#39;
+print(europe[&quot;norway&quot;])         # oslo
+
+&#39;spain&#39; in europe               # True
+
+europe[&quot;australia&quot;] = &quot;vienna&quot;
+del(europe[&quot;australia&quot;])</code></pre>
+<pre class="python"><code>europe = {&#39;spain&#39;:&#39;madrid&#39;,
+          &#39;france&#39;:&#39;paris&#39;,
+          &#39;germany&#39;:&#39;berlin&#39;,
+          &#39;norway&#39;:&#39;oslo&#39;}
+
+for key, value in europe.items():
+    print(key + &quot;&#39;s capital is &quot; + value)</code></pre>
 </div>
 <div id="packages" class="section level3">
 <h3>Packages</h3>
@@ -252,16 +373,40 @@ A = math.pi * r ** 2
 print(&quot;Circumference: &quot; + str(C))
 print(&quot;Area: &quot; + str(A))</code></pre>
 </div>
-<div id="package-numpy" class="section level3">
-<h3>Package: <code>Numpy</code></h3>
-<pre class="python"><code>[1,2,3] + [1,2,3]                       # [1,2,3,1,2,3]
+</div>
+<div id="package-numpy-on-datacamp" class="section level2">
+<h2>Package: <code>Numpy</code> on DataCamp</h2>
+<ul>
+<li>Numpy arrays can only contain data of the same type</li>
+</ul>
+<div id="slides-1" class="section level3">
+<h3>Slides</h3>
+<ul>
+<li>Intro
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch4_slides.pdf">ch4</a></li>
+</ul></li>
+<li>Intermediate Python
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch3_slides.pdf">ch3</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch4_slides.pdf">ch4</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="basics-1" class="section level3">
+<h3>Basics</h3>
+<pre class="python"><code>import numpy as np
+
+[1,2,3] + [1,2,3]                       # [1,2,3,1,2,3]
 
 np.array([1,2,3]) + np.array([1,2,3])   # array([2,4,6])
 
 years = np.array([2019,2018,2017])
 years &gt; 2018                            # array([True,False,False])
 years[years &gt; 2018]                     # array([2019])</code></pre>
-<pre class="python"><code>np_2d = np.array([[1,2,3],
+<pre class="python"><code>import numpy as np
+
+np_2d = np.array([[1,2,3],
                   [4,5,6]])
 
 print(np_2d.shape)          # (2,3)
@@ -269,11 +414,387 @@ print(np_2d.shape)          # (2,3)
 np_2d[0][2]                 # 2
 np_2d[0,2]                  # 2
 np_2d[ :, 0:2]              # array([[1,2], [4,5]])</code></pre>
+</div>
+<div id="comparison" class="section level3">
+<h3>Comparison</h3>
+<pre class="python"><code>import numpy as np
+
+#### array comparison ####
+
+my_house = np.array([18.0, 20.0, 10.75, 9.50])
+your_house = np.array([14.0, 24.0, 14.25, 9.0])
+
+# my_house greater than or equal to 18
+my_house &gt;= 19
+# array([ False, True, False, False])
+
+# my_house less than your_house
+my_house &lt; your_house
+# array([ True,  True, False, False])
+
+# Error!
+# my_house &gt;= 19 and my_house &lt; your_house
+np.logical_and(my_house &gt;= 19, my_house &lt; your_house)
+# array([ False,  True, False, False])
+
+my_house[np.logical_and(my_house &gt;= 19,
+                        my_house &lt; your_house)]
+# array([ 20.0])</code></pre>
+</div>
+<div id="methods-1" class="section level3">
+<h3>Methods</h3>
 <pre class="python"><code>np.mean(x)
 np.median(x)s
 np.corrcoef(x, y)   # correlation coefficient
 np.std(x)           # stand deviation</code></pre>
 </div>
+<div id="control-flows" class="section level3">
+<h3>Control Flows</h3>
+<pre class="python"><code>import numpy as np
+
+my_house = np.array([18.0, 20.0, 10.75, 9.50])
+
+for room in my_house:
+    print(room &gt; 19)</code></pre>
+<pre class="python"><code>import numpy as np
+
+my_house = np.array([18.0, 20.0, 10.75, 9.50])
+your_house = np.array([14.0, 24.0, 14.25, 9.0])
+houses = np.array([my_house, your_house])
+
+for room in np.nditer(houses):
+    print(room &gt; 19)</code></pre>
+</div>
+</div>
+<div id="package-pandas-on-datacamp" class="section level2">
+<h2>Package: <code>Pandas</code> on DataCamp</h2>
+<div id="slides-2" class="section level3">
+<h3>Slides</h3>
+<ul>
+<li>Intermediate Python
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch2_slides.pdf">ch2</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch3_slides.pdf">ch3</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch4_slides.pdf">ch4</a></li>
+</ul></li>
+<li>Pandas Fundation
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_2357/slides/ch1_slides.pdf">ch1</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="create-dataframe" class="section level3">
+<h3>Create DataFrame</h3>
+<ul>
+<li>DataFrame is sqeezed Series</li>
+<li>Series is sqeezed numpy array</li>
+</ul>
+<pre class="python"><code>#### from list ####
+
+import pandas as pd
+
+names = [&#39;United States&#39;, &#39;Australia&#39;,
+         &#39;Japan&#39;, &#39;India&#39;, &#39;Russia&#39;,
+         &#39;Morocco&#39;, &#39;Egypt&#39;]
+dr =  [True, False, False, False, True, True, True]
+cpc = [809, 731, 588, 18, 200, 70, 45]
+
+list_labels = [&#39;country&#39;, &#39;drives_right&#39;, &#39;cars_per_cap&#39;]
+list_cols = [names, dr, cpc]
+
+# approach 1
+cars_list = list(zip(list_labels, list_cols))
+cars_dict = dict(cars_list)
+cars = pd.DataFrame(cars_dict)
+
+# approach 2
+cars = pd.DataFrame(list_cols)
+cars.columns = list_labels</code></pre>
+<pre class="python"><code>#### from list: broadcast ####
+
+import pandas as pd
+
+cities = [&#39;Manheim&#39;, &#39;Preston park&#39;,
+          &#39;Biglerville&#39;, &#39;Indiana&#39;,]
+
+# Make a string with the value &#39;PA&#39;: state
+state = &quot;PA&quot;
+
+# Construct a dictionary: data
+data = {&#39;state&#39;:state, &#39;city&#39;:cities}
+
+# Construct a DataFrame from dictionary data: df
+df = pd.DataFrame(data)</code></pre>
+<pre class="python"><code>#### from dictionary ####
+
+import pandas as pd
+
+# Build cars DataFrame
+names = [&#39;United States&#39;, &#39;Australia&#39;,
+         &#39;Japan&#39;, &#39;India&#39;, &#39;Russia&#39;,
+         &#39;Morocco&#39;, &#39;Egypt&#39;]
+dr =  [True, False, False, False, True, True, True]
+cpc = [809, 731, 588, 18, 200, 70, 45]
+
+cars_dict = { &#39;country&#39;:names,
+              &#39;drives_right&#39;:dr,
+              &#39;cars_per_cap&#39;:cpc }
+
+cars = pd.DataFrame(cars_dict)
+
+# Definition of row_labels
+row_labels = [&#39;US&#39;, &#39;AUS&#39;, &#39;JPN&#39;, &#39;IN&#39;, &#39;RU&#39;, &#39;MOR&#39;, &#39;EG&#39;]
+
+# Specify row labels of cars
+cars.index = row_labels
+
+type(cars)                      # pandas.core.frame.DataFrame
+cars.shape                      # (rows, cols)
+cars.columns                    # Index[&#39;country&#39;, &#39;drives_right&#39;, &#39;cars_per_cap&#39;]
+type(cars.columns)              # pandas.indexes.base.Index
+
+cars.info()
+cars.head(6)                    # look at top 6 rows
+cars.tail()                     # default: 5</code></pre>
+</div>
+<div id="import-export-dataframe" class="section level3">
+<h3>Import &amp; Export DataFrame</h3>
+<pre class="python"><code>#### from CSV ####
+
+import pandas as pd
+
+# create column names
+col_names = [&quot;country&quot;,&quot;drives_right&quot;,&quot;cars_per_cap&quot;]
+
+# Import &amp; set index
+cars = pd.read_csv(&#39;cars.csv&#39;, index_col=0,
+                   header=None, names=col_names,
+                   na_values=[&quot;-1&quot;,&quot;-2&quot;,&quot;-3&quot;,&quot;-7&quot;])
+
+# parse_dates=[[0,1,2]] --&gt; year_month_day
+
+cars.index = cars[&quot;country&quot;]
+cars.index.name = &quot;COUNTRY&quot;
+
+# Print out cars
+print(cars)
+cars.info()
+
+# Export clean data
+cars.to_csv(&quot;cars.csv&quot;, index=False)
+cars.to_excel(&quot;cars.xlsx&quot;, index=False)</code></pre>
+</div>
+<div id="access-dataframe" class="section level3">
+<h3>Access DataFrame</h3>
+<pre class="python"><code>#### column ####
+
+import pandas as pd
+
+# do this to return Series
+cars[&quot;country&quot;]             #pandas.core.series.Series
+cars[&quot;country&quot;].values      #numpy.ndarray
+
+# do this to return DF
+cars[[&quot;country&quot;]]           #pandas.core.frame.DataFrame
+
+#### loc: label-based lookup ####
+
+# do this to return Series
+cars.loc[:, &quot;country&quot;]
+
+# do this to return DF
+cars.loc[:, [&quot;country&quot;]]
+
+#### iloc: position-based lookup ####
+
+# do this to return Series
+cars.iloc[:, 0]
+
+# do this to return DF
+cars.iloc[:, [0]]
+
+#### ix: label-&amp;-position-based lookup ####</code></pre>
+<pre class="python"><code>#### row = slice ####
+
+import pandas as pd
+
+cars[1:3]                   # rows: 2, 3
+
+#### loc ####
+
+# do this to return Series
+cars.loc[&quot;AUS&quot;]
+
+# do this to return DF
+cars.loc[[&quot;AUS&quot;, &quot;JPN&quot;]]
+
+#### iloc ####
+
+# do this to return Series
+cars.iloc[1]                # row 2
+
+# do these to return DF
+cars.iloc[1:2]              # row 2
+cars.iloc[[1,2]]            # row 2, 3
+cars.iloc[1:3,:]            # row 2, 3
+
+## quicklook in the middle
+cars.iloc[10:20,:]
+
+# cannot do this!
+# cars.iloc[[1:3]]</code></pre>
+<pre class="python"><code>#### row &amp; column ~ cell ####
+
+import pandas as pd
+
+#### loc ####
+# do this to return cell value
+cars.loc[&quot;AUS&quot;, &quot;country&quot;]
+
+# do these to return Series
+cars.loc[[&quot;AUS&quot;], &quot;country&quot;]
+cars.loc[&quot;AUS&quot;, [&quot;country&quot;]]
+
+# do this to return DF
+cars.loc[[&quot;AUS&quot;], [&quot;country&quot;]]
+
+#### iloc ####
+
+# do this to return cell value
+cars.iloc[1, 0]
+
+# do these to return Series
+cars.iloc[[1], 0]
+cars.iloc[1, [0]]
+
+# do this to return DF
+cars.iloc[[1], [0]]             # index is not included in position!</code></pre>
+</div>
+<div id="dataframe-series" class="section level3">
+<h3>DataFrame &amp; Series</h3>
+<pre class="python"><code>import numpy as np
+import pandas as pd
+
+df.info()
+# &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+# Int64Index: 6 entries, 1960 to 2010
+# Data columns (total 1 columns):
+# Total Population    6 non-null float64
+# dtypes: float64(1)
+# memory usage: 256.0 bytes
+
+# Extract array from DataFrame values: np_vals
+np_vals = df.values
+## this does same thing as np_vals = df[&quot;Total Population&quot;]
+## since df here is 1-dimensional
+
+# Create new array of base 10 logarithm values: np_vals_log10
+np_vals_log10 = np.log10(np_vals)
+
+# Create array of new DataFrame by passing df to np.log10(): df_log10
+df_log10 = np.log10(df)
+
+# Print original and new data containers
+[print(x, &#39;has type&#39;, type(eval(x))) for x in [&#39;np_vals&#39;, &#39;np_vals_log10&#39;, &#39;df&#39;, &#39;df_log10&#39;]]
+
+#or:
+for x in [&#39;np_vals&#39;, &#39;np_vals_log10&#39;, &#39;df&#39;, &#39;df_log10&#39;]:
+    print(x, &#39;has type&#39;, type(eval(x))) 
+
+# result:
+# np_vals has type &lt;class &#39;pandas.core.series.Series&#39;&gt;
+# np_vals_log10 has type &lt;class &#39;pandas.core.series.Series&#39;&gt;
+# df has type &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+# df_log10 has type &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
+</div>
+<div id="filter-dataframe" class="section level3">
+<h3>Filter DataFrame</h3>
+<pre class="python"><code>import pandas as pd
+
+cars = pd.read_csv(&#39;cars.csv&#39;, index_col = 0)
+
+# Extract drives_right column as Series: dr
+dr = cars.loc[:, &quot;drives_right&quot;]
+# or
+dr = cars[&quot;drives_right&quot;]           # this is a boolean col
+
+# Use dr to subset cars: sel
+sel = cars[dr]
+
+#### one-liner:
+sel = cars[cars[&quot;drives_right&quot;]]
+
+# Print sel
+print(sel)</code></pre>
+<pre class="python"><code>import pandas as pd
+
+# Import cars data
+cars = pd.read_csv(&#39;cars.csv&#39;, index_col = 0)
+
+# Create car_maniac: observations that have a cars_per_cap over 500
+cpc = cars[&quot;cars_per_cap&quot;]          # this is a numeric col
+car_maniac = cars[cpc &gt; 500]
+
+#### one-liner:
+car_maniac = cars[cars[&quot;cars_per_cap&quot;] &gt; 500]
+
+# Create medium: observations with cars_per_cap between 100 and 500
+cpc = cars[&#39;cars_per_cap&#39;]
+between = np.logical_and(cpc &gt; 100, cpc &lt; 500)
+medium = cars[between]</code></pre>
+</div>
+<div id="manipulate-dataframe" class="section level3">
+<h3>Manipulate DataFrame</h3>
+<pre class="python"><code>#### broadcast ####
+
+import pandas as pd
+
+cars = pd.read_csv(&#39;cars.csv&#39;, index_col = 0)
+
+# add an entire col of the same value
+cars[&quot;hello&quot;] = &quot;hello&quot;</code></pre>
+</div>
+<div id="control-flows-1" class="section level3">
+<h3>Control Flows</h3>
+<pre class="python"><code>import pandas as pd
+cars = pd.read_csv(&#39;cars.csv&#39;, index_col = 0)
+
+# this only prints column names!
+for val in cars:
+    print(val)
+
+# this iterates each row as a Series
+for index, row in cars.iterrows():
+    print(index + &quot; has &quot; + str(row[&quot;cars_per_cap&quot;]) + &quot; cars per capita&quot;)
+
+# result:
+# US has 809 cars per capita
+# AUS has 731 cars per capita
+# JPN has 588 cars per capita
+# IN has 18 cars per capita
+# RU has 200 cars per capita
+# MOR has 70 cars per capita
+# EG has 45 cars per capita</code></pre>
+<pre class="python"><code>#### add column from function ####
+
+import pandas as pd
+cars = pd.read_csv(&#39;cars.csv&#39;, index_col = 0)
+
+for index, row in cars.iterrows():
+    cars.loc[index, &quot;lengthOfName&quot;] = len(row[&quot;country&quot;])
+
+# or:
+cars[&quot;lengthOfName&quot;] = cars[&quot;country&quot;].apply(len)</code></pre>
+</div>
+</div>
+<div id="package-matplotlib-on-datacamp" class="section level2">
+<h2>Package: <code>Matplotlib</code> on DataCamp</h2>
+<ul>
+<li>Intermediate
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch1_slides.pdf">ch1</a></li>
+</ul></li>
+</ul>
 </div>
 <div id="notes-from-effective-programming" class="section level2">
 <h2>Notes from <a href="../../10/notes-effective-programming/">Effective Programming</a></h2>
@@ -470,7 +991,7 @@ for i, iq_raw in enumerate(iq_raw_scores):
         earnings[i],
     )</code></pre>
 </div>
-<div id="dictionary" class="section level3">
+<div id="dictionary-1" class="section level3">
 <h3>Dictionary</h3>
 <ul>
 <li>Unordered list of <code>{key : value}</code></li>
@@ -641,8 +1162,8 @@ for i, obs in enumerate(data):
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 105}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 2, &#39;grit&#39;: 5}} : 9093.272925080726
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 100}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 7, &#39;grit&#39;: 1}} : 12739.429457711914</code></pre>
 </div>
-<div id="conditionals" class="section level3">
-<h3>Conditionals</h3>
+<div id="conditions" class="section level3">
+<h3>Conditions</h3>
 <pre class="python"><code>x = 1
 
 if x == 0:
