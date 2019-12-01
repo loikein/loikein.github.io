@@ -71,7 +71,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">20 min read</span>
+    <span class="article-duration">24 min read</span>
     
     <h1 class="article-title">Notes on Python 3</h1>
     
@@ -106,7 +106,11 @@ if (!doNotTrack) {
 <li><a href="#condition-control-flows">Condition &amp; Control Flows</a></li>
 <li><a href="#methods">Methods</a></li>
 <li><a href="#dictionary">Dictionary</a></li>
-<li><a href="#packages">Packages</a></li>
+<li><a href="#tuple">Tuple</a></li>
+<li><a href="#writing-functions">Writing Functions</a></li>
+<li><a href="#lambda-functions">Lambda Functions</a></li>
+<li><a href="#error-handeling">Error Handeling</a></li>
+<li><a href="#using-packages">Using Packages</a></li>
 </ul></li>
 <li><a href="#package-numpy-on-datacamp">Package: <code>Numpy</code> on DataCamp</a>
 <ul>
@@ -131,6 +135,13 @@ if (!doNotTrack) {
 <li><a href="#histogram">Histogram</a></li>
 <li><a href="#plotting-options">Plotting Options</a></li>
 </ul></li>
+<li><a href="#package-seaborn-on-datacamp">Package: <code>Seaborn</code> on DataCamp</a>
+<ul>
+<li><a href="#scatter-plot">Scatter Plot</a></li>
+<li><a href="#relational-plot-facet-panel">Relational Plot (Facet Panel)</a></li>
+<li><a href="#plotting-options-1">Plotting Options</a></li>
+<li><a href="#line-plot">Line Plot</a></li>
+</ul></li>
 <li><a href="#notes-from-effective-programming">Notes from <span>Effective Programming</span></a>
 <ul>
 <li><a href="#simple-examples">Simple Examples</a></li>
@@ -143,7 +154,6 @@ if (!doNotTrack) {
 <li><a href="#function">Function</a></li>
 <li><a href="#module">Module</a></li>
 </ul></li>
-<li><a href="#package-pandas">Package: <code>Pandas</code></a></li>
 </ul>
 </div>
 
@@ -164,7 +174,7 @@ if (!doNotTrack) {
 <h2>Python on DataCamp</h2>
 <ul>
 <li><a href="https://datacamp-community-prod.s3.amazonaws.com/e30fbcd9-f595-4a9f-803d-05ca5bf84612">Cheatsheet</a></li>
-<li>Intro
+<li>Introduction to Python
 <ul>
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch1_slides.pdf">ch1</a><br />
 </li>
@@ -180,9 +190,20 @@ if (!doNotTrack) {
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch4_slides.pdf">ch4</a></li>
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intermediate_python/intermediate_python_ch5_slides.pdf">ch5: case study</a></li>
 </ul></li>
+<li>Python Data Science Toolbox (1)
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_1532/slides/ch1_slides.pdf">ch1</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_1532/slides/ch2_slides.pdf">ch2</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_1532/slides/ch3_slides.pdf">ch3</a></li>
+</ul></li>
 </ul>
 <div id="basics" class="section level3">
 <h3>Basics</h3>
+<pre class="python"><code>#### look at manual of functions ####
+
+help(print)
+# or in ipython kernels:
+?print</code></pre>
 <pre class="python"><code>print(&quot;Hello world&quot;)
 
 1 + 2           # Out[1]: 3
@@ -343,8 +364,152 @@ del(europe[&quot;australia&quot;])</code></pre>
 for key, value in europe.items():
     print(key + &quot;&#39;s capital is &quot; + value)</code></pre>
 </div>
-<div id="packages" class="section level3">
-<h3>Packages</h3>
+<div id="tuple" class="section level3">
+<h3>Tuple</h3>
+<pre class="python"><code>nums = (2, 4, 6)
+a, b, c = nums
+
+print(a)            # 2
+print(b)            # 4
+print(c)            # 6</code></pre>
+</div>
+<div id="writing-functions" class="section level3">
+<h3>Writing Functions</h3>
+<pre class="python"><code>#### document every function!!! ####
+
+# default argument: num = 0
+
+def square(num=0):
+    &quot;&quot;&quot;Returns the square of a number.&quot;&quot;&quot;
+    squared_num = num ** 2
+
+    return squared_num
+
+print(square(2))                            # 4</code></pre>
+<pre class="python"><code>#### return multiple values ####
+
+def power_both(num1, num2):
+    &quot;&quot;&quot;Returns num1 to the power of num2, and num2 to num1.&quot;&quot;&quot;
+    new_num1 = num1 ** num2
+    new_num2 = num2 ** num1
+    num_tuple = (new_num1, new_num2)
+
+    return num_tuple
+
+power_both(2,3)                             # (8, 9)</code></pre>
+<pre class="python"><code>#### flexible number of arguments ####
+
+def add_all(*args):
+    &quot;&quot;&quot;Returns the sum of all values.&quot;&quot;&quot;
+    sum_all = 0
+    for num in args:
+        sum_all += num
+
+    return sum_all
+
+sum_all(2, 3)                               # 5
+sum_all(2, 3, 4, 5, 6)                      # 20
+
+
+def print_all(**kwargs):
+    &quot;&quot;&quot;Print key-value pairs.&quot;&quot;&quot;
+    for k, v in kwargs.items():
+        print(k+&quot; is &quot;+v)
+
+print_all(today=&quot;sunday&quot;, tomorrow=&quot;monday&quot;)
+# results:
+# today is sunday
+# tomorrow is monday</code></pre>
+<pre class="python"><code>#### interact with global variables ####
+
+# Create a string: team
+team = &quot;teen titans&quot;
+
+# Define change_team()
+def change_team():
+    &quot;&quot;&quot;Change the value of the global variable team.&quot;&quot;&quot;
+
+    # Use team in global scope
+    global team
+
+    # Change the value of team in global: team
+    team = &quot;justice league&quot;
+
+change_team()
+
+# Print team
+print(team)                                 # &quot;justice league&quot;</code></pre>
+<pre class="python"><code>#### nested functions &amp; returning functions ####
+
+# use nonlocal x to create/change one-scope-above variable
+
+def power_n(n):
+    &quot;&quot;&quot;Return a function of power to the n times.&quot;&quot;&quot;
+
+    def inner(x):
+        powered = x ** n
+        return powered
+
+    return inner
+
+square = power_n(2)
+cube = power_n(3)
+
+square(2)                                   # 4
+cube(2)                                     # 8</code></pre>
+</div>
+<div id="lambda-functions" class="section level3">
+<h3>Lambda Functions</h3>
+<pre class="python"><code>#### write function on the fly ####
+
+raisePower = lambda x, y: x ** y
+raisePower(2, 3)                            # 8</code></pre>
+<pre class="python"><code>#### pass anonymous function as arguments ####
+
+nums = [48, 6, 9, 21, 1]
+
+square_all = map(lambda num: num ** 2, nums)
+
+type(square_all)                            # map object
+print(list(square_all))
+# [2304, 36, 81, 441, 1]</code></pre>
+<pre class="python"><code>#### work with DataFrame ####
+
+# Select retweets from the Twitter DataFrame: result
+result = filter(lambda x: x[0:2]==&quot;RT&quot;, tweets_df[&#39;text&#39;])
+
+# Create list from filter object result: res_list
+res_list = list(result)
+
+# Print all retweets in res_list
+for tweet in res_list:
+    print(tweet)
+
+# results: all entries with &quot;RT&quot; in the beginning</code></pre>
+</div>
+<div id="error-handeling" class="section level3">
+<h3>Error Handeling</h3>
+<pre class="python"><code>#### give sensible error message ####
+
+def sqrt(x):
+    &quot;&quot;&quot;Returns the square root of a number.&quot;&quot;&quot;
+    try:
+        return x**0.5
+    except TypeError:
+        print(&quot;x must be an integer or float number&quot;)</code></pre>
+<pre class="python"><code>#### raise more errors ####
+
+def sqrt(x):
+    &quot;&quot;&quot;Returns the square root of a number.&quot;&quot;&quot;
+    if x&lt;0:
+        raise ValueError(&quot;x must be non-negative&quot;)
+    try:
+        return x**0.5
+    except TypeError:
+        print(&quot;x must be an integer or float number&quot;)</code></pre>
+</div>
+<div id="using-packages" class="section level3">
+<h3>Using Packages</h3>
 <pre class="sh"><code>$ pip3 install numpy</code></pre>
 <pre class="python"><code>import numpy
 numpy.array()
@@ -381,7 +546,7 @@ print(&quot;Area: &quot; + str(A))</code></pre>
 <h2>Package: <code>Numpy</code> on DataCamp</h2>
 <ul>
 <li>Numpy arrays can only contain data of the same type!!</li>
-<li>Intro
+<li>Introduction to Python
 <ul>
 <li><a href="https://s3.amazonaws.com/assets.datacamp.com/course/intro_to_python/ch4_slides.pdf">ch4</a></li>
 </ul></li>
@@ -800,11 +965,11 @@ from gapminder import gapminder as gm
 # or use https://python-graph-gallery.com/341-python-gapminder-animation/
 
 # Make a line plot: year on the x-axis, pop on the y-axis
-plt.plot(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;])
+plt.plot(x=&quot;gdpPercap&quot;, y=&quot;lifeExp&quot;, data=gm)
 
 # or make a scatter plot!
 plt.clf()
-plt.scatter(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;])
+plt.scatter(x=&quot;gdpPercap&quot;, y=&quot;lifeExp&quot;, data=gm)
 
 # Display the plot
 plt.show()</code></pre>
@@ -815,7 +980,7 @@ plt.show()</code></pre>
 from gapminder import gapminder as gm
 
 # Create histogram of life_exp data
-plt.hist(x=gm[&quot;lifeExp&quot;], bins=20)
+plt.hist(x=&quot;lifeExp&quot;, data=gm, bins=20)
 
 # Display histogram
 plt.show()
@@ -824,7 +989,7 @@ plt.show()
 plt.clf()
 
 # try another bin number
-plt.hist(x=gm[&quot;lifeExp&quot;], bins=30)
+plt.hist(x=&quot;lifeExp&quot;, data=gm, bins=30)
 plt.show()</code></pre>
 </div>
 <div id="plotting-options" class="section level3">
@@ -834,7 +999,7 @@ plt.show()</code></pre>
 import matplotlib.pyplot as plt
 from gapminder import gapminder as gm
 
-plt.scatter(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;])
+plt.scatter(x=&quot;gdpPercap&quot;, y=&quot;lifeExp&quot;, data=gm)
 
 # add title
 plt.title(&quot;Gap Minder in 2007&quot;)
@@ -868,8 +1033,8 @@ colourDict = {&#39;Asia&#39;:&#39;red&#39;,&#39;Europe&#39;:&#39;green&#39;,
 gm[&quot;colour&quot;] = gm[&quot;continent&quot;].map(colourDict)
 
 # size! colour! transparency!
-plt.scatter(x=gm[&quot;gdpPercap&quot;], y=gm[&quot;lifeExp&quot;],
-            s=gm[&quot;pop&quot;], c=gm[&quot;colour&quot;], alpha=0.5)
+plt.scatter(x=&quot;gdpPercap&quot;, y=&quot;lifeExp&quot;, data=gm,
+            s=&quot;pop&quot;, c=&quot;colour&quot;, alpha=0.5)
 
 # Add grid
 plt.grid(True)
@@ -884,6 +1049,161 @@ plt.xlable(&quot;GDP per capita (USD)&quot;)
 plt.ylable(&quot;Life expecancy (years)&quot;)
 
 plt.show()</code></pre>
+</div>
+</div>
+<div id="package-seaborn-on-datacamp" class="section level2">
+<h2>Package: <code>Seaborn</code> on DataCamp</h2>
+<ul>
+<li>Introduction to Seaborn
+<ul>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_15192/slides/chapter1.pdf">ch1</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_15192/slides/chapter2.pdf">ch2</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/production/course_15192/slides/chapter3.pdf">ch3</a></li>
+</ul></li>
+</ul>
+<div id="scatter-plot" class="section level3">
+<h3>Scatter Plot</h3>
+<pre class="python"><code>import matplotlib.pyplot as plt
+import seaborn as sns
+
+from gapminder import gapminder as gm
+# see https://pypi.org/project/gapminder/
+# to shorten the code, assume that we are using only data from 2007
+
+sns.scatterplot(x=&quot;gdpPercap&quot;, y=&quot;lifeExp&quot;, data=gm)
+plt.show()</code></pre>
+<pre class="python"><code>import matplotlib.pyplot as plt
+import seaborn as sns
+from gapminder import gapminder as gm
+
+sns.countplot(x=&quot;continent&quot;, data=gm)
+plt.show()</code></pre>
+</div>
+<div id="relational-plot-facet-panel" class="section level3">
+<h3>Relational Plot (Facet Panel)</h3>
+<pre class="python"><code>#### single row or column ####
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+tips = sns.load_dataset(&quot;tips&quot;)
+
+# display in columns (horizontally)
+# use row=&quot;smoker&quot; to display two rows in a row (vertically)
+
+sns.relplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, data=tips,
+           kind=&quot;scatter&quot;, col=&quot;smoker&quot;)
+
+plt.show()</code></pre>
+<pre class="python"><code>#### many rows or columns ####
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+tips = sns.load_dataset(&quot;tips&quot;)
+
+# display 2 cols per row
+
+sns.relplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, data=tips,
+           kind=&quot;scatter&quot;, col=&quot;day&quot;, col_wrap=2,
+           col_order=[&quot;Thur&quot;,&quot;Fri&quot;,&quot;Sat&quot;,&quot;Sun&quot;])
+
+plt.show()</code></pre>
+<pre class="python"><code>#### panel ####
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+tips = sns.load_dataset(&quot;tips&quot;)
+
+sns.relplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, data=tips,
+           kind=&quot;scatter&quot;, col=&quot;smoker&quot;)
+
+# use row=&quot;smoker&quot; to display two rows in a row (horizontally)
+
+
+sns.relplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, data=tips,
+           kind=&quot;scatter&quot;, col=&quot;smoker&quot;, row=&quot;time&quot;)
+
+plt.show()</code></pre>
+</div>
+<div id="plotting-options-1" class="section level3">
+<h3>Plotting Options</h3>
+<pre class="python"><code>import matplotlib.pyplot as plt
+import seaborn as sns
+
+tips = sns.load_dataset(&quot;tips&quot;)
+
+hue_values = {&quot;Yes&quot;: &quot;Black&quot;, &quot;No&quot;: &quot;Red&quot;}
+# or:
+hue_values = {&quot;Yes&quot;: &quot;#000000&quot;, &quot;No&quot;: &quot;#ff0000&quot;}
+
+# hue: colour
+# style: point (dot/cross)
+sns.scatterplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, data=tips,
+                hue=&quot;smoker&quot;, hue_order=[&quot;Yes&quot;,&quot;No&quot;],
+                style=&quot;smoker&quot;
+                palette=hue_values)
+
+plt.show()</code></pre>
+<pre class="python"><code>import matplotlib.pyplot as plt
+import seaborn as sns
+
+tips = sns.load_dataset(&quot;tips&quot;)
+
+# size: point size
+# alpha: transparency
+sns.scatterplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, data=tips,
+                hue=&quot;size&quot;, size=&quot;size&quot;, alpha=0.5)
+
+plt.show()</code></pre>
+</div>
+<div id="line-plot" class="section level3">
+<h3>Line Plot</h3>
+<pre class="python"><code>import matplotlib.pyplot as plt
+import seaborn as sns
+
+# air_df is the NO2 air data
+
+# style: line type &amp; point type
+# markers: display data points
+# dashes: display dash line
+sns.relplot(x=&quot;hour&quot;, y=&quot;NO_2_mean&quot;, data=air_df,
+            hue=&quot;location&quot;, size=&quot;location&quot;,
+            kind=&quot;line&quot;, markers=True, dashes=False)
+
+plt.show()</code></pre>
+<pre class="python"><code>#### multiple observations at each x ####
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# average line
+# ci: shaded area, default: confidence interval
+# ci=None: no shaded area
+
+sns.relplot(x=&quot;hour&quot;, y=&quot;NO_2&quot;, data=air_df,
+            kind=&quot;line&quot;, ci=&quot;sd&quot;)
+
+plt.show()</code></pre>
+<!-- ### Count Plot
+
+```python
+#### multiple observations at each x ####
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# average line
+# ci: shaded area, default: confidence interval
+# ci=None: no shaded area
+
+sns.relplot(x="hour", y="NO_2", data=air_df,
+            kind="line", ci="sd")
+
+plt.show()
+```
+ -->
 </div>
 </div>
 <div id="notes-from-effective-programming" class="section level2">
@@ -1425,16 +1745,6 @@ for i, obs in enumerate(data):
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 95}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 3, &#39;grit&#39;: 7, &#39;social&#39;: 3}} : 15152.245001868689
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 105}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 2, &#39;grit&#39;: 5}} : 9093.272925080726
 # Annual earnings in Euros, inputs = {&#39;cogn&#39;: {&#39;iq_raw&#39;: 100}, &#39;noncogn&#39;: {&#39;locus of control&#39;: 7, &#39;grit&#39;: 1}} : 12739.429457711914</code></pre>
-</div>
-</div>
-<div id="package-pandas" class="section level2">
-<h2>Package: <code>Pandas</code></h2>
-<pre class="python"><code># Import numpy and pandas with the usual conventions. 
-import numpy as np
-import pandas as pd
-
-# Import household data and create DataFrame object. 
-household = pd.read_table(&#39;household.csv&#39;)</code></pre>
 <!-- 
 ## Lab
 
@@ -1443,6 +1753,7 @@ household = pd.read_table(&#39;household.csv&#39;)</code></pre>
 <div data-datacamp-exercise="" data-height="500" data-lang="python">
 <code data-type="sample-code"></code></div></div>
  -->
+</div>
 </div>
 
     </div>
