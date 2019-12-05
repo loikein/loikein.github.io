@@ -6,10 +6,21 @@
     <description>Recent content in Archives on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/archive/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Industrial Organization</title>
+      <link>/archive/notes-industrial-organization/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/archive/notes-industrial-organization/</guid>
+      <description>Basic Ideas  Firm Consumer Discrete Choice Model Discrete Choice Model: Asymmetric Information Representative Consumer Model Welfare Perfect Competition    Basic Ideas Firm  Firm: transforms inputs into outputs Profit: \(Π = R(q) - C(q)\) Sales: \(q = f(k,l)\) Cost: technology, expenditure minimization
+Let \(q = \tilde{q}\), isovalue of production: \(f(k,l) = \tilde{q}\)
+Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expenditure: \(k = -\frac{p_l}{p_k}\cdot l + \frac{E}{p_k}\)</description>
+    </item>
     
     <item>
       <title>Notes on Time Series</title>

@@ -49,17 +49,6 @@ Please use Google to tailor your own version.</description>
     </item>
     
     <item>
-      <title>Notes on Industrial Organization</title>
-      <link>/post/2019/10/notes-industrial-organization/</link>
-      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/10/notes-industrial-organization/</guid>
-      <description>Basic Ideas Firm Consumer Discrete Choice Model Discrete Choice Model: Asymmetric Information Representative Consumer Model Welfare Perfect Competition    Basic Ideas Firm  Firm: transforms inputs into outputs Profit: \(Π = R(q) - C(q)\) Sales: \(q = f(k,l)\) Cost: technology, expenditure minimization
-Let \(q = \tilde{q}\), isovalue of production: \(f(k,l) = \tilde{q}\)
-Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expenditure: \(k = -\frac{p_l}{p_k}\cdot l + \frac{E}{p_k}\)</description>
-    </item>
-    
-    <item>
       <title>Notes on Research: Dynamic Programming</title>
       <link>/post/2019/10/notes-research-dynamic-prog/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
@@ -74,7 +63,7 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/06/notes-python-3/</guid>
-      <description>Reference Python on DataCamp  Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages  Package: Numpy on DataCamp  Basics Comparison Methods Control Flows  Package: Pandas on DataCamp  Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows  Package: Matplotlib on DataCamp  Line &amp;amp; Scatter Plot Histogram Plotting Options  Package: Seaborn on DataCamp  Scatter Plot Relational Plot (Facet Panel) Plotting Options Line Plot  Notes from Effective Programming  Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditions Function Module    Reference  PEP 8 -- Style Guide for Python Code | Python.</description>
+      <description>Reference Personal Notes  continue, pass &amp;amp; break if __name__ == &#34;__main__&#34;  Python on DataCamp  Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages  Package: Numpy on DataCamp  Basics Comparison Methods Control Flows  Package: Pandas on DataCamp  Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows  Package: Matplotlib on DataCamp  Line &amp;amp; Scatter Plot Histogram Plotting Options  Package: Seaborn on DataCamp  Scatter Plot Relational Plot (Facet Panel) Plotting Options Line Plot  Notes from Effective Programming  Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditions Function Module Test (Manually) pytest    Reference  PEP 8 -- Style Guide for Python Code | Python.</description>
     </item>
     
     <item>

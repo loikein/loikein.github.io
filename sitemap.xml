@@ -73,12 +73,22 @@
   </url>
   
   <url>
+    <loc>/tags/archived/</loc>
+    <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/archive/</loc>
+    <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/math/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2019/10/notes-industrial-organization/</loc>
+    <loc>/archive/notes-industrial-organization/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -90,16 +100,6 @@
   <url>
     <loc>/post/2019/06/notes-python-3/</loc>
     <lastmod>2019-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/archived/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/archive/</loc>
-    <lastmod>2019-04-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>

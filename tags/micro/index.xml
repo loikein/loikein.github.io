@@ -21,17 +21,6 @@
     </item>
     
     <item>
-      <title>Notes on Industrial Organization</title>
-      <link>/post/2019/10/notes-industrial-organization/</link>
-      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/10/notes-industrial-organization/</guid>
-      <description>Basic Ideas Firm Consumer Discrete Choice Model Discrete Choice Model: Asymmetric Information Representative Consumer Model Welfare Perfect Competition    Basic Ideas Firm  Firm: transforms inputs into outputs Profit: \(Π = R(q) - C(q)\) Sales: \(q = f(k,l)\) Cost: technology, expenditure minimization
-Let \(q = \tilde{q}\), isovalue of production: \(f(k,l) = \tilde{q}\)
-Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expenditure: \(k = -\frac{p_l}{p_k}\cdot l + \frac{E}{p_k}\)</description>
-    </item>
-    
-    <item>
       <title>Notes on Research: Dynamic Programming</title>
       <link>/post/2019/10/notes-research-dynamic-prog/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
