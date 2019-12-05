@@ -68,7 +68,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">6 min read</span>
     
     <h1 class="article-title">Notes on Effective Programming Practice</h1>
     
@@ -97,7 +97,12 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#slides">Slides</a></li>
-<li><a href="#example-process-of-a-project">Example Process of A Project</a></li>
+<li><a href="#example-process-of-a-project">Example Process of A Project</a>
+<ul>
+<li><a href="#clone-from-remote">Clone from Remote</a></li>
+<li><a href="#create-from-local">Create from Local</a></li>
+<li><a href="#runtime">Runtime</a></li>
+</ul></li>
 <li><a href="#shell">Shell</a>
 <ul>
 <li><a href="#reference">Reference</a></li>
@@ -146,6 +151,8 @@ Please use Google to tailor your own version.</p>
 </div>
 <div id="example-process-of-a-project" class="section level2">
 <h2>Example Process of A Project</h2>
+<div id="clone-from-remote" class="section level3">
+<h3>Clone from Remote</h3>
 <pre class="sh"><code>#### set up ####
 
 # clone
@@ -154,13 +161,6 @@ $ git clone https://github.com/path-to-your-repo
 # new branch
 $ git branch loikein
 $ git checkout loikein
-
-# creat an environment from an environment.yml file
-$ conda env create -f environment.yml
-
-$ conda activate exercise_1
-
-$ python waf.py configure
 
 $ subl .gitignore
 # add the following:
@@ -171,7 +171,45 @@ $ subl .gitignore
 $ pre-commit install
 $ pre-commit run
 
-#### do the following everytime ####
+# creat an environment from an environment.yml file
+$ conda env create -f environment.yml
+$ conda activate exercise_x
+
+$ python waf.py configure</code></pre>
+</div>
+<div id="create-from-local" class="section level3">
+<h3>Create from Local</h3>
+<pre class="sh"><code>#### set up ####
+
+# init
+$ git init
+
+$ subl .gitignore
+# add the following:
+# .DS_Store
+# */.DS_Store
+
+# pre-commit hooks
+$ pre-commit install
+$ pre-commit run
+
+$ git add -all
+$ git commit -m &quot;Init commit&quot;
+
+# after creating empty repository on GitHub
+
+$ git remote add origin https://github.com/loikein/tofu-output-beautifier.git
+$ git push -u origin master
+
+# creat an environment from an environment.yml file
+$ conda env create -f environment.yml
+$ conda activate exercise_x
+
+$ python waf.py configure</code></pre>
+</div>
+<div id="runtime" class="section level3">
+<h3>Runtime</h3>
+<pre class="sh"><code>#### do the following everytime ####
 
 # after some changes to the files
 
@@ -182,6 +220,7 @@ $ git add --all                             # gaa
 $ git commit -m &quot;Some meaningful messages&quot;  # gcmsg
 
 $ git push</code></pre>
+</div>
 </div>
 <div id="shell" class="section level2">
 <h2>Shell</h2>
