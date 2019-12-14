@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.60.1" />
+<meta name="generator" content="Hugo 0.61.0" />
 
 <title>Notes on Econometric Theory - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Econometric Theory - loikein&#39;s notes">
@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">33 min read</span>
+    <span class="article-duration">35 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -120,6 +120,7 @@ if (!doNotTrack) {
 <li><a href="#parametric-model">Parametric Model</a></li>
 <li><a href="#consistency">Consistency</a></li>
 <li><a href="#uniform-convergence-in-probability">Uniform Convergence in Probability</a></li>
+<li><a href="#asymphotic-normality">Asymphotic Normality</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1493,8 +1494,8 @@ meanwhile, the following does not give uniform convergence:
 <span class="math display">\[\sup_{θ\in [0,1]} \ \big| Q_n(θ) - Q(θ)\big| = \bar{y} - \underline{y}&gt; 0\]</span></p>
 </blockquote>
 <blockquote>
-<p>Thm 2.2.<br />
-If the following assumptions are satisfied, then <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span></p>
+<p>Thm 2.2. Consistency of M-Estimator<br />
+<span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span> if:</p>
 <ol style="list-style-type: decimal">
 <li>(A1) Identification (unique minimizer &amp; enough separation)<br />
 For all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math inline">\(δ&gt;0\)</span> s.t.
@@ -1626,7 +1627,7 @@ if for all <span class="math inline">\(ε,η&gt;0\)</span>, exists <span class="
 <blockquote>
 <p>Thm 2.6. Uniform law of large numbers<br />
 Let <span class="math inline">\(\{Q_n\}\)</span> be a sequence of random functions,<br />
-<span class="math display">\[\sup_{θ}\| Q_n(θ) -Q(θ)\|\overset{P}{\to} 0\]</span>
+<span class="math display">\[\sup_{θ\in Θ}\| Q_n(θ) -Q(θ)\|\overset{P}{\to} 0\]</span>
 If:</p>
 <ol style="list-style-type: lower-roman">
 <li><span class="math inline">\(Θ\)</span> is compact</li>
@@ -1705,6 +1706,118 @@ therefore, for <span class="math inline">\(δ\)</span> small enough, for <span c
 </ol>
 </blockquote>
 <p>Proof: exercise</p>
+<blockquote>
+<p>Thm 2.9.<br />
+<span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous, and <span class="math inline">\(Q(θ)=E\big[q(θ,z)\big]\)</span> is continuous<br />
+If:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(Θ\)</span> is compact</li>
+<li><span class="math inline">\(θ\mapsto q(θ,z)\)</span> is continuous in <span class="math inline">\(θ\)</span> for all <span class="math inline">\(z\)</span>, except with probability <span class="math inline">\(0\)</span></li>
+<li>Exists <span class="math inline">\(\bar{q}\)</span> s.t. <span class="math inline">\(\|q(θ,z)\|\leq \bar{q}(z)\)</span> for all <span class="math inline">\(θ\)</span>,<br />
+and <span class="math inline">\(E\big[\bar{q}(Z)\big]&lt;\infty\)</span></li>
+</ol>
+</blockquote>
+<p>Proof:</p>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(ε,η&gt;0\)</span>, for any <span class="math inline">\(δ&gt;0\)</span>, define:
+<span class="math display">\[u(z,δ)=\sup_{\|θ-θ&#39;\|\leq δ}\|q(z,θ)-q(z,θ&#39;)\|\]</span>
+By assumptions (i) and (ii),<br />
+<span class="math inline">\(\implies\)</span> for all <span class="math inline">\(z\)</span> except with probability <span class="math inline">\(0\)</span>, <span class="math inline">\(u(z,δ)\to 0\)</span> as <span class="math inline">\(δ\to 0\)</span><br />
+<span class="math inline">\(\iff u(Z,δ)\to 0\)</span> as <span class="math inline">\(δ\to 0\)</span> almost surely<br />
+By assumption (iii),<br />
+<span class="math inline">\(\implies\)</span> <span class="math display">\[u(Z,δ)\leq 2\cdot\sup_{θ\in Θ} \|q(Z,θ)\| \leq 2\cdot\bar{q}(Z)\]</span>
+Therefore, by dominated convergense,<br />
+<span class="math inline">\(\implies E\big[u(Z,δ)\big]\to 0\)</span> as <span class="math inline">\(δ\to 0\)</span><br />
+Since
+<span class="math display">\[\sup_{\|θ-θ&#39;\|\leq δ}\|Q_n(θ)-Q_n(θ&#39;)\|\leq\frac{1}{n}\sum_{i=1}\underbrace{\sup_{\|θ-θ&#39;\|\leq δ} \|q(Z_i, θ)-q(Z_i, θ&#39;)\|}_{=u(Z_i,δ)}\]</span>
+as <span class="math inline">\(δ\to 0\)</span>, it holds that
+<span class="math display">\[\begin{aligned}P(\sup_{\|θ-θ&#39;\|\leq δ}\|Q_n(θ)-Q_n(θ&#39;)\|&gt;η)&amp;\leq P(\frac{1}{n}\sum_{i=1} u(Z_i,δ))&gt;η)\\
+&amp;\leq \frac{1}{η}E[u(Z,δ)] \to 0 \text{ by Markov}\end{aligned}\]</span>
+Therefore, <span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous</li>
+<li>For any <span class="math inline">\(θ\in Θ\)</span>, <span class="math inline">\(\|θ-θ&#39;\|&lt;δ\)</span> as <span class="math inline">\(δ\to 0\)</span>,<br />
+<span class="math display">\[\begin{aligned}\|Q(θ)-Q(θ&#39;)\| &amp;\leq E[\|q(Z,θ)-q(Z,θ&#39;)\|]\\
+&amp;\leq E[u(Z,δ)] \to 0 \end{aligned}\]</span></li>
+</ol>
+<p>Remark:<br />
+Let <span class="math inline">\(δ_n\to 0\)</span> and <span class="math inline">\(U_n=u(Z,δ_n)\)</span>,<br />
+<span class="math inline">\(\implies U_n\to 0\)</span> almost surely, <span class="math inline">\(U_n\leq 2\cdot \bar{q}(Z)\)</span> with <span class="math inline">\(E[\bar{q}(Z)]&lt;\infty\)</span><br />
+By dominated convergence, <span class="math inline">\(\implies E[U_n]\to 0\)</span></p>
+<blockquote>
+<p>Example<br />
+Let <span class="math inline">\(Y=g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε\ |\ X]=0\)</span>, show that <span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous, assuming:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(Θ\)</span> is compact</li>
+<li><span class="math inline">\(θ\mapsto g(x,θ)\)</span> is continuous for all <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(|g(x,θ)|\leq\bar{g}(x)\)</span>, with <span class="math inline">\(E[\bar{g}^2(X)]&lt;\infty\)</span></li>
+</ol>
+</blockquote>
+<p>Check Thm 2.9.:</p>
+<ol style="list-style-type: lower-roman">
+<li>Yes</li>
+<li><span class="math inline">\(q(\underbrace{z,θ}_{(x,y)})=\big(y-g(x,θ)\big)^2\)</span> is continuous</li>
+<li><span class="math display">\[\begin{aligned}|q(z,θ)|&amp;=(y-g(x,θ))^2\\
+&amp;\leq \big(2\cdot \max\{|y|,|g(x,θ)|\}\big)^2 \\
+&amp;\leq 4y^2 + 4\cdot g(x,θ)^2 \\
+&amp;\leq 4y^2 + 4\cdot\bar{g}(x)^2  \\
+:&amp;= \bar{q}(z)\end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<p>Example: maximun likelihood<br />
+Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by
+<span class="math display">\[Q_n(θ) = \prod_{i=1} f_Z(Z_i, θ)\]</span>
+the ML-estimator of <span class="math inline">\(θ_0\)</span> is defined as
+<span class="math display">\[\begin{aligned}\hat{θ}&amp;= \text{argmax}_{θ\in Θ} Q_n(θ)\\&amp;=\text{argmax}_{θ\in Θ}-\frac{1}{n}\sum \log f_Z(Z_i,θ)\end{aligned}\]</span>
+<span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous assuming:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(Θ\)</span> is compact</li>
+<li><span class="math inline">\(θ\mapsto \log f_Z(z,θ)\)</span> is continuous for all <span class="math inline">\(z\)</span>, except with probability 0</li>
+<li>Exists <span class="math inline">\(\bar{q}\)</span> s.t. <span class="math inline">\(|\log f_Z(z,θ)|\leq \bar{q}(z)\)</span> for all <span class="math inline">\(θ\in Θ\)</span> and <span class="math inline">\(E[\bar{q}(Z)]&lt;\infty\)</span></li>
+</ol>
+</blockquote>
+<p>To put it explicitly,
+<span class="math display">\[\begin{aligned}f_Z(z,θ_0) &amp;= f_Z(z, μ_0, σ_0^2) \\
+&amp;= \frac{1}{\sqrt{2πσ_0^2}}\exp\Big(-\frac{(z-μ_0)^2}{2σ_0^2}\Big) \end{aligned}\]</span>
+Let <span class="math inline">\(Θ=[\underline{μ},\bar{μ}]\times[\underline{σ}^2,\bar{σ}^2]\)</span>, with <span class="math inline">\(-\infty&lt;\underline{μ}\leq \bar{μ}&lt;\infty\)</span> and <span class="math inline">\(0&lt;\underline{σ}^2\leq\bar{σ}^2&lt;\infty\)</span><br />
+Note that
+<span class="math display">\[-\log f_Z(z,μ,σ^2)=\log(\sqrt{2πσ_0^2})+\frac{(z-μ_0)^2}{2σ_0^2}\]</span>
+and
+<span class="math display">\[\begin{aligned}\log f_Z(z,μ,σ^2) &amp;\leq \max\bigg\{\Big|\log\big(\sqrt{2π\underline{σ}^2}\big)|, \Big|\log\big(\sqrt{2π\bar{σ}^2}\big)\Big|\bigg\} \\
+&amp;\phantom{\ggg} + \frac{(|z| + \max\{|\underline{μ}|,|\bar{μ}|\})^2}{2\underline{σ}^2}\end{aligned}\]</span></p>
+</div>
+<div id="asymphotic-normality" class="section level3">
+<h3>Asymphotic Normality</h3>
+<ul>
+<li>Have shown: <span class="math inline">\(\hat{θ}\overset{P}{\to}θ_0\)</span></li>
+<li>Want to show: <span class="math inline">\(\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,V)\)</span>
+<ul>
+<li><span class="math inline">\(\implies \sqrt{n}(\hat{θ}-θ_0)=O_p(1)\)</span><br />
+<span class="math inline">\(\iff (\hat{θ}-θ_0)=O_p(\frac{1}{\sqrt{n}})\)</span><br />
+<span class="math inline">\(\implies (\hat{θ}-θ_0)=o_p(1)\)</span></li>
+<li>Stronger than <span class="math inline">\(\hat{θ}\overset{P}{\to}θ\)</span>!</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Thm 3.1. Standard normality<br />
+It holds that
+<span class="math display">\[\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0)\]</span>
+assuming <span class="math inline">\(\hat{θ}\overset{P}{\to}θ_0\)</span> and:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(θ_0\in \text{int}(Θ)\)</span></li>
+<li><span class="math inline">\(Q_n(θ)\)</span> is twice continuous differentiable in some open neighbourhood <span class="math inline">\(\mathcal{N}\)</span> of <span class="math inline">\(θ_0\)</span></li>
+<li>For <span class="math inline">\(S_n(θ_0)=δ_θQ_n(θ_0)\)</span>,
+<span class="math display">\[\sqrt{n} S_n(θ_0)\overset{d}{\to}\mathcal{N}(0,Ω_0)\]</span></li>
+<li>For <span class="math inline">\(H_n(θ)=δ_{θθ}Q_n(θ)\)</span>, <span class="math inline">\(H(θ)=δ_{θθ}Q(θ)\)</span>,
+<span class="math display">\[\sup_{θ\in\mathcal{N}} \|H_n(θ)-H(θ)\|\overset{P}{\to}0\]</span>
+and <span class="math inline">\(θ\mapsto H(θ)\)</span> is continuous and <span class="math inline">\(H_0=H(θ_0)\)</span> is non-singular (invertible)</li>
+</ol>
+</blockquote>
+<p>Since <span class="math inline">\(\hat{θ}\)</span> is the minimizer of <span class="math inline">\(Q_n(θ)\)</span>,<br />
+By Taylor expansion:
+<span class="math display">\[\begin{aligned}0 &amp;= S_n(\hat{θ}) \\
+&amp;= δ_θ Q_n(\hat{θ}) \\
+&amp;= S_n(θ_0) + \mathcal{H}_n(θ_0,\hat{θ})(\hat{θ}-θ_0) \\
+\sqrt{n}(\hat{θ}-θ_0) &amp;= \underbrace{\mathcal{H}_n(θ_0,\hat{θ})^{-1}}_{\overset{P}{\to} H_0^{-1}}\cdot \underbrace{\sqrt{n}S_n(θ_0)}_{\overset{d}{\to}\mathcal{N}(0,Ω_0)}\\
+&amp;\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0)\end{aligned}\]</span></p>
 </div>
 </div>
 

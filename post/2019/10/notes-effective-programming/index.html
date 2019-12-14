@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.60.1" />
+<meta name="generator" content="Hugo 0.61.0" />
 
 <title>Notes on Effective Programming Practice - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Effective Programming Practice - loikein&#39;s notes">
@@ -101,7 +101,8 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#clone-from-remote">Clone from Remote</a></li>
 <li><a href="#create-from-local">Create from Local</a></li>
-<li><a href="#runtime">Runtime</a></li>
+<li><a href="#runtime-building">Runtime: Building</a></li>
+<li><a href="#runtime-testing">Runtime: Testing</a></li>
 </ul></li>
 <li><a href="#shell">Shell</a>
 <ul>
@@ -207,11 +208,11 @@ $ conda activate exercise_x
 
 $ python waf.py configure</code></pre>
 </div>
-<div id="runtime" class="section level3">
-<h3>Runtime</h3>
+<div id="runtime-building" class="section level3">
+<h3>Runtime: Building</h3>
 <pre class="sh"><code>#### do the following everytime ####
 
-# after some changes to the files
+# after some changes to the source files
 
 $ python waf.py build -v
 
@@ -220,6 +221,12 @@ $ git add --all                             # gaa
 $ git commit -m &quot;Some meaningful messages&quot;  # gcmsg
 
 $ git push</code></pre>
+</div>
+<div id="runtime-testing" class="section level3">
+<h3>Runtime: Testing</h3>
+<pre class="sh"><code># after some changes to the source files
+
+$ pytest -v</code></pre>
 </div>
 </div>
 <div id="shell" class="section level2">

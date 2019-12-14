@@ -17,7 +17,7 @@
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-effective-programming/</guid>
-      <description>Slides Example Process of A Project  Clone from Remote Create from Local Runtime  Shell  Reference Basics Pipeline  TeX Git  Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Collaboration  (Ana)Conda  Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode  Python Waf  Reference Config Build Miscellaneous    Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
+      <description>Slides Example Process of A Project  Clone from Remote Create from Local Runtime: Building Runtime: Testing  Shell  Reference Basics Pipeline  TeX Git  Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Collaboration  (Ana)Conda  Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode  Python Waf  Reference Config Build Miscellaneous    Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference Reference Cheatsheet  Inline Code Executed  Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
+      <description>Words of Warning Rmd Reference  Reference Cheatsheet  Inline Code  Executed  Display Code  R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
 Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in a file as complicated as this one.
 When writing long posts in Sublime, minimap &amp;amp; Ouline plugin can be quite handy.</description>
     </item>

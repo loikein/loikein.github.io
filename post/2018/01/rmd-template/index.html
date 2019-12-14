@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.60.1" />
+<meta name="generator" content="Hugo 0.61.0" />
 
 <title>Rmd Template - loikein&#39;s notes</title>
 <meta property="og:title" content="Rmd Template - loikein&#39;s notes">
@@ -95,14 +95,17 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#words-of-warning">Words of Warning</a></li>
-<li><a href="#rmd-reference">Rmd Reference</a><ul>
+<li><a href="#rmd-reference">Rmd Reference</a>
+<ul>
 <li><a href="#reference">Reference</a></li>
 <li><a href="#cheatsheet">Cheatsheet</a></li>
 </ul></li>
-<li><a href="#inline-code">Inline Code</a><ul>
+<li><a href="#inline-code">Inline Code</a>
+<ul>
 <li><a href="#executed">Executed</a></li>
 </ul></li>
-<li><a href="#display-code">Display Code</a><ul>
+<li><a href="#display-code">Display Code</a>
+<ul>
 <li><a href="#r-code-chunk">R Code Chunk</a></li>
 <li><a href="#r-code-inline">R Code (Inline)</a></li>
 <li><a href="#code-from-other-languages">Code from Other Languages</a></li>
@@ -126,7 +129,7 @@ $\LaTeX$
 
 Not this:
 $ \LaTeX $</code></pre>
-<p>All codes will be displayed but not executed under default settings of this template. To turn on executing codes, type</p>
+<p>All codes will be displayed but not executed under default settings of this template. To turn on executing codes, use</p>
 <pre class="markdown"><code>```{r, eval = TRUE}
     (your code here)
 ```</code></pre>
@@ -174,9 +177,9 @@ $ \LaTeX $</code></pre>
 </div>
 <div id="code-from-other-languages" class="section level3">
 <h3>Code from Other Languages</h3>
-<pre class="markdown"><code>​````JavaScript
+<pre class="markdown"><code>​```JavaScript
     (your code here)
-​````</code></pre>
+​```</code></pre>
 <!-- Potential ways to display code from other languages:  
 ![](/post-img/rmd-template--display-code.png){ width=290px}  
 which all failed while all I wanted to display was this:  
