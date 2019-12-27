@@ -6,19 +6,10 @@
     <description>Recent content in R on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Notes on Effective Programming Practice</title>
-      <link>/post/2019/10/notes-effective-programming/</link>
-      <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/10/notes-effective-programming/</guid>
-      <description>Slides Example Process of A Project  Clone from Remote Create from Local Runtime: Building Runtime: Testing  Shell  Reference Basics Pipeline  TeX Git  Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Collaboration  (Ana)Conda  Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode  Python Waf  Reference Config Build Miscellaneous    Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
-    </item>
     
     <item>
       <title>Notes on Econometrics - Tests and Statistics</title>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.62.0" />
 
 <title>Notes on Econometric Theory - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Econometric Theory - loikein&#39;s notes">
@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">35 min read</span>
+    <span class="article-duration">36 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -129,7 +129,7 @@ if (!doNotTrack) {
 <ul>
 <li>Uppercase variables: random variables</li>
 <li>Lowercase variables: deterministic variables</li>
-<li>(I missed the PS4 class)</li>
+<li>(I missed all the PS classes since PS4)</li>
 </ul>
 <div id="literature" class="section level2">
 <h2>Literature</h2>
@@ -1799,25 +1799,102 @@ and
 <blockquote>
 <p>Thm 3.1. Standard normality<br />
 It holds that
-<span class="math display">\[\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0)\]</span>
+<span class="math display">\[\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0^{-1})\]</span>
 assuming <span class="math inline">\(\hat{θ}\overset{P}{\to}θ_0\)</span> and:</p>
 <ol style="list-style-type: lower-roman">
 <li><span class="math inline">\(θ_0\in \text{int}(Θ)\)</span></li>
-<li><span class="math inline">\(Q_n(θ)\)</span> is twice continuous differentiable in some open neighbourhood <span class="math inline">\(\mathcal{N}\)</span> of <span class="math inline">\(θ_0\)</span></li>
+<li><span class="math inline">\(Q_n(θ)\)</span> is twice continuously differentiable in some open neighbourhood <span class="math inline">\(\mathcal{N}\)</span> of <span class="math inline">\(θ_0\)</span></li>
 <li>For <span class="math inline">\(S_n(θ_0)=δ_θQ_n(θ_0)\)</span>,
 <span class="math display">\[\sqrt{n} S_n(θ_0)\overset{d}{\to}\mathcal{N}(0,Ω_0)\]</span></li>
-<li>For <span class="math inline">\(H_n(θ)=δ_{θθ}Q_n(θ)\)</span>, <span class="math inline">\(H(θ)=δ_{θθ}Q(θ)\)</span>,
-<span class="math display">\[\sup_{θ\in\mathcal{N}} \|H_n(θ)-H(θ)\|\overset{P}{\to}0\]</span>
-and <span class="math inline">\(θ\mapsto H(θ)\)</span> is continuous and <span class="math inline">\(H_0=H(θ_0)\)</span> is non-singular (invertible)</li>
+<li>For <span class="math inline">\(H_n(θ)=δ_{θθ}Q_n(θ)\)</span> and <span class="math inline">\(H(θ)=δ_{θθ}Q(θ)\)</span>,
+<span class="math display">\[\sup_{θ\in\mathcal{N}} \big\|H_n(θ)-H(θ)\big\|\overset{P}{\to}0\]</span>
+and <span class="math inline">\(θ\mapsto H(θ)\)</span> is continuous,<br />
+and <span class="math inline">\(H_0=H(θ_0)\)</span> is non-singular (invertible)</li>
 </ol>
 </blockquote>
-<p>Since <span class="math inline">\(\hat{θ}\)</span> is the minimizer of <span class="math inline">\(Q_n(θ)\)</span>,<br />
-By Taylor expansion:
+<p>Proof:<br />
+Since <span class="math inline">\(\hat{θ}\)</span> is the minimizer of <span class="math inline">\(Q_n(θ)\)</span>,<br />
+by (i) and (ii), <span class="math inline">\(\hat{θ}\)</span> must satisfy:
+<span class="math display">\[P\big(\underbrace{S_n(\hat{θ})=0}_{FOC})\big)\to 1\]</span>
+Let <span class="math inline">\(H_n^{[ν]}(θ)\)</span> devote the ν-th row of <span class="math inline">\(H_n(θ)\)</span>,<br />
+where <span class="math inline">\(\bar{θ}_ν\)</span> are intermediate points between <span class="math inline">\(\hat{θ}\)</span> and <span class="math inline">\(θ_0\)</span>,<br />
+by Taylor expansion, with probability approaching 1:
 <span class="math display">\[\begin{aligned}0 &amp;= S_n(\hat{θ}) \\
-&amp;= δ_θ Q_n(\hat{θ}) \\
-&amp;= S_n(θ_0) + \mathcal{H}_n(θ_0,\hat{θ})(\hat{θ}-θ_0) \\
-\sqrt{n}(\hat{θ}-θ_0) &amp;= \underbrace{\mathcal{H}_n(θ_0,\hat{θ})^{-1}}_{\overset{P}{\to} H_0^{-1}}\cdot \underbrace{\sqrt{n}S_n(θ_0)}_{\overset{d}{\to}\mathcal{N}(0,Ω_0)}\\
-&amp;\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0)\end{aligned}\]</span></p>
+&amp;= S_n(θ_0) + \underbrace{\begin{pmatrix}H_n^{[1]}(\bar{θ}_1) \\ \vdots \\ H_n^{[k]}(\bar{θ}_k) \end{pmatrix}}_{:= \mathcal{H}_n(θ_0,\hat{θ})}\cdot(\hat{θ} - θ_0) \\
+&amp;= S_n(θ_0) + \mathcal{H}_n(θ_0,\hat{θ})(\hat{θ}-θ_0) \end{aligned}\]</span>
+Choose <span class="math inline">\(\|\cdot\|\)</span> as the maximal row sum: <span class="math inline">\(\|A\|=\max_j \sum^l |a_{j,l}|\)</span>,<br />
+let
+<span class="math display">\[\begin{aligned}\mathcal{H}(θ_0,\hat{θ}):&amp;=\begin{pmatrix}H^{[1]}(\bar{θ}_1) \\ \vdots \\ H^{[k]}(\bar{θ}_k)\end{pmatrix} \\
+\big\|\mathcal{H}_n(θ_0,\hat{θ}) - H(θ_0) \big\| &amp;\leq \big\|\mathcal{H}_n(θ_0,\hat{θ})-\mathcal{H}(θ_0,\hat{θ})\big\|+\big\|\mathcal{H}(θ_0,\hat{θ})-H(θ_0)\big\| \\
+&amp;\leq \underbrace{\sup_{θ\in\mathcal{N}}\|H_n(θ)-H(θ)\|}_{\overset{P}{\to}0\text{ by (iv)}}+\underbrace{\max_{ν}\ \|H(\bar{θ}_ν)-H(θ_0)\|}_{\overset{P}{\to}0\text{ by CMT}}\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\mathcal{H}_n(θ_0,\hat{θ})\overset{P}{\to}H(θ_0)=H_0\]</span>
+By Slutsky’s theorem,
+<span class="math display">\[\mathcal{H}_n^{-1}(θ_0,\hat{θ})\overset{P}{\to}H_0^{-1}\]</span>
+Continuing the Taylor expansion,
+<span class="math display">\[\begin{aligned}\sqrt{n}(\hat{θ}-θ_0) &amp;= - \underbrace{\mathcal{H}_n^{-1}(θ_0,\hat{θ})}_{\overset{P}{\to} H_0^{-1}}\cdot \underbrace{\sqrt{n}\cdot S_n(θ_0)}_{\overset{d}{\to}\mathcal{N}(0,Ω_0)}\\
+&amp;= - \underbrace{H_0^{-1}\cdot \overbrace{\sqrt{n}\cdot S_n(θ_0)}^{\overset{d}{\to}\mathcal{N}(0,Ω_0)}}_{\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0^{-1})\text{ by CMT}} +\underbrace{\big(\overbrace{H_0^{-1} - \mathcal{H}_n^{-1}(θ_0,\hat{θ})}^{o_p(1)}\big)\cdot\overbrace{\sqrt{n}\cdot S_n(θ_0)}^{=O_p(1)}}_{=o_p(1)} \\
+&amp;\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0^{-1}) \end{aligned}\]</span></p>
+<p>Remark: <span class="math inline">\(\sqrt{n}\)</span>-consistency:
+<span class="math display">\[\begin{aligned}\sqrt{n}(\hat{θ}-θ_0) &amp;= O_p(1)\\
+(\hat{θ}-θ_0) &amp;= O_p(\frac{1}{\sqrt{n}}) \\
+&amp;= o_p(1) \end{aligned}\]</span>
+i.e., <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span></p>
+<blockquote>
+<p>Cor 3.2.<br />
+We have
+<span class="math display">\[\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,H_0^{-1}Ω_0H_0^{-1})\]</span>
+if <span class="math inline">\(Q_n(θ)=\frac{1}{n}\sum^n q(Z_i,θ)\)</span>, assume <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span>, and:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(θ_0\in \text{int}(Θ)\)</span></li>
+<li><span class="math inline">\(θ\mapsto q(z,θ)\)</span> is twice continuously differentiable in an open neighbourhood <span class="math inline">\(\mathcal{N}\)</span> of <span class="math inline">\(θ_0\)</span> for all <span class="math inline">\(Z\)</span></li>
+<li><span class="math inline">\(E[\big \partial_θ q(Z,θ_0)\big]=0\)</span>, and <span class="math inline">\(Ω_0=E\Big[\partial_θ q(Z,θ_0)\cdot \big(\partial_θ q(Z,θ_0)\big)^T\Big]&lt;\infty\)</span></li>
+<li><span class="math inline">\(\|\partial_{θθ}q(z,θ)\|\leq b(z)\)</span> for all <span class="math inline">\(θ\in\bar{\mathcal{N}}\)</span> (enclosure),<br />
+where <span class="math inline">\(E\big[b(Z)\big]&lt;\infty\)</span> and <span class="math inline">\(H_0=E[\partial^{\prime}_{θθ} q(Z,θ_0)]\)</span> is non-singular (intertible)</li>
+</ol>
+</blockquote>
+<p>Proof: exercise</p>
+<p>Remark: <span class="math inline">\(E[\partial_θ q(Z,θ_0)]=0\)</span> follows under additional assumptions:
+<span class="math display">\[\begin{aligned}0=\partial_θ Q(θ_0)&amp;=\partial_θ E[q(Z,θ_0)]\\
+&amp;= E[\partial_θ q(Z,θ_0)] \end{aligned}\]</span>
+the last step of which does not hold generally</p>
+<blockquote>
+<p>Example<br />
+Model: <span class="math inline">\(Y=g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε|X]=0\)</span><br />
+Criterion function: <span class="math inline">\(Q_n(θ)=\frac{1}{n}\sum^n (Y_i-g(X_i,θ_))^2\)</span><br />
+Assume:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\hat{θ}\overset{P}{\to}θ_0\in \text{int}(Θ)\)</span></li>
+<li><span class="math inline">\(θ\mapsto g(x,θ)\)</span> is twice continuously differentiable w.r.t <span class="math inline">\(θ\)</span> for each <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(|g(x,θ)|\leq \bar{g}_0(x)\)</span>, and <span class="math inline">\(\|\partial_θ g(x,θ)\|\leq \bar{g}_1(x)\)</span>, and <span class="math inline">\(\|\partial_{θθ} g(x,θ)\|\leq \bar{g}_2(x)\)</span>, and <span class="math inline">\(E[\bar{g}^2_i(X)]&lt;\infty\)</span> for <span class="math inline">\(i=0,1,2\)</span></li>
+<li><span class="math inline">\(E[ε^2|X]=σ^2&gt;0\)</span></li>
+<li><span class="math inline">\(E\Big[\partial_θ q(X,θ_0)\cdot \big(\partial_θ q(X,θ_0)\big)^T\Big]\)</span> is non-singular (intertible)</li>
+</ol>
+</blockquote>
+<p>Proof: use cor 3.2.</p>
+<ol style="list-style-type: lower-roman">
+<li>ok</li>
+<li>By (b), <span class="math inline">\(q(z,θ)=(y-g(x,θ))^2\)</span> is twice continuously differentiable for each <span class="math inline">\(z=(y,x)\)</span></li>
+<li><span class="math display">\[\begin{aligned}\partial_θ q(z,θ) &amp;=- 2(y-g(x,θ))\cdot \partial_θ g(x,θ)\\
+\partial_{θθ} g(Z,θ) &amp;= 2\cdot\partial_θ g(X,θ_0)\cdot \big(\partial_θ g(X,θ_0)\big)^T\\
+&amp;\phantom{\ggg}-2(y-g(x,θ))\cdot \partial_{θθ} g(x,θ) \end{aligned}\]</span>
+By (c),
+<span class="math display">\[\begin{aligned}E[\partial_θ q(Z,θ_0)] &amp;= E[E[\partial_θ q(Z,θ)\ |\ X]]\\
+&amp;=-2E[\underbrace{E[\overbrace{Y-g(X,θ_0)}^{=ε}\ |\ X]}_{=0}\cdot \partial_θ g(X,θ_0)]\\
+&amp;= 0 \end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}Ω_0 &amp;= E\Big[\partial_θ q(Z,θ_0)\cdot \big(\partial_θ q(Z,θ_0)\big)^T\Big] \\
+&amp;= 4\cdot E[\underbrace{E[(Y-g(X,θ_0))^2\ |\ X]}_{=σ^2}\cdot \partial_θ g(X,θ_0)\cdot (\partial_θ g(X,θ_0))^T]\\
+&amp;= 4σ^2 \cdot E[\partial_θ g(X,θ_0)\cdot (\partial_θ g(X,θ_0))^T] \\
+&amp;&lt; \infty  \end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}H_0 &amp;= E[\partial_{θθ} q(Z,θ_0)]\\
+&amp;= 2\cdot E[\partial_θ g(X,θ_0)\cdot \big(\partial_θ g(X,θ_0)\big)^T] \end{aligned}\]</span></li>
+<li>By ,
+<span class="math display">\[\begin{aligned}\| \partial_{θθ} q(z,θ)\| &amp;\leq 2\cdot \|\partial_θ g(x,θ)\|^2 \\
+&amp;\phantom{\ggg} + 2(|y| +|g(x,θ)|)\cdot \| \partial_{θθ} g(x,θ)\| \\
+&amp;\leq 2\cdot\bar{g}_1(x)^2 + 2\cdot(|y|+\bar{g}_0(x))\cdot \bar{g}_2(x)\end{aligned}\]</span></li>
+</ol>
 </div>
 </div>
 

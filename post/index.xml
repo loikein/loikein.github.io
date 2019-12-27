@@ -6,10 +6,23 @@
     <description>Recent content in Posts on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Effective Programming Practice: Final Project</title>
+      <link>/post/2019/12/effective-programming-project/</link>
+      <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/12/effective-programming-project/</guid>
+      <description>Project Description Notes on Paper (2017) Notes on Paper (2019) General Notes   Project Description Sensitivity Measures for Method of Simulated Moments
+Andrews, Gentzkow ad Shapiro develop several diagnostic tools for moments based estimation.
+Your task is to implement those tools in Python and to integrate them in estimagic.
+The sources:
+ Measuring the Sensitivity of Parameter Estimates to Estimation Moments   online PDF 1st application: DellaVigna, List &amp;amp; Malmendier (2012) 2nd application: Gourinchas &amp;amp; Parker (2002) 3rd application: Berry, Levinsohn &amp;amp; Pakes (1995)  code archive on Wayback Machine code archive on GitHub   On the Informativeness of Descriptive Statistics for Structural Estimates   online PDF online appendix erratum original paper: https://www.</description>
+    </item>
     
     <item>
       <title>Introduction to JavaScript, Refined</title>
@@ -44,7 +57,7 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-econometric-theory/</guid>
-      <description>Literature Probability Measures  σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables  Expectation Variance Moments of R^k  Stochastic Convergence  Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators  Linear Regression Model Parametric Model Consistency Uniform Convergence in Probability Asymphotic Normality     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed the PS4 class)  Literature Asymptotic Theory:</description>
+      <description>Literature Probability Measures  σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables  Expectation Variance Moments of R^k  Stochastic Convergence  Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators  Linear Regression Model Parametric Model Consistency Uniform Convergence in Probability Asymphotic Normality     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed all the PS classes since PS4)  Literature Asymptotic Theory:</description>
     </item>
     
     <item>
@@ -53,7 +66,7 @@
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-research-dynamic-prog/</guid>
-      <description>Dynamic Programming: Discrete Time  Example: Corn Planting Sequence Problem Functional (Bellman) Equation Bounded and Continuous Rewards Bellman Operator  Stochastic Dynamic Programming  Example: Corn &amp;amp; Rain Random Shocks Example: Kiefer (1989)  Controlled Diffusion and Optimal Stopping  Wiener Process Diffusion Process Ito’s Lemma Example: Geometric Brownian Motion Optimal Control Binary Case: Optimal Stopping Example: Irreversible Investment Under Uncertainty Poisson Process Optimal Exploration in Two-Armed Bandit Problem  Presentation &amp;amp; Term Paper  Besanko Tong Wu 2018 Bonatti Hoerner 2011 Branco Sun Villas-Boas 2012 Che Hoerner 2018 Halac Kartik Liu 2016 Manso 2011 Strulovici 2010  Kremer Mansour Perry 2014 (My Bit)  Model    wrt means with respect to</description>
+      <description>Dynamic Programming: Discrete Time  Example: Corn Planting Sequence Problem Functional (Bellman) Equation Bounded and Continuous Rewards Bellman Operator  Stochastic Dynamic Programming  Example: Corn &amp;amp; Rain Random Shocks Example: Kiefer (1989)  Controlled Diffusion and Optimal Stopping  Wiener Process Diffusion Process Ito’s Lemma Example: Geometric Brownian Motion Optimal Control Binary Case: Optimal Stopping Example: Irreversible Investment Under Uncertainty Poisson Process Optimal Exploration in Two-Armed Bandit Problem  Presentation &amp;amp; Term Paper  Besanko Tong Wu 2018 Bonatti Hoerner 2011 Branco Sun Villas-Boas 2012 Che Hoerner 2018 Halac Kartik Liu 2016 Manso 2011 Strulovici 2010  Kremer Mansour Perry 2014 (My Bit)  Motivation Model Result Intuition My thoughts    wrt means with respect to</description>
     </item>
     
     <item>

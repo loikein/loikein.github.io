@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.61.0" />
+<meta name="generator" content="Hugo 0.62.0" />
 
 <title>Notes on Research: Dynamic Programming - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Research: Dynamic Programming - loikein&#39;s notes">
@@ -129,7 +129,11 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#kremer-mansour-perry-2014-my-bit">Kremer Mansour Perry 2014 (My Bit)</a>
 <ul>
+<li><a href="#motivation">Motivation</a></li>
 <li><a href="#model">Model</a></li>
+<li><a href="#result">Result</a></li>
+<li><a href="#intuition">Intuition</a></li>
+<li><a href="#my-thoughts">My thoughts</a></li>
 </ul></li>
 </ul>
 </div>
@@ -749,27 +753,48 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <ul>
 <li>Social planning on recommender system</li>
 </ul>
+<div id="motivation" class="section level3">
+<h3>Motivation</h3>
+<ul>
+<li>Online platform of recommendation: restaurant, hotels, …
+<ul>
+<li>Navigation</li>
+</ul></li>
+<li>Principle: app company
+<ul>
+<li>relies on users to gather info (explore)</li>
+<li>generates recommendation (exploit)</li>
+</ul></li>
+<li>Agents: app users
+<ul>
+<li>does not want to gather info (explore)</li>
+<li>want to freeride on the recommendation (exploit)</li>
+</ul></li>
+<li><span class="math inline">\(\implies\)</span> conflict!</li>
+</ul>
+</div>
 <div id="model" class="section level3">
 <h3>Model</h3>
 <ul>
 <li>Set of possible actions: <span class="math inline">\(A=\{a_1,a_2\}\)</span></li>
 <li>Unknown reward of <span class="math inline">\(a_i\)</span>: <span class="math inline">\(R_i\sim π_i\)</span>
 <ul>
-<li><span class="math inline">\(π\)</span> has full support (all values have positive probability)</li>
+<li><span class="math inline">\(π\)</span> has full support: all values have positive probability</li>
 <li>Expected value: <span class="math inline">\(μ_i= E_{R_i\sim π_i}[R_i]\)</span></li>
 <li><span class="math inline">\(μ_1&gt;μ_2\)</span> but <span class="math inline">\(Pr(R_1&lt;μ_2)&gt;0\)</span></li>
 </ul></li>
-<li>Planner
+<li>Principle
 <ul>
-<li>Goal: <span class="math inline">\(\max \ E\big[\frac{1}{T}\sum R^t\big]\)</span></li>
+<li>Goal: max social welfare <span class="math inline">\(\max \ E\big[\frac{1}{T}\sum R^t\big]\)</span></li>
 <li>Message: <span class="math inline">\(\{\tilde{M}^1,\tilde{M}^2,\dots,\tilde{M}^T\}\)</span></li>
 </ul></li>
-<li>Agents: <span class="math inline">\(t\in T\)</span>
+<li>Agents
 <ul>
+<li>Arrives sequentially, and knows their place in line</li>
 <li>Goal: <span class="math inline">\(\max \ E[R^t\ |\ M^t]\)</span></li>
 <li>Strategy: <span class="math inline">\(σ^t: M^t\to A\)</span></li>
 </ul></li>
-<li>Timing
+<li>Timing: <span class="math inline">\(t\in T\)</span>
 <ol style="list-style-type: decimal">
 <li>Agent <span class="math inline">\(t\)</span> arrives</li>
 <li>Chooses action <span class="math inline">\(a^t\)</span></li>
@@ -777,6 +802,18 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <li>Agent <span class="math inline">\(t+1\)</span> arrives</li>
 </ol></li>
 </ul>
+</div>
+<div id="result" class="section level3">
+<h3>Result</h3>
+</div>
+<div id="intuition" class="section level3">
+<h3>Intuition</h3>
+<ul>
+<li>(P992) As the # of agents increases, the social welfare converges to 1st best welfare</li>
+</ul>
+</div>
+<div id="my-thoughts" class="section level3">
+<h3>My thoughts</h3>
 </div>
 </div>
 
