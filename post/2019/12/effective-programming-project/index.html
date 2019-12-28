@@ -86,10 +86,13 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
 
 <div id="TOC">
 <ul>
 <li><a href="#project-description">Project Description</a></li>
+<li><a href="#potentially-useful-r-packages">Potentially Useful R Packages</a></li>
 <li><a href="#notes-on-paper-2017">Notes on Paper (2017)</a></li>
 <li><a href="#notes-on-paper-2019">Notes on Paper (2019)</a></li>
 <li><a href="#general-notes">General Notes</a></li>
@@ -99,13 +102,11 @@ if (!doNotTrack) {
 <div id="project-description" class="section level2">
 <h2>Project Description</h2>
 <p>Sensitivity Measures for Method of Simulated Moments</p>
-<p>Andrews, Gentzkow ad Shapiro develop several diagnostic tools for moments based estimation.</p>
+<p>develop several diagnostic tools for moments based estimation.</p>
 <p>Your task is to implement those tools in Python and to integrate them in <a href="https://github.com/OpenSourceEconomics/estimagic">estimagic</a>.</p>
 <p>The sources:</p>
 <ul>
-<li><ol start="2017" style="list-style-type: decimal">
-<li><a href="https://scholar.harvard.edu/iandrews/publications/measuring-sensitivity-parameter-estimates-estimation-moments">Measuring the Sensitivity of Parameter Estimates to Estimation Moments</a></li>
-</ol>
+<li>Andrews, Gentzkow &amp; Shapiro (2017): <a href="https://scholar.harvard.edu/iandrews/publications/measuring-sensitivity-parameter-estimates-estimation-moments">Measuring the Sensitivity of Parameter Estimates to Estimation Moments</a>
 <ul>
 <li><a href="https://scholar.harvard.edu/files/iandrews/files/sensitivity.pdf">online PDF</a></li>
 <li>1st application: <a href="https://academic.oup.com/qje/article-abstract/127/1/1/1832520">DellaVigna, List &amp; Malmendier (2012)</a></li>
@@ -116,19 +117,29 @@ if (!doNotTrack) {
 <li><a href="https://github.com/loikein/BLP-1999-archive">code archive on GitHub</a></li>
 </ul></li>
 </ul></li>
-<li><ol start="2019" style="list-style-type: decimal">
-<li><a href="https://scholar.harvard.edu/iandrews/publications/informativeness-descriptive-statistics-structural-estimates">On the Informativeness of Descriptive Statistics for Structural Estimates</a></li>
-</ol>
+<li>Andrews, Gentzkow &amp; Shapiro (2019): <a href="https://scholar.harvard.edu/iandrews/publications/informativeness-descriptive-statistics-structural-estimates">On the Informativeness of Descriptive Statistics for Structural Estimates</a>
 <ul>
 <li><a href="https://scholar.harvard.edu/files/iandrews/files/divergence.pdf">online PDF</a></li>
 <li><a href="https://scholar.harvard.edu/files/iandrews/files/sensitivity_online.pdf">online appendix</a></li>
-<li><a href="https://scholar.harvard.edu/files/iandrews/files/erratum.pdf">erratum</a></li>
-<li>original paper: <a href="https://www.aeaweb.org/articles?id=10.1257/aer.97.3.713" class="uri">https://www.aeaweb.org/articles?id=10.1257/aer.97.3.713</a></li>
+<li><a href="https://scholar.harvard.edu/files/iandrews/files/erratum.pdf">erratum</a>
+<!-- - original paper: https://www.aeaweb.org/articles?id=10.1257/aer.97.3.713 --></li>
 </ul></li>
+</ul>
+</div>
+<div id="potentially-useful-r-packages" class="section level2">
+<h2>Potentially Useful R Packages</h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/sensitivity/">sensitivity</a></li>
+<li><a href="https://cran.r-project.org/web/packages/multisensi/">multisensi</a></li>
+<li><a href="https://cran.r-project.org/web/packages/FME/">FME</a></li>
 </ul>
 </div>
 <div id="notes-on-paper-2017" class="section level2">
 <h2>Notes on Paper (2017)</h2>
+<ul>
+<li>Estimatior: <span class="math display">\[\hat{θ} = \text{argmin}_{θ\in Θ} \ \hat{g}(θ)&#39;\hat{W}\hat{g}(θ)\]</span></li>
+<li>Sentitivity of <span class="math inline">\(\hat{θ}\)</span> to <span class="math inline">\(\hat{g}(\hat{θ})\)</span>: <span class="math display">\[Λ = -(G&#39;WG)^{-1}G&#39;W\]</span></li>
+</ul>
 </div>
 <div id="notes-on-paper-2019" class="section level2">
 <h2>Notes on Paper (2019)</h2>
@@ -141,6 +152,8 @@ if (!doNotTrack) {
 [6.1 Omitted Variable Bias | Introduction to Econometrics with R](https://www.econometrics-with-r.org/6-1-omitted-variable-bias.html)
 
 [Omitted Variable Tests in Stata](http://personal.rhul.ac.uk/uhte/006/ec5040/Omitted%20Variable%20Tests.pdf)
+
+[Structural Estimation 101 - EconSpark](https://www.aeaweb.org/forum/48/structural-estimation-101)
  -->
 </div>
 
@@ -175,6 +188,9 @@ if (!doNotTrack) {
     <script src="https://hypothes.is/embed.js" async></script>
     
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
     
 <script type="application/javascript">
 var doNotTrack = false;

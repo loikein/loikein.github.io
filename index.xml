@@ -17,11 +17,11 @@
       <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/12/effective-programming-project/</guid>
-      <description>Project Description Notes on Paper (2017) Notes on Paper (2019) General Notes   Project Description Sensitivity Measures for Method of Simulated Moments
-Andrews, Gentzkow ad Shapiro develop several diagnostic tools for moments based estimation.
+      <description>    Project Description Potentially Useful R Packages Notes on Paper (2017) Notes on Paper (2019) General Notes   Project Description Sensitivity Measures for Method of Simulated Moments
+develop several diagnostic tools for moments based estimation.
 Your task is to implement those tools in Python and to integrate them in estimagic.
 The sources:
- Measuring the Sensitivity of Parameter Estimates to Estimation Moments   online PDF 1st application: DellaVigna, List &amp;amp; Malmendier (2012) 2nd application: Gourinchas &amp;amp; Parker (2002) 3rd application: Berry, Levinsohn &amp;amp; Pakes (1995)  code archive on Wayback Machine code archive on GitHub   On the Informativeness of Descriptive Statistics for Structural Estimates   online PDF online appendix erratum original paper: https://www.</description>
+ Andrews, Gentzkow &amp;amp; Shapiro (2017): Measuring the Sensitivity of Parameter Estimates to Estimation Moments  online PDF 1st application: DellaVigna, List &amp;amp; Malmendier (2012) 2nd application: Gourinchas &amp;amp; Parker (2002) 3rd application: Berry, Levinsohn &amp;amp; Pakes (1995)  code archive on Wayback Machine code archive on GitHub   Andrews, Gentzkow &amp;amp; Shapiro (2019): On the Informativeness of Descriptive Statistics for Structural Estimates  online PDF online appendix erratum     Potentially Useful R Packages  sensitivity multisensi FME   Notes on Paper (2017)  Estimatior: \[\hat{θ} = \text{argmin}_{θ\in Θ} \ \hat{g}(θ)&amp;#39;\hat{W}\hat{g}(θ)\] Sentitivity of \(\hat{θ}\) to \(\hat{g}(\hat{θ})\): \[Λ = -(G&amp;#39;WG)^{-1}G&amp;#39;W\]   Notes on Paper (2019)  General Notes  </description>
     </item>
     
     <item>
