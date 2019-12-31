@@ -97,12 +97,11 @@ if (!doNotTrack) {
 <li><a href="#documentation">Documentation</a></li>
 <li><a href="#potentially-useful-r-packages">Potentially Useful R Packages</a></li>
 </ul></li>
-<li><a href="#notes">Notes</a>
+<li><a href="#notes-on-minimal-distance-estimation">Notes on Minimal Distance Estimation</a></li>
+<li><a href="#notes-on-ags-2017">Notes on AGS (2017)</a>
 <ul>
-<li><a href="#on-minimal-distance-estimation">On Minimal Distance Estimation</a></li>
-<li><a href="#on-paper-2017">On Paper (2017)</a></li>
-<li><a href="#on-paper-2019">On Paper (2019)</a></li>
-<li><a href="#others">Others</a></li>
+<li><a href="#minimal-distance">Minimal Distance</a></li>
+<li><a href="#instrumental-variable">Instrumental Variable</a></li>
 </ul></li>
 </ul>
 </div>
@@ -151,10 +150,8 @@ if (!doNotTrack) {
 </ul>
 </div>
 </div>
-<div id="notes" class="section level2">
-<h2>Notes</h2>
-<div id="on-minimal-distance-estimation" class="section level3">
-<h3>On Minimal Distance Estimation</h3>
+<div id="notes-on-minimal-distance-estimation" class="section level2">
+<h2>Notes on Minimal Distance Estimation</h2>
 <p>Ref: <a href="https://eml.berkeley.edu/~sdellavi/wp/StructBehavJun2018.pdf">DellaVigna (2018)</a> Section 4.1.1</p>
 <ul>
 <li>Model Parameter: <span class="math inline">\(θ\)</span></li>
@@ -171,8 +168,8 @@ if (!doNotTrack) {
 </ul></li>
 </ul>
 </div>
-<div id="on-paper-2017" class="section level3">
-<h3>On Paper (2017)</h3>
+<div id="notes-on-ags-2017" class="section level2">
+<h2>Notes on AGS (2017)</h2>
 <ul>
 <li>Estimatior: <span class="math display">\[\hat{θ} = \text{argmin}_{θ\in Θ} \ \hat{g}(θ)&#39;\hat{W}\hat{g}(θ)\]</span>
 <ul>
@@ -188,7 +185,7 @@ where <span class="math display">\[\hat{A} = \begin{pmatrix}\big(\frac{\partial}
 </ul>
 <blockquote>
 <p>Proposition 1<br />
-If <span class="math inline">\(\sqrt{n}(\hat{θ}-θ)\overset{d}{\to} \tilde{θ} = Λ\tilde{g}\)</span> a.s.,<br />
+<span class="math inline">\(\sqrt{n}(\hat{θ}-θ)\overset{d}{\to} \tilde{θ} = Λ\tilde{g}\)</span> a.s.,<br />
 and first-order asymptotic bias: <span class="math display">\[E[\tilde{θ}] = Λ E[\tilde{g}]\]</span></p>
 </blockquote>
 <blockquote>
@@ -204,13 +201,51 @@ Decompose <span class="math inline">\(θ = (θ_1, θ_2)\)</span>, fixing <span c
 <span class="math display">\[Λ_1 = -(G_1&#39;WG_1)^{-1}G_1&#39;W\]</span>
 where <span class="math inline">\(G_1 = \frac{\partial}{\partial θ_1}g(θ_{1(o)}, θ_{2(o)})\)</span> (<span class="math inline">\(o\)</span> indicates true value)</p>
 </blockquote>
+<div id="minimal-distance" class="section level3">
+<h3>Minimal Distance</h3>
+<ul>
+<li>Classical minimal distance estimator: <span class="math inline">\(\hat{θ}\)</span>
+<ul>
+<li><span class="math inline">\(\hat{g} = \hat{s} - s(θ)\)</span></li>
+<li><span class="math inline">\(E[\hat{s}] = s(θ_0)\)</span></li>
+<li><span class="math inline">\(S=\frac{\partial}{\partial θ}s(θ)|_{θ=θ_0}\)</span></li>
+</ul></li>
+<li>Sensitivity: <span class="math display">\[Λ = -(S&#39;WS)^{-1}S&#39;W\]</span></li>
+</ul>
+<blockquote>
+<p>Proposition 2<br />
+Suppose <span class="math inline">\(F_n(μ) \hat{s} = \tilde{s} + μ\hat{η}\)</span>, where <span class="math inline">\(\hat{η}\overset{P}{\to} η\)</span>,<br />
+take <span class="math inline">\(μ_n = \frac{1}{\sqrt{n}}\)</span> and <span class="math inline">\(\hat{W}\overset{P}{\to} W\)</span>,<br />
+then asymptotic bias: <span class="math display">\[E[\tilde{θ}] = Λ η\]</span></p>
+</blockquote>
+<p>Implement:</p>
+<ol style="list-style-type: decimal">
+<li>Using estimated <span class="math inline">\(\hat{Λ}\)</span>, or</li>
+<li>Multiply each <span class="math inline">\(Λ_{pj}\)</span> by SD: <span class="math inline">\(\sqrt{Ω_{jj}}\)</span> for <span class="math inline">\(j\)</span>-th moment</li>
+</ol>
 </div>
-<div id="on-paper-2019" class="section level3">
-<h3>On Paper (2019)</h3>
-</div>
-<div id="others" class="section level3">
-<h3>Others</h3>
+<div id="instrumental-variable" class="section level3">
+<h3>Instrumental Variable</h3>
+<ul>
+<li>IV estimator: <span class="math inline">\(\hat{θ}\)</span>
+<ul>
+<li><span class="math inline">\(\hat{g}(θ)=\frac{1}{n}\sum_i Z_i\otimes \hat{ζ}_i(θ)\)</span></li>
+</ul></li>
+<li>Sensitivity: <span class="math display">\[Λ = -(Ω_{Z\tilde{X}}&#39;WΩ_{Z\tilde{X}})^{-1}Ω_{Z\tilde{X}}&#39;W\]</span>
+where <span class="math inline">\(Ω_{Z\tilde{X}}=E[Z_i \tilde{X}_i]\)</span>, and <span class="math inline">\(\hat{X}_i=\frac{\partial}{\partial θ} \hat{ζ}_i(θ_o)\)</span></li>
+</ul>
+<blockquote>
+<p>Proposition 3<br />
+<span class="math inline">\(\hat{ζ}_i(θ_o) = \tilde{ζ}_i + μV_i\)</span>, where <span class="math inline">\(\frac{1}{n}\sum_i Z_i\otimes V_i\overset{P}{\to}Ω_{ZV} \neq 0\)</span><br />
+take <span class="math inline">\(μ_n = \frac{1}{\sqrt{n}}\)</span>,<br />
+then asymptotic bias: <span class="math display">\[E[\tilde{θ}] = ΛΩ_{ZV}\]</span></p>
+</blockquote>
 <!-- 
+
+## Notes on AGS (2019)
+
+## Miscellaneous
+
 [Nonlinear RelationshipsPage 1Nonlinear relationships](https://www3.nd.edu/~rwilliam/stats2/l61.pdf)
 
 [6.1 Omitted Variable Bias | Introduction to Econometrics with R](https://www.econometrics-with-r.org/6-1-omitted-variable-bias.html)
