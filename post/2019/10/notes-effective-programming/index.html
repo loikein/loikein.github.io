@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.62.0" />
+<meta name="generator" content="Hugo 0.62.2" />
 
 <title>Notes on Effective Programming Practice - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Effective Programming Practice - loikein&#39;s notes">
@@ -91,6 +91,8 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -99,6 +101,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#clone-from-remote">Clone from Remote</a></li>
 <li><a href="#create-from-local">Create from Local</a></li>
+<li><a href="#create-from-cookiecutter">Create from <code>cookiecutter</code></a></li>
 <li><a href="#runtime-building">Runtime: Building</a></li>
 <li><a href="#runtime-testing">Runtime: Testing</a></li>
 </ul></li>
@@ -205,6 +208,34 @@ $ conda env create -f environment.yml
 $ conda activate exercise_x
 
 $ python waf.py configure</code></pre>
+</div>
+<div id="create-from-cookiecutter" class="section level3">
+<h3>Create from <code>cookiecutter</code></h3>
+<pre class="sh"><code>#### install cookiecutter ####
+
+$ brew install cookiecutter
+
+#### set up ####
+
+$ cookiecutter https://github.com/OpenSourceEconomics/econ-project-templates/archive/v0.3.2.zip
+
+$ conda activate exercise_x
+
+$ pre-commit install
+
+$ python waf.py configure
+$ python waf.py build
+$ python waf.py install
+
+$ subl .gitignore
+# add the following:
+# .DS_Store
+# */.DS_Store
+
+# if have set remote url
+
+$ git pull origin master --allow-unrelated-histories
+$ git push --set-upstream origin master</code></pre>
 </div>
 <div id="runtime-building" class="section level3">
 <h3>Runtime: Building</h3>
