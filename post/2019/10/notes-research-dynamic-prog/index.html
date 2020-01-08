@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">14 min read</span>
+    <span class="article-duration">16 min read</span>
     
     <h1 class="article-title">Notes on Research: Dynamic Programming</h1>
     
@@ -88,6 +88,8 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -129,9 +131,10 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#kremer-mansour-perry-2014-my-bit">Kremer Mansour Perry 2014 (My Bit)</a>
 <ul>
-<li><a href="#motivation">Motivation</a></li>
+<li><a href="#real-life-motivation">Real Life Motivation</a></li>
 <li><a href="#model">Model</a></li>
-<li><a href="#result">Result</a></li>
+<li><a href="#optimal-mechanism">Optimal Mechanism</a></li>
+<li><a href="#incentive-compatiblility">Incentive Compatiblility</a></li>
 <li><a href="#intuition">Intuition</a></li>
 <li><a href="#my-thoughts">My thoughts</a></li>
 </ul></li>
@@ -753,8 +756,8 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <ul>
 <li>Social planning on recommender system</li>
 </ul>
-<div id="motivation" class="section level3">
-<h3>Motivation</h3>
+<div id="real-life-motivation" class="section level3">
+<h3>Real Life Motivation</h3>
 <ul>
 <li>Online platform of recommendation: restaurant, hotels, …
 <ul>
@@ -779,32 +782,122 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <li>Set of possible actions: <span class="math inline">\(A=\{a_1,a_2\}\)</span></li>
 <li>Unknown reward of <span class="math inline">\(a_i\)</span>: <span class="math inline">\(R_i\sim π_i\)</span>
 <ul>
-<li><span class="math inline">\(π\)</span> has full support: all values have positive probability</li>
+<li><span class="math inline">\(μ_1\geq μ_2\)</span></li>
+<li><span class="math inline">\(π_i\)</span> has full support: <span class="math inline">\(Pr(R_1&lt;μ_2)&gt;0\)</span><br />
+this is important for the principle to be able to convince agents to explore</li>
+<li>Joint distribution: <span class="math inline">\(π\)</span></li>
 <li>Expected value: <span class="math inline">\(μ_i= E_{R_i\sim π_i}[R_i]\)</span></li>
-<li><span class="math inline">\(μ_1&gt;μ_2\)</span> but <span class="math inline">\(Pr(R_1&lt;μ_2)&gt;0\)</span></li>
 </ul></li>
-<li>Principle
+<li>Principle (Planner)
 <ul>
-<li>Goal: max social welfare <span class="math inline">\(\max \ E\big[\frac{1}{T}\sum R^t\big]\)</span></li>
-<li>Message: <span class="math inline">\(\{\tilde{M}^1,\tilde{M}^2,\dots,\tilde{M}^T\}\)</span></li>
+<li>History of length <span class="math inline">\(t\)</span>: <span class="math inline">\(h^t\in H^t\)</span></li>
+<li>Mechanism (message policy): <span class="math inline">\(\tilde{M}^t: H^{t-1}\to M^t\)</span> for <span class="math inline">\(M = \{\tilde{M}^1,\tilde{M}^2,\dots,\tilde{M}^T\}\)</span></li>
+<li>Goal: social welfare <span class="math display">\[\max \ E\Big[\frac{1}{T}\textstyle{\sum}^T R^t\Big]\]</span>
+<!-- 
+  - Alternative goal: discounted welfare $\max \ E[\textstyle{\sum}^T γ^t R^t]$ 
+--></li>
 </ul></li>
-<li>Agents
+<li>Agents: <span class="math inline">\(t\in T\)</span>
 <ul>
-<li>Arrives sequentially, and knows their place in line</li>
-<li>Goal: <span class="math inline">\(\max \ E[R^t\ |\ M^t]\)</span></li>
+<li>Arrives sequentially</li>
+<li>Knows their place in line (value of <span class="math inline">\(t\)</span>)</li>
 <li>Strategy: <span class="math inline">\(σ^t: M^t\to A\)</span></li>
+<li>Goal: expected payoff <span class="math display">\[\max \ E[R^t\ |\ M^t]\]</span></li>
 </ul></li>
-<li>Timing: <span class="math inline">\(t\in T\)</span>
+<li>Timing: in period <span class="math inline">\(t\in T\)</span>:
 <ol style="list-style-type: decimal">
 <li>Agent <span class="math inline">\(t\)</span> arrives</li>
 <li>Chooses action <span class="math inline">\(a^t\)</span></li>
 <li><span class="math inline">\(R_{a^t}\)</span> is realised</li>
-<li>Agent <span class="math inline">\(t+1\)</span> arrives</li>
 </ol></li>
 </ul>
+<blockquote>
+<p>The case of transparency:<br />
+<span class="math inline">\(R_1\in [-1,5]\implies μ_1=2\)</span><br />
+<span class="math inline">\(R_2\in [-5,5]\implies μ_2=0\)</span></p>
+</blockquote>
+<ul>
+<li>Full transparency
+<ul>
+<li>Ask <span class="math inline">\(t=1\)</span> to choose <span class="math inline">\(a_1\implies R_1\)</span> is revealed</li>
+<li>Agent <span class="math inline">\(t&gt;1\)</span> will only choose <span class="math inline">\(a_2\)</span> if <span class="math inline">\(R_1&lt;0=μ_2\)</span></li>
+<li>But it might be that <span class="math inline">\(R_2&gt;R_1\)</span></li>
+</ul></li>
+<li>Partial disclosing
+<ul>
+<li>Ask <span class="math inline">\(t=1\)</span> to choose <span class="math inline">\(a_1\)</span></li>
+<li>If <span class="math inline">\(R_1\leq 1\implies μ_1&lt;0\)</span>, ask <span class="math inline">\(t=2\)</span> to choose <span class="math inline">\(a_2\)</span>;<br />
+otherwise, ask <span class="math inline">\(t=2\)</span> to choose <span class="math inline">\(a_1\)</span></li>
+<li>Ask <span class="math inline">\(t&gt;2\)</span> to choose <span class="math inline">\(a_{\max}\)</span></li>
+</ul></li>
+<li>Even better way
+<ul>
+<li>Ask <span class="math inline">\(t=1\)</span> to choose <span class="math inline">\(a_1\)</span></li>
+<li>If <span class="math inline">\(R_1\leq 1\)</span>, ask <span class="math inline">\(t=2\)</span> to choose <span class="math inline">\(a_2\)</span>;
+otherwise, ask <span class="math inline">\(t=2\)</span> to choose <span class="math inline">\(a_1\)</span></li>
+<li>If <span class="math inline">\(a_2\)</span> has been explored, and <span class="math inline">\(R_1&lt;R_2\)</span>, ask <span class="math inline">\(t=3\)</span> to choose <span class="math inline">\(a_2\)</span>;<br />
+if <span class="math inline">\(a_2\)</span> has not been explored (<span class="math inline">\(R_1&gt; 1\)</span>), and <span class="math inline">\(R_1\leq 1+x\)</span>, ask <span class="math inline">\(t=3\)</span> to choose <span class="math inline">\(a_2\)</span>;<br />
+otherwise, ask <span class="math inline">\(t=3\)</span> to choose <span class="math inline">\(a_1\)</span></li>
+<li>Similar for <span class="math inline">\(t=4,\dots\)</span> until finds out which output is greater</li>
+</ul></li>
+</ul>
 </div>
-<div id="result" class="section level3">
-<h3>Result</h3>
+<div id="optimal-mechanism" class="section level3">
+<h3>Optimal Mechanism</h3>
+<ul>
+<li>Incentive compatible action: for each <span class="math inline">\(a_i\in A\)</span>, <span class="math display">\[E[R_i-R_{-i}\ |\ a^t = a_i]\geq 0\]</span></li>
+<li>Recommendation mechanism: a mechanism where planner gives <span class="math inline">\(a^t\in A\)</span> to each agent <span class="math inline">\(t\)</span> that is incentive compatible</li>
+<li>Partition mechanism: a collection of disjoint sets <span class="math inline">\(\{I_t\}_{t=2}^{T+1}\)</span> s.t.
+<ul>
+<li><span class="math inline">\(r_1\)</span> denotes the realisation of <span class="math inline">\(R_1\)</span></li>
+<li>Since <span class="math inline">\(μ_1&gt;μ_2\)</span>, agent <span class="math inline">\(t=1\)</span> will choose <span class="math inline">\(a_1\)</span><br />
+if <span class="math inline">\(r_1\in I^t\)</span> for <span class="math inline">\(t\leq T\)</span>, agent <span class="math inline">\(t\)</span> is the first agent given <span class="math inline">\(a^t=a_2\)</span></li>
+<li>Exploitation: for all <span class="math inline">\(t&#39;&gt;t\)</span>, <span class="math inline">\(a^{t&#39;}=\max\{a_1, a_2\}\)</span></li>
+<li>if <span class="math inline">\(r_1\in I^{T+1}\)</span>, no agent explores</li>
+<li>if <span class="math inline">\(I^t=\emptyset\)</span>, agent <span class="math inline">\(t\)</span> never explores</li>
+</ul></li>
+<li>Threshold mechanism: a partition mechanism where sets <span class="math inline">\(I^t\)</span> are ordered intervals<br />
+i.e., <span class="math inline">\(I^2 = (-\infty,i^2]\)</span>, and for <span class="math inline">\(t&gt;2\)</span>, <span class="math inline">\(I^t=(i^{t-1}, i^t]\)</span>
+<ul>
+<li>if <span class="math inline">\(i^{t-1}=t^t\)</span>, then <span class="math inline">\(I^t=\emptyset\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Lemma 1 (revelation principle)<br />
+For any mechanism <span class="math inline">\(M\)</span>, exists a recommendation mechanism with same expected average reward</p>
+</blockquote>
+<blockquote>
+<p>Lemma 2<br />
+The optimal recommendation mechanism is a partition mechanism</p>
+</blockquote>
+<blockquote>
+<p>Lemma 4<br />
+For optimal partition mechanism <span class="math inline">\(M^*\)</span>,<br />
+assume agent <span class="math inline">\(t+1\geq 3\)</span> explores with <span class="math inline">\(Pr(I^{t+1})&gt;0\)</span>,<br />
+then agent <span class="math inline">\(t\)</span> has a tight IC</p>
+</blockquote>
+<blockquote>
+<p>Lemma 5<br />
+For optimal partition mechanism <span class="math inline">\(M^*\)</span>,<br />
+agent <span class="math inline">\(t=2\)</span> explores for all <span class="math inline">\(r_1\leq μ_2\)</span><br />
+i.e., <span class="math inline">\(I^2\supseteq \{r_1 : r_1\leq μ_2\}\)</span></p>
+</blockquote>
+</div>
+<div id="incentive-compatiblility" class="section level3">
+<h3>Incentive Compatiblility</h3>
+<ul>
+<li>for agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\iff\)</span>
+<span class="math display">\[\begin{aligned}(IC) &amp;&amp; E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
+\iff &amp;&amp; Pr(a^t=a_2)\times E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
+\iff &amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}\]</span>
+for a partition mechanism:
+<span class="math display">\[\begin{aligned}\overbrace{\int_{R_1\in I^t}(μ_2-R_1)\, dπ}^{\text{Exploration}, &lt;0} + \overbrace{\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}^{\text{Exploitation}, &gt;0} &amp;\geq 0 \\
+\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq \int_{R_1\in I^t}(R_1-μ_2)\, dπ \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>Lemma 3<br />
+For agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\implies\)</span> recommendation <span class="math inline">\(a_1\)</span> is IC</p>
+</blockquote>
 </div>
 <div id="intuition" class="section level3">
 <h3>Intuition</h3>
