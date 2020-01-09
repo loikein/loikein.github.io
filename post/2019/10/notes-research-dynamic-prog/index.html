@@ -133,8 +133,9 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#real-life-motivation">Real Life Motivation</a></li>
 <li><a href="#model">Model</a></li>
-<li><a href="#optimal-mechanism">Optimal Mechanism</a></li>
 <li><a href="#incentive-compatiblility">Incentive Compatiblility</a></li>
+<li><a href="#optimal-mechanism">Optimal Mechanism</a></li>
+<li><a href="#optimal-threshold-mechanism">Optimal Threshold Mechanism</a></li>
 <li><a href="#intuition">Intuition</a></li>
 <li><a href="#my-thoughts">My thoughts</a></li>
 </ul></li>
@@ -842,14 +843,30 @@ otherwise, ask <span class="math inline">\(t=3\)</span> to choose <span class="m
 </ul></li>
 </ul>
 </div>
+<div id="incentive-compatiblility" class="section level3">
+<h3>Incentive Compatiblility</h3>
+<ul>
+<li>for agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\iff\)</span>
+<span class="math display">\[\begin{aligned}(IC) &amp;&amp; E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
+\iff &amp;&amp; Pr(a^t=a_2)\times E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
+\iff &amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}\]</span>
+for a partition mechanism:
+<span class="math display">\[\begin{aligned}\overbrace{\int_{R_1\in I^t}(μ_2-R_1)\, dπ}^{\text{Exploration}, &lt;0} + \overbrace{\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}^{\text{Exploitation}, &gt;0} &amp;\geq 0 \\
+\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq \int_{R_1\in I^t}(R_1-μ_2)\, dπ \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>Lemma 3<br />
+For agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\implies\)</span> recommendation <span class="math inline">\(a_1\)</span> is IC</p>
+</blockquote>
+</div>
 <div id="optimal-mechanism" class="section level3">
 <h3>Optimal Mechanism</h3>
 <ul>
 <li>Incentive compatible action: for each <span class="math inline">\(a_i\in A\)</span>, <span class="math display">\[E[R_i-R_{-i}\ |\ a^t = a_i]\geq 0\]</span></li>
 <li>Recommendation mechanism: a mechanism where planner gives <span class="math inline">\(a^t\in A\)</span> to each agent <span class="math inline">\(t\)</span> that is incentive compatible</li>
-<li>Partition mechanism: a collection of disjoint sets <span class="math inline">\(\{I_t\}_{t=2}^{T+1}\)</span> s.t.
+<li>Partition mechanism: a collection of disjoint sets of possible realisations <span class="math inline">\(\{I_t\}_{t=2}^{T+1}\)</span>
 <ul>
-<li><span class="math inline">\(r_1\)</span> denotes the realisation of <span class="math inline">\(R_1\)</span></li>
+<li><span class="math inline">\(r\in I_t\)</span> denotes a realisation of some action, <span class="math inline">\(r_1\)</span> denotes the realisation of <span class="math inline">\(R_1\)</span></li>
 <li>Since <span class="math inline">\(μ_1&gt;μ_2\)</span>, agent <span class="math inline">\(t=1\)</span> will choose <span class="math inline">\(a_1\)</span><br />
 if <span class="math inline">\(r_1\in I^t\)</span> for <span class="math inline">\(t\leq T\)</span>, agent <span class="math inline">\(t\)</span> is the first agent given <span class="math inline">\(a^t=a_2\)</span></li>
 <li>Exploitation: for all <span class="math inline">\(t&#39;&gt;t\)</span>, <span class="math inline">\(a^{t&#39;}=\max\{a_1, a_2\}\)</span></li>
@@ -862,6 +879,9 @@ i.e., <span class="math inline">\(I^2 = (-\infty,i^2]\)</span>, and for <span cl
 <li>if <span class="math inline">\(i^{t-1}=t^t\)</span>, then <span class="math inline">\(I^t=\emptyset\)</span></li>
 </ul></li>
 </ul>
+<!--
+Swap operation: a partition mechanism where for agents $t_2>t_1$, $B^1\subset I^{t_1}$ and $B^2\subset I^{t_2}$, where $\sup(B^2)<\inf(B^1)$
+-->
 <blockquote>
 <p>Lemma 1 (revelation principle)<br />
 For any mechanism <span class="math inline">\(M\)</span>, exists a recommendation mechanism with same expected average reward</p>
@@ -880,23 +900,29 @@ then agent <span class="math inline">\(t\)</span> has a tight IC</p>
 <p>Lemma 5<br />
 For optimal partition mechanism <span class="math inline">\(M^*\)</span>,<br />
 agent <span class="math inline">\(t=2\)</span> explores for all <span class="math inline">\(r_1\leq μ_2\)</span><br />
-i.e., <span class="math inline">\(I^2\supseteq \{r_1 : r_1\leq μ_2\}\)</span></p>
+i.e., <span class="math inline">\(I^2\supseteq \{r_1 : r_1\leq μ_2\} = (-\infty, μ_2]\)</span></p>
+</blockquote>
+<blockquote>
+<p>Lemma 6<br />
+The optimal recommendation mechanism is a threshold mechanism<br />
+<span class="math inline">\(\implies\)</span> sets <span class="math inline">\(I_t\)</span> are all ordered intervals</p>
 </blockquote>
 </div>
-<div id="incentive-compatiblility" class="section level3">
-<h3>Incentive Compatiblility</h3>
+<div id="optimal-threshold-mechanism" class="section level3">
+<h3>Optimal Threshold Mechanism</h3>
 <ul>
-<li>for agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\iff\)</span>
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
-\iff &amp;&amp; Pr(a^t=a_2)\times E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
-\iff &amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}\]</span>
-for a partition mechanism:
-<span class="math display">\[\begin{aligned}\overbrace{\int_{R_1\in I^t}(μ_2-R_1)\, dπ}^{\text{Exploration}, &lt;0} + \overbrace{\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}^{\text{Exploitation}, &gt;0} &amp;\geq 0 \\
-\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq \int_{R_1\in I^t}(R_1-μ_2)\, dπ \end{aligned}\]</span></li>
+<li><span class="math inline">\(T\)</span> is infinite: increasing sequence of thresholds <span class="math inline">\(\{i^{t,\infty}\}\)</span></li>
+<li><span class="math inline">\(T\)</span> is finite
+<ul>
+<li>Expected gain in exploration: <span class="math inline">\((T-t)\cdot\max \{R_2-r_1, 0\}\)</span></li>
+<li>Threshold <span class="math inline">\(θ_t\)</span>: maximum value of <span class="math inline">\(r_1\)</span> where exploration is benefitial for agent <span class="math inline">\(t\)</span>, <span class="math display">\[(T-t)\cdot E[\max \{R_2 - θ_t, 0\}] =  θ_t -  μ_2\]</span></li>
+</ul></li>
 </ul>
 <blockquote>
-<p>Lemma 3<br />
-For agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\implies\)</span> recommendation <span class="math inline">\(a_1\)</span> is IC</p>
+<p>Theorem 1<br />
+Optimal mechanism <span class="math inline">\(M^{opt}\)</span> is defined by a sequence of thresholds
+<span class="math display">\[i^{t,T} = \min\{i^{t,\infty}, θ_τ\}\]</span>
+where <span class="math inline">\(τ\)</span> is the minimal index where <span class="math inline">\(i^{t,\infty}&gt;θ_t\)</span></p>
 </blockquote>
 </div>
 <div id="intuition" class="section level3">

@@ -148,7 +148,7 @@ Please use Google to tailor your own version.</p>
 <ul>
 <li><a href="https://www.wiwi.uni-bonn.de/gaudecker/prog_econ_slides.html">Effective programming practices for economists: Slides — Hans-Martin von Gaudecker</a></li>
 <li><a href="https://econ-project-templates.readthedocs.io/en/latest/index.html">Templates for Reproducible Research Projects in Economics</a></li>
-<li><a href="https://www.dropbox.com/sh/0rk6k43bx2xqme2/AACLJFsQ9uG2_pUTR6JMk39Ga?dl=0">Dropbox - prog-econ-log</a></li>
+<li><a href="https://www.dropbox.com/sh/0rk6k43bx2xqme2/AACLJFsQ9uG2_pUTR6JMk39Ga?dl=0&amp;lst=">Dropbox - prog-econ-log</a></li>
 </ul>
 </div>
 <div id="example-process-of-a-project" class="section level2">
@@ -218,19 +218,20 @@ $ brew install cookiecutter
 #### set up ####
 
 $ cookiecutter https://github.com/OpenSourceEconomics/econ-project-templates/archive/v0.3.2.zip
+# check sphinx for document
 
 $ conda activate exercise_x
-
-$ pre-commit install
-
-$ python waf.py configure
-$ python waf.py build
-$ python waf.py install
 
 $ subl .gitignore
 # add the following:
 # .DS_Store
 # */.DS_Store
+
+$ pre-commit install
+
+$ python waf.py configure
+$ python waf.py build -v
+$ python waf.py install
 
 # if have set remote url
 $ git pull origin master --allow-unrelated-histories
@@ -448,7 +449,7 @@ $ conda env list
 # or
 $ conda info --envs
 
-$ conda udate --all</code></pre>
+$ conda update --all</code></pre>
 </div>
 <div id="create-delete-environment" class="section level3">
 <h3>Create &amp; Delete Environment</h3>
