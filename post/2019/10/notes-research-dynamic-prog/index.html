@@ -63,7 +63,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">16 min read</span>
+    <span class="article-duration">17 min read</span>
     
     <h1 class="article-title">Notes on Research: Dynamic Programming</h1>
     
@@ -134,7 +134,7 @@ if (!doNotTrack) {
 <li><a href="#real-life-motivation">Real Life Motivation</a></li>
 <li><a href="#model">Model</a></li>
 <li><a href="#incentive-compatiblility">Incentive Compatiblility</a></li>
-<li><a href="#optimal-mechanism">Optimal Mechanism</a></li>
+<li><a href="#optimal-mechanisms">Optimal Mechanisms</a></li>
 <li><a href="#optimal-threshold-mechanism">Optimal Threshold Mechanism</a></li>
 <li><a href="#intuition">Intuition</a></li>
 <li><a href="#my-thoughts">My thoughts</a></li>
@@ -859,23 +859,24 @@ for a partition mechanism:
 For agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\implies\)</span> recommendation <span class="math inline">\(a_1\)</span> is IC</p>
 </blockquote>
 </div>
-<div id="optimal-mechanism" class="section level3">
-<h3>Optimal Mechanism</h3>
+<div id="optimal-mechanisms" class="section level3">
+<h3>Optimal Mechanisms</h3>
 <ul>
 <li>Incentive compatible action: for each <span class="math inline">\(a_i\in A\)</span>, <span class="math display">\[E[R_i-R_{-i}\ |\ a^t = a_i]\geq 0\]</span></li>
 <li>Recommendation mechanism: a mechanism where planner gives <span class="math inline">\(a^t\in A\)</span> to each agent <span class="math inline">\(t\)</span> that is incentive compatible</li>
 <li>Partition mechanism: a collection of disjoint sets of possible realisations <span class="math inline">\(\{I_t\}_{t=2}^{T+1}\)</span>
 <ul>
-<li><span class="math inline">\(r\in I_t\)</span> denotes a realisation of some action, <span class="math inline">\(r_1\)</span> denotes the realisation of <span class="math inline">\(R_1\)</span></li>
+<li><span class="math inline">\(r_1\in I_t\)</span> means the realisation of <span class="math inline">\(R_1\)</span> falls into agent <span class="math inline">\(t\)</span>’s set</li>
 <li>Since <span class="math inline">\(μ_1&gt;μ_2\)</span>, agent <span class="math inline">\(t=1\)</span> will choose <span class="math inline">\(a_1\)</span><br />
 if <span class="math inline">\(r_1\in I^t\)</span> for <span class="math inline">\(t\leq T\)</span>, agent <span class="math inline">\(t\)</span> is the first agent given <span class="math inline">\(a^t=a_2\)</span></li>
 <li>Exploitation: for all <span class="math inline">\(t&#39;&gt;t\)</span>, <span class="math inline">\(a^{t&#39;}=\max\{a_1, a_2\}\)</span></li>
 <li>if <span class="math inline">\(r_1\in I^{T+1}\)</span>, no agent explores</li>
 <li>if <span class="math inline">\(I^t=\emptyset\)</span>, agent <span class="math inline">\(t\)</span> never explores</li>
 </ul></li>
-<li>Threshold mechanism: a partition mechanism where sets <span class="math inline">\(I^t\)</span> are ordered intervals<br />
-i.e., <span class="math inline">\(I^2 = (-\infty,i^2]\)</span>, and for <span class="math inline">\(t&gt;2\)</span>, <span class="math inline">\(I^t=(i^{t-1}, i^t]\)</span>
+<li>Threshold mechanism: a partition mechanism where sets <span class="math inline">\(I^t\)</span> are ordered intervals
 <ul>
+<li>for agent <span class="math inline">\(t=2\)</span>, <span class="math inline">\(I^2 = (-\infty,i^2]\)</span></li>
+<li>for agnet <span class="math inline">\(t\geq 3\)</span>, <span class="math inline">\(I^t=(i^{t-1}, i^t]\)</span></li>
 <li>if <span class="math inline">\(i^{t-1}=t^t\)</span>, then <span class="math inline">\(I^t=\emptyset\)</span></li>
 </ul></li>
 </ul>
@@ -911,15 +912,23 @@ The optimal recommendation mechanism is a threshold mechanism<br />
 <div id="optimal-threshold-mechanism" class="section level3">
 <h3>Optimal Threshold Mechanism</h3>
 <ul>
-<li><span class="math inline">\(T\)</span> is infinite: increasing sequence of thresholds <span class="math inline">\(\{i^{t,\infty}\}\)</span></li>
+<li><span class="math inline">\(T\)</span> is infinite: increasing sequence of thresholds <span class="math inline">\(\{i^{t,\infty}\}\)</span>
+<ul>
+<li>for agent <span class="math inline">\(t=2\)</span>, <span class="math inline">\(I^2 = (-\infty,i^{2,\ \infty}]\)</span>, and <span class="math inline">\(i^{2,\ \infty}\)</span> is characterised by:
+<span class="math display">\[\int_{R_1=-\infty}^{i^{2,\ \infty}}(R_1 - μ_2)\, dπ = 0\]</span></li>
+<li>for agnet <span class="math inline">\(t\geq 3\)</span>, <span class="math inline">\(I^t=(i^{t-1,\ \infty}, i^{t,\ \infty}]\)</span>, if <span class="math inline">\(i^{t,\infty}&lt;\infty\)</span>:
+<span class="math display">\[i^{t+1,\infty} =\sup\bigg\{i\ \bigg|\ \int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ \geq\int_{R_1=-\infty}^{i}(R_1 - μ_2)\, dπ\bigg\}\]</span></li>
+</ul></li>
 <li><span class="math inline">\(T\)</span> is finite
 <ul>
-<li>Expected gain in exploration: <span class="math inline">\((T-t)\cdot\max \{R_2-r_1, 0\}\)</span></li>
-<li>Threshold <span class="math inline">\(θ_t\)</span>: maximum value of <span class="math inline">\(r_1\)</span> where exploration is benefitial for agent <span class="math inline">\(t\)</span>, <span class="math display">\[(T-t)\cdot E[\max \{R_2 - θ_t, 0\}] =  θ_t -  μ_2\]</span></li>
+<li>Expected gain in exploration:
+<span class="math display">\[(T-t)\cdot\max \{R_2-r_1, 0\}\]</span></li>
+<li>for agent <span class="math inline">\(t\)</span>, <span class="math inline">\(θ_t\)</span> is the maximum value of <span class="math inline">\(r_1\)</span> where exploration is optimal
+<span class="math display">\[(T-t)\cdot E[\max \{R_2 - θ_t, 0\}] =θ_t -μ_2\]</span></li>
 </ul></li>
 </ul>
 <blockquote>
-<p>Theorem 1<br />
+<p>Theorem 1 (finite agents)<br />
 Optimal mechanism <span class="math inline">\(M^{opt}\)</span> is defined by a sequence of thresholds
 <span class="math display">\[i^{t,T} = \min\{i^{t,\infty}, θ_τ\}\]</span>
 where <span class="math inline">\(τ\)</span> is the minimal index where <span class="math inline">\(i^{t,\infty}&gt;θ_t\)</span></p>
