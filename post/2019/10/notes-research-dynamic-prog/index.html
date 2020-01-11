@@ -916,8 +916,14 @@ The optimal recommendation mechanism is a threshold mechanism<br />
 <ul>
 <li>for agent <span class="math inline">\(t=2\)</span>, <span class="math inline">\(I^2 = (-\infty,i^{2,\ \infty}]\)</span>, and <span class="math inline">\(i^{2,\ \infty}\)</span> is characterised by:
 <span class="math display">\[\int_{R_1=-\infty}^{i^{2,\ \infty}}(R_1 - μ_2)\, dπ = 0\]</span></li>
-<li>for agnet <span class="math inline">\(t\geq 3\)</span>, <span class="math inline">\(I^t=(i^{t-1,\ \infty}, i^{t,\ \infty}]\)</span>, if <span class="math inline">\(i^{t,\infty}&lt;\infty\)</span>:
-<span class="math display">\[i^{t+1,\infty} =\sup\bigg\{i\ \bigg|\ \int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ \geq\int_{R_1=-\infty}^{i}(R_1 - μ_2)\, dπ\bigg\}\]</span></li>
+<li>for agnet <span class="math inline">\(t\geq 3\)</span>, <span class="math inline">\(I^t=(i^{t-1,\ \infty}, i^{t,\ \infty}]\)</span>,<br />
+if <span class="math inline">\(i^{t,\ \infty}&lt;\infty\)</span> and <span class="math inline">\(i^{t+1,\ \infty}&lt;\infty\)</span>, <span class="math inline">\(i^{t+1,\ \infty}\)</span> is characterised by:
+<span class="math display">\[\begin{aligned}i^{t+1,\infty} =\sup\bigg\{i\ \bigg|\ \int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq\int_{R_1=-\infty}^{i}(R_1 - μ_2)\, dπ\bigg\}\\
+  \underbrace{\int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}_{\begin{subarray}{l}\text{Expected gain to follow recommendation}\\
+  \text{if exploration has ended}\end{subarray}} &amp;= \underbrace{\int_{R_1=-\infty}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ}_{\begin{subarray}{l}\text{Expected loss if is the}\\
+  \text{first agent to try action }a_2 \end{subarray}}\end{aligned}\]</span>
+Note that
+<span class="math display">\[\sum_t \bigg(\int_{R_1=-\infty}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ\bigg) = μ_1 - μ_2\]</span></li>
 </ul></li>
 <li><span class="math inline">\(T\)</span> is finite
 <ul>
@@ -932,6 +938,16 @@ The optimal recommendation mechanism is a threshold mechanism<br />
 Optimal mechanism <span class="math inline">\(M^{opt}\)</span> is defined by a sequence of thresholds
 <span class="math display">\[i^{t,T} = \min\{i^{t,\infty}, θ_τ\}\]</span>
 where <span class="math inline">\(τ\)</span> is the minimal index where <span class="math inline">\(i^{t,\infty}&gt;θ_t\)</span></p>
+</blockquote>
+<blockquote>
+<p>Theorem 2<br />
+Even when <span class="math inline">\(T\)</span> is arbitrarily high, exploration is limited to a bounded number of agents in which the bound does not depend on either the number of agents or the realizstions of <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>.<br />
+Let <span class="math inline">\(t^* = \min\{t\ |\ i^t = \infty\}\)</span>, then
+<span class="math display">\[t^*\leq\frac{μ_1 - μ_2}{α}\]</span>
+where
+<span class="math display">\[\begin{aligned}α &amp;= \int_{R_1\leq i^2,\ R_2&gt;R_1} (R_2-R_1)\, dπ \\
+&amp;\geq Pr(R_2\geq μ_2)\cdot Pr(R_1&lt;μ_2)\cdot\\
+&amp;\phantom{\ggg}\Big( E[R_2\ |\ R_2\geq μ_2] - E[R_1\ |\ R_1&lt;μ_2]\Big)\end{aligned}\]</span></p>
 </blockquote>
 </div>
 <div id="intuition" class="section level3">
