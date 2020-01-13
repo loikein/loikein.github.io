@@ -137,8 +137,8 @@ if (!doNotTrack) {
 <li><a href="#classes-of-mechanisms">Classes of Mechanisms</a></li>
 <li><a href="#incentive-compatiblility">Incentive Compatiblility</a></li>
 <li><a href="#threshold-mechanism">Threshold Mechanism</a></li>
-<li><a href="#intuition">Intuition</a></li>
-<li><a href="#my-thoughts">My thoughts</a></li>
+<li><a href="#general-results">General Results</a></li>
+<li><a href="#extensions">Extensions</a></li>
 </ul></li>
 </ul>
 </div>
@@ -785,11 +785,11 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <li>Set of possible actions: <span class="math inline">\(A=\{a_1,a_2\}\)</span></li>
 <li>Unknown reward of <span class="math inline">\(a_i\)</span>: <span class="math inline">\(R_i\sim π_i\)</span>
 <ul>
+<li>Expected value: <span class="math inline">\(μ_i= E_{R_i\sim π_i}[R_i]\)</span></li>
 <li><span class="math inline">\(μ_1\geq μ_2\)</span></li>
 <li><span class="math inline">\(π_i\)</span> has full support: <span class="math inline">\(Pr(R_1&lt;μ_2)&gt;0\)</span><br />
 this is important for the principle to be able to convince agents to explore</li>
 <li>Joint distribution: <span class="math inline">\(π\)</span></li>
-<li>Expected value: <span class="math inline">\(μ_i= E_{R_i\sim π_i}[R_i]\)</span></li>
 </ul></li>
 <li>Principle (Planner)
 <ul>
@@ -971,14 +971,19 @@ As <span class="math inline">\(T\to\infty\)</span>, the average loss per agent a
 After <span class="math inline">\(t^*\)</span> agents, all other agents are guaranteed to follow the optimal action</p>
 </blockquote>
 </div>
-<div id="intuition" class="section level3">
-<h3>Intuition</h3>
+<div id="general-results" class="section level3">
+<h3>General Results</h3>
 <ul>
 <li>(P992) As the # of agents increases, the social welfare converges to 1st best welfare</li>
 </ul>
 </div>
-<div id="my-thoughts" class="section level3">
-<h3>My thoughts</h3>
+<div id="extensions" class="section level3">
+<h3>Extensions</h3>
+<ul>
+<li>Assymetric infomation about location</li>
+<li>Stochastic case</li>
+<li>more than 2 alternatives: explore one by one on <span class="math inline">\(μ\)</span> from high to low</li>
+</ul>
 </div>
 </div>
 

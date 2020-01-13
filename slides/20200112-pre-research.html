@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Research Module Presentation</title>
+    <title>Implementing the “Wisdom of the Crowd”</title>
     <meta charset="utf-8" />
     <meta name="author" content="loikein" />
     <script src="slides-libs/jquery-1.11.3/jquery.min.js"></script>
@@ -9,31 +9,103 @@
     <link href="slides-libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="slides-libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="slides-libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Research Module Presentation
-## Kremer Mansour Perry (2014)
+# Implementing the “Wisdom of the Crowd”
+## Kremer, Mansour, Perry (2014)
 ### loikein
 ### 2020/01/17
 
 ---
 
 
-## A new slide
+## Overview
 
-Content.
+&lt;!-- MarkdownTOC --&gt;
+
+- [Motivation &amp; Background](#motivation--background)
+- [Example Timeline](#example-timeline)
+- [Model](#model)
+- [Mechanisms](#mechanisms)
+- [Main Results](#main-results)
+- [Extension](#extension)
+
+&lt;!-- /MarkdownTOC --&gt;
 
 ---
 
-## Another slide
+## Motivation &amp; Background
+
+- Online reputation systems
+    - Principle (platform) gives recommendation
+    - Agents (users) give feedback
+- Examples
+    - TripAdvisor, Booking, etc
+    - Waze, Moovit, etc
+    - Doctors recommendation platforms
+
+--
+
+- Problems with full transparency
+    - Principle relies on agents to explore (gather information)
+    - Agents does not want to explore (freeride on the recommendation)
+    - Things get recommended (restaurants, hotels, etc) may try to abuse the system
+
+---
+
+## Example Timeline
+
+- (Full transparency)
+    1. Each agent asks for recommendation
+    1. The principle decides whether to let them explore or exploit
+    1. But the agent sees all the previous results, and decides not to follow recommendation
+    1. The principle does not obtain the desired information (!)
+
+---
+
+## Model
+
+- Set of possible actions: `\(A=\{a_1,a_2\}\)`
+- Unknown reward of `\(a_i\)`: `\(R_i\sim π_i\)`
+    - Expected value: `\(μ_i= E_{R_i\sim π_i}[R_i]\)`, `\(μ_1\geq μ_2\)`
+
+--
+
+- Principle
+    - Goal: aggregated social welfare `$$\max \ E\Big[\frac{1}{T}\textstyle{\sum}^T R^t\Big]$$`
+    - Mechanism (message policy): `\(\tilde{M}^t: H^{t-1}\to M^t\)`
+
+--
+
+- Agents: `\(t\in T\)`
+    - Goal: expected payoff `$$\max \ E\big[R^t\ |\ M^t\big]$$`
+    - Strategy: `\(σ^t: M^t\to A\)`
+
+---
+
+## Mechanisms
+
+
+
+
+---
+
+## Main Results
+
+
+---
+
+## Extension
+
+&lt;!-- TODO --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": false,
 "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
