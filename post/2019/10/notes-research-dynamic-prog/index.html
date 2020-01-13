@@ -36,6 +36,7 @@ if (!doNotTrack) {
 
 
 
+
   </head>
   <body>
     <div class="wrapper">
@@ -63,7 +64,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">18 min read</span>
     
     <h1 class="article-title">Notes on Research: Dynamic Programming</h1>
     
@@ -133,9 +134,9 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#real-life-motivation">Real Life Motivation</a></li>
 <li><a href="#model">Model</a></li>
+<li><a href="#classes-of-mechanisms">Classes of Mechanisms</a></li>
 <li><a href="#incentive-compatiblility">Incentive Compatiblility</a></li>
-<li><a href="#optimal-mechanisms">Optimal Mechanisms</a></li>
-<li><a href="#optimal-threshold-mechanism">Optimal Threshold Mechanism</a></li>
+<li><a href="#threshold-mechanism">Threshold Mechanism</a></li>
 <li><a href="#intuition">Intuition</a></li>
 <li><a href="#my-thoughts">My thoughts</a></li>
 </ul></li>
@@ -756,6 +757,7 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <h2>Kremer Mansour Perry 2014 (My Bit)</h2>
 <ul>
 <li>Social planning on recommender system</li>
+<li><a href="/slides/20200112-pre-research.html">Slides</a></li>
 </ul>
 <div id="real-life-motivation" class="section level3">
 <h3>Real Life Motivation</h3>
@@ -843,27 +845,11 @@ otherwise, ask <span class="math inline">\(t=3\)</span> to choose <span class="m
 </ul></li>
 </ul>
 </div>
-<div id="incentive-compatiblility" class="section level3">
-<h3>Incentive Compatiblility</h3>
-<ul>
-<li>for agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\iff\)</span>
-<span class="math display">\[\begin{aligned}(IC) &amp;&amp; E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
-\iff &amp;&amp; Pr(a^t=a_2)\times E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
-\iff &amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}\]</span>
-for a partition mechanism:
-<span class="math display">\[\begin{aligned}\overbrace{\int_{R_1\in I^t}(μ_2-R_1)\, dπ}^{\text{Exploration}, &lt;0} + \overbrace{\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}^{\text{Exploitation}, &gt;0} &amp;\geq 0 \\
-\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq \int_{R_1\in I^t}(R_1-μ_2)\, dπ \end{aligned}\]</span></li>
-</ul>
-<blockquote>
-<p>Lemma 3<br />
-For agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\implies\)</span> recommendation <span class="math inline">\(a_1\)</span> is IC</p>
-</blockquote>
-</div>
-<div id="optimal-mechanisms" class="section level3">
-<h3>Optimal Mechanisms</h3>
+<div id="classes-of-mechanisms" class="section level3">
+<h3>Classes of Mechanisms</h3>
 <ul>
 <li>Incentive compatible action: for each <span class="math inline">\(a_i\in A\)</span>, <span class="math display">\[E[R_i-R_{-i}\ |\ a^t = a_i]\geq 0\]</span></li>
-<li>Recommendation mechanism: a mechanism where planner gives <span class="math inline">\(a^t\in A\)</span> to each agent <span class="math inline">\(t\)</span> that is incentive compatible</li>
+<li>Recommendation mechanism: a mechanism where planner gives <span class="math inline">\(a^t\in A\)</span> to each agent <span class="math inline">\(t\)</span> that is IC</li>
 <li>Partition mechanism: a collection of disjoint sets of possible realisations <span class="math inline">\(\{I_t\}_{t=2}^{T+1}\)</span>
 <ul>
 <li><span class="math inline">\(r_1\in I_t\)</span> means the realisation of <span class="math inline">\(R_1\)</span> falls into agent <span class="math inline">\(t\)</span>’s set</li>
@@ -873,11 +859,17 @@ if <span class="math inline">\(r_1\in I^t\)</span> for <span class="math inline"
 <li>if <span class="math inline">\(r_1\in I^{T+1}\)</span>, no agent explores</li>
 <li>if <span class="math inline">\(I^t=\emptyset\)</span>, agent <span class="math inline">\(t\)</span> never explores</li>
 </ul></li>
-<li>Threshold mechanism: a partition mechanism where sets <span class="math inline">\(I^t\)</span> are ordered intervals
+<li>Swap operation: a modification on a partition mechanism
 <ul>
-<li>for agent <span class="math inline">\(t=2\)</span>, <span class="math inline">\(I^2 = (-\infty,i^2]\)</span></li>
-<li>for agnet <span class="math inline">\(t\geq 3\)</span>, <span class="math inline">\(I^t=(i^{t-1}, i^t]\)</span></li>
-<li>if <span class="math inline">\(i^{t-1}=t^t\)</span>, then <span class="math inline">\(I^t=\emptyset\)</span></li>
+<li>for agents <span class="math inline">\(t_2&gt;t_1\)</span>, subsets <span class="math inline">\(B^1\subset I^{t_1}\)</span> and <span class="math inline">\(B^2\subset I^{t_2}\)</span>, where <span class="math inline">\(\sup B^2&lt;\inf B^1\)</span></li>
+<li>swap gives a new particion:
+<span class="math display">\[\begin{aligned}I^{\prime\ t_1}&amp;= \big(I^{t_1}\cup B^2\big) \setminus B^1 \\
+  I^{\prime\ t_2} &amp;= \big(I^{t_2}\cup B^1\big) \setminus B^2\end{aligned}\]</span></li>
+</ul></li>
+<li>Proper swap:
+<span class="math display">\[\int_{R_1\in B^1} (μ_2 - R_1)\, dπ = \int_{R_1\in B^2} (μ_2 - R_1)\, dπ\]</span>
+<ul>
+<li>proper swaps do not change the expected reward of agents <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span></li>
 </ul></li>
 </ul>
 <!--
@@ -909,21 +901,45 @@ The optimal recommendation mechanism is a threshold mechanism<br />
 <span class="math inline">\(\implies\)</span> sets <span class="math inline">\(I_t\)</span> are all ordered intervals</p>
 </blockquote>
 </div>
-<div id="optimal-threshold-mechanism" class="section level3">
-<h3>Optimal Threshold Mechanism</h3>
+<div id="incentive-compatiblility" class="section level3">
+<h3>Incentive Compatiblility</h3>
 <ul>
+<li>Assumption: agents knows the mechanism and take it as given</li>
+<li>for agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\iff\)</span>
+<span class="math display">\[\begin{aligned}(IC) &amp;&amp; E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
+\iff &amp;&amp; Pr(a^t=a_2)\times E[R_2-R_1\ |\ a^t=a_2]&amp;\geq 0 \\
+\iff &amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}\]</span>
+for a partition mechanism:
+<span class="math display">\[\begin{aligned}\overbrace{\int_{R_1\in I^t}(μ_2-R_1)\, dπ}^{\text{Exploration}, &lt;0} + \overbrace{\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}^{\text{Exploitation}, &gt;0} &amp;\geq 0 \\
+\int_{R_1\in\cup I^τ\text{ for } τ&lt;t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq \int_{R_1\in I^t}(R_1-μ_2)\, dπ \end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>Lemma 3<br />
+For agent <span class="math inline">\(t\)</span>, recommendation <span class="math inline">\(a_2\)</span> is IC <span class="math inline">\(\implies\)</span> recommendation <span class="math inline">\(a_1\)</span> is IC</p>
+</blockquote>
+</div>
+<div id="threshold-mechanism" class="section level3">
+<h3>Threshold Mechanism</h3>
+<ul>
+<li>Threshold mechanism: a partition mechanism where sets <span class="math inline">\(I^t\)</span> are ordered intervals
+<ul>
+<li>for agent <span class="math inline">\(t=2\)</span>, <span class="math inline">\(I^2 = (-\infty,i^2]\)</span></li>
+<li>for agnet <span class="math inline">\(t\geq 3\)</span>, <span class="math inline">\(I^t=(i^{t-1}, i^t]\)</span></li>
+<li>if <span class="math inline">\(i^{t-1}=t^t\)</span>, then <span class="math inline">\(I^t=\emptyset\)</span></li>
+</ul></li>
 <li><span class="math inline">\(T\)</span> is infinite: increasing sequence of thresholds <span class="math inline">\(\{i^{t,\infty}\}\)</span>
 <ul>
 <li>for agent <span class="math inline">\(t=2\)</span>, <span class="math inline">\(I^2 = (-\infty,i^{2,\ \infty}]\)</span>, and <span class="math inline">\(i^{2,\ \infty}\)</span> is characterised by:
 <span class="math display">\[\int_{R_1=-\infty}^{i^{2,\ \infty}}(R_1 - μ_2)\, dπ = 0\]</span></li>
 <li>for agnet <span class="math inline">\(t\geq 3\)</span>, <span class="math inline">\(I^t=(i^{t-1,\ \infty}, i^{t,\ \infty}]\)</span>,<br />
 if <span class="math inline">\(i^{t,\ \infty}&lt;\infty\)</span> and <span class="math inline">\(i^{t+1,\ \infty}&lt;\infty\)</span>, <span class="math inline">\(i^{t+1,\ \infty}\)</span> is characterised by:
-<span class="math display">\[\begin{aligned}i^{t+1,\infty} =\sup\bigg\{i\ \bigg|\ \int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq\int_{R_1=-\infty}^{i}(R_1 - μ_2)\, dπ\bigg\}\\
+<span class="math display">\[\begin{aligned}i^{t+1,\infty} =\sup\bigg\{i\ \bigg|\ \int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ &amp;\geq\int_{R_1=i^{t,\ -\infty}}^{i}(R_1 - μ_2)\, dπ\bigg\}\\
   \underbrace{\int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}_{\begin{subarray}{l}\text{Expected gain to follow recommendation}\\
-  \text{if exploration has ended}\end{subarray}} &amp;= \underbrace{\int_{R_1=-\infty}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ}_{\begin{subarray}{l}\text{Expected loss if is the}\\
+  \text{if exploration has ended}\end{subarray}} &amp;= \underbrace{\int_{R_1=i^{t,\ -\infty}}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ}_{\begin{subarray}{l}\text{Expected loss if is the}\\
   \text{first agent to try action }a_2 \end{subarray}}\end{aligned}\]</span>
 Note that
-<span class="math display">\[\sum_t \bigg(\int_{R_1=-\infty}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ\bigg) = μ_1 - μ_2\]</span></li>
+<span class="math display">\[\begin{aligned}\sum_{t=2}^{\infty} \bigg(\int_{R_1=i^{t,\ -\infty}}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ\bigg) &amp;\leq \lim_{x\to\infty} \int_{R_1\leq x} (R_1 - μ_2)\, dπ\\
+  &amp;= μ_1 - μ_2 \end{aligned}\]</span></li>
 </ul></li>
 <li><span class="math inline">\(T\)</span> is finite
 <ul>
@@ -948,6 +964,11 @@ where
 <span class="math display">\[\begin{aligned}α &amp;= \int_{R_1\leq i^2,\ R_2&gt;R_1} (R_2-R_1)\, dπ \\
 &amp;\geq Pr(R_2\geq μ_2)\cdot Pr(R_1&lt;μ_2)\cdot\\
 &amp;\phantom{\ggg}\Big( E[R_2\ |\ R_2\geq μ_2] - E[R_1\ |\ R_1&lt;μ_2]\Big)\end{aligned}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Corollary 1<br />
+As <span class="math inline">\(T\to\infty\)</span>, the average loss per agent as compared to the ﬁrst-best outcome <span class="math inline">\(\to 0\)</span> at the rate of <span class="math inline">\(\frac{1}{T}\)</span><br />
+After <span class="math inline">\(t^*\)</span> agents, all other agents are guaranteed to follow the optimal action</p>
 </blockquote>
 </div>
 <div id="intuition" class="section level3">
