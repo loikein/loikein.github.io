@@ -1,6 +1,25 @@
 .MJXc-display{
     margin-top: 0 !important;
+    margin-bottom: 10 !important;
 }
 a{
     color: #EB811B;
+}
+strong{
+    font-weight: 300;
+    text-decoration: underline;
+}
+em{
+    font-weight: 400;
+    font-style: normal;
+}
+blockquote {
+    border-left: solid 5px #EB811B;
+    background: lightgray;
+}
+
+/* whatever bug this is */
+div.remark-slide-container > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul > li > p:nth-child(1) {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }

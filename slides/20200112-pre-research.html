@@ -30,9 +30,11 @@ class: center, middle, inverse, title-slide
 - [Motivation &amp; Background](#motivation--background)
 - [Example Timeline](#example-timeline)
 - [Model](#model)
+- [Incentive Compatiblity](#incentive-compatiblity)
 - [Mechanisms](#mechanisms)
 - [Main Results](#main-results)
-- [Extension](#extension)
+- [Extensions](#extensions)
+- [Imperfect Infomation](#imperfect-infomation)
 
 &lt;!-- /MarkdownTOC --&gt;
 
@@ -43,6 +45,9 @@ class: center, middle, inverse, title-slide
 - Online reputation systems
     - Principle (platform) gives recommendation
     - Agents (users) give feedback
+
+--
+
 - Examples
     - TripAdvisor, Booking, etc
     - Waze, Moovit, etc
@@ -71,7 +76,7 @@ class: center, middle, inverse, title-slide
 
 - Set of possible actions: `\(A=\{a_1,a_2\}\)`
 - Unknown reward of `\(a_i\)`: `\(R_i\sim π_i\)`
-    - Expected value: `\(μ_i= E_{R_i\sim π_i}[R_i]\)`, `\(μ_1\geq μ_2\)`
+    - Expected value: `\(μ_i= E_{R_i\sim π_i}\big[R_i\big]\)`, `\(μ_1\geq μ_2\)`
 
 --
 
@@ -87,21 +92,139 @@ class: center, middle, inverse, title-slide
 
 ---
 
+## Incentive Compatiblity
+
+- Incentive compatible action: for each `\(a_i\in A\)`, `$$E\big[R_i-R_{-i}\ |\ a^t = a_i\big]\geq 0$$`
+
+--
+
+- Incentive compatible mechanism: recommending `\(a_2\)` is IC if
+`$$\begin{aligned}(IC) &amp;&amp; E\big[R_2-R_1\ |\ a^t=a_2\big]&amp;\geq 0 \\
+&amp;&amp; Pr(a^t=a_2)\times E\big[R_2-R_1\big]&amp;\geq 0 \\
+&amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}$$`
+
+---
+
 ## Mechanisms
 
+- Recommendation mechanism: recommending `\(a^t\in A\)` to each agent `\(t\)` that is IC
 
+ 
 
+--
+
+- Partition mechanism: for each agent `\(t\geq 2\)`, assigning set `\(I_t\)` that are __disjoint__
+    - Since `\(μ_1&gt;μ_2\)`, agent `\(1\)` will always choose `\(a_1\)`
+    - if `\(I^t=\emptyset\)`, agent `\(t\)` never explores
+    - If `\(r_1\in I^t\)` for some `\(t\leq T\)`, agent `\(t\)` is the first agent to explore `\(a_2\)`
+    - If `\(r_1\not\in I^t\)` for all `\(t\in[2,T]\)`, no agent explores
+
+--
+
+- Threshold mechanism: a partition mechanism where `\(I^t\)` are __ordered intervals__
+    - For agent `\(t=2\)`, `\(I^2 = (-\infty,i^2]\)`
+    - For agnet `\(t\geq 3\)`, `\(I^t=(i^{t-1}, i^t]\)`
+    - If `\(i^{t-1}=i^t\)`, then `\(I^t=\emptyset\)`
+
+--
+
+&gt; *Lemma 6*  
+&gt; The optimal recommendation mechanism is a threshold mechanism
 
 ---
 
 ## Main Results
 
+- Infinite `\(T\)`: increasing sequence of thresholds `\(\{i^{t,\infty}\}\)`  
+    - For agent `\(t=2\)`, `\(I^2 = (-\infty,i^{2,\ \infty}]\)`,  
+    `\(i^{2,\ \infty}\)` is characterised by:
+`$$\begin{aligned}\underbrace{\int_{R_1=-\infty}^{i^{2,\ \infty}}(R_1 - μ_2)\, dπ}_{\begin{subarray}{l}\text{Expected loss if recommended}\\
+\text{to explore }a_2\end{subarray}} = 0\end{aligned}$$`
+    - For agents `\(t&gt;3\)`, `\(I^t=(i^{t-1,\ \infty}, i^{t,\ \infty}]\)`, if `\(i^{t,\ \infty}&lt;\infty\)` and `\(i^{t+1,\ \infty}&lt;\infty\)`,  
+    `\(i^{t+1,\ \infty}\)` is characterised by:
+`$$\begin{aligned} \underbrace{\int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}_{\begin{subarray}{l}\text{Expected gain if recommended}\\
+\text{to exploit }a_2\end{subarray}}
+= \underbrace{\int_{R_1=i^{t,\ -\infty}}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ}_{\begin{subarray}{l}\text{Expected loss if recommended}\\
+\text{to explore }a_2 \end{subarray}}\end{aligned}$$`
 
 ---
 
-## Extension
+## Main Results (cont.)
 
-&lt;!-- TODO --&gt;
+- Finite `\(T\)`
+    - Expected gain in exploration:
+    `$$(T-t)\cdot\max \{R_2-r_1, 0\}$$`
+    - For agent `\(t\)`, `\(θ_t\)` is the maximum value of `\(r_1\)` where exploration is optimal
+    `$$(T-t)\cdot E\big[\max \{R_2 - θ_t, 0\}\big] =θ_t -μ_2$$`
+
+--
+
+&gt; *Theorem 1 (Finite `\(T\)`)*  
+&gt; The optimal mechanism is defined by a sequence of thresholds
+&gt; `$$i^{t,T} = \min\{i^{t,\infty}, θ_τ\}$$`
+&gt; where `\(τ\)` is the minimal index where `\(i^{t,\infty}&gt;θ_t\)`
+
+---
+
+## Main Results (cont.)
+
+&gt; *Theorem 2 (Arbitrary `\(T\)`)*  
+&gt; Exploration is limited to a bounded number of agents `\(t^* = \min\{t\ |\ i^t = \infty\}\)`:
+&gt; `$$t^*\leq\frac{μ_1 - μ_2}{α}$$`
+&gt; where
+&gt; `$$\begin{aligned}α &amp;= \int_{R_1\leq i^2,\ R_2&gt;R_1} (R_2-R_1)\, dπ \\&amp;\geq Pr(R_2\geq μ_2)\cdot Pr(R_1&lt;μ_2)\cdot\\&amp;\phantom{\ggg}\big( E\big[R_2\ |\ R_2\geq μ_2\big] - E\big[R_1\ |\ R_1&lt;μ_2\big]\big)\end{aligned}$$`
+
+---
+
+## Extensions
+
+- `\(\to\)` Imperfect infomation about location
+- Stochastic case
+- Principle can make monetory transfers to incentivise agents to explore
+- More than two alternatives
+
+---
+
+## Imperfect Infomation
+
+- Agents: `\(t\in T\)`
+
+ 
+
+- Groups of agents: `\(1=τ^1&lt;τ^2&lt;\dots&lt;τ^k=T+1\)`, `\(τ^j\)` are integers for all `\(j\)`
+    - Group `\(i\)`: `\(t\in[τ^j, τ^{j+1})\)` for `\(j\leq k\)`
+    - Agent `\(t=1\)` knows their exact position `\(t\)`
+    - Agents `\(t\geq 2\)` only know the group `\(j\)` which they belongs to
+    - When `\(k=T\)`, this case degenerate into the original case
+
+ 
+
+- Threshold mechanism: ordered intervals `\(I^t\)`
+
+--
+
+&gt; *Lemma 7*  
+&gt; For every group `\(j\)`:  
+&gt; The first agent `\(τ^j\)` has threshold `\(I^{τ^j}=(i^{τ^{j-1}}, i^{τ^j}]\)`.  
+&gt; All the rest agents `\(t\in(τ^j, τ^{j+1})\)` has thresholds `\(I^t=\emptyset\)`.
+
+---
+
+## Imperfect Infomation (cont.)
+
+&gt; *Theorem 3 (Imperfect Infomation)*  
+&gt; The optimal mechanism is defined by a sequence of thresholds `\(\{θ_i\}\)`  
+&gt; The only agent who explores is the first agent in group `\(j\)` where `\(r_1\in(θ_{j-1}, θ_j]\)`.
+
+　
+
+--
+
+&gt; *Theorem 4*  
+&gt; As the information that agents have about their location becomes coarser, the policy that the planner can implement generates less welfare loss.
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

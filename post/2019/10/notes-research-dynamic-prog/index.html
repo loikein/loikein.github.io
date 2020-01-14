@@ -138,7 +138,11 @@ if (!doNotTrack) {
 <li><a href="#incentive-compatiblility">Incentive Compatiblility</a></li>
 <li><a href="#threshold-mechanism">Threshold Mechanism</a></li>
 <li><a href="#general-results">General Results</a></li>
-<li><a href="#extensions">Extensions</a></li>
+</ul></li>
+<li><a href="#stochastic-model">Stochastic Model</a></li>
+<li><a href="#imperfect-infomation">Imperfect Infomation</a>
+<ul>
+<li><a href="#extension">Extension</a></li>
 </ul></li>
 </ul>
 </div>
@@ -946,7 +950,7 @@ Note that
 <li>Expected gain in exploration:
 <span class="math display">\[(T-t)\cdot\max \{R_2-r_1, 0\}\]</span></li>
 <li>for agent <span class="math inline">\(t\)</span>, <span class="math inline">\(θ_t\)</span> is the maximum value of <span class="math inline">\(r_1\)</span> where exploration is optimal
-<span class="math display">\[(T-t)\cdot E[\max \{R_2 - θ_t, 0\}] =θ_t -μ_2\]</span></li>
+<span class="math display">\[(T-t)\cdot E\big[\max \{R_2 - θ_t, 0\}\big] =θ_t -μ_2\]</span></li>
 </ul></li>
 </ul>
 <blockquote>
@@ -977,11 +981,49 @@ After <span class="math inline">\(t^*\)</span> agents, all other agents are guar
 <li>(P992) As the # of agents increases, the social welfare converges to 1st best welfare</li>
 </ul>
 </div>
-<div id="extensions" class="section level3">
-<h3>Extensions</h3>
+</div>
+<div id="stochastic-model" class="section level2">
+<h2>Stochastic Model</h2>
 <ul>
-<li>Assymetric infomation about location</li>
-<li>Stochastic case</li>
+<li>Set of possible actions: <span class="math inline">\(A=\{a_1,a_2\}\)</span></li>
+<li>Unknown reward of <span class="math inline">\(a_i\)</span>: <span class="math inline">\(R_i\sim D_i \sim π_i\)</span>
+<ul>
+<li><span class="math inline">\(R_i\in[0,1]\)</span> for all <span class="math inline">\(i\)</span></li>
+<li>Expected value: <span class="math inline">\(μ_i= E_{π_i}\big[E_{D_i}[R_i]\big]\)</span>, <span class="math inline">\(μ_1\geq μ_2\)</span></li>
+</ul></li>
+<li>Principle
+<ul>
+<li>Goal: aggregated social welfare <span class="math display">\[\max \ E\Big[\frac{1}{T}\textstyle{\sum}^T R^t\Big]\]</span></li>
+<li>Mechanism (message policy): <span class="math inline">\(\tilde{M}^t: H^{t-1}\to M^t\)</span></li>
+</ul></li>
+<li>Agents: <span class="math inline">\(t\in T\)</span>
+<ul>
+<li>Goal: expected payoff <span class="math display">\[\max \ E\big[R^t\ |\ M^t\big]\]</span></li>
+<li>Strategy: <span class="math inline">\(σ^t: M^t\to A\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="imperfect-infomation" class="section level2">
+<h2>Imperfect Infomation</h2>
+<ul>
+<li>Agents: <span class="math inline">\(t\in T\)</span></li>
+<li>Groups of agents: <span class="math inline">\(1=τ^1&lt;τ^2&lt;\dots&lt;τ^k=T+1\)</span>, <span class="math inline">\(τ^j\)</span> are integers for all <span class="math inline">\(j\)</span>
+<ul>
+<li>Group <span class="math inline">\(i\)</span>: <span class="math inline">\(t\in[τ^j, τ^{j+1}-1]\)</span> for <span class="math inline">\(j\leq k\)</span></li>
+<li>Agent <span class="math inline">\(t=1\)</span> knows their exact position (<span class="math inline">\(t\)</span>)</li>
+<li>Agents <span class="math inline">\(t\geq 2\)</span> only know the group they are in (<span class="math inline">\(j\)</span>)</li>
+<li>When <span class="math inline">\(k=T\)</span>, this case degenerate into the original case</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Lemma 7<br />
+For every group <span class="math inline">\(j\)</span>:<br />
+The first agent <span class="math inline">\(τ^j\)</span> has threshold <span class="math inline">\(I^{τ^j}=(i^{τ^{j-1}}, i^{τ^j}]\)</span>.<br />
+All the rest agents <span class="math inline">\(t\in[τ^j+1, τ^{j+1}-1]\)</span> has thresholds are <span class="math inline">\(I^t=\emptyset\)</span>.</p>
+</blockquote>
+<div id="extension" class="section level3">
+<h3>Extension</h3>
+<ul>
 <li>more than 2 alternatives: explore one by one on <span class="math inline">\(μ\)</span> from high to low</li>
 </ul>
 </div>
