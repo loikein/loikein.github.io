@@ -1,25 +1,56 @@
 .MJXc-display{
-    margin-top: 0 !important;
-    margin-bottom: 10 !important;
+  margin-top: 0 !important;
+  margin-bottom: 10 !important;
 }
 a{
-    color: #EB811B;
+  color: #EB811B;
 }
 strong{
-    font-weight: 300;
-    text-decoration: underline;
+  font-weight: 300;
+  text-decoration: underline;
 }
 em{
-    font-weight: 400;
-    font-style: normal;
+  font-weight: 400;
+  font-style: normal;
 }
 blockquote {
-    border-left: solid 5px #EB811B;
-    background: lightgray;
+  border-left: solid 5px #EB811B;
+  background: lightgray;
+}
+table {
+  min-width: 80%;
+}
+table, table tr th, table tr td{
+  text-align: center
+}
+table thead th{
+  font-weight: 300;
+}
+h1{
+  text-transform: capitalize;
+}
+h2{
+  margin-top: -84px;
+  color: #FAFAFA;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+.title-slide h2{
+  text-transform: capitalize;
 }
 
 /* whatever bug this is */
-div.remark-slide-container > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul > li > p:nth-child(1) {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
+
+div.remark-slide-container:nth-child(10) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2) > p:nth-child(1) {
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
+div.remark-slide-container:nth-child(11) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2) > p:nth-child(1) {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+div.remark-slide-container:nth-child(11) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(3) > p:nth-child(1) {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+

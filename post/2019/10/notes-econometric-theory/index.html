@@ -64,7 +64,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">36 min read</span>
+    <span class="article-duration">38 min read</span>
     
     <h1 class="article-title">Notes on Econometric Theory</h1>
     
@@ -87,6 +87,8 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -122,7 +124,9 @@ if (!doNotTrack) {
 <li><a href="#consistency">Consistency</a></li>
 <li><a href="#uniform-convergence-in-probability">Uniform Convergence in Probability</a></li>
 <li><a href="#asymphotic-normality">Asymphotic Normality</a></li>
+<li><a href="#variance-matrix">Variance Matrix</a></li>
 </ul></li>
+<li><a href="#efficiency">Efficiency</a></li>
 </ul>
 </div>
 
@@ -1897,6 +1901,114 @@ and
 &amp;\leq 2\cdot\bar{g}_1(x)^2 + 2\cdot(|y|+\bar{g}_0(x))\cdot \bar{g}_2(x)\end{aligned}\]</span></li>
 </ol>
 </div>
+<div id="variance-matrix" class="section level3">
+<h3>Variance Matrix</h3>
+<ul>
+<li>Let <span class="math inline">\(\hat{θ}=\text{argmin}_{θ\in Θ} Q_m(θ)\)</span>, with <span class="math inline">\(Q_m(θ) = \frac{1}{n}\sum_{i=1}^n q(Z,θ)\)</span></li>
+<li>Suppose <span class="math inline">\(\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,V)\)</span> with <span class="math inline">\(V=H_0^{-1}Ω_0H_0^{-1}\)</span><br />
+where <span class="math inline">\(H_0=E[\partial_{θθ}q(Z,θ_0)]\)</span> and <span class="math inline">\(Ω_0=E[\partial_{θ}q(Z,θ_0)\partial_{θ}q(Z,θ_0)^T]\)</span></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Sample pf <span class="math inline">\(E[\cdot]\)</span>
+<ul>
+<li><span class="math inline">\(\hat{H}(θ) = \frac{1}{n}\sum_{i=1}^n \partial_{θθ}q(Z_i,θ_0)\)</span></li>
+<li><span class="math inline">\(\hat{Ω}(θ) = \frac{1}{n}\sum_{i=1}^n \partial_{θ}q(Z_i,θ_0)\partial_{θ}q(Z_i,θ_0)^T\)</span></li>
+</ul></li>
+<li>Plug in
+<ul>
+<li><span class="math inline">\(\hat{H}_0 = \hat{H}(\hat{θ})\)</span></li>
+<li><span class="math inline">\(\hat{Ω}_0 = \hat{Ω}(\hat{θ})\)</span></li>
+<li><span class="math inline">\(\hat{V} = \hat{H}_0^{-1}\hat{Ω}_0\hat{H}_0^{-1}\)</span></li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Thm 3.3.<br />
+Let <span class="math inline">\(Θ\)</span> be compact, let the assumption of Cor 3.2. be satisfied,<br />
+suppose that <span class="math inline">\(\|\partial_θ q(Z,θ)\|\leq a(z)\)</span> for <span class="math inline">\(θ\in\mathcal{N}\)</span> (open neighbourhood of <span class="math inline">\(θ_0\)</span>)<br />
+with <span class="math inline">\(E[a^2(Z)]&lt;\infty\)</span>
+Then:</p>
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(\hat{H}_0\overset{P}{\to}H_0\)</span>, <span class="math inline">\(\hat{Ω}_0\overset{P}{\to}Ω_0\)</span></li>
+<li><span class="math inline">\(\hat{V}\overset{P}{\to}V\)</span></li>
+<li><span class="math inline">\(\sqrt{n}\hat{V}^{-1/2}(\hat{θ}-θ_0)\overset{d}{\to}\hat{V}^{-1/2}\mathcal{N}(0,V)\hat{V}^{-1/2}^T = \mathcal{N}(0,I)\)</span></li>
+</ol>
+</blockquote>
+<p>Proof:<br />
+(ii) follows directly from (i), (iii) follows directly from (ii)<br />
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\sqrt{n}\hat{V}^{-1/2}(\hat{θ}-θ_0)\\
+&amp;= \underbrace{\sqrt{n}V^{-1/2}(\hat{θ}-θ_0)}_{\overset{d}{\to} \mathcal{N}(0,I)}
++\underbrace{\overbrace{(\hat{V}^{-1/2} - V^{-1/2})}^{=o_P(1)} \overbrace{sqrt{n} (\hat{θ}-θ_0)}^{=O_P(1)}}_{=o_P(1)}\end{aligned}\]</span>
+(i):<br />
+<span class="math inline">\(\hat{H}_0\overset{P}{\to}H_0\)</span> is equvalent to <span class="math inline">\(e_j^T\hat{H}_0e_k\overset{P}{\to}e_jH_0e_k\)</span> for all <span class="math inline">\(j,k\)</span><br />
+with <span class="math inline">\(e_j\)</span>, <span class="math inline">\(e_k\)</span> the j-th, k-th standard basis vector, i.e.,<br />
+<span class="math display">\[e_j = (0, \dots, 0,\underbrace{1}_{j-th},0,\dots,0)\]</span>
+with <span class="math inline">\(H(θ)=E[\partial_{θθ}q(Z,θ)]\)</span>,
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} |e_j^T\hat{H}_0e_k - e_j^TH_0e_k | \\
+&amp;\leq \underbrace{|e_j^T\hat{H}(\hat{θ})e_k - e_j^TH(\hat{θ})e_k|}_{\leq \sup_{θ\in\mathcal{N}_0} |e_j^T\hat{H}(θ)e_k - e_j^TH(θ)e_k|}
++ \underbrace{|e_j^TH(\hat{θ})e_k - e_j^TH(θ_0)e_k |}_{=o_P(1)}\end{aligned}\]</span>
+:) <span class="math inline">\(\sup_{θ\in\mathcal{N}_0} |e_j^T\hat{H}(θ)e_k - e_j^TH(θ)e_k|=o_P(1)\)</span> …(*)<br />
+Note: <span class="math inline">\(\mathcal{N}_0\)</span> is compact,<br />
+and <span class="math inline">\(Θ\mapsto e_j^T \partial_{θθ}q(Z,θ) e_j\)</span> is continuous for <span class="math inline">\(θ\in\mathcal{N}_0\)</span>.<br />
+By Thm 2.6., (*) holds if we can show that <span class="math inline">\(\hat{H}(θ)\)</span> is stochastically equicontinuous and <span class="math inline">\(H(θ)\)</span> is continuous.<br />
+By Thm 2.9. we have <span class="math inline">\(\hat{H}_0\overset{P}{\to}H_0\)</span>,<br />
+Similarly, we can show that <span class="math inline">\(\hat{Ω}_0\overset{P}{\to}Ω_0\)</span>:
+<span class="math display">\[\begin{aligned}&amp;\phantom{\ggg} |e_j^T\partial_{θ}q(Z,θ_0)\partial_{θ}q(Z,θ_0)^Te_k | \\
+&amp;= \underbrace{|\langle e_j^T\partial_{θ}q(Z,θ_0)\rangle|}_{\leq \|e_j\|\cdot\|\partial_{θ}q(Z,θ_0)\|}
+\cdot\underbrace{|\langle\partial_{θ}q(Z,θ_0)e_k\rangle|}_{\leq \|\partial_{θ}q(Z,θ_0)\|\cdot\|e_k\|} \\
+&amp;\leq a^2(Z)\end{aligned}\]</span>
+where <span class="math inline">\(E[a^2(Z)]&lt;\infty\)</span></p>
+</div>
+</div>
+<div id="efficiency" class="section level2">
+<h2>Efficiency</h2>
+<ul>
+<li>Let <span class="math inline">\(Z\sim f_{θ_0}\)</span> with <span class="math inline">\(θ_0\in Θ\subset \mathbb{R}\)</span></li>
+<li>Let <span class="math inline">\(Z_1,\dots,Z_n\sim f_{θ_0}\)</span> be iid camples of <span class="math inline">\(Z\)</span></li>
+<li>ML-estimator: <span class="math inline">\(\hat{θ}=\argmin_{θ\in Θ}\frac{1}{n}\sum_{1}^n m(Z_i,θ)\)</span>
+<ul>
+<li><span class="math inline">\(m(z,θ)=-\log(\frac{f_θ}{f_{θ_0}})(z) = -\log f_θ(z)+\log f_{θ_0}(z)\)</span></li>
+<li><span class="math inline">\(\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,σ^2_{ML})\)</span></li>
+</ul></li>
+<li>M-estimator: <span class="math inline">\(\tilde{θ}=\argmin_{θ\in Θ}\frac{1}{n}\sum_{1}^n q(Z_i,θ)\)</span>
+<ul>
+<li><span class="math inline">\(\sqrt{n}(\tilde{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,σ^2_{M})\)</span></li>
+</ul></li>
+<li>suppose:
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(\sqrt{n}(\tilde{θ}-θ_0)=\frac{1}{E_{θ_0}[q^{\prime\prime}(Z_i,θ_0)]}\cdot \frac{1}{n}\sum_{1}^n q&#39;(Z_i,θ)+o_P(1)\)</span><br />
+where <span class="math inline">\(E_{θ_0}[\cdot]\)</span> denotes the expectation wrt <span class="math inline">\(f_{θ_0}\)</span><br />
+</li>
+<li><span class="math inline">\(E_{θ_0}[q&#39;(Z_i,θ)]=\int q&#39;(Z_i,θ)f_{θ_0}(z)\, dz = 0\)</span> …(*)<br />
+since we have <span class="math inline">\(E_{θ_0}[q&#39;(Z_i,θ)]=\frac{\partial}{\partial θ}E_{θ_0}[q&#39;(Z_i,θ)]=\frac{\partial}{\partial θ} Q(θ_0)=0\)</span></li>
+</ol></li>
+<li><span class="math inline">\(\hat{θ}\)</span> is asymptotically optimal/efficient
+<ul>
+<li>Asymptitoc variance <span class="math inline">\(σ^2_{ML}\leq σ^2_{M}\)</span> for any <span class="math inline">\(\tilde{θ}\)</span> that satisfies Thm 3.1. or Cor 3.2.</li>
+</ul></li>
+</ul>
+<p>Differentiating (*) gives the following:
+<span class="math display">\[\begin{aligned}\int q&#39;&#39;(Z_i,θ)f_{θ_0}(z)\, dz + \int q&#39;(Z_i,θ)f_{θ_0}&#39;(z)\, dz&amp;=0\\
+\int q&#39;&#39;(Z_i,θ)f_{θ_0}(z)\, dz &amp;= -\int q&#39;(Z_i,θ)f_{θ_0}&#39;(z)\, dz \\
+&amp;= \int q&#39;(Z_i,θ)m&#39;(z,θ_0)\cdot f_{θ_0}(z) \, dz\end{aligned}\]</span>
+For functions <span class="math inline">\(g_1,g_2\)</span>, let <span class="math inline">\(\langle g_1,g_2\rangle=\int g_1(z)g_2(z)f_{θ_0}(z) \, dz\)</span><br />
+and norm: <span class="math inline">\(\|g_1\| = (\int g_1^2(z)f_{θ_0}(z) \, dz)^{1/2}\)</span><br />
+therefore,
+<span class="math display">\[\underbrace{\int q&#39;&#39;(Z_i,θ)f_{θ_0}(z)\, dz}_{=E_{θ_0}[q&#39;&#39;(Z_i,θ_0)]} = \langle q&#39;(,θ_0),m&#39;(,θ_0)\rangle\]</span>
+using property (i) and CLT gives:
+<span class="math display">\[\begin{aligned}\sqrt{n}(\tilde{θ}-θ_0)&amp;\overset{d}{\to}\mathcal{N}(0,\frac{E_{θ_0}[q&#39;(Z_i,θ_0)^2]}{E_{θ_0}[q&#39;&#39;(Z_i,θ_0)]^2}) \\
+&amp;= \mathcal{N}(0,σ^2_M)  \end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}\sqrt{n}(\hat{θ}-θ_0)&amp;\overset{d}{\to}\mathcal{N}(0,\frac{1}{E_{θ_0}[m&#39;(Z_i,θ_0)]^2}\\
+&amp;=\mathcal{N}(0,\frac{1}{\|m&#39;(Z_i,θ_0)\|^2})\\
+&amp;= \mathcal{N}(0,σ^2_{ML})\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}σ^2_M &amp;= \frac{E_{θ_0}[q&#39;(Z_i,θ_0)^2]}{E_{θ_0}[q&#39;&#39;(Z_i,θ_0)]^2} \\
+&amp;= \frac{\|q&#39;(, θ_0)\|^2}{\langle q&#39;(, θ_0), m&#39;(, θ_0)\rangle ^2} \\
+&amp;= σ^2_{ML}\cdot\frac{\|q&#39;(, θ_0)\|^2\cdot \|m&#39;(, θ_0)\|^2}{\langle q&#39;(, θ_0), m&#39;(, θ_0)\rangle^2} \\
+&amp;= σ^2_{ML}\cdot\frac{1}{\langle\frac{q&#39;(, θ_0)}{\|q&#39;(, θ_0)\|}, \frac{m&#39;(, θ_0)}{\|m&#39;(, θ_0)\|}\rangle^2} \\
+&amp;\geq σ^2_{ML}\end{aligned}\]</span>
+(by Cauthy-Schwarz,)
+<span class="math display">\[\\|q&#39;(, θ_0)\|^2\cdot \|m&#39;(, θ_0)\|^2\geq \langle q&#39;(, θ_0), m&#39;(, θ_0)\rangle^2\]</span></p>
 </div>
 
     </div>

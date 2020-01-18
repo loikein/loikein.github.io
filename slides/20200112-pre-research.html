@@ -18,32 +18,15 @@ class: center, middle, inverse, title-slide
 # Implementing the “Wisdom of the Crowd”
 ## Kremer, Mansour, Perry (2014)
 ### loikein
-### 2020/01/17
+### 2020/01/27
 
 ---
 
-
-## Overview
-
-&lt;!-- MarkdownTOC --&gt;
-
-- [Motivation &amp; Background](#motivation--background)
-- [Example Timeline](#example-timeline)
-- [Model](#model)
-- [Incentive Compatiblity](#incentive-compatiblity)
-- [Mechanisms](#mechanisms)
-- [Main Results](#main-results)
-- [Extensions](#extensions)
-- [Imperfect Infomation](#imperfect-infomation)
-
-&lt;!-- /MarkdownTOC --&gt;
-
----
 
 ## Motivation &amp; Background
 
 - Online reputation systems
-    - Principle (platform) gives recommendation
+    - Principal (platform) gives recommendation
     - Agents (users) give feedback
 
 --
@@ -53,83 +36,137 @@ class: center, middle, inverse, title-slide
     - Waze, Moovit, etc
     - Doctors recommendation platforms
 
---
+???
 
-- Problems with full transparency
-    - Principle relies on agents to explore (gather information)
-    - Agents does not want to explore (freeride on the recommendation)
-    - Things get recommended (restaurants, hotels, etc) may try to abuse the system
+These are my notes.
 
 ---
 
-## Example Timeline
+## The Model
 
-- (Full transparency)
-    1. Each agent asks for recommendation
-    1. The principle decides whether to let them explore or exploit
-    1. But the agent sees all the previous results, and decides not to follow recommendation
-    1. The principle does not obtain the desired information (!)
-
----
-
-## Model
-
-- Set of possible actions: `\(A=\{a_1,a_2\}\)`
-- Unknown reward of `\(a_i\)`: `\(R_i\sim π_i\)`
-    - Expected value: `\(μ_i= E_{R_i\sim π_i}\big[R_i\big]\)`, `\(μ_1\geq μ_2\)`
+- Two possible actions: `\(A=\{a_1,a_2\}\)`
+- Unknown reward: `\(R_i\sim π_i\)`
+    - Expected value: `\(μ_i= E[R_i]\)`
+    - `\(μ_1\geq μ_2\)`
 
 --
 
-- Principle
+- Principal
     - Goal: aggregated social welfare `$$\max \ E\Big[\frac{1}{T}\textstyle{\sum}^T R^t\Big]$$`
-    - Mechanism (message policy): `\(\tilde{M}^t: H^{t-1}\to M^t\)`
+    - Message: `\(\tilde{M}^t: H^{t-1}\to M^t\)`
 
 --
 
-- Agents: `\(t\in T\)`
+- Agents: `\(t\in T\)` (appears sequentially)
     - Goal: expected payoff `$$\max \ E\big[R^t\ |\ M^t\big]$$`
     - Strategy: `\(σ^t: M^t\to A\)`
 
 ---
 
-## Incentive Compatiblity
+## Timeline
 
-- Incentive compatible action: for each `\(a_i\in A\)`, `$$E\big[R_i-R_{-i}\ |\ a^t = a_i\big]\geq 0$$`
+- Full informational transparency:
+    1. Agent `\(t\)` arrives, and asks for recommendation
+    1. The principal send message to recommend, for example, `\(a_2\)`
+        - If `\(R_1&lt;\mu_2\)`, the agent takes action `\(a_2\)`
+        - Otherwise, the agent never takes action `\(a_2\implies\)` the principal never finds out about `\(R_2\)` (!)
 
 --
 
-- Incentive compatible mechanism: recommending `\(a_2\)` is IC if
-`$$\begin{aligned}(IC) &amp;&amp; E\big[R_2-R_1\ |\ a^t=a_2\big]&amp;\geq 0 \\
-&amp;&amp; Pr(a^t=a_2)\times E\big[R_2-R_1\big]&amp;\geq 0 \\
-&amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}$$`
+- Problems
+    - Principal relies on agents to explore
+    - Agents does not want to explore
+
+--
+
+- We want a mechanism such that…
+    1. Agent `\(t\)` arrives, and asks for recommendation
+    1. The principal send message to recommend one action that is __incentive compatible__
+    1. The agent only knows the message, and how the principal forms this message
+    1. The agent follows it
 
 ---
 
-## Mechanisms
+## Threshold Mechanism
 
-- Recommendation mechanism: recommending `\(a^t\in A\)` to each agent `\(t\)` that is IC
-
- 
-
---
-
-- Partition mechanism: for each agent `\(t\geq 2\)`, assigning set `\(I_t\)` that are __disjoint__
-    - Since `\(μ_1&gt;μ_2\)`, agent `\(1\)` will always choose `\(a_1\)`
-    - if `\(I^t=\emptyset\)`, agent `\(t\)` never explores
-    - If `\(r_1\in I^t\)` for some `\(t\leq T\)`, agent `\(t\)` is the first agent to explore `\(a_2\)`
-    - If `\(r_1\not\in I^t\)` for all `\(t\in[2,T]\)`, no agent explores
-
---
-
-- Threshold mechanism: a partition mechanism where `\(I^t\)` are __ordered intervals__
+- For agent `\(t=1\)`, send message `\(M_1\)`
+    - `\(R_1\)` is realised
+- For each agent `\(t\geq 2\)`, assigning __ordered intervals__ `\(I^t\)`
     - For agent `\(t=2\)`, `\(I^2 = (-\infty,i^2]\)`
     - For agnet `\(t\geq 3\)`, `\(I^t=(i^{t-1}, i^t]\)`
     - If `\(i^{t-1}=i^t\)`, then `\(I^t=\emptyset\)`
 
 --
 
+- If `\(R_1\in I^t\)` for some `\(t\leq T\)`, agent `\(t\)` is the first agent sent message `\(M_2\)`
+    - `\(R_2\)` is realised
+    - For all agents `\(t'&gt;t\)`, send message for whichever action with higher reward
+- If `\(R_1\not\in I^t\)` for any `\(t\in[2,T]\)`, no agent is sent message `\(M_2\)`
+
+--
+
 &gt; *Lemma 6*  
 &gt; The optimal recommendation mechanism is a threshold mechanism
+
+---
+
+## Example
+
+- For agent 1:
+    - Since `\(\mu_1&gt;\mu_2\)`, always send `\(M_1\implies R_1\)` is realised
+
+| Message to agent 1 | `\(M_1\)`          |
+| ------------------ | -------------- |
+| Agent 1's action   | `\(a_1\)`          |
+| Agent 1's finding  | `\(R_1&lt;&gt;\mu_{2}\)` |
+
+---
+
+## Example (cont.)
+
+- For agent 2:
+    - If `\(R_1&gt;\mu_2\)`, send `\(M_1\implies R_2\)` is unknown
+    - Otherwise, send `\(M_2\implies R_2\)` is realised
+
+| Agent 1's action  | `\(a_1\)`            | `\(a_1\)`            |
+| ----------------- | ---------------- | ---------------- |
+| New finding       | `\(R_1&gt;\mu_{2}\)`    | `\(R_1\leq\mu_{2}\)` |
+| Message to agent 2 | `\(M_1\)`           | `\(M_2\)`            |
+| Agent 2's action  | `\(a_1\)`            | `\(a_2\)`            |
+| Agent 2's finding | Nothing          | `\(R_1 &lt;&gt; R_2\)`     |
+
+---
+
+## Example (cont.)
+
+- For agent 3:
+
+| Agent 1's action   | `\(a_1\)`          | `\(a_1\)`            | `\(a_1\)`            |
+| ------------------ | -------------- | ---------------- | ---------------- |
+| New finding        | `\(R_1&gt;\mu_{2}\)`  | `\(R_1\leq\mu_{2}\)` | `\(R_1\leq\mu_{2}\)` |
+| Agent 2's action   | `\(a_1\)`          | `\(a_2\)`            | `\(a_2\)`            |
+| New finding        | Nothing        | `\(R_1 &gt; R_2\)`      | `\(R_1 \leq R_2\)`   |
+| Message to agent 3 | …              | `\(M_1\)`            | `\(M_2\)`            |
+
+--
+
+&lt;svg width="100%" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg" style="display: block;"&gt;
+  &lt;line y2="100%" x2="10%" y1="0%" x1="40.5%" stroke-width="1.5" stroke="#666" fill="none"/&gt;
+  &lt;line y2="100%" x2="90%" y1="0%" x1="56.5%" stroke-width="1.5" stroke="#666" fill="none"/&gt;
+&lt;/svg&gt;
+
+| For some `\(x\)`       | `\(R_1&gt;\mu_2+x\)` | `\(R_1\leq\mu_2+x\)` |
+| ------------------ | ------------- | ---------------- |
+| Message to agent 3 | `\(M_1\)`         | `\(M_2\)`            |
+
+---
+
+## Incentive Compatiblity
+
+- Incentive compatible mechanism: recommending `\(a_2\)` is IC if
+`$$\begin{aligned}&amp;&amp; E\big[R_2-R_1\ |\ a^t=a_2\big]&amp;\geq 0 \\
+&amp;&amp; \frac{\int_{a^t=a_2} (R_2-R_1)\, dπ}{Pr(a^t=a_2)} &amp;\geq 0 \\
+(IC) &amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}$$`
 
 ---
 
@@ -180,7 +217,7 @@ class: center, middle, inverse, title-slide
 
 - `\(\to\)` Imperfect infomation about location
 - Stochastic case
-- Principle can make monetory transfers to incentivise agents to explore
+- Principal can make monetory transfers to incentivise agents to explore
 - More than two alternatives
 
 ---
