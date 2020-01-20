@@ -39,6 +39,12 @@ h2{
   text-transform: capitalize;
 }
 
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
+
 /* whatever bug this is */
 
 div.remark-slide-container:nth-child(10) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2) > p:nth-child(1) {

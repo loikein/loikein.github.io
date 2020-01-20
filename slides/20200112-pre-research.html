@@ -38,7 +38,7 @@ class: center, middle, inverse, title-slide
 
 ???
 
-These are my notes.
+Here go the presenter notes.
 
 ---
 
@@ -52,12 +52,13 @@ These are my notes.
 --
 
 - Principal
-    - Goal: aggregated social welfare `$$\max \ E\Big[\frac{1}{T}\textstyle{\sum}^T R^t\Big]$$`
+    - Goal: average total payoff `$$\max \ E\Big[\frac{1}{T}\textstyle{\sum}^T R^t\Big]$$`
     - Message: `\(\tilde{M}^t: H^{t-1}\to M^t\)`
 
 --
 
-- Agents: `\(t\in T\)` (appears sequentially)
+- Agents: `\(t\in T\)` 
+    - Appears sequentially
     - Goal: expected payoff `$$\max \ E\big[R^t\ |\ M^t\big]$$`
     - Strategy: `\(σ^t: M^t\to A\)`
 
@@ -67,15 +68,17 @@ These are my notes.
 
 - Full informational transparency:
     1. Agent `\(t\)` arrives, and asks for recommendation
-    1. The principal send message to recommend, for example, `\(a_2\)`
+    1. The principal send message to recommend one action, for example, `\(a_2\)`
         - If `\(R_1&lt;\mu_2\)`, the agent takes action `\(a_2\)`
-        - Otherwise, the agent never takes action `\(a_2\implies\)` the principal never finds out about `\(R_2\)` (!)
+        - Otherwise, the agent never takes action `\(a_2\)`  
+        `\(\implies\)` the principal never finds out about `\(R_2\)` (!)
 
 --
 
 - Problems
     - Principal relies on agents to explore
-    - Agents does not want to explore
+    - Agents does not want to explore the action with worse expectation
+    - By assumption, `\(Pr(R_2&gt;R_1)\neq 0\)`
 
 --
 
@@ -83,7 +86,7 @@ These are my notes.
     1. Agent `\(t\)` arrives, and asks for recommendation
     1. The principal send message to recommend one action that is __incentive compatible__
     1. The agent only knows the message, and how the principal forms this message
-    1. The agent follows it
+    1. The agent always follows it
 
 ---
 
@@ -98,9 +101,9 @@ These are my notes.
 
 --
 
-- If `\(R_1\in I^t\)` for some `\(t\leq T\)`, agent `\(t\)` is the first agent sent message `\(M_2\)`
+- If `\(R_1\in I^τ\)` for some `\(τ\leq T\)`, agent `\(τ\)` is the first agent sent message `\(M_2\)`
     - `\(R_2\)` is realised
-    - For all agents `\(t'&gt;t\)`, send message for whichever action with higher reward
+    - For all agents `\(τ'&gt;τ\)`, send message for whichever action with higher reward
 - If `\(R_1\not\in I^t\)` for any `\(t\in[2,T]\)`, no agent is sent message `\(M_2\)`
 
 --
@@ -114,11 +117,12 @@ These are my notes.
 
 - For agent 1:
     - Since `\(\mu_1&gt;\mu_2\)`, always send `\(M_1\implies R_1\)` is realised
+    - We can show that this message is incentive compatible (on board)
 
 | Message to agent 1 | `\(M_1\)`          |
 | ------------------ | -------------- |
 | Agent 1's action   | `\(a_1\)`          |
-| Agent 1's finding  | `\(R_1&lt;&gt;\mu_{2}\)` |
+| New finding        | `\(R_1\begin{cases}&gt;\mu_{2}\\\leq\mu_{2}\end{cases}\)` |
 
 ---
 
@@ -130,22 +134,24 @@ These are my notes.
 
 | Agent 1's action  | `\(a_1\)`            | `\(a_1\)`            |
 | ----------------- | ---------------- | ---------------- |
-| New finding       | `\(R_1&gt;\mu_{2}\)`    | `\(R_1\leq\mu_{2}\)` |
+| Agent 1's finding | `\(R_1&gt;\mu_{2}\)`    | `\(R_1\leq\mu_{2}\)` |
 | Message to agent 2 | `\(M_1\)`           | `\(M_2\)`            |
 | Agent 2's action  | `\(a_1\)`            | `\(a_2\)`            |
-| Agent 2's finding | Nothing          | `\(R_1 &lt;&gt; R_2\)`     |
+| New finding       | Nothing          | `\(R_2\begin{cases}&lt;R_1\\\geq R_1\end{cases}\)` |
 
 ---
 
 ## Example (cont.)
 
 - For agent 3:
+    - If `\(R_2\)` is realised, send whichever recommendation with higher payoff
+    - Otherwise…
 
 | Agent 1's action   | `\(a_1\)`          | `\(a_1\)`            | `\(a_1\)`            |
 | ------------------ | -------------- | ---------------- | ---------------- |
-| New finding        | `\(R_1&gt;\mu_{2}\)`  | `\(R_1\leq\mu_{2}\)` | `\(R_1\leq\mu_{2}\)` |
+| Agent 1's finding  | `\(R_1&gt;\mu_{2}\)`  | `\(R_1\leq\mu_{2}\)` | `\(R_1\leq\mu_{2}\)` |
 | Agent 2's action   | `\(a_1\)`          | `\(a_2\)`            | `\(a_2\)`            |
-| New finding        | Nothing        | `\(R_1 &gt; R_2\)`      | `\(R_1 \leq R_2\)`   |
+| Agent 2's finding  | Nothing        | `\(R_1 &gt; R_2\)`      | `\(R_1 \leq R_2\)`   |
 | Message to agent 3 | …              | `\(M_1\)`            | `\(M_2\)`            |
 
 --
@@ -161,63 +167,63 @@ These are my notes.
 
 ---
 
-## Incentive Compatiblity
+## Example: Incentive Compatiblity
 
-- Incentive compatible mechanism: recommending `\(a_2\)` is IC if
-`$$\begin{aligned}&amp;&amp; E\big[R_2-R_1\ |\ a^t=a_2\big]&amp;\geq 0 \\
-&amp;&amp; \frac{\int_{a^t=a_2} (R_2-R_1)\, dπ}{Pr(a^t=a_2)} &amp;\geq 0 \\
-(IC) &amp;&amp; \int_{a^t=a_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}$$`
-
----
-
-## Main Results
-
-- Infinite `\(T\)`: increasing sequence of thresholds `\(\{i^{t,\infty}\}\)`  
-    - For agent `\(t=2\)`, `\(I^2 = (-\infty,i^{2,\ \infty}]\)`,  
-    `\(i^{2,\ \infty}\)` is characterised by:
-`$$\begin{aligned}\underbrace{\int_{R_1=-\infty}^{i^{2,\ \infty}}(R_1 - μ_2)\, dπ}_{\begin{subarray}{l}\text{Expected loss if recommended}\\
-\text{to explore }a_2\end{subarray}} = 0\end{aligned}$$`
-    - For agents `\(t&gt;3\)`, `\(I^t=(i^{t-1,\ \infty}, i^{t,\ \infty}]\)`, if `\(i^{t,\ \infty}&lt;\infty\)` and `\(i^{t+1,\ \infty}&lt;\infty\)`,  
-    `\(i^{t+1,\ \infty}\)` is characterised by:
-`$$\begin{aligned} \underbrace{\int_{R_1\leq i^t,\ R_2&gt;R_1}(R_2-R_1)\, dπ}_{\begin{subarray}{l}\text{Expected gain if recommended}\\
-\text{to exploit }a_2\end{subarray}}
-= \underbrace{\int_{R_1=i^{t,\ -\infty}}^{i^{t+1,\ \infty}}(R_1 - μ_2)\, dπ}_{\begin{subarray}{l}\text{Expected loss if recommended}\\
-\text{to explore }a_2 \end{subarray}}\end{aligned}$$`
-
----
-
-## Main Results (cont.)
-
-- Finite `\(T\)`
-    - Expected gain in exploration:
-    `$$(T-t)\cdot\max \{R_2-r_1, 0\}$$`
-    - For agent `\(t\)`, `\(θ_t\)` is the maximum value of `\(r_1\)` where exploration is optimal
-    `$$(T-t)\cdot E\big[\max \{R_2 - θ_t, 0\}\big] =θ_t -μ_2$$`
+- `\(M_2\)` is incentive compatible if
+`$$\begin{aligned}E\big[R_2-R_1\ |\ M_2\big]&amp;\geq 0 \\
+\int_{M_2} (R_2-R_1)\, dπ &amp;\geq 0\end{aligned}$$`
 
 --
 
-&gt; *Theorem 1 (Finite `\(T\)`)*  
-&gt; The optimal mechanism is defined by a sequence of thresholds
-&gt; `$$i^{t,T} = \min\{i^{t,\infty}, θ_τ\}$$`
-&gt; where `\(τ\)` is the minimal index where `\(i^{t,\infty}&gt;θ_t\)`
+- When receiving `\(M_1\)`, agent 3's incentive compatiblity constraint:
+`$$\int_{R_2&lt;R_1\leq\mu_{2}}(R_1 - R_2)\, dπ + \int_{R_1&gt;\mu_2+x}(R_1-\mu_2)\, dπ\geq 0$$`
+- When receiving `\(M_2\)`:
+`$$\int_{R_1\leq\mu_{2},\ R_1 \leq R_2}(R_2-R_1)\, dπ + \int_{R_1\leq\mu_2+x}(\mu_2-R_1)\, dπ\geq 0$$`
+
+--
+
+&gt; *Lemma 3*  
+&gt; If `\(M_2\)` is incentive compatible, then `\(M_1\)` is also incentive compatible.
 
 ---
 
-## Main Results (cont.)
+## Main Results (Infinite `\(T\)`)
 
-&gt; *Theorem 2 (Arbitrary `\(T\)`)*  
-&gt; Exploration is limited to a bounded number of agents `\(t^* = \min\{t\ |\ i^t = \infty\}\)`:
-&gt; `$$t^*\leq\frac{μ_1 - μ_2}{α}$$`
-&gt; where
-&gt; `$$\begin{aligned}α &amp;= \int_{R_1\leq i^2,\ R_2&gt;R_1} (R_2-R_1)\, dπ \\&amp;\geq Pr(R_2\geq μ_2)\cdot Pr(R_1&lt;μ_2)\cdot\\&amp;\phantom{\ggg}\big( E\big[R_2\ |\ R_2\geq μ_2\big] - E\big[R_1\ |\ R_1&lt;μ_2\big]\big)\end{aligned}$$`
+- Increasing sequence of thresholds `\(\{i^{t,\infty}\}\)`  
+- For agent `\(t=2\)`, `\(I^2 = (-\infty,i^{2,\ \infty}]\)`,  
+`\(i^{2,\ \infty}\)` is characterised by:
+`$$\begin{aligned}\underbrace{\int_{R_1\in I^2}(μ_2 - R_1)\, dπ}_{\begin{subarray}{l}\text{Expected loss if }M_2\\
+\text{means to explore}\end{subarray}} = 0\end{aligned}$$`
+- For agents `\(t\geq 3\)`, `\(I^t=(i^{t-1,\ \infty}, i^{t,\ \infty}]\)`, if `\(i^{t,\ \infty}&lt;\infty\)` and `\(i^{t+1,\ \infty}&lt;\infty\)`,  
+`\(i^{t+1,\ \infty}\)` is characterised by:
+`$$\begin{aligned} \underbrace{\int_{R_1\leq i^t,\ R_1&lt;R_2}(R_2-R_1)\, dπ}_{\begin{subarray}{l}\text{Expected gain if }M_2\\
+\text{means to exploit}\end{subarray}}
++\underbrace{\int_{R_1\in I^t}(μ_2 - R_1)\, dπ}_{\begin{subarray}{l}\text{Expected loss if }M_2\\
+\text{means to explore}\end{subarray}}=0\end{aligned}$$`
+
+---
+
+## Main Results (Finite `\(T\)`)
+
+- If agent `\(t\)` explores, gain for all agents afterwards is:
+`$$(T-t)E\big[\max\{R_2-R_1,\  0\}\big]$$`
+Let `\(\theta_t\)` be the maximum value of `\(R_1\)` where
+`$$\underbrace{(T-t)E\big[\max\{R_2-\theta_t,\  0\}\big]}_{\text{Expected gain if explore}} \geq \underbrace{\theta_t - \mu_2}_{\text{Expected gain if never explore}}$$`
+
+--
+
+&gt; *Theorem 1*  
+&gt; Optimal mechanism `\(M^{opt}\)` is defined by a sequence of thresholds
+&gt; `$$i^{t,T} = \min\{i^{t,\ \infty}, θ_τ\}$$`
+&gt; where `\(τ\)` is the minimal index where `\(i^{t,\infty}&gt;θ_t\)`
 
 ---
 
 ## Extensions
 
 - `\(\to\)` Imperfect infomation about location
-- Stochastic case
-- Principal can make monetory transfers to incentivise agents to explore
+- Stochastic reward
+- Principal can make monetary transfers to incentivise exploration
 - More than two alternatives
 
 ---
@@ -234,28 +240,41 @@ These are my notes.
     - Agents `\(t\geq 2\)` only know the group `\(j\)` which they belongs to
     - When `\(k=T\)`, this case degenerate into the original case
 
- 
+---
 
-- Threshold mechanism: ordered intervals `\(I^t\)`
+## Threshold Mechanism (Imperfect Info)
+
+- For agent `\(t=1\)`, send message `\(M_1\)`
+- For all agents `\(t\geq 2\)`, assign `\(I^t = (i^{t-1}, i^t]\)`
 
 --
+
+- When receiving `\(M_2\)`, agent `\(t\in[τ^j, τ^{j+1})\)`'s incentive compatibility constraint:
+`$$\frac{1}{τ^{j+1} - τ^j}\sum_{t=τ^j}^{τ^{j+1}-1}\Big(\underbrace{\int_{R_1\leq i^{t-1},\ R_1&lt;R_2}(R_2-R_1)\, dπ}_{\text{Expected gain from exploitation}}+
+\underbrace{\int_{R_1\in I^t}(μ_2 - R_1)\, dπ}_{\text{Expected loss from exploration}} \Big)\geq 0$$`
+
+--
+
+- We can do better by shrinking lowering `\(i^t\)` for all agents…
+    - Unchanged expected gain, lower expected loss
+    - …except for the first agents in each group `\(t=τ^j\)`, otherwise the next group will be affected
+
+---
+
+## Main Results (Imperfect Info)
 
 &gt; *Lemma 7*  
 &gt; For every group `\(j\)`:  
 &gt; The first agent `\(τ^j\)` has threshold `\(I^{τ^j}=(i^{τ^{j-1}}, i^{τ^j}]\)`.  
 &gt; All the rest agents `\(t\in(τ^j, τ^{j+1})\)` has thresholds `\(I^t=\emptyset\)`.
 
----
+　
 
-## Imperfect Infomation (cont.)
-
-&gt; *Theorem 3 (Imperfect Infomation)*  
+&gt; *Theorem 3*  
 &gt; The optimal mechanism is defined by a sequence of thresholds `\(\{θ_i\}\)`  
 &gt; The only agent who explores is the first agent in group `\(j\)` where `\(r_1\in(θ_{j-1}, θ_j]\)`.
 
 　
-
---
 
 &gt; *Theorem 4*  
 &gt; As the information that agents have about their location becomes coarser, the policy that the planner can implement generates less welfare loss.
