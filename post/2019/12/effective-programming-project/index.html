@@ -64,7 +64,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">3 min read</span>
     
     <h1 class="article-title">Effective Programming Practice: Final Project</h1>
     
@@ -101,7 +101,8 @@ if (!doNotTrack) {
 <li><a href="#notes-on-minimal-distance-estimation">Notes on Minimal Distance Estimation</a></li>
 <li><a href="#notes-on-ags-2017">Notes on AGS (2017)</a>
 <ul>
-<li><a href="#minimal-distance">Minimal Distance</a></li>
+<li><a href="#example-ols">Example: OLS</a></li>
+<li><a href="#generalisation-minimal-distance-mde">Generalisation: Minimal Distance (MDE)</a></li>
 <li><a href="#instrumental-variable">Instrumental Variable</a></li>
 </ul></li>
 </ul>
@@ -172,14 +173,14 @@ if (!doNotTrack) {
 <div id="notes-on-ags-2017" class="section level2">
 <h2>Notes on AGS (2017)</h2>
 <ul>
-<li>Estimatior: <span class="math display">\[\hat{θ} = \text{argmin}_{θ\in Θ} \ \hat{g}(θ)&#39;\hat{W}\hat{g}(θ)\]</span>
+<li>Estimatior: <span class="math display">\[\hat{θ} = \text{argmin}_{θ\in Θ} \ Q(\hat{W})=\hat{g}(θ)&#39;\hat{W}\hat{g}(θ)\]</span>
 <ul>
-<li>Object: <span class="math inline">\(\hat{g}(θ)\overset{P}{\to}g(θ)\)</span>, <span class="math inline">\(\sqrt{n}\hat{g}(θ)\overset{d}{\to} \mathcal{N}(0,Ω)\)</span><br />
-Jacobian: <span class="math inline">\(\hat{G}(θ)\overset{P}{\to}G(θ)\)</span></li>
-<li><span class="math inline">\(\hat{W}\overset{P}{\to} W\)</span></li>
+<li>Vector of moments: <span class="math inline">\(\hat{g}(θ)\overset{P}{\to}g(θ)\)</span>, <span class="math inline">\(\sqrt{n}\hat{g}(θ)\overset{d}{\to} \mathcal{N}(0,Ω)\)</span><br />
+Jacobian of <span class="math inline">\(g(θ)\)</span> at <span class="math inline">\(θ_0\)</span>: <span class="math inline">\(\hat{G}(θ)\overset{P}{\to}G(θ)\)</span></li>
+<li>Weight: <span class="math inline">\(\hat{W}\overset{P}{\to} W\)</span></li>
 <li><span class="math inline">\(G&#39;WG\)</span> is non-singular</li>
 </ul></li>
-<li>Sentitivity of <span class="math inline">\(\hat{θ}\)</span> to <span class="math inline">\(\hat{g}(\hat{θ})\)</span>: <span class="math display">\[Λ = -(G&#39;WG)^{-1}G&#39;W\]</span></li>
+<li>Sentitivity of <span class="math inline">\(\hat{θ}\)</span> to <span class="math inline">\(\hat{g}(\hat{θ})\)</span>: <span class="math display">\[Λ = -(\underbrace{G&#39;WG}_{S})^{-1}G&#39;W\]</span></li>
 <li>Sample sensitivity: <span class="math display">\[\hat{Λ}_S = -\big(\hat{G}(\hat{θ})&#39;\hat{W}\hat{G}(\hat{θ}) + \hat{A}\big)^{-1}\hat{G}(\hat{θ})&#39;\hat{W}\]</span>
 where <span class="math display">\[\hat{A} = \begin{pmatrix}\big(\frac{\partial}{\partial θ_1}\hat{G}(\hat{θ})&#39;\big)\hat{W}\hat{g}(\hat{θ}) &amp; \cdots &amp; \big(\frac{\partial}{\partial θ_P}\hat{G}(\hat{θ})&#39;\big)\hat{W}\hat{g}(\hat{θ})\end{pmatrix}\]</span></li>
 <li>Estimated sensitivity: <span class="math display">\[\hat{Λ} = -\big(\hat{G}(\hat{θ})&#39;\hat{W}\hat{G}(\hat{θ})\big)^{-1}\hat{G}(\hat{θ})&#39;\hat{W}\]</span></li>
@@ -202,8 +203,21 @@ Decompose <span class="math inline">\(θ = (θ_1, θ_2)\)</span>, fixing <span c
 <span class="math display">\[Λ_1 = -(G_1&#39;WG_1)^{-1}G_1&#39;W\]</span>
 where <span class="math inline">\(G_1 = \frac{\partial}{\partial θ_1}g(θ_{1(o)}, θ_{2(o)})\)</span> (<span class="math inline">\(o\)</span> indicates true value)</p>
 </blockquote>
-<div id="minimal-distance" class="section level3">
-<h3>Minimal Distance</h3>
+<div id="example-ols" class="section level3">
+<h3>Example: OLS</h3>
+<ul>
+<li>Data: <span class="math inline">\(D_i= (Y_i,\ X_i)\)</span></li>
+<li>Model: <span class="math inline">\(Y_i=X_i&#39;θ_0+ε_i\)</span></li>
+<li>GMM condition: <span class="math display">\[\hat{g}(θ)=\frac{1}{n}\sum_iX_i(Y_i-X_i&#39;θ )\]</span></li>
+<li><span class="math inline">\(W=I\)</span></li>
+<li>Jacobian: <span class="math inline">\(G=-E[X_iX_i&#39;]=-Ω_{XX}\)</span>
+<ul>
+<li>Sensitivity: <span class="math inline">\(Λ=Ω_{XX}^{-1}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="generalisation-minimal-distance-mde" class="section level3">
+<h3>Generalisation: Minimal Distance (MDE)</h3>
 <ul>
 <li>Classical minimal distance estimator: <span class="math inline">\(\hat{θ}\)</span>
 <ul>
