@@ -1580,7 +1580,7 @@ Q(θ) &amp;= E[\big(Y-g(X,θ)\big)^2] \\
 &amp;= Q(θ_0) \end{aligned}\]</span></p>
 <blockquote>
 <p>Example: Maximum likelihood<br />
-Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by <span class="math inline">\(Q_n(θ) = \prop^n f_Z(Z_i, θ)\)</span><br />
+Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by <span class="math inline">\(Q_n(θ) = \prob^n f_Z(Z_i, θ)\)</span><br />
 The ML-estimator of <span class="math inline">\(θ_0\)</span> is
 <span class="math display">\[\begin{aligned}\hat{θ}&amp;=\text{argmax}_{θ\in Θ} Q_n(θ)\\
 &amp;=\text{argmax}_{θ\in Θ}\log Q_n(θ)\\
@@ -1859,7 +1859,7 @@ if <span class="math inline">\(Q_n(θ)=\frac{1}{n}\sum^n q(Z_i,θ)\)</span>, ass
 <ol style="list-style-type: lower-roman">
 <li><span class="math inline">\(θ_0\in \text{int}(Θ)\)</span></li>
 <li><span class="math inline">\(θ\mapsto q(z,θ)\)</span> is twice continuously differentiable in an open neighbourhood <span class="math inline">\(\mathcal{N}\)</span> of <span class="math inline">\(θ_0\)</span> for all <span class="math inline">\(Z\)</span></li>
-<li><span class="math inline">\(E[\big \partial_θ q(Z,θ_0)\big]=0\)</span>, and <span class="math inline">\(Ω_0=E\Big[\partial_θ q(Z,θ_0)\cdot \big(\partial_θ q(Z,θ_0)\big)^T\Big]&lt;\infty\)</span></li>
+<li><span class="math inline">\(E\big[ \partial_θ q(Z,θ_0)\big]=0\)</span>, and <span class="math inline">\(Ω_0=E\Big[\partial_θ q(Z,θ_0)\cdot \big(\partial_θ q(Z,θ_0)\big)^T\Big]&lt;\infty\)</span></li>
 <li><span class="math inline">\(\|\partial_{θθ}q(z,θ)\|\leq b(z)\)</span> for all <span class="math inline">\(θ\in\bar{\mathcal{N}}\)</span> (enclosure),<br />
 where <span class="math inline">\(E\big[b(Z)\big]&lt;\infty\)</span> and <span class="math inline">\(H_0=E[\partial^{\prime}_{θθ} q(Z,θ_0)]\)</span> is non-singular (intertible)</li>
 </ol>
@@ -1936,7 +1936,7 @@ Then:</p>
 <ol style="list-style-type: lower-roman">
 <li><span class="math inline">\(\hat{H}_0\overset{P}{\to}H_0\)</span>, <span class="math inline">\(\hat{Ω}_0\overset{P}{\to}Ω_0\)</span></li>
 <li><span class="math inline">\(\hat{V}\overset{P}{\to}V\)</span></li>
-<li><span class="math inline">\(\sqrt{n}\hat{V}^{-1/2}(\hat{θ}-θ_0)\overset{d}{\to}\hat{V}^{-1/2}\mathcal{N}(0,V)\hat{V}^{-1/2}^T = \mathcal{N}(0,I)\)</span></li>
+<li><span class="math inline">\(\sqrt{n}\hat{V}^{-1/2}(\hat{θ}-θ_0)\)</span> <span class="math inline">\(\overset{d}{\to}\hat{V}^{-1/2}\mathcal{N}(0,V)\big(\hat{V}^{-1/2}\big)^T=\mathcal{N}(0,I)\)</span></li>
 </ol>
 </blockquote>
 <p>Proof:<br />
@@ -1970,12 +1970,12 @@ where <span class="math inline">\(E[a^2(Z)]&lt;\infty\)</span></p>
 <ul>
 <li>Let <span class="math inline">\(Z\sim f_{θ_0}\)</span> with <span class="math inline">\(θ_0\in Θ\subset \mathbb{R}\)</span></li>
 <li>Let <span class="math inline">\(Z_1,\dots,Z_n\sim f_{θ_0}\)</span> be iid camples of <span class="math inline">\(Z\)</span></li>
-<li>ML-estimator: <span class="math inline">\(\hat{θ}=\argmin_{θ\in Θ}\frac{1}{n}\sum_{1}^n m(Z_i,θ)\)</span>
+<li>ML-estimator: <span class="math inline">\(\hat{θ}=\text{argmin}_{θ\in Θ}\frac{1}{n}\sum_{1}^n m(Z_i,θ)\)</span>
 <ul>
 <li><span class="math inline">\(m(z,θ)=-\log(\frac{f_θ}{f_{θ_0}})(z) = -\log f_θ(z)+\log f_{θ_0}(z)\)</span></li>
 <li><span class="math inline">\(\sqrt{n}(\hat{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,σ^2_{ML})\)</span></li>
 </ul></li>
-<li>M-estimator: <span class="math inline">\(\tilde{θ}=\argmin_{θ\in Θ}\frac{1}{n}\sum_{1}^n q(Z_i,θ)\)</span>
+<li>M-estimator: <span class="math inline">\(\tilde{θ}=\text{argmin}_{θ\in Θ}\frac{1}{n}\sum_{1}^n q(Z_i,θ)\)</span>
 <ul>
 <li><span class="math inline">\(\sqrt{n}(\tilde{θ}-θ_0)\overset{d}{\to}\mathcal{N}(0,σ^2_{M})\)</span></li>
 </ul></li>
@@ -2101,10 +2101,10 @@ and
 <span class="math display">\[\begin{aligned}\sqrt{n}S_n(\tilde{θ})= \sqrt{n}S_n(θ_0)+ \mathcal{H}_n(θ_0,\tilde{θ})\sqrt{n}(\tilde{θ}-θ_0)\end{aligned}\]</span>
 Plug into FOC:
 <span class="math display">\[\begin{aligned}\begin{pmatrix}\sqrt{n}S_n(θ_0)+ \mathcal{H}_n(θ_0,\tilde{θ})\sqrt{n}(\tilde{θ}-θ_0)\\\sqrt{n}\dot{A}(\bar{θ})(\tilde{θ}-θ_0)\end{pmatrix}&amp;=\begin{pmatrix}0\\0\end{pmatrix}\\
-\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{aligned}&amp;=-\begin{pmatrix}\mathcal{H}_n(θ_0,\tilde{θ}) &amp; \dot{A}(\tilde{θ})^T\\\dot{A}(\bar{θ}) &amp;0\end{pmatrix}\sqrt{n}\begin{pmatrix}\tilde{θ}-θ_0\\\tilde{λ}\end{pmatrix}\\
+\begin{pmatrix}\sqrt{n}S_n(θ_0)\\0\end{pmatrix}&amp;=-\begin{pmatrix}\mathcal{H}_n(θ_0,\tilde{θ}) &amp; \dot{A}(\tilde{θ})^T\\\dot{A}(\bar{θ})&amp; 0\end{pmatrix}\sqrt{n}\begin{pmatrix}\tilde{θ}-θ_0\\\tilde{λ}\end{pmatrix}\\
 \sqrt{n}\begin{pmatrix}\tilde{θ}-θ_0\\\tilde{λ}\end{pmatrix} &amp;= -\begin{pmatrix}\mathcal{H}_n(θ_0,\tilde{θ}) &amp; \dot{A}(\tilde{θ})^T\\\dot{A}(\bar{θ}) &amp;0\end{pmatrix}^{-1}\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{pmatrix}\\
-&amp;= -\begin{pmatrix}H_0 &amp; \dot{A}_0^T\\\dot{A}_0 &amp;0\end{pmatrix}^{-1}\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{pmatrix} +o_P(1)\\
-&amp;= -\begin{pmatrix}H^{-1/2}_0M_0H^{-1/2}_0\\(\dot{A}_0H_0^{-1}\dot{A}_0^T)^{-1}\dot{A}_0H_0^{-1}\end{pmatrix}\underbrace{\sqrt{n}S_n(θ_0)}_{\overset{d}{\to}\mathcal{N}(0,Ω_0)} + o_P(1)\end{aligned}\]</span>
+&amp;=-\begin{pmatrix}H_0 &amp; \dot{A}_0^T\\\dot{A}_0 &amp;0\end{pmatrix}^{-1}\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{pmatrix}+o_P(1)\\
+&amp;=-\begin{pmatrix}H^{-1/2}_0M_0H^{-1/2}_0\\(\dot{A}_0H_0^{-1}\dot{A}_0^T)^{-1}\dot{A}_0H_0^{-1}\end{pmatrix}\underbrace{\sqrt{n}S_n(θ_0)}_{\overset{d}{\to}\mathcal{N}(0,Ω_0)} + o_P(1)\end{aligned}\]</span>
 Hence, we have
 <span class="math display">\[\sqrt{n}(\tilde{θ}-θ_0)\overset{d}{\to}\text{something}\]</span></p>
 <p>From the proof of Thm 5.2., we know that
@@ -2113,7 +2113,7 @@ Hence, we have
 &amp;= \dot{A}_0^T(\dot{A}_0H_0^{-1}\dot{A}_0^T)^{-1}\dot{A}_0H_0^{-1} \sqrt{n}S_n(θ_0)  + o_P(1)\end{aligned}\]</span>
 Hence, we have
 <span class="math display">\[\sqrt{n}S_n(\tilde{θ})\overset{d}{\to}\mathcal{N}(0,V_{LM})\]</span></p>
-<p>It holdes that <span class="math inline">\(\rank(V_{LM})=m\leq k\)</span><br />
+<p>It holdes that <span class="math inline">\(\text{rank}(V_{LM})=m\leq k\)</span><br />
 Let <span class="math inline">\(V_{LM}^{-}\)</span> be any symmetric matrix with <span class="math inline">\(V_{LM}V_{LM}^{-}V_{LM}=V_{LM}\)</span>, then (effectively take square of both sides)
 <span class="math display">\[n S_n(\tilde{θ})^T V_{LM}^{-} S_n(\tilde{θ})\overset{d}{\to}Χ^2(m)\]</span></p>
 </div>
