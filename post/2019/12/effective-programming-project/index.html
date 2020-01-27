@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.62.2" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 <title>Effective Programming Practice: Final Project - loikein&#39;s notes</title>
 <meta property="og:title" content="Effective Programming Practice: Final Project - loikein&#39;s notes">
@@ -101,10 +101,15 @@ if (!doNotTrack) {
 <li><a href="#notes-on-minimal-distance-estimation">Notes on Minimal Distance Estimation</a></li>
 <li><a href="#notes-on-ags-2017">Notes on AGS (2017)</a>
 <ul>
+<li><a href="#multivation">Multivation</a></li>
+<li><a href="#model">Model</a></li>
+<li><a href="#sample-sensitivity">Sample Sensitivity</a></li>
+<li><a href="#estimation">Estimation</a></li>
 <li><a href="#example-ols">Example: OLS</a></li>
-<li><a href="#generalisation-minimal-distance-mde">Generalisation: Minimal Distance (MDE)</a></li>
+<li><a href="#generalisation-classical-minimal-distance-cmd">Generalisation: Classical Minimal Distance (CMD)</a></li>
 <li><a href="#instrumental-variable">Instrumental Variable</a></li>
 </ul></li>
+<li><a href="#application-on-gourinchas-parker-2002">Application on <span>Gourinchas &amp; Parker (2002)</span></a></li>
 </ul>
 </div>
 
@@ -172,22 +177,95 @@ if (!doNotTrack) {
 </div>
 <div id="notes-on-ags-2017" class="section level2">
 <h2>Notes on AGS (2017)</h2>
+<div id="multivation" class="section level3">
+<h3>Multivation</h3>
 <ul>
-<li>Estimatior: <span class="math display">\[\hat{θ} = \text{argmin}_{θ\in Θ} \ Q(\hat{W})=\hat{g}(θ)&#39;\hat{W}\hat{g}(θ)\]</span>
+<li>Researcher gives estimator <span class="math inline">\(\hat{θ}\)</span> of <span class="math inline">\(θ\)</span>
 <ul>
-<li>Vector of moments: <span class="math inline">\(\hat{g}(θ)\overset{P}{\to}g(θ)\)</span>, <span class="math inline">\(\sqrt{n}\hat{g}(θ)\overset{d}{\to} \mathcal{N}(0,Ω)\)</span><br />
-Jacobian of <span class="math inline">\(g(θ)\)</span> at <span class="math inline">\(θ_0\)</span>: <span class="math inline">\(\hat{G}(θ)\overset{P}{\to}G(θ)\)</span></li>
-<li>Weight: <span class="math inline">\(\hat{W}\overset{P}{\to} W\)</span></li>
-<li><span class="math inline">\(G&#39;WG\)</span> is non-singular</li>
+<li>Under assumptions <span class="math inline">\(a_0\)</span>, <span class="math inline">\(\hat{θ}\)</span> is consistent &amp; asymptotically normal</li>
 </ul></li>
-<li>Sentitivity of <span class="math inline">\(\hat{θ}\)</span> to <span class="math inline">\(\hat{g}(\hat{θ})\)</span>: <span class="math display">\[Λ = -(\underbrace{G&#39;WG}_{S})^{-1}G&#39;W\]</span></li>
+<li>Reader wants access potential bias of <span class="math inline">\(\hat{θ}\)</span> under alternative assumptions <span class="math inline">\(a\neq a_0\)</span><br />
+<span class="math inline">\(\implies\)</span> <strong>transparency</strong>
+<ul>
+<li>how <span class="math inline">\(a\)</span> affects moment conditions</li>
+<li>how <strong>sensitive</strong> is <span class="math inline">\(\hat{θ}\)</span> to the changes of moments</li>
+</ul></li>
+</ul>
+</div>
+<div id="model" class="section level3">
+<h3>Model</h3>
+<ul>
+<li>Data sample: <span class="math inline">\(D\in\mathcal{D}^n\)</span></li>
+<li>Assumptions: <span class="math inline">\(a_0\implies D_i\sim F(\cdot\ |\ θ,ψ)\)</span>
+<ul>
+<li><span class="math inline">\(θ\to θ_0\)</span> (<span class="math inline">\(P\)</span>-dim)</li>
+<li><span class="math inline">\(ψ\to ψ_0\)</span> (<span class="math inline">\(\infty\)</span>-dim)</li>
+</ul></li>
+<li>Minimal distance estimatior (MDE): <span class="math display">\[\hat{θ} = \text{argmin}_{θ\in Θ} \ Q(\hat{W})=\hat{g}(θ)&#39;\hat{W}\hat{g}(θ)\]</span>
+<ul>
+<li>By <span class="math inline">\(a_0\)</span>:</li>
+<li>Vector of moments (<span class="math inline">\(J\)</span>-dim): <span class="math display">\[\begin{aligned}\hat{g}(θ)&amp;\overset{P}{\to}g(θ)\\\sqrt{n}\hat{g}(θ)&amp;\overset{d}{\to}\mathcal{N}(0,Ω)\end{aligned}\]</span>
+Jacobian of <span class="math inline">\(g(θ)\)</span> at <span class="math inline">\(θ_0\)</span>: <span class="math display">\[\hat{G}(θ)\overset{P}{\to}G(θ)\]</span></li>
+<li>Weight matrix: <span class="math display">\[\hat{W}\overset{P}{\to} W\]</span></li>
+<li><span class="math inline">\(G&#39;WG = G(θ_0)&#39;WG(θ_0)\)</span> is non-singular</li>
+</ul></li>
+<li><span class="math inline">\(\hat{θ}\)</span> has properties:
+<ul>
+<li>Variance: <span class="math display">\[Σ=\underbrace{(G&#39;WG)^{-1}G&#39;W}ΩWG(G&#39;WG)^{-1}\]</span></li>
+<li>First-order asymptotic bias: <span class="math display">\[E[\tilde{θ}(a)] = ΛE[\tilde{g}(a)]\]</span></li>
+<li>Sentitivity to <span class="math inline">\(\hat{g}(\hat{θ})\)</span>: <span class="math display">\[Λ = -(G&#39;WG)^{-1}G&#39;W\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="sample-sensitivity" class="section level3">
+<h3>Sample Sensitivity</h3>
+<ul>
+<li>Moment conditions: <span class="math display">\[\hat{g}(θ,μ)=(1-μ)\cdot\hat{g}(θ) + μ\cdot\hat{g}^a(θ)\]</span></li>
+<li>Estimator: <span class="math display">\[\hat{θ}(μ)=\min_{θ\in Θ} \ \hat{g}(θ,μ)^T \hat{W} \hat{g}(θ,μ)\]</span></li>
 <li>Sample sensitivity: <span class="math display">\[\hat{Λ}_S = -\big(\hat{G}(\hat{θ})&#39;\hat{W}\hat{G}(\hat{θ}) + \hat{A}\big)^{-1}\hat{G}(\hat{θ})&#39;\hat{W}\]</span>
 where <span class="math display">\[\hat{A} = \begin{pmatrix}\big(\frac{\partial}{\partial θ_1}\hat{G}(\hat{θ})&#39;\big)\hat{W}\hat{g}(\hat{θ}) &amp; \cdots &amp; \big(\frac{\partial}{\partial θ_P}\hat{G}(\hat{θ})&#39;\big)\hat{W}\hat{g}(\hat{θ})\end{pmatrix}\]</span></li>
-<li>Estimated sensitivity: <span class="math display">\[\hat{Λ} = -\big(\hat{G}(\hat{θ})&#39;\hat{W}\hat{G}(\hat{θ})\big)^{-1}\hat{G}(\hat{θ})&#39;\hat{W}\]</span></li>
+</ul>
+<blockquote>
+<p>Proposition 4<br />
+<span class="math inline">\(\hat{Λ}_S\overset{P}{\to} Λ\)</span> under <span class="math inline">\(F_n(μ_n)\)</span> as <span class="math inline">\(n\to\infty\)</span> (as some conditions)</p>
+</blockquote>
+</div>
+<div id="estimation" class="section level3">
+<h3>Estimation</h3>
+<ul>
+<li>Plug-in sensitivity: <span class="math display">\[\hat{Λ} = -\big(\hat{G}(\hat{θ})&#39;\hat{W}\hat{G}(\hat{θ})\big)^{-1}\hat{G}(\hat{θ})&#39;\hat{W}\]</span></li>
+</ul>
+<blockquote>
+<p>Proposition 5<br />
+<span class="math inline">\(\hat{Λ}\overset{P}{\to} Λ\)</span> under <span class="math inline">\(F_n(μ_n)\)</span> as <span class="math inline">\(n\to\infty\)</span> (as some conditions)</p>
+</blockquote>
+</div>
+<div id="example-ols" class="section level3">
+<h3>Example: OLS</h3>
+<ul>
+<li>Data: <span class="math inline">\(D_i= (Y_i,\ X_i)\)</span></li>
+<li>Assumptions: <span class="math inline">\(a_0\)</span>
+<ul>
+<li>Model: <span class="math inline">\(Y_i=X_i&#39;θ_0+ε_i\)</span></li>
+<li><span class="math inline">\(E[ε_i\ |\ X_i]=0\)</span></li>
+<li>GMM conditions: <span class="math display">\[\hat{g}(θ)=\frac{1}{n}\sum_iX_i(Y_i-X_i&#39;θ )\]</span></li>
+<li><span class="math inline">\(W=I\)</span></li>
+<li>Jacobian: <span class="math inline">\(G=-E[X_iX_i&#39;]=-Ω_{XX}\)</span></li>
+</ul></li>
+<li>Sensitivity: <span class="math inline">\(Λ=Ω_{XX}^{-1}\)</span></li>
+</ul>
+<p>~</p>
+<ul>
+<li>Alternative assumptions: <span class="math inline">\(a\)</span></li>
+<li>Real model: <span class="math inline">\(Y_i=X_i&#39;θ_0+V_i + ε_i\)</span>
+<ul>
+<li><span class="math inline">\(E[ε_i\ |\ X_i]=0\)</span></li>
+<li>Mean of moment conditions: <span class="math inline">\(E[X_iV_i] = E[\hat{g}(θ_0)] = Ω_{XV}\)</span></li>
+</ul></li>
 </ul>
 <blockquote>
 <p>Proposition 1<br />
-<span class="math inline">\(\sqrt{n}(\hat{θ}-θ)\overset{d}{\to} \tilde{θ} = Λ\tilde{g}\)</span> a.s.,<br />
+<span class="math display">\[\sqrt{n}(\hat{θ}-θ)\overset{d}{\to} \tilde{θ} = Λ\tilde{g}\]</span> a.s.,
 and first-order asymptotic bias: <span class="math display">\[E[\tilde{θ}] = Λ E[\tilde{g}]\]</span></p>
 </blockquote>
 <blockquote>
@@ -203,22 +281,9 @@ Decompose <span class="math inline">\(θ = (θ_1, θ_2)\)</span>, fixing <span c
 <span class="math display">\[Λ_1 = -(G_1&#39;WG_1)^{-1}G_1&#39;W\]</span>
 where <span class="math inline">\(G_1 = \frac{\partial}{\partial θ_1}g(θ_{1(o)}, θ_{2(o)})\)</span> (<span class="math inline">\(o\)</span> indicates true value)</p>
 </blockquote>
-<div id="example-ols" class="section level3">
-<h3>Example: OLS</h3>
-<ul>
-<li>Data: <span class="math inline">\(D_i= (Y_i,\ X_i)\)</span></li>
-<li>Model: <span class="math inline">\(Y_i=X_i&#39;θ_0+ε_i\)</span></li>
-<li>GMM condition: <span class="math display">\[\hat{g}(θ)=\frac{1}{n}\sum_iX_i(Y_i-X_i&#39;θ )\]</span></li>
-<li><span class="math inline">\(W=I\)</span></li>
-<li>Jacobian: <span class="math inline">\(G=-E[X_iX_i&#39;]=-Ω_{XX}\)</span>
-<ul>
-<li>Sensitivity: <span class="math inline">\(Λ=Ω_{XX}^{-1}\)</span></li>
-</ul></li>
-<li>Real model: <span class="math inline">\(Y_i=X_i&#39;θ_0+V_i + ε_i\)</span></li>
-</ul>
 </div>
-<div id="generalisation-minimal-distance-mde" class="section level3">
-<h3>Generalisation: Minimal Distance (MDE)</h3>
+<div id="generalisation-classical-minimal-distance-cmd" class="section level3">
+<h3>Generalisation: Classical Minimal Distance (CMD)</h3>
 <ul>
 <li>Classical minimal distance estimator: <span class="math inline">\(\hat{θ}\)</span>
 <ul>
@@ -226,7 +291,10 @@ where <span class="math inline">\(G_1 = \frac{\partial}{\partial θ_1}g(θ_{1(o)
 <li><span class="math inline">\(E[\hat{s}] = s(θ_0)\)</span></li>
 <li><span class="math inline">\(S=\frac{\partial}{\partial θ}s(θ)|_{θ=θ_0}\)</span></li>
 </ul></li>
-<li>Sensitivity: <span class="math display">\[Λ = -(S&#39;WS)^{-1}S&#39;W\]</span></li>
+<li>Sensitivity: <span class="math display">\[Λ = (S&#39;WS)^{-1}S&#39;W\]</span>
+<ul>
+<li><span class="math inline">\(S\)</span>: partial derivatives of <span class="math inline">\(s(θ)\)</span> at <span class="math inline">\(θ_0\)</span></li>
+</ul></li>
 </ul>
 <blockquote>
 <p>Proposition 2<br />
@@ -256,6 +324,20 @@ where <span class="math inline">\(Ω_{Z\tilde{X}}=E[Z_i \tilde{X}_i]\)</span>, a
 take <span class="math inline">\(μ_n = \frac{1}{\sqrt{n}}\)</span>,<br />
 then asymptotic bias: <span class="math display">\[E[\tilde{θ}] = ΛΩ_{ZV}\]</span></p>
 </blockquote>
+</div>
+</div>
+<div id="application-on-gourinchas-parker-2002" class="section level2">
+<h2>Application on <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1468-0262.00269">Gourinchas &amp; Parker (2002)</a></h2>
+<ul>
+<li>Data: <span class="math inline">\(D\)</span></li>
+<li>Parameters: <span class="math inline">\((θ,χ)\)</span>, treat <span class="math inline">\(\hat{χ}\)</span> as constant</li>
+<li>Assumed model <span class="math inline">\(F_n\)</span>: <span class="math display">\[\hat{s}_e = s_e(θ_0,χ_0)+ε_e\]</span>
+<ul>
+<li><span class="math inline">\(E[\hat{s}]=s(θ_0,χ_0)\)</span></li>
+</ul></li>
+<li>Moments: <span class="math display">\[\hat{g}(θ) = \hat{s} - s(θ,\hat{χ})\]</span></li>
+<li>Weight: constant <span class="math inline">\(\hat{W}\)</span></li>
+</ul>
 <!-- 
 
 ## Notes on AGS (2019)
@@ -270,7 +352,6 @@ then asymptotic bias: <span class="math display">\[E[\tilde{θ}] = ΛΩ_{ZV}\]</
 
 [Structural Estimation 101 - EconSpark](https://www.aeaweb.org/forum/48/structural-estimation-101)
  -->
-</div>
 </div>
 
     </div>

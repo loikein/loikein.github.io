@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.62.2" />
+<meta name="generator" content="Hugo 0.63.1" />
 
 <title>Notes on Econometric Theory - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Econometric Theory - loikein&#39;s notes">
@@ -384,7 +384,7 @@ Let <span class="math inline">\(-\infty\leq a&lt;b\leq\infty\)</span>
 <ol style="list-style-type: lower-roman">
 <li>When <span class="math inline">\(b=\infty\)</span>,
 <span class="math display">\[\begin{aligned}(a,b) &amp;= (a,\infty) \\
- &amp;= \underbrace{\cup_{k\in\mathbb{N}} \overbrace{(a, a+k]}^{\in\mathcal{B}^*}}_{\in\mathcal{B}^*} \\
+ &amp;= \underbrace{\cup_{k\in\mathbb{N}} (\overbrace{a, a+k}^{\in\mathcal{B}^*}]}_{\in\mathcal{B}^*} \\
  &amp;\in \mathcal{B}^* \end{aligned}\]</span></li>
 <li>When <span class="math inline">\(b&lt;\infty\)</span>,
 <span class="math display">\[\begin{aligned}(a,b) &amp;= \cup_{k\in\mathbb{N}}\Big(a, b-\frac{1}{k}\Big] \\
@@ -774,7 +774,7 @@ Show that <span class="math inline">\(μ = E[X]\)</span> and <span class="math i
 &amp;= 2μ\cdot\underbrace{\int xf(x)\, dx}_{=μ}-μ^2\cdot\underbrace{\int f(x)\, dx}_{=1} + \int (x-μ)^2\cdot\frac{1}{\sqrt{2πσ^2}}\exp\big(-\frac{(x-μ)^2}{σ^2} \big)\, dx \\
 &amp;= μ^2 + \int y^2\cdot\frac{1}{\sqrt{2πσ^2}}\exp\big(-\frac{y^2}{σ^2} \big)\, dy \\
 &amp;= μ^2 + σ^2\end{aligned}\]</span>
-Since <span class="math inline">\(Var(x) &amp;= E[X^2] - (E[X])^2\)</span>, …</p>
+Since <span class="math inline">\(Var(x) = E[X^2] - (E[X])^2\)</span>, …</p>
 </div>
 <div id="moments-of-rk" class="section level3">
 <h3>Moments of R^k</h3>
@@ -1483,9 +1483,9 @@ Pick arbitrary <span class="math inline">\(α,β\in\mathbb{R}\)</span>,
 </ol></li>
 <li>Assume <span class="math inline">\(E[X^2],E[Y^2]\neq 0\)</span>,<br />
 <span class="math display">\[\begin{aligned}(E[XY])^2 &amp;= E[X^2]E[Y^2] \\
-E[(\frac{X}{\sqrt{E[X^2]}}\pm\frac{Y}{\sqrt{E[Y^2]}} )^2] &amp;= 0 &amp;&amp;\pm\text{ holds or} \\
+E[(\frac{X}{\sqrt{E[X^2]}}\pm\frac{Y}{\sqrt{E[Y^2]}} )^2] &amp;= 0 &amp;&amp;\pm\text{ holds} \\
 \frac{X}{\sqrt{E[X^2]}}\pm\frac{Y}{\sqrt{E[Y^2]}} &amp;= 0 &amp;&amp; \text{almost surely} \\
-X &amp;= C\dots Y &amp;&amp;\text{ almost surely for }c\neq 0 \end{aligned}\]</span></li>
+X &amp;= C\dots Y &amp;&amp;\text{almost surely for }c\neq 0 \end{aligned}\]</span></li>
 </ol>
 </div>
 <div id="consistency" class="section level3">
@@ -1580,7 +1580,7 @@ Q(θ) &amp;= E[\big(Y-g(X,θ)\big)^2] \\
 &amp;= Q(θ_0) \end{aligned}\]</span></p>
 <blockquote>
 <p>Example: Maximum likelihood<br />
-Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by <span class="math inline">\(Q_n(θ) = \prob^n f_Z(Z_i, θ)\)</span><br />
+Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by <span class="math inline">\(Q_n(θ) = \prod^n f_Z(Z_i, θ)\)</span><br />
 The ML-estimator of <span class="math inline">\(θ_0\)</span> is
 <span class="math display">\[\begin{aligned}\hat{θ}&amp;=\text{argmax}_{θ\in Θ} Q_n(θ)\\
 &amp;=\text{argmax}_{θ\in Θ}\log Q_n(θ)\\
@@ -1943,7 +1943,7 @@ Then:</p>
 (ii) follows directly from (i), (iii) follows directly from (ii)<br />
 <span class="math display">\[\begin{aligned}&amp;\phantom{\ggg}\sqrt{n}\hat{V}^{-1/2}(\hat{θ}-θ_0)\\
 &amp;= \underbrace{\sqrt{n}V^{-1/2}(\hat{θ}-θ_0)}_{\overset{d}{\to} \mathcal{N}(0,I)}
-+\underbrace{\overbrace{(\hat{V}^{-1/2} - V^{-1/2})}^{=o_P(1)} \overbrace{sqrt{n} (\hat{θ}-θ_0)}^{=O_P(1)}}_{=o_P(1)}\end{aligned}\]</span>
++\underbrace{(\overbrace{\hat{V}^{-1/2} - V^{-1/2}}^{=o_P(1)}) \overbrace{\sqrt{n} (\hat{θ}-θ_0)}^{=O_P(1)}}_{=o_P(1)}\end{aligned}\]</span>
 (i):<br />
 <span class="math inline">\(\hat{H}_0\overset{P}{\to}H_0\)</span> is equvalent to <span class="math inline">\(e_j^T\hat{H}_0e_k\overset{P}{\to}e_jH_0e_k\)</span> for all <span class="math inline">\(j,k\)</span><br />
 with <span class="math inline">\(e_j\)</span>, <span class="math inline">\(e_k\)</span> the j-th, k-th standard basis vector, i.e.,<br />
