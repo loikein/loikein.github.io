@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.63.1" />
+<meta name="generator" content="Hugo 0.63.2" />
 
 <title>Notes on Microeconomics - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Microeconomics - loikein&#39;s notes">
@@ -87,21 +87,26 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#preference">Preference</a><ul>
+<li><a href="#preference">Preference</a>
+<ul>
 <li><a href="#utility-function">Utility Function</a></li>
 <li><a href="#continuity">Continuity</a></li>
 <li><a href="#rational-choice-function">Rational Choice Function</a></li>
 </ul></li>
-<li><a href="#choice">Choice</a><ul>
+<li><a href="#choice">Choice</a>
+<ul>
 <li><a href="#revealed-preference-relation">Revealed Preference Relation</a></li>
 <li><a href="#warp-weak-axiom-of-revealed-preference">WARP (Weak Axiom of Revealed Preference)</a></li>
 <li><a href="#sarp-strong-axiom-of-revealed-preference">SARP (Strong Axiom of Revealed Preference)</a></li>
 <li><a href="#rationalizing-choice-function">Rationalizing Choice Function</a></li>
 </ul></li>
-<li><a href="#demand-consumer-preference">Demand (Consumer Preference)</a><ul>
+<li><a href="#demand-consumer-preference">Demand (Consumer Preference)</a>
+<ul>
 <li><a href="#continuity-revisited">Continuity (revisited)</a></li>
 <li><a href="#monotonicity">Monotonicity</a></li>
 <li><a href="#convexity">Convexity</a></li>
@@ -115,7 +120,8 @@ if (!doNotTrack) {
 <li><a href="#duality-properties">Duality Properties</a></li>
 <li><a href="#consumer-welfare">Consumer Welfare</a></li>
 </ul></li>
-<li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a><ul>
+<li><a href="#demand-consumer-choice">Demand (Consumer Choice)</a>
+<ul>
 <li><a href="#consumer-problem">Consumer Problem</a></li>
 <li><a href="#demand-function">Demand Function</a></li>
 <li><a href="#warp-revisited">WARP (revisited)</a></li>
@@ -124,14 +130,16 @@ if (!doNotTrack) {
 <li><a href="#types-of-commodity">Types of Commodity</a></li>
 <li><a href="#compensated-law-of-demand">(Compensated) Law of Demand</a></li>
 </ul></li>
-<li><a href="#producer">Producer</a><ul>
+<li><a href="#producer">Producer</a>
+<ul>
 <li><a href="#technology">Technology</a></li>
 <li><a href="#production-function">Production Function</a></li>
 <li><a href="#pmp-profit-maximization-problem">PMP (Profit Maximization Problem)</a></li>
 <li><a href="#law-of-supply">Law of Supply</a></li>
 <li><a href="#cmp-cost-minimization-problem">CMP (Cost Minimization Problem)</a></li>
 </ul></li>
-<li><a href="#partial-equilibrium">Partial Equilibrium</a><ul>
+<li><a href="#partial-equilibrium">Partial Equilibrium</a>
+<ul>
 <li><a href="#perfect-competition-short-run">Perfect Competition (Short Run)</a></li>
 <li><a href="#perfect-competition-long-run">Perfect Competition (Long Run)</a></li>
 <li><a href="#monopoly">Monopoly</a></li>
@@ -139,17 +147,20 @@ if (!doNotTrack) {
 <li><a href="#bertrand-duopoly-price">Bertrand Duopoly (Price)</a></li>
 <li><a href="#total-welfare-partial">Total Welfare (Partial)</a></li>
 </ul></li>
-<li><a href="#general-equilibrium-exchange">General Equilibrium (Exchange)</a><ul>
+<li><a href="#general-equilibrium-exchange">General Equilibrium (Exchange)</a>
+<ul>
 <li><a href="#core">Core</a></li>
 <li><a href="#efficiency-edgeworth-box">Efficiency &amp; Edgeworth Box</a></li>
 <li><a href="#competitive-market-equilibrium">Competitive Market Equilibrium</a></li>
 <li><a href="#total-welfare-exchange">Total Welfare (Exchange)</a></li>
 </ul></li>
-<li><a href="#general-equilibrium-production">General Equilibrium (Production)</a><ul>
+<li><a href="#general-equilibrium-production">General Equilibrium (Production)</a>
+<ul>
 <li><a href="#production-equilibrium">Production Equilibrium</a></li>
 <li><a href="#total-welfare-production">Total Welfare (Production)</a></li>
 </ul></li>
-<li><a href="#externality-perfect-information">Externality (Perfect Information)</a><ul>
+<li><a href="#externality-perfect-information">Externality (Perfect Information)</a>
+<ul>
 <li><a href="#bilateral-externality">Bilateral Externality</a></li>
 <li><a href="#quota">Quota</a></li>
 <li><a href="#taxation">Taxation</a></li>
@@ -157,13 +168,15 @@ if (!doNotTrack) {
 <li><a href="#multilateral-externality">Multilateral Externality</a></li>
 <li><a href="#taxation-1">Taxation</a></li>
 </ul></li>
-<li><a href="#externality-asymmetric-information">Externality (Asymmetric Information)</a><ul>
+<li><a href="#externality-asymmetric-information">Externality (Asymmetric Information)</a>
+<ul>
 <li><a href="#bargain">Bargain</a></li>
 <li><a href="#government-intervention">Government Intervention</a></li>
 <li><a href="#quota-1">Quota</a></li>
 <li><a href="#taxation-2">Taxation</a></li>
 </ul></li>
-<li><a href="#public-goods">Public Goods</a><ul>
+<li><a href="#public-goods">Public Goods</a>
+<ul>
 <li><a href="#private-provision">Private Provision</a></li>
 <li><a href="#subsidy">Subsidy</a></li>
 </ul></li>
@@ -833,7 +846,7 @@ h_k( p^*, \bar{u}) &amp;= \frac{\partial e(p,\bar{u})}{\partial p_k}\end{aligned
 <span class="math display">\[\frac{\partial h_k(p,\bar{u})}{\partial p_k} = \frac{\partial x_k(p,w)}{\partial p_k} + \frac{\partial x_k(p,w)}{\partial w}\cdot x_k(p,w)\]</span></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--dual-consumer.png" alt="MWG Figure 3.G.3" />
+<img src="/post-img/notes-micro--dual-consumer.png" alt="" />
 <p class="caption">MWG Figure 3.G.3</p>
 </div>
 <blockquote>
@@ -862,7 +875,7 @@ equivalently, let EV be s.t.
 $$\begin{aligned}u' &= v(p, w + EV) \\ e(p,u') &= e\big( p, v(p, w + EV)\big) \\ &= w + EV\end{aligned}$$
 -->
 <div class="figure">
-<img src="/post-img/notes-micro--CV-EV-1.png" alt="MWG Figure 3.I.1" />
+<img src="/post-img/notes-micro--CV-EV-1.png" alt="" />
 <p class="caption">MWG Figure 3.I.1</p>
 </div>
 <!--
@@ -921,7 +934,7 @@ $$\begin{aligned}u' &= v(p, w + EV) \\ e(p,u') &= e\big( p, v(p, w + EV)\big) \\
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--demand-warp.png" alt="RBST Figure 5.2(a)" />
+<img src="/post-img/notes-micro--demand-warp.png" alt="" />
 <p class="caption">RBST Figure 5.2(a)</p>
 </div>
 <blockquote>
@@ -1215,7 +1228,7 @@ And <span class="math inline">\(π(p) \geq p\cdot y(p^*)\)</span> for all <span 
 <li>Monopoly Equilibrium: <span class="math display">\[\frac{p(q^*) - MC(q^*)}{p(q^*)} = \frac{1}{|ε(q^*)|}\]</span></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--monopoly-eq.png" alt="AMT, Figure 4.3" />
+<img src="/post-img/notes-micro--monopoly-eq.png" alt="" />
 <p class="caption">AMT, Figure 4.3</p>
 </div>
 </div>
@@ -1367,7 +1380,7 @@ Compute the Cournot equilibrium in this market, giving equilibrium price and out
 <span class="math display">\[\begin{aligned} p_1 &amp;= 20+\frac{p_2}{2}-q_1 \\
 q_1 &amp;= 20+\frac{p_2}{2} - p_1 \\
 π_i &amp;= p_1\cdot \big(20+\frac{p_2}{2}-p_1\big) - 20\cdot \big(20+\frac{p_2}{2}-p_1\big) \\
-&amp;= \frac{p_1p_2}{2} + 40p_1 - p_1^2 + 400\end{aligned}\]</span>
+&amp;= \frac{p_1p_2}{2} + 40p_1 - p_1^2 - 10 p_2 - 400\end{aligned}\]</span>
 FOC:
 <span class="math display">\[\begin{aligned} \frac{\partial π_1}{\partial p_1} &amp;= \frac{p_2}{2} + 40 - 2p_1 = 0\\
 p_1^* &amp;= \frac{p_2}{4}+20 \\
@@ -1404,7 +1417,7 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 <li>Pareto Efficient Outcome: <span class="math inline">\(p = mc(q)\)</span></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--welfare-monopoly.png" alt="AMT, Figure 4.6" />
+<img src="/post-img/notes-micro--welfare-monopoly.png" alt="" />
 <p class="caption">AMT, Figure 4.6</p>
 </div>
 </div>
@@ -1442,7 +1455,7 @@ p_1^* &amp;= \frac{p_2}{4}+20 \\
 <li>Core <span class="math inline">\(C(e)\)</span>: on the contract curve + inside the lens (not blocked by either consumer)</li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--edgeworth-core.png" alt="Source: Diagram Technology Templates and Examples" />
+<img src="/post-img/notes-micro--edgeworth-core.png" alt="" />
 <p class="caption">Source: <a href="https://diagram-ideas.com/page/3082/">Diagram Technology Templates and Examples</a></p>
 </div>
 </div>
@@ -1938,7 +1951,7 @@ FOC &amp;&amp; π&#39;(h^o, θ) + φ&#39;(h^o, η) &amp;= 0 \\
 &amp;&amp; π&#39;(h^o, θ) &amp;= - φ&#39;(h^o, η)\end{aligned}\]</span></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--externality-asy-info-gov.png" alt="MWG Figure 11.E.1" />
+<img src="/post-img/notes-micro--externality-asy-info-gov.png" alt="" />
 <p class="caption">MWG Figure 11.E.1</p>
 </div>
 </div>
@@ -1953,7 +1966,7 @@ FOC &amp;&amp; π&#39;(h^o, θ) + φ&#39;(h^o, η) &amp;= 0 \\
 </ul></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--externality-asy-info-quota.png" alt="MWG Figure 11.E.2" />
+<img src="/post-img/notes-micro--externality-asy-info-quota.png" alt="" />
 <p class="caption">MWG Figure 11.E.2</p>
 </div>
 </div>
@@ -1967,7 +1980,7 @@ FOC &amp;&amp; π(h^t, θ) - t &amp;= 0 \\
 &amp;&amp; h^t &amp;= h^t(t,θ)\end{aligned}\]</span></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--externality-asy-info-tax.png" alt="MWG Figure 11.E.3" />
+<img src="/post-img/notes-micro--externality-asy-info-tax.png" alt="" />
 <p class="caption">MWG Figure 11.E.3</p>
 </div>
 <blockquote>
@@ -2046,7 +2059,7 @@ c&#39;(q^*) &amp;&lt; c&#39;(q^o) \\
 q^* &amp;&lt; q^o\end{aligned}\]</span></li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-micro--public-goods-private-provision.png" alt="MWG Figure 11.C.1" />
+<img src="/post-img/notes-micro--public-goods-private-provision.png" alt="" />
 <p class="caption">MWG Figure 11.C.1</p>
 </div>
 <!-- 

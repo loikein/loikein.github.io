@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.63.1" />
+<meta name="generator" content="Hugo 0.63.2" />
 
 <title>Notes on Research: Dynamic Programming - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Research: Dynamic Programming - loikein&#39;s notes">
@@ -138,10 +138,8 @@ if (!doNotTrack) {
 <li><a href="#incentive-compatiblility">Incentive Compatiblility</a></li>
 <li><a href="#threshold-mechanism">Threshold Mechanism</a></li>
 <li><a href="#general-results">General Results</a></li>
-</ul></li>
 <li><a href="#stochastic-model">Stochastic Model</a></li>
-<li><a href="#imperfect-infomation">Imperfect Infomation</a>
-<ul>
+<li><a href="#imperfect-infomation">Imperfect Infomation</a></li>
 <li><a href="#extension">Extension</a></li>
 </ul></li>
 </ul>
@@ -761,7 +759,8 @@ Comparative statics: <span class="math inline">\(r\uparrow\)</span> or <span cla
 <h2>Kremer Mansour Perry 2014 (My Bit)</h2>
 <ul>
 <li>Social planning on recommender system</li>
-<li><a href="/slides/20200112-pre-research.html">Slides</a></li>
+<li><a href="/slides/20200112-research-pre.html">Slides</a></li>
+<li><a href="/papers/20200205-research-paper.html">Article</a></li>
 </ul>
 <div id="real-life-motivation" class="section level3">
 <h3>Real Life Motivation</h3>
@@ -981,9 +980,8 @@ After <span class="math inline">\(t^*\)</span> agents, all other agents are guar
 <li>(P992) As the # of agents increases, the social welfare converges to 1st best welfare</li>
 </ul>
 </div>
-</div>
-<div id="stochastic-model" class="section level2">
-<h2>Stochastic Model</h2>
+<div id="stochastic-model" class="section level3">
+<h3>Stochastic Model</h3>
 <ul>
 <li>Set of possible actions: <span class="math inline">\(A=\{a_1,a_2\}\)</span></li>
 <li>Unknown reward of <span class="math inline">\(a_i\)</span>: <span class="math inline">\(R_i\sim D_i \sim π_i\)</span>
@@ -1003,8 +1001,8 @@ After <span class="math inline">\(t^*\)</span> agents, all other agents are guar
 </ul></li>
 </ul>
 </div>
-<div id="imperfect-infomation" class="section level2">
-<h2>Imperfect Infomation</h2>
+<div id="imperfect-infomation" class="section level3">
+<h3>Imperfect Infomation</h3>
 <ul>
 <li>Agents: <span class="math inline">\(t\in T\)</span></li>
 <li>Groups of agents: <span class="math inline">\(1=τ^1&lt;τ^2&lt;\dots&lt;τ^k=T+1\)</span>, <span class="math inline">\(τ^j\)</span> are integers for all <span class="math inline">\(j\)</span>
@@ -1021,6 +1019,7 @@ For every group <span class="math inline">\(j\)</span>:<br />
 The first agent <span class="math inline">\(τ^j\)</span> has threshold <span class="math inline">\(I^{τ^j}=(i^{τ^{j-1}}, i^{τ^j}]\)</span>.<br />
 All the rest agents <span class="math inline">\(t\in[τ^j+1, τ^{j+1}-1]\)</span> has thresholds are <span class="math inline">\(I^t=\emptyset\)</span>.</p>
 </blockquote>
+</div>
 <div id="extension" class="section level3">
 <h3>Extension</h3>
 <ul>

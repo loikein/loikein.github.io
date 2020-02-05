@@ -17,7 +17,7 @@
       <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/12/effective-programming-project/</guid>
-      <description>Project Description  References Documentation Potentially Useful R Packages  Notes on Minimal Distance Estimation Notes on AGS (2017)  Multivation Model Sample Sensitivity Estimation Example: OLS Generalisation: Classical Minimal Distance (CMD) Instrumental Variable  Application on Gourinchas &amp;amp; Parker (2002)   Project Description Sensitivity Measures for Method of Simulated Moments: diagnostic tools for moments based estimation.
+      <description>Project Description  References Documentation Potentially Useful R Packages  Notes on Minimal Distance Estimation Notes on AGS (2017)  Motivation Model Sample Sensitivity Estimation Example: OLS Generalisation: Classical Minimal Distance (CMD) Instrumental Variable  Application on Gourinchas &amp;amp; Parker (2002)   Project Description Sensitivity Measures for Method of Simulated Moments: diagnostic tools for moments based estimation.
 Your task is to implement those tools in Python and to integrate them in estimagic.</description>
     </item>
     
