@@ -1,18 +1,14 @@
 bookdown::gitbook:
   split_by: none
   config:
-    download: [pdf]
+    search: yes
+    download: ["pdf"]
     sharing:
       github: yes
       facebook: no
-    toolbar:
-      search: yes
-bookdown::pdf_document2:
-  latex_engine: pdflatex
+
+bookdown::pdf_book:
   keep_tex: yes
-  fig_crop: false
+  latex_engine: pdflatex
+  citation_package: biblatex
   template: null
-  toc: true
-  toc_depth: 3
-  number_sections: true
-  highlight_bw: true

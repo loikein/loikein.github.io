@@ -1,2 +1,1 @@
-book_filename: quals
-output_dir: output
+delete_merged_file: true
