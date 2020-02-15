@@ -1,6 +1,9 @@
 bookdown::gitbook:
   split_by: none
   config:
+    toc:
+      collapse: none
+      scroll_highlight: yes
     search: yes
     download: ["pdf"]
     sharing:
