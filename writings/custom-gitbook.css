@@ -1,0 +1,18 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    --light-grey: #f5f5f5;
+    --mid-grey: #eaecef;
+    --grey: #BBB;
+    --black: #222;
+    --theme: #BDE0FC;
+    --dark-theme: #6D90AC;
+}
+
+blockquote {
+  color: var(--black);
+  background: var(--light-grey);
+  border-left: 5px solid var(--theme) !important;
+}
