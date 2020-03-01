@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.64.1" />
+<meta name="generator" content="Hugo 0.65.3" />
 
 <title>Notes on Python 3 - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Python 3 - loikein&#39;s notes">
@@ -74,7 +74,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">25 min read</span>
+    <span class="article-duration">27 min read</span>
     
     <h1 class="article-title">Notes on Python 3</h1>
     
@@ -97,8 +97,7 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -161,6 +160,7 @@ if (!doNotTrack) {
 <li><a href="#list-loop">List &amp; Loop</a></li>
 <li><a href="#dictionary-1">Dictionary</a></li>
 <li><a href="#conditions">Conditions</a></li>
+<li><a href="#docstring">Docstring</a></li>
 <li><a href="#function">Function</a></li>
 <li><a href="#module">Module</a></li>
 <li><a href="#numpy"><code>Numpy</code></a></li>
@@ -253,7 +253,7 @@ while n &lt; 10:
 </div>
 <div id="if-__name__-__main__" class="section level3">
 <h3><code>if __name__ == "__main__"</code></h3>
-<p>Ref: <a href="http://blog.konghy.cn/2017/04/24/python-entry-program/">Python 中的 if <strong>name</strong> == ‘<strong>main</strong>’ 该如何理解 | Huoty’s Blog</a></p>
+<p>Ref: <a href="http://blog.konghy.cn/2017/04/24/python-entry-program/">Python 中的 <code>if __name__ == '__main__'</code> 该如何理解 | Huoty’s Blog</a></p>
 </div>
 </div>
 <div id="python-on-datacamp" class="section level2">
@@ -1717,6 +1717,103 @@ for i, obs in enumerate(data):
 
 while a&lt;= 10:
     a += 1</code></pre>
+</div>
+<div id="docstring" class="section level3">
+<h3>Docstring</h3>
+<p>ref:</p>
+<ul>
+<li><a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Example Google Style Python Docstrings — napoleon 0.7 documentation</a></li>
+<li><a href="http://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">Google Python Style Guide | Style guides for Google-originated open-source projects</a></li>
+</ul>
+<pre class="python"><code># -*- coding: utf-8 -*-
+&quot;&quot;&quot;Example Google style docstrings.
+
+This module demonstrates documentation as specified by the `Google Python
+Style Guide`_. Docstrings may extend over multiple lines. Sections are created
+with a section header and a colon followed by a block of indented text.
+
+Example:
+    Examples can be given using either the ``Example`` or ``Examples``
+    sections. Sections support any reStructuredText formatting, including
+    literal blocks::
+
+        $ python example_google.py
+
+Section breaks are created by resuming unindented text. Section breaks
+are also implicitly created anytime a new section starts.
+
+Attributes:
+    module_level_variable1 (int): Module level variables may be documented in
+        either the ``Attributes`` section of the module docstring, or in an
+        inline docstring immediately following the variable.
+
+        Either form is acceptable, but the two should not be mixed. Choose
+        one convention to document module level variables and be consistent
+        with it.
+
+Todo:
+    * For module TODOs
+    * You have to also use ``sphinx.ext.todo`` extension
+
+.. _Google Python Style Guide:
+   http://google.github.io/styleguide/pyguide.html
+
+&quot;&quot;&quot;
+
+
+def module_level_function(param1, param2=None, *args, **kwargs):
+    &quot;&quot;&quot;This is an example of a module level function.
+
+    Function parameters should be documented in the ``Args`` section. The name
+    of each parameter is required. The type and description of each parameter
+    is optional, but should be included if not obvious.
+
+    If *args or **kwargs are accepted,
+    they should be listed as ``*args`` and ``**kwargs``.
+
+    The format for a parameter is::
+
+        name (type): description
+            The description may span multiple lines. Following
+            lines should be indented. The &quot;(type)&quot; is optional.
+
+            Multiple paragraphs are supported in parameter
+            descriptions.
+
+    Args:
+        param1 (int): The first parameter.
+        param2 (:obj:`str`, optional): The second parameter. Defaults to None.
+            Second line of description should be indented.
+        *args: Variable length argument list.
+        **kwargs: Arbitrary keyword arguments.
+
+    Returns:
+        bool: True if successful, False otherwise.
+
+        The return type is optional and may be specified at the beginning of
+        the ``Returns`` section followed by a colon.
+
+        The ``Returns`` section may span multiple lines and paragraphs.
+        Following lines should be indented to match the first line.
+
+        The ``Returns`` section supports any reStructuredText formatting,
+        including literal blocks::
+
+            {
+                &#39;param1&#39;: param1,
+                &#39;param2&#39;: param2
+            }
+
+    Raises:
+        AttributeError: The ``Raises`` section is a list of all exceptions
+            that are relevant to the interface.
+        ValueError: If `param2` is equal to `param1`.
+
+    &quot;&quot;&quot;
+    if param1 == param2:
+        raise ValueError(&#39;param1 may not be equal to param2&#39;)
+    return True
+</code></pre>
 </div>
 <div id="function" class="section level3">
 <h3>Function</h3>
