@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.65.3" />
+<meta name="generator" content="Hugo 0.66.0" />
 
 <title>Notes on Effective Programming Practice - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Effective Programming Practice - loikein&#39;s notes">
@@ -122,6 +122,7 @@ if (!doNotTrack) {
 <li><a href="#late-.gitignore">Late <code>.gitignore</code></a></li>
 <li><a href="#multiple-branches">Multiple Branches</a></li>
 <li><a href="#tagging">Tagging</a></li>
+<li><a href="#squash">Squash</a></li>
 <li><a href="#collaboration">Collaboration</a></li>
 </ul></li>
 <li><a href="#anaconda">(Ana)Conda</a>
@@ -418,6 +419,17 @@ $ git checkout master
 
 $ git tag
 # submittable_version</code></pre>
+</div>
+<div id="squash" class="section level3">
+<h3>Squash</h3>
+<p>ref: <a href="https://stackoverflow.com/a/5201642/10668706">Squash my last X commits together using Git</a></p>
+<pre class="sh"><code>$ git commit -m &quot;This is the most important commit&quot;
+
+# squash past 2 commits, including the newest
+$ git reset --soft HEAD~2
+
+# edit the commit message based on &quot;This is the most important commit&quot;
+$ git commit --edit -m&quot;$(git log --format=%B --reverse HEAD..HEAD@{1})&quot;</code></pre>
 </div>
 <div id="collaboration" class="section level3">
 <h3>Collaboration</h3>
