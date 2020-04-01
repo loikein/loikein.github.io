@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.66.0" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 <title>Notes on Behavioural Public Policy - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Behavioural Public Policy - loikein&#39;s notes">
@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">3 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -89,19 +89,209 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
+<li><a href="#behavioural-public-policy">Behavioural Public Policy</a></li>
+<li><a href="#present-bias">Present Bias</a>
+<ul>
+<li><a href="#augenblick-niederle-sprenger-2015"><span>Augenblick, Niederle, Sprenger (2015)</span></a></li>
+<li><a href="#policy-for-internality">Policy for Internality</a></li>
+</ul></li>
+<li><a href="#salience-bias">Salience Bias</a>
+<ul>
+<li><a href="#behavioral-welfare-analysis">Behavioral Welfare Analysis</a></li>
+</ul></li>
+<li><a href="#non-selfish-preferences">Non-Selfish Preferences</a>
+<ul>
+<li><a href="#public-good">Public Good</a></li>
+<li><a href="#labour-market">Labour Market</a></li>
+</ul></li>
+<li><a href="#reference-dependent-preferences">Reference Dependent Preferences</a></li>
+<li><a href="#habit-formation">Habit Formation</a>
+<ul>
 <li><a href="#allcott-kessler2019"><span>Allcott &amp; Kessler(2019)</span></a></li>
+</ul></li>
 </ul>
 </div>
 
-<div id="allcott-kessler2019" class="section level2">
-<h2><a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/app.20170328">Allcott &amp; Kessler(2019)</a></h2>
+<div id="behavioural-public-policy" class="section level2">
+<h2>Behavioural Public Policy</h2>
+<p>Departures from <a href="../../04/notes-behavioural/#standard-neoclassical-model">the standard model</a>:</p>
+<ul>
+<li>Present bias: can not correctly understand future self</li>
+<li>Salience bias: can only notice the most obvious thing</li>
+<li>Non-selfish preferences: contribute to public goods</li>
+</ul>
+<p>which lead to:</p>
+<ul>
+<li>Create scope for policy intervention (?)</li>
+<li>Worsen market failures</li>
+<li>Reduce market failures</li>
+</ul>
+<p>Course overview:</p>
+<ol style="list-style-type: decimal">
+<li>Behavioural theory</li>
+<li>Empirical evidence</li>
+<li>Quantifying welfare effects of policy</li>
+</ol>
+</div>
+<div id="present-bias" class="section level2">
+<h2>Present Bias</h2>
+<ul>
+<li>Self-control problems <span class="math inline">\(\implies\)</span> internality</li>
+</ul>
+<div id="augenblick-niederle-sprenger-2015" class="section level3">
+<h3><a href="https://academic.oup.com/qje/article/130/3/1067/1934963">Augenblick, Niederle, Sprenger (2015)</a></h3>
+<ul>
+<li><p>Procrastination &amp; present bias in work</p></li>
+<li><p>Utility discounting:
+<span class="math display">\[\begin{aligned}U = u(c_t) + \beta [ &amp;\delta u(c_{t+1}) + \delta^2 u(c_{t+2}) \\
+&amp;+ \delta^3 u(c_{t+3}) + \cdots + \delta^T u(c_{t+T}) ] \end{aligned}\]</span></p>
+<ul>
+<li>Standard model: <span class="math inline">\(\beta=1\)</span></li>
+<li>Present bias: <span class="math inline">\(\beta&lt;1\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\implies\)</span> Time-inconsistence &amp; self-control problems</p></li>
+</ul>
+<div id="experiment" class="section level4">
+<h4>Experiment</h4>
+<ul>
+<li>Tedious work for two sessions
+<ul>
+<li><span class="math inline">\(t=0\)</span>: initial allocation: <span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span></li>
+<li><span class="math inline">\(t=1\)</span>: re-allocation; randomly pick between the allocations; session 1</li>
+<li><span class="math inline">\(t=2\)</span>: session 2</li>
+</ul></li>
+<li>Notations
+<ul>
+<li><span class="math inline">\(R\)</span>: interest rate</li>
+<li><span class="math inline">\(B\)</span>: basic income</li>
+<li><span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span>: effort costs</li>
+</ul></li>
+<li><span class="math inline">\(t=0\)</span>
+<span class="math display">\[\begin{aligned}\max_{e_1^0,e_2^0} &amp;&amp; U_0 &amp;= \beta\delta^2 B - \beta (\delta c(e_1) + \delta^2 c(e_2))\\
+s.t. &amp;&amp; e_1 + R e_2 &amp;= 50\\
+FOC &amp;&amp; c&#39;(e_1) &amp;= \frac{\delta}{R}\cdot c&#39;(e_2) &amp;&amp; \text{Euler Equation}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\frac{\delta}{R}=1\implies e_1=e_2\)</span></li>
+<li><span class="math inline">\(\frac{\delta}{R}&lt;1\implies e_1&lt;e_2\)</span></li>
+<li><span class="math inline">\(\frac{\delta}{R}&gt;1\implies e_1&gt;e_2\)</span></li>
+</ul></li>
+<li><span class="math inline">\(t=1\)</span>
+<span class="math display">\[\begin{aligned}\max_{e_1^1,e_2^1} &amp;&amp; U_1 &amp;= \beta\delta B - (c(e_1) + \beta\delta c(e_2))\\
+s.t. &amp;&amp; e_1 + R e_2 &amp;= 50\\
+FOC &amp;&amp; c&#39;(e_1) &amp;= \frac{\beta\delta}{R}\cdot c&#39;(e_2) &lt; \frac{\delta}{R}\cdot c&#39;(e_2)\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\implies e_1^1&lt;e_1^0\)</span>, <span class="math inline">\(e_2^1&gt;e_2^0\)</span></li>
+<li>5% - 10% procrastination</li>
+<li>Is that a lot?</li>
+</ul></li>
+</ul>
+</div>
+<div id="calibration-specifying-the-model-by-guessing" class="section level4">
+<h4>Calibration (Specifying the Model by Guessing)</h4>
+<ul>
+<li>Assume <span class="math inline">\(c(e)=0.5\cdot c\cdot e^2\)</span>
+<ul>
+<li><span class="math inline">\(c&#39;(e) = ce\)</span></li>
+</ul></li>
+<li>When <span class="math inline">\(t=0\)</span>, FOC:
+<span class="math display">\[\begin{aligned}c&#39;(e_1^0) &amp;= \frac{\delta}{R}\cdot c&#39;(e_2^0)\\
+ce_1^0 &amp;= \frac{\delta}{R}\cdot ce_2^0 \\
+\implies \delta &amp;= R\cdot\frac{e_1^0}{e_2^0}\end{aligned}\]</span></li>
+<li>When <span class="math inline">\(t=1\)</span>, FOC:
+<span class="math display">\[\begin{aligned}c&#39;(e_1^1) &amp;= \frac{\beta\delta}{R}\cdot c&#39;(e_2^1) \\
+ce_1^1 &amp;= \frac{\beta\delta}{R}\cdot ce_2^1 \\
+\implies \beta\delta &amp;= R\cdot\frac{e_1^1}{e_2^1}\end{aligned}\]</span></li>
+<li>Therefore, present bias:
+<span class="math display">\[\beta = \frac{e_1^1\ /\ e_2^1}{e_1^0\ /\ e_2^0}\]</span></li>
+</ul>
+</div>
+<div id="structual-estimation-better-guessing-with-generalisation" class="section level4">
+<h4>Structual Estimation (Better Guessing with Generalisation)</h4>
+<ul>
+<li>Assume <span class="math inline">\(c(e)=\frac{1}{\gamma}\cdot c\cdot e^{\gamma}\)</span>
+<ul>
+<li><span class="math inline">\(\gamma\geq 1\)</span></li>
+</ul></li>
+<li>When <span class="math inline">\(t=0\)</span>, FOC:
+<span class="math display">\[\begin{aligned}c&#39;(e_1^0) &amp;= \frac{\delta}{R}\cdot c&#39;(e_2^0)\\
+c(e_1^0)^{\gamma -1} &amp;= \frac{\delta}{R}\cdot c(e_2^0)^{\gamma -1} \end{aligned}\]</span>
+take log of both sides:
+<span class="math display">\[\begin{aligned}(\gamma -1)\cdot\log e_1^0 &amp;= \log \delta - \log R + (\gamma -1)\cdot\log e_2^0 \\
+\log e_2^0 - \log e_1^0 &amp;= \frac{1}{\gamma -1}(- \log \delta + \log R) \end{aligned}\]</span></li>
+<li>When <span class="math inline">\(t=1\)</span>, FOC:
+<span class="math display">\[\begin{aligned}c&#39;(e_1^1) &amp;= \frac{\beta\delta}{R}\cdot c&#39;(e_2^1) \\
+c(e_1^1)^{\gamma -1} &amp;= \frac{\beta\delta}{R}\cdot c(e_2^1)^{\gamma -1} \end{aligned}\]</span>
+take log of both sides:
+<span class="math display">\[\begin{aligned}(\gamma -1)\cdot\log e_1^1 &amp;= \log \beta + \log \delta - \log R + (\gamma -1)\cdot\log e_2^1 \\
+\log e_2^1 - \log e_1^1 &amp;= \frac{1}{\gamma -1}(- \log \beta - \log \delta + \log R )\end{aligned}\]</span></li>
+<li><span class="math inline">\(\implies\)</span> Econometrics model:
+<span class="math display">\[\log e_{2ik}^t - \log e_{1ik}^t = \underbrace{\phi_0}_{\frac{-\log \delta}{\gamma -1}}
++\underbrace{\phi_1}_{\frac{-\log \beta}{\gamma -1}}\cdot 1(t=1)
++\underbrace{\phi_2}_{\frac{1}{\gamma -1}}\cdot \log R_k + \epsilon_{ikt}\]</span>
+<ul>
+<li><span class="math inline">\(k\)</span>: different values of <span class="math inline">\(R\)</span></li>
+<li><span class="math inline">\(\phi_2\)</span>: elasticity of effort wrt <span class="math inline">\(R\)</span></li>
+<li><span class="math inline">\(\delta = \exp\big(-\frac{\phi_0}{\phi_2}\big)\)</span></li>
+<li><span class="math inline">\(\beta = \exp\big(-\frac{\phi_1}{\phi_2}\big)\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="policy-for-internality" class="section level3">
+<h3>Policy for Internality</h3>
+</div>
+</div>
+<div id="salience-bias" class="section level2">
+<h2>Salience Bias</h2>
+<div id="behavioral-welfare-analysis" class="section level3">
+<h3>Behavioral Welfare Analysis</h3>
+<ul>
+<li>Harberger’s Triangle (<a href="https://www.jstor.org/stable/1828856">Harberger, 1962</a>):
+<span class="math display">\[\frac{\partial W}{\partial t} = t\cdot\frac{\partial x}{\partial t}\]</span>
+<ul>
+<li>Treat internality as externality</li>
+<li>Sufficient statistics</li>
+<li>Heterogeneous (mixed rational &amp; behavioural) agents</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="non-selfish-preferences" class="section level2">
+<h2>Non-Selfish Preferences</h2>
+<ul>
+<li>Less need for policy intervention</li>
+</ul>
+<div id="public-good" class="section level3">
+<h3>Public Good</h3>
+<ul>
+<li>Motivation to contribute</li>
+<li>Peer effects</li>
+</ul>
+</div>
+<div id="labour-market" class="section level3">
+<h3>Labour Market</h3>
+<ul>
+<li>More effecient</li>
+<li>More unemployment (?)</li>
+</ul>
+</div>
+</div>
+<div id="reference-dependent-preferences" class="section level2">
+<h2>Reference Dependent Preferences</h2>
+</div>
+<div id="habit-formation" class="section level2">
+<h2>Habit Formation</h2>
+<div id="allcott-kessler2019" class="section level3">
+<h3><a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/app.20170328">Allcott &amp; Kessler(2019)</a></h3>
 <ol style="list-style-type: decimal">
 <li>Nudge sets <span class="math inline">\(\hat{f}=f\)</span></li>
 <li>Without nudge <span class="math inline">\(\hat{f}=f\)</span></li>
 </ol>
+</div>
 </div>
 
     </div>
