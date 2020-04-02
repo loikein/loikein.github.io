@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">5 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -96,7 +96,10 @@ if (!doNotTrack) {
 <li><a href="#behavioural-public-policy">Behavioural Public Policy</a></li>
 <li><a href="#present-bias">Present Bias</a>
 <ul>
+<li><a href="#theory-intertemporal-consumption">Theory: Intertemporal Consumption</a></li>
 <li><a href="#augenblick-niederle-sprenger-2015"><span>Augenblick, Niederle, Sprenger (2015)</span></a></li>
+<li><a href="#andreoni-callen-khan-jaffar-sprenger-2016"><span>Andreoni, Callen, Khan, Jaffar, Sprenger (2016)</span></a></li>
+<li><a href="#food-choice-sadoff-samek-sprenger-2014-2019">Food Choice (Sadoff, Samek, Sprenger, 2014 &amp; 2019)</a></li>
 <li><a href="#policy-for-internality">Policy for Internality</a></li>
 </ul></li>
 <li><a href="#salience-bias">Salience Bias</a>
@@ -142,18 +145,66 @@ if (!doNotTrack) {
 <ul>
 <li>Self-control problems <span class="math inline">\(\implies\)</span> internality</li>
 </ul>
-<div id="augenblick-niederle-sprenger-2015" class="section level3">
-<h3><a href="https://academic.oup.com/qje/article/130/3/1067/1934963">Augenblick, Niederle, Sprenger (2015)</a></h3>
+<div id="theory-intertemporal-consumption" class="section level3">
+<h3>Theory: Intertemporal Consumption</h3>
 <ul>
-<li><p>Procrastination &amp; present bias in work</p></li>
-<li><p>Utility discounting:
-<span class="math display">\[\begin{aligned}U = u(c_t) + \beta [ &amp;\delta u(c_{t+1}) + \delta^2 u(c_{t+2}) \\
-&amp;+ \delta^3 u(c_{t+3}) + \cdots + \delta^T u(c_{t+T}) ] \end{aligned}\]</span></p>
+<li>Utility discounting:
+<span class="math display">\[U = u(c_t) + \beta \big[\delta u(c_{t+1}) + \delta^2 u(c_{t+2}) + \delta^3 u(c_{t+3}) + \cdots + \delta^T u(c_{t+T})\big]\]</span>
 <ul>
 <li>Standard model: <span class="math inline">\(\beta=1\)</span></li>
 <li>Present bias: <span class="math inline">\(\beta&lt;1\)</span></li>
 </ul></li>
-<li><p><span class="math inline">\(\implies\)</span> Time-inconsistence &amp; self-control problems</p></li>
+<li>Budget constraint (can borrow):
+<span class="math display">\[c_t + c_{t+1} + \dots + c_{t+T} \leq y_t + y_{t+1} + \dots + y_{t+T}\]</span>
+<ul>
+<li>Total available assets:
+<span class="math display">\[\begin{aligned}a_t &amp;= y_t + y_{t+1} + \dots + y_{t+T} \\ a_{t+1} &amp;= a_t - c_t\end{aligned}\]</span></li>
+</ul></li>
+<li>Bellman equation: for all <span class="math inline">\(s = t, t+1,\dots, t+T\)</span>
+<span class="math display">\[\begin{aligned}V_t(a_t) &amp;= \max_{c_t} \ u(c_t) + \delta\cdot V_{t+1}(a_t - c_t) \\
+&amp;= \max_{c_t} \ u(c_t) + \delta\cdot \underbrace{ u\big(c_{t+1}(a_t - c_t)\big)
++\delta\cdot V_{t+2}\big(a_t - c_t - c_{t+1}(a_t - c_t)\big)}_{V_{t+1}(a_t - c_t)}\end{aligned}\]</span>
+Therefore, FOC:
+<span class="math display">\[\begin{aligned}u&#39;(c_s) &amp;= \delta \cdot V&#39;_{s+1}(a_s - c_s) \\
+&amp;= \delta \cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \frac{\partial c_{s+1}}{\partial a} \\
+&amp;\phantom{\ggg}+\delta^2\cdot V&#39;_{s+2}\big(a_t - c_t - c_{s+1}(a_s - c_s)\big) \cdot \Big(1-\frac{\partial c_{s+1}}{\partial a}\Big)\\
+u&#39;(c_{s+1}) &amp;= \delta\cdot V&#39;_{s+2}(a_{s+1} - c_{s+1}) \\
+u&#39;(c_s) &amp;= \delta\cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \frac{\partial c_{s+1}}{\partial a} \\
+&amp;\phantom{\ggg}+ \delta\cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \big(1 -\frac{\partial c_{s+1}}{\partial a}\big)\\
+&amp;= \delta\cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> Euler equation</li>
+</ul>
+<div id="agents" class="section level4">
+<h4>Agents</h4>
+<ul>
+<li>TC
+<ul>
+<li><span class="math inline">\(\beta=1\)</span></li>
+<li>Set consumption s.t.
+<span class="math display">\[u&#39;(c_t^{TC}) = \delta\cdot u&#39;(c_{t+1}^{TC})\]</span></li>
+</ul></li>
+<li>Naif
+<ul>
+<li><span class="math inline">\(\beta &lt;1\)</span>, but think themselves will behave like TC in the future</li>
+<li><span class="math inline">\(\implies\)</span> can generate consumption decline over short period</li>
+<li>Set consumption s.t.
+<span class="math display">\[u&#39;(c_t^{N}) = \beta\delta\cdot u&#39;(c_{t+1}^{N})\]</span></li>
+</ul></li>
+<li>Sophisticate
+<ul>
+<li><span class="math inline">\(\beta &lt;1\)</span>, and they know it</li>
+<li>Set consumption s.t.
+<span class="math display">\[u&#39;(c_t^S) = u&#39;(c_{t+1}^S)\cdot\Big(\beta\delta\cdot\frac{\delta c_{t+1}^S}{\delta a}+\delta\big(1-\frac{\delta c_{t+1}^S}{\delta a}\big)\Big)\]</span></li>
+<li>If <span class="math inline">\(\frac{\delta c_{t+1}^S}{\delta a}\approx 1\)</span>, no motive to save</li>
+<li>If <span class="math inline">\(\frac{\delta c_{t+1}^S}{\delta a}\ll 1\)</span>, save &amp; more patient</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="augenblick-niederle-sprenger-2015" class="section level3">
+<h3><a href="https://academic.oup.com/qje/article/130/3/1067/1934963">Augenblick, Niederle, Sprenger (2015)</a></h3>
+<ul>
+<li>Procrastination &amp; present bias in work</li>
 </ul>
 <div id="experiment" class="section level4">
 <h4>Experiment</h4>
@@ -169,11 +220,11 @@ if (!doNotTrack) {
 <li><span class="math inline">\(R\)</span>: interest rate</li>
 <li><span class="math inline">\(B\)</span>: basic income</li>
 <li><span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span>: effort costs</li>
+<li><span class="math inline">\(e_1 + R e_2 = 50\)</span>: budget constraint</li>
 </ul></li>
 <li><span class="math inline">\(t=0\)</span>
 <span class="math display">\[\begin{aligned}\max_{e_1^0,e_2^0} &amp;&amp; U_0 &amp;= \beta\delta^2 B - \beta (\delta c(e_1) + \delta^2 c(e_2))\\
-s.t. &amp;&amp; e_1 + R e_2 &amp;= 50\\
-FOC &amp;&amp; c&#39;(e_1) &amp;= \frac{\delta}{R}\cdot c&#39;(e_2) &amp;&amp; \text{Euler Equation}\end{aligned}\]</span>
+FOC &amp;&amp; c&#39;(e_1) &amp;= \frac{\delta}{R}\cdot c&#39;(e_2)\end{aligned}\]</span>
 <ul>
 <li><span class="math inline">\(\frac{\delta}{R}=1\implies e_1=e_2\)</span></li>
 <li><span class="math inline">\(\frac{\delta}{R}&lt;1\implies e_1&lt;e_2\)</span></li>
@@ -181,7 +232,6 @@ FOC &amp;&amp; c&#39;(e_1) &amp;= \frac{\delta}{R}\cdot c&#39;(e_2) &amp;&amp; \
 </ul></li>
 <li><span class="math inline">\(t=1\)</span>
 <span class="math display">\[\begin{aligned}\max_{e_1^1,e_2^1} &amp;&amp; U_1 &amp;= \beta\delta B - (c(e_1) + \beta\delta c(e_2))\\
-s.t. &amp;&amp; e_1 + R e_2 &amp;= 50\\
 FOC &amp;&amp; c&#39;(e_1) &amp;= \frac{\beta\delta}{R}\cdot c&#39;(e_2) &lt; \frac{\delta}{R}\cdot c&#39;(e_2)\end{aligned}\]</span>
 <ul>
 <li><span class="math inline">\(\implies e_1^1&lt;e_1^0\)</span>, <span class="math inline">\(e_2^1&gt;e_2^0\)</span></li>
@@ -237,6 +287,70 @@ take log of both sides:
 <li><span class="math inline">\(\phi_2\)</span>: elasticity of effort wrt <span class="math inline">\(R\)</span></li>
 <li><span class="math inline">\(\delta = \exp\big(-\frac{\phi_0}{\phi_2}\big)\)</span></li>
 <li><span class="math inline">\(\beta = \exp\big(-\frac{\phi_1}{\phi_2}\big)\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="andreoni-callen-khan-jaffar-sprenger-2016" class="section level3">
+<h3><a href="https://www.nber.org/papers/w22019">Andreoni, Callen, Khan, Jaffar, Sprenger (2016)</a></h3>
+<div id="field-experiment" class="section level4">
+<h4>Field Experiment</h4>
+<ul>
+<li>Between-subject design
+<ul>
+<li>Advance choice group: <span class="math inline">\(e_1^0\)</span>, <span class="math inline">\(e_2^0\)</span></li>
+<li>Immediate choice group: <span class="math inline">\(e_1^1\)</span>, <span class="math inline">\(e_2^1\)</span></li>
+</ul></li>
+<li>Budget constraint: <span class="math inline">\(e_1 + R e_2 \geq 300\)</span>
+<ul>
+<li>If actual work reaches <span class="math inline">\(e\)</span>, receive bonus</li>
+</ul></li>
+</ul>
+<p>Round 1</p>
+<ul>
+<li>For each value of <span class="math inline">\(R\)</span>, subjects have to choose <span class="math inline">\(e\)</span>’s</li>
+</ul>
+<p>Round 2 (same group of subjects)</p>
+<ul>
+<li>Induce equalised effort over periods
+<ul>
+<li>Tailored group: set <span class="math inline">\(R\)</span> s.t. <span class="math inline">\(R_i=\beta_i \cdot \delta_i\)</span></li>
+<li>Untailored group: randomly assign <span class="math inline">\(R\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="food-choice-sadoff-samek-sprenger-2014-2019" class="section level3">
+<h3>Food Choice (Sadoff, Samek, Sprenger, 2014 &amp; 2019)</h3>
+<ul>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2572821">2014</a></li>
+<li><a href="https://academic.oup.com/restud/advance-article-abstract/doi/10.1093/restud/rdz030/5491757">2019</a></li>
+</ul>
+<p>Purpose:</p>
+<ul>
+<li>Present-bias in food choice</li>
+<li>Commitment tool
+<ul>
+<li>Self-control problems <span class="math inline">\(\implies\)</span> unhealthy diet &amp; high BMI</li>
+</ul></li>
+<li>Strength of replication</li>
+</ul>
+<div id="experiment-1" class="section level4">
+<h4>Experiment</h4>
+<ul>
+<li><span class="math inline">\(t=0\)</span>: pick item 1</li>
+<li><span class="math inline">\(t=1\)</span>: get item 1, pick 2</li>
+<li><span class="math inline">\(t=2\)</span>: get 2, pick 3
+<ul>
+<li>No commitment group: change item 2</li>
+</ul></li>
+<li><span class="math inline">\(t=3\)</span>: get 3
+<ul>
+<li>No commitment group: change item 3</li>
+</ul></li>
+<li>Result: more consistent subjects tend to choose commitment
+<ul>
+<li><span class="math inline">\(\implies\)</span> stronger the bias, less aware of it</li>
 </ul></li>
 </ul>
 </div>
