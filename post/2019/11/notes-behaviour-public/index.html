@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">6 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -97,9 +97,10 @@ if (!doNotTrack) {
 <li><a href="#present-bias">Present Bias</a>
 <ul>
 <li><a href="#theory-intertemporal-consumption">Theory: Intertemporal Consumption</a></li>
-<li><a href="#augenblick-niederle-sprenger-2015"><span>Augenblick, Niederle, Sprenger (2015)</span></a></li>
-<li><a href="#andreoni-callen-khan-jaffar-sprenger-2016"><span>Andreoni, Callen, Khan, Jaffar, Sprenger (2016)</span></a></li>
+<li><a href="#work-allocation-2015-2016">Work Allocation: 2015 &amp; 2016</a></li>
 <li><a href="#food-choice-sadoff-samek-sprenger-2014-2019">Food Choice (Sadoff, Samek, Sprenger, 2014 &amp; 2019)</a></li>
+<li><a href="#food-stamp-shapiro-2005">Food Stamp: <span>Shapiro (2005)</span></a></li>
+<li><a href="#retirement-haider-stephens-2007">Retirement: <span>Haider &amp; Stephens (2007)</span></a></li>
 <li><a href="#policy-for-internality">Policy for Internality</a></li>
 </ul></li>
 <li><a href="#salience-bias">Salience Bias</a>
@@ -182,11 +183,12 @@ u&#39;(c_s) &amp;= \delta\cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \frac{\p
 <li><span class="math inline">\(\beta=1\)</span></li>
 <li>Set consumption s.t.
 <span class="math display">\[u&#39;(c_t^{TC}) = \delta\cdot u&#39;(c_{t+1}^{TC})\]</span></li>
+<li>(In standard model:)
+<span class="math display">\[u&#39;(c_t^{TC}) = \frac{p_t}{p_{t+1}}\cdot u&#39;(c_{t+1}^{TC})\]</span></li>
 </ul></li>
 <li>Naif
 <ul>
-<li><span class="math inline">\(\beta &lt;1\)</span>, but think themselves will behave like TC in the future</li>
-<li><span class="math inline">\(\implies\)</span> can generate consumption decline over short period</li>
+<li><span class="math inline">\(\beta &lt;1\)</span>, but think themselves will behave like TC in the future <span class="math inline">\(\implies\)</span> over-consumption in this period</li>
 <li>Set consumption s.t.
 <span class="math display">\[u&#39;(c_t^{N}) = \beta\delta\cdot u&#39;(c_{t+1}^{N})\]</span></li>
 </ul></li>
@@ -198,17 +200,36 @@ u&#39;(c_s) &amp;= \delta\cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \frac{\p
 <li>If <span class="math inline">\(\frac{\delta c_{t+1}^S}{\delta a}\approx 1\)</span>, no motive to save</li>
 <li>If <span class="math inline">\(\frac{\delta c_{t+1}^S}{\delta a}\ll 1\)</span>, save &amp; more patient</li>
 </ul></li>
+<li>Naif vs. Sophisticate
+<ul>
+<li>Naif’s false optimism help to reduce current consumption</li>
+<li>Sophisticate’s correct self assessment help reduce current consumption</li>
+</ul></li>
+</ul>
+</div>
+<div id="iso-elastic-utility" class="section level4">
+<h4>Iso-Elastic Utility</h4>
+<ul>
+<li>Utility function: <span class="math display">\[u(c) = \frac{1}{1-\sigma}\cdot c^{1-\sigma}\]</span></li>
+<li>TC’s consumption:
+<span class="math display">\[\Delta \log c_t = -\frac{1}{\sigma}\cdot\Delta\log p_t + \frac{1}{\sigma}\cdot\log\delta\]</span>
+Therefore, monthly consumption:
+<span class="math display">\[\Delta \log c_{t+30} - \log c_t = -\frac{1}{\sigma}\cdot(\log p_{t+30} -\log p_t) + 30\cdot\frac{1}{\sigma}\]</span>
+if price does not change:
+<span class="math display">\[\Delta \log c_{t+30} - \log c_t \approx 30\cdot\frac{1}{\sigma}&lt;0\]</span></li>
 </ul>
 </div>
 </div>
-<div id="augenblick-niederle-sprenger-2015" class="section level3">
-<h3><a href="https://academic.oup.com/qje/article/130/3/1067/1934963">Augenblick, Niederle, Sprenger (2015)</a></h3>
+<div id="work-allocation-2015-2016" class="section level3">
+<h3>Work Allocation: 2015 &amp; 2016</h3>
+<ul>
+<li><a href="https://academic.oup.com/qje/article/130/3/1067/1934963">Augenblick, Niederle, Sprenger (2015)</a></li>
+<li><a href="https://www.nber.org/papers/w22019">Andreoni, Callen, Khan, Jaffar, Sprenger (2016)</a></li>
+</ul>
+<div id="lab-experiment" class="section level4">
+<h4>Lab Experiment</h4>
 <ul>
 <li>Procrastination &amp; present bias in work</li>
-</ul>
-<div id="experiment" class="section level4">
-<h4>Experiment</h4>
-<ul>
 <li>Tedious work for two sessions
 <ul>
 <li><span class="math inline">\(t=0\)</span>: initial allocation: <span class="math inline">\(e_1\)</span> and <span class="math inline">\(e_2\)</span></li>
@@ -290,9 +311,6 @@ take log of both sides:
 </ul></li>
 </ul>
 </div>
-</div>
-<div id="andreoni-callen-khan-jaffar-sprenger-2016" class="section level3">
-<h3><a href="https://www.nber.org/papers/w22019">Andreoni, Callen, Khan, Jaffar, Sprenger (2016)</a></h3>
 <div id="field-experiment" class="section level4">
 <h4>Field Experiment</h4>
 <ul>
@@ -335,7 +353,7 @@ take log of both sides:
 </ul></li>
 <li>Strength of replication</li>
 </ul>
-<div id="experiment-1" class="section level4">
+<div id="experiment" class="section level4">
 <h4>Experiment</h4>
 <ul>
 <li><span class="math inline">\(t=0\)</span>: pick item 1</li>
@@ -354,6 +372,51 @@ take log of both sides:
 </ul></li>
 </ul>
 </div>
+</div>
+<div id="food-stamp-shapiro-2005" class="section level3">
+<h3>Food Stamp: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=480161">Shapiro (2005)</a></h3>
+<div id="experiment-1" class="section level4">
+<h4>Experiment</h4>
+<ul>
+<li>Measure actual (daily) consumption, not monetary expenditure</li>
+<li>Caloric intakes decreases by 0.45% each day after receiving food stamp</li>
+</ul>
+</div>
+<div id="explaining-using-standard-model" class="section level4">
+<h4>Explaining Using Standard Model</h4>
+<ul>
+<li>Assume <span class="math inline">\(\sigma=1\)</span>, <span class="math inline">\(\implies\delta=\exp(-0.0045)\approx 0.995\)</span>,<br />
+which makes yearly discount factor <span class="math inline">\(\delta^{365}=0.16\)</span> (too low!)</li>
+<li>Assume <span class="math inline">\(\delta^{365}=0.95\)</span>, therefore elasticity:
+<span class="math display">\[\begin{aligned}\frac{\log\delta}{\sigma} &amp;= -0.0045 \\
+\frac{1}{\sigma} &amp;= \frac{-0.0045}{\log 0.95^{1/365}} \\
+&amp;= 32.02\end{aligned}\]</span>
+<span class="math inline">\(\implies\)</span> 1% change in price cause 32% decrease in consumption (too large!)</li>
+</ul>
+</div>
+<div id="behavioural-model" class="section level4">
+<h4>Behavioural Model</h4>
+<ul>
+<li>The value of calorie for each day is different:
+<ul>
+<li>Running out of money</li>
+<li>Have to skip a meal because running out of money</li>
+</ul></li>
+<li>Assume sophisticate, <span class="math inline">\(\beta=0.96\)</span></li>
+<li>Assume naif <span class="math inline">\(\beta\)</span> is even closer to 1</li>
+</ul>
+</div>
+</div>
+<div id="retirement-haider-stephens-2007" class="section level3">
+<h3>Retirement: <a href="https://www.mitpressjournals.org/doi/abs/10.1162/rest.89.2.247">Haider &amp; Stephens (2007)</a></h3>
+<ul>
+<li>In standard model…
+<ul>
+<li>Assume consumption is smooth</li>
+<li>Unaffected by retirement (time)</li>
+<li>But if borrowing option drops with retirement, income falls so consumption must change</li>
+</ul></li>
+</ul>
 </div>
 <div id="policy-for-internality" class="section level3">
 <h3>Policy for Internality</h3>
