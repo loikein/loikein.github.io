@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">8 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -98,9 +98,12 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#theory-intertemporal-consumption">Theory: Intertemporal Consumption</a></li>
 <li><a href="#work-allocation-2015-2016">Work Allocation: 2015 &amp; 2016</a></li>
-<li><a href="#food-choice-sadoff-samek-sprenger-2014-2019">Food Choice (Sadoff, Samek, Sprenger, 2014 &amp; 2019)</a></li>
+<li><a href="#food-choice-sadoff-samek-sprenger-2014-2019">Food Choice: Sadoff, Samek, Sprenger, 2014 &amp; 2019</a></li>
 <li><a href="#food-stamp-shapiro-2005">Food Stamp: <span>Shapiro (2005)</span></a></li>
 <li><a href="#retirement-haider-stephens-2007">Retirement: <span>Haider &amp; Stephens (2007)</span></a></li>
+<li><a href="#financial-desicion-chetty-et-al-2014">Financial Desicion: <span>Chetty et al (2014)</span></a></li>
+<li><a href="#increase-employee-saving-thaler-benartzi-2004">Increase Employee Saving: <span>Thaler &amp; Benartzi (2004)</span></a></li>
+<li><a href="#power-of-default-blumenstock-callen-ghani-2018">Power of Default: <span>Blumenstock, Callen, Ghani (2018)</span></a></li>
 <li><a href="#policy-for-internality">Policy for Internality</a></li>
 </ul></li>
 <li><a href="#salience-bias">Salience Bias</a>
@@ -339,7 +342,7 @@ take log of both sides:
 </div>
 </div>
 <div id="food-choice-sadoff-samek-sprenger-2014-2019" class="section level3">
-<h3>Food Choice (Sadoff, Samek, Sprenger, 2014 &amp; 2019)</h3>
+<h3>Food Choice: Sadoff, Samek, Sprenger, 2014 &amp; 2019</h3>
 <ul>
 <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2572821">2014</a></li>
 <li><a href="https://academic.oup.com/restud/advance-article-abstract/doi/10.1093/restud/rdz030/5491757">2019</a></li>
@@ -416,7 +419,146 @@ which makes yearly discount factor <span class="math inline">\(\delta^{365}=0.16
 <li>Unaffected by retirement (time)</li>
 <li>But if borrowing option drops with retirement, income falls so consumption must change</li>
 </ul></li>
+<li>Problems
+<ul>
+<li>Retirements can be unexpected</li>
+<li>People cannot predict wage perfectly</li>
+</ul></li>
+<li><span class="math inline">\(\implies\)</span> present-biased preferences</li>
 </ul>
+<div id="estimating-consumption" class="section level4">
+<h4>Estimating Consumption</h4>
+<ul>
+<li>Model 1:
+<span class="math display">\[\Delta\log c_{it} = \beta_0 + \beta_1 \cdot 1(\text{retired})_{it} + \beta_2&#39; x_{it} + \epsilon_{it}\]</span>
+<ul>
+<li><span class="math inline">\(\Delta\log c_{it}\)</span>: percentage change by household <span class="math inline">\(i\)</span> in year <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(x_{it}\)</span>: control variables</li>
+<li><span class="math inline">\(H_0\)</span>: <span class="math inline">\(\beta_1=0\)</span> (retirement does not affect consumption)</li>
+<li>Result: consumption drop by about 10%</li>
+</ul></li>
+<li>Model 2 with instrumental variable:
+<ul>
+<li>Instrument: expected retirement year</li>
+<li>Result: consumption drop by about 10%</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="financial-desicion-chetty-et-al-2014" class="section level3">
+<h3>Financial Desicion: <a href="https://academic.oup.com/qje/article-abstract/129/3/1141/1817647">Chetty et al (2014)</a></h3>
+<ul>
+<li>Financial decisions is affected by present bias
+<ul>
+<li>Immediate costs, future benefits</li>
+<li>Want to pospone to <span class="math inline">\(t+1\)</span></li>
+<li>Procrastination leads to huge losses</li>
+</ul></li>
+</ul>
+<div id="pension-system-in-denmark" class="section level4">
+<h4>Pension system in Denmark</h4>
+<ul>
+<li>Social security from state</li>
+<li>Employer-linked pension scheme</li>
+<li>Individual pension scheme</li>
+</ul>
+</div>
+<div id="experiment-2" class="section level4">
+<h4>Experiment</h4>
+<ul>
+<li>Changes in employer contribution
+<ul>
+<li>1% change in employer contribution <span class="math inline">\(\implies\)</span> 0.8% change in saving rate</li>
+<li>When employer contribution increases (switch job, etc.), personal savings should drop</li>
+<li>But no</li>
+</ul></li>
+<li>Changes in subsidy (similar)</li>
+</ul>
+</div>
+</div>
+<div id="increase-employee-saving-thaler-benartzi-2004" class="section level3">
+<h3>Increase Employee Saving: <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/380085">Thaler &amp; Benartzi (2004)</a></h3>
+<ul>
+<li>Good financial decision should be free from…
+<ul>
+<li>Present bias: choose savings rate independent from <span class="math inline">\(\beta\)</span></li>
+<li>Procrastination: make timely decisions</li>
+<li>Loss aversion: increase saving <span class="math inline">\(\implies\)</span> decrease now consumption</li>
+</ul></li>
+</ul>
+<div id="save-more-tomorrow" class="section level4">
+<h4>“Save More Tomorrow”</h4>
+<ul>
+<li>Present bias: decide savings rate 3 month ahead</li>
+<li>Procrastination: save by default, can opt out</li>
+<li>Loss aversion: savings come from pay rise</li>
+</ul>
+</div>
+<div id="firm-1" class="section level4">
+<h4>Firm 1</h4>
+<ul>
+<li>Financial advisor: recommend higher savings rate
+<ul>
+<li>If accept: implement</li>
+<li>If reject: SMT programme (increase savings rate by 3 %points every year, based on pay rise)</li>
+</ul></li>
+<li>Result: people who entered SMT programme ended up with higher savings rate</li>
+<li>Problems: self-selection</li>
+</ul>
+</div>
+<div id="firm-2" class="section level4">
+<h4>Firm 2</h4>
+<ul>
+<li>SMT programme: set increase rate <span class="math inline">\(x\%\)</span>, stop if <span class="math inline">\(x\geq 10\)</span></li>
+<li>Difference-in-difference: only two divisions have SMT, other divisions are control groups</li>
+<li>Result: smaller increase than firm 1
+<ul>
+<li>No pay rise guaranteed</li>
+<li>Clearer control groups</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="power-of-default-blumenstock-callen-ghani-2018" class="section level3">
+<h3>Power of Default: <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20171676">Blumenstock, Callen, Ghani (2018)</a></h3>
+<ul>
+<li>Problems of previous studies: not truly exogenous
+<ul>
+<li>Self-selection</li>
+<li>Endogenous timings</li>
+</ul></li>
+</ul>
+<div id="field-experiment-1" class="section level4">
+<h4>Field Experiment</h4>
+<ul>
+<li>Banking system in Afghanistan
+<ul>
+<li>No formal banks</li>
+<li>Shadow banks: mobile phone accounts</li>
+</ul></li>
+<li>Mobile firm whose employees receive payment through phone account
+<ul>
+<li>Set up new account for pension savings</li>
+<li>Employees can withdraw early, but will lose firm rate</li>
+</ul></li>
+<li>Randomise contribution rate
+<ul>
+<li>Employee: 0% or 5% (can call to change)</li>
+<li>Employer: 0%, 25% or 50%</li>
+</ul></li>
+</ul>
+</div>
+<div id="results" class="section level4">
+<h4>Results</h4>
+<ul>
+<li>Default settings have huge impact on choices
+<ul>
+<li>Employees barely change the rates</li>
+<li>Those who did happened early on</li>
+<li>Default affect attitudes towards saving</li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="policy-for-internality" class="section level3">
 <h3>Policy for Internality</h3>
