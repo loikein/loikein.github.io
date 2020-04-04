@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">10 min read</span>
+    <span class="article-duration">11 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -108,6 +108,7 @@ if (!doNotTrack) {
 <li><a href="#behavioral-welfare-analysis">Behavioral Welfare Analysis</a>
 <ul>
 <li><a href="#taxation-and-consumer-choise-odonoghue-rabin-2006">Taxation and Consumer Choise: <span>O’Donoghue &amp; Rabin, 2006</span></a></li>
+<li><a href="#taxation-happiness-gruber-mullainathan-2005">Taxation &amp; Happiness: <span>Gruber &amp; Mullainathan, 2005</span></a></li>
 </ul></li>
 <li><a href="#salience-bias">Salience Bias</a></li>
 <li><a href="#non-selfish-preferences">Non-Selfish Preferences</a>
@@ -581,7 +582,7 @@ which makes yearly discount factor <span class="math inline">\(\delta^{365}=0.16
 <span class="math display">\[U = \underbrace{u(x_1,x_2) + x_3}_{\text{Immediate reward}} - \underbrace{\beta\delta\cdot c x_1}_{\text{Delayed cost}}\]</span>
 <ul>
 <li><span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>: goods with concave utility curve</li>
-<li><span class="math inline">\(x_1\)</span>: sin good (has delayed health cost)</li>
+<li><span class="math inline">\(x_1\)</span>: <strong>sin good</strong> (has delayed health cost)</li>
 <li><span class="math inline">\(x_3\)</span>: <span class="math inline">\(p=1\)</span>, no income effect (all money left)</li>
 </ul></li>
 <li>Question: how can taxing <span class="math inline">\(x_1\)</span> affect welfare?</li>
@@ -664,6 +665,47 @@ t^* &amp;= \underbrace{\frac{1}{\partial x_1 / \partial t}}_{\text{Aggregate dem
 <ul>
 <li>At <span class="math inline">\(t=0\)</span>, non-TC’s agree with the tax</li>
 <li>Since TC consume less <span class="math inline">\(x_1\)</span>, they benefit from the tax</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="taxation-happiness-gruber-mullainathan-2005" class="section level3">
+<h3>Taxation &amp; Happiness: <a href="https://www.degruyter.com/view/journals/bejeap/5/1/article-bejeap.2005.5.1.1412.xml.xml">Gruber &amp; Mullainathan, 2005</a></h3>
+<div id="models" class="section level4">
+<h4>Models</h4>
+<ul>
+<li>Base model:
+<span class="math display">\[y_{i,j,t} = \alpha_j + \delta_t + \gamma_1 \cdot tax_{jt} + x_{it}&#39;\cdot \beta + \epsilon_{it}\]</span>
+<ul>
+<li><span class="math inline">\(y\)</span>: subject wellbeing for consumer <span class="math inline">\(i\)</span>, state <span class="math inline">\(j\)</span>, time <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(\alpha_j\)</span>: fixed effect of <span class="math inline">\(j\)</span></li>
+<li><span class="math inline">\(\delta_t\)</span>: fixed effect of <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(\gamma_1\)</span>: coefficient for tax</li>
+<li><span class="math inline">\(tax_{jt}\)</span>: tax on cigarette in state <span class="math inline">\(j\)</span>, time <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(x_{it}\)</span>: other control variables</li>
+</ul></li>
+<li>Probit model: <span class="math display">\[\widehat{SM}_{it} = \Pr (i\text{ is a smoker in time }t) = F(x_{it}&#39; \cdot \phi)\]</span></li>
+<li>Interaction model:
+<span class="math display">\[\begin{aligned}y_{i,j,t} = &amp;\alpha_j+\delta_t+\gamma_1\cdot tax_{jt}\\
+&amp;+\gamma_2\cdot\widehat{SM}_{it}+\gamma_3\cdot\widehat{SM}_{it}\times tax_{jt}+x_{it}&#39;\cdot\beta+\epsilon_{it} \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\gamma_1\)</span>: impact of tax, assume <span class="math inline">\(\Pr(\text{smoking})=0\)</span></li>
+<li><span class="math inline">\(\gamma_3\)</span>: difference of impact of tax, assume <span class="math inline">\(\Pr(\text{smoking})=1\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="interpretation" class="section level4">
+<h4>Interpretation</h4>
+<ul>
+<li>Tax and smoking are not independent
+<ul>
+<li>Former smokers may quit <span class="math inline">\(\implies\)</span> benefit from tax</li>
+</ul></li>
+<li>Result
+<ul>
+<li>Cigarette tax increase happiness among potential smokers</li>
+<li>Other tax does not make smokers happy</li>
+<li><span class="math inline">\(\implies\)</span> smoking is affected by self-control problems</li>
 </ul></li>
 </ul>
 </div>
