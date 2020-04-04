@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">10 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -104,12 +104,12 @@ if (!doNotTrack) {
 <li><a href="#financial-desicion-chetty-et-al-2014">Financial Desicion: <span>Chetty et al (2014)</span></a></li>
 <li><a href="#increase-employee-saving-thaler-benartzi-2004">Increase Employee Saving: <span>Thaler &amp; Benartzi (2004)</span></a></li>
 <li><a href="#power-of-default-blumenstock-callen-ghani-2018">Power of Default: <span>Blumenstock, Callen, Ghani (2018)</span></a></li>
-<li><a href="#policy-for-internality">Policy for Internality</a></li>
 </ul></li>
-<li><a href="#salience-bias">Salience Bias</a>
+<li><a href="#behavioral-welfare-analysis">Behavioral Welfare Analysis</a>
 <ul>
-<li><a href="#behavioral-welfare-analysis">Behavioral Welfare Analysis</a></li>
+<li><a href="#taxation-and-consumer-choise-odonoghue-rabin-2006">Taxation and Consumer Choise: <span>O’Donoghue &amp; Rabin, 2006</span></a></li>
 </ul></li>
+<li><a href="#salience-bias">Salience Bias</a></li>
 <li><a href="#non-selfish-preferences">Non-Selfish Preferences</a>
 <ul>
 <li><a href="#public-good">Public Good</a></li>
@@ -283,8 +283,8 @@ ce_1^1 &amp;= \frac{\beta\delta}{R}\cdot ce_2^1 \\
 <span class="math display">\[\beta = \frac{e_1^1\ /\ e_2^1}{e_1^0\ /\ e_2^0}\]</span></li>
 </ul>
 </div>
-<div id="structual-estimation-better-guessing-with-generalisation" class="section level4">
-<h4>Structual Estimation (Better Guessing with Generalisation)</h4>
+<div id="structural-estimation-better-guessing-with-generalisation" class="section level4">
+<h4>Structural Estimation (Better Guessing with Generalisation)</h4>
 <ul>
 <li>Assume <span class="math inline">\(c(e)=\frac{1}{\gamma}\cdot c\cdot e^{\gamma}\)</span>
 <ul>
@@ -560,14 +560,9 @@ which makes yearly discount factor <span class="math inline">\(\delta^{365}=0.16
 </ul>
 </div>
 </div>
-<div id="policy-for-internality" class="section level3">
-<h3>Policy for Internality</h3>
 </div>
-</div>
-<div id="salience-bias" class="section level2">
-<h2>Salience Bias</h2>
-<div id="behavioral-welfare-analysis" class="section level3">
-<h3>Behavioral Welfare Analysis</h3>
+<div id="behavioral-welfare-analysis" class="section level2">
+<h2>Behavioral Welfare Analysis</h2>
 <ul>
 <li>Harberger’s Triangle (<a href="https://www.jstor.org/stable/1828856">Harberger, 1962</a>):
 <span class="math display">\[\frac{\partial W}{\partial t} = t\cdot\frac{\partial x}{\partial t}\]</span>
@@ -577,7 +572,105 @@ which makes yearly discount factor <span class="math inline">\(\delta^{365}=0.16
 <li>Heterogeneous (mixed rational &amp; behavioural) agents</li>
 </ul></li>
 </ul>
+<div id="taxation-and-consumer-choise-odonoghue-rabin-2006" class="section level3">
+<h3>Taxation and Consumer Choise: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0047272706000247">O’Donoghue &amp; Rabin, 2006</a></h3>
+<div id="model" class="section level4">
+<h4>Model</h4>
+<ul>
+<li>Utility:
+<span class="math display">\[U = \underbrace{u(x_1,x_2) + x_3}_{\text{Immediate reward}} - \underbrace{\beta\delta\cdot c x_1}_{\text{Delayed cost}}\]</span>
+<ul>
+<li><span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>: goods with concave utility curve</li>
+<li><span class="math inline">\(x_1\)</span>: sin good (has delayed health cost)</li>
+<li><span class="math inline">\(x_3\)</span>: <span class="math inline">\(p=1\)</span>, no income effect (all money left)</li>
+</ul></li>
+<li>Question: how can taxing <span class="math inline">\(x_1\)</span> affect welfare?</li>
+<li>Timing
+<ul>
+<li><span class="math inline">\(t=0\)</span>: nothing happens</li>
+<li><span class="math inline">\(t=1\)</span>: make consumption choices</li>
+<li><span class="math inline">\(t=2\)</span>: delayed cost is realised</li>
+</ul></li>
+<li>Budget constraint: <span class="math inline">\(x_3 = z - (p_1 +t) x_1 - p_2 x_2\)</span></li>
+<li>Consumer’s problem:
+<span class="math display">\[\begin{aligned}\max &amp;&amp; U &amp;= u(x_1,x_2) + x_3 - \beta\delta\cdot c x_1\\
+FOC &amp;&amp; u_1 &amp;= p_1 + t + \beta\delta\cdot c \equiv \frac{\partial u(x_1,x_2)}{\partial x_1} \\
+&amp;&amp; u_2 &amp;= p_2 \equiv \frac{\partial u(x_1,x_2)}{\partial x_2}\end{aligned}\]</span></li>
+</ul>
 </div>
+<div id="welfare-effects-of-taxation" class="section level4">
+<h4>Welfare effects of Taxation</h4>
+<ul>
+<li>Social planner: welfare at <span class="math inline">\(t=0\)</span>
+<span class="math display">\[\begin{aligned}W &amp;= u(x_1,x_2) + z - (p_1 + t) x_1 - p_2x_2 - \underbrace{\beta\delta\cdot cx_1} 
++\,\overbrace{tx_1 - \underbrace{\delta(1-\beta) c x_1}}^{\text{Tax return}}\\
+&amp;= u(x_1,x_2) + z - (p_1 + t) x_1 - p_2x_2 - \delta\cdot c x_1 + tx_1 \end{aligned}\]</span>
+let <span class="math display">\[u_i = \frac{\partial u(x_1,x_2)}{\partial u_i}\]</span>
+we have:
+<span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \frac{\partial W}{\partial x_1} \cdot \frac{\partial x_1}{\partial t}\\
+&amp;= u_1\cdot \frac{\partial x_1}{\partial t}+u_2\cdot \frac{\partial x_2}{\partial t}
+-(p_1+t)\cdot \frac{\partial x_1}{\partial t} - x_1\\
+&amp;\phantom{\ggg}- p_2\cdot \frac{\partial x_2}{\partial t}-\delta c\cdot\frac{\partial x_1}{\partial t} 
++x_1 +t\cdot \frac{\partial x_1}{\partial t}\\
+&amp;= \big[u_1 - (p_1+t) - \delta c + t\big]\cdot\frac{\partial x_1}{\partial t}
++(\underbrace{u_2 - p_2}_{=0}) \cdot\frac{\partial x_2}{\partial t} \\
+&amp;= (\underbrace{p_1 + t + \beta\delta c}_{u_1} - p_1 - t - \delta c + t)\cdot\frac{\partial x_1}{\partial t} \\
+&amp;= \big[\delta c\cdot(\beta -1) + t\big]\cdot\frac{\partial x_1}{\partial t}\end{aligned}\]</span>
+<ul>
+<li>If <span class="math inline">\(\beta=1\)</span>, then Harberger’s Triangle: <span class="math inline">\(\frac{\partial W}{\partial t} = t\cdot\frac{\partial x_1}{\partial t}\)</span></li>
+<li>If <span class="math inline">\(\beta&lt;1\)</span>…</li>
+</ul></li>
+<li>Let <span class="math inline">\(\gamma=\delta(1-\beta)c\)</span>, <span class="math inline">\(\beta&lt;1\)</span>,
+<span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \big[t - \overbrace{\delta c\cdot(1-\beta)}^{&gt;0}\big]\cdot\overbrace{\frac{\partial x_1}{\partial t}}^{&lt;0}\\
+&amp;=(t-\gamma)\cdot\frac{\partial x_1}{\partial t} \overset{!}{=} 0 \\
+t^* &amp;= \delta c\cdot(1-\beta)\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(t^*\)</span>: optimal tax rate on <span class="math inline">\(x_1\)</span></li>
+<li><span class="math inline">\(\implies\)</span> makes consumer behave as if <span class="math inline">\(\beta=1\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="heterogeneity" class="section level4">
+<h4>Heterogeneity</h4>
+<ul>
+<li><span class="math inline">\(K\)</span> types of consumers: <span class="math inline">\(1=\beta^1&gt;\beta^2\geq \beta^3\dots\geq \beta^K\)</span>
+<ul>
+<li>Frequency: <span class="math inline">\(\phi^k\)</span></li>
+<li>Average bias: <span class="math inline">\(E[\beta]=\sum_{k=1}^K \phi^k\cdot \beta^k\)</span></li>
+<li>Can only set one <span class="math inline">\(t\)</span> rate!</li>
+</ul></li>
+<li>Welfare of group <span class="math inline">\(k\)</span>:
+<span class="math display">\[\begin{aligned}W^k &amp;= u(x_1^k,x_2^k) + z - (p_1 + t) x_1^k - p_2x_2 - \delta\cdot c x_1 + tx_1 \\
+\frac{\partial W^k}{\partial t} &amp;= \big[\underbrace{\delta c\cdot(\beta^k -1)}_{-\gamma^k} + t\big]\cdot\frac{\partial x_1^k}{\partial t} \\
+&amp;= (t-\gamma^k)\cdot\frac{\partial x_1^k}{\partial t} \end{aligned}\]</span></li>
+<li>Aggregate demand:
+<span class="math display">\[\begin{aligned}x_1(p_1, p_2, t) &amp;= \sum \phi^k\cdot x_1^k(p_1, p_2, t) \\
+\frac{\partial x_1(p_1, p_2, t)}{\partial t} &amp;= \sum \phi^k\cdot \frac{\partial x_1^k(p_1, p_2, t)}{\partial t} \end{aligned}\]</span></li>
+<li>Aggregate welfare:
+<span class="math display">\[\begin{aligned}W(t) &amp;= \sum \phi^k\cdot W^k(t) \\
+\frac{\partial W(t)}{\partial t} &amp;= \sum \phi^k\cdot \frac{\partial W^k(t)}{\partial t} \end{aligned}\]</span></li>
+<li>Aggregate welfare cost of tax:
+<span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \sum \phi^k\cdot(t-\gamma^k)\cdot\frac{\partial x_1^k}{\partial t} \\
+&amp;= t\cdot \frac{\partial x_1}{\partial t} - \sum \phi^k\gamma^k \cdot\frac{\partial x_1^k}{\partial t} \overset{!}{=} 0\\
+t^* &amp;= \underbrace{\frac{1}{\partial x_1 / \partial t}}_{\text{Aggregate demand sensitivity}}
+\cdot\sum \Big[\underbrace{\phi^k\gamma^k}_{\text{Internality (weight)}}
+\cdot\underbrace{\frac{\partial x_1^k}{\partial t}}_{\text{Demand response to tax}}\Big] \\
+&amp;=\sum\phi^k\gamma^k\cdot \frac{\partial x_1^k / \partial t}{\partial x_1 / \partial t} \end{aligned}\]</span>
+<ul>
+<li>When <span class="math inline">\(u_1\)</span> is convex, bias gives sharp derivative, <span class="math inline">\(t^*&gt; E[\gamma]\)</span></li>
+<li>When <span class="math inline">\(u_1\)</span> is concave, bias gives weaker derivative, <span class="math inline">\(t^*&lt; E[\gamma]\)</span></li>
+</ul></li>
+<li>Intuition:
+<ul>
+<li>At <span class="math inline">\(t=0\)</span>, non-TC’s agree with the tax</li>
+<li>Since TC consume less <span class="math inline">\(x_1\)</span>, they benefit from the tax</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="salience-bias" class="section level2">
+<h2>Salience Bias</h2>
 </div>
 <div id="non-selfish-preferences" class="section level2">
 <h2>Non-Selfish Preferences</h2>
