@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">14 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -701,6 +701,16 @@ therefore, optimal tax:
 <span class="math display">\[\begin{aligned}y &amp;= z - x_1\cdot (p_1+t) - x_2\cdot p_2\\
   z &amp;\geq (p_1+t)\cdot x_1 + p_2x_2 \end{aligned}\]</span></li>
 </ul></li>
+<li>Social planner
+<ul>
+<li>Thinks that consumer utility should be: <span class="math display">\[V = U-\underbrace{\gamma x_1}_{\text{Internality}}\]</span></li>
+<li>Social welfare:
+<span class="math display">\[\begin{aligned}W &amp;= U + t\cdot x_1 - \gamma x_1\\
+  &amp;= \big[u(x_1,x_2)+z - x_1\cdot (p_1+t) - x_2\cdot p_2\big] + (t-\gamma)\cdot x_1 \\
+  \frac{\partial W}{\partial t} &amp;= (t-\gamma)\cdot\frac{\partial x_1}{\partial t}\end{aligned}\]</span>
+therefore, optimal tax:
+<span class="math display">\[t^* =\gamma\]</span></li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -733,9 +743,9 @@ FOC &amp;&amp; u_1 &amp;= p_1 + t + \beta\delta\cdot c \equiv \frac{\partial u(x
 <div id="welfare-effects-of-taxation" class="section level4">
 <h4>Welfare effects of Taxation</h4>
 <ul>
-<li>Social planner: welfare at <span class="math inline">\(t=0\)</span>
+<li>Social planner: internality case where <span class="math inline">\(\gamma=\delta(1-\beta) c\)</span>
 <span class="math display">\[\begin{aligned}W &amp;= u(x_1,x_2) + z - (p_1 + t) x_1 - p_2x_2 - \underbrace{\beta\delta\cdot cx_1} 
-+\,\overbrace{tx_1 - \underbrace{\delta(1-\beta) c x_1}}^{\text{Tax return}}\\
++\,tx_1 - \underbrace{\overbrace{\delta(1-\beta) c}^{\text{Internality}} x_1}\\
 &amp;= u(x_1,x_2) + z - (p_1 + t) x_1 - p_2x_2 - \delta\cdot c x_1 + tx_1 \end{aligned}\]</span>
 let <span class="math display">\[u_i = \frac{\partial u(x_1,x_2)}{\partial u_i}\]</span>
 we have:
@@ -749,8 +759,8 @@ we have:
 &amp;= (\underbrace{p_1 + t + \beta\delta c}_{u_1} - p_1 - t - \delta c + t)\cdot\frac{\partial x_1}{\partial t} \\
 &amp;= \big[\delta c\cdot(\beta -1) + t\big]\cdot\frac{\partial x_1}{\partial t}\end{aligned}\]</span>
 <ul>
-<li>If <span class="math inline">\(\beta=1\)</span>, then Harberger’s Triangle: <span class="math inline">\(\frac{\partial W}{\partial t} = t\cdot\frac{\partial x_1}{\partial t}\)</span></li>
-<li>If <span class="math inline">\(\beta&lt;1\)</span>…</li>
+<li>If <span class="math inline">\(\beta=1\)</span>, Harberger’s Triangle: <span class="math inline">\(\frac{\partial W}{\partial t} = t\cdot\frac{\partial x_1}{\partial t}\)</span></li>
+<li>If <span class="math inline">\(\beta&lt;1\)</span>, internality</li>
 </ul></li>
 <li>Let <span class="math inline">\(\gamma=\delta(1-\beta)c\)</span>, <span class="math inline">\(\beta&lt;1\)</span>,
 <span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \big[t - \overbrace{\delta c\cdot(1-\beta)}^{&gt;0}\big]\cdot\overbrace{\frac{\partial x_1}{\partial t}}^{&lt;0}\\
@@ -785,7 +795,7 @@ t^* &amp;= \delta c\cdot(1-\beta)\end{aligned}\]</span>
 <span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \sum \phi^k\cdot(t-\gamma^k)\cdot\frac{\partial x_1^k}{\partial t} \\
 &amp;= t\cdot \frac{\partial x_1}{\partial t} - \sum \phi^k\gamma^k \cdot\frac{\partial x_1^k}{\partial t} \overset{!}{=} 0\\
 t^* &amp;= \underbrace{\frac{1}{\partial x_1 / \partial t}}_{\text{Aggregate demand sensitivity}}
-\cdot\sum \Big[\underbrace{\phi^k\gamma^k}_{\text{Internality (weight)}}
+\cdot\sum \Big[\underbrace{\phi^k\gamma^k}_{\text{Weight} \cdot \text{internality}}
 \cdot\underbrace{\frac{\partial x_1^k}{\partial t}}_{\text{Demand response to tax}}\Big] \\
 &amp;=\sum\phi^k\gamma^k\cdot \frac{\partial x_1^k / \partial t}{\partial x_1 / \partial t} \end{aligned}\]</span>
 <ul>
