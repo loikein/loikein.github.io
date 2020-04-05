@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">11 min read</span>
+    <span class="article-duration">13 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -107,6 +107,8 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#behavioral-welfare-analysis">Behavioral Welfare Analysis</a>
 <ul>
+<li><a href="#theory">Theory</a></li>
+<li><a href="#sufficient-statistic-welfare-analysis">Sufficient Statistic Welfare Analysis</a></li>
 <li><a href="#taxation-and-consumer-choise-odonoghue-rabin-2006">Taxation and Consumer Choise: <span>O’Donoghue &amp; Rabin, 2006</span></a></li>
 <li><a href="#taxation-happiness-gruber-mullainathan-2005">Taxation &amp; Happiness: <span>Gruber &amp; Mullainathan, 2005</span></a></li>
 </ul></li>
@@ -564,6 +566,39 @@ which makes yearly discount factor <span class="math inline">\(\delta^{365}=0.16
 </div>
 <div id="behavioral-welfare-analysis" class="section level2">
 <h2>Behavioral Welfare Analysis</h2>
+<div id="theory" class="section level3">
+<h3>Theory</h3>
+<p>Libertarian paternalism:</p>
+<ul>
+<li>Find intervention that
+<ul>
+<li>Produce first-order gain for biased agents</li>
+<li>Produce loss for rational agents</li>
+</ul></li>
+<li>Examples
+<ul>
+<li><a href="#increase-employee-saving-thaler-benartzi-2004">“Save More Tomorrow”</a></li>
+<li>Choi et al., 2004</li>
+<li>Johnson &amp; Goldstein, 2003</li>
+</ul></li>
+</ul>
+<p>Paternalistic paternalism:</p>
+<ul>
+<li>Self-control problems cannot be fixed by libertarian intervention
+<ul>
+<li>What’s good for them?</li>
+<li>How to identify &amp; estimate the parameters?</li>
+</ul></li>
+<li>Examples
+<ul>
+<li><a href="#taxation-and-consumer-choise-odonoghue-rabin-2006">Taxation and consumer choise</a></li>
+<li>Chetty et al., 2009</li>
+<li>Tiefenbeck et al., 2017</li>
+</ul></li>
+</ul>
+</div>
+<div id="sufficient-statistic-welfare-analysis" class="section level3">
+<h3>Sufficient Statistic Welfare Analysis</h3>
 <ul>
 <li>Harberger’s Triangle (<a href="https://www.jstor.org/stable/1828856">Harberger, 1962</a>):
 <span class="math display">\[\frac{\partial W}{\partial t} = t\cdot\frac{\partial x}{\partial t}\]</span>
@@ -572,7 +607,103 @@ which makes yearly discount factor <span class="math inline">\(\delta^{365}=0.16
 <li>Sufficient statistics</li>
 <li>Heterogeneous (mixed rational &amp; behavioural) agents</li>
 </ul></li>
+<li>Estimate welfare costs of taxation w/o full details of utility &amp; production functions</li>
 </ul>
+<div id="optimal-tadxation-benchmark" class="section level4">
+<h4>Optimal Tadxation (Benchmark)</h4>
+<ul>
+<li>Price-taking consumers
+<ul>
+<li>Utility: <span class="math display">\[\begin{aligned}U &amp;= u(x_1,u_2) + y \\
+  &amp;= u(x_1,u_2) + z - x_1\cdot (p_1+t) - x_2\cdot p_2\end{aligned}\]</span></li>
+<li>Budget:
+<span class="math display">\[\begin{aligned}y &amp;= z - x_1\cdot (p_1+t) - x_2\cdot p_2\\
+  z &amp;\geq (p_1+t)\cdot x_1 + p_2x_2 \end{aligned}\]</span></li>
+<li>Demand (FOC): <span class="math display">\[\begin{aligned}x_1^D(p_1,p_2,t): &amp;&amp; u_1 &amp;= p_1 + t \\ x_2^D(p_1,p_2,t): &amp;&amp; u_2 &amp;= p_2\end{aligned}\]</span></li>
+<li><span class="math inline">\(y\)</span>: <span class="math inline">\(p=1\)</span>, no income effect (all money left)</li>
+<li><span class="math inline">\(t\)</span>: tax rate (assume that consumers are nominal tax payer)</li>
+</ul></li>
+<li>Price-taking firms
+<ul>
+<li>Profit function: <span class="math display">\[\pi = p_1 x_1 + p_2 x_2 - c(x_1, x_2)\]</span></li>
+<li>Supply (FOC): <span class="math display">\[\begin{aligned}x_1^S(p_1,p_2): &amp;&amp; c_1 &amp;= p_1 \\ x_2^S(p_1,p_2): &amp;&amp; c_2 &amp;= p_2\end{aligned}\]</span></li>
+</ul></li>
+<li>Social planner
+<ul>
+<li>Market clearance: <span class="math display">\[\begin{cases}x_1^D = x_1^S \\ x_2^D = x_2^S \end{cases}\]</span></li>
+<li>Social welfare:
+<span class="math display">\[\begin{aligned}W &amp;= U + \pi + \overbrace{t\cdot x_1}^{\text{Tax income}}\\
+  &amp;= \big[u(x_1^D,u_2^D)+y\big] + \big[p_1 x_1^D + p_2 x_2^D - c(x_1^D, x_2^D) \big] + t\cdot x_1^D \\
+  &amp;= \big[u(x_1^D,u_2^D)+ z - x_1^D\cdot (p_1+t) - x_2^D\cdot p_2 \big] \\
+  &amp;\phantom{\ggg}+\big[p_1 x_1^D + p_2 x_2^D - c(x_1^D, x_2^D) \big] + t\cdot x_1^D \\
+  &amp;= u(x_1^D,u_2^D) - c(x_1^D, x_2^D) + z\end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \frac{\partial W}{\partial x_1^D} \cdot \frac{\partial x_1^D}{\partial t} + \frac{\partial W}{\partial x_2^D} \cdot \frac{\partial x_2^D}{\partial t}\\
+  &amp;= u_1\cdot \frac{\partial x_1^D}{\partial t} + u_2\cdot \frac{\partial x_2^D}{\partial t} - c_1\cdot \frac{\partial x_1^D}{\partial t} - c_2\cdot \frac{\partial x_2^D}{\partial t}\\
+  &amp;= (p_1 + t - p_1) \cdot \frac{\partial x_1^D}{\partial t} + (p_2 - p_2)\cdot \frac{\partial x_2^D}{\partial t} \\
+  &amp;= t\cdot\frac{\partial x_1^D}{\partial t} \end{aligned}\]</span></li>
+<li><span class="math inline">\(\implies\)</span> <strong>sufficient statistic for welfare</strong></li>
+</ul></li>
+</ul>
+</div>
+<div id="optimal-tadxation-externality" class="section level4">
+<h4>Optimal Tadxation (Externality)</h4>
+<ul>
+<li>Consumers
+<ul>
+<li>Utility: <span class="math display">\[U = u(x_1,u_2) + y -\underbrace{\gamma x_1}_{\text{Externality}}\]</span></li>
+<li>Because consumers are myopic, they will not consider externality when deciding demand!</li>
+<li>Demand (FOC): <span class="math display">\[\begin{aligned}x_1^D(p_1,p_2,t): &amp;&amp; u_1 &amp;= p_1 + t \\ x_2^D(p_1,p_2,t): &amp;&amp; u_2 &amp;= p_2\end{aligned}\]</span></li>
+</ul></li>
+<li>Social planner
+<ul>
+<li>Social welfare:
+<span class="math display">\[\begin{aligned}W &amp;= U + \pi + t\cdot x_1\\
+  &amp;= \big[u(x_1^D,x_2^D)+y\big] + \big[p_1 x_1^D + p_2 x_2^D - c(x_1^D, x_2^D) \big] \\
+  &amp;\phantom{\ggg}+ (t-\gamma)\cdot x_1^D \\
+  \frac{\partial W}{\partial t} &amp;= (t-\gamma)\cdot\frac{\partial x_1^D}{\partial t} \end{aligned}\]</span>
+therefore, optimal tax:
+<span class="math display">\[t^* =\gamma\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="optimal-tadxation-heterogeneity" class="section level4">
+<h4>Optimal Tadxation (Heterogeneity)</h4>
+<ul>
+<li><span class="math inline">\(N\)</span> consumers:
+<ul>
+<li>Utility: <span class="math display">\[U^i = u^i(x_1^i,u_2^i) + y\]</span></li>
+<li>Budget:
+<span class="math display">\[\begin{aligned}y &amp;= z^i - x_1^i\cdot (p_1+t) - x_2^i\cdot p_2\\
+  z^i &amp;\geq (p_1+t)\cdot x_1^i + p_2x_2^i \end{aligned}\]</span></li>
+<li>Individual demand: <span class="math display">\[\begin{aligned}x_1^i(p_1,p_2,t): &amp;&amp; u_1^i &amp;= p_1 + t \\ x_2^i(p_1,p_2,t): &amp;&amp; u_2^i &amp;= p_2\end{aligned}\]</span></li>
+<li>Aggregate demand: <span class="math display">\[\begin{cases}x_1(p_1,p_2,t) = \sum x_1^i(p_1,p_2,t) \\ x_2(p_1,p_2,t) = \sum x_2^i(p_1,p_2,t) \end{cases}\]</span></li>
+</ul></li>
+<li>Since <span class="math inline">\(p=c\)</span>, firms always make zero profit, so we can ignore the firms</li>
+<li>Social planner
+<ul>
+<li>Social welfare:
+<span class="math display">\[\begin{aligned}W &amp;= \sum \big[u^i(x_1^i,x_2^i)+ z^i - x_1^i\cdot (p_1+t) - x_2^i\cdot p_2 \big] + t\cdot\sum x_1^i \\
+  \frac{\partial W}{\partial t} &amp;= \frac{\partial W}{\partial x_1} \cdot \frac{\partial x_1}{\partial t} + \frac{\partial W}{\partial x_2} \cdot \frac{\partial x_2}{\partial t}\\
+  &amp;= \sum (u_1^i - p_1 - t)\cdot \frac{\partial x_1^i}{\partial t}
+  +\sum (u_2^i - p_2)\cdot \frac{\partial x_2^i}{\partial t} + t\cdot\sum \frac{\partial x_1^i}{\partial t}\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="optimal-tadxation-internality" class="section level4">
+<h4>Optimal Tadxation (Internality)</h4>
+<ul>
+<li>Consumers
+<ul>
+<li>Utility: <span class="math display">\[\begin{aligned}U &amp;= u(x_1,u_2) + y \\
+  &amp;= u(x_1,u_2) + z - x_1\cdot (p_1+t) - x_2\cdot p_2\end{aligned}\]</span></li>
+<li>Budget:
+<span class="math display">\[\begin{aligned}y &amp;= z - x_1\cdot (p_1+t) - x_2\cdot p_2\\
+  z &amp;\geq (p_1+t)\cdot x_1 + p_2x_2 \end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
 <div id="taxation-and-consumer-choise-odonoghue-rabin-2006" class="section level3">
 <h3>Taxation and Consumer Choise: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0047272706000247">O’Donoghue &amp; Rabin, 2006</a></h3>
 <div id="model" class="section level4">
@@ -608,7 +739,7 @@ FOC &amp;&amp; u_1 &amp;= p_1 + t + \beta\delta\cdot c \equiv \frac{\partial u(x
 &amp;= u(x_1,x_2) + z - (p_1 + t) x_1 - p_2x_2 - \delta\cdot c x_1 + tx_1 \end{aligned}\]</span>
 let <span class="math display">\[u_i = \frac{\partial u(x_1,x_2)}{\partial u_i}\]</span>
 we have:
-<span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \frac{\partial W}{\partial x_1} \cdot \frac{\partial x_1}{\partial t}\\
+<span class="math display">\[\begin{aligned}\frac{\partial W}{\partial t} &amp;= \frac{\partial W}{\partial x_1} \cdot \frac{\partial x_1}{\partial t} + \frac{\partial W}{\partial x_2} \cdot \frac{\partial x_2}{\partial t}\\
 &amp;= u_1\cdot \frac{\partial x_1}{\partial t}+u_2\cdot \frac{\partial x_2}{\partial t}
 -(p_1+t)\cdot \frac{\partial x_1}{\partial t} - x_1\\
 &amp;\phantom{\ggg}- p_2\cdot \frac{\partial x_2}{\partial t}-\delta c\cdot\frac{\partial x_1}{\partial t} 
