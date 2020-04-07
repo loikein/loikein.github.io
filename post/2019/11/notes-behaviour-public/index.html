@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">19 min read</span>
+    <span class="article-duration">20 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -1158,6 +1158,43 @@ therefore,
 </div>
 <div id="welfare-effect-of-debiasing" class="section level3">
 <h3>Welfare Effect of Debiasing</h3>
+<ul>
+<li>Compare welfare:
+<span class="math display">\[\begin{aligned}W(\theta=1) - W(\theta) &amp;= \int_{\theta}^1 p_1(s-1)\frac{p_1}{H}\, ds \\
+&amp;= -p_1 \cdot \int_{\theta}^1 (1-s)\frac{\partial x_1}{\partial \theta}\, ds \\
+&amp;= -p_1 \cdot \frac{\partial x_1}{\partial \theta}\cdot\int_{\theta}^1 (1-s)\, ds \\
+W(\theta=1) - W(\theta=\hat{\theta}) &amp;= -p_1 \cdot \frac{\Delta x_1^*}{1-\hat{\theta}}\cdot \int_{\hat{\theta}}^1 (1-s)\, ds \\
+&amp;= -p_1 \cdot \frac{\Delta x_1^*}{1-\hat{\theta}}\cdot \frac{1 - 2\hat{\theta} + \hat{\theta}^2}{2}\\
+&amp;= \underbrace{-p_1 \cdot \Delta x_1^*}_{\text{Change in expenditure}} \cdot \underbrace{\frac{1}{2}\cdot(1-\hat{\theta})}_{\text{Change in quantity (?)}}\end{aligned}\]</span></li>
+</ul>
+<div id="heterogeneity-1" class="section level4">
+<h4>Heterogeneity</h4>
+<ul>
+<li><span class="math inline">\(K\)</span> types of consumers: <span class="math inline">\(1=\theta^1 &gt; \theta^2 &gt;\dots&gt;\theta^K\)</span></li>
+<li>No heterogeneity in second derivatives</li>
+<li>Therefore, for all <span class="math inline">\(k\)</span>,
+<span class="math display">\[\frac{\partial x_1^k}{\partial p_1} =  \frac{\partial x_1}{\partial p_1} = \frac{1}{H}\]</span></li>
+<li>For type <span class="math inline">\(k\)</span>
+<ul>
+<li>Welfare effect: <span class="math display">\[W^k(1) - W^k(\theta^k) = -p_1 \cdot \Delta x_1^{*,k} \cdot \frac{1}{2}\cdot(1-\theta^k)\]</span></li>
+<li>Estimation of <span class="math inline">\(\theta\)</span>:
+<span class="math display">\[1-\theta^k = \frac{\Delta x_1^{*,k}}{\frac{\partial x_1}{\partial p_1}\cdot p_1}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}W^k(1) - W^k(\theta^k) &amp;= -p_1 \cdot (\Delta x_1^*)^k \cdot \frac{1}{2}\cdot \frac{\Delta x_1^{*,k}}{\frac{\partial x_1}{\partial p_1}\cdot p_1}\\
+  &amp;= -\frac{1}{2\cdot \frac{\partial x_1}{\partial p_1}} \cdot (\Delta x_1^{*,k})^2 \end{aligned}\]</span></li>
+</ul></li>
+<li>Aggregate welfare effects:
+<span class="math display">\[\begin{aligned}W(1) - W(\theta) &amp;= \sum \phi^k\cdot\big(W^k(1) - W^k(\theta^k) \big) \\
+&amp;= -\frac{1}{2\cdot \frac{\partial x_1}{\partial p_1}} \cdot \sum \phi^k \cdot (\Delta x_1^{*,k})^2 \\
+&amp;= -\frac{1}{2\cdot \frac{\partial x_1}{\partial p_1}} \cdot E\big[ (\Delta x_1^{*,k})^2 \big] \\
+&amp;= -\frac{1}{2\cdot \frac{\partial x_1}{\partial p_1}} \cdot\big( E^2[\Delta x_1^{*,k}] + Var(\Delta x_1^{*,k}) \big) \end{aligned}\]</span></li>
+<li>Implications
+<ul>
+<li>Ignoreing variance <span class="math inline">\(\implies\)</span> underestimate welfare gain from feedback</li>
+<li>Non-linearity of welfare gain: high bias <span class="math inline">\(\implies\)</span> large <span class="math inline">\(\theta\)</span> gain, large <span class="math inline">\(\Delta x_1^{*,k}\)</span> change</li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="home-energy-reports-2010-2019" class="section level3">
 <h3>Home Energy Reports: (2010 &amp; 2019)</h3>
