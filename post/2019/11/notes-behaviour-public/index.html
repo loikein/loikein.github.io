@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">19 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -116,6 +116,14 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#salience-taxation-chetty-looney-kroft-2009">Salience &amp; Taxation: <span>Chetty, Looney, Kroft (2009)</span></a></li>
 <li><a href="#heterogeneity-taubinsky-rees-jones-2018">Heterogeneity: <span>Taubinsky &amp; Rees-Jones (2018)</span></a></li>
+</ul></li>
+<li><a href="#feedback-interventions">Feedback Interventions</a>
+<ul>
+<li><a href="#identifying-salience-bias">Identifying Salience Bias</a></li>
+<li><a href="#welfare-effect-of-debiasing">Welfare Effect of Debiasing</a></li>
+<li><a href="#home-energy-reports-2010-2019">Home Energy Reports: (2010 &amp; 2019)</a></li>
+<li><a href="#electricity-usage-alert-2014-2019">Electricity Usage Alert: (2014 &amp; 2019)</a></li>
+<li><a href="#shower-feedback-2018-2019">Shower Feedback: (2018 &amp; 2019)</a></li>
 </ul></li>
 <li><a href="#non-selfish-preferences">Non-Selfish Preferences</a>
 <ul>
@@ -910,7 +918,7 @@ therefore,
 &amp;= 1\cdot\frac{\partial x_1}{\partial u_1}+0\cdot\frac{\partial x_1}{\partial u_2}\\
 &amp;= \frac{\partial x_1}{\partial u_1}\end{aligned}\]</span>
 where (?)
-<span class="math display">\[\frac{\partial x_1}{\partial u_1} = \frac{u_{22}}{u_{11}u_{22} - u_{12}^2}\]</span></li>
+<span class="math display">\[\frac{\partial x_1}{\partial u_1} = \frac{1}{u_{11} - u_{12}^2 / u_{22}}\]</span></li>
 <li>Salience bias can be estimated as:
 <span class="math display">\[\frac{\partial x_1^*/\partial p_1}{\partial x_1/\partial p_1}=1-\theta\]</span></li>
 </ul>
@@ -1048,6 +1056,117 @@ Var(\epsilon_i) &amp;= Var(\theta_i) + Var(m_i) \\
 Var(\theta_i) &amp;= Var(\epsilon_i) - \underbrace{Var(m_i)}_{\text{In 0x group}} \end{aligned}\]</span></li>
 </ul>
 </div>
+</div>
+</div>
+<div id="feedback-interventions" class="section level2">
+<h2>Feedback Interventions</h2>
+<ul>
+<li>Can behavior be changed in cost-eﬀective ways?</li>
+<li>Salience bias affects resources usage
+<ul>
+<li>Characterise</li>
+<li>Fix</li>
+<li>How feedback interacts with other interventions?</li>
+<li>Welfare gain?</li>
+</ul></li>
+</ul>
+<div id="identifying-salience-bias" class="section level3">
+<h3>Identifying Salience Bias</h3>
+<ul>
+<li>Similar to <a href="#salience-taxation-chetty-looney-kroft-2009">Chetty, Looney, Kroft (2009)</a></li>
+<li>Consumer utility:
+<span class="math display">\[\begin{aligned}U=u(x_1, x_2) + z - \theta p_1x_1 - p_2x_2 \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(x_1\)</span>: resource good (water, energy, etc.)</li>
+<li><span class="math inline">\(p_1\)</span>: cost of resource that is hard to perceive</li>
+<li>FOC: <span class="math display">\[\begin{aligned}u_1 &amp;= \theta p_1\\u_2 &amp;= p_2 \end{aligned}\]</span></li>
+<li>Comparative statics:
+<span class="math display">\[\begin{aligned}\frac{\partial x_1}{\partial \theta} &amp;= \frac{p_1}{u_{11} - u_{12}^2 / u_{22}} &lt;0 \\
+  \frac{\partial x_1}{\partial p_1} &amp;= \frac{\theta}{u_{11} - u_{12}^2 / u_{22}} &lt;0 \end{aligned}\]</span></li>
+</ul></li>
+<li>Social welfare:
+<span class="math display">\[\begin{aligned}W &amp;= u(x_1,x_2) + z - p_1x_1 - p_2x_2 \\
+\frac{\partial W}{\partial \theta} &amp;= \frac{\partial W}{\partial x_1}\cdot\frac{\partial x_1}{\partial \theta}
++\frac{\partial W}{\partial x_2}\cdot\frac{\partial x_2}{\partial \theta} \\
+&amp;= (u_1 - p_1)\cdot\frac{\partial x_1}{\partial \theta} + (\underbrace{u_2-p_2}_{=0})\cdot\frac{\partial x_2}{\partial \theta} \\
+&amp;= (\underbrace{\theta p_1 - p_1}_{&lt;0})\cdot\frac{p_1}{u_{11} - u_{12}^2 / u_{22}} &gt;0 \end{aligned}\]</span>
+<ul>
+<li>Increase in <span class="math inline">\(\theta\implies\)</span> increse in <span class="math inline">\(W\)</span></li>
+</ul></li>
+</ul>
+<div id="assumptions" class="section level4">
+<h4>Assumptions</h4>
+<ul>
+<li>(A1): constant second derivatives
+<span class="math display">\[\begin{aligned}H &amp;= u_{11} - u_{12}^2 / u_{22} \\
+\frac{\partial x_1}{\partial p_1} &amp;= \frac{\theta}{H} \\
+\frac{\partial x_1}{\partial \theta} &amp;= \frac{p_1}{H} \end{aligned}\]</span></li>
+<li>(A2): with feedback, <span class="math inline">\(\theta=1\)</span> (perfect nudge)
+<ul>
+<li>Consumption change: <span class="math inline">\(\Delta x_1^*\)</span></li>
+<li>Salience bias change: <span class="math inline">\(\Delta\theta = 1-\theta\)</span></li>
+<li>Therefore,
+<span class="math display">\[\begin{aligned}\frac{\partial x_1}{\partial \theta} &amp;= \frac{\Delta x_1}{\Delta \theta} \\
+  &amp;= \frac{\Delta x_1^*}{1-\theta}\end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="strategy-1-compare-consumption-w-or-wo-feedback" class="section level4">
+<h4>Strategy 1: Compare Consumption w/ or w/o Feedback</h4>
+<ul>
+<li>Aim: eliminate <span class="math inline">\(\partial\theta\)</span></li>
+<li>With feedback
+<ul>
+<li><span class="math inline">\(\theta=1\)</span></li>
+<li>With (A1) and (A2),
+<span class="math display">\[\begin{aligned}\frac{\partial x_1}{\partial \theta} &amp;= \frac{\Delta x_1^*}{1-\theta} \\
+  &amp;= \frac{p_1}{H} \\
+  &amp;= \frac{\theta}{H}\cdot p_1 \\
+  &amp;= \frac{\partial x_1}{\partial p_1}\cdot p_1 \end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}\frac{\partial x_1}{\partial p_1}\cdot p_1 &amp;= \frac{\Delta x_1^*}{1-\theta} \\
+  1-\theta &amp;= \frac{\Delta x_1^*}{\frac{\partial x_1}{\partial p_1}\cdot p_1} \end{aligned}\]</span></li>
+<li>Intuition: increase in <span class="math inline">\(\theta\implies\)</span> perceived price increase by <span class="math inline">\((1-\theta)\cdot p_1\)</span></li>
+<li><span class="math inline">\(\implies\)</span> same response if price increase w/o feedback</li>
+</ul></li>
+<li>Without feedback
+<ul>
+<li><span class="math inline">\(\theta&lt;1\)</span></li>
+<li>With (A1) and (A2), let <span class="math inline">\(\eta\)</span> be s.t.
+<span class="math display">\[\begin{aligned}\eta &amp;=\frac{\partial x_1}{\partial \theta}\cdot\frac{\theta}{x_1} = \frac{\Delta x_1^*}{1-\theta}\cdot\frac{\theta}{x_1}\\
+  &amp;= \frac{p_1}{H}\cdot \frac{\theta}{x_1} \\
+  &amp;= \frac{\theta}{H}\cdot \frac{p_1}{x_1} \\
+  &amp;= \frac{\partial x_1}{\partial p_1}\cdot\frac{p_1}{x_1}  \end{aligned}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}\eta &amp;= \frac{\Delta x_1^*}{1-\theta}\cdot\frac{\theta}{x_1}\\
+  \eta\cdot(1-\theta )\cdot x_1 &amp;= \Delta x_1^*\cdot \theta \\
+  \eta x_1 - \eta x_1\cdot \theta &amp;= \Delta x_1^*\cdot \theta \\
+  \theta &amp;= \frac{\eta\cdot x_1}{\Delta x_1^* + \eta x_1} \\
+  &amp;= \frac{\eta}{\eta + \frac{\Delta x_1^*}{x_1}} \end{aligned}\]</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="strategy-2-measure-price-response-w-or-wo-feedback" class="section level4">
+<h4>Strategy 2: Measure Price Response w/ or w/o Feedback</h4>
+<ul>
+<li>Price response with feedback: <span class="math display">\[\frac{\partial x_1(p_1,p_2,\theta=1)}{\partial p_1} = \frac{1}{H}\]</span></li>
+<li>Price response w/o feedback: <span class="math display">\[\frac{\partial x_1(p_1,p_2,\theta)}{\partial p_1} = \frac{\theta}{H}\]</span></li>
+<li>Therefore, <span class="math inline">\(\theta\)</span> is given by
+<span class="math display">\[\theta = \frac{\partial x_1(p_1,p_2,\theta)/\partial p_1}{\partial x_1(p_1,p_2,\theta=1)/\partial p_1}\]</span></li>
+</ul>
+</div>
+</div>
+<div id="welfare-effect-of-debiasing" class="section level3">
+<h3>Welfare Effect of Debiasing</h3>
+</div>
+<div id="home-energy-reports-2010-2019" class="section level3">
+<h3>Home Energy Reports: (2010 &amp; 2019)</h3>
+</div>
+<div id="electricity-usage-alert-2014-2019" class="section level3">
+<h3>Electricity Usage Alert: (2014 &amp; 2019)</h3>
+</div>
+<div id="shower-feedback-2018-2019" class="section level3">
+<h3>Shower Feedback: (2018 &amp; 2019)</h3>
 </div>
 </div>
 <div id="non-selfish-preferences" class="section level2">
