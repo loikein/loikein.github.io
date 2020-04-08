@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">20 min read</span>
+    <span class="article-duration">23 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -121,8 +121,8 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#identifying-salience-bias">Identifying Salience Bias</a></li>
 <li><a href="#welfare-effect-of-debiasing">Welfare Effect of Debiasing</a></li>
-<li><a href="#home-energy-reports-2010-2019">Home Energy Reports: (2010 &amp; 2019)</a></li>
-<li><a href="#electricity-usage-alert-2014-2019">Electricity Usage Alert: (2014 &amp; 2019)</a></li>
+<li><a href="#home-energy-reports-2011-2019">Home Energy Reports: (2011 &amp; 2019)</a></li>
+<li><a href="#electricity-usage-alert-2014-2020">Electricity Usage Alert: (2014 &amp; 2020)</a></li>
 <li><a href="#shower-feedback-2018-2019">Shower Feedback: (2018 &amp; 2019)</a></li>
 </ul></li>
 <li><a href="#non-selfish-preferences">Non-Selfish Preferences</a>
@@ -1132,7 +1132,7 @@ therefore,
 <li>Without feedback
 <ul>
 <li><span class="math inline">\(\theta&lt;1\)</span></li>
-<li>With (A1) and (A2), let <span class="math inline">\(\eta\)</span> be s.t.
+<li>With (A1) and (A2), let elasticity <span class="math inline">\(\eta\)</span> be s.t.
 <span class="math display">\[\begin{aligned}\eta &amp;=\frac{\partial x_1}{\partial \theta}\cdot\frac{\theta}{x_1} = \frac{\Delta x_1^*}{1-\theta}\cdot\frac{\theta}{x_1}\\
   &amp;= \frac{p_1}{H}\cdot \frac{\theta}{x_1} \\
   &amp;= \frac{\theta}{H}\cdot \frac{p_1}{x_1} \\
@@ -1196,14 +1196,217 @@ therefore,
 </ul>
 </div>
 </div>
-<div id="home-energy-reports-2010-2019" class="section level3">
-<h3>Home Energy Reports: (2010 &amp; 2019)</h3>
+<div id="home-energy-reports-2011-2019" class="section level3">
+<h3>Home Energy Reports: (2011 &amp; 2019)</h3>
+<ul>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0047272711000478">Allcott (2011)</a></li>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3234299">Andor et al. (2018)</a></li>
+</ul>
+<div id="setup-1" class="section level4">
+<h4>Setup</h4>
+<ul>
+<li>Industy-driven experiment
+<ul>
+<li>Feedback on own consumption</li>
+<li>Info on others (neighbour) consumption (!)</li>
+<li>Evaluation based on others consumption</li>
+</ul></li>
+<li>Household electricity consumption response to nudge
+<ul>
+<li>Home-energy reports (HERs)</li>
+<li>Conservation tips</li>
+</ul></li>
+<li>Drawback: not sure which element caused effects</li>
+</ul>
 </div>
-<div id="electricity-usage-alert-2014-2019" class="section level3">
-<h3>Electricity Usage Alert: (2014 &amp; 2019)</h3>
+<div id="model-2" class="section level4">
+<h4>Model</h4>
+<ul>
+<li>Baseline model
+<span class="math display">\[\begin{aligned}y_{it} &amp;= \alpha_i + \delta_{t} + \gamma_1\cdot 1(\text{Monthly})_{it} + \gamma_2\cdot 1(\text{Quaterly})_{it}\\
+&amp;\phantom{\ggg} + x_{it}&#39;\cdot \beta + \epsilon_{it}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\alpha\)</span>: fixed effect of household</li>
+<li><span class="math inline">\(\delta\)</span>: fixed effect of time</li>
+</ul></li>
+<li>Time stability model
+<span class="math display">\[\begin{aligned}y_{it} &amp;= \alpha + \gamma_1\cdot 1(\text{Monthly})_{it} + \gamma_2\cdot 1(\text{Quaterly})_{it}\\
+&amp;\phantom{\ggg} + 1(\text{POST})_{it} + x_{it}&#39;\cdot \beta + \epsilon_{it}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(1(\text{POST})=0\)</span>: before treatment</li>
+<li><span class="math inline">\(1(\text{POST})=1\)</span>: after treatment</li>
+</ul></li>
+<li>Results in US
+<ul>
+<li>Decreased by 2.5 ~ 3%, compared with former self, as in % of control group mean</li>
+</ul></li>
+<li>Results in Germany
+<ul>
+<li>Electricity consumption is <span class="math inline">\(\frac{1}{3}\)</span> as US</li>
+<li>Decreased by 0.6%</li>
+<li>Top 10% worst behave like average US</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="electricity-usage-alert-2014-2020" class="section level3">
+<h3>Electricity Usage Alert: (2014 &amp; 2020)</h3>
+<ul>
+<li><a href="https://www.aeaweb.org/articles?id=10.1257/aer.104.4.1417">Jessoe &amp; Rapson (2014)</a></li>
+<li><a href="https://econpapers.repec.org/paper/bonboncrc/crctr224_5f2020_5f149.htm">Fang et al. (2020)</a></li>
+</ul>
+<div id="experiment-in-us" class="section level4">
+<h4>Experiment in US</h4>
+<ul>
+<li>Do consumers respond to temporary incentives?</li>
+<li>Alerts of higher electricity price
+<ul>
+<li>Extra expenses are deducted from free credit</li>
+<li>Confirmation email</li>
+</ul></li>
+<li>Subjects
+<ul>
+<li>Control group</li>
+<li>Pricing group</li>
+<li>Pricing + in-home display (<span class="math inline">\(\theta=0\)</span>!)</li>
+</ul></li>
+</ul>
+</div>
+<div id="estimation" class="section level4">
+<h4>Estimation</h4>
+<ul>
+<li>Intention to treatment: usage ~ alerts</li>
+<li>IV: usage ~ conformation email
+<ul>
+<li>Corrects for different awareness w/ or w/o in-home display</li>
+</ul></li>
+<li>Results
+<ul>
+<li>Decrease is significant</li>
+<li>Decrease is larger w/ in-home display</li>
+<li>Awareness of resource usage <span class="math inline">\(\implies\)</span> response to price</li>
+<li>W/o display, only response to day-ahead alert (very low elasticity)</li>
+</ul></li>
+<li>Estimation of <span class="math inline">\(\theta\)</span>:
+<span class="math display">\[\begin{aligned}\theta &amp;= \frac{\partial x_1(\theta)/\partial p_1}{\partial x_1(\theta=1)/\partial p_1}\\
+&amp;= \frac{-0.04}{-0.17} = 0.23\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="experiment-in-germany" class="section level4">
+<h4>Experiment in Germany</h4>
+<ul>
+<li>Home energy report
+<ul>
+<li>Water usage, energy usage, CO2 emission</li>
+</ul></li>
+<li>Real time feedback
+<ul>
+<li>Water usage &amp; temperature</li>
+</ul></li>
+<li>Subjects
+<ul>
+<li>CON: control group</li>
+<li>HER: only home energy report</li>
+<li>RTF: only real time feedback</li>
+<li>DUAL: both</li>
+</ul></li>
+</ul>
+</div>
+<div id="double-did-estimation" class="section level4">
+<h4>Double DID Estimation</h4>
+<ul>
+<li>Model:
+<span class="math display">\[\begin{aligned}y_{it} = \alpha_i &amp;+ 1(\text{Pre})_{it}\cdot \big(\beta_0 + \beta_1\cdot 1(\text{RTF/DUAL})_i + \beta_2\cdot 1(\text{DUAL})_i + \beta_3\cdot 1(\text{HER})_i\big)\\
+&amp;+ 1(\text{Post})_{it}\cdot \big(\gamma_0 + \gamma_1\cdot 1(\text{RTF/DUAL})_i + \gamma_2\cdot 1(\text{DUAL})_i + \gamma_3\cdot 1(\text{HER})_i\big)\\
+&amp;+ \sum_s (\delta_s\cdot \pi_{it}^s) + \epsilon_{it}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\pi_{it}^s\)</span>: percent of study complition</li>
+</ul></li>
+<li>Result: after study, all treatment groups gained understanding of water usage
+<ul>
+<li>RTF is effective in conservation behaviour</li>
+<li>HER uses as much as CON</li>
+<li>DUAL reinforces conservation behaviour by 60%</li>
+<li><span class="math inline">\(\theta\approx 0.2\)</span></li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="shower-feedback-2018-2019" class="section level3">
 <h3>Shower Feedback: (2018 &amp; 2019)</h3>
+<ul>
+<li><a href="https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2016.2646">Tiefenbeck et al. (2018)</a></li>
+<li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0211891">Goette, Leong, Qian (2019)</a></li>
+</ul>
+<p>Shower:</p>
+<ul>
+<li>Immediate pleasant, hard to perceive cost</li>
+<li>Can real time feedback reduce salience bias?</li>
+</ul>
+<div id="setup-2" class="section level4">
+<h4>Setup</h4>
+<ul>
+<li>Subjects
+<ul>
+<li>1- or 2-person households</li>
+<li>Younger, better educated, less environmentally friendly</li>
+</ul></li>
+<li>Groups
+<ul>
+<li>Control: only see water temperature</li>
+<li>Real time feedback (T1)</li>
+<li>Real time feed back + water use from last time (T2)</li>
+</ul></li>
+<li>Treatment effect: <span class="math inline">\(\Delta TG - \Delta CG\)</span></li>
+<li>Does not affect number of showers</li>
+</ul>
+</div>
+<div id="model-3" class="section level4">
+<h4>Model</h4>
+<ul>
+<li>Baseline model
+<span class="math display">\[y_{it} = \alpha_i + d_t +\beta_1 \cdot 1(T_1)_{it} + \beta_2 \cdot 1(T_2)_{it} + \epsilon_{it}\]</span></li>
+<li>Time stability model
+<span class="math display">\[\begin{aligned}y_{it} &amp;= \alpha_i + d_t + \beta_1 \cdot 1(T_1)_{it} + \beta_2 \cdot 1(T_2)_{it} \\
+&amp;\phantom{\ggg}+ \gamma_1 \cdot 1(T_1)_{it}\cdot x_{it} + \gamma_2 \cdot 1(T_2)_{it}\cdot x_{it} + \epsilon_{it} \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(x=0\)</span>: first shower</li>
+<li><span class="math inline">\(x=1\)</span>: last shower</li>
+</ul></li>
+<li>Heterogeneity model
+<span class="math display">\[\begin{aligned}y_{it} &amp;= \alpha_i + d_t + \beta_1 \cdot 1(T)_{it} + \beta_2 \cdot 1(\text{Shower }&gt;10)_{it}\cdot\bar{y}_{i0} \\
+&amp;\phantom{\ggg}+ \gamma_1 \cdot 1(T)_{it}\cdot \bar{y}_{i0} + \epsilon_{it}\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\bar{y}_{i0}\)</span>: base line use</li>
+</ul></li>
+<li>Result: treatment groups estimate water usage better than control group</li>
+<li>Estimate <span class="math inline">\(\theta\)</span>:
+<span class="math display">\[\begin{aligned}\theta &amp;= \frac{\eta}{\eta + \frac{\Delta x_1^*}{x_1}} \\
+&amp;= \frac{\eta}{\eta - 0.22}\end{aligned}\]</span>
+according to other studies, <span class="math inline">\(\eta\in [-0.4, -0.1]\)</span>, therefore, <span class="math inline">\(\theta\in[0.3, 0.6]\)</span></li>
+</ul>
+</div>
+<div id="field-experiment-2" class="section level4">
+<h4>Field Experiment</h4>
+<ul>
+<li>Subjects
+<ul>
+<li>Control group: no feedback</li>
+<li>28L group: realistic goal</li>
+<li>18L group: difficult goal</li>
+</ul></li>
+<li>Results
+<ul>
+<li>28L group: decrease by 4.5L</li>
+<li>18L group: decrease by 5.5L</li>
+</ul></li>
+<li>Implication
+<ul>
+<li>High baseline usage <span class="math inline">\(\implies\)</span> large effect</li>
+<li>Effects nearly identical to Tiefenbeck et al. (2018)</li>
+</ul></li>
+</ul>
+</div>
 </div>
 </div>
 <div id="non-selfish-preferences" class="section level2">
