@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">26 min read</span>
+    <span class="article-duration">29 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -127,21 +127,20 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#habit-formation">Habit Formation</a>
 <ul>
+<li><a href="#allcott-kessler2019"><span>Allcott &amp; Kessler(2019)</span></a></li>
 <li><a href="#theories">Theories</a></li>
 <li><a href="#going-to-gym-charness-greezy-2009">Going to Gym: <span>Charness &amp; Greezy (2009)</span></a></li>
 <li><a href="#commuting-yang-lim-2017">Commuting: <span>Yang &amp; Lim (2017)</span></a></li>
 <li><a href="#shower-again">Shower Again</a></li>
 </ul></li>
-<li><a href="#non-selfish-preferences">Non-Selfish Preferences</a>
+<li><a href="#social-preferences">Social Preferences</a>
 <ul>
-<li><a href="#public-good">Public Good</a></li>
 <li><a href="#labour-market">Labour Market</a></li>
+<li><a href="#disappointing-pay-rise-mas-2006">Disappointing Pay Rise: <span>Mas (2006)</span></a></li>
+<li><a href="#downward-wage-rigidity-kaur-2019">Downward Wage Rigidity: <span>Kaur (2019)</span></a></li>
+<li><a href="#public-good">Public Good</a></li>
 </ul></li>
 <li><a href="#reference-dependent-preferences">Reference Dependent Preferences</a></li>
-<li><a href="#habit-formation-1">Habit Formation</a>
-<ul>
-<li><a href="#allcott-kessler2019"><span>Allcott &amp; Kessler(2019)</span></a></li>
-</ul></li>
 </ul>
 </div>
 
@@ -1442,6 +1441,13 @@ according to other studies, <span class="math inline">\(\eta\in [-0.4, -0.1]\)</
 <li>Post-intervention: measure persistence</li>
 </ul></li>
 </ul>
+<div id="allcott-kessler2019" class="section level3">
+<h3><a href="https://www.aeaweb.org/articles?id=10.1257/app.20170328">Allcott &amp; Kessler(2019)</a></h3>
+<ol style="list-style-type: decimal">
+<li>Nudge sets <span class="math inline">\(\hat{f}=f\)</span></li>
+<li>Without nudge <span class="math inline">\(\hat{f}=f\)</span></li>
+</ol>
+</div>
 <div id="theories" class="section level3">
 <h3>Theories</h3>
 <div id="habit-stock-model" class="section level4">
@@ -1679,11 +1685,250 @@ Feedback is removed <span class="math inline">\(\implies\)</span> habit forming<
 </div>
 </div>
 </div>
-<div id="non-selfish-preferences" class="section level2">
-<h2>Non-Selfish Preferences</h2>
+<div id="social-preferences" class="section level2">
+<h2>Social Preferences</h2>
 <ul>
 <li>Less need for policy intervention</li>
 </ul>
+<div id="labour-market" class="section level3">
+<h3>Labour Market</h3>
+<ul>
+<li>Social preferences can change incentives for wage
+<ul>
+<li>Wage rigidity</li>
+<li>More unemployment (?)</li>
+</ul></li>
+<li>Firm’s profit function
+<span class="math display">\[\pi(L,w) = \underbrace{f\big( e(w)\cdot L \big)}_{\text{Technology}} - w\cdot L\]</span>
+<ul>
+<li><span class="math inline">\(L\)</span>: labour</li>
+<li><span class="math inline">\(e(w)\)</span>: effort depends on wage, reverse not true</li>
+</ul></li>
+</ul>
+<div id="selfish-workers" class="section level4">
+<h4>Selfish Workers</h4>
+<ul>
+<li>Worker’s utility
+<span class="math display">\[\begin{aligned}U &amp;= w - c\big(e(w)\big) \\
+\frac{\partial U}{\partial e} &amp;= \underbrace{c&#39;(e)}_{&gt;0}\cdot e&#39;(w) \overset{!}{=}0\\
+e&#39;(w) &amp;= 0 \\
+e(w) &amp;= e^{\min} \text{ for all }w \end{aligned}\]</span></li>
+<li>Therefore, firm pays lowest possible wage:
+<span class="math display">\[\begin{aligned}\frac{\partial \pi}{\partial L} &amp;= f&#39;(e^{\min}\cdot L)\cdot e^{\min} - w \overset{!}{=}0\\
+w^* &amp;= f&#39;(e^{\min}\cdot L)\cdot e^{\min}\end{aligned}\]</span>
+<ul>
+<li>No involuntary unemployment for competitive labour market</li>
+</ul></li>
+</ul>
+</div>
+<div id="non-selfish-workers" class="section level4">
+<h4>Non-Selfish Workers</h4>
+<ul>
+<li>Worker’s utility
+<ul>
+<li><span class="math inline">\(e&#39;(w)&gt;0\)</span>, <span class="math inline">\(e&#39;&#39;(w)&lt;0\)</span></li>
+</ul></li>
+<li>Therefore, firm set wage s.t.
+<span class="math display">\[\begin{aligned}\frac{\partial \pi}{\partial w} = f&#39;\big( e(w)\cdot L\big)\cdot \frac{\partial e}{\partial w}\cdot L - L &amp;\overset{!}{=}0\\
+f&#39;\big( e(w)\cdot L\big)\cdot \frac{\partial e}{\partial w} &amp;= 1 \end{aligned}\]</span>
+and
+<span class="math display">\[\begin{aligned}\frac{\partial \pi}{\partial L} = f&#39;\big( e(w)\cdot L\big)\cdot e - w &amp;\overset{!}{=}0\\
+f&#39;\big( e(w)\cdot L\big)\cdot e &amp;= w \\
+f&#39;\big( e(w)\cdot L\big) &amp;= \frac{w}{e} \end{aligned}\]</span>
+therefore, Solow condition:
+<span class="math display">\[\frac{\partial e}{\partial w}\cdot \frac{w}{e} = 1\]</span></li>
+</ul>
+</div>
+<div id="implications" class="section level4">
+<h4>Implications</h4>
+<ul>
+<li>Solow condition
+<ul>
+<li>Employees earn non-competitive rent</li>
+<li>Firm does not pay lowest possible wage</li>
+<li>Higher wage <span class="math inline">\(\implies\)</span> higher effort</li>
+<li><span class="math inline">\(\implies\)</span> firm can minimise cost per unit of labour</li>
+</ul></li>
+<li>Involuntary unemployment
+<ul>
+<li>Unemployed no long erexert wage pressure, unless it aﬀects <span class="math inline">\(e(w)\)</span> (?)</li>
+<li><span class="math inline">\(\implies\)</span> systematic unemployment</li>
+</ul></li>
+<li>Possible <span class="math inline">\(e(w)\)</span>
+<ul>
+<li>Continuous</li>
+<li>Reference wage: <span class="math inline">\(e(w, w^R)\)</span></li>
+</ul></li>
+<li>Lab experiment
+<ul>
+<li>Effort increase on wage level</li>
+<li>Stronger in long term employments</li>
+<li>Wage does not converge to competitive level</li>
+</ul></li>
+<li>Field experiment
+<ul>
+<li>Temporary / persistent effect of pay rise</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="disappointing-pay-rise-mas-2006" class="section level3">
+<h3>Disappointing Pay Rise: <a href="https://academic.oup.com/qje/article-abstract/121/3/783/1917873">Mas (2006)</a></h3>
+<ul>
+<li>Employees judge wage against a reference wage</li>
+<li>Does wage change in an unfair way decrease effort?</li>
+</ul>
+<div id="setup-4" class="section level4">
+<h4>Setup</h4>
+<ul>
+<li>Performance of police departments
+<ul>
+<li>Effort: crimes cleared</li>
+<li>Flat wage</li>
+</ul></li>
+<li>Final-offer arbitration
+<ul>
+<li>Employer vs. union</li>
+<li>Arbitrator must choose one</li>
+<li>Employer wins <span class="math inline">\(\implies\)</span> disappointment</li>
+</ul></li>
+</ul>
+</div>
+<div id="estimation-2" class="section level4">
+<h4>Estimation</h4>
+<ul>
+<li>Event-study design:
+<span class="math display">\[\begin{aligned}y_{ibt} &amp;= \alpha + \beta&#39; \cdot x_{ibt} + \delta_{ibt} + \gamma_1\cdot 1(\text{Overall, Employer won})_{ib} \\
+&amp;\phantom{\ggg}+ \gamma_2\cdot 1(\text{Post, Union won})_{ib} + \gamma_3\cdot 1(\text{Post, Employer won})_{ib} + \epsilon_{ibt} \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(i\)</span>: cities</li>
+<li>Is it <span class="math inline">\(\gamma_2\neq \gamma_3\)</span>?</li>
+<li>Is it <span class="math inline">\(\gamma_2&gt;0\)</span> and <span class="math inline">\(\gamma_3&lt;0\)</span>?</li>
+</ul></li>
+</ul>
+</div>
+<div id="results-3" class="section level4">
+<h4>Results</h4>
+<ul>
+<li>Strong effect of arbitration outcome
+<ul>
+<li>Large &amp; significant</li>
+<li>Jump in effort <span class="math inline">\(\implies\)</span> reference dependence</li>
+</ul></li>
+<li>More effort <span class="math inline">\(\implies\)</span> more efficient
+<ul>
+<li>If arrested, more likely to be convicted</li>
+</ul></li>
+<li>Other dependent variable
+<ul>
+<li>Convictions (no effect)</li>
+<li>Imprisonment (increase)</li>
+</ul></li>
+</ul>
+</div>
+<div id="mechanism" class="section level4">
+<h4>Mechanism</h4>
+<ul>
+<li>Are outcomes more sensitive to loss than gain?</li>
+<li>Model
+<span class="math display">\[E[\Delta w] = \Pr(\text{Union wins})\cdot \Delta w^{\text{Union}} + \Pr(\text{Employer wins})\cdot \Delta w^{\text{Employer}}\]</span></li>
+<li>Results
+<ul>
+<li>Any loss <span class="math inline">\(\implies\)</span> sharp reduction in effort</li>
+<li>Bigger loss <span class="math inline">\(\implies\)</span> even sharper</li>
+<li>Size of gain has no effect on effort</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="downward-wage-rigidity-kaur-2019" class="section level3">
+<h3>Downward Wage Rigidity: <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20141625">Kaur (2019)</a></h3>
+<div id="wage-rigidity" class="section level4">
+<h4>Wage Rigidity</h4>
+<ul>
+<li>Norminal wage is downwardly rigid: <a href="https://www.jstor.org/stable/1806070">Kahneman, Knetsch, Thaler (1986)</a>
+<ul>
+<li>61% think 10% decrease in wage is unfair</li>
+<li>80% think eliminate 10% bonus is acceptable</li>
+<li>62% think 7% decrease w/o inflation is unfair</li>
+<li>78% think 5% increase in wage w/ 12% inflation is acceptable</li>
+</ul></li>
+<li>DWR causes involuntary unemployment
+<ul>
+<li>Positive shock in <span class="math inline">\(t\implies\)</span> employment falls in <span class="math inline">\(t+1\)</span></li>
+<li>But then, inflation eases the problem</li>
+<li>Negative shock in <span class="math inline">\(t\)</span> does not cause anything because wage is upwardly flexible</li>
+</ul></li>
+<li>Questions
+<ul>
+<li>Are spillover from positive shock larger when inflation is low?</li>
+<li>No interaction between negative shock and inflation?</li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-behavioural-public--dwr.png" /></p>
+</div>
+<div id="setup-5" class="section level4">
+<h4>Setup</h4>
+<ul>
+<li>Agricultural labour market in in India
+<ul>
+<li>Small scale farms</li>
+<li>Short term contracts</li>
+<li>Minimum wage law is ignored</li>
+</ul></li>
+<li>Shock: rainfall
+<ul>
+<li>Positive shock: top 20%</li>
+<li>Negative shock: bottom 20%</li>
+</ul></li>
+<li>Does positive shock in year <span class="math inline">\(t\implies\)</span> higher wages in year <span class="math inline">\(t+1\)</span>?</li>
+</ul>
+</div>
+<div id="wage-estimation" class="section level4">
+<h4>Wage Estimation</h4>
+<ul>
+<li>Model:
+<span class="math display">\[\begin{aligned}\ln w_{it} &amp;= \alpha_i + \beta_1(S_{it}^{+,+} + S_{it}^{0,+} + S_{it}^{-,+})
++\beta_2(S_{it}^{0,-} + S_{it}^{-,-})\\
+&amp;\phantom{\ggg}+ \beta_3\cdot S_{it}^{+,0} + \beta_4\cdot S_{it}^{+,-} + \delta_{t} + \epsilon_{it} \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\ln w_{it}\)</span>: log average norminal wage</li>
+<li><span class="math inline">\(S^{t-1, t}\)</span>: combinations of shocks in year <span class="math inline">\(t-1\)</span> and <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(\beta_1=0\)</span>: no impact from <span class="math inline">\(t-1\)</span></li>
+<li><span class="math inline">\(\beta_2&gt;0\)</span>: negative push from <span class="math inline">\(t-1\)</span></li>
+<li><span class="math inline">\(\beta_3 = \beta_4 &gt;0\)</span>: positive push from <span class="math inline">\(t-1\)</span></li>
+</ul></li>
+<li>Results
+<ul>
+<li>Positive shock in <span class="math inline">\(t\implies\)</span> higher wage</li>
+<li>Positive shock in <span class="math inline">\(t-1\implies\)</span> higher wage when <span class="math inline">\(t\)</span> is not as good</li>
+<li>Higher inflation weakens effect of <span class="math inline">\(t\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="employment-estimation" class="section level4">
+<h4>Employment Estimation</h4>
+<ul>
+<li>Model:
+<span class="math display">\[\begin{aligned}L_{it} &amp;= \alpha_i + \beta_1(S_{it}^{+,+} + S_{it}^{0,+} + S_{it}^{-,+})
++\beta_2(S_{it}^{0,-} + S_{it}^{-,-})\\
+&amp;\phantom{\ggg}+ \beta_3\cdot S_{it}^{+,0} + \beta_4\cdot S_{it}^{+,-} + \delta_{t} + \epsilon_{it} \end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(L_{it}\)</span>: average number of working days</li>
+<li><span class="math inline">\(\beta_1=0\)</span>: no impact from <span class="math inline">\(t-1\)</span></li>
+<li><span class="math inline">\(\beta_2&lt;0\)</span>: negative push from <span class="math inline">\(t-1\)</span></li>
+<li><span class="math inline">\(\beta_4 &lt; \beta_3 &lt;0\)</span>: positive push from <span class="math inline">\(t-1\)</span></li>
+</ul></li>
+<li>Results
+<ul>
+<li>Positive shock in <span class="math inline">\(t\implies\)</span> more employment</li>
+<li>Positive shock in <span class="math inline">\(t-1\implies\)</span> less employment</li>
+<li>Effects are stronger for small farm</li>
+<li>No effects on non-agricultural employment</li>
+</ul></li>
+</ul>
+</div>
+</div>
 <div id="public-good" class="section level3">
 <h3>Public Good</h3>
 <ul>
@@ -1691,26 +1936,9 @@ Feedback is removed <span class="math inline">\(\implies\)</span> habit forming<
 <li>Peer effects</li>
 </ul>
 </div>
-<div id="labour-market" class="section level3">
-<h3>Labour Market</h3>
-<ul>
-<li>More effecient</li>
-<li>More unemployment (?)</li>
-</ul>
-</div>
 </div>
 <div id="reference-dependent-preferences" class="section level2">
 <h2>Reference Dependent Preferences</h2>
-</div>
-<div id="habit-formation-1" class="section level2">
-<h2>Habit Formation</h2>
-<div id="allcott-kessler2019" class="section level3">
-<h3><a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/app.20170328">Allcott &amp; Kessler(2019)</a></h3>
-<ol style="list-style-type: decimal">
-<li>Nudge sets <span class="math inline">\(\hat{f}=f\)</span></li>
-<li>Without nudge <span class="math inline">\(\hat{f}=f\)</span></li>
-</ol>
-</div>
 </div>
 
     </div>
