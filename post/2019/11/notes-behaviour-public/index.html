@@ -143,10 +143,10 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#models-of-social-influence">Models of Social Influence</a></li>
 <li><a href="#peer-effects">Peer Effects</a></li>
-<li><a href="#estimating-theta">Estimating <span class="math inline">\(\theta\)</span></a></li>
+<li><a href="#estimating-θ">Estimating <em>θ</em></a></li>
 <li><a href="#asking-for-giving-andreoni-rao-2011">Asking for Giving: <span>Andreoni &amp; Rao (2011)</span></a></li>
 <li><a href="#asking-for-voting-2008-2010">Asking for Voting: (2008 &amp; 2010)</a></li>
-<li><a href="#blood-donation-bruhin-et-al.-2018">Blood Donation: <span>Bruhin et al. (2018)</span></a></li>
+<li><a href="#blood-donation-bruhin-et-al.-2020">Blood Donation: <span>Bruhin et al. (2020)</span></a></li>
 </ul></li>
 <li><a href="#public-good">Public Good</a></li>
 <li><a href="#reference-dependent-preferences">Reference Dependent Preferences</a></li>
@@ -1958,7 +1958,7 @@ b + \theta\cdot p - c_i &amp; a=1\end{cases}\]</span>
 <ul>
 <li><span class="math inline">\(b\)</span>: intrinsic benefit</li>
 <li><span class="math inline">\(\theta\cdot p\)</span>: impact of social influence</li>
-<li><span class="math inline">\(\theta&lt;1\)</span>: perceived social approval</li>
+<li><span class="math inline">\(\theta&lt;1\)</span>: perceived social benefit</li>
 <li><span class="math inline">\(p\)</span>: fraction of population who choose <span class="math inline">\(a=1\)</span></li>
 <li><span class="math inline">\(c_i\)</span>: stochastic cost with CDF: <span class="math inline">\(F(c)\)</span></li>
 </ul></li>
@@ -2028,8 +2028,8 @@ b - c_i &amp; a=1\end{cases}\]</span>
 </ul></li>
 </ul>
 </div>
-<div id="estimating-theta" class="section level3">
-<h3>Estimating <span class="math inline">\(\theta\)</span></h3>
+<div id="estimating-θ" class="section level3">
+<h3>Estimating <em>θ</em></h3>
 <ul>
 <li>Model:
 <span class="math display">\[y_i = x_i&#39;\cdot\beta + \gamma_1\cdot z_i + \gamma_2\cdot \bar{z}_i + \epsilon_i\]</span>
@@ -2116,8 +2116,70 @@ b - c_i &amp; a=1\end{cases}\]</span>
 </ul>
 </div>
 </div>
-<div id="blood-donation-bruhin-et-al.-2018" class="section level3">
-<h3>Blood Donation: <a href="#">Bruhin et al. (2018)</a></h3>
+<div id="blood-donation-bruhin-et-al.-2020" class="section level3">
+<h3>Blood Donation: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167629619304965">Bruhin et al. (2020)</a></h3>
+<ul>
+<li>Blood donation: great example of prosocial behaviour
+<ul>
+<li>Are donors more likely to donate if other donors are more motivated?</li>
+<li>Response to social influence or spreading of words?</li>
+</ul></li>
+</ul>
+<div id="setup-6" class="section level4">
+<h4>Setup</h4>
+<ul>
+<li>Observe:
+<ul>
+<li>Donation decision</li>
+<li>Number of previous donation &amp; location</li>
+<li>Street address</li>
+<li>Other control variables</li>
+</ul></li>
+<li>Blood type
+<ul>
+<li>Random shocks</li>
+<li>Red Cross calls invited donors when certain blood type is in need<br />
+(IV for donation desicion)</li>
+</ul></li>
+</ul>
+</div>
+<div id="results-4" class="section level4">
+<h4>Results</h4>
+<ul>
+<li>Estimated results
+<ul>
+<li><span class="math inline">\(\theta\approx 0.5\)</span></li>
+<li><span class="math inline">\(\frac{1}{1-\theta}\approx 2\)</span></li>
+</ul></li>
+<li>Problem: passed information, not motivation?</li>
+<li>Checks
+<ul>
+<li>Whether received reminder from others</li>
+<li>Blood types<br />
+(Differnet types should cause no spillover if it’s about information)</li>
+</ul></li>
+</ul>
+</div>
+<div id="implications-1" class="section level4">
+<h4>Implications</h4>
+<ul>
+<li>Large social influence effects
+<ul>
+<li>Make policies more effective</li>
+</ul></li>
+<li>Mechanism
+<ul>
+<li>Individuals respond to phone call (impulse), not information</li>
+<li>Cannot distinguish between social pressure &amp; social approval</li>
+</ul></li>
+<li>Pressure vs. approval
+<ul>
+<li>Social pressure undermines welare gains</li>
+<li>Social approval boosts welfare</li>
+<li><span class="math inline">\(\implies\)</span> more research!</li>
+</ul></li>
+</ul>
+</div>
 </div>
 </div>
 <div id="public-good" class="section level2">
