@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.69.0" />
 
 <title>Notes on Behavioural Public Policy - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Behavioural Public Policy - loikein&#39;s notes">
@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">29 min read</span>
+    <span class="article-duration">33 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -133,13 +133,22 @@ if (!doNotTrack) {
 <li><a href="#commuting-yang-lim-2017">Commuting: <span>Yang &amp; Lim (2017)</span></a></li>
 <li><a href="#shower-again">Shower Again</a></li>
 </ul></li>
-<li><a href="#social-preferences">Social Preferences</a>
+<li><a href="#social-preferences-labour-market">Social Preferences &amp; Labour Market</a>
 <ul>
 <li><a href="#labour-market">Labour Market</a></li>
 <li><a href="#disappointing-pay-rise-mas-2006">Disappointing Pay Rise: <span>Mas (2006)</span></a></li>
 <li><a href="#downward-wage-rigidity-kaur-2019">Downward Wage Rigidity: <span>Kaur (2019)</span></a></li>
-<li><a href="#public-good">Public Good</a></li>
 </ul></li>
+<li><a href="#social-pressure">Social Pressure</a>
+<ul>
+<li><a href="#models-of-social-influence">Models of Social Influence</a></li>
+<li><a href="#peer-effects">Peer Effects</a></li>
+<li><a href="#estimating-theta">Estimating <span class="math inline">\(\theta\)</span></a></li>
+<li><a href="#asking-for-giving-andreoni-rao-2011">Asking for Giving: <span>Andreoni &amp; Rao (2011)</span></a></li>
+<li><a href="#asking-for-voting-2008-2010">Asking for Voting: (2008 &amp; 2010)</a></li>
+<li><a href="#blood-donation-bruhin-et-al.-2018">Blood Donation: <span>Bruhin et al. (2018)</span></a></li>
+</ul></li>
+<li><a href="#public-good">Public Good</a></li>
 <li><a href="#reference-dependent-preferences">Reference Dependent Preferences</a></li>
 </ul>
 </div>
@@ -187,8 +196,8 @@ if (!doNotTrack) {
 </ul></li>
 <li>Bellman equation: for all <span class="math inline">\(s = t, t+1,\dots, t+T\)</span>
 <span class="math display">\[\begin{aligned}V_t(a_t) &amp;= \max_{c_t} \ u(c_t) + \delta\cdot V_{t+1}(a_t - c_t) \\
-&amp;= \max_{c_t} \ u(c_t) + \delta\cdot \underbrace{ u\big(c_{t+1}(a_t - c_t)\big)
-+\delta\cdot V_{t+2}\big(a_t - c_t - c_{t+1}(a_t - c_t)\big)}_{V_{t+1}(a_t - c_t)}\end{aligned}\]</span>
+&amp;= \max_{c_t} \ u(c_t) + \delta\cdot \Big[ \underbrace{ u\big(c_{t+1}(a_t - c_t)\big)
++\delta\cdot V_{t+2}\big(a_t - c_t - c_{t+1}(a_t - c_t)\big)}_{V_{t+1}(a_t - c_t)}\Big]\end{aligned}\]</span>
 Therefore, FOC:
 <span class="math display">\[\begin{aligned}u&#39;(c_s) &amp;= \delta \cdot V&#39;_{s+1}(a_s - c_s) \\
 &amp;= \delta \cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \frac{\partial c_{s+1}}{\partial a} \\
@@ -220,9 +229,9 @@ u&#39;(c_s) &amp;= \delta\cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \frac{\p
 <ul>
 <li><span class="math inline">\(\beta &lt;1\)</span>, and they know it</li>
 <li>Set consumption s.t.
-<span class="math display">\[u&#39;(c_t^S) = u&#39;(c_{t+1}^S)\cdot\Big(\beta\delta\cdot\frac{\delta c_{t+1}^S}{\delta a}+\delta\big(1-\frac{\delta c_{t+1}^S}{\delta a}\big)\Big)\]</span></li>
-<li>If <span class="math inline">\(\frac{\delta c_{t+1}^S}{\delta a}\approx 1\)</span>, no motive to save</li>
-<li>If <span class="math inline">\(\frac{\delta c_{t+1}^S}{\delta a}\ll 1\)</span>, save &amp; more patient</li>
+<span class="math display">\[u&#39;(c_t^S) = u&#39;(c_{t+1}^S)\cdot\Big(\beta\delta\cdot\frac{\partial c_{t+1}^S}{\partial a}+\delta\big(1-\frac{\partial c_{t+1}^S}{\partial a}\big)\Big)\]</span></li>
+<li>If <span class="math inline">\(\frac{\partial c_{t+1}^S}{\partial a}\approx 1\)</span>, no motive to save</li>
+<li>If <span class="math inline">\(\frac{\partial c_{t+1}^S}{\partial a}\ll 1\)</span>, save &amp; more patient</li>
 </ul></li>
 <li>Naif vs. Sophisticate
 <ul>
@@ -238,9 +247,9 @@ u&#39;(c_s) &amp;= \delta\cdot u&#39;\big(c_{s+1}(a_s - c_s)\big) \cdot \frac{\p
 <li>TC’s consumption:
 <span class="math display">\[\Delta \log c_t = -\frac{1}{\sigma}\cdot\Delta\log p_t + \frac{1}{\sigma}\cdot\log\delta\]</span>
 Therefore, monthly consumption:
-<span class="math display">\[\Delta \log c_{t+30} - \log c_t = -\frac{1}{\sigma}\cdot(\log p_{t+30} -\log p_t) + 30\cdot\frac{1}{\sigma}\]</span>
+<span class="math display">\[\log c_{t+30} - \log c_t = -\frac{1}{\sigma}\cdot(\log p_{t+30} -\log p_t) + 30\cdot\frac{1}{\sigma}\cdot\log\delta\]</span>
 if price does not change:
-<span class="math display">\[\Delta \log c_{t+30} - \log c_t \approx 30\cdot\frac{1}{\sigma}&lt;0\]</span></li>
+<span class="math display">\[\log c_{t+30} - \log c_t \approx 30\cdot\frac{1}{\sigma}\cdot\log\delta&lt;0\]</span></li>
 </ul>
 </div>
 </div>
@@ -1685,8 +1694,8 @@ Feedback is removed <span class="math inline">\(\implies\)</span> habit forming<
 </div>
 </div>
 </div>
-<div id="social-preferences" class="section level2">
-<h2>Social Preferences</h2>
+<div id="social-preferences-labour-market" class="section level2">
+<h2>Social Preferences &amp; Labour Market</h2>
 <ul>
 <li>Less need for policy intervention</li>
 </ul>
@@ -1929,13 +1938,194 @@ therefore, Solow condition:
 </ul>
 </div>
 </div>
-<div id="public-good" class="section level3">
-<h3>Public Good</h3>
+</div>
+<div id="social-pressure" class="section level2">
+<h2>Social Pressure</h2>
+<ul>
+<li>Individuals appear to be selfish</li>
+<li>Social interaction can change this for a while
+<ul>
+<li>Social pressure makes people act less selfishly?</li>
+</ul></li>
+</ul>
+<div id="models-of-social-influence" class="section level3">
+<h3>Models of Social Influence</h3>
+<ul>
+<li>Choice: prosocial activity <span class="math inline">\(a\in\{0,1\}\)</span></li>
+<li>Social approval utility:
+<span class="math display">\[u_i = \begin{cases}0 &amp; a=0 \\
+b + \theta\cdot p - c_i &amp; a=1\end{cases}\]</span>
+<ul>
+<li><span class="math inline">\(b\)</span>: intrinsic benefit</li>
+<li><span class="math inline">\(\theta\cdot p\)</span>: impact of social influence</li>
+<li><span class="math inline">\(\theta&lt;1\)</span>: perceived social approval</li>
+<li><span class="math inline">\(p\)</span>: fraction of population who choose <span class="math inline">\(a=1\)</span></li>
+<li><span class="math inline">\(c_i\)</span>: stochastic cost with CDF: <span class="math inline">\(F(c)\)</span></li>
+</ul></li>
+<li>Social influence increases prosocial activity:
+<ul>
+<li>Fraction of population who choose <span class="math inline">\(a=1\)</span>:
+<span class="math display">\[\begin{aligned}p &amp;= \Pr(u_i\geq 0)\\
+  &amp;= \Pr(b + \theta\cdot p\geq c_i)\\
+  &amp;= F(b + \theta\cdot p)\end{aligned}\]</span>
+which holds even when <span class="math inline">\(\theta=0\)</span></li>
+<li>Equilibrium: <span class="math display">\[p^* = F(b + \theta\cdot p^*)\]</span></li>
+</ul></li>
+<li>When <span class="math inline">\(c_i\)</span> is uniformly distributed on <span class="math inline">\([0,1]\)</span>, <span class="math inline">\(b+\theta &lt;1\)</span>,
+<span class="math display">\[\begin{aligned}p^* &amp;= F(b + \theta\cdot p^*) \\
+&amp;= \frac{b + \theta\cdot p^* - 0}{1-0} \\
+&amp;= b + \theta\cdot p^* \\
+&amp;= \frac{b}{1-\theta} \end{aligned}\]</span></li>
+<li>Social pressure utility:
+<span class="math display">\[u_i = \begin{cases}-\theta\cdot p &amp; a=0 \\
+b - c_i &amp; a=1\end{cases}\]</span>
+<ul>
+<li>Social approval &amp; social pressure model yield same behaviour</li>
+</ul></li>
+</ul>
+</div>
+<div id="peer-effects" class="section level3">
+<h3>Peer Effects</h3>
+<ul>
+<li>Social influence leads to peer effects
+<ul>
+<li><span class="math inline">\(q\)</span>: fraction of treatment group</li>
+<li><span class="math inline">\(\gamma\)</span>: additional incentive to act</li>
+<li>Treatment group act if:
+<span class="math display">\[\begin{aligned}u_T &amp;= b + \gamma + \theta\cdot\big( q\cdot p_T + (1-q)\cdot p_C \big) - c_i\\
+  &amp;\geq 0 \\
+  p_T &amp;= F\Big(b + \gamma + \theta\cdot\big( q\cdot p_T + (1-q)\cdot p_C \big) \Big) \end{aligned}\]</span></li>
+<li>Control group:
+<span class="math display">\[\begin{aligned}u_C &amp;= b + \theta\cdot\big( q\cdot p_T + (1-q)\cdot p_C \big) - c_i\\
+  &amp;\geq 0 \\
+  p_C &amp;= F\Big(b + \theta\cdot\big( \underbrace{q\cdot p_T}_{\text{Affected by }\gamma} + (1-q)\cdot p_C \big) \Big) \end{aligned}\]</span></li>
+<li>Motivational spillover: CG contribution is increased by <span class="math inline">\(\gamma\)</span> through <span class="math inline">\(p_T\)</span></li>
+</ul></li>
+<li>When <span class="math inline">\(c_i\)</span> is uniformly distributed on <span class="math inline">\([0,1]\)</span>,
+<ul>
+<li>Treatment group:
+<span class="math display">\[\begin{aligned}p_T &amp;= F\Big(b + \gamma + \theta\cdot\big( q\cdot p_T + (1-q)\cdot p_C \big) \Big) \\
+  &amp;= b + \gamma + \theta\cdot\big( q\cdot p_T + (1-q)\cdot p_C \big) \\
+  &amp;= \frac{b + \gamma + \theta(1-q)\cdot p_C}{1-\theta\cdot q}\end{aligned}\]</span></li>
+<li>Control group:
+<span class="math display">\[\begin{aligned}p_C &amp;= F\Big(b + \theta\cdot\big( \underbrace{q\cdot p_T}_{\text{Affected by }\gamma} + (1-q)\cdot p_C \big) \Big) \\
+  &amp;= b + \theta\cdot\big(q\cdot p_T + (1-q)\cdot p_C \big)\\
+  &amp;= \frac{b + \theta \cdot q\cdot p_T}{1-\theta(1-q)}\end{aligned}\]</span></li>
+<li>Therefore,
+<span class="math display">\[\begin{aligned}p_C &amp;= \frac{b + q\cdot \theta\cdot\gamma}{1-\theta}\\
+  &amp;= \underbrace{\frac{b}{1-\theta}}_{p^* \text{ w/o treatment}} + \underbrace{\frac{q\cdot \theta\cdot\gamma}{1-\theta}}_{\text{Spillover}} \\
+  p_T &amp;= \frac{b - \theta\gamma + (1+\theta\cdot q)\gamma}{1-\theta}\\
+  &amp;=\frac{b + q\cdot \theta\cdot\gamma + \gamma(1-\theta)}{1-\theta} \\
+  &amp;= p_C + \gamma \end{aligned}\]</span></li>
+<li>Total effect
+<span class="math display">\[\begin{aligned}TE &amp;= \gamma\cdot q + \frac{q\cdot \theta\cdot\gamma}{1-\theta}\cdot 1\\
+  &amp;= \frac{(1-\theta)\gamma\cdot q + \theta\cdot\gamma\cdot q}{1-\theta}\\
+  &amp;= \underbrace{\gamma\cdot q}_{\text{Effect}}\cdot\underbrace{\frac{1}{1-\theta}}_{\text{Multiplier}} \end{aligned}\]</span></li>
+</ul></li>
+<li>Policy multiplier: social influence among individuals
+<ul>
+<li>Since <span class="math inline">\(\theta&lt;1\)</span>, <span class="math inline">\(\frac{1}{1-\theta}&gt;1\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="estimating-theta" class="section level3">
+<h3>Estimating <span class="math inline">\(\theta\)</span></h3>
+<ul>
+<li>Model:
+<span class="math display">\[y_i = x_i&#39;\cdot\beta + \gamma_1\cdot z_i + \gamma_2\cdot \bar{z}_i + \epsilon_i\]</span>
+<ul>
+<li><span class="math inline">\(y_i\in\{0,1\}\)</span>: prosocial activity</li>
+<li><span class="math inline">\(z_i = 1(TG)\)</span></li>
+<li><span class="math inline">\(\bar{z}_i=q\)</span>: fraction of TG</li>
+</ul></li>
+<li>Estimation
+<span class="math display">\[\begin{aligned}\frac{\gamma_2}{\gamma_1} &amp;= \frac{\theta}{1-\theta}\\
+\theta &amp;= \frac{\gamma_2 / \gamma_1}{1 + \gamma_2 / \gamma_1} \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="asking-for-giving-andreoni-rao-2011" class="section level3">
+<h3>Asking for Giving: <a href="https://www.sciencedirect.com/science/article/abs/pii/S004727271100003X">Andreoni &amp; Rao (2011)</a></h3>
+<ul>
+<li>Dictator game: $10 between dictator &amp; receiver</li>
+<li>Conditions
+<ul>
+<li>Baseline: no interaction</li>
+<li>A: receiver can send message to ask for certain amount</li>
+<li>E: dictator can send message to explain</li>
+<li>AE: receiver ask, then dictator explain</li>
+<li>EA: dictator explain, then receiver ask</li>
+</ul></li>
+<li>Messages
+<ul>
+<li>In E, dictators apologise &amp; keep the money</li>
+<li>Otherwise, both sides talk about fairness</li>
+<li>Receiver try to be friendly</li>
+</ul></li>
+<li>Results
+<ul>
+<li>Only dictator speak <span class="math inline">\(\implies\)</span> less transfer than baseline</li>
+<li>Message from receiver <span class="math inline">\(\implies\)</span> higher transfer</li>
+<li>Both sides can speak <span class="math inline">\(\implies\)</span> highest transfer</li>
+</ul></li>
+</ul>
+</div>
+<div id="asking-for-voting-2008-2010" class="section level3">
+<h3>Asking for Voting: (2008 &amp; 2010)</h3>
+<ul>
+<li><p><a href="https://www.cambridge.org/core/journals/american-political-science-review/article/social-pressure-and-voter-turnout-evidence-from-a-largescale-field-experiment/11E84AF4C0B7FBD1D20C855972C2C3EB">Gerber, Green, Larimer (2008)</a></p></li>
+<li><p><a href="https://link.springer.com/article/10.1007%2Fs11109-010-9110-4">Gerber, Green, Larimer (2010)</a></p></li>
+<li><p>Participation in voting is a public good</p>
+<ul>
+<li>How can we increase voter tuurnout?</li>
+<li>Mailing / phone calls: only 1 ~ 2% effect</li>
+</ul></li>
+</ul>
+<div id="experiment-5" class="section level4">
+<h4>2006 Experiment</h4>
+<ul>
+<li>Groups
+<ul>
+<li>Control</li>
+<li>Civic Duty: letter of voting as a civic duty</li>
+<li>Hawthorne: letter of being studied</li>
+<li>Self Image: letter of who vote is a public record</li>
+<li>Public Image: letter of neighbours would know who voted or not</li>
+</ul></li>
+<li>Results
+<ul>
+<li>Significant effects from all four groups</li>
+<li>PI &gt; SI &gt; H &gt; CD &gt; Control</li>
+</ul></li>
+<li>Problem: utility from voting or disutility from abstaining?</li>
+</ul>
+</div>
+<div id="experiment-6" class="section level4">
+<h4>2007 Experiment</h4>
+<ul>
+<li>Groups
+<ul>
+<li>Control</li>
+<li>Civic Duty</li>
+<li>Shame: letter of elections that were missed</li>
+<li>Proud: letter of elections voted</li>
+</ul></li>
+<li>Results
+<ul>
+<li>Shame is more effective than pride</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="blood-donation-bruhin-et-al.-2018" class="section level3">
+<h3>Blood Donation: <a href="#">Bruhin et al. (2018)</a></h3>
+</div>
+</div>
+<div id="public-good" class="section level2">
+<h2>Public Good</h2>
 <ul>
 <li>Motivation to contribute</li>
 <li>Peer effects</li>
 </ul>
-</div>
 </div>
 <div id="reference-dependent-preferences" class="section level2">
 <h2>Reference Dependent Preferences</h2>
