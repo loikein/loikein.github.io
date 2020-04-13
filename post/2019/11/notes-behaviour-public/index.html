@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">33 min read</span>
+    <span class="article-duration">36 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy</h1>
     
@@ -148,8 +148,15 @@ if (!doNotTrack) {
 <li><a href="#asking-for-voting-2008-2010">Asking for Voting: (2008 &amp; 2010)</a></li>
 <li><a href="#blood-donation-bruhin-et-al.-2020">Blood Donation: <span>Bruhin et al. (2020)</span></a></li>
 </ul></li>
-<li><a href="#public-good">Public Good</a></li>
-<li><a href="#reference-dependent-preferences">Reference Dependent Preferences</a></li>
+<li><a href="#inmage-incentives">Inmage &amp; Incentives</a>
+<ul>
+<li><a href="#theory-bénabou-tirole-2006">Theory: <span>Bénabou &amp; Tirole (2006)</span></a></li>
+<li><a href="#fining-late-parents-gneezy-rustichini-2000a">Fining Late Parents: <span>Gneezy &amp; Rustichini (2000a)</span></a></li>
+<li><a href="#asking-for-charity-gneezy-rustichini-2000b">Asking for Charity: <span>Gneezy &amp; Rustichini (2000b)</span></a></li>
+<li><a href="#face-electric-shocks-falk-2017">Face &amp; Electric Shocks: <span>Falk (2017)</span></a></li>
+<li><a href="#imave-vs.-monetary-incentives-ariely-bracha-meier-2009">Imave vs. Monetary Incentives: <span>Ariely, Bracha, Meier (2009)</span></a></li>
+<li><a href="#net-crowding-out-dubé-et-al.-2017">Net Crowding Out: <span>Dubé et al. (2017)</span></a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -2182,15 +2189,186 @@ b - c_i &amp; a=1\end{cases}\]</span>
 </div>
 </div>
 </div>
-<div id="public-good" class="section level2">
-<h2>Public Good</h2>
+<div id="inmage-incentives" class="section level2">
+<h2>Inmage &amp; Incentives</h2>
 <ul>
-<li>Motivation to contribute</li>
-<li>Peer effects</li>
+<li>Use material incentives to boost prosocial behaviour?</li>
+<li>Standard model: more incentive <span class="math inline">\(\implies\)</span> higher intensity of activity
+<ul>
+<li>Can material incentives crowd out intrinsic motivations</li>
+<li>Nudge is not free (!)</li>
+</ul></li>
+</ul>
+<div id="theory-bénabou-tirole-2006" class="section level3">
+<h3>Theory: <a href="https://www.aeaweb.org/articles?id=10.1257/aer.96.5.1652">Bénabou &amp; Tirole (2006)</a></h3>
+<ul>
+<li>Choice: prosocial activity <span class="math inline">\(a\in\{0,1\}\)</span></li>
+<li>Consumption utility
+<span class="math display">\[u^i(a,y) = \begin{cases}0 &amp; a=0 \\
+v_a^i + v_y^i\cdot y - c &amp; a=1 \end{cases}\]</span>
+<ul>
+<li><span class="math inline">\(v_a\)</span>: value of engaging in <span class="math inline">\(a\)</span> (altruism)</li>
+<li><span class="math inline">\(v_y\)</span>: value of money (greed)</li>
+<li><span class="math inline">\(y\)</span>: incentive (rate) to engage in <span class="math inline">\(a\)</span></li>
+<li><span class="math inline">\(c\)</span>: cost of <span class="math inline">\(a\)</span></li>
+</ul></li>
+<li>Reputation utility
+<span class="math display">\[\begin{aligned}R(y) &amp;= \overbrace{\gamma_a\cdot E[v_a\ |\ a, y]}^{\text{Social approval}}
+-\overbrace{\gamma_y \cdot E[v_y\ |\ a,y]}^{\begin{subarray}{1}\text{Bad reputation}\\\text{of being greedy} \end{subarray}} \\
+&amp;= \gamma_a\cdot \big( E[v_a\ |\ a=1, y] - E[v_a\ |\ a=0, y] \big) \\
+&amp;\phantom{\ggg} - \gamma_y \cdot \big( E[v_y\ |\ a=1, y] - E[v_y\ |\ a=0, y] \big)\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\gamma_a\)</span>: weight of appearing altrustic</li>
+<li><span class="math inline">\(\gamma_y\)</span>: weight of not appearing greedy</li>
+</ul></li>
+<li>Optimal choice
+<span class="math display">\[\begin{aligned}\max_{a} &amp;&amp; U^i(a,y) &amp;= a\cdot\big( u^i(a,y)+R(y)\big) \\
+&amp;&amp; &amp;= a\cdot\big( v_a^i + v_y^i\cdot y - c + R(y) \big) \end{aligned}\]</span>
+therefore, <span class="math inline">\(a=1\)</span> if <span class="math display">\[v_a^i + v_y^i\cdot y + R(y)\geq c\]</span>
+<ul>
+<li>When <span class="math inline">\(y=0\)</span>, agents give only for altruism</li>
+<li>Marginal increase of <span class="math inline">\(y\)</span> above 0 attracts the most greedy people<br />
+<span class="math inline">\(\implies\)</span> <strong>image-spoiling effect</strong> (<strong>crowding out effect</strong>)</li>
+<li>As <span class="math inline">\(y\)</span> increases, incentive effect &gt; image-spoiling effect</li>
+</ul></li>
 </ul>
 </div>
-<div id="reference-dependent-preferences" class="section level2">
-<h2>Reference Dependent Preferences</h2>
+<div id="fining-late-parents-gneezy-rustichini-2000a" class="section level3">
+<h3>Fining Late Parents: <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/468061">Gneezy &amp; Rustichini (2000a)</a></h3>
+<ul>
+<li>Day care centres</li>
+<li>Groups
+<ul>
+<li>Control: nothing</li>
+<li>Treatment: small fine each time a parent picks up child late</li>
+</ul></li>
+<li>Result: fine increases late arrivals</li>
+<li>Possible mechanisms
+<ul>
+<li>Being late becomes a transaction w/ price tag</li>
+<li>Fine indicates many other parents come late as well; being late is ok</li>
+</ul></li>
+</ul>
+</div>
+<div id="asking-for-charity-gneezy-rustichini-2000b" class="section level3">
+<h3>Asking for Charity: <a href="https://academic.oup.com/qje/article-abstract/115/3/791/1828156">Gneezy &amp; Rustichini (2000b)</a></h3>
+<ul>
+<li>High school children knock on doors to raise for charity</li>
+<li>Groups
+<ul>
+<li>Control: no incentives</li>
+<li>H: pay kids 10% of what they raise</li>
+<li>L: pay kids 1% of what they raise</li>
+</ul></li>
+<li>Result: raised amount: Control &gt; H &gt; L</li>
+<li>Possible mechanisms
+<ul>
+<li>Incentives perceived as contract</li>
+<li>Money changes / breaks social norm</li>
+<li>Don’t want to be seen as if raise donation for gains</li>
+</ul></li>
+</ul>
+</div>
+<div id="face-electric-shocks-falk-2017" class="section level3">
+<h3>Face &amp; Electric Shocks: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2965964">Falk (2017)</a></h3>
+<ul>
+<li>Players: 1, 2</li>
+<li>P1 has two options
+<ul>
+<li>A: get 0 Euro, nothing happens to P2</li>
+<li>B: get 8 Euro, P2 receives an electric shock</li>
+</ul></li>
+<li>Conditions
+<ul>
+<li>Control: no image on screen</li>
+<li>Self Image: video camera showing P1’s face when choosing</li>
+<li>Neutral Image: image of a TV reporter when P1 is choosing</li>
+</ul></li>
+<li>Result: likeness to choose B: Condition ~ NI &gt; SI</li>
+<li>Interpretations
+<ul>
+<li>Self-image is important</li>
+<li>Environment of choice can have significant effect on prosocial behaviour</li>
+</ul></li>
+</ul>
+</div>
+<div id="imave-vs.-monetary-incentives-ariely-bracha-meier-2009" class="section level3">
+<h3>Imave vs. Monetary Incentives: <a href="https://www.aeaweb.org/articles?id=10.1257/aer.99.1.544">Ariely, Bracha, Meier (2009)</a></h3>
+<div id="good-cause" class="section level4">
+<h4>Good Cause</h4>
+<ul>
+<li>Tedious task to increase donation to Red Cross</li>
+<li>Conditions (on / off 2x2, 4 groups)
+<ul>
+<li>I: (incentive) getting paid in addition</li>
+<li>V: (image / visibility) telling other subjects how they did</li>
+</ul></li>
+<li>Results
+<ul>
+<li>Positive image effect, large w/o incentives, is small w/ incentives</li>
+<li>Positive incentive effect, but not additive to image effect<br />
+<span class="math inline">\(\implies\)</span> negative interaction</li>
+</ul></li>
+<li>Possible mechanisms
+<ul>
+<li>In public people don’t want to appear lazy</li>
+<li>“Negative interaction” because in the given time people cannot do more work</li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-behavioural-public--good-cause.png" width="405" /></p>
+</div>
+<div id="bad-cause" class="section level4">
+<h4>Bad Cause</h4>
+<ul>
+<li>Tedious task to increase donation to National Rifle Association</li>
+<li>Increased incentives</li>
+<li>Result: negative image effect</li>
+<li>Implications
+<ul>
+<li>People can do more work if they want</li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-behavioural-public--bad-cause.png" width="405" /></p>
+</div>
+</div>
+<div id="net-crowding-out-dubé-et-al.-2017" class="section level3">
+<h3>Net Crowding Out: <a href="https://pubsonline.informs.org/doi/abs/10.1287/mksc.2016.1012">Dubé et al. (2017)</a></h3>
+<ul>
+<li>Cause marketing: firms give revenue to cherity to build reputation</li>
+<li>Preference for firms that engage in social responsibility
+<ul>
+<li>Consumer has altruistic motives</li>
+<li>Buying products from these firms makes people feel good</li>
+</ul></li>
+</ul>
+<div id="experiment-7" class="section level4">
+<h4>Experiment</h4>
+<ul>
+<li>Consumers who buy cinema tickets through phone
+<ul>
+<li>Voucher with discounted price</li>
+<li>Choose the amount to donate to local charity</li>
+</ul></li>
+<li>Results
+<ul>
+<li>Demand falls w/ higher discount + donation</li>
+<li>For same cost, demand is lower at higher price</li>
+<li>For <span class="math inline">\(D=10\)</span> or <span class="math inline">\(D=15\)</span>, demand increases as price increase</li>
+</ul></li>
+<li>Do you feel good about yourself?
+<ul>
+<li>Increase as donation inceases</li>
+</ul></li>
+<li>Interpretation
+<ul>
+<li>Lower prices <span class="math inline">\(\implies\)</span> lower demand</li>
+<li>Going to cinema <span class="math inline">\(\neq\)</span> altruistic when price is too low</li>
+<li>Large proportion of greedy people</li>
+</ul></li>
+</ul>
+<p><img src="/post-img/notes-behavioural-public--ticket.png" width="424" /></p>
+</div>
+</div>
 </div>
 
     </div>
