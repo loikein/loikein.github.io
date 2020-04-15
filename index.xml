@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Notes on Behavioural Public Policy - Problem Set</title>
+      <link>/post/2020/04/notes-behaviour-public-ps/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/04/notes-behaviour-public-ps/</guid>
+      <description>Present Bias   Present Bias  BPP.PS1.Q1
+An individual can choose how to distribute money across two time periods, \(t = 1, 2\) for consumption \(c_1\) and \(c_2\).
+The total amount of money available is \(m\).
+For every dollar not spent in period 1, the individual receives an interest rate \(r\).
+Therefore, the overall budget constraint is given by (1): \[c_1 + c_2\cdot\frac{1}{1+r} = m\] Individuals have \((\beta, \delta)\) preferences.</description>
+    </item>
+    
+    <item>
       <title>Writings</title>
       <link>/writings/</link>
       <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>

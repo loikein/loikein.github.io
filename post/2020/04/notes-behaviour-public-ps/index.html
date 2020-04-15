@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.69.0" />
+
+<title>Notes on Behavioural Public Policy - Problem Set - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Behavioural Public Policy - Problem Set - loikein&#39;s notes">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/post/" class="nav-logo">
+    <img src="/images/loikein-logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/post/">Notes</a></li>
+    
+    <li><a href="/writings/">Writings</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">Source</a></li>
+    
+  </ul>
+</nav>
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">4 min read</span>
+    
+    <h1 class="article-title">Notes on Behavioural Public Policy - Problem Set</h1>
+    
+    <span class="article-date">2020/04/15</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/notes'>notes</a>
+    
+    <a href='/tags/micro'>micro</a>
+    
+    <a href='/tags/public'>public</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#present-bias">Present Bias</a></li>
+</ul>
+</div>
+
+<div id="present-bias" class="section level2">
+<h2>Present Bias</h2>
+<blockquote>
+<p>BPP.PS1.Q1<br />
+An individual can choose how to distribute money across two time periods, <span class="math inline">\(t = 1, 2\)</span> for consumption <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span>.<br />
+The total amount of money available is <span class="math inline">\(m\)</span>.<br />
+For every dollar not spent in period 1, the individual receives an interest rate <span class="math inline">\(r\)</span>.<br />
+Therefore, the overall budget constraint is given by (1):
+<span class="math display">\[c_1 + c_2\cdot\frac{1}{1+r} = m\]</span>
+Individuals have <span class="math inline">\((\beta, \delta)\)</span> preferences.<br />
+The period utility functions are given by (2):
+<span class="math display">\[u(c) = \frac{c^{1-\rho}}{1-\rho}\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>For the ﬁrst two questions, assume that the individual can decide his consumption in periods 1 and 2 one period ahead in period 0.<br />
+Deﬁne the maximization problem of the individual.<br />
+Hint : subsitute <span class="math inline">\(c_2\)</span> from the objective function by using the budget constraint (1).</li>
+<li>Derive the ﬁrst-order condition for optimal consumption and interpret it.<br />
+Why does <span class="math inline">\(\beta\)</span> not appear in the ﬁrst-order condition?</li>
+<li>Derive the equation for <span class="math inline">\(\Delta\ln c \equiv \ln c_2 − \ln c_1\)</span>, using the ﬁrst-order condition from (b).</li>
+</ol>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>From <span class="math inline">\(t=0\)</span>, total utility function:
+<span class="math display">\[\begin{aligned}U &amp;= \beta\delta\cdot u(c_1) + \beta\delta^2\cdot u(c_2) \\
+&amp;= \beta\delta\cdot\frac{c_1^{1-\rho}}{1-\rho} + \beta\delta^2\cdot\frac{c_2^{1-\rho}}{1-\rho} \end{aligned}\]</span>
+Therefore, the individual’s problem is
+<span class="math display">\[\begin{aligned}\max_{c_1} &amp;&amp; &amp;U = \beta\delta\cdot\frac{c_1^{1-\rho}}{1-\rho} + \beta\delta^2\cdot\frac{c_2^{1-\rho}}{1-\rho} \\
+s.t. &amp;&amp; &amp;c_1 + c_2\cdot\frac{1}{1+r} = m \end{aligned}\]</span></li>
+<li>Plug in <span class="math inline">\(c_2 = m-(1+r)c_1\)</span>:
+<span class="math display">\[U = \beta\delta\cdot\frac{c_1^{1-\rho}}{1-\rho} + \beta\delta^2\cdot\frac{\big(m-(1+r)c_1\big)^{1-\rho}}{1-\rho} \]</span>
+FOC
+<span class="math display">\[\begin{aligned}\frac{\partial U}{\partial c_1} &amp;= \beta\delta\cdot c_1^{-\rho} + \beta\delta^2\cdot (r-1)\big(m - (1-r)c_1\big)^{-\rho} \overset{!}{=}0\\
+c_1^{-\rho} &amp;= -\delta\cdot (r-1)\big(m - (1-r)c_1\big)^{-\rho} \\
+c_1 &amp;= -\delta^{\rho} \cdot(r-1)^{\rho}\cdot c_2 \\
+\frac{c_1}{c_2} &amp;= \big(\delta\cdot(1-r)\big)^{\rho} \end{aligned}\]</span>
+The condition means that the ratio of consumption in periods 1 and 2 should equalise to the combined time effect (<span class="math inline">\(\delta\)</span> and interest rate).<br />
+<span class="math inline">\(\beta\)</span> does not appear because from the perspective of period 0, the individual acts like a TC who does not consider <span class="math inline">\(\beta\)</span>.</li>
+<li>From (b),
+<span class="math display">\[\begin{aligned}\Delta\ln c &amp;= \ln c_2 − \ln c_1 \\
+&amp;= \ln \frac{c_2}{c_1} \\
+&amp;= -\ln \big(\delta\cdot(1-r)\big)^{\rho} \\
+&amp;= -\rho\big( \ln \delta + \ln (1-r) \big) \\
+&amp;= -\rho( \ln \delta - \ln r ) \\
+&amp;= \rho( \ln r - \ln \delta ) \end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Now characterize the optimal choice if an individual makes choices in in period 1.<br />
+Deﬁne the objective function for the maximization problem.<br />
+Characterize the ﬁrst-order condition and interpret it.<br />
+Explain how it differs from the ﬁrst-order condition in (b).</li>
+<li>Derive the equation for <span class="math inline">\(\Delta\ln c \equiv \ln c_2 − \ln c_1\)</span>, using the ﬁrst-order condition from (d).</li>
+</ol>
+</blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>From <span class="math inline">\(t=1\)</span>, the individual’s problem is
+<span class="math display">\[\begin{aligned}\max_{c_1} &amp;&amp; U &amp;= u(c_1) + \beta\delta\cdot u(c_2) \\
+&amp;&amp; &amp;= \frac{c_1^{1-\rho}}{1-\rho} + \beta\delta\cdot\frac{c_2^{1-\rho}}{1-\rho} \\
+s.t. &amp;&amp; c_1&amp; + c_2\cdot\frac{1}{1+r} = m\end{aligned}\]</span>
+Plug in <span class="math inline">\(c_2 = m-(1+r)c_1\)</span> &amp; FOC:
+<span class="math display">\[\begin{aligned}U &amp;= \frac{c_1^{1-\rho}}{1-\rho} + \beta\delta\cdot\frac{\big(m-(1+r)c_1\big)^{1-\rho}}{1-\rho} \\
+\frac{\partial U}{\partial c_1} &amp;= c_1^{-\rho} + \beta\delta\cdot (r-1)\big(m - (1-r)c_1\big)^{-\rho} \overset{!}{=}0\\
+c_1 &amp;= -(\beta\delta)^{\rho} \cdot(r-1)^{\rho}\cdot c_2 \\
+\frac{c_1}{c_2} &amp;= \big(\beta\delta\cdot(1-r)\big)^{\rho}\end{aligned}\]</span>
+This condition is different to that from (b), since from the perspective of period 1, the individual is present biased, and takes <span class="math inline">\(\beta\)</span> into consideration.</li>
+<li>From (d),
+<span class="math display">\[\begin{aligned}\Delta\ln c &amp;= \ln c_2 − \ln c_1 \\
+&amp;= \ln \frac{c_2}{c_1} \\
+&amp;= -\ln \big(\beta\delta\cdot(1-r)\big)^{\rho} \\
+&amp;= -\rho\big( \ln\beta + \ln\delta + \ln (1-r) \big) \\
+&amp;= -\rho(\ln\beta +  \ln \delta - \ln r ) \\
+&amp;= \rho( \ln r -\ln\beta - \ln \delta ) \end{aligned}\]</span></li>
+</ol>
+<blockquote>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Suppose that 100 individuals make choices for <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> for various interest rates <span class="math inline">\(r = 0, 0.2, 0.5, 1\)</span>, both in period 0 and in period 1.<br />
+How could you use these observations to estimate <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\delta\)</span> from differences in consumption <span class="math inline">\(\Delta\ln c = \ln c_2 − \ln c_1\)</span>?<br />
+Write down the regression equation.<br />
+Deﬁne and interpret each of the coefﬁcients.</li>
+<li>Assume that all individuals have the <span class="math inline">\(\rho\)</span>.<br />
+Is it possible to estimate a separate <span class="math inline">\(\beta_i\)</span> and <span class="math inline">\(\delta_i\)</span> for each of the invididuals?<br />
+Why would this be interesting?</li>
+</ol>
+</blockquote>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Set up regression function that
+<span class="math display">\[\begin{aligned}\Delta\ln c &amp;= \rho( \ln r -\ln\beta - \ln \delta ) \\
+&amp;= \underbrace{\beta_1}_{\rho}\cdot \ln r + \underbrace{\beta_2}_{-\rho\cdot\ln \beta} + \underbrace{\beta_3}_{-\rho\cdot\ln \delta}\cdot 1(t=1) \end{aligned}\]</span></li>
+</ol>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>By loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    <script src="https://hypothes.is/embed.js" async></script>
+    
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
