@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">4 min read</span>
+    <span class="article-duration">5 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy - Problem Set</h1>
     
@@ -96,6 +96,7 @@ if (!doNotTrack) {
 <div id="TOC">
 <ul>
 <li><a href="#present-bias">Present Bias</a></li>
+<li><a href="#optimal-taxation">Optimal Taxation</a></li>
 </ul>
 </div>
 
@@ -186,8 +187,30 @@ Why would this be interesting?</li>
 <ol start="6" style="list-style-type: lower-alpha">
 <li>Set up regression function that
 <span class="math display">\[\begin{aligned}\Delta\ln c &amp;= \rho( \ln r -\ln\beta - \ln \delta ) \\
-&amp;= \underbrace{\beta_1}_{\rho}\cdot \ln r + \underbrace{\beta_2}_{-\rho\cdot\ln \beta} + \underbrace{\beta_3}_{-\rho\cdot\ln \delta}\cdot 1(t=1) \end{aligned}\]</span></li>
+&amp;= \underbrace{\beta_1}_{\rho}\cdot \ln r + \underbrace{\beta_2}_{-\rho\cdot\ln \beta} + \underbrace{\beta_3}_{-\rho\cdot\ln \delta}\cdot 1(t=1) + \epsilon \end{aligned}\]</span></li>
+<li>Yes, just add <span class="math inline">\(i\)</span> to <span class="math inline">\(\beta_2\)</span>, <span class="math inline">\(\beta_3\)</span> and <span class="math inline">\(\epsilon\)</span></li>
 </ol>
+</div>
+<div id="optimal-taxation" class="section level2">
+<h2>Optimal Taxation</h2>
+<blockquote>
+<p>BPP.PS1.Q2<br />
+An individual can consume three goods <span class="math inline">\(x_1, x_2, x_3\)</span>.<br />
+Good <span class="math inline">\(x_1\)</span> has a utility cost <span class="math inline">\(c\)</span> per unit that occurs one period later.<br />
+There are three periods.<br />
+In period 0, the government sets taxes by choosing the socially optimal tax rate <span class="math inline">\(t^*\)</span>.<br />
+In period 1, individuals are making consumption choices.<br />
+In period 2, no decisions are taken, but the utility cost from consumption of <span class="math inline">\(x_1\)</span> described above occurs.
+The utility function viewed from period 1 is given by (3):
+<span class="math display">\[U = u(x_1) + v(x_2) + x_3 -\beta\delta c\cdot x_1\]</span>
+where <span class="math inline">\(u(\cdot)\)</span> and <span class="math inline">\(v(\cdot)\)</span> are concave functions with <span class="math inline">\(u&#39;(x_1) &gt; 0\)</span>, <span class="math inline">\(u&#39;&#39;(x_1)&lt;0\)</span> and <span class="math inline">\(v&#39;(x_2)&gt;0\)</span>, <span class="math inline">\(v&#39;&#39;(x_2) &lt; 0\)</span>.<br />
+Notice that the problem is slightly simpler as in class, since utility is separable between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>.<br />
+In addtition, <span class="math inline">\(u&#39;&#39;&#39;(x_1)&gt;0\)</span> (this information will be useful for question (f) below).<br />
+The budget constraint is
+<span class="math display">\[z\geq (p_1 + t)x_1 + p_2x_3 + x_3\]</span>
+However, not all individuals are the same with respect to time preferences.<br />
+All individuals have the same exponential discount factor δ. A fraction θ of individuals is present biased and has β &lt; 1. The remaining fraction 1 − θ is time consistent and consequently has β = 1.</p>
+</blockquote>
 </div>
 
     </div>
