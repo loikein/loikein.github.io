@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">7 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy - Problem Set</h1>
     
@@ -207,10 +207,83 @@ where <span class="math inline">\(u(\cdot)\)</span> and <span class="math inline
 Notice that the problem is slightly simpler as in class, since utility is separable between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>.<br />
 In addtition, <span class="math inline">\(u&#39;&#39;&#39;(x_1)&gt;0\)</span> (this information will be useful for question (f) below).<br />
 The budget constraint is
-<span class="math display">\[z\geq (p_1 + t)x_1 + p_2x_3 + x_3\]</span>
+<span class="math display">\[z\geq (p_1 + t)x_1 + p_2x_2 + x_3\]</span>
 However, not all individuals are the same with respect to time preferences.<br />
-All individuals have the same exponential discount factor δ. A fraction θ of individuals is present biased and has β &lt; 1. The remaining fraction 1 − θ is time consistent and consequently has β = 1.</p>
+All individuals have the same exponential discount factor <span class="math inline">\(\delta\)</span>.<br />
+A fraction <span class="math inline">\(\theta\)</span> of individuals is present biased and has <span class="math inline">\(\beta &lt; 1\)</span>.<br />
+The remaining fraction <span class="math inline">\(1 − \theta\)</span> is time consistent and consequently has <span class="math inline">\(\beta = 1\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Characterize the optimal choices of <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> using the ﬁrst-order conditions for both types of individuals.<br />
+How do their choices differ?</li>
+<li>Characterize graphically the optimal choice of <span class="math inline">\(x_1\)</span> for both individuals in one graph.<br />
+Show how <span class="math inline">\(\beta\)</span> affects the consumption of present-biased individuals.</li>
+</ol>
 </blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Plug in budget to utility function:
+<span class="math display">\[\begin{aligned}U &amp;= u(x_1) + v(x_2) + x_3 -\beta\delta c\cdot x_1 \\
+&amp;= u(x_1)-\beta\delta c\cdot x_1 - (p_1 + t)x_1 + v(x_2) - p_2x_2 + z\end{aligned}\]</span>
+FOC:
+<span class="math display">\[\begin{aligned}\frac{\partial U}{\partial x_1} &amp;= u_1 - \beta\delta c - (p_1 + t) \overset{!}{=} 0\\
+u_1 &amp;= \beta\delta c + p_1 + t \\
+\frac{\partial U}{\partial x_2} &amp;= v_2 - p_2 \overset{!}{=} 0 \\
+v_2 &amp;= p_2 \end{aligned}\]</span>
+<ol style="list-style-type: decimal">
+<li>For PB, <span class="math inline">\(\beta &lt; 1\)</span>:
+<span class="math display">\[\begin{cases}u_1 = \beta\delta c + p_1 + t \\ v_2 = p_2 \end{cases}\]</span></li>
+<li>For TC, <span class="math inline">\(\beta = 1\)</span>:
+<span class="math display">\[\begin{cases}u_1 =\delta c + p_1 + t \\ v_2 = p_2 \end{cases}\]</span></li>
+</ol></li>
+<li>See pic</li>
+</ol>
+<p><img src="/post-img/notes-behavioural-public--BPP-PS1-Q2b.png" width="460" /></p>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>The government think that <span class="math inline">\(\beta\)</span> should be entering the welfare function for the reasons we discussed in class.<br />
+Therefore, the government does not consider <span class="math inline">\(\beta\)</span> for discounting between periods 0 and 1.<br />
+Derive the aggregate welfare function:
+<span class="math display">\[W(t) = \theta W(t)^{PB} + (1-\theta)W(t)^{TC}\]</span>
+Where <span class="math inline">\(W(t)^{PB}\)</span> and <span class="math inline">\(W(t)^{TC}\)</span> are welfare for each group of agents.<br />
+Derive the internality <span class="math inline">\(\gamma\)</span> that we discussed for each of the groups.</li>
+<li>Derive the welfare effects of taxation <span class="math inline">\(\frac{\partial W(t)}{\partial t}\)</span>.<br />
+Discuss how it is different from the expression obtained in class.</li>
+<li>Derive the optimal tax rate <span class="math inline">\(t^*\)</span> in terms of <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\frac{\partial x_1^{PB}}{\partial t}\)</span> and <span class="math inline">\(\frac{\partial x_1^{TC}}{\partial t}\)</span>.<br />
+How does it vary with <span class="math inline">\(\theta\)</span>?</li>
+</ol>
+</blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><ol style="list-style-type: decimal">
+<li>For PB,
+<span class="math display">\[\begin{aligned}W(t)^{PB} &amp;= U^{PB} + tx_1^{PB} + \beta\delta c\cdot x_1^{PB} - \delta c\cdot x_1^{PB} \\
+  &amp;= U^{PB} + tx_1^{PB} - (1-\beta)\cdot\delta c\cdot x_1^{PB} \\
+  &amp;= u(x_1)-\beta\delta c\cdot x_1 - (p_1 + t)x_1 \\
+  &amp;\phantom{\ggg}+ v(x_2) - p_2x_2 + z + tx_1 - (1-\beta)\cdot\delta c\cdot x_1\\
+  &amp;= u(x_1) - p_1 x_1 + v(x_2) - p_2x_2 + z - \delta c\cdot x_1 \\
+  &amp;= u(x_1) - x_1(p_1 + \delta c) + v(x_2) - p_2x_2 + z\end{aligned}\]</span>
+FOC
+<span class="math display">\[\begin{aligned}\frac{\partial W(t)^{PB}}{\partial t} &amp;= \frac{\partial u(x_1)}{\partial x_1}\cdot\frac{\partial x_1}{\partial t} 
+  -(p_1 + \delta c)\cdot\frac{\partial x_1}{\partial t} \\
+  &amp;= (\beta\delta c + p_1 + t - p_1 - \delta c)\cdot\frac{\partial x_1}{\partial t} \\
+  &amp;= \big(t - \underbrace{(1-\beta)\delta c}_{\gamma}\big)\cdot\frac{\partial x_1}{\partial t}\end{aligned}\]</span></li>
+<li>For TC,
+<span class="math display">\[\begin{aligned}W(t)^{TC} &amp;= U^{TC} + tx_1^{TC} \\
+  &amp;= u(x_1)- \delta c\cdot x_1 - (p_1 + t)x_1 + v(x_2) - p_2x_2 + z + tx_1 \\
+  &amp;= u(x_1) - p_1x_1 -\delta c\cdot x_1 + v(x_2) - p_2x_2 + z \\
+  &amp;= u(x_1) - x_1(p_1 - \delta c)+ v(x_2) - p_2x_2 + z\end{aligned}\]</span>
+FOC
+<span class="math display">\[\begin{aligned}\frac{\partial W(t)^{TC}}{\partial t} &amp;= \frac{\partial u(x_1)}{\partial x_1}\cdot\frac{\partial x_1}{\partial t} 
+  -(p_1 - \delta c)\cdot\frac{\partial x_1}{\partial t} \\
+  &amp;= (\delta c + p_1 + t - p_1 + \delta c)\cdot\frac{\partial x_1}{\partial t} \\
+  &amp;= t\cdot \frac{\partial x_1}{\partial t}\end{aligned}\]</span>
+where internality is zero.</li>
+</ol></li>
+<li>Adding PB and TC together,
+<span class="math display">\[\begin{aligned}\frac{\partial W(t)}{\partial t} &amp;= \theta\cdot\big(t - (1-\beta)\delta c\big)\cdot\frac{\partial x_1^{PB}}{\partial t} 
++(1-\theta)\cdot t\cdot \frac{\partial x_1^{TC}}{\partial t} \\
+&amp;= \theta\cdot(t - \gamma^{PB})\cdot\frac{\partial x_1^{PB}}{\partial t} +(1-\theta)\cdot t\cdot \frac{\partial x_1^{TC}}{\partial t} \end{aligned}\]</span>
+It contains two parts because there are two groups of people, whose <span class="math inline">\(\frac{\partial x}{\partial t}\)</span> differ from each other’s.</li>
+<li></li>
+</ol>
 </div>
 
     </div>
