@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">10 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy - Problem Set</h1>
     
@@ -319,8 +319,38 @@ However, air conditioning use is not easily visible and the individual has salie
 The consumer only perceives a fraction <span class="math inline">\(\theta\)</span> of the cost of air conditioning use when choosing consumption.<br />
 The individual chooses <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> to maximize (1):
 <span class="math display">\[U= u(x_1,x_2) + z - \theta\cdot p_1x_1\]</span>
-where <span class="math inline">\(u(x_1,x_2)\)</span> is given by:</p>
+where <span class="math inline">\(u(x_1,x_2)\)</span> is given by:
+<span class="math display">\[u(x_1,x_2) = \alpha_1 x_1 - \frac{1}{2}x_1^2 + \alpha_2 x_2 - \frac{1}{2}x_2^2 + \gamma x_1 x_2\]</span>
+where <span class="math inline">\(\alpha_1,\alpha_2&gt;0\)</span>, <span class="math inline">\(0&lt;\gamma &lt;1\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Derive the ﬁrst-order conditions for the choices of the individual maximizing the objective function (1).</li>
+<li>Solve for the optimal values <span class="math inline">\(x_1^*\)</span> and <span class="math inline">\(x_2^*\)</span>.<br />
+Explain what role salience bias plays in determining consumption.<br />
+Explain the intuition behind the result that the optimal amount of napping also depends on <span class="math inline">\(\theta\)</span>.</li>
+<li>Calculate <span class="math inline">\(\frac{\partial x_1}{\partial \theta}\)</span> and <span class="math inline">\(\frac{\partial x_1}{\partial p_1}\)</span>.<br />
+Interpret their signs and explain role of <span class="math inline">\(\gamma\)</span>.<br />
+What happens when <span class="math inline">\(\gamma = 0\)</span> compared to when <span class="math inline">\(\gamma &gt; 0\)</span>?</li>
+</ol>
 </blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>FOC for <span class="math inline">\(u(x_1,x_2)\)</span>:
+<span class="math display">\[\begin{aligned}\frac{\partial u}{\partial x_1} &amp;= \alpha_1 - x_1 + \gamma x_2 \\
+\frac{\partial u}{\partial x_2}  &amp;= \alpha_2 - x_2 + \gamma x_1 \end{aligned}\]</span>
+therefore, for <span class="math inline">\(U\)</span>:
+<span class="math display">\[\begin{aligned}\frac{\partial U}{\partial x_1} &amp;= \alpha_1 - x_1 + \gamma x_2 - \theta p \\
+\frac{\partial U}{\partial x_2} &amp;= \alpha_2 - x_2 + \gamma x_1 \end{aligned}\]</span></li>
+<li>According to (a),
+<span class="math display">\[\begin{cases}\alpha_1 - x_1 + \gamma x_2 - \theta p \overset{!}{=} 0\\
+\alpha_2 - x_2 + \gamma x_1 \overset{!}{=} 0 \end{cases}\]</span>
+therefore,
+<span class="math display">\[\begin{aligned}x_1^* &amp;= \frac{\alpha_1 + \gamma\alpha_2 - \theta p}{1-\gamma^2}\\
+x_2^* &amp;= \frac{\alpha_2 + \gamma\alpha_1 - \gamma\theta p}{1-\gamma^2} \end{aligned}\]</span>
+Salience bias <span class="math inline">\(\theta\)</span> negatively affects the consumption of both goods, by different portions.<br />
+<span class="math inline">\(x_2^*\)</span> depends on <span class="math inline">\(\theta\)</span> because the utility of <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are inter-dependent through term <span class="math inline">\(\gamma x_1 x_2\)</span>.</li>
+<li>From (b),
+<span class="math display">\[\begin{aligned}\frac{\partial x_1}{\partial \theta} &amp;= \frac{-p}{1-\gamma^2} &lt;0 \\
+\frac{\partial x_1}{\partial p} &amp;= \frac{-\theta}{1-\gamma^2} &lt;0 \end{aligned}\]</span></li>
+</ol>
 </div>
 
     </div>
