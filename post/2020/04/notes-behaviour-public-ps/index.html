@@ -66,7 +66,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">8 min read</span>
     
     <h1 class="article-title">Notes on Behavioural Public Policy - Problem Set</h1>
     
@@ -97,6 +97,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#present-bias">Present Bias</a></li>
 <li><a href="#optimal-taxation">Optimal Taxation</a></li>
+<li><a href="#salience-bias">Salience Bias</a></li>
 </ul>
 </div>
 
@@ -249,6 +250,10 @@ Derive the internality <span class="math inline">\(\gamma\)</span> that we discu
 Discuss how it is different from the expression obtained in class.</li>
 <li>Derive the optimal tax rate <span class="math inline">\(t^*\)</span> in terms of <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\frac{\partial x_1^{PB}}{\partial t}\)</span> and <span class="math inline">\(\frac{\partial x_1^{TC}}{\partial t}\)</span>.<br />
 How does it vary with <span class="math inline">\(\theta\)</span>?</li>
+<li>Show that <span class="math inline">\(t^* &gt; \theta\delta(1 − \beta)c\)</span>.<br />
+Use a graphical argument based on the graph in questions (b) above.<br />
+Explain the interprettation.<br />
+Hint: What does <span class="math inline">\(u&#39;&#39;&#39; (x_1) &gt; 0\)</span> imply for the shape of <span class="math inline">\(u&#39;(x_1)\)</span>?</li>
 </ol>
 </blockquote>
 <ol start="3" style="list-style-type: lower-alpha">
@@ -272,8 +277,8 @@ FOC
   &amp;= u(x_1) - x_1(p_1 - \delta c)+ v(x_2) - p_2x_2 + z\end{aligned}\]</span>
 FOC
 <span class="math display">\[\begin{aligned}\frac{\partial W(t)^{TC}}{\partial t} &amp;= \frac{\partial u(x_1)}{\partial x_1}\cdot\frac{\partial x_1}{\partial t} 
-  -(p_1 - \delta c)\cdot\frac{\partial x_1}{\partial t} \\
-  &amp;= (\delta c + p_1 + t - p_1 + \delta c)\cdot\frac{\partial x_1}{\partial t} \\
+  -(p_1 + \delta c)\cdot\frac{\partial x_1}{\partial t} \\
+  &amp;= (\delta c + p_1 + t - p_1 - \delta c)\cdot\frac{\partial x_1}{\partial t} \\
   &amp;= t\cdot \frac{\partial x_1}{\partial t}\end{aligned}\]</span>
 where internality is zero.</li>
 </ol></li>
@@ -282,8 +287,40 @@ where internality is zero.</li>
 +(1-\theta)\cdot t\cdot \frac{\partial x_1^{TC}}{\partial t} \\
 &amp;= \theta\cdot(t - \gamma^{PB})\cdot\frac{\partial x_1^{PB}}{\partial t} +(1-\theta)\cdot t\cdot \frac{\partial x_1^{TC}}{\partial t} \end{aligned}\]</span>
 It contains two parts because there are two groups of people, whose <span class="math inline">\(\frac{\partial x}{\partial t}\)</span> differ from each other’s.</li>
-<li></li>
+<li>Set FOC for total welfare to zero
+<span class="math display">\[\begin{aligned}\frac{\partial W(t)}{\partial t} &amp;= \theta\cdot(t - \gamma^{PB})\cdot\frac{\partial x_1^{PB}}{\partial t} +(1-\theta)\cdot t\cdot \frac{\partial x_1^{TC}}{\partial t} \overset{!}{=} 0 \\
+\theta\cdot\gamma^{PB}\cdot\frac{\partial x_1^{PB}}{\partial t} &amp;= \Big(\theta\cdot\frac{\partial x_1^{PB}}{\partial t} + (1-\theta)\cdot \frac{\partial x_1^{TC}}{\partial t} \Big)t^* \\
+t^* &amp;= \frac{\theta\cdot\gamma^{PB}\cdot(\partial x_1^{PB}/ \partial t)}{\theta\cdot (\partial x_1^{PB}/ \partial t) + (1-\theta)\cdot (\partial x_1^{TC}/ \partial t)} \\
+&amp;=\theta\cdot(1-\beta)\delta c\cdot\frac{\partial x_1^{PB}/ \partial t}{\theta\cdot (\partial x_1^{PB}/ \partial t) + (1-\theta)\cdot (\partial x_1^{TC}/ \partial t)} \end{aligned}\]</span></li>
+<li>Since <span class="math inline">\(x_1^{PB} &gt; x_1^{TC}\)</span>, <span class="math inline">\(u&#39;&#39;&#39;&gt;0\)</span>, <span class="math inline">\(u&#39;&#39;&lt;0\)</span>
+<span class="math display">\[u&#39;&#39;(x_1^{TC}) &lt; u&#39;&#39;(x_1^{PB})&lt;0\]</span>
+Also, we have
+<span class="math display">\[\begin{aligned}1 &amp;= \frac{\partial u&#39;(x_1^{PB})}{\partial t} = \frac{\partial u&#39;(x_1^{TC})}{\partial t} \\
+&amp;= \frac{\partial u&#39;(x_1^{PB})}{\partial x_1^{PB}}\cdot\frac{\partial x_1^{PB}}{\partial t} \\
+&amp;= \frac{\partial u&#39;(x_1^{TC})}{\partial x_1^{TC}}\cdot\frac{\partial x_1^{TC}}{\partial t} \\
+u&#39;&#39;(x_1^{PB})\cdot\frac{\partial x_1^{PB}}{\partial t} &amp;=  u&#39;&#39;(x_1^{TC})\cdot\frac{\partial x_1^{TC}}{\partial t} \\
+\frac{\partial x_1^{PB}}{\partial t} &amp;&lt; \frac{\partial x_1^{TC}}{\partial t} &lt;0\end{aligned}\]</span>
+From (e), it is sufficient to show that
+<span class="math display">\[\begin{aligned}\frac{\overbrace{\partial x_1^{PB}/ \partial t}^{&lt;0}}{\underbrace{\theta\cdot (\partial x_1^{PB}/ \partial t) + (1-\theta)\cdot (\partial x_1^{TC}/ \partial t)}_{&lt;0}} &amp;&gt; 1\\
+\theta\cdot\frac{\partial x_1^{PB}}{\partial t} + (1-\theta)\cdot \frac{\partial x_1^{TC}}{\partial t} &amp;&gt; \frac{\partial x_1^{PB}}{\partial t} \\
+\frac{\partial x_1^{TC}}{\partial t} &amp;&gt;\frac{\partial x_1^{PB}}{\partial t} \end{aligned}\]</span>
+End of proof.</li>
 </ol>
+</div>
+<div id="salience-bias" class="section level2">
+<h2>Salience Bias</h2>
+<blockquote>
+<p>BPP.PS2.Q1<br />
+There are three goods: air conditioning use in kWh (<span class="math inline">\(x_1\)</span>), time spent napping at home (<span class="math inline">\(x_2\)</span>), and a numeraire good with constant marginal utility of consumption and price 1 per unit of the good.<br />
+Air conditioning costs <span class="math inline">\(p_1\)</span> per hour of air conditioning use.<br />
+Napping is free.
+The individual has a total budget of <span class="math inline">\(z\)</span> available for consumption.<br />
+However, air conditioning use is not easily visible and the individual has salience bias.<br />
+The consumer only perceives a fraction <span class="math inline">\(\theta\)</span> of the cost of air conditioning use when choosing consumption.<br />
+The individual chooses <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> to maximize (1):
+<span class="math display">\[U= u(x_1,x_2) + z - \theta\cdot p_1x_1\]</span>
+where <span class="math inline">\(u(x_1,x_2)\)</span> is given by:</p>
+</blockquote>
 </div>
 
     </div>
