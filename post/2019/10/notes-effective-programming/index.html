@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.69.0" />
+<meta name="generator" content="Hugo 0.69.1" />
 
 <title>Notes on Effective Programming Practice - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Effective Programming Practice - loikein&#39;s notes">
@@ -334,19 +334,33 @@ $ more something.txt            # view &amp; print</code></pre>
 <li><a href="https://juejin.im/post/5bd2debfe51d457abc710b57">规范你的 commit message 并且根据 commit 自动生成 CHANGELOG.md</a></li>
 <li><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html">Git远程操作详解 - 阮一峰的网络日志</a></li>
 <li><a href="https://open.spotify.com/playlist/0MJBni0UzdnML1amikx0Rc">Songs about Git - Spotify</a></li>
+<li><a href="https://blog.gslin.org/archives/2020/03/29/9459/">強制每個 Git Repository 都要設定使用者資訊 – Gea-Suan Lin’s BLOG</a></li>
+<li>Even better approach that I am too lazy to implement: <a href="https://collectiveidea.com/blog/archives/2016/04/04/multiple-personalities-in-git">Multiple Personalities in Git | Collective Idea</a></li>
 </ul>
 </div>
 <div id="basics-1" class="section level3">
 <h3>Basics</h3>
-<pre class="sh"><code>$ git config --global core.editor &quot;subl -n -w&quot;
+<p>Global config:</p>
+<pre class="sh"><code>$ git config --global color.ui true
 
+# use your favourite editor
+$ git config --global core.editor &quot;subl -n -w&quot;
+
+# config each repo to use different identities
+$ git config --global user.useConfigOnly true
+
+# or use global config
 $ git config --global user.name &quot;me&quot;
-$ git config --global user.email &quot;me@me.com&quot;
-
-$ git config color.ui true</code></pre>
-<pre class="sh"><code>$ git status
+$ git config --global user.email &quot;me@me.com&quot;</code></pre>
+<p>Repo config:</p>
+<pre class="sh"><code>$ git status                    # is there a git repo?
 
 $ git init
+
+# if you have no global identity
+$ git config user.email &quot;me@me.com&quot;
+$ git config user.name &quot;me&quot;
+
 $ git add something.txt
 $ git add -all
 
