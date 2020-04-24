@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.69.1" />
+<meta name="generator" content="Hugo 0.69.2" />
 
 <title>Notes on AppleScript - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on AppleScript - loikein&#39;s notes">
@@ -71,7 +71,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">4 min read</span>
     
     <h1 class="article-title">Notes on AppleScript</h1>
     
@@ -108,8 +108,16 @@ if (!doNotTrack) {
 <li><a href="#list">List</a></li>
 <li><a href="#type-conversion">Type Conversion</a></li>
 <li><a href="#dictionary">Dictionary</a></li>
-</ul></li>
+<li><a href="#if">If</a></li>
+<li><a href="#try">Try</a></li>
+<li><a href="#file-path">File &amp; Path</a></li>
 <li><a href="#tell-application">Tell Application</a></li>
+</ul></li>
+<li><a href="#actually-useful-scripts">Actually Useful Scripts</a>
+<ul>
+<li><a href="#finder">Finder</a></li>
+<li><a href="#safari">Safari</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -122,6 +130,7 @@ Editor: Script Editor.app</p>
 <li><a href="https://en.wikibooks.org/wiki/AppleScript_Programming">AppleScript Programming - Wikibooks, open books for an open world</a></li>
 <li><a href="https://sspai.com/post/46912">AppleScript 入门：探索 macOS 自动化 - 少数派</a></li>
 <li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html">Introduction to AppleScript Language Guide</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/">Mac Automation Scripting Guide</a></li>
 </ul>
 </div>
 <div id="basics" class="section level2">
@@ -131,115 +140,119 @@ Editor: Script Editor.app</p>
 <pre class="perl"><code>beep
 
 beep 5</code></pre>
-<pre class="perl"><code>display dialog &quot;hello, world&quot; 
+<pre class="perl"><code>display dialog &quot;hello, world&quot;
 -- &quot;OK&quot; and &quot;Cancel&quot; buttons
 -- In case you missed, this is a comment
+# this too!
+
+display dialog &quot;hello, world&quot; buttons {&quot;hi&quot;, &quot;oops&quot;, &quot;no!&quot;}
+# {button returned:&quot;hi&quot;}
 
 display alert &quot;hello, world&quot;
--- &quot;OK&quot; button and icon of alert
+# &quot;OK&quot; button and icon of alert
 
 say &quot;hello, world!&quot;
--- audio message
+# audio message
 
 get &quot;hello, world!&quot;
--- log to console</code></pre>
+# log to console</code></pre>
 </div>
 <div id="variables" class="section level3">
 <h3>Variables</h3>
 <pre class="perl"><code>set x to &quot;hello world&quot;
 say x
--- &quot;hello world&quot;</code></pre>
+# &quot;hello world&quot;</code></pre>
 <pre class="perl"><code>set x to 25
 say x
--- &quot;twenty-five&quot;</code></pre>
+# &quot;twenty-five&quot;</code></pre>
 </div>
 <div id="types" class="section level3">
 <h3>Types</h3>
 <pre class="perl"><code>set x to 16 as number
 get x
--- 16
+# 16
 
 set y to 12 as text
--- or
+# or
 set y to 12 as string
 get y
--- &quot;12&quot;</code></pre>
+# &quot;12&quot;</code></pre>
 </div>
 <div id="string-operation" class="section level3">
 <h3>String Operation</h3>
 <pre class="perl"><code>set a to &quot;hello&quot;
 set b to &quot;world&quot;
 say a &amp; b
--- &quot;hello&quot; &quot;world&quot;
+# &quot;hello&quot; &quot;world&quot;
 
 set c to 2
 set d to 5
 say c &amp; d
--- Error!
+# Error!
 get c &amp; d
--- {2, 5} (list)
+# {2, 5} (list)
 
 set e to &quot;2&quot;
 set f to &quot;5&quot;
 say e &amp; f
--- &quot;twenty-five&quot;</code></pre>
+# &quot;twenty-five&quot;</code></pre>
 <pre class="perl"><code>set len to the length of &quot;hello world&quot;
 display alert len
--- 11</code></pre>
+# 11</code></pre>
 </div>
 <div id="list" class="section level3">
 <h3>List</h3>
 <pre class="perl"><code>set list1 to 1 &amp; 2 &amp; 3
 get list1
--- {1, 2, 3}
+# {1, 2, 3}
 
 set new_item to 6
 set list2 to list1 &amp; new_item
 get list2
--- {1, 2, 3, 6}
+# {1, 2, 3, 6}
 
 get the length of list2
--- 4
+# 4
 
 get item 1 of list2
--- 1 (!!!)
+# 1 (!!!)
 
 get last item of list2
--- or
+# or
 get item -1 of list2
--- 6
+# 6
 
 get some item of list2
--- random item
+# random item
 
 set item 4 of list2 to 200
 get list2
--- {1, 2, 3, 200}</code></pre>
+# {1, 2, 3, 200}</code></pre>
 <pre class="perl"><code>set list3 to {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}
 
 set short_list to items 2 through 5 of list3
 get short_list
--- {&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;}
+# {&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;}
 
 set list3_rev to reverse of list3
 get list3_rev
--- {&quot;f&quot;, &quot;e&quot;, &quot;d&quot;, &quot;c&quot;, &quot;b&quot;, &quot;a&quot;}</code></pre>
+# {&quot;f&quot;, &quot;e&quot;, &quot;d&quot;, &quot;c&quot;, &quot;b&quot;, &quot;a&quot;}</code></pre>
 </div>
 <div id="type-conversion" class="section level3">
 <h3>Type Conversion</h3>
 <pre class="perl"><code>set x to &quot;16&quot;
 get x as number
--- 16
+# 16
 
 set y to 12
 get y as text
--- &quot;12&quot;</code></pre>
+# &quot;12&quot;</code></pre>
 <pre class="perl"><code>set list3 to {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}
 get list3 as text
--- &quot;abcdef&quot;</code></pre>
+# &quot;abcdef&quot;</code></pre>
 <pre class="perl"><code>set list4 to every character of &quot;hello world&quot;
 get list4
--- {&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;}</code></pre>
+# {&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;}</code></pre>
 <pre class="perl"><code>set sen_str to &quot;this is a beautiful world&quot;
 
 set keep_delim to AppleScript&#39;s text item delimiters
@@ -249,10 +262,10 @@ set sen_list to every text item of sen_str
 set AppleScript&#39;s text item delimiters to keep_delim
 
 get sen_list
--- {&quot;this&quot;, &quot;is&quot;, &quot;a&quot;, &quot;beautiful&quot;, &quot;world&quot;}
+# {&quot;this&quot;, &quot;is&quot;, &quot;a&quot;, &quot;beautiful&quot;, &quot;world&quot;}
 
 get AppleScript&#39;s text item delimiters
--- {&quot;&quot;}</code></pre>
+# {&quot;&quot;}</code></pre>
 <blockquote>
 <p>Ref: <a href="https://macscripter.net/viewtopic.php?id=24422">MacScripter / What are AppleScript’s Text Item Delimiters and how are they used?</a></p>
 <p>It’s a good practice to capture the state of AppleScript’s text item delimiters at the beginning and restore them at the end,<br />
@@ -268,14 +281,91 @@ set x to hello of dict1
 set y to dict of dict1
 
 get x &amp; y
--- &quot;worldtionary&quot;</code></pre>
+# &quot;worldtionary&quot;</code></pre>
 </div>
+<div id="if" class="section level3">
+<h3>If</h3>
+<pre class="perl"><code>set this_year to 2020
+set good_year to 2019
+
+if this_year is good_year then
+    say &quot;It&#39;s a good year!&quot;
+else
+    say &quot;Oh no.&quot;
+end if
+
+# &quot;Oh no.&quot;</code></pre>
 </div>
-<div id="tell-application" class="section level2">
-<h2>Tell Application</h2>
+<div id="try" class="section level3">
+<h3>Try</h3>
+<ul>
+<li>ref: <a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_error_codes.html">Error Numbers and Error Messages</a></li>
+</ul>
+<pre class="perl"><code>try
+    set x to 1 / 0
+on error the error_mes number the error_num
+    display alert &quot;Error &quot;&amp; the error_num &amp; &quot;: &quot; &amp; the error_mes
+end try
+
+# Error -2701: Can’t divide 1.0 by zero.</code></pre>
+</div>
+<div id="file-path" class="section level3">
+<h3>File &amp; Path</h3>
+<ul>
+<li>ref: <a href="https://www.satimage.fr/software/en/smile/external_codes/file_paths.html">AppleScript and POSIX paths</a></li>
+</ul>
+<pre class="perl"><code>choose folder
+
+# alias &quot;Macintosh HD:Users:loikein:Library:Scripts:&quot;</code></pre>
+<pre class="perl"><code>set the_folder to choose folder
+set the_path to POSIX path of the_folder
+
+get the_path
+# &quot;/Users/loikein/Library/Scripts/&quot;</code></pre>
+<pre class="perl"><code>set the_path to &quot;/Users/loikein/Library/Scripts/&quot;
+set the_folder to POSIX file the_path
+# no &quot;of&quot; here!!
+
+get the_folder
+# file &quot;Macintosh HD:Users:loikein:Library:Scripts:&quot;</code></pre>
+</div>
+<div id="tell-application" class="section level3">
+<h3>Tell Application</h3>
+<pre class="perl"><code>tell application &quot;Finder&quot;
+    open folder &quot;Macintosh HD:Users:loikein:Library:Scripts:&quot;
+end tell</code></pre>
 <pre class="perl"><code>tell application &quot;Safari&quot;
     activate
 end tell</code></pre>
+</div>
+</div>
+<div id="actually-useful-scripts" class="section level2">
+<h2>Actually Useful Scripts</h2>
+<div id="finder" class="section level3">
+<h3>Finder</h3>
+<pre class="perl"><code>set the_folder to choose folder
+set the_path to POSIX path of the_folder
+
+get the_path
+# &quot;/Users/loikein/Library/Scripts/&quot;
+
+set the clipboard to &quot;file://&quot; &amp; thePath as text
+# file:///Users/loikein/Library/Scripts/
+# this path can be opened with Alfred</code></pre>
+</div>
+<div id="safari" class="section level3">
+<h3>Safari</h3>
+<ul>
+<li>ref: <a href="https://daringfireball.net/2018/12/safari_new_tab_next_to_current_tab">Daring Fireball: Opening New Tabs Next to the Current Tab in Safari</a></li>
+</ul>
+<pre class="perl"><code>tell application &quot;Safari&quot;
+    tell front window
+        set _old_tab to current tab
+        set _new_tab to make new tab at after _old_tab
+        set current tab to _new_tab
+    end tell
+end tell</code></pre>
+</div>
 </div>
 
     </div>
