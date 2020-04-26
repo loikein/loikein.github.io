@@ -240,7 +240,8 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference  Reference Cheatsheet  Inline Code  Executed  Display Code  R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
+      <description>Words of Warning Rmd Reference  Reference Cheatsheet  Inline Code  Executed  Display Code  R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Never write index.md or index.Rmd. Always use _index.Rmd.
+(Per Issue #84)  Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
 Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in a file as complicated as this one.</description>
     </item>
     

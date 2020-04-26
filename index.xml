@@ -6,7 +6,7 @@
     <description>Recent content on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -295,17 +295,6 @@ Consider the wage regressions from slide 5 (text P86).
     </item>
     
     <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>  Last Update  Dependencies  Favicon created with Dotgrid Avatar created with CHARAT YOCO Theme: jrutheiser/hugo-lithium-theme, modified by Yihui and me
- TOC: FallenMax/smart-toc, modified by me Last Update: me/clumsy-update Findme Elsewhere: me/clumsy-findme   Fine Me Elsewhere There, there.
- </description>
-    </item>
-    
-    <item>
       <title>Introduction to C Language</title>
       <link>/archive/intro-c-rmd/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
@@ -320,7 +309,8 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference  Reference Cheatsheet  Inline Code  Executed  Display Code  R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
+      <description>Words of Warning Rmd Reference  Reference Cheatsheet  Inline Code  Executed  Display Code  R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Never write index.md or index.Rmd. Always use _index.Rmd.
+(Per Issue #84)  Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
 Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in a file as complicated as this one.</description>
     </item>
     

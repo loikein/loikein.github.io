@@ -31,7 +31,7 @@ if (!doNotTrack) {
 
 
 
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/github.min.css' rel='stylesheet' type='text/css' />
 
 
 <link rel="stylesheet" href="/css/fonts.css" media="all">
@@ -47,7 +47,7 @@ if (!doNotTrack) {
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="/post/" class="nav-logo">
+  <a href="/" class="nav-logo">
     <img src="/images/loikein-logo.png"
          width="50"
          height="50"
@@ -61,12 +61,11 @@ if (!doNotTrack) {
     
     <li><a href="/tags/">Tags</a></li>
     
-    <li><a href="/about/">About</a></li>
-    
     <li><a href="https://github.com/loikein/loikein.github.io">Source</a></li>
     
   </ul>
 </nav>
+
       </header>
 <main class="content" role="main">
   <article class="article">
@@ -121,6 +120,10 @@ if (!doNotTrack) {
 </ul>
 </div>
 
+<ol style="list-style-type: decimal">
+<li>Never write <code>index.md</code> or <code>index.Rmd</code>. Always use <code>_index.Rmd</code>.<br />
+(Per <a href="https://github.com/digitalcraftsman/hugo-material-docs/issues/84">Issue #84</a>)</li>
+</ol>
 <div id="words-of-warning" class="section level2">
 <h2>Words of Warning</h2>
 <p>I use Typora &amp; Sublime Text to write my posts.<br />
@@ -267,18 +270,20 @@ Figure 1: A fancy pie chart.
 
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
 
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/applescript.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
     
 <script src="/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
 <script type="application/javascript">

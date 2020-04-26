@@ -31,7 +31,7 @@ if (!doNotTrack) {
 
 
 
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/github.min.css' rel='stylesheet' type='text/css' />
 
 
 <link rel="stylesheet" href="/css/fonts.css" media="all">
@@ -47,7 +47,7 @@ if (!doNotTrack) {
     <div class="wrapper">
       <header class="header">
         <nav class="nav">
-  <a href="/post/" class="nav-logo">
+  <a href="/" class="nav-logo">
     <img src="/images/loikein-logo.png"
          width="50"
          height="50"
@@ -61,12 +61,11 @@ if (!doNotTrack) {
     
     <li><a href="/tags/">Tags</a></li>
     
-    <li><a href="/about/">About</a></li>
-    
     <li><a href="https://github.com/loikein/loikein.github.io">Source</a></li>
     
   </ul>
 </nav>
+
       </header>
 <main class="content" role="main">
   <article class="article">
@@ -137,10 +136,10 @@ Editor: Script Editor.app</p>
 <h2>Basics</h2>
 <div id="hello-world" class="section level3">
 <h3>Hello World</h3>
-<pre class="perl"><code>beep
+<pre class="applescript"><code>beep
 
 beep 5</code></pre>
-<pre class="perl"><code>display dialog &quot;hello, world&quot;
+<pre class="applescript"><code>display dialog &quot;hello, world&quot;
 -- &quot;OK&quot; and &quot;Cancel&quot; buttons
 -- In case you missed, this is a comment
 # this too!
@@ -159,16 +158,16 @@ get &quot;hello, world!&quot;
 </div>
 <div id="variables" class="section level3">
 <h3>Variables</h3>
-<pre class="perl"><code>set x to &quot;hello world&quot;
+<pre class="applescript"><code>set x to &quot;hello world&quot;
 say x
 # &quot;hello world&quot;</code></pre>
-<pre class="perl"><code>set x to 25
+<pre class="applescript"><code>set x to 25
 say x
 # &quot;twenty-five&quot;</code></pre>
 </div>
 <div id="types" class="section level3">
 <h3>Types</h3>
-<pre class="perl"><code>set x to 16 as number
+<pre class="applescript"><code>set x to 16 as number
 get x
 # 16
 
@@ -180,7 +179,7 @@ get y
 </div>
 <div id="string-operation" class="section level3">
 <h3>String Operation</h3>
-<pre class="perl"><code>set a to &quot;hello&quot;
+<pre class="applescript"><code>set a to &quot;hello&quot;
 set b to &quot;world&quot;
 say a &amp; b
 # &quot;hello&quot; &quot;world&quot;
@@ -196,13 +195,13 @@ set e to &quot;2&quot;
 set f to &quot;5&quot;
 say e &amp; f
 # &quot;twenty-five&quot;</code></pre>
-<pre class="perl"><code>set len to the length of &quot;hello world&quot;
+<pre class="applescript"><code>set len to the length of &quot;hello world&quot;
 display alert len
 # 11</code></pre>
 </div>
 <div id="list" class="section level3">
 <h3>List</h3>
-<pre class="perl"><code>set list1 to 1 &amp; 2 &amp; 3
+<pre class="applescript"><code>set list1 to 1 &amp; 2 &amp; 3
 get list1
 # {1, 2, 3}
 
@@ -228,7 +227,7 @@ get some item of list2
 set item 4 of list2 to 200
 get list2
 # {1, 2, 3, 200}</code></pre>
-<pre class="perl"><code>set list3 to {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}
+<pre class="applescript"><code>set list3 to {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}
 
 set short_list to items 2 through 5 of list3
 get short_list
@@ -240,20 +239,20 @@ get list3_rev
 </div>
 <div id="type-conversion" class="section level3">
 <h3>Type Conversion</h3>
-<pre class="perl"><code>set x to &quot;16&quot;
+<pre class="applescript"><code>set x to &quot;16&quot;
 get x as number
 # 16
 
 set y to 12
 get y as text
 # &quot;12&quot;</code></pre>
-<pre class="perl"><code>set list3 to {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}
+<pre class="applescript"><code>set list3 to {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}
 get list3 as text
 # &quot;abcdef&quot;</code></pre>
-<pre class="perl"><code>set list4 to every character of &quot;hello world&quot;
+<pre class="applescript"><code>set list4 to every character of &quot;hello world&quot;
 get list4
 # {&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;}</code></pre>
-<pre class="perl"><code>set sen_str to &quot;this is a beautiful world&quot;
+<pre class="applescript"><code>set sen_str to &quot;this is a beautiful world&quot;
 
 set keep_delim to AppleScript&#39;s text item delimiters
 set AppleScript&#39;s text item delimiters to &quot; &quot;
@@ -275,7 +274,7 @@ as once they are changed they will globally affect the running environment until
 </div>
 <div id="dictionary" class="section level3">
 <h3>Dictionary</h3>
-<pre class="perl"><code>set dict1 to {hello:&quot;world&quot;, dict:&quot;tionary&quot;}
+<pre class="applescript"><code>set dict1 to {hello:&quot;world&quot;, dict:&quot;tionary&quot;}
 
 set x to hello of dict1
 set y to dict of dict1
@@ -285,7 +284,7 @@ get x &amp; y
 </div>
 <div id="if" class="section level3">
 <h3>If</h3>
-<pre class="perl"><code>set this_year to 2020
+<pre class="applescript"><code>set this_year to 2020
 set good_year to 2019
 
 if this_year is good_year then
@@ -301,7 +300,7 @@ end if
 <ul>
 <li>ref: <a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_error_codes.html">Error Numbers and Error Messages</a></li>
 </ul>
-<pre class="perl"><code>try
+<pre class="applescript"><code>try
     set x to 1 / 0
 on error the error_mes number the error_num
     display alert &quot;Error &quot;&amp; the error_num &amp; &quot;: &quot; &amp; the error_mes
@@ -314,15 +313,15 @@ end try
 <ul>
 <li>ref: <a href="https://www.satimage.fr/software/en/smile/external_codes/file_paths.html">AppleScript and POSIX paths</a></li>
 </ul>
-<pre class="perl"><code>choose folder
+<pre class="applescript"><code>choose folder
 
 # alias &quot;Macintosh HD:Users:loikein:Library:Scripts:&quot;</code></pre>
-<pre class="perl"><code>set the_folder to choose folder
+<pre class="applescript"><code>set the_folder to choose folder
 set the_path to POSIX path of the_folder
 
 get the_path
 # &quot;/Users/loikein/Library/Scripts/&quot;</code></pre>
-<pre class="perl"><code>set the_path to &quot;/Users/loikein/Library/Scripts/&quot;
+<pre class="applescript"><code>set the_path to &quot;/Users/loikein/Library/Scripts/&quot;
 set the_folder to POSIX file the_path
 # no &quot;of&quot; here!!
 
@@ -331,10 +330,10 @@ get the_folder
 </div>
 <div id="tell-application" class="section level3">
 <h3>Tell Application</h3>
-<pre class="perl"><code>tell application &quot;Finder&quot;
+<pre class="applescript"><code>tell application &quot;Finder&quot;
     open folder &quot;Macintosh HD:Users:loikein:Library:Scripts:&quot;
 end tell</code></pre>
-<pre class="perl"><code>tell application &quot;Safari&quot;
+<pre class="applescript"><code>tell application &quot;Safari&quot;
     activate
 end tell</code></pre>
 </div>
@@ -343,7 +342,7 @@ end tell</code></pre>
 <h2>Actually Useful Scripts</h2>
 <div id="finder" class="section level3">
 <h3>Finder</h3>
-<pre class="perl"><code>set the_folder to choose folder
+<pre class="applescript"><code>set the_folder to choose folder
 set the_path to POSIX path of the_folder
 
 get the_path
@@ -351,14 +350,14 @@ get the_path
 
 set the clipboard to &quot;file://&quot; &amp; thePath as text
 # file:///Users/loikein/Library/Scripts/
-# this path can be opened with Alfred</code></pre>
+# this path can be opened with Alfred!</code></pre>
 </div>
 <div id="safari" class="section level3">
 <h3>Safari</h3>
 <ul>
 <li>ref: <a href="https://daringfireball.net/2018/12/safari_new_tab_next_to_current_tab">Daring Fireball: Opening New Tabs Next to the Current Tab in Safari</a></li>
 </ul>
-<pre class="perl"><code>tell application &quot;Safari&quot;
+<pre class="applescript"><code>tell application &quot;Safari&quot;
     tell front window
         set _old_tab to current tab
         set _new_tab to make new tab at after _old_tab
@@ -401,16 +400,18 @@ end tell</code></pre>
 
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
 
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/applescript.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
     
+
     
 <script type="application/javascript">
 var doNotTrack = false;
