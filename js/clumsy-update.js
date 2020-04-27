@@ -1,16 +1,12 @@
 $(document).ready(function(){
+	function insertAfter(el, referenceNode) {referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);}
 	var githubAPI = "https://api.github.com/repos/loikein/loikein.github.io/commits?page=1&per_page=1";
-	$("time.timeago").timeago();
+	var lastUpdateTitle = document.getElementById("last-update").children[0];
 	$.get(githubAPI, function(commit) {
-		// console.log( commit);
-		// console.log( "Time: " + commit[0].commit.committer.date );
-		// console.log( "Message: " + commit[0].commit.message );
-		// console.log( "URL: " + commit[0].html_url );
-		$('#last-update').append( ': ' + ($.timeago(commit[0].commit.committer.date)));
-		$('#last-update').after( 
-			 '<div class="clumsy-update"><a href="' + commit[0].html_url + '" target="_blank">'
-			+ '<pre>' + commit[0].commit.message + '</pre>'
-			+ '</a></div>'
-		);
+		lastUpdateTitle.append( ': ' + ($.timeago(commit[0].commit.committer.date)));
+		var updateMes = document.createElement('div');
+		updateMes.className = 'clumsy-update';
+		updateMes.innerHTML = '<a href="' + commit[0].html_url + '" target="_blank">'+ '<pre>' + commit[0].commit.message + '</pre>'+ '</a>';
+		insertAfter(updateMes, lastUpdateTitle);
 	});
 });
