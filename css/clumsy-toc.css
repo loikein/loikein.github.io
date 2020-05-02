@@ -53,17 +53,17 @@
 	cursor: pointer;
 }
 
-/* active ?? */
+/* active */
 
 #TOC a:hover,
 #TOC a:active {
 	border-left-color: var(--theme);
-	color: var(--dark-theme);
+	color: var(--theme-dark);
 }
 
 #TOC li.active > a {
-	border-left-color: var(--dark-theme);
-	color: var(--dark-theme);
+	border-left-color: var(--theme-dark);
+	color: var(--theme-dark);
 }
 
 /* heading level: 1 */

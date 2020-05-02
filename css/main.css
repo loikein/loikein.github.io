@@ -7,8 +7,10 @@ body {
 	--mid-grey: #eaecef;
 	--grey: #BBB;
 	--black: #222;
-	--theme: #BDE0FC;
-	--dark-theme: #6D90AC;
+	--theme: #F9BCBD;
+	--theme-dark: #8B4C4E;
+	--theme-alt: #ABD8F7;
+	--theme-alt-dark: #093C5C;
 }
 
 body {
@@ -79,8 +81,18 @@ strong {
 .header {
 	padding: 25px 0;
 	position: relative;
-	background: var(--light-grey);
-	border-bottom: 1px solid var(--light-grey);
+	border-bottom: 1px solid var(--mid-grey);
+	border-top: 5px solid transparent;
+}
+
+.header:before {
+	background: rgb(0,121,218);
+	background: linear-gradient(120deg, rgba(0,121,218,1) 0%, rgba(15,83,137,1) 28%, rgba(30,45,57,1) 41%, rgba(34,34,34,1) 50%, rgba(61,47,47,1) 60%, rgba(150,89,89,1) 76%, rgba(228,125,125,1) 100%);
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 5px;
+	top: -5px;
 }
 
 .nav {
@@ -123,9 +135,16 @@ strong {
 	margin-left: 0;
 }
 
-.nav-links a, .nav-links a:hover{
+.nav-links a {
 	text-decoration: none;
 	color: var(--black);
+	padding-bottom: 22px;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+	color: var(--theme-dark);
+	border-bottom: 3px solid var(--theme);
 }
 
 /* archive */
@@ -250,15 +269,16 @@ strong {
 .article-content a {
 	text-decoration: none;
 	color: inherit;
-	border-bottom: 3px solid var(--theme);
-	box-shadow: inset 0 -4px 0 var(--theme);
+	/*border-bottom: 3px solid var(--theme);*/
+	box-shadow: inset 0 -3px 0 var(--theme);
 	background: transparent;
 	transition: background 150ms ease;
 }
 
 .article-content a:hover,
 .article-content a:focus {
-	background: var(--theme);
+	/*background: var(--theme);*/
+	color: var(--theme-dark);
 }
 
 .article-content hr {
@@ -327,12 +347,6 @@ strong {
 	top: 6px;
 	margin-left: 2px;
 }
-
-/* Disqus
-
-.author.publisher-anchor-color a {
-	color: var(--black);
-}*/
 
 @media (max-width: 750px) {
 	.nav-links li {
