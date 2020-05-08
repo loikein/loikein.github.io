@@ -20,11 +20,11 @@
 	max-height: 85vh;
 	z-index: 10000;
 	box-sizing: border-box;
-	background-color: #fff;
 	color:var(--black);
+    background: var(--white);
 	font-size: 0.8rem;
 	line-height: 1.3;
-	border: 1px solid var(--mid-grey);
+	border: 1px solid var(--light-grey);
 	overflow-x: hidden;
 	overflow-y: auto;
 }

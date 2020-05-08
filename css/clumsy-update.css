@@ -22,9 +22,11 @@
 }
 
 .clumsy-update pre::first-line{
+	color: var(--theme-dark);
 	box-shadow: inset 0 -3px 0 var(--theme);
 }
 
 .clumsy-update pre:hover::first-line{
-	color: var(--theme-dark);
+	color: var(--theme-alt-dark);
+	box-shadow: inset 0 -3px 0 var(--theme-alt);
 }
