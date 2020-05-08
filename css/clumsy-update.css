@@ -5,7 +5,13 @@
 .clumsy-update a{
 	color: inherit;
 	cursor: pointer;
-	text-decoration: none;
+	box-shadow: none;
+}
+
+.clumsy-update a:hover,
+.clumsy-update a:focus {
+	color: inherit;
+	box-shadow: none;
 }
 
 .clumsy-update pre{
