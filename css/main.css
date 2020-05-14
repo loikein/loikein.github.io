@@ -7,13 +7,13 @@
 
 html {
 	--white: #FFF;
-	--light-grey: rgba(229, 229, 229, 0.5); /* light-grey*/
+	--light-grey: #F1F1F1; /* light-grey*/
 	--dark-grey: #BBB;
 	--black: #222;
 	--theme: #F9BCBD; /* pink */
-	--theme-dark: #D72A39; /* dark pink */
+	--theme-dark: #CF3643; /* dark pink */
 	--theme-alt: #ABD8F7; /* blue */
-	--theme-alt-dark: #2174BB; /* dark blue */
+	--theme-alt-dark: #1C73BE; /* dark blue */
 }
 
 html,body {
@@ -100,10 +100,10 @@ strong {
 	border-top: 5px solid transparent;
 }
 
-.header:before {
+.header::before {
 	background: var(--theme);
-	background: -o-linear-gradient(290deg, var(--theme) 0%, rvar(--theme) 50%, var(--theme-alt) 50%, var(--theme-alt) 100%);
-	background: linear-gradient(160deg, var(--theme) 0%, var(--theme) 50%, var(--theme-alt) 50%, var(--theme-alt) 100%);
+	background: -o-repeating-linear-gradient(290deg, var(--theme) 20px, var(--theme) 40px, var(--theme-alt) 40px, var(--theme-alt) 60px);
+	background: repeating-linear-gradient(160deg, var(--theme) 20px, var(--theme) 40px, var(--theme-alt) 40px, var(--theme-alt) 60px);
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -161,13 +161,13 @@ strong {
 .nav-links a {
 	text-decoration: none;
 	color: var(--black);
-	padding-bottom: 22px;
+	padding-bottom: 19px;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
 	color: var(--theme-dark);
-	border-bottom: 3px solid var(--theme);
+	border-bottom: 5px solid var(--theme);
 }
 
 /* archive */
@@ -294,16 +294,16 @@ strong {
 .article-content a {
 	text-decoration: none;
 	color: var(--theme-dark);
-	-webkit-box-shadow: inset 0 -3px 0 var(--theme);
-	box-shadow: inset 0 -3px 0 var(--theme);
+	-webkit-box-shadow: inset 0 -1px 0 var(--theme);
+	box-shadow: inset 0 -1px 0 var(--theme);
 	background: transparent;
 }
 
 .article-content a:hover,
 .article-content a:focus {
 	color: var(--theme-alt-dark);
-	-webkit-box-shadow: inset 0 -3px 0 var(--theme-alt);
-	box-shadow: inset 0 -3px 0 var(--theme-alt);
+	-webkit-box-shadow: inset 0 -5px 0 var(--theme-alt);
+	box-shadow: inset 0 -5px 0 var(--theme-alt);
 }
 
 .article-content hr {
@@ -428,10 +428,10 @@ strong {
 @media (prefers-color-scheme: dark) {
 	html {
 		--white: #222;
-		--light-grey: rgba(0, 0, 0, 0.5); /* very-black*/
+		--light-grey: #111111; /* very-black*/
 		--dark-grey: #4D4D4D;
 		--black: #FFF;
-		--theme: #EC797B; /* pink */
+		--theme: #EC8E8F; /* pink */
 		--theme-dark: #F9BCBD; /* light pink */
 		--theme-alt: #57A5DB; /* blue */
 		--theme-alt-dark: #ABD8F7; /* light blue */

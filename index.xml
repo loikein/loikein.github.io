@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Notes on Rosenblatt Transformation and Copulas</title>
+      <link>/post/2020/05/notes-rosenblatt-copulas/</link>
+      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/05/notes-rosenblatt-copulas/</guid>
+      <description>Reference  Repos Links Papers &amp;amp; Books    Thesis Roadmap
+Reference Repos  jonathf/chaospy  ChaosPy documentation  OpenSourceEconomics/econsa OpenSourceEconomics/tespy covid-19-impact-lab/sid simetenn/uncertainpy  Uncertainpy 1.2.1 documentation    Links  Introducing Copula in Monte Carlo Simulation - Towards Data Science Distributions — ChaosPy documentation Dependency between uncertain parameters — Uncertainpy 1.2.1 documentation Continuous Integration — ose-resources documentation   Papers &amp;amp; Books  Global Sensitivity Analysis with Dependent Inputs Section 3 of Chaospy: An open source tool for designing methods of uncertainty quantification - ScienceDirect Section 4 of Estimation of global sensitivity indices for models with dependent variables - ScienceDirect Dependence Modeling with Copulas (Chapman &amp;amp; Hall/CRC Monographs on Statistics and Applied Probability Book 133) (English Edition) eBook: Joe, Harry An Introduction to Copulas (Springer Series in Statistics) (English Edition) eBook: Nelsen, Roger B.</description>
+    </item>
+    
+    <item>
       <title>Notes on AppleScript</title>
       <link>/post/2020/04/notes-applescript/</link>
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>

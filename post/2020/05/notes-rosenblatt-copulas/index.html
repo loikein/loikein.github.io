@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.70.0" />
+
+<title>Notes on Rosenblatt Transformation and Copulas - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Rosenblatt Transformation and Copulas - loikein&#39;s notes">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-143089736-1', 'auto');
+  
+  ga('send', 'pageview');
+}
+</script>
+
+
+  <link rel='icon' href='/favicon.ico' type='image/x-icon'/>
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="/css/normalize.css" media="all">
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+<link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
+
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/logo.png"
+         width="50"
+         height="50"
+         alt="Home">
+  </a>
+  <ul class="nav-links">
+    
+    <li><a href="/post/">Notes</a></li>
+    
+    <li><a href="/writings/">Writings</a></li>
+    
+    <li><a href="/tags/">Tags</a></li>
+    
+    <li><a href="https://github.com/loikein/loikein.github.io">Source</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+<main class="content" role="main">
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+    <h1 class="article-title">Notes on Rosenblatt Transformation and Copulas</h1>
+    
+    <span class="article-date">2020-05-14</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/r'>R</a>
+    
+    <a href='/tags/programming'>Programming</a>
+    
+    
+    
+    </span>
+    
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#repos">Repos</a></li>
+<li><a href="#links">Links</a></li>
+<li><a href="#papers-books">Papers &amp; Books</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p><a href="https://app.clickup.com/2516680/v/dc/2ctp8-134/2ctp8-57">Thesis Roadmap</a></p>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<div id="repos" class="section level3">
+<h3>Repos</h3>
+<ul>
+<li><a href="https://github.com/jonathf/chaospy">jonathf/chaospy</a>
+<ul>
+<li><a href="https://chaospy.readthedocs.io/en/master/index.html">ChaosPy documentation</a></li>
+</ul></li>
+<li><a href="https://github.com/OpenSourceEconomics/econsa">OpenSourceEconomics/econsa</a></li>
+<li><a href="https://github.com/OpenSourceEconomics/tespy">OpenSourceEconomics/tespy</a></li>
+<li><a href="https://github.com/covid-19-impact-lab/sid">covid-19-impact-lab/sid</a></li>
+<li><a href="https://github.com/simetenn/uncertainpy">simetenn/uncertainpy</a>
+<ul>
+<li><a href="https://uncertainpy.readthedocs.io/en/latest/index.html">Uncertainpy 1.2.1 documentation</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="links" class="section level3">
+<h3>Links</h3>
+<ul>
+<li><a href="https://towardsdatascience.com/introducing-copula-in-monte-carlo-simulation-9ed1fe9f905">Introducing Copula in Monte Carlo Simulation - Towards Data Science</a></li>
+<li><a href="https://chaospy.readthedocs.io/en/master/distributions/index.html">Distributions — ChaosPy documentation</a></li>
+<li><a href="https://uncertainpy.readthedocs.io/en/latest/theory/rosenblatt.html#rosenblatt">Dependency between uncertain parameters — Uncertainpy 1.2.1 documentation</a></li>
+<li><a href="https://ose-resources.readthedocs.io/en/latest/miscellaneous.html#continuous-integration">Continuous Integration — ose-resources documentation</a></li>
+</ul>
+</div>
+<div id="papers-books" class="section level3">
+<h3>Papers &amp; Books</h3>
+<ul>
+<li><a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/master-theses/master-thesis-pages/pwiederkehr_MSc.pdf">Global Sensitivity Analysis with Dependent Inputs</a></li>
+<li>Section 3 of <a href="https://www.sciencedirect.com/science/article/pii/S1877750315300119">Chaospy: An open source tool for designing methods of uncertainty quantification - ScienceDirect</a></li>
+<li>Section 4 of <a href="https://www.sciencedirect.com/science/article/pii/S0010465511004085">Estimation of global sensitivity indices for models with dependent variables - ScienceDirect</a></li>
+<li><a href="https://www.amazon.de/dp/B00OD4140E/">Dependence Modeling with Copulas (Chapman &amp; Hall/CRC Monographs on Statistics and Applied Probability Book 133) (English Edition) eBook: Joe, Harry</a></li>
+<li><a href="https://www.amazon.de/dp/B00DZ0OVMU/">An Introduction to Copulas (Springer Series in Statistics) (English Edition) eBook: Nelsen, Roger B.</a></li>
+</ul>
+</div>
+</div>
+
+    </div>
+  </article>
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://loikein-github.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</main>
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+
+          <li>Theme by loikein with love</li>
+        </ul>
+      </footer>
+    </div>
+    
+    
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-143089736-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
