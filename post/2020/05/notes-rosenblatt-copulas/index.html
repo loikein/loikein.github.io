@@ -68,7 +68,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">3 min read</span>
     
     <h1 class="article-title">Notes on Rosenblatt Transformation and Copulas</h1>
     
@@ -101,6 +101,15 @@ if (!doNotTrack) {
 <li><a href="#links">Links</a></li>
 <li><a href="#papers-books">Papers &amp; Books</a></li>
 </ul></li>
+<li><a href="#running-example-economic-order-quantity">Running Example: Economic Order Quantity</a>
+<ul>
+<li><a href="#model">Model</a></li>
+<li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a></li>
+<li><a href="#one-at-a-time-method">One at a Time Method</a></li>
+<li><a href="#scenario-decomposition">Scenario Decomposition</a></li>
+<li><a href="#one-way-sensitivity-function">One Way Sensitivity Function</a></li>
+<li><a href="#differentiation-based-methods">Differentiation-Based Methods</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -114,7 +123,10 @@ if (!doNotTrack) {
 <ul>
 <li><a href="https://chaospy.readthedocs.io/en/master/index.html">ChaosPy documentation</a></li>
 </ul></li>
-<li><a href="https://github.com/OpenSourceEconomics/econsa">OpenSourceEconomics/econsa</a></li>
+<li><a href="https://github.com/OpenSourceEconomics/econsa">OpenSourceEconomics/econsa</a>
+<ul>
+<li><a href="https://econsa.readthedocs.io/en/latest/">econsa 0.01 documentation</a></li>
+</ul></li>
 <li><a href="https://github.com/OpenSourceEconomics/tespy">OpenSourceEconomics/tespy</a></li>
 <li><a href="https://github.com/covid-19-impact-lab/sid">covid-19-impact-lab/sid</a></li>
 <li><a href="https://github.com/simetenn/uncertainpy">simetenn/uncertainpy</a>
@@ -136,10 +148,124 @@ if (!doNotTrack) {
 <h3>Papers &amp; Books</h3>
 <ul>
 <li><a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/master-theses/master-thesis-pages/pwiederkehr_MSc.pdf">Global Sensitivity Analysis with Dependent Inputs</a></li>
+<li>Chapter 1.5 of <a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/doctoral-theses/ThesisCaniou.pdf">Global Sensitivity Analysis for Nested and Multiscale Modelling</a></li>
 <li>Section 3 of <a href="https://www.sciencedirect.com/science/article/pii/S1877750315300119">Chaospy: An open source tool for designing methods of uncertainty quantification - ScienceDirect</a></li>
 <li>Section 4 of <a href="https://www.sciencedirect.com/science/article/pii/S0010465511004085">Estimation of global sensitivity indices for models with dependent variables - ScienceDirect</a></li>
 <li><a href="https://www.amazon.de/dp/B00OD4140E/">Dependence Modeling with Copulas (Chapman &amp; Hall/CRC Monographs on Statistics and Applied Probability Book 133) (English Edition) eBook: Joe, Harry</a></li>
 <li><a href="https://www.amazon.de/dp/B00DZ0OVMU/">An Introduction to Copulas (Springer Series in Statistics) (English Edition) eBook: Nelsen, Roger B.</a></li>
+</ul>
+</div>
+</div>
+<div id="running-example-economic-order-quantity" class="section level2">
+<h2>Running Example: Economic Order Quantity</h2>
+<p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0377221715005469">Borgonovo &amp; Plischke (2016)</a></p>
+<div id="model" class="section level3">
+<h3>Model</h3>
+<ul>
+<li>Output: <span class="math inline">\(\mathbf{y}\in\mathcal{Y}\subset\mathbb{R}^D\)</span></li>
+<li>Inputs: <span class="math inline">\(\mathbf{x}\in\mathcal{X}\subset\mathbb{R}^n\)</span>
+<ul>
+<li>Units per month: <span class="math inline">\(x_1\)</span></li>
+<li>Unit price of items: <span class="math inline">\(x_2\)</span></li>
+<li>Ordering cost: <span class="math inline">\(x_3\)</span></li>
+</ul></li>
+<li>Technology: <span class="math inline">\(g: \mathcal{Y}\to \mathcal{X}\)</span></li>
+<li>Economic order quantity:
+<span class="math display">\[y = \sqrt{\frac{240\cdot x_1 x_3}{x_2}}\]</span></li>
+<li>Subset of inputs: <span class="math inline">\(\mathbf{x}_{\alpha} = \{x_{i_1}, x_{i_2}, \dots, x_{i_k}\}\)</span>
+<ul>
+<li>Index: <span class="math inline">\(\alpha = \{i_1, i_2, \dots, i_k\}\)</span>, <span class="math inline">\(k\leq n\)</span></li>
+<li>Complementary set: <span class="math inline">\(\mathbf{x}_{\sim\alpha}\)</span></li>
+</ul></li>
+<li>Sensitivity of <span class="math inline">\(x_i\)</span>: sensitivity of model output wrt <span class="math inline">\(x_i\)</span>
+<ul>
+<li>Also: importance measure</li>
+</ul></li>
+</ul>
+</div>
+<div id="local-sensitivity-analysis" class="section level3">
+<h3>Local Sensitivity Analysis</h3>
+<ul>
+<li>Local sensitivity: sensitivity around <span class="math inline">\(\mathbf{x}^0\in\mathcal{X}\)</span>
+<ul>
+<li>Base case / reference input: <span class="math inline">\(\mathbf{x}^0\)</span></li>
+<li>Inputs are deterministic</li>
+</ul></li>
+<li>Output: <span class="math inline">\(y^0 = g(\mathbf{x}^0)\)</span></li>
+</ul>
+</div>
+<div id="one-at-a-time-method" class="section level3">
+<h3>One at a Time Method</h3>
+<ul>
+<li>Graph: tornado diagram</li>
+<li>Base case: <span class="math inline">\(\mathbf{x}^0\)</span></li>
+<li>Sensitivity case: <span class="math inline">\(\mathbf{x}^+\)</span></li>
+<li>Input changes: <span class="math inline">\(\Delta ^+\mathbf{x} = \mathbf{x}^+ - \mathbf{x}^0\)</span></li>
+<li>Sensitivity: finite changes of output by individual changes of input (magnitude + direction)
+<span class="math display">\[\Delta ^+_i y = g\big((x_i +  \Delta ^+ x_i), \mathbf{x}^0_{\sim i} \big) - g(\mathbf{x}^0)\]</span></li>
+<li>Weakness: negelects interaction effects between <span class="math inline">\(x\)</span>’s</li>
+</ul>
+</div>
+<div id="scenario-decomposition" class="section level3">
+<h3>Scenario Decomposition</h3>
+<ul>
+<li>Graph: generalised tornado diagram</li>
+<li>Fix 2 or more base points of input
+<ul>
+<li><span class="math inline">\(\mathbf{x}^0\)</span>, <span class="math inline">\(\mathbf{x}^+\)</span> and <span class="math inline">\(\mathbf{x}^-\)</span></li>
+</ul></li>
+<li>Decomposition of output:
+<span class="math display">\[\begin{aligned}\Delta y &amp;= g(\mathbf{x}^+) - g(\mathbf{x}^0)\\
+&amp;= \sum_{i=1}^n \phi_i + \sum_{i&lt;j} \phi_{i,j} + \sum_{i&lt;j&lt;k} \phi_{i,j,k} +\dots + \phi_{1,2,\dots,n}\end{aligned}\]</span>
+where the <span class="math inline">\(2^n\)</span> terms are given by
+<span class="math display">\[\begin{aligned} \phi_i &amp;= g(x_i^+,\mathbf{x}^0_{\sim i}) - g(\mathbf{x}^0) \\
+\phi_{i,j} &amp;= g(x_i^+,x_j^+,\mathbf{x}^0_{\sim i,j}) - \phi_i - \phi_j - g(\mathbf{x}^0) \\
+\phi_{i,j,k} &amp;= g(x_i^+,x_j^+,x_k^+,\mathbf{x}^0_{\sim i,j,k}) - \phi_{i,j} - \phi_{i,k} - \phi_{j,k} - \phi_i - \phi_j - \phi_k - g(\mathbf{x}^0) \\
+\vdots &amp; \end{aligned}\]</span></li>
+<li>Individual effect: <span class="math inline">\(\phi_i = \Delta ^+_i y\)</span></li>
+<li>Residual interaction effect: <span class="math inline">\(\phi_{i,j}\)</span></li>
+</ul>
+</div>
+<div id="one-way-sensitivity-function" class="section level3">
+<h3>One Way Sensitivity Function</h3>
+<ul>
+<li>Graph: spider plot</li>
+<li>Register output values with varying input in noramalised range</li>
+<li>Sensitivity:
+<span class="math display">\[\begin{aligned}h_i(x_i) &amp;= g(x_i,\mathbf{x}^0_{\sim i})\\
+h_i^* &amp;= h_i(x_i) - g(\mathbf{x}^0) \\
+&amp;= \phi_i = \Delta ^+_i y \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="differentiation-based-methods" class="section level3">
+<h3>Differentiation-Based Methods</h3>
+<ul>
+<li>Decomposite <span class="math inline">\(\Delta y\)</span> using Taylor expansion:
+<span class="math display">\[\begin{aligned}\Delta y &amp;= g(\mathbf{x}^+) - g(\mathbf{x}^0)\\
+&amp;= \sum_{i=1}^n \frac{\partial g(\mathbf{x}^0)}{\partial x_i}\cdot(x_i^+ - x_i^0) \\
+&amp;\phantom{\ggg}+\frac{1}{2}\cdot \sum_{i=1}^n\sum_{j=1}^n \frac{\partial ^2 g(\mathbf{x}^0)}{\partial x_i\partial x_j}\cdot(x_i^+ - x_i^0)(x_j^+ - x_j^0)\\
+&amp;\phantom{\ggg}+ o\big(\|\mathbf{x}^+ - \mathbf{x}^0 \|^2\big)\\
+&amp;\approx \sum_{i=1}^n \underbrace{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}}_{\begin{subarray}{l}\text{Natural}\\\text{sensitivity}\end{subarray}}\cdot(x_i^+ - x_i^0) \end{aligned}\]</span>
+However, natural sensitivities are not comparable since different <span class="math inline">\(x\)</span>’s have differen units.<br />
+</li>
+<li>Differential importance measure:<br />
+If <span class="math inline">\(dx_i = dx_j\)</span> for all <span class="math inline">\(i,j\)</span> (uniform perturbation), this is equivalent to partial derivatives.
+<span class="math display">\[D_i = \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ dx_i}
+{\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\ dx_j\big)}\]</span></li>
+<li>Elasticity of <span class="math inline">\(y\)</span> wrt <span class="math inline">\(x_i\)</span> (also as: criticality importance measure)<br />
+If <span class="math inline">\(\frac{d x_i}{x_i^0} = \frac{d x_j}{x_j^0}\)</span> for all <span class="math inline">\(i,j\)</span> (proportional perturbation), elasticity is equivalent to differential importance:
+<span class="math display">\[\begin{aligned}E_i &amp;= \frac{\partial g(\mathbf{x}^0)}{\partial x_i}\cdot \frac{x_i^0}{g(\mathbf{x}^0)} \\
+D_i &amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ dx_i}
+{\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\ dx_j\big)} \\
+&amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ dx_i\cdot\frac{x_i^0}{x_i^0}}
+{\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\ dx_j\cdot\frac{x_j^0}{x_j^0}\big)} \\
+&amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ x_i^0 \cdot\frac{dx_i}{x_i^0}}
+{\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\ x_j^0 \cdot\frac{dx_j}{x_j^0}\big)} \\
+&amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ x_i^0}
+{\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\ x_j^0} \\
+&amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\cdot\frac{x_i^0}{g(\mathbf{x}^0)}}
+{\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\cdot\frac{x_j^0}{g(\mathbf{x}^0)}} \\
+&amp;= \frac{E_i}{\sum_{j=1}^n E_j}\end{aligned}\]</span></li>
 </ul>
 </div>
 </div>
@@ -174,6 +300,9 @@ if (!doNotTrack) {
     
     
     
+<script src="/js/math-code.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
 <script type="application/javascript">
