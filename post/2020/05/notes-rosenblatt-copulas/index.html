@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Hugo 0.70.0" />
 
-<title>Notes on Rosenblatt Transformation and Copulas - loikein&#39;s notes</title>
-<meta property="og:title" content="Notes on Rosenblatt Transformation and Copulas - loikein&#39;s notes">
+<title>Notes on Sensitivity, Rosenblatt Transformation and Copulas - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on Sensitivity, Rosenblatt Transformation and Copulas - loikein&#39;s notes">
 
 
 <script type="application/javascript">
@@ -68,9 +68,9 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">7 min read</span>
     
-    <h1 class="article-title">Notes on Rosenblatt Transformation and Copulas</h1>
+    <h1 class="article-title">Notes on Sensitivity, Rosenblatt Transformation and Copulas</h1>
     
     <span class="article-date">2020-05-14</span>
     
@@ -97,7 +97,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#reference">Reference</a>
 <ul>
-<li><a href="#repos">Repos</a></li>
+<li><a href="#relevant-repositories">Relevant Repositories</a></li>
 <li><a href="#links">Links</a></li>
 <li><a href="#papers-books">Papers &amp; Books</a></li>
 </ul></li>
@@ -118,15 +118,17 @@ if (!doNotTrack) {
 <li><a href="#non-parametric-methods">Non-Parametric Methods</a></li>
 <li><a href="#variance-based-methods">Variance-Based Methods</a></li>
 <li><a href="#density-based-methods">Density-Based Methods</a></li>
+<li><a href="#transformation-invariant-methods">Transformation Invariant Methods</a></li>
 </ul></li>
+<li><a href="#decision-sensitivity-find-the-maximiser">Decision Sensitivity (Find the Maximiser)</a></li>
 </ul>
 </div>
 
 <p><a href="https://app.clickup.com/2516680/v/dc/2ctp8-134/2ctp8-57">Thesis Roadmap</a></p>
 <div id="reference" class="section level2">
 <h2>Reference</h2>
-<div id="repos" class="section level3">
-<h3>Repos</h3>
+<div id="relevant-repositories" class="section level3">
+<h3>Relevant Repositories</h3>
 <ul>
 <li><a href="https://github.com/jonathf/chaospy">jonathf/chaospy</a>
 <ul>
@@ -212,7 +214,7 @@ if (!doNotTrack) {
 <li>Input changes: <span class="math inline">\(\Delta ^+\mathbf{x} = \mathbf{x}^+ - \mathbf{x}^0\)</span></li>
 <li>Sensitivity: finite changes of output by individual changes of input (magnitude + direction)
 <span class="math display">\[\Delta ^+_i y = g\big((x_i +  \Delta ^+ x_i), \mathbf{x}^0_{\sim i} \big) - g(\mathbf{x}^0)\]</span></li>
-<li>Weakness: negelects interaction effects between <span class="math inline">\(x\)</span>’s</li>
+<li>Weakness: neglects interaction effects between <span class="math inline">\(x\)</span>’s</li>
 </ul>
 </div>
 <div id="scenario-decomposition" class="section level3">
@@ -223,23 +225,22 @@ if (!doNotTrack) {
 <ul>
 <li><span class="math inline">\(\mathbf{x}^0\)</span>, <span class="math inline">\(\mathbf{x}^+\)</span> and <span class="math inline">\(\mathbf{x}^-\)</span></li>
 </ul></li>
-<li>Decomposition of output:
-<span class="math display">\[\begin{aligned}\Delta y &amp;= g(\mathbf{x}^+) - g(\mathbf{x}^0)\\
+</ul>
+<p><span class="math display">\[\begin{aligned}\Delta y &amp;= g(\mathbf{x}^+) - g(\mathbf{x}^0)\\
 &amp;= \sum_{i=1}^n \phi_i + \sum_{i&lt;j} \phi_{i,j} + \sum_{i&lt;j&lt;k} \phi_{i,j,k} +\dots + \phi_{1,2,\dots,n}\end{aligned}\]</span>
 where the <span class="math inline">\(2^n\)</span> terms are given by
 <span class="math display">\[\begin{aligned} \phi_i &amp;= g(x_i^+,\mathbf{x}^0_{\sim i}) - g(\mathbf{x}^0) \\
 \phi_{i,j} &amp;= g(x_i^+,x_j^+,\mathbf{x}^0_{\sim i,j}) - \phi_i - \phi_j - g(\mathbf{x}^0) \\
 \phi_{i,j,k} &amp;= g(x_i^+,x_j^+,x_k^+,\mathbf{x}^0_{\sim i,j,k}) - \phi_{i,j} - \phi_{i,k} - \phi_{j,k} - \phi_i - \phi_j - \phi_k - g(\mathbf{x}^0) \\
-\vdots &amp; \end{aligned}\]</span></li>
-<li>Individual effect: <span class="math inline">\(\phi_i = \Delta ^+_i y\)</span></li>
-<li>Residual interaction effect: <span class="math inline">\(\phi_{i,j}\)</span></li>
-</ul>
+\vdots &amp; \end{aligned}\]</span>
+- Individual effect: <span class="math inline">\(\phi_i = \Delta ^+_i y\)</span>
+- Residual interaction effect: <span class="math inline">\(\phi_{i,j}\)</span></p>
 </div>
 <div id="one-way-sensitivity-function" class="section level3">
 <h3>One Way Sensitivity Function</h3>
 <ul>
 <li>Graph: spider plot</li>
-<li>Register output values with varying input in noramalised range</li>
+<li>Register output values with varying input in normalised range</li>
 <li>Sensitivity:
 <span class="math display">\[\begin{aligned}h_i(x_i) &amp;= g(x_i,\mathbf{x}^0_{\sim i})\\
 h_i^* &amp;= h_i(x_i) - g(\mathbf{x}^0) \\
@@ -249,13 +250,13 @@ h_i^* &amp;= h_i(x_i) - g(\mathbf{x}^0) \\
 <div id="differentiation-based-methods" class="section level3">
 <h3>Differentiation-Based Methods</h3>
 <ul>
-<li>Decomposite <span class="math inline">\(\Delta y\)</span> using Taylor expansion:
+<li>Decompose <span class="math inline">\(\Delta y\)</span> using Taylor expansion:
 <span class="math display">\[\begin{aligned}\Delta y &amp;= g(\mathbf{x}^+) - g(\mathbf{x}^0)\\
 &amp;= \sum_{i=1}^n \frac{\partial g(\mathbf{x}^0)}{\partial x_i}\cdot(x_i^+ - x_i^0) \\
 &amp;\phantom{\ggg}+\frac{1}{2}\cdot \sum_{i=1}^n\sum_{j=1}^n \frac{\partial ^2 g(\mathbf{x}^0)}{\partial x_i\partial x_j}\cdot(x_i^+ - x_i^0)(x_j^+ - x_j^0)\\
 &amp;\phantom{\ggg}+ o\big(\|\mathbf{x}^+ - \mathbf{x}^0 \|^2\big)\\
 &amp;\approx \sum_{i=1}^n \underbrace{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}}_{\begin{subarray}{l}\text{Natural}\\\text{sensitivity}\end{subarray}}\cdot(x_i^+ - x_i^0) \end{aligned}\]</span>
-However, natural sensitivities are not comparable since different <span class="math inline">\(x\)</span>’s have differen units.<br />
+However, natural sensitivities are not comparable since different <span class="math inline">\(x\)</span>’s have different units.<br />
 </li>
 <li>Differential importance measure:<br />
 If <span class="math inline">\(dx_i = dx_j\)</span> for all <span class="math inline">\(i,j\)</span> (uniform perturbation), this is equivalent to partial derivatives.<br />
@@ -315,7 +316,7 @@ D_i &amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ dx_i}
 <div id="non-parametric-methods" class="section level3">
 <h3>Non-Parametric Methods</h3>
 <ul>
-<li>Assumption: inpuut-output sample is well fitted by linear regression</li>
+<li>Assumption: input-output sample is well fitted by linear regression</li>
 <li>If <span class="math inline">\(R_Y^2\)</span> (goodness-of-fit) is too low, should consider other methods.</li>
 <li>Response surface:
 <span class="math display">\[g(\mathbf{x}) \approx b_0 + \sum_{i=1}^n b_i X_i\]</span></li>
@@ -370,9 +371,62 @@ V_{\alpha} &amp;= \int_{x_{\alpha}} \big[g_{\alpha}(\mathbf{x}_{\alpha}) \big]^2
 <h3>Density-Based Methods</h3>
 <ul>
 <li>Consider the entire distribution w/o referencing a particular moment</li>
-<li>Uncondition output pdf: <span class="math inline">\(f_Y(y)\)</span></li>
+<li>Unconditional output pdf: <span class="math inline">\(f_Y(y)\)</span></li>
+<li>Local sensitivity: plot output pdf given <span class="math inline">\(X_i\)</span>, <span class="math inline">\(f_{Y\ |\ X_i}(y)\)</span>, then compare the distance (separation)</li>
+<li>Global sensitivity: plot as many pdf curves as the possible <span class="math inline">\(X_i\)</span>’s
+<ul>
+<li>Inner separation: <span class="math inline">\(\gamma_i(x_i)\)</span></li>
+</ul></li>
+<li><span class="math inline">\(\delta\)</span>-sensitivity measure: (does not require independence)<br />
+<span class="math inline">\(\delta_i=0\iff Y\)</span> is independent of <span class="math inline">\(X_i\)</span>.<br />
+<span class="math inline">\(\delta_i\)</span> is monotonic transformation invariant.
+<span class="math display">\[\begin{aligned}\gamma_i(x_i) &amp;= \int_y \big| f_Y(y) - f_{Y\ |\ X_i}(y)\big| \,dy \\
+\delta_i &amp;=\frac{1}{2}\cdot E\big[\gamma_i(x_i)\big] \\
+&amp;= \frac{1}{2}\cdot\int_{X_i}\int_Y \big| f_{Y,X_i}(y,x_i) - f_{Y}(y)\cdot f_{X_i}(x_i)\big|\, dydx_i \\
+&amp;\in [0,1]  \end{aligned}\]</span></li>
+<li>Kullback-Leibler divergence:<br />
+<span class="math inline">\(\theta_i^{KL}=0\iff Y\)</span> is statistically independent of <span class="math inline">\(X_i\)</span>.<br />
+<span class="math inline">\(\theta_i^{KL}\)</span> is monotonic transformation invariant.
+<span class="math display">\[\begin{aligned}\gamma_i^{KL}(x_i) &amp;= \int_y f_{Y\ |\ X_i}(y)\cdot\big(\log f_{Y\ |\ X_i}(y) - \log f_Y(y)\big)\, dy \\
+\theta_i^{KL} &amp;= E\big[\gamma_i^{KL}(x_i) \big]\end{aligned}\]</span></li>
+<li>Both <span class="math inline">\(\delta_i\)</span> and <span class="math inline">\(\theta_i^{KL}\)</span> are in the family of <a href="https://en.wikipedia.org/wiki/F-divergence">Csiszar divergence</a>:
+<span class="math display">\[\begin{aligned}\gamma_i^F(X_i) &amp;= \int_y f_{Y\ |\ X_i}(y)\cdot t\Big(\frac{f_Y(y)}{f_{Y\ |\ X_i}(y)}\Big)\, dy \\
+\theta_i^F &amp;=E\big[\gamma_i^F(X_i) \big] \end{aligned}\]</span>
+where <span class="math inline">\(t(\cdot)\)</span> is convex, <span class="math inline">\(t(0)=1\)</span>.</li>
 </ul>
 </div>
+<div id="transformation-invariant-methods" class="section level3">
+<h3>Transformation Invariant Methods</h3>
+<ul>
+<li>Necessary when model output is sparse</li>
+<li>Any monotone function: <span class="math inline">\(u(\cdot)\)</span>
+<ul>
+<li>This is also convenient when <span class="math inline">\(u(\cdot)\)</span> is utility function</li>
+</ul></li>
+<li>Monotonic transformation of output: <span class="math inline">\(U=u(Y)\)</span>
+<ul>
+<li>Must reinterpret results for the original scale</li>
+<li>Ranking of input is not guaranteed to be the same<br />
+(Density-based measures are fine!)</li>
+</ul></li>
+<li>Some sensitivity measure of <span class="math inline">\(X_i\)</span>: <span class="math inline">\(\xi_i(Y)\big[\xi_i(U)]\)</span>
+<ul>
+<li>Monotonic transformation invariant: <span class="math inline">\(\xi_i(U)=\xi_i(Y)\)</span> for all <span class="math inline">\(U=u(Y)\)</span></li>
+</ul></li>
+<li>Global sensitivity measure is transformation invariant if the inner statistic is transformation invariant.</li>
+<li>Kolmogorov-Smirnov metric:
+<span class="math display">\[\beta_i^{KS} = E\big[ \sup_y \big| F_Y(y)-F_{Y\ |\ X_i}(y) \big| \big]\]</span></li>
+<li>Kuiper distance:
+<span class="math display">\[\beta_i^{Ku} = E\Big[ \sup_y \big( F_Y(y)-F_{Y\ |\ X_i}(y) \big) + \sup_y \big(F_{Y\ |\ X_i}(y) - F_Y(y)\big) \big]\]</span></li>
+<li>The inner statistic of both <span class="math inline">\(\beta_i^{KS}\)</span> and <span class="math inline">\(\beta_i^{Ku}\)</span> are in the family of:
+<span class="math display">\[z(\mathbb{P}, \mathbb{Q}) = \sup_{A\in\mathcal{A}} h\big(\big|\mathbb{P}(A) - \mathbb{Q}(A)\big|\big)\]</span>
+where <span class="math inline">\(\mathbb{P}, \mathbb{Q}\)</span> are probability measures on <span class="math inline">\((\Omega, \mathcal{A})\)</span>,<br />
+<span class="math inline">\(h: \mathbb{R}_+\mapsto\mathbb{R}_+\)</span> is continuous and non-decreasing, <span class="math inline">\(h(0)=0\)</span>, and <span class="math inline">\(\sup_t \frac{h(2t)}{h(t)}&lt;\infty\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="decision-sensitivity-find-the-maximiser" class="section level2">
+<h2>Decision Sensitivity (Find the Maximiser)</h2>
 </div>
 
     </div>

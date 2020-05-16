@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>Notes on Rosenblatt Transformation and Copulas</title>
+      <title>Notes on Sensitivity, Rosenblatt Transformation and Copulas</title>
       <link>/post/2020/05/notes-rosenblatt-copulas/</link>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/05/notes-rosenblatt-copulas/</guid>
-      <description>Reference  Repos Links Papers &amp;amp; Books  Example: Economic Order Quantity  Model  Local Sensitivity Analysis  One at a Time Method Scenario Decomposition One Way Sensitivity Function Differentiation-Based Methods Screening: Morris Method  Global Sensitivity Analysis  Non-Parametric Methods Variance-Based Methods Density-Based Methods    Thesis Roadmap
-Reference Repos  jonathf/chaospy  ChaosPy documentation  OpenSourceEconomics/econsa  econsa 0.01 documentation  OpenSourceEconomics/tespy covid-19-impact-lab/sid simetenn/uncertainpy  Uncertainpy 1.</description>
+      <description>Reference  Relevant Repositories Links Papers &amp;amp; Books  Example: Economic Order Quantity  Model  Local Sensitivity Analysis  One at a Time Method Scenario Decomposition One Way Sensitivity Function Differentiation-Based Methods Screening: Morris Method  Global Sensitivity Analysis  Non-Parametric Methods Variance-Based Methods Density-Based Methods Transformation Invariant Methods  Decision Sensitivity (Find the Maximiser)   Thesis Roadmap
+Reference Relevant Repositories  jonathf/chaospy  ChaosPy documentation  OpenSourceEconomics/econsa  econsa 0.</description>
     </item>
     
     <item>
