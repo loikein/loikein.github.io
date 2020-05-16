@@ -68,7 +68,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">5 min read</span>
     
     <h1 class="article-title">Notes on Rosenblatt Transformation and Copulas</h1>
     
@@ -101,14 +101,23 @@ if (!doNotTrack) {
 <li><a href="#links">Links</a></li>
 <li><a href="#papers-books">Papers &amp; Books</a></li>
 </ul></li>
-<li><a href="#running-example-economic-order-quantity">Running Example: Economic Order Quantity</a>
+<li><a href="#example-economic-order-quantity">Example: Economic Order Quantity</a>
 <ul>
 <li><a href="#model">Model</a></li>
-<li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a></li>
+</ul></li>
+<li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a>
+<ul>
 <li><a href="#one-at-a-time-method">One at a Time Method</a></li>
 <li><a href="#scenario-decomposition">Scenario Decomposition</a></li>
 <li><a href="#one-way-sensitivity-function">One Way Sensitivity Function</a></li>
 <li><a href="#differentiation-based-methods">Differentiation-Based Methods</a></li>
+<li><a href="#screening-morris-method">Screening: Morris Method</a></li>
+</ul></li>
+<li><a href="#global-sensitivity-analysis">Global Sensitivity Analysis</a>
+<ul>
+<li><a href="#non-parametric-methods">Non-Parametric Methods</a></li>
+<li><a href="#variance-based-methods">Variance-Based Methods</a></li>
+<li><a href="#density-based-methods">Density-Based Methods</a></li>
 </ul></li>
 </ul>
 </div>
@@ -156,9 +165,9 @@ if (!doNotTrack) {
 </ul>
 </div>
 </div>
-<div id="running-example-economic-order-quantity" class="section level2">
-<h2>Running Example: Economic Order Quantity</h2>
-<p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0377221715005469">Borgonovo &amp; Plischke (2016)</a></p>
+<div id="example-economic-order-quantity" class="section level2">
+<h2>Example: Economic Order Quantity</h2>
+<p>From: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0377221715005469">Borgonovo &amp; Plischke (2016)</a></p>
 <div id="model" class="section level3">
 <h3>Model</h3>
 <ul>
@@ -183,8 +192,9 @@ if (!doNotTrack) {
 </ul></li>
 </ul>
 </div>
-<div id="local-sensitivity-analysis" class="section level3">
-<h3>Local Sensitivity Analysis</h3>
+</div>
+<div id="local-sensitivity-analysis" class="section level2">
+<h2>Local Sensitivity Analysis</h2>
 <ul>
 <li>Local sensitivity: sensitivity around <span class="math inline">\(\mathbf{x}^0\in\mathcal{X}\)</span>
 <ul>
@@ -193,7 +203,6 @@ if (!doNotTrack) {
 </ul></li>
 <li>Output: <span class="math inline">\(y^0 = g(\mathbf{x}^0)\)</span></li>
 </ul>
-</div>
 <div id="one-at-a-time-method" class="section level3">
 <h3>One at a Time Method</h3>
 <ul>
@@ -249,7 +258,8 @@ h_i^* &amp;= h_i(x_i) - g(\mathbf{x}^0) \\
 However, natural sensitivities are not comparable since different <span class="math inline">\(x\)</span>’s have differen units.<br />
 </li>
 <li>Differential importance measure:<br />
-If <span class="math inline">\(dx_i = dx_j\)</span> for all <span class="math inline">\(i,j\)</span> (uniform perturbation), this is equivalent to partial derivatives.
+If <span class="math inline">\(dx_i = dx_j\)</span> for all <span class="math inline">\(i,j\)</span> (uniform perturbation), this is equivalent to partial derivatives.<br />
+Comparable &amp; additive (does not account for interaction).
 <span class="math display">\[D_i = \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ dx_i}
 {\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\ dx_j\big)}\]</span></li>
 <li>Elasticity of <span class="math inline">\(y\)</span> wrt <span class="math inline">\(x_i\)</span> (also as: criticality importance measure)<br />
@@ -266,6 +276,101 @@ D_i &amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ dx_i}
 &amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\cdot\frac{x_i^0}{g(\mathbf{x}^0)}}
 {\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\cdot\frac{x_j^0}{g(\mathbf{x}^0)}} \\
 &amp;= \frac{E_i}{\sum_{j=1}^n E_j}\end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="screening-morris-method" class="section level3">
+<h3>Screening: Morris Method</h3>
+<p>TBA</p>
+</div>
+</div>
+<div id="global-sensitivity-analysis" class="section level2">
+<h2>Global Sensitivity Analysis</h2>
+<ul>
+<li>Assumption: have info about model inputs’ probability distribution</li>
+<li>Input
+<ul>
+<li>Probability space: <span class="math inline">\(\big(\mathcal{X}, \mathcal{B}(\mathcal{X}), \mathbb{P}_{\mathbf{X}}\big)\)</span></li>
+<li>Probability distribution: <span class="math inline">\(\mathbb{P}_{\mathbf{X}}\)</span></li>
+<li>Random vector: <span class="math inline">\(\mathbf{X} = (X_1, \dots, X_n)\)</span></li>
+<li>Realisation: <span class="math inline">\(\mathbf{x} = (x_1, \dots, x_n)\)</span></li>
+<li>Joint cdf &amp; pdf: <span class="math inline">\(F_{\mathbf{X}}(\mathbf{x})\)</span>, <span class="math inline">\(f_{\mathbf{X}}(\mathbf{x})\)</span></li>
+<li>Marginal cdf &amp; pdf: <span class="math inline">\(F_{X_i}(x_i)\)</span>, <span class="math inline">\(f_{X_i}(x_i)\)</span></li>
+<li>Standard deviation of <span class="math inline">\(X_i\)</span>: <span class="math inline">\(\sigma_i\)</span></li>
+<li>If inputs are independent, then
+<span class="math display">\[F_{\mathbf{X}}(\mathbf{x})=\prod_{i=1}^n F_i(x_i)\]</span></li>
+</ul></li>
+<li>Output
+<ul>
+<li>Random variable: <span class="math inline">\(Y = g(\mathbf{X})\)</span></li>
+<li>Probability distribution: <span class="math inline">\(\mathbb{P}_Y(\cdot) = \mathbb{P}_{\mathbf{X}}\big(g^{-1}(\cdot)\big)\)</span></li>
+<li>cdf &amp; pdf: <span class="math inline">\(F_Y(y)\)</span>, <span class="math inline">\(f_Y(y)\)</span></li>
+<li>Standard deviation of <span class="math inline">\(Y\)</span>: <span class="math inline">\(\sigma_Y\)</span></li>
+</ul></li>
+<li>Monte Carlo
+<ul>
+<li>Generate input sample: <span class="math inline">\(N\times n\)</span> (N <span class="math inline">\(\mathbf{x}\)</span>’s)</li>
+<li>Evaluate output: <span class="math inline">\(N\times D\)</span> (N <span class="math inline">\(Y\)</span>’s)</li>
+</ul></li>
+</ul>
+<div id="non-parametric-methods" class="section level3">
+<h3>Non-Parametric Methods</h3>
+<ul>
+<li>Assumption: inpuut-output sample is well fitted by linear regression</li>
+<li>If <span class="math inline">\(R_Y^2\)</span> (goodness-of-fit) is too low, should consider other methods.</li>
+<li>Response surface:
+<span class="math display">\[g(\mathbf{x}) \approx b_0 + \sum_{i=1}^n b_i X_i\]</span></li>
+<li>Standardised regression coefficient:
+<span class="math display">\[\begin{aligned}SRC_i &amp;= b_i\cdot\frac{\sigma_i}{\sigma_Y} \\
+&amp;= b_i\cdot\frac{\sqrt{\sum_{j=1}^N (x_{ji} - \bar{x}_i)^2}}{\sqrt{\sum_{j=1}^N (y_j - \bar{y})^2}}  \end{aligned}\]</span></li>
+<li>Pearson’s product moment correlation coefficient:
+<span class="math display">\[\begin{aligned}PEAR_i &amp;= \varrho(Y,X_i)\\
+&amp;= \frac{Cov(Y,X_i)}{\sigma_i \sigma_Y}\\
+&amp;= \frac{\sum_{j=1}^N (x_{ji} - \bar{x}_i)(y_j - \bar{y})}{\sqrt{\sum_{j=1}^N (x_{ji} - \bar{x}_i)^2}\cdot \sqrt{\sum_{j=1}^N (y_j - \bar{y})^2}} \end{aligned}\]</span></li>
+</ul>
+</div>
+<div id="variance-based-methods" class="section level3">
+<h3>Variance-Based Methods</h3>
+<ul>
+<li>Importance of input = reduction of output variance if know this input for sure</li>
+<li>Variance decomposition:
+<span class="math display">\[Var(Y) = Var\big(E[Y\ |\ X_{\alpha}]\big) + E\big[Var(Y\ |\ X_{\alpha})\big]\]</span></li>
+<li>Non-linear response surface:
+<span class="math display">\[\phi_{\alpha}(x_{\alpha}) = E[Y\ |\ X_{\alpha}=x_{\alpha}]\]</span></li>
+<li>Group effect: (fraction of output variance that is explained by functional dependence on <span class="math inline">\(x_{\alpha}\)</span>)
+<span class="math display">\[S_{\alpha}^{\text{group}} = \frac{Var(\phi_{\alpha}(x_{\alpha}))}{Var(Y)}\]</span>
+If <span class="math inline">\(\alpha=\{i\}\)</span>, then the main effect / first order index:
+<span class="math display">\[\begin{aligned} S_i &amp;= S_{i}^{\text{group}}\\
+&amp;= \varrho^2\big(Y,E[Y\ |\ X_i]\big) \\
+&amp;\geq \beta_i^2\end{aligned}\]</span>
+Higher order effect:
+<span class="math display">\[S_{\alpha} = S_{\alpha}^{\text{group}} - \sum_{\beta\not\subset\alpha} S_{\beta}\]</span>
+Total effect: (this is the measure to decide whether input <span class="math inline">\(i\)</span> is important or not)
+<span class="math display">\[S^T_i = 1 - S_{\sim i}^{\text{group}}\]</span>
+When inputs are uncorrelated, <span class="math inline">\(S^T_i\geq S_i\)</span>, and <span class="math inline">\(\sum_{i=1}^n S_i\leq 1\)</span>.</li>
+<li>ANOVA decomposition of <span class="math inline">\(g(\mathbf{x})\)</span>:
+<span class="math display">\[\begin{aligned}g(\mathbf{x}) &amp;= g_0 + \sum_{i=1}^n g_i(x_i) + \sum_{i&lt;j} g_{i,j}(x_i, x_j) \\
+&amp;\phantom{\ggg}+\sum_{i&lt;j&lt;k} g_{i,j,k}(x_i,x_j,x_k)+\dots + g_{1,2,\dots,n}(x_1, x_2,\dots,x_n) \end{aligned}\]</span>
+where
+<span class="math display">\[\begin{aligned}g_0 &amp;= \int_{\mu_1}\dots\int_{\mu_n} g(\mathbf{x})\,d\mu \\
+g_i(x_i) &amp;= \int\dots\int g(\mathbf{x})\,d\mu_{k\neq i} - g_0 \\
+g_{i,j}(x_i, x_j) &amp;= \int\dots\int g(\mathbf{x})\,d\mu_{k\neq i,j} - g_i(x_i) - g_j(x_j) - g_0 \\
+\vdots &amp;\end{aligned}\]</span>
+If inputs are independent, then <span class="math inline">\(g_{\alpha}(\mathbf{x}_{\alpha})\)</span> are orthogonal, and
+<span class="math display">\[\begin{aligned}Var(Y) &amp;= E\big[\big(g(\mathbf{X}) - g_0\big)^2 \big] \\
+&amp;= \sum_{\alpha} V_{\alpha}\\
+V_{\alpha} &amp;= \int_{x_{\alpha}} \big[g_{\alpha}(\mathbf{x}_{\alpha}) \big]^2\cdot f_{\alpha}(\mathbf{x}_{\alpha})\, d\mathbf{x}_{\alpha} \end{aligned}\]</span></li>
+<li>Zero value of <span class="math inline">\(S_i\)</span> or <span class="math inline">\(V_i\)</span> does not assure that output is independent on <span class="math inline">\(X_i\)</span>
+<ul>
+<li><span class="math inline">\(\implies\)</span> Ishigami test function</li>
+<li>In general, using moments as proxy to uncertainty is a bad idea.</li>
+</ul></li>
+</ul>
+</div>
+<div id="density-based-methods" class="section level3">
+<h3>Density-Based Methods</h3>
+<ul>
+<li>Consider the entire distribution w/o referencing a particular moment</li>
+<li>Uncondition output pdf: <span class="math inline">\(f_Y(y)\)</span></li>
 </ul>
 </div>
 </div>

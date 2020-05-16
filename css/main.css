@@ -281,15 +281,11 @@ strong {
 
 /* math */
 
-.article-content .math.display {
-	margin-top: 0.3em;
-	margin-bottom: 0em;
+.article-content mjx-container[jax="CHTML"][display="true"] {
+    margin: 0.5em 0;
 }
 
-.article-content .MJXc-display,
-.article-content .MathJax_CHTML {
-	margin: 0;
-}
+/* links */
 
 .article-content a {
 	text-decoration: none;

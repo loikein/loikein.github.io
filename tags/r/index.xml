@@ -17,8 +17,8 @@
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/05/notes-rosenblatt-copulas/</guid>
-      <description>Reference  Repos Links Papers &amp;amp; Books  Running Example: Economic Order Quantity  Model Local Sensitivity Analysis One at a Time Method Scenario Decomposition One Way Sensitivity Function Differentiation-Based Methods    Thesis Roadmap
-Reference Repos  jonathf/chaospy  ChaosPy documentation  OpenSourceEconomics/econsa  econsa 0.01 documentation  OpenSourceEconomics/tespy covid-19-impact-lab/sid simetenn/uncertainpy  Uncertainpy 1.2.1 documentation    Links  Introducing Copula in Monte Carlo Simulation - Towards Data Science Distributions — ChaosPy documentation Dependency between uncertain parameters — Uncertainpy 1.</description>
+      <description>Reference  Repos Links Papers &amp;amp; Books  Example: Economic Order Quantity  Model  Local Sensitivity Analysis  One at a Time Method Scenario Decomposition One Way Sensitivity Function Differentiation-Based Methods Screening: Morris Method  Global Sensitivity Analysis  Non-Parametric Methods Variance-Based Methods Density-Based Methods    Thesis Roadmap
+Reference Repos  jonathf/chaospy  ChaosPy documentation  OpenSourceEconomics/econsa  econsa 0.01 documentation  OpenSourceEconomics/tespy covid-19-impact-lab/sid simetenn/uncertainpy  Uncertainpy 1.</description>
     </item>
     
     <item>
