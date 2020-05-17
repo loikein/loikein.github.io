@@ -5,7 +5,7 @@
     <link>/tags/applescript/</link>
     <description>Recent content in AppleScript on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-gb</language>
     <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/applescript/index.xml" rel="self" type="application/rss+xml" />
@@ -17,9 +17,7 @@
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/04/notes-applescript/</guid>
-      <description>References Basics  Hello World Variables Types String Operation List Type Conversion Dictionary If Try File &amp;amp; Path Tell Application  Actually Useful Scripts  Finder Safari    Version of macOS: 10.15.4 (19E266)
-Editor: Script Editor.app
-References  AppleScript 脚本入门 - 从前端到全栈 - SegmentFault 思否 AppleScript Programming - Wikibooks, open books for an open world AppleScript 入门：探索 macOS 自动化 - 少数派 Introduction to AppleScript Language Guide Mac Automation Scripting Guide   Basics Hello World beep beep 5 display dialog &amp;quot;hello, world&amp;quot; -- &amp;quot;OK&amp;quot; and &amp;quot;Cancel&amp;quot; buttons -- In case you missed, this is a comment # this too!</description>
+      <description>References Basics Hello World Variables Types String Operation List Type Conversion Dictionary If Try File &amp;amp; Path Tell Application Actually Useful Scripts Finder Safari Version of macOS: 10.15.4 (19E266) Editor: Script Editor.app References AppleScript 脚本入门 - 从前端到全栈 - SegmentFault 思否 AppleScript Programming - Wikibooks, open books for an open world AppleScript 入门：探索 macOS 自动化 -</description>
     </item>
     
   </channel>

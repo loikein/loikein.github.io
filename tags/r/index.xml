@@ -5,14 +5,14 @@
     <link>/tags/r/</link>
     <description>Recent content in R on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-gb</language>
     <lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Notes on Sensitivity, Rosenblatt Transformation and Copulas</title>
+      <title>Notes on Sensitivity and Copulas</title>
       <link>/post/2020/05/notes-rosenblatt-copulas/</link>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
@@ -59,9 +59,7 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference  Reference Cheatsheet  Inline Code  Executed  Display Code  R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Never write index.md or index.Rmd. Always use _index.Rmd.
-(Per Issue #84)  Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
-Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in a file as complicated as this one.</description>
+      <description>Words of Warning Rmd Reference Reference Cheatsheet Inline Code Executed Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference Image Reference Plot Never write index.md or index.Rmd. Always use _index.Rmd. (Per Issue #84) Words of Warning I use Typora &amp;amp; Sublime Text to write my posts. Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in</description>
     </item>
     
   </channel>

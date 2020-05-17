@@ -5,7 +5,7 @@
     <link>/tags/python/</link>
     <description>Recent content in Python on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-gb</language>
     <lastBuildDate>Fri, 27 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
@@ -27,7 +27,7 @@ Your task is to implement those tools in Python and to integrate them in estimag
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-effective-programming/</guid>
-      <description>Slides Example Process of A Project  Clone from Remote Create from Local Create from cookiecutter Runtime: Building Runtime: Testing  Shell  Reference Basics Pipeline  TeX Git  Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Squash Collaboration  (Ana)Conda  Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode  Python Waf  Reference Config Build Miscellaneous  Regular Expression   Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
+      <description>Slides Example Process of A Project Clone from Remote Create from Local Create from cookiecutter Runtime: Building Runtime: Testing Shell Reference Basics Pipeline TeX Git Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Squash Collaboration (Ana)Conda Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode Python Waf Reference Config Build Miscellaneous Regular Expression Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@ Your task is to implement those tools in Python and to integrate them in estimag
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/06/notes-python-3/</guid>
-      <description>Reference Personal Notes  continue, pass &amp;amp; break if __name__ == &#34;__main__&#34;  Python on DataCamp  Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages  Package: Numpy on DataCamp  Basics Comparison Methods Control Flows  Package: Pandas on DataCamp  Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows  Package: Matplotlib on DataCamp  Line &amp;amp; Scatter Plot Histogram Plotting Options  Package: Seaborn on DataCamp  Scatter Plot Relational Plot (Facet Panel) Plotting Options Line Plot  Notes from Effective Programming  Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditions Docstring Function Module Numpy Test (Manually) Test: pytest    Reference  PEP 8 -- Style Guide for Python Code | Python.</description>
+      <description>Reference Personal Notes continue, pass &amp;amp; break if __name__ == &#34;__main__&#34; Python on DataCamp Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages Package: Numpy on DataCamp Basics Comparison Methods Control Flows Package: Pandas on DataCamp Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows Package: Matplotlib on DataCamp Line &amp;amp;</description>
     </item>
     
   </channel>

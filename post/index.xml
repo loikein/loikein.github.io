@@ -5,14 +5,23 @@
     <link>/post/</link>
     <description>Recent content in Posts on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Notes on Sensitivity, Rosenblatt Transformation and Copulas</title>
+      <title>Notes on The Missing Semester of Your CS Education</title>
+      <link>/post/2020/05/notes-missing-semester/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/05/notes-missing-semester/</guid>
+      <description>The Missing Semester of Your CS Education Missing Semester IAP 2020 - YouTube  TBA…</description>
+    </item>
+    
+    <item>
+      <title>Notes on Sensitivity and Copulas</title>
       <link>/post/2020/05/notes-rosenblatt-copulas/</link>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
@@ -27,9 +36,7 @@ Reference Relevant Repositories  jonathf/chaospy  ChaosPy documentation  OpenSou
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/04/notes-applescript/</guid>
-      <description>References Basics  Hello World Variables Types String Operation List Type Conversion Dictionary If Try File &amp;amp; Path Tell Application  Actually Useful Scripts  Finder Safari    Version of macOS: 10.15.4 (19E266)
-Editor: Script Editor.app
-References  AppleScript 脚本入门 - 从前端到全栈 - SegmentFault 思否 AppleScript Programming - Wikibooks, open books for an open world AppleScript 入门：探索 macOS 自动化 - 少数派 Introduction to AppleScript Language Guide Mac Automation Scripting Guide   Basics Hello World beep beep 5 display dialog &amp;quot;hello, world&amp;quot; -- &amp;quot;OK&amp;quot; and &amp;quot;Cancel&amp;quot; buttons -- In case you missed, this is a comment # this too!</description>
+      <description>References Basics Hello World Variables Types String Operation List Type Conversion Dictionary If Try File &amp;amp; Path Tell Application Actually Useful Scripts Finder Safari Version of macOS: 10.15.4 (19E266) Editor: Script Editor.app References AppleScript 脚本入门 - 从前端到全栈 - SegmentFault 思否 AppleScript Programming - Wikibooks, open books for an open world AppleScript 入门：探索 macOS 自动化 -</description>
     </item>
     
     <item>
@@ -61,7 +68,7 @@ Your task is to implement those tools in Python and to integrate them in estimag
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/11/intro-js-refined/</guid>
-      <description>References Basics  Constant &amp;amp; Variable String Property Method Built-in Objects  Conditionals  if &amp;amp; else if Truthy and Falsy Short-Circuit Evaluation Ternary Operator switch  Function  Arrow Function Function in Function  Scope Array  Array Methods Nested Array for while do ... while break Iteration  Object  Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop in Object this get set Factory Function  Class  Static Method Inheritance  Module  Create Module Use Module Named Export &amp;amp; Import (ES6)  Promise  setTimeout then &amp;amp; catch Multiple Promises (Composition) Promise.</description>
+      <description>References Basics Constant &amp;amp; Variable String Property Method Built-in Objects Conditionals if &amp;amp; else if Truthy and Falsy Short-Circuit Evaluation Ternary Operator switch Function Arrow Function Function in Function Scope Array Array Methods Nested Array for while do ... while break Iteration Object Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop in Object this get set Factory Function Class Static Method Inheritance Module Create Module Use Module</description>
     </item>
     
     <item>
@@ -70,7 +77,7 @@ Your task is to implement those tools in Python and to integrate them in estimag
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/11/notes-behaviour-public/</guid>
-      <description>Behavioural Public Policy Present Bias  Theory: Intertemporal Consumption Work Allocation: (2015 &amp;amp; 2016) Food Choice: Sadoff, Samek, Sprenger (2014 &amp;amp; 2019) Food Stamp: Shapiro (2005) Retirement: Haider &amp;amp; Stephens (2007) Financial Desicion: Chetty et al (2014) Increase Employee Saving: Thaler &amp;amp; Benartzi (2004) Power of Default: Blumenstock, Callen, Ghani (2018)  Behavioral Welfare Analysis  Theory Sufficient Statistic Welfare Analysis Taxation and Consumer Choise: O’Donoghue &amp;amp; Rabin (2006) Taxation &amp;amp; Happiness: Gruber &amp;amp; Mullainathan (2005)  Salience Bias  Salience &amp;amp; Taxation: Chetty, Looney, Kroft (2009) Heterogeneity: Taubinsky &amp;amp; Rees-Jones (2018)  Feedback Interventions  Identifying Salience Bias Welfare Effect of Debiasing Home Energy Reports: (2011 &amp;amp; 2019) Electricity Usage Alert: (2014 &amp;amp; 2020) Shower Feedback: (2018 &amp;amp; 2019)  Habit Formation  Allcott &amp;amp; Kessler(2019) Theories Going to Gym: Charness &amp;amp; Greezy (2009) Commuting: Yang &amp;amp; Lim (2017) Shower Again  Social Preferences &amp;amp; Labour Market  Labour Market Disappointing Pay Rise: Mas (2006) Downward Wage Rigidity: Kaur (2019)  Social Pressure  Models of Social Influence Peer Effects Estimating θ Asking for Giving: Andreoni &amp;amp; Rao (2011) Asking for Voting: (2008 &amp;amp; 2010) Blood Donation: Bruhin et al.</description>
+      <description>Behavioural Public Policy Present Bias Theory: Intertemporal Consumption Work Allocation: (2015 &amp;amp; 2016) Food Choice: Sadoff, Samek, Sprenger (2014 &amp;amp; 2019) Food Stamp: Shapiro (2005) Retirement: Haider &amp;amp; Stephens (2007) Financial Desicion: Chetty et al (2014) Increase Employee Saving: Thaler &amp;amp; Benartzi (2004) Power of Default: Blumenstock, Callen, Ghani (2018) Behavioral Welfare Analysis Theory Sufficient Statistic Welfare Analysis Taxation and Consumer Choise: O’Donogh</description>
     </item>
     
     <item>
@@ -79,7 +86,7 @@ Your task is to implement those tools in Python and to integrate them in estimag
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/10/notes-effective-programming/</guid>
-      <description>Slides Example Process of A Project  Clone from Remote Create from Local Create from cookiecutter Runtime: Building Runtime: Testing  Shell  Reference Basics Pipeline  TeX Git  Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Squash Collaboration  (Ana)Conda  Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode  Python Waf  Reference Config Build Miscellaneous  Regular Expression   Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
+      <description>Slides Example Process of A Project Clone from Remote Create from Local Create from cookiecutter Runtime: Building Runtime: Testing Shell Reference Basics Pipeline TeX Git Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Squash Collaboration (Ana)Conda Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode Python Waf Reference Config Build Miscellaneous Regular Expression Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
     </item>
     
     <item>
@@ -106,7 +113,7 @@ Your task is to implement those tools in Python and to integrate them in estimag
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/06/notes-python-3/</guid>
-      <description>Reference Personal Notes  continue, pass &amp;amp; break if __name__ == &#34;__main__&#34;  Python on DataCamp  Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages  Package: Numpy on DataCamp  Basics Comparison Methods Control Flows  Package: Pandas on DataCamp  Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows  Package: Matplotlib on DataCamp  Line &amp;amp; Scatter Plot Histogram Plotting Options  Package: Seaborn on DataCamp  Scatter Plot Relational Plot (Facet Panel) Plotting Options Line Plot  Notes from Effective Programming  Simple Examples Containers Converting Between Types Alias List &amp;amp; Loop Dictionary Conditions Docstring Function Module Numpy Test (Manually) Test: pytest    Reference  PEP 8 -- Style Guide for Python Code | Python.</description>
+      <description>Reference Personal Notes continue, pass &amp;amp; break if __name__ == &#34;__main__&#34; Python on DataCamp Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages Package: Numpy on DataCamp Basics Comparison Methods Control Flows Package: Pandas on DataCamp Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows Package: Matplotlib on DataCamp Line &amp;amp;</description>
     </item>
     
     <item>
@@ -250,9 +257,7 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference  Reference Cheatsheet  Inline Code  Executed  Display Code  R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference  Image Reference Plot   Never write index.md or index.Rmd. Always use _index.Rmd.
-(Per Issue #84)  Words of Warning I use Typora &amp;amp; Sublime Text to write my posts.
-Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in a file as complicated as this one.</description>
+      <description>Words of Warning Rmd Reference Reference Cheatsheet Inline Code Executed Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference Image Reference Plot Never write index.md or index.Rmd. Always use _index.Rmd. (Per Issue #84) Words of Warning I use Typora &amp;amp; Sublime Text to write my posts. Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in</description>
     </item>
     
   </channel>
