@@ -17,7 +17,9 @@
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/05/notes-missing-semester/</guid>
-      <description>The Missing Semester of Your CS Education Missing Semester IAP 2020 - YouTube  TBA…</description>
+      <description>Shell  Basics Piping  Vim  General Move in Normal Mode Search in Normal Mode Edit in Normal Mode Insert Mode Visual Mode    Only include things that I will need to refer to later.
+WIP.
+ The Missing Semester of Your CS Education Missing Semester IAP 2020 - YouTube  Shell Basics # Go to last directory $ cd -  Piping # Write to a file $ echo &amp;quot;hello world&amp;quot; &amp;gt; hello.</description>
     </item>
     
     <item>
