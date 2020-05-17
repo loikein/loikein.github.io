@@ -86,8 +86,6 @@ if (!doNotTrack) {
     
     Tags:
     
-    <a href='/tags/notes'>notes</a>
-    
     <a href='/tags/r'>R</a>
     
     <a href='/tags/stat'>stat</a>
@@ -98,38 +96,45 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#ols-model">OLS Model</a><ul>
+<li><a href="#ols-model">OLS Model</a>
+<ul>
 <li><a href="#ols-method">OLS Method</a></li>
 <li><a href="#statistical-model">Statistical Model</a></li>
 <li><a href="#gauss-markov-assumptions">Gauss-Markov Assumptions</a></li>
 <li><a href="#linear-loglinear">Linear &amp; Loglinear</a></li>
 <li><a href="#elasticity">Elasticity</a></li>
 </ul></li>
-<li><a href="#ols-estimator">OLS Estimator</a><ul>
+<li><a href="#ols-estimator">OLS Estimator</a>
+<ul>
 <li><a href="#derive-b">Derive b</a></li>
 <li><a href="#unbiasedness-of-b">Unbiasedness of b</a></li>
 <li><a href="#blue">BLUE</a></li>
 <li><a href="#unbiasedness-of-s2">Unbiasedness of s^2</a></li>
 </ul></li>
-<li><a href="#normality-assumption">Normality Assumption</a><ul>
-<li><a href="#normality-of-">Normality of ε</a></li>
+<li><a href="#normality-assumption">Normality Assumption</a>
+<ul>
+<li><a href="#normality-of-ε">Normality of ε</a></li>
 <li><a href="#normality-of-b">Normality of b</a></li>
 </ul></li>
-<li><a href="#asymptotic-property">Asymptotic Property</a><ul>
+<li><a href="#asymptotic-property">Asymptotic Property</a>
+<ul>
 <li><a href="#converge-in-probability-mean-square">Converge in Probability &amp; Mean Square</a></li>
 <li><a href="#lln-law-of-large-numbers">LLN (Law of Large Numbers)</a></li>
 <li><a href="#consistency-of-b">Consistency of b</a></li>
 <li><a href="#consistency-of-s2">Consistency of s^2</a></li>
 <li><a href="#asymptotic-nomality">Asymptotic Nomality</a></li>
 </ul></li>
-<li><a href="#data-problems">Data Problems</a><ul>
+<li><a href="#data-problems">Data Problems</a>
+<ul>
 <li><a href="#multicollinearity">Multicollinearity</a></li>
 <li><a href="#outliers">Outliers</a></li>
 </ul></li>
-<li><a href="#error-problems">Error Problems</a><ul>
+<li><a href="#error-problems">Error Problems</a>
+<ul>
 <li><a href="#heteroskedasticity">Heteroskedasticity</a></li>
 <li><a href="#autocorrelation-serial-correlation">Autocorrelation (Serial Correlation)</a></li>
 <li><a href="#white-hc-standard-error">White (HC) Standard Error</a></li>
@@ -138,7 +143,8 @@ if (!doNotTrack) {
 <li><a href="#egls-feasible-estimated-gls-estimator">EGLS (Feasible Estimated GLS) Estimator</a></li>
 <li><a href="#wls-weighted-ls-estimator">WLS (Weighted LS) Estimator</a></li>
 </ul></li>
-<li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a><ul>
+<li><a href="#regressor-problem-endogeneity">Regressor Problem: Endogeneity</a>
+<ul>
 <li><a href="#lagged-dependent-variable">Lagged Dependent Variable</a></li>
 <li><a href="#measurement-error">Measurement Error</a></li>
 <li><a href="#omitted-variable-bias">Omitted Variable Bias</a></li>
@@ -146,18 +152,21 @@ if (!doNotTrack) {
 <li><a href="#iv-instrumental-variable">IV (Instrumental Variable)</a></li>
 <li><a href="#give-generalized-iv-estimator">GIVE (Generalized IV Estimator)</a></li>
 </ul></li>
-<li><a href="#ml-maximum-likelihood-model">ML (Maximum Likelihood) Model</a><ul>
+<li><a href="#ml-maximum-likelihood-model">ML (Maximum Likelihood) Model</a>
+<ul>
 <li><a href="#assumption">Assumption</a></li>
-<li><a href="#property-of-">Property of ^θ</a></li>
+<li><a href="#property-of-θ">Property of ^θ</a></li>
 <li><a href="#asymptotic-covariance-matrix">Asymptotic Covariance Matrix</a></li>
 </ul></li>
-<li><a href="#binary-choice-model">Binary Choice Model</a><ul>
+<li><a href="#binary-choice-model">Binary Choice Model</a>
+<ul>
 <li><a href="#regression-model">Regression Model</a></li>
 <li><a href="#probit-model">Probit Model</a></li>
 <li><a href="#logit-model">Logit Model</a></li>
 <li><a href="#likelihood-ratio">Likelihood Ratio</a></li>
 </ul></li>
-<li><a href="#time-series">Time Series</a><ul>
+<li><a href="#time-series">Time Series</a>
+<ul>
 <li><a href="#types-of-process">Types of Process</a></li>
 <li><a href="#lag-operator">Lag Operator</a></li>
 <li><a href="#stationary">Stationary</a></li>
@@ -168,7 +177,8 @@ if (!doNotTrack) {
 <li><a href="#spurious-regression">Spurious Regression</a></li>
 <li><a href="#cointegration">Cointegration</a></li>
 </ul></li>
-<li><a href="#panel-data">Panel Data</a><ul>
+<li><a href="#panel-data">Panel Data</a>
+<ul>
 <li><a href="#entity-fixed-effect">Entity Fixed Effect</a></li>
 <li><a href="#time-fixed-effect">Time Fixed Effect</a></li>
 <li><a href="#least-squares-dummy-variable-lsdv-estimator">Least Squares Dummy Variable (LSDV) Estimator</a></li>
@@ -617,7 +627,7 @@ And <span class="math inline">\(E[\tilde{s}^2] = \frac{N-K}{N-1} \cdot σ^2 \imp
 </div>
 <div id="normality-assumption" class="section level2">
 <h2>Normality Assumption</h2>
-<div id="normality-of-" class="section level3">
+<div id="normality-of-ε" class="section level3">
 <h3>Normality of ε</h3>
 <ul>
 <li>(A1) + (A3) + (A4) + <span class="math inline">\(ε\)</span> is Nomally Distributed <span class="math inline">\(\implies\)</span></li>
@@ -1228,7 +1238,7 @@ Note that this is the exact same variance matrix as in PS5.Q2</p></li>
 <div id="assumption" class="section level3">
 <h3>Assumption</h3>
 </div>
-<div id="property-of-" class="section level3">
+<div id="property-of-θ" class="section level3">
 <h3>Property of ^θ</h3>
 <ul>
 <li>Consistent: <span class="math inline">\(\text{plim} \ \hat{θ} = θ\)</span></li>

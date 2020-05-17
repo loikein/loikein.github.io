@@ -81,9 +81,7 @@ if (!doNotTrack) {
     
     Tags:
     
-    <a href='/tags/r'>R</a>
-    
-    <a href='/tags/programming'>Programming</a>
+    <a href='/tags/micro'>micro</a>
     
     
     
@@ -101,6 +99,7 @@ if (!doNotTrack) {
 <li><a href="#links">Links</a></li>
 <li><a href="#papers-books">Papers &amp; Books</a></li>
 </ul></li>
+<li><a href="#working-with-econsa">Working With <span><code>econsa</code></span></a></li>
 <li><a href="#example-economic-order-quantity">Example: Economic Order Quantity</a>
 <ul>
 <li><a href="#model">Model</a></li>
@@ -121,6 +120,7 @@ if (!doNotTrack) {
 <li><a href="#transformation-invariant-methods">Transformation Invariant Methods</a></li>
 </ul></li>
 <li><a href="#decision-sensitivity-find-the-maximiser">Decision Sensitivity (Find the Maximiser)</a></li>
+<li><a href="#estimate-sensitivity">Estimate Sensitivity</a></li>
 </ul>
 </div>
 
@@ -149,8 +149,11 @@ if (!doNotTrack) {
 <div id="links" class="section level3">
 <h3>Links</h3>
 <ul>
-<li><a href="https://towardsdatascience.com/introducing-copula-in-monte-carlo-simulation-9ed1fe9f905">Introducing Copula in Monte Carlo Simulation - Towards Data Science</a></li>
-<li><a href="https://chaospy.readthedocs.io/en/master/distributions/index.html">Distributions — ChaosPy documentation</a></li>
+<li>(Finished) <a href="https://towardsdatascience.com/introducing-copula-in-monte-carlo-simulation-9ed1fe9f905">Introducing Copula in Monte Carlo Simulation - Towards Data Science</a></li>
+<li>(Finished) <a href="https://chaospy.readthedocs.io/en/master/distributions/index.html">Distributions — ChaosPy documentation</a>
+<ul>
+<li>(Reading) <a href="https://chaospy.readthedocs.io/en/master/distributions/copulas.html">Copulas — ChaosPy documentation</a></li>
+</ul></li>
 <li><a href="https://uncertainpy.readthedocs.io/en/latest/theory/rosenblatt.html#rosenblatt">Dependency between uncertain parameters — Uncertainpy 1.2.1 documentation</a></li>
 <li><a href="https://ose-resources.readthedocs.io/en/latest/miscellaneous.html#continuous-integration">Continuous Integration — ose-resources documentation</a></li>
 </ul>
@@ -158,6 +161,8 @@ if (!doNotTrack) {
 <div id="papers-books" class="section level3">
 <h3>Papers &amp; Books</h3>
 <ul>
+<li>(Finished) <a href="https://www.sciencedirect.com/science/article/abs/pii/S0377221715005469">Sensitivity analysis: A review of recent advances - ScienceDirect</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832017300625?via%3Dihub">Extending Morris method for qualitative global sensitivity analysis of models with dependent inputs - ScienceDirect</a></li>
 <li><a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/master-theses/master-thesis-pages/pwiederkehr_MSc.pdf">Global Sensitivity Analysis with Dependent Inputs</a></li>
 <li>Chapter 1.5 of <a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/doctoral-theses/ThesisCaniou.pdf">Global Sensitivity Analysis for Nested and Multiscale Modelling</a></li>
 <li>Section 3 of <a href="https://www.sciencedirect.com/science/article/pii/S1877750315300119">Chaospy: An open source tool for designing methods of uncertainty quantification - ScienceDirect</a></li>
@@ -166,6 +171,9 @@ if (!doNotTrack) {
 <li><a href="https://www.amazon.de/dp/B00DZ0OVMU/">An Introduction to Copulas (Springer Series in Statistics) (English Edition) eBook: Nelsen, Roger B.</a></li>
 </ul>
 </div>
+</div>
+<div id="working-with-econsa" class="section level2">
+<h2>Working With <a href="https://github.com/OpenSourceEconomics/econsa"><code>econsa</code></a></h2>
 </div>
 <div id="example-economic-order-quantity" class="section level2">
 <h2>Example: Economic Order Quantity</h2>
@@ -428,6 +436,35 @@ where <span class="math inline">\(\mathbb{P}, \mathbb{Q}\)</span> are probabilit
 </div>
 <div id="decision-sensitivity-find-the-maximiser" class="section level2">
 <h2>Decision Sensitivity (Find the Maximiser)</h2>
+<p>TBA</p>
+</div>
+<div id="estimate-sensitivity" class="section level2">
+<h2>Estimate Sensitivity</h2>
+<ul>
+<li>Types of estimation strategies
+<ul>
+<li>Require some specific design: data must be generated under the scheme</li>
+<li>Does not require design: can use any Monte Carlo generated data, or data generated under any scheme</li>
+</ul></li>
+<li>Design schemes
+<ul>
+<li>FAST (Fourier Amplitude Sensitivity Test)</li>
+<li>RBD (Random Balance Design)</li>
+</ul></li>
+<li>Given data approaches
+<ul>
+<li>EASI (Effective Algorithm for global Sensitivity Indices)</li>
+<li>COSI (COsine transformation for global Sensitivity Indices)</li>
+</ul></li>
+<li>Meta-model (emulator) approach
+<ul>
+<li>Gaussian process</li>
+<li>Smoothing spline ANOVA</li>
+<li>Polynomial chaos expansion (this is probably relevant)</li>
+<li>Sparse grid interpolation</li>
+</ul></li>
+</ul>
+<p>(TBA when needed.)</p>
 </div>
 
     </div>

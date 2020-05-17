@@ -26,7 +26,7 @@
       <pubDate>Thu, 31 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/01/notes-math-exam/</guid>
-      <description>What Relation Space Distance  Set Collection &amp;amp; Operation Proof by Deduction Inclusion of ε  Set Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function Image Injection (One-to-one) &amp;amp; Surjection (Onto) Continuity Mean Value Intermediate Value Fix Point Contraction Limit &amp;amp; Differenciation Supremum / Infimum Maximum Maximizer &amp;amp; Argmax Concave &amp;amp; Convex Epigraph  Set × Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence Convergent Limit &amp;amp; Cluster Point (Un-)bounded  Set × Sequence   Words of warning:</description>
+      <description>What Relation Space  Distance  Set Collection &amp;amp; Operation  Proof by Deduction Inclusion of ε  Set  Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function  Image Injection (One-to-one) &amp;amp; Surjection (Onto) Continuity Mean Value Intermediate Value Fix Point Contraction Limit &amp;amp; Differenciation Supremum / Infimum Maximum Maximizer &amp;amp; Argmax Concave &amp;amp; Convex Epigraph  Set × Function  Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence  Convergent Limit &amp;amp; Cluster Point (Un-)bounded  Set × Sequence   Words of warning:</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/01/notes-math-optimization-dynamics/</guid>
-      <description>Optimization Lagrange Method Kuhn-Tucker Method Dual Problem  Dynamics Recursive Analysis Finite Markov Chain Backward Induction    Optimization Lagrange Method  PS11.Q1
+      <description>Optimization  Lagrange Method Kuhn-Tucker Method Dual Problem  Dynamics  Recursive Analysis Finite Markov Chain Backward Induction    Optimization Lagrange Method  PS11.Q1
 Solve \(\max_{(x,y)\in \mathbb{R}^2} x+y\) s.t. \(x^2+y^2=2\)
  Lagrangian: \[\mathcal{L}(x,y,λ) = x+y+λ(x^2+y^2-2)\] FOC \[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = 1 + 2λx = 0 &amp;amp;&amp;amp; x &amp;amp;= -\frac{1}{2λ} \\ \frac{\partial\mathcal{L}}{\partial y} = 1 + 2λy = 0 &amp;amp;&amp;amp; y &amp;amp;= -\frac{1}{2λ} \\ x^2+y^2=2 &amp;amp;&amp;amp; \frac{1}{4λ^2} &amp;amp;= 1 \implies λ = \pm \frac{1}{2}\end{aligned}\] 1.</description>
     </item>
@@ -46,7 +46,7 @@ Solve \(\max_{(x,y)\in \mathbb{R}^2} x+y\) s.t. \(x^2+y^2=2\)
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019/01/notes-math-proof/</guid>
-      <description>Logic Truth table Proof by Deduction  Relation Preorder (Quasi-order) Order Complete Order  Space Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation Proof by Deduction Inclusion of ε  Set Open / Closed Closure &amp;amp; Interior &amp;amp; Boundary Compact Convex Maximum &amp;amp; Supremum Dense Separated / Connected  Function Image Injection (One-to-one) &amp;amp; Surjection (Onto) Continuity Value Theorems Contraction Limit &amp;amp; Differenciation Supremum / Infimum Maximum Maximizer &amp;amp; Argmax Concave &amp;amp; Convex Epigraph  Set × Function Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence Convergent Limit &amp;amp; Cluster Point (Un-)bounded  Set × Sequence   textbook: Mathematical Methods and Models for Economists</description>
+      <description>Logic  Truth table Proof by Deduction  Relation  Preorder (Quasi-order) Order Complete Order  Space  Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation  Proof by Deduction Inclusion of ε  Set  Open / Closed Closure &amp;amp; Interior &amp;amp; Boundary Compact Convex Maximum &amp;amp; Supremum Dense Separated / Connected  Function  Image Injection (One-to-one) &amp;amp; Surjection (Onto) Continuity Value Theorems Contraction Limit &amp;amp; Differenciation Supremum / Infimum Maximum Maximizer &amp;amp; Argmax Concave &amp;amp; Convex Epigraph  Set × Function  Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence  Convergent Limit &amp;amp; Cluster Point (Un-)bounded  Set × Sequence   textbook: Mathematical Methods and Models for Economists</description>
     </item>
     
   </channel>

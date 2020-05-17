@@ -86,8 +86,6 @@ if (!doNotTrack) {
     
     Tags:
     
-    <a href='/tags/notes'>notes</a>
-    
     <a href='/tags/r'>R</a>
     
     <a href='/tags/stat'>stat</a>
@@ -98,15 +96,18 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#compare-models">Compare Models</a><ul>
+<li><a href="#compare-models">Compare Models</a>
+<ul>
 <li><a href="#choose-explanatory-variables">Choose Explanatory Variables</a></li>
 <li><a href="#choose-approach-ols-gls">Choose Approach: OLS / GLS</a></li>
 <li><a href="#weird-model">Weird Model</a></li>
 </ul></li>
-<li><a href="#r-workout">R Workout</a><ul>
+<li><a href="#r-workout">R Workout</a>
+<ul>
 <li><a href="#data-generation">Data Generation</a></li>
 <li><a href="#ols-regression">OLS Regression</a></li>
 </ul></li>
@@ -527,19 +528,19 @@ summary( PS4Q1_reg5 )
 ## lm(formula = PS4Q1_c ~ I(PS4Q1_y^PS4Q1_beta3_fix))
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -14.137  -1.320   0.127   1.520   2.480 
+##      Min       1Q   Median       3Q      Max 
+## -17.3068  -1.3838  -0.1457   1.4764   3.6828 
 ## 
 ## Coefficients:
 ##                            Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                4.950594   0.144138   34.35   &lt;2e-16 ***
-## I(PS4Q1_y^PS4Q1_beta3_fix) 0.071131   0.001061   67.03   &lt;2e-16 ***
+## (Intercept)                 5.11312    0.15853   32.25   &lt;2e-16 ***
+## I(PS4Q1_y^PS4Q1_beta3_fix)  0.06473    0.00116   55.81   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.868 on 248 degrees of freedom
-## Multiple R-squared:  0.9477, Adjusted R-squared:  0.9475 
-## F-statistic:  4493 on 1 and 248 DF,  p-value: &lt; 2.2e-16
+## Residual standard error: 2.183 on 248 degrees of freedom
+## Multiple R-squared:  0.9262, Adjusted R-squared:  0.9259 
+## F-statistic:  3115 on 1 and 248 DF,  p-value: &lt; 2.2e-16
 
 PS4Q1_beta3_fix = 1.1
 PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
@@ -550,18 +551,18 @@ summary( PS4Q1_reg5 )
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -11.0472  -0.9901   0.1515   1.1110   1.7901 
+## -13.9897  -1.0435  -0.0767   1.2072   2.6159 
 ## 
 ## Coefficients:
 ##                            Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                4.197589   0.114904   36.53   &lt;2e-16 ***
-## I(PS4Q1_y^PS4Q1_beta3_fix) 0.121844   0.001375   88.62   &lt;2e-16 ***
+## (Intercept)                4.344728   0.127380   34.11   &lt;2e-16 ***
+## I(PS4Q1_y^PS4Q1_beta3_fix) 0.114275   0.001557   73.42   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.429 on 248 degrees of freedom
-## Multiple R-squared:  0.9694, Adjusted R-squared:  0.9693 
-## F-statistic:  7853 on 1 and 248 DF,  p-value: &lt; 2.2e-16
+## Residual standard error: 1.686 on 248 degrees of freedom
+## Multiple R-squared:  0.956,  Adjusted R-squared:  0.9558 
+## F-statistic:  5390 on 1 and 248 DF,  p-value: &lt; 2.2e-16
 
 PS4Q1_beta3_fix = 1
 PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
@@ -572,18 +573,18 @@ summary( PS4Q1_reg5 )
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -7.6354 -0.6561  0.1402  0.7679  1.1948 
+## -9.9524 -0.6944 -0.0240  0.8558  1.6932 
 ## 
 ## Coefficients:
 ##                            Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                3.315096   0.082022   40.42   &lt;2e-16 ***
-## I(PS4Q1_y^PS4Q1_beta3_fix) 0.207829   0.001578  131.68   &lt;2e-16 ***
+## (Intercept)                3.427636   0.091815   37.33   &lt;2e-16 ***
+## I(PS4Q1_y^PS4Q1_beta3_fix) 0.200109   0.001845  108.47   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.9696 on 248 degrees of freedom
-## Multiple R-squared:  0.9859, Adjusted R-squared:  0.9858 
-## F-statistic: 1.734e+04 on 1 and 248 DF,  p-value: &lt; 2.2e-16
+## Residual standard error: 1.155 on 248 degrees of freedom
+## Multiple R-squared:  0.9794, Adjusted R-squared:  0.9793 
+## F-statistic: 1.176e+04 on 1 and 248 DF,  p-value: &lt; 2.2e-16
 
 PS4Q1_beta3_fix = 0.9
 PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
@@ -594,18 +595,18 @@ summary( PS4Q1_reg5 )
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -3.9485 -0.3325  0.0851  0.3708  0.6521 
+## -5.2415 -0.3319  0.0162  0.4366  0.8828 
 ## 
 ## Coefficients:
 ##                            Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                2.268965   0.044621   50.85   &lt;2e-16 ***
-## I(PS4Q1_y^PS4Q1_beta3_fix) 0.353295   0.001365  258.89   &lt;2e-16 ***
+## (Intercept)                2.330697   0.050714   45.96   &lt;2e-16 ***
+## I(PS4Q1_y^PS4Q1_beta3_fix) 0.347620   0.001647  211.08   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.4958 on 248 degrees of freedom
-## Multiple R-squared:  0.9963, Adjusted R-squared:  0.9963 
-## F-statistic: 6.703e+04 on 1 and 248 DF,  p-value: &lt; 2.2e-16
+## Residual standard error: 0.5981 on 248 degrees of freedom
+## Multiple R-squared:  0.9945, Adjusted R-squared:  0.9944 
+## F-statistic: 4.455e+04 on 1 and 248 DF,  p-value: &lt; 2.2e-16
 
 PS4Q1_beta3_fix = 0.8
 PS4Q1_reg5 = lm( PS4Q1_c ~ I( PS4Q1_y^PS4Q1_beta3_fix ))
@@ -616,18 +617,18 @@ summary( PS4Q1_reg5 )
 ## 
 ## Residuals:
 ##       Min        1Q    Median        3Q       Max 
-## -0.233761 -0.065655  0.001649  0.065985  0.219041 
+## -0.306497 -0.064712 -0.001418  0.064237  0.310347 
 ## 
 ## Coefficients:
-##                            Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                1.007710   0.009356   107.7   &lt;2e-16 ***
-## I(PS4Q1_y^PS4Q1_beta3_fix) 0.599474   0.000449  1335.0   &lt;2e-16 ***
+##                             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                1.0087893  0.0095558   105.6   &lt;2e-16 ***
+## I(PS4Q1_y^PS4Q1_beta3_fix) 0.5996132  0.0004922  1218.3   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.09631 on 248 degrees of freedom
-## Multiple R-squared:  0.9999, Adjusted R-squared:  0.9999 
-## F-statistic: 1.782e+06 on 1 and 248 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 0.1039 on 248 degrees of freedom
+## Multiple R-squared:  0.9998, Adjusted R-squared:  0.9998 
+## F-statistic: 1.484e+06 on 1 and 248 DF,  p-value: &lt; 2.2e-16</code></pre>
 <blockquote>
 <p>PS4.Q1<br />
 5. Use the US data from 1960:Q1 to 2009:Q4 with N = 200 observations available in the data set usdata.txt to estimate the parameters empirically.<br />

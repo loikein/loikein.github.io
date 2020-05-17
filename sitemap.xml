@@ -23,12 +23,12 @@
   </url>
   
   <url>
-    <loc>/post/2020/05/notes-rosenblatt-copulas/</loc>
+    <loc>/tags/micro/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
+    <loc>/post/2020/05/notes-rosenblatt-copulas/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -40,16 +40,6 @@
   <url>
     <loc>/post/2020/04/notes-applescript/</loc>
     <lastmod>2020-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/micro/</loc>
-    <lastmod>2020-04-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/notes/</loc>
-    <lastmod>2020-04-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -194,6 +184,11 @@
   
   <url>
     <loc>/post/2019/02/notes-stat-test/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   

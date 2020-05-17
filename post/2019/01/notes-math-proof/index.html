@@ -81,8 +81,6 @@ if (!doNotTrack) {
     
     Tags:
     
-    <a href='/tags/notes'>notes</a>
-    
     <a href='/tags/math'>math</a>
     
     
@@ -91,27 +89,33 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#logic">Logic</a><ul>
+<li><a href="#logic">Logic</a>
+<ul>
 <li><a href="#truth-table">Truth table</a></li>
 <li><a href="#proof-by-deduction">Proof by Deduction</a></li>
 </ul></li>
-<li><a href="#relation">Relation</a><ul>
+<li><a href="#relation">Relation</a>
+<ul>
 <li><a href="#preorder-quasi-order">Preorder (Quasi-order)</a></li>
 <li><a href="#order">Order</a></li>
 <li><a href="#complete-order">Complete Order</a></li>
 </ul></li>
-<li><a href="#space">Space</a><ul>
+<li><a href="#space">Space</a>
+<ul>
 <li><a href="#distance">Distance</a></li>
 <li><a href="#cauchy-schwarz-inequality">Cauchy-Schwarz Inequality</a></li>
 </ul></li>
-<li><a href="#set-collection-operation">Set Collection &amp; Operation</a><ul>
+<li><a href="#set-collection-operation">Set Collection &amp; Operation</a>
+<ul>
 <li><a href="#proof-by-deduction-1">Proof by Deduction</a></li>
-<li><a href="#inclusion-of-">Inclusion of ε</a></li>
+<li><a href="#inclusion-of-ε">Inclusion of ε</a></li>
 </ul></li>
-<li><a href="#set">Set</a><ul>
+<li><a href="#set">Set</a>
+<ul>
 <li><a href="#open-closed">Open / Closed</a></li>
 <li><a href="#closure-interior-boundary">Closure &amp; Interior &amp; Boundary</a></li>
 <li><a href="#compact">Compact</a></li>
@@ -120,7 +124,8 @@ if (!doNotTrack) {
 <li><a href="#dense">Dense</a></li>
 <li><a href="#separated-connected">Separated / Connected</a></li>
 </ul></li>
-<li><a href="#function">Function</a><ul>
+<li><a href="#function">Function</a>
+<ul>
 <li><a href="#image">Image</a></li>
 <li><a href="#injection-one-to-one-surjection-onto">Injection (One-to-one) &amp; Surjection (Onto)</a></li>
 <li><a href="#continuity">Continuity</a></li>
@@ -133,11 +138,13 @@ if (!doNotTrack) {
 <li><a href="#concave-convex">Concave &amp; Convex</a></li>
 <li><a href="#epigraph">Epigraph</a></li>
 </ul></li>
-<li><a href="#set-function">Set × Function</a><ul>
+<li><a href="#set-function">Set × Function</a>
+<ul>
 <li><a href="#injection-surjection-revisited">Injection &amp; Surjection (revisited)</a></li>
 <li><a href="#finite-countable">Finite &amp; Countable</a></li>
 </ul></li>
-<li><a href="#sequence">Sequence</a><ul>
+<li><a href="#sequence">Sequence</a>
+<ul>
 <li><a href="#convergent">Convergent</a></li>
 <li><a href="#limit-cluster-point">Limit &amp; Cluster Point</a></li>
 <li><a href="#un-bounded">(Un-)bounded</a></li>
@@ -153,7 +160,7 @@ if (!doNotTrack) {
 <li>s.t. means “such that”</li>
 </ul>
 <p>~</p>
-<ul>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" checked="" />
 PS1 ~ 10</li>
 <li><input type="checkbox" disabled="" checked="" />
@@ -331,7 +338,7 @@ Prove that <span class="math inline">\(R\)</span> is a complete order</p>
 <li>vector (linear) space <span class="math inline">\(\supset\)</span> normed vector space <span class="math inline">\(\supset\)</span> Banach space <span class="math inline">\(\supset\)</span> Euclidean space</li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-math-proof--spaces.png" alt="Relation of Spaces, Source: Space – AKKAWUTVANICH" />
+<img src="/post-img/notes-math-proof--spaces.png" alt="" />
 <p class="caption">Relation of Spaces, Source: <a href="https://akkawutvanich.wordpress.com/2017/11/09/space/">Space – AKKAWUTVANICH</a></p>
 </div>
 <div id="distance" class="section level3">
@@ -503,7 +510,7 @@ Prove that <span class="math inline">\((A\backslash B)^c = A^c \cup B\)</span></
    $\implies x \inf^{-1}\big( \cap B_i \big)$
  -->
 </div>
-<div id="inclusion-of-" class="section level3">
+<div id="inclusion-of-ε" class="section level3">
 <h3>Inclusion of ε</h3>
 <blockquote>
 <p>PS2.Q8, PS3.Q8<br />
@@ -895,7 +902,7 @@ Is it surjective?</p>
 <li>Function <span class="math inline">\(f: X\to Y\)</span> is continuous <span class="math inline">\(\iff\)</span> for open set <span class="math inline">\(A \in Y\)</span>, its inverse image <span class="math inline">\(f^{-1}(A)\)</span> is open</li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-math-proof--continuity.png" alt="Continuous Function, textbook P67 Figure 2.7.a" />
+<img src="/post-img/notes-math-proof--continuity.png" alt="" />
 <p class="caption">Continuous Function, textbook P67 Figure 2.7.a</p>
 </div>
 <blockquote>
@@ -1034,7 +1041,7 @@ if for all <span class="math inline">\(x,x&#39;\in X\)</span>, <span class="math
 then <span class="math inline">\(f\)</span> has a unique fixed point</li>
 </ul>
 <div class="figure">
-<img src="/post-img/notes-math-proof--contraction-fixed-point.png" alt="Contraction Mapping, textbook P86 Figure 2.11" />
+<img src="/post-img/notes-math-proof--contraction-fixed-point.png" alt="" />
 <p class="caption">Contraction Mapping, textbook P86 Figure 2.11</p>
 </div>
 <blockquote>

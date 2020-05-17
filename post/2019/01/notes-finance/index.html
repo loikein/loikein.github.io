@@ -81,8 +81,6 @@ if (!doNotTrack) {
     
     Tags:
     
-    <a href='/tags/notes'>notes</a>
-    
     <a href='/tags/finance'>finance</a>
     
     
@@ -91,10 +89,12 @@ if (!doNotTrack) {
     
     <div class="article-content">
       
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#general-principles">General Principles</a><ul>
+<li><a href="#general-principles">General Principles</a>
+<ul>
 <li><a href="#net-present-value-npv">Net Present Value (NPV)</a></li>
 <li><a href="#interest-rates">Interest Rates</a></li>
 <li><a href="#internal-rate-of-return-irr">Internal Rate of Return (IRR)</a></li>
@@ -105,50 +105,60 @@ if (!doNotTrack) {
 <li><a href="#law-of-one-price">Law of One Price</a></li>
 <li><a href="#efficient-markets-hypothesis">Efficient Markets Hypothesis</a></li>
 </ul></li>
-<li><a href="#cash-flow-stream">Cash Flow Stream</a><ul>
+<li><a href="#cash-flow-stream">Cash Flow Stream</a>
+<ul>
 <li><a href="#perpetuity">Perpetuity</a></li>
 <li><a href="#annuity">Annuity</a></li>
 </ul></li>
-<li><a href="#decision-rules">Decision Rules</a><ul>
+<li><a href="#decision-rules">Decision Rules</a>
+<ul>
 <li><a href="#npv-rule">NPV Rule</a></li>
 <li><a href="#irr-rule">IRR Rule</a></li>
 <li><a href="#payback-rule">Payback Rule</a></li>
 </ul></li>
-<li><a href="#bond">Bond</a><ul>
+<li><a href="#bond">Bond</a>
+<ul>
 <li><a href="#bond-price">Bond Price</a></li>
 <li><a href="#zero-coupon-bond">Zero-Coupon Bond</a></li>
 <li><a href="#coupon-bond">Coupon Bond</a></li>
 </ul></li>
-<li><a href="#stock">Stock</a><ul>
+<li><a href="#stock">Stock</a>
+<ul>
 <li><a href="#dividend-discount-model">Dividend-Discount Model</a></li>
 <li><a href="#total-payout-model">Total Payout Model</a></li>
 <li><a href="#discounted-fcf-free-cash-flow-model">Discounted FCF (Free Cash Flow) Model</a></li>
 </ul></li>
-<li><a href="#capm-capital-asset-pricing-model">CAPM (Capital Asset Pricing Model)</a><ul>
+<li><a href="#capm-capital-asset-pricing-model">CAPM (Capital Asset Pricing Model)</a>
+<ul>
 <li><a href="#capm-assumptions">CAPM Assumptions</a></li>
 <li><a href="#risk-and-return">Risk and Return</a></li>
-<li><a href="#risk-measurement-and-">Risk Measurement and <span class="math inline">\(β\)</span></a></li>
+<li><a href="#risk-measurement-and-β">Risk Measurement and <span class="math inline">\(β\)</span></a></li>
 <li><a href="#portfolio">Portfolio</a></li>
 <li><a href="#combined-portfolio">Combined Portfolio</a></li>
 </ul></li>
-<li><a href="#capital-structure">Capital Structure</a><ul>
+<li><a href="#capital-structure">Capital Structure</a>
+<ul>
 <li><a href="#perfect-capital-market-assumptions">Perfect Capital Market Assumptions</a></li>
 <li><a href="#finance-a-firm">Finance A Firm</a></li>
 <li><a href="#leverage-and-risk">Leverage and Risk</a></li>
 </ul></li>
-<li><a href="#debt-and-tax">Debt and Tax</a><ul>
+<li><a href="#debt-and-tax">Debt and Tax</a>
+<ul>
 <li><a href="#interest-tax-shield">Interest Tax Shield</a></li>
 <li><a href="#personal-tax">Personal Tax</a></li>
 </ul></li>
-<li><a href="#financial-distress">Financial Distress</a><ul>
+<li><a href="#financial-distress">Financial Distress</a>
+<ul>
 <li><a href="#trade-off-theory">Trade-Off Theory</a></li>
 </ul></li>
-<li><a href="#stock-payout">Stock Payout</a><ul>
+<li><a href="#stock-payout">Stock Payout</a>
+<ul>
 <li><a href="#dividend">Dividend</a></li>
 <li><a href="#share-repurchase">Share Repurchase</a></li>
 <li><a href="#tax-and-dividend">Tax and Dividend</a></li>
 </ul></li>
-<li><a href="#options">Options</a><ul>
+<li><a href="#options">Options</a>
+<ul>
 <li><a href="#put-call-parity">Put-Call Parity</a></li>
 <li><a href="#early-exercise-american">Early Exercise (American)</a></li>
 <li><a href="#binomial-option-pricing-model">Binomial Option Pricing Model</a></li>
@@ -671,7 +681,7 @@ from the relationship between the average return and the historical volatility o
 For stocks, no clear relation exists.<br />
 <img src="/post-img/notes-finance--PS.10-14.png" width="472" /></p>
 </div>
-<div id="risk-measurement-and-" class="section level3">
+<div id="risk-measurement-and-β" class="section level3">
 <h3>Risk Measurement and <span class="math inline">\(β\)</span></h3>
 <ul>
 <li>Market Portfolio <span class="math inline">\(\subset\)</span> Efficient Portfolios: cannot be further diversified</li>
