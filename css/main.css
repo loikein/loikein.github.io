@@ -10,10 +10,10 @@ html {
 	--light-grey: #F1F1F1; /* light-grey*/
 	--dark-grey: #BBB;
 	--black: #222;
-	--theme: #F9BCBD; /* pink */
-	--theme-dark: #CF3643; /* dark pink */
-	--theme-alt: #ABD8F7; /* blue */
-	--theme-alt-dark: #1C73BE; /* dark blue */
+	--theme: #FAB8B8; /* pink */
+	--theme-dark: #CB455B; /* dark pink */
+	--theme-alt: #ACD7EE; /* blue */
+	--theme-alt-dark: #037BBA; /* dark blue */
 }
 
 html,body {
@@ -429,10 +429,10 @@ strong {
 		--light-grey: #111111; /* very-black*/
 		--dark-grey: #4D4D4D;
 		--black: #FFF;
-		--theme: #EC8E8F; /* pink */
-		--theme-dark: #F9BCBD; /* light pink */
-		--theme-alt: #57A5DB; /* blue */
-		--theme-alt-dark: #ABD8F7; /* light blue */
+		--theme: #FB8E93; /* pink */
+		--theme-dark: #FAB8B8; /* light pink */
+		--theme-alt: #5DB5F5; /* blue */
+		--theme-alt-dark: #ACD7EE; /* light blue */
 	}
 }
 
