@@ -68,7 +68,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">7 min read</span>
+    <span class="article-duration">8 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -99,10 +99,9 @@ if (!doNotTrack) {
 <li><a href="#links">Links</a></li>
 <li><a href="#papers-books">Papers &amp; Books</a></li>
 </ul></li>
-<li><a href="#working-with-econsa">Working With <span><code>econsa</code></span></a></li>
-<li><a href="#example-economic-order-quantity">Example: Economic Order Quantity</a>
+<li><a href="#working-with-econsa">Working With <span><code>econsa</code></span></a>
 <ul>
-<li><a href="#model">Model</a></li>
+<li><a href="#eoq-economic-order-quantity-model">EOQ (Economic Order Quantity) Model</a></li>
 </ul></li>
 <li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a>
 <ul>
@@ -174,13 +173,24 @@ if (!doNotTrack) {
 </div>
 <div id="working-with-econsa" class="section level2">
 <h2>Working With <a href="https://github.com/OpenSourceEconomics/econsa"><code>econsa</code></a></h2>
-</div>
-<div id="example-economic-order-quantity" class="section level2">
-<h2>Example: Economic Order Quantity</h2>
+<div id="eoq-economic-order-quantity-model" class="section level3">
+<h3>EOQ (Economic Order Quantity) Model</h3>
 <p>From: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0377221715005469">Borgonovo &amp; Plischke (2016)</a></p>
-<div id="model" class="section level3">
-<h3>Model</h3>
 <ul>
+<li>Notation from <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.38.6.947">Harris (1990)</a>:
+<span class="math display">\[\begin{aligned}T &amp;= \frac{1}{2\cdot 12R\cdot M}(CX + S) +\frac{S}{X} + C \\
+X^* &amp;= \sqrt{\frac{24R\cdot MS}{C}} \\
+T^* &amp;= \Big( \sqrt{\frac{S}{24R\cdot M}}+\sqrt{C} \Big)^2 \end{aligned}\]</span>
+<ul>
+<li>Total cost: <span class="math inline">\(T\)</span></li>
+<li>Interest &amp; depreciation cost: <span class="math inline">\(R=10\)</span></li>
+<li>Unit price of items: <span class="math inline">\(C\)</span></li>
+<li>Units per month: <span class="math inline">\(M\)</span></li>
+<li>Ordering cost: <span class="math inline">\(S\)</span></li>
+</ul></li>
+<li>Notation from this paper:
+<span class="math display">\[\begin{aligned}y &amp;= g(x) \\
+&amp;= \sqrt{\frac{24r\cdot x_1 x_3}{x_2}} \end{aligned}\]</span></li>
 <li>Output: <span class="math inline">\(\mathbf{y}\in\mathcal{Y}\subset\mathbb{R}^D\)</span></li>
 <li>Inputs: <span class="math inline">\(\mathbf{x}\in\mathcal{X}\subset\mathbb{R}^n\)</span>
 <ul>
@@ -188,9 +198,10 @@ if (!doNotTrack) {
 <li>Unit price of items: <span class="math inline">\(x_2\)</span></li>
 <li>Ordering cost: <span class="math inline">\(x_3\)</span></li>
 </ul></li>
-<li>Technology: <span class="math inline">\(g: \mathcal{Y}\to \mathcal{X}\)</span></li>
-<li>Economic order quantity:
-<span class="math display">\[y = \sqrt{\frac{240\cdot x_1 x_3}{x_2}}\]</span></li>
+<li>Technology: <span class="math inline">\(g: \mathcal{Y}\to \mathcal{X}\)</span>
+<ul>
+<li>Interest &amp; depreciation cost: <span class="math inline">\(r=10\)</span></li>
+</ul></li>
 <li>Subset of inputs: <span class="math inline">\(\mathbf{x}_{\alpha} = \{x_{i_1}, x_{i_2}, \dots, x_{i_k}\}\)</span>
 <ul>
 <li>Index: <span class="math inline">\(\alpha = \{i_1, i_2, \dots, i_k\}\)</span>, <span class="math inline">\(k\leq n\)</span></li>
