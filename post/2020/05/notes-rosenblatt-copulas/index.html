@@ -31,6 +31,11 @@ if (!doNotTrack) {
 
 
 
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
 <link rel="stylesheet" href="/css/normalize.css" media="all">
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
@@ -68,7 +73,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">8 min read</span>
+    <span class="article-duration">9 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -102,6 +107,11 @@ if (!doNotTrack) {
 <li><a href="#working-with-econsa">Working With <span><code>econsa</code></span></a>
 <ul>
 <li><a href="#eoq-economic-order-quantity-model">EOQ (Economic Order Quantity) Model</a></li>
+<li><a href="#main-code">Main Code</a></li>
+<li><a href="#figure-1-from-harris-1990">Figure 1 from Harris (1990)</a></li>
+<li><a href="#figure-2-from-borgonovo-plischke-2016">Figure 2 from Borgonovo &amp; Plischke (2016)</a></li>
+<li><a href="#figure-3-from-borgonovo-plischke-2016">Figure 3 from Borgonovo &amp; Plischke (2016)</a></li>
+<li><a href="#figure-4-from-borgonovo-plischke-2016">Figure 4 from Borgonovo &amp; Plischke (2016)</a></li>
 </ul></li>
 <li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a>
 <ul>
@@ -212,6 +222,95 @@ T^* &amp;= \Big( \sqrt{\frac{S}{24R\cdot M}}+\sqrt{C} \Big)^2 \end{aligned}\]</s
 <li>Also: importance measure</li>
 </ul></li>
 </ul>
+</div>
+<div id="main-code" class="section level3">
+<h3>Main Code</h3>
+<p>Set up:</p>
+<pre class="python"><code>import numpy as np
+import scipy.stats as stats
+import chaospy as cp
+import matplotlib.pyplot as plt
+import seaborn as sns</code></pre>
+<p>Code for this model:</p>
+<pre class="python"><code>def eoq_harris(params, x):
+    &quot;&quot;&quot;
+    Economic order quantity model by Harris (1990),
+    https://doi.org/10.1287/opre.38.6.947,
+    as seen in Borgonovoa &amp; Plischkeb (2016),
+    https://doi.org/10.1016/j.ejor.2015.06.032
+    
+    Equation: y = sqrt(24*r*x1*x3 / x2),
+    where r is interest &amp; depreciation rate,
+    and takes a value of 10 in both papers.
+    
+    Args: 
+        params (np.array): 1d numpy array,
+                           cuurrently only take the first param,
+                           which is interest &amp; depreciation rate, r=10.
+        x (np.array or list): 2d numpy array with the independent variables,
+                              currently only take the first 3 columns.
+    Output:
+        y (np.array): 1d numpy array with the dependent variables.
+    &quot;&quot;&quot;
+    
+    x_np = np.array(x)
+    r = params.flatten()[0]
+    
+    y = np.zeros(x_np.T.shape[0])
+    y = np.sqrt((24 * r * x_np[0] * x_np[2])/x_np[1])
+    
+    return(y)</code></pre>
+<p>Code for generating data (Monte Carlo):</p>
+<pre class="python"><code># Set flags
+
+seed = 1234
+n = 10000
+
+x_min_multiplier = 0.9
+x_max_multiplier = 1.1
+x0_1 = 1230
+x0_2 = 0.0135
+x0_3 = 2.15
+
+params = np.zeros(shape=(1,1))
+params[0,0] = 10
+
+# Monte Carlo with rvs
+np.random.seed(seed)
+x_1 = stats.uniform(x_min_multiplier*x0_1,
+                    x_max_multiplier*x0_1).rvs(10000)
+x_2 = stats.uniform(x_min_multiplier*x0_2,
+                    x_max_multiplier*x0_2).rvs(10000)
+x_3 = stats.uniform(x_min_multiplier*x0_3,
+                    x_max_multiplier*x0_3).rvs(10000)
+x = np.array([x_1, x_2, x_3])
+
+# Monte Carlo with Chaospy
+sample_rule = &quot;random&quot;
+np.random.seed(seed)
+x_1 = cp.Uniform(x_min_multiplier*x0_1,
+                 x_max_multiplier*x0_1).sample(n, rule=sample_rule)
+x_2 = cp.Uniform(x_min_multiplier*x0_2,
+                 x_max_multiplier*x0_2).sample(n, rule=sample_rule)
+x_3 = cp.Uniform(x_min_multiplier*x0_3,
+                 x_max_multiplier*x0_3).sample(n, rule=sample_rule)
+x = np.array([x_1, x_2, x_3])
+
+# Calculate y
+y = eoq_harris(params, x)</code></pre>
+</div>
+<div id="figure-1-from-harris-1990" class="section level3">
+<h3>Figure 1 from Harris (1990)</h3>
+<p><img src="/post-img/notes-rosenblatt-copulas--harris-fig1.png" width="479" /></p>
+</div>
+<div id="figure-2-from-borgonovo-plischke-2016" class="section level3">
+<h3>Figure 2 from Borgonovo &amp; Plischke (2016)</h3>
+</div>
+<div id="figure-3-from-borgonovo-plischke-2016" class="section level3">
+<h3>Figure 3 from Borgonovo &amp; Plischke (2016)</h3>
+</div>
+<div id="figure-4-from-borgonovo-plischke-2016" class="section level3">
+<h3>Figure 4 from Borgonovo &amp; Plischke (2016)</h3>
 </div>
 </div>
 <div id="local-sensitivity-analysis" class="section level2">
@@ -447,7 +546,7 @@ where <span class="math inline">\(\mathbb{P}, \mathbb{Q}\)</span> are probabilit
 </div>
 <div id="decision-sensitivity-find-the-maximiser" class="section level2">
 <h2>Decision Sensitivity (Find the Maximiser)</h2>
-<p>TBA</p>
+<p>(TBA when needed.)</p>
 </div>
 <div id="estimate-sensitivity" class="section level2">
 <h2>Estimate Sensitivity</h2>
@@ -507,6 +606,20 @@ where <span class="math inline">\(\mathbb{P}, \mathbb{Q}\)</span> are probabilit
     </div>
     
     
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/applescript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/vim.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
     
 <script src="/js/math-code.js"></script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-MML-AM_CHTML"></script>
