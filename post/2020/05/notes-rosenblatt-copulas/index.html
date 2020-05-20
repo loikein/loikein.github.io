@@ -33,7 +33,7 @@ if (!doNotTrack) {
 
 
 
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/atom-one-light.min.css' rel='stylesheet' type='text/css' />
 
 
 <link rel="stylesheet" href="/css/normalize.css" media="all">
@@ -73,7 +73,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">9 min read</span>
+    <span class="article-duration">11 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -108,10 +108,10 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#eoq-economic-order-quantity-model">EOQ (Economic Order Quantity) Model</a></li>
 <li><a href="#main-code">Main Code</a></li>
-<li><a href="#figure-1-from-harris-1990">Figure 1 from Harris (1990)</a></li>
 <li><a href="#figure-2-from-borgonovo-plischke-2016">Figure 2 from Borgonovo &amp; Plischke (2016)</a></li>
 <li><a href="#figure-3-from-borgonovo-plischke-2016">Figure 3 from Borgonovo &amp; Plischke (2016)</a></li>
 <li><a href="#figure-4-from-borgonovo-plischke-2016">Figure 4 from Borgonovo &amp; Plischke (2016)</a></li>
+<li><a href="#figure-1-from-harris-1990">Figure 1 from Harris (1990)</a></li>
 </ul></li>
 <li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a>
 <ul>
@@ -299,18 +299,134 @@ x = np.array([x_1, x_2, x_3])
 # Calculate y
 y = eoq_harris(params, x)</code></pre>
 </div>
-<div id="figure-1-from-harris-1990" class="section level3">
-<h3>Figure 1 from Harris (1990)</h3>
-<p><img src="/post-img/notes-rosenblatt-copulas--harris-fig1.png" width="479" /></p>
-</div>
 <div id="figure-2-from-borgonovo-plischke-2016" class="section level3">
 <h3>Figure 2 from Borgonovo &amp; Plischke (2016)</h3>
+<p>Original:</p>
+<p><img src="/post-img/notes-rosenblatt-copulas--bp-fig2.png" width="603" /></p>
+<pre class="python"><code>plt.clf()
+sns.distplot(y, hist_kws=dict(cumulative=True))
+
+plt.clf()
+sns.distplot(y)</code></pre>
 </div>
 <div id="figure-3-from-borgonovo-plischke-2016" class="section level3">
 <h3>Figure 3 from Borgonovo &amp; Plischke (2016)</h3>
+<p>Original:</p>
+<p><img src="/post-img/notes-rosenblatt-copulas--bp-fig3.png" width="702" /></p>
+<pre class="python"><code>plt.clf()
+sns.regplot(x=x[0], y=y,
+            scatter_kws={&quot;alpha&quot;:0.05})
+
+plt.clf()
+sns.regplot(x=x[1], y=y, order=2,
+            scatter_kws={&quot;alpha&quot;:0.05})
+
+plt.clf()
+sns.regplot(x=x[2], y=y,
+            scatter_kws={&quot;alpha&quot;:0.05}) </code></pre>
 </div>
 <div id="figure-4-from-borgonovo-plischke-2016" class="section level3">
 <h3>Figure 4 from Borgonovo &amp; Plischke (2016)</h3>
+<p>In this graph, we need to calculate <span class="math inline">\(y\)</span> for every single value of one of <span class="math inline">\(x_i\)</span>, resulting in a 10000*10000 array.</p>
+<p><img src="/post-img/notes-rosenblatt-copulas--bp-fig4.png" /></p>
+<p>Function:</p>
+<pre class="python"><code>def eoq_harris_partial(params, x, fix_num=0):
+    &quot;&quot;&quot;
+    Calculate the value of eoq_harris,
+    fixing one x.
+    
+    Args: 
+        params (np.array): 1d numpy array,
+                           cuurrently only need the first param,
+                           which is interest &amp; depreciation rate, r=10.
+        x (np.array or list): 2d numpy array with the independent variables,
+                              currently only need the first 3 columns.
+        fix_num (int): take value of 0~n-1.
+    Output:
+        y (np.array): 2d numpy array with the dependent variables,
+                      keeping the fix_num-th x fixed.
+    &quot;&quot;&quot;
+    
+    x_np = np.array(x)
+    r = params.flatten()[0]
+    
+    y = np.zeros(shape=(x_np.T.shape[0],x_np.T.shape[0]))
+    
+    if fix_num==0:
+        for i,x_i in enumerate(x_np[fix_num]):
+            y[i] = np.sqrt((24 * r * x_i * x_np[2])/x_np[1])
+    elif fix_num==1:
+        for i,x_i in enumerate(x_np[fix_num]):
+            y[i] = np.sqrt((24 * r * x_np[0] * x_np[2])/x_i)
+    elif fix_num==2:
+        for i,x_i in enumerate(x_np[fix_num]):
+            y[i] = np.sqrt((24 * r * x_np[0] * x_i)/x_np[1])
+    return(y)</code></pre>
+<p>Calculate &amp; plotting:</p>
+<pre class="python"><code>y_fix_x_0 = eoq_harris_partial(params, x, fix_num=0)
+
+# Don&#39;t try at home! You are warned!
+plt.clf()
+for item in y_fix_x_0:
+    sns.kdeplot(item)</code></pre>
+</div>
+<div id="figure-1-from-harris-1990" class="section level3">
+<h3>Figure 1 from Harris (1990)</h3>
+<p>Since this figure is using deterministic data, we must use different data generation process for it.</p>
+<p><img src="/post-img/notes-rosenblatt-copulas--harris-fig1.png" width="479" /></p>
+<p>Function:</p>
+<pre class="python"><code>def eoq_harris_total_cost(params, x, y):
+    &quot;&quot;&quot;
+    Economic order quantity model by Harris (1990),
+    https://doi.org/10.1287/opre.38.6.947,
+    as seen in Borgonovoa &amp; Plischkeb (2016),
+    https://doi.org/10.1016/j.ejor.2015.06.032
+    
+    For plotting convenience, the total cost here excludes ordering cost,
+    since it is assumed to be constant, as in Harris (1990).
+    
+    Args: 
+        params (np.array): 1d numpy array,
+                           cuurrently only take the first param,
+                           which is interest &amp; depreciation rate, r=10.
+        x (np.array or list): 1d numpy array with the independent variables,
+                              unis per month, unit cost, ordering cost.
+        y (np.array): 1d numpy array, the size of order.
+    Output:
+        t (np.array): 1d numpy array, total cost according to each size.
+    &quot;&quot;&quot;
+    
+    x_np = np.array(x)
+    params_np = np.array(params)
+    r = params_np.flatten()[0]
+    
+    t = np.zeros(y.shape)
+    
+    t_setup = np.zeros(y.shape)
+    t_setup = (1/y) * x[2]
+    
+    t_interest = np.zeros(y.shape)
+    t_interest = 1/(24 * r * x[0]) * (y*x[1] + x[2])
+    
+    t = t_setup + t_interest
+    
+    return(t_setup, t_interest, t)</code></pre>
+<p>Data generation:</p>
+<pre class="python"><code>y = np.arange(300,5200,1)
+
+x_1 = 1000
+x_2 = 0.1
+x_3 = 2
+
+x = np.array([x_1, x_2, x_3])
+
+t_setup, t_interest, t = eoq_harris_total_cost(params, x, y)</code></pre>
+<p>Plotting:</p>
+<pre class="python"><code>plt.clf()
+sns.lineplot(x=y, y=t_setup)
+sns.lineplot(x=y, y=t_interest)
+sns.lineplot(x=y, y=t)
+plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pre>
 </div>
 </div>
 <div id="local-sensitivity-analysis" class="section level2">
