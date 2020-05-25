@@ -98,7 +98,7 @@ Here go the presenter notes.
 
 - For each agent `\(t\geq 2\)`, assigning __ordered intervals__ `\(I^t\)`
     - For agent `\(t=2\)`, `\(I^2 = (-\infty,i^2]\)`
-    - For agnet `\(t\geq 3\)`, `\(I^t=(i^{t-1}, i^t]\)`
+    - For agent `\(t\geq 3\)`, `\(I^t=(i^{t-1}, i^t]\)`
     - If `\(i^{t-1}=i^t\)`, then `\(I^t=\emptyset\)`
 - If `\(R_1\in I^τ\)` for some `\(τ\leq T\)`, agent `\(τ\)` is the first agent sent message `\(M_2\)`
     - `\(R_2\)` is realised
@@ -166,7 +166,7 @@ Here go the presenter notes.
 
 ---
 
-## Example: Incentive Compatiblity
+## Example: Incentive Compatibility
 
 - `\(M_2\)` is incentive compatible if
 `$$\begin{aligned}E\big[R_2-R_1\ |\ M_2\big]&amp;\geq 0 \\
@@ -174,7 +174,7 @@ Here go the presenter notes.
 
 --
 
-- When receiving `\(M_1\)`, agent 3's incentive compatiblity constraint:
+- When receiving `\(M_1\)`, agent 3's incentive compatibility constraint:
 `$$\int_{R_2&lt;R_1\leq\mu_{2}}(R_1 - R_2)\, dπ + \int_{R_1&gt;\mu_2+x}(R_1-\mu_2)\, dπ\geq 0$$`
 - When receiving `\(M_2\)`:
 `$$\int_{R_1\leq\mu_{2},\ R_1 \leq R_2}(R_2-R_1)\, dπ + \int_{R_1\leq\mu_2+x}(\mu_2-R_1)\, dπ\geq 0$$`
@@ -220,14 +220,14 @@ Let `\(\theta_t\)` be the maximum value of `\(R_1\)` where
 
 ## Extensions
 
-- `\(\to\)` Imperfect infomation about location
+- `\(\to\)` Imperfect information about location
 - Stochastic reward
 - Principal can make monetary transfers to incentivise exploration
 - More than two alternatives
 
 ---
 
-## Imperfect Infomation
+## Imperfect Information
 
 - Agents: `\(t\in T\)`
 
@@ -324,9 +324,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -334,8 +350,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();
-</script>
+})();</script>
 
 <script>
 slideshow._releaseMath = function(el) {

@@ -28,6 +28,13 @@ body {
 	-moz-font-feature-settings: "liga" on;
 }
 
+:focus:not([tabindex="-1"]) {
+  outline: 3px solid var(--theme-dark);
+  outline-offset: 3px;
+  border: 0;
+}
+
+
 main {
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -60,6 +67,10 @@ a {
 	outline: none;
 }
 
+mark {
+	background: var(--theme);
+}
+
 table {
 	margin: auto;
 	min-width: 80%;
@@ -78,8 +89,20 @@ table, table tr th, table tr td{
 
 blockquote{
 	background: var(--light-grey);
-	padding: 0 0 0 1rem;
+	padding: 1px 1rem 1px 1rem;
+	margin-left: 0;
+	margin-right: 0;
 	border-left: 5px solid var(--theme);
+}
+
+blockquote.quote {
+	background: none; 
+	border-bottom: 5px solid var(--theme);
+}
+
+blockquote.question {
+	background: none;
+	border-top: 5px solid var(--theme);
 }
 
 strong {
@@ -93,14 +116,15 @@ strong {
 	position: relative;
 }
 
-.header {
+/* do not use class here since it affects table header */
+header.header {
 	padding: 25px 0;
 	position: relative;
 	border-bottom: 1px solid var(--light-grey);
 	border-top: 5px solid transparent;
 }
 
-.header::before {
+header.header::before {
 	background: var(--theme);
 	background: -o-repeating-linear-gradient(290deg, var(--theme) 20px, var(--theme) 40px, var(--theme-alt) 40px, var(--theme-alt) 60px);
 	background: repeating-linear-gradient(160deg, var(--theme) 20px, var(--theme) 40px, var(--theme-alt) 40px, var(--theme-alt) 60px);
@@ -284,8 +308,19 @@ strong {
 	border: 2px outset var(--light-grey);
 }
 
-/* fix mjx margin */
-.article-content mjx-container[jax="CHTML"][display="true"]{ margin: 0.5em 0; }
+/* mjx margin & scroll quick fix, introduce bug in Safari */
+.article-content mjx-container[jax="CHTML"][display="true"]{
+	margin: 0.5em 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+/* experimenting */
+/* .article-content mjx-assistive-mml {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0 !important;
+} */
 
 /* links */
 

@@ -8,6 +8,11 @@
 	all: unset;
 }
 
+#TOC *:focus:not([tabindex="-1"]) {
+  outline: 3px solid var(--theme-dark);
+  outline-offset: -3px;
+}
+
 #TOC{
 	/*display: flex;
 	flex-direction: column;
@@ -21,7 +26,7 @@
 	z-index: 10000;
 	box-sizing: border-box;
 	color:var(--black);
-    background: var(--white);
+  background: var(--white);
 	font-size: 0.8rem;
 	line-height: 1.3;
 	border: 1px solid var(--light-grey);
@@ -56,7 +61,8 @@
 /* active */
 
 #TOC a:hover,
-#TOC a:active {
+#TOC a:active,
+#TOC a:focus {
 	border-left-color: var(--theme);
 	color: var(--theme-dark);
 }
@@ -79,6 +85,7 @@
 
 #TOC ul a:hover,
 #TOC ul a:active,
+#TOC ul a:focus,
 #TOC ul li.active > a {
 	border-left-width: 3px;
 	border-left-style: solid;
@@ -102,6 +109,7 @@
 
 #TOC ul ul a:hover,
 #TOC ul ul a:active,
+#TOC ul ul a:focus,
 #TOC ul ul li.active > a {
 	border-left-width: 2px;
 	border-left-style: solid;

@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Hugo 0.71.1" />
 
-<title>loikein&#39;s notes</title>
-<meta property="og:title" content="loikein&#39;s notes">
-<meta property="og:type" content="website">
+<title>Notes on SCSS - loikein&#39;s notes</title>
+<meta property="og:title" content="Notes on SCSS - loikein&#39;s notes">
 
 
 <script type="application/javascript">
@@ -27,19 +26,20 @@ if (!doNotTrack) {
   <link rel='icon' href='/favicon.ico' type='image/x-icon'/>
 
 
-<meta property="description" content="Personal research blog about maths, economics and programming">
+  
 
 
 
-<link rel="feed" href="/index.xml" type="application/rss+xml" title="loikein&#39;s notes" />
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/atom-one-light.min.css' rel='stylesheet' type='text/css' />
 
 
 <link rel="stylesheet" href="/css/normalize.css" media="all">
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
 <link rel="stylesheet" href="/css/clumsy-toc.css" media="all">
-
-<link rel="stylesheet" href="/css/clumsy-update.css" media="all">
 
 
 
@@ -73,29 +73,91 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <h1 class="article-title">loikein&#39;s notes</h1>
+    <span class="article-duration">1 min read</span>
+    
+    <h1 class="article-title">Notes on SCSS</h1>
+    
+    <span class="article-date">2020-05-25</span>
+    
+    
+    
+    <span class="tags">
+    
+    
+    Tags:
+    
+    <a href='/tags/programming'>Programming</a>
+    
+    
+    
+    </span>
+    
     <div class="article-content">
       
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
-
-<div id="last-update" class="section level2">
-<h2>Last Update</h2>
-</div>
-<div id="find-me-elsewhere" class="section level2">
-<h2><a href="//www.loikein.one">Find Me Elsewhere</a></h2>
-</div>
-<div id="dependencies" class="section level2">
-<h2>Dependencies</h2>
+<div id="TOC">
 <ul>
-<li>Favicon created with <a href="https://hundredrabbits.itch.io/dotgrid">Dotgrid</a></li>
-<li>Avatar created with <a href="https://charat.me/profile/">CHARAT YOCO</a></li>
-<li>Theme: <a href="https://github.com/jrutheiser/hugo-lithium-theme">jrutheiser/hugo-lithium-theme</a>, modified by <a href="https://github.com/yihui/hugo-lithium">Yihui</a> and <a href="https://github.com/loikein/hugo-lithium-loikein">me</a><br />
-</li>
-<li>TOC: <a href="https://github.com/FallenMax/smart-toc">FallenMax/smart-toc</a>, modified by <a href="https://github.com/loikein/clumsy-toc">me</a></li>
-<li>Last Update: <a href="https://github.com/loikein/clumsy-update">me/clumsy-update</a></li>
-<li>Findme Elsewhere: <a href="https://github.com/loikein/clumsy-findme">me/clumsy-findme</a></li>
+<li><a href="#variable">Variable</a></li>
+<li><a href="#nesting">Nesting</a>
+<ul>
+<li><a href="#selector">Selector</a></li>
+<li><a href="#psudo-things">Psudo-Things</a></li>
+<li><a href="#property">Property</a></li>
+</ul></li>
 </ul>
+</div>
+
+<div id="variable" class="section level2">
+<h2>Variable</h2>
+<pre class="scss"><code>$white: #FCFCFC;
+$border-standard: 3px solid grey;
+
+.container {
+    background: $white;
+    border-bottom: $border-standard;
+}</code></pre>
+</div>
+<div id="nesting" class="section level2">
+<h2>Nesting</h2>
+<div id="selector" class="section level3">
+<h3>Selector</h3>
+<pre class="scss"><code>.container {
+    /* style for .container*/
+
+    .item {
+        /* style for .container .item */
+    }
+}</code></pre>
+<pre class="scss"><code>.container {
+    /* style for .container*/
+
+    &gt; * {
+        /* style for all children of .container */
+    }
+}</code></pre>
+</div>
+<div id="psudo-things" class="section level3">
+<h3>Psudo-Things</h3>
+<pre class="scss"><code>a {
+    /* style for a */
+
+    &amp;:hover,
+    &amp;:focus {
+        /* style for a:hover and a:focus */
+    }
+}</code></pre>
+</div>
+<div id="property" class="section level3">
+<h3>Property</h3>
+<pre class="scss"><code>.container {
+    font : {
+        family: serif;
+        size: 1.5em;
+        /* … */
+    }
+}</code></pre>
+</div>
 </div>
 
     </div>
@@ -126,12 +188,25 @@ if (!doNotTrack) {
       </footer>
     </div>
     
-<script src="/js/jquery-3.3.1.min.js"></script>
-<script src="/js/jquery.timeago.min.js"></script>
-<script src="/js/clumsy-update.js"></script>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/applescript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/vim.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
 
     
-    
+<script src="/js/math-code.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
 <script type="application/javascript">
@@ -149,4 +224,3 @@ if (!doNotTrack) {
 
   </body>
 </html>
-

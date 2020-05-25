@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.71.1" />
 
 <title>Notes on Institutional Economics - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Institutional Economics - loikein&#39;s notes">
@@ -190,7 +190,7 @@ where <span class="math inline">\(p(e) = Pr(v = v_H \ | \ e)\)</span></li>
 <span class="math display">\[\begin{aligned}v-t(v) &amp;= a \\ &amp;= E[v \ | \ e^{FB}] - c(e^{FB})\end{aligned}\]</span></li>
 </ul></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 1<br />
 A principal can make a take-it-or-leave-it contract offer to an agent.<br />
 The reservation utilities are zero.<br />
@@ -281,7 +281,7 @@ t\Big(\frac{1}{2}\Big) &= \frac{1}{2} - \frac{1}{8} \\
 (e_H - e_L)(v_H - v_L) &amp;\geq \frac{e_Hc}{e_H - e_L}\end{aligned}\]</span></li>
 <li>When <span class="math inline">\(c\leq (e_H - e_L)(v_H - v_L) &lt; \frac{e_Hc}{e_H - e_L}\)</span>, <span class="math inline">\(e = e_H\)</span> is first best solution but not chosen by the principal</li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Application: Workplace surveillance (S2 P12)<br />
 The principal can decide <span class="math inline">\(x\in\{0,1\}\)</span>, when <span class="math inline">\(x=1\)</span>, a surveillance technology costing <span class="math inline">\(k&gt;0\)</span> is used, and agents’ effort level becomes verifiable.<br />
 Principal’s payoff: <span class="math inline">\(v\in\{0,1\}\)</span>.<br />
@@ -347,7 +347,7 @@ Therefore, the law improves total surplus when <span class="math inline">\(\frac
 </ul></li>
 <li>Restrictions of contractual freedom may be welfare-enhancing</li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 2<br />
 Consider a principal and an agent, the agent has no wealth.<br />
 The parties are risk-neutral and the reservation utilities are zero.<br />
@@ -448,7 +448,7 @@ Principal to abstract all surplus, let
   &amp;= E\Big[v\big(x^{FB}(c)\big) - c\cdot x^{FB}(c)\Big]\end{aligned}\]</span></li>
 </ul></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 3<br />
 A seller can make a take-it-or-leave it contract offer to a buyer.<br />
 The reservation utilities are zero.<br />
@@ -560,9 +560,9 @@ Expected payoff:<br />
 &amp;&amp; &amp;= E\big[(v-c)\cdot x^{FB}(c,v)\big]\end{aligned}\]</span></li>
 <li>Would it be possible for the agent to offer contract and implement <span class="math inline">\(x^{FB}\)</span>, s.t. their expected payoff is strictly positive?</li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Example (S2 P21)<br />
-v and c are independent random variables that are uniformly distributed on <span class="math inline">\([0, 1]\)</span><br />
+<span class="math inline">\(v\)</span> and <span class="math inline">\(c\)</span> are independent random variables that are uniformly distributed on <span class="math inline">\([0, 1]\)</span><br />
 Calculate first-best expected total surplus, payment and payoffs.</p>
 </blockquote>
 <ol style="list-style-type: decimal">
@@ -682,7 +682,7 @@ t_L - c_H\cdot x_L &amp;= c_L\cdot x_L + x_H\cdot( c_H - c_L) - c_H\cdot x_L \\
 &amp;= (x_H - x_L)( c_H - c_L) &lt; 0 \\
 \implies t_H - c_H\cdot x_H&amp;&gt; t_L - c_H\cdot x_L\end{aligned}\]</span></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 4<br />
 Consider the following variant of the basic adverse selection model:<br />
 At date 0 the agent learns his type <span class="math inline">\(c\in\{c_L, c_H\}\)</span>.<br />
@@ -693,18 +693,22 @@ If the agent rejects, the parties get their reservation utilities zero.<br />
 If the agent signs the contract, then subsequently a verifiable decision <span class="math inline">\(x\geq 0\)</span> is made and the principal makes a payment <span class="math inline">\(t\)</span> to the agent.<br />
 The payoffs are:<br />
 <span class="math display">\[\begin{aligned}\text{Principal} &amp;&amp; &amp;\sqrt{x} - t \\ \text{Agent} &amp;&amp; &amp;t - xc - F\end{aligned}\]</span>
-Suppose the (commonly known) fix costs <span class="math inline">\(F\)</span> of the agent satisfy <span class="math inline">\(0\leq F&lt;\frac{1}{4}\)</span><br />
-1. Characterize the first-best solution.<br />
-2. The principal offers a direct revelation mechanism <span class="math inline">\((t_L, x_L, t_H, x_H)\)</span> to the agent.<br />
+Suppose the (commonly known) fix costs <span class="math inline">\(F\)</span> of the agent satisfy <span class="math inline">\(0\leq F&lt;\frac{1}{4}\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Characterize the first-best solution.</li>
+<li>The principal offers a direct revelation mechanism <span class="math inline">\((t_L, x_L, t_H, x_H)\)</span> to the agent.<br />
 What is the principal’s objective function?<br />
 What are the incentive compatibility constraints (IC)L and (IC)H?<br />
 What are the participation constraints (PC)L and (PC)H, which must be satisfied if the principal wants to ensure that both types of the agent sign the contract?<br />
-3. Solve the principal’s maximization problem described in part (2).<br />
+</li>
+<li>Solve the principal’s maximization problem described in part (2).<br />
 What is the principal’s expected profit?<br />
-4. Now suppose the principal wants to ensure the participation of the good type <span class="math inline">\(c = \frac{1}{2}\)</span> only.<br />
+</li>
+<li>Now suppose the principal wants to ensure the participation of the good type <span class="math inline">\(c = \frac{1}{2}\)</span> only.<br />
 What contract will the principal offer?<br />
 What is his expected profit in this case?<br />
-Hence, for which values of <span class="math inline">\(F\)</span> will the principal dispense with the participation of the bad type <span class="math inline">\(c=1\)</span>?</p>
+Hence, for which values of <span class="math inline">\(F\)</span> will the principal dispense with the participation of the bad type <span class="math inline">\(c=1\)</span>?</li>
+</ol>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Social planner’s problem:
@@ -868,24 +872,29 @@ x^{FB}(c_H,v_L) &amp;= 0 \end{aligned}\]</span></li>
   &amp;&amp; \frac{1}{2}(v_H - t_{LH}) + \frac{1}{2}(v_H - t_{HH}) &amp;\geq \frac{1}{2}(v_H - t_{LL}) + \frac{1}{2}(0\cdot v_H - t_{HL})\end{aligned}\]</span></li>
 </ul></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 5<br />
 A seller and a buyer can make a verifiable decision <span class="math inline">\(x\in \{0,1\}\)</span>, where <span class="math inline">\(x = 1\)</span> means that a good is exchanged.<br />
 When the buyer makes a transfer payment <span class="math inline">\(t\)</span> to the seller, then the parties’ payoffs are:
 <span class="math display">\[\begin{aligned}\text{Buyer} &amp;&amp; x\cdot v - t \\ \text{Seller} &amp;&amp; t - x\cdot c\end{aligned}\]</span>
 The cost <span class="math inline">\(c\in\{c_L,c_H\}\)</span> is private information of the seller, the valuation <span class="math inline">\(v\in\{v_L,v_H\}\)</span> is private information of the buyer.<br />
 It is commonly known that <span class="math inline">\(c\)</span> and <span class="math inline">\(v\)</span> are independently distributed random variables with <span class="math inline">\(Pr(c = c_L) = Pr(v = v_H) = \frac{1}{3}\)</span> and <span class="math inline">\(0 &lt; c_L &lt; v_L &lt; v_H &lt; c_H\)</span>.<br />
-The parties’ reservation utilities are zero.<br />
-1. What is the ex post efficient decision rule, which maximizes the parties’ total surplus (first- best solution)?<br />
+The parties’ reservation utilities are zero.</p>
+<ol style="list-style-type: decimal">
+<li>What is the ex post efficient decision rule, which maximizes the parties’ total surplus (first- best solution)?<br />
 From an ex ante point of view (i.e., before the random variables are realized), what is the expected total surplus when the ex post efficient decision rule will be applied?<br />
-2. What are the four incentive compatibility constraints that a direct mechanism must satisfy when the ex post efficient decision rule is to be implemented?<br />
-3. Suppose the parties are privately informed at the contracting stage already (adverse selection).<br />
+</li>
+<li>What are the four incentive compatibility constraints that a direct mechanism must satisfy when the ex post efficient decision rule is to be implemented?<br />
+</li>
+<li>Suppose the parties are privately informed at the contracting stage already (adverse selection).<br />
 Please provide all participation constraints.<br />
 Can the ex post efficient decision rule be implemented when bargaining over the contract is voluntary?<br />
 If so, provide a direct mechanism that satisfies all incentive compatibility and participation constraints.<br />
-4. Suppose the parties learn their private information only after a contract has been signed (moral hazard).<br />
+</li>
+<li>Suppose the parties learn their private information only after a contract has been signed (moral hazard).<br />
 What are the participation constraints?<br />
-Can the ex post efficient decision rule be implemented when bargaining over the contract is voluntary?</p>
+Can the ex post efficient decision rule be implemented when bargaining over the contract is voluntary?</li>
+</ol>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Social planner’s problem:
@@ -1076,7 +1085,7 @@ Seller’s problem:
 <span class="math inline">\(\implies\)</span> first best solution will not be attained</li>
 </ul></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 6<br />
 A buyer and a seller can choose the verifiable level of trade <span class="math inline">\(x\in [0,1]\)</span> at date 3.<br />
 At date 0, the parties can write a binding contract.<br />
@@ -1085,13 +1094,15 @@ The seller’s investment costs are <span class="math inline">\(k(e) = \frac{e^2
 When the buyer makes a transfer payment t to the seller, the parties’ payoffs are:
 <span class="math display">\[\begin{aligned}\text{Seller} &amp;&amp; &amp;t-\frac{1}{2}\cdot xq - k(e) \\\text{Buyer} &amp;&amp; &amp;xq -t \end{aligned}\]</span>
 The quality <span class="math inline">\(q\in\{q_L,q_H\}\)</span> is realized at date 2 and is private information of the seller.<br />
-Suppose that <span class="math inline">\(q_L=\frac{1}{2}\)</span>, <span class="math inline">\(q_H =1\)</span> and <span class="math inline">\(Pr(q = q_H) = e\)</span>.<br />
-1. What are the trade level (as a function of <span class="math inline">\(q\)</span>) and the effort level in the first-best solution?<br />
-What is the expected total surplus of the buyer and the seller in the first-best solution?<br />
-2. Consider a direct mechanism <span class="math inline">\(\big[t(q), x(q)\big]\)</span>.<br />
+Suppose that <span class="math inline">\(q_L=\frac{1}{2}\)</span>, <span class="math inline">\(q_H =1\)</span> and <span class="math inline">\(Pr(q = q_H) = e\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>What are the trade level (as a function of <span class="math inline">\(q\)</span>) and the effort level in the first-best solution?<br />
+What is the expected total surplus of the buyer and the seller in the first-best solution?</li>
+<li>Consider a direct mechanism <span class="math inline">\(\big[t(q), x(q)\big]\)</span>.<br />
 What are the incentive compatibility constraints that ensure that the seller will reveal the quality truthfully?<br />
 What are the investment incentives of the seller if the mechanism is ex post efficient?<br />
-Will the first-best solution be attained?</p>
+Will the first-best solution be attained?</li>
+</ol>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>First best<br />
@@ -1352,7 +1363,7 @@ By symmetry, total surplus: <span class="math inline">\(\frac{3}{4}-\frac{1}{4}�
 Therefore, <span class="math inline">\(o=J\)</span> is optimal</li>
 </ul></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 7<br />
 Consider the following variant of the “Property Rights” model:<br />
 At date 0, parties A and B agree on an ownership structure <span class="math inline">\(o\in \{A,B,J\}\)</span>.<br />
@@ -1542,7 +1553,7 @@ Total surplus: <span class="math inline">\(1+(1-ε)e^o - \frac{1}{2}(e^o)^2\)</s
   ε &amp;&lt;\frac{1}{3}\end{aligned}\]</span></li>
 </ul></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Exercise 8<br />
 At date 0, the government (G) and a manager (M) agree on the planned quantity <span class="math inline">\(q_0\in [0,1]\)</span> of a public good to be provided and on the ownership structure <span class="math inline">\(o\in\{G,M\}\)</span> over a facility needed to provide the good.<br />
 At date 1, party M chooses an investment level <span class="math inline">\(e\in [0,1]\)</span>, incurring investment costs <span class="math inline">\(\frac{1}{2}e^2\)</span>. The investment aims at the development of an innovation.<br />

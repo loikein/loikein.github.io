@@ -12,14 +12,23 @@
     
     
     <item>
+      <title>Notes on SCSS</title>
+      <link>/post/2020/05/notes-scss/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/05/notes-scss/</guid>
+      <description>Variable Nesting  Selector Psudo-Things Property    Variable $white: #FCFCFC; $border-standard: 3px solid grey; .container { background: $white; border-bottom: $border-standard; }  Nesting Selector .container { /* style for .container*/ .item { /* style for .container .item */ } } .container { /* style for .container*/ &amp;gt; * { /* style for all children of .container */ } }  Psudo-Things a { /* style for a */ &amp;amp;:hover, &amp;amp;:focus { /* style for a:hover and a:focus */ } }  Property .</description>
+    </item>
+    
+    <item>
       <title>Notes on The Missing Semester of Your CS Education</title>
       <link>/post/2020/05/notes-missing-semester/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/05/notes-missing-semester/</guid>
-      <description>Shell  Basics Piping  Vim  General Move in Normal Mode Search in Normal Mode Edit in Normal Mode Insert Mode Visual Mode    Only include things that I will need to refer to later.
+      <description>What was that cool tool they used…? Shell  Basics Piping  Vim  General Move in Normal Mode Search in Normal Mode Edit in Normal Mode Insert Mode Visual Mode    Only include things that I will need to refer to later.
 WIP.
- The Missing Semester of Your CS Education Missing Semester IAP 2020 - YouTube  Shell Basics # Go to last directory $ cd -  Piping # Write to a file $ echo &amp;quot;hello world&amp;quot; &amp;gt; hello.</description>
+ The Missing Semester of Your CS Education Missing Semester IAP 2020 - YouTube  What was that cool tool they used…?</description>
     </item>
     
     <item>
@@ -46,7 +55,7 @@ WIP.
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/04/notes-behaviour-public-ps/</guid>
-      <description>Present Bias Optimal Taxation Salience Bias   Present Bias  BPP.PS1.Q1
+      <description>Present Bias Optimal Taxation Salience Bias   Present Bias BPP.PS1.Q1
 An individual can choose how to distribute money across two time periods, \(t = 1, 2\) for consumption \(c_1\) and \(c_2\).
 The total amount of money available is \(m\).
 For every dollar not spent in period 1, the individual receives an interest rate \(r\).
@@ -326,7 +335,7 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Words of Warning Rmd Reference Reference Cheatsheet Inline Code Executed Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference Image Reference Plot Never write index.md or index.Rmd. Always use _index.Rmd. (Per Issue #84) Words of Warning I use Typora &amp;amp; Sublime Text to write my posts. Typora’s WYSIWYG mode usually processes .Rmd file correctly, but gets lost in</description>
+      <description>Style Demonstration Words of Warning Rmd Reference Reference Cheatsheet Inline Code Executed Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference Image Reference Plot Style Demonstration Paragraph, inline code, underline, italic, strike, highlight Inline HTML, inline \(\LaTeX{}\) \[\text{Block }\LaTeX{}\] Unfinished task list item Finished task list item table with inline \(\LaTeX{}\) table with inline \(\LaTeX{}\) Normal blockquote Quote style blockquote Problem Set style blockquote Code</description>
     </item>
     
   </channel>

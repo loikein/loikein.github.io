@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.71.0" />
+<meta name="generator" content="Hugo 0.71.1" />
 
 <title>Notes on Econometric Theory - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Econometric Theory - loikein&#39;s notes">
@@ -193,7 +193,7 @@ if (!doNotTrack) {
 <li><span class="math inline">\(\mathcal{A}\)</span>: family of <span class="math inline">\(A\)</span></li>
 <li>Step functions: <span class="math inline">\(F\)</span> is a step function with finitely or countably many jumps <span class="math inline">\(x_1&lt;x_2&lt;\dots\)</span> and jump heights <span class="math inline">\(b_1,b_2,\dots &gt;0\)</span></li>
 </ul>
-<blockquote>
+<blockquote class="question">
 <p>Def 1.1. Axioms of probability / Kolmogorov Axioms<br />
 A probability measure <span class="math inline">\(P\)</span> on <span class="math inline">\((Ω,\mathcal{A})\)</span> is a mapping <span class="math inline">\(P:\mathcal{A}\to[0,1]\)</span> with the following properties:</p>
 <ol style="list-style-type: lower-roman">
@@ -213,7 +213,7 @@ By (ii), the probability that something happens is 1</li>
 <li>If <span class="math inline">\(Ω\)</span> is uncountable, it is in general impossible to define <span class="math inline">\(P\)</span> for all <span class="math inline">\(A\subset Ω\)</span> s.t. (i) - (iii) are satisfied<br />
 thus, we cannot set <span class="math inline">\(\mathcal{A} = \mathcal{P}(Ω)\)</span> in general, but have to restrict the class of possible events <span class="math inline">\(A\)</span></li>
 </ol>
-<blockquote>
+<blockquote class="question">
 <p>PS1.Q3<br />
 Let <span class="math inline">\(Ω\)</span> be a non-empty set, <span class="math inline">\(\mathcal{A}\)</span> a σ-field on <span class="math inline">\(Ω\)</span> and <span class="math inline">\(A_1,\dots,A_n\in \mathcal{A}\)</span>.<br />
 Show that a probability measure <span class="math inline">\(P\)</span> on <span class="math inline">\((Ω, \mathcal{A})\)</span> has the following properties:</p>
@@ -255,14 +255,14 @@ Therefore, following (iv),
 &amp;= P\big((A_1\cup A_2)\backslash (A_1\cap A_2) \big) \\
 &amp;= P(A_1\cup A_2) - P(A_1\cap A_2)\end{aligned}\]</span></li>
 </ol>
-<blockquote>
+<blockquote class="question">
 <p>Example: Laplace distribution<br />
 Let <span class="math inline">\(Ω\)</span>, <span class="math inline">\(\mathcal{A} = \mathcal{P}(Ω)\)</span> the class of all subsets of <span class="math inline">\(Ω\)</span>, then<br />
 <span class="math display">\[P(A) := \frac{|A|}{|Ω|}\]</span></p>
 </blockquote>
 <p>Consider tossing a fair dice once, <span class="math inline">\(Ω = \{1,\dots,6\}\)</span>, then <span class="math inline">\(P(A=\{6\}) = \frac{1}{6}\)</span><br />
 Consider tossing a fair dice twive, <span class="math inline">\(Ω = \{(1,1),\dots,(6,6)\}\)</span>, then <span class="math inline">\(P(A=\{(2,6), (3,5),(4,4)\}) = \frac{3}{36}\)</span></p>
-<blockquote>
+<blockquote class="question">
 <p>Prop 1.2., PS1.Q4<br />
 Let <span class="math inline">\(Ω\)</span> be countable, mapping <span class="math inline">\(p:Ω\to[0,1]\)</span> is <span class="math inline">\(\sum_{ω\in Ω}p(ω)=1\)</span><br />
 Then <span class="math inline">\(P(A):= \sum_{ω\in A}p(ω)\)</span> for all <span class="math inline">\(A\in\mathcal{P}(Ω)\)</span> defines a probability measure on <span class="math inline">\(\mathcal{P}(Ω)\)</span></p>
@@ -277,7 +277,7 @@ Then <span class="math inline">\(P(A):= \sum_{ω\in A}p(ω)\)</span> for all <sp
 &amp;= \sum_{i=1}^{\infty}\underbrace{\sum_{ω\in A_i} p(ω)}_{P(A_i)} \\
 &amp;= \sum_{i=1}^{\infty} P(A_i)\end{aligned}\]</span></li>
 </ol>
-<blockquote>
+<blockquote class="question">
 <p>Example: Probability measure</p>
 <ol style="list-style-type: decimal">
 <li>Laplace distribution<br />
@@ -294,7 +294,7 @@ Then <span class="math inline">\(P(A):= \sum_{ω\in A}p(ω)\)</span> for all <sp
 <span class="math inline">\(\sum_{k=0}^{\infty} p(k)=\Big(\sum_{k=0}^{\infty}\frac{λ^k}{k!}\Big)\cdot l^{-λ} = l^{λ}\cdot l^{-λ} =1\)</span></li>
 </ol>
 </blockquote>
-<blockquote>
+<blockquote class="question">
 <p>PS1.Q5<br />
 Suppose that for a probability measure <span class="math inline">\(P\)</span> and a sequence of sets <span class="math inline">\(A_1,A_2,\dots\)</span>, it holds that <span class="math inline">\(P(A_i) = 0\)</span>.<br />
 Which value has <span class="math inline">\(P\big(\sum_{i=1}^{\infty} A_i\big)\)</span>?</p>
@@ -338,7 +338,7 @@ If all <span class="math inline">\(A\in\mathcal{A}\)</span> have the following p
 <li><span class="math inline">\(A_1,A_2,\dots\in\mathcal{A}\implies \cup_{i=1}^{\infty}A_i\in\mathcal{A}\)</span></li>
 </ol>
 </blockquote>
-<blockquote>
+<blockquote class="question">
 <p>PS1.Q2<br />
 Let <span class="math inline">\(Ω\)</span> be a non-empty set and <span class="math inline">\(\mathcal{A}\)</span> a σ-field on <span class="math inline">\(Ω\)</span>. Show the following two statements:</p>
 <ol style="list-style-type: lower-roman">
@@ -352,7 +352,7 @@ So <span class="math inline">\(\emptyset ^C = Ω\in\mathcal{A}\)</span></li>
 <li>Since <span class="math inline">\(A_1\in\mathcal{A}\implies A_1^C\in\mathcal{A}\)</span><br />
 And <span class="math inline">\(A_2\in\mathcal{A}\implies A_2^C\in\mathcal{A}\)</span><br />
 Therefore, <span class="math inline">\((A_1^C)\cup(A_2^C)\in\mathcal{A}\)</span><br />
-<span class="math inline">\(\implies \big(A_1^C)\cup(A_2^C)\big)^C = A_1\cap A_2\in\mathcal{A}\)</span></li>
+<span class="math inline">\(\implies \big((A_1^C)\cup(A_2^C)\big)^C = A_1\cap A_2\in\mathcal{A}\)</span></li>
 </ol>
 <blockquote>
 <p>Def 1.4. Borel σ-field<br />
@@ -367,7 +367,7 @@ A set <span class="math inline">\(A\in\mathcal{B}\)</span> is called a Borel set
 > $\mathcal{A}_4=\{(-\infty,b]:-\infty <b<\infty\}$  
 > For $j=1,\dots,4$, $\mathcal{B}$ is the smallest σ-field that contains $\mathcal{A}_j$
  -->
-<blockquote>
+<blockquote class="question">
 <p>Remark 1.5., PS2.Q2<br />
 Let <span class="math inline">\(\mathcal{B}\)</span> be the Borel σ-field on R, i.e., the smallest σ-field which contains all open intervals <span class="math inline">\((a,b)\)</span> with <span class="math inline">\(-\infty\leq a&lt;b\leq\infty\)</span>.<br />
 Furthermore, define <span class="math inline">\(\mathcal{B}^*\)</span> to be the smallest σ-field on R that contains all half-open intervals <span class="math inline">\((a, b]\)</span> with <span class="math inline">\(-\infty\leq a&lt;b&lt;\infty\)</span>.<br />
@@ -400,7 +400,7 @@ Therefore,
 &amp;\in \mathcal{B} \end{aligned}\]</span>
 <span class="math inline">\(\implies \mathcal{B}^*\in\mathcal{B}\)</span></li>
 </ol>
-<blockquote>
+<blockquote class="question">
 <p>PS2.Q1.<br />
 Let <span class="math inline">\(Ω\)</span> be a non-empty set.</p>
 <ol style="list-style-type: lower-roman">
@@ -495,7 +495,7 @@ It is obvious that <span class="math inline">\(p_n\)</span> is monotonically inc
 &amp;= 1 - F(b) \end{aligned}\]</span>
 therefore, <span class="math inline">\(1 - F(b_n) = p_n\to p = 1-F(b)\)</span><br />
 <span class="math inline">\(\implies 1 - F(b_n)\to 1-F(b)\)</span>, contradiction</p>
-<blockquote>
+<blockquote class="question">
 <p>PS2.Q3<br />
 Prove that any distribution function <span class="math inline">\(F:\mathbb{R}\to [0, 1]\)</span> has the following properties:</p>
 <ol style="list-style-type: lower-roman">
@@ -524,15 +524,15 @@ F(x_n) &amp;\to 0\end{aligned}\]</span></li>
 <li>When <span class="math inline">\(x_n\nearrow\infty\)</span> (similarly)</li>
 </ol></li>
 </ol>
-<blockquote>
-<p>Example: Step function
+<blockquote class="question">
+<p>Step function
 Let <span class="math inline">\(F\)</span> be a step function, <span class="math inline">\(P\)</span> be a probability function corresponds to <span class="math inline">\(F\)</span>,<br />
 <span class="math inline">\(P\big(\{x_i\}\big) = b_i\)</span> with <span class="math inline">\(\sum_{i=1}^{\infty}b_i = 1\)</span><br />
 Hence we can regard the sample space as being complete</p>
 </blockquote>
 <p>In this case, <span class="math inline">\(Ω = \{x_1,x_2,\dots\}\)</span></p>
-<blockquote>
-<p>Example: Absolutely continuous functions<br />
+<blockquote class="question">
+<p>Absolutely continuous functions<br />
 Let <span class="math inline">\(F\)</span> have the representation <span class="math inline">\(F(x) = \int_{-\infty}^x f(y)\, dy\)</span><br />
 where <span class="math inline">\(f\)</span> is bounded &amp; integrable on any interval <span class="math inline">\([a,b]\)</span> and <span class="math inline">\(\lim_{a,b\to\infty} \int_a^b f(y)\, dy =1\)</span><br />
 <span class="math inline">\(f\)</span> is called (probability) density function.<br />
@@ -548,7 +548,7 @@ then <span class="math inline">\(F(x)=\begin{cases}0 &amp; x\leq a \\ \frac{x-a}
 <span class="math inline">\(f_{μ,σ}(x) = \frac{1}{\sqrt{2πσ^2}}\cdot \exp\big(-\frac{1}{2}\cdot\frac{(x-μ)^2}{σ^2}\big)\)</span><br />
 then <span class="math inline">\(F(x) = \int_{-\infty}^x f_{μ,σ}(y)\, dy\)</span></li>
 </ol>
-<blockquote>
+<blockquote class="question">
 <p>PS2.Q4<br />
 Consider a probability measure <span class="math inline">\(P\)</span> on the real line <span class="math inline">\(\mathbb{R}\)</span> endowed with the Borel σ-field <span class="math inline">\(\mathcal{B}\)</span>.</p>
 <ol style="list-style-type: lower-roman">
@@ -652,7 +652,7 @@ therefore, <span class="math inline">\(X\in\{0,1,2,3\}\)</span><br />
 P^X\big(\{1\}\big) &amp;= P\big(\{ω\in Ω : X(ω) = 1\}\big) \\&amp;= P\big(\{1,0,0\},\{0,1,0\},\{0,0,1\}\big) \\&amp;=\frac{3}{8}\end{aligned}\]</span>
 and so on</p>
 </blockquote>
-<blockquote>
+<blockquote class="question">
 <p>PS1.Q1<br />
 Consider the experiment of tossing a dice three times.</p>
 <ol style="list-style-type: lower-roman">
@@ -725,7 +725,7 @@ Let <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)<
 Let <span class="math inline">\(g:\mathbb{R}\to\mathbb{R}\)</span> be bounded integrable function, then<br />
 <span class="math display">\[E[g(X)] = \int_{-\infty}^{\infty} g(x)\cdot f(x)\, dx\]</span></p>
 </blockquote>
-<blockquote>
+<blockquote class="question">
 <p>PS3.Q1<br />
 A function <span class="math inline">\(f:\mathbb{R}\to[0,\infty)\)</span> is given by<br />
 <span class="math display">\[f(x)=\begin{cases}c(x+2) &amp; -2\leq x&lt;0 \\ c(2-x) &amp; 0\leq x&lt;2 \\ 0 \end{cases}\]</span>
@@ -763,7 +763,7 @@ Therefore,
 &amp;= \textstyle{\sum}_{i=1}^n E[X_i^2] + \underbrace{\textstyle{\sum}_{i\neq j} E[X_iX_j]}_{=0} \\
 &amp;= \textstyle{\sum}_{i=1}^n E[X_i^2] \\
 &amp;= \textstyle{\sum}_{i=1}^n Var(X_i) \end{aligned}\]</span></p>
-<blockquote>
+<blockquote class="question">
 <p>PS3.Q2<br />
 Let <span class="math inline">\(X\)</span> be a real valued random variable with the density
 <span class="math display">\[f(x)=\frac{1}{\sqrt{2πσ^2}}\exp\big(-\frac{(x-μ)^2}{σ^2} \big)\]</span>
@@ -910,7 +910,7 @@ Therefore, by Thm 1.19, <span class="math inline">\(E\big[f_n(X)\big]\to E\big[f
 </tr>
 </tbody>
 </table>
-<blockquote>
+<blockquote class="question">
 <p>PS3.Q3<br />
 Construct a probability space <span class="math inline">\((Ω, \mathcal{A}, P)\)</span> and a sequence of random variables <span class="math inline">\(\{X_n : n\in N\}\)</span> with the following property:<br />
 <span class="math inline">\(X_n(ω)\to 0\)</span> for all <span class="math inline">\(ω\in Ω\)</span> but <span class="math inline">\(E[X_n]\not\to 0\)</span></p>
@@ -994,7 +994,7 @@ By Thm 1.19., <span class="math inline">\(E[z_n]\to 0\)</span>
 <span class="math display">\[\begin{aligned}P\big(\|X_n-X\|&gt;ε \big) &amp;= E\Big[1\big(\|X_n-X\|&gt;ε \big) \Big]\\
 &amp;= E[z_n]\to 0 \end{aligned}\]</span>
 therefore, <span class="math inline">\(X_n\overset{P}{\to} X\)</span></p>
-<blockquote>
+<blockquote class="question">
 <p>PS2.Q5<br />
 Are there real valued random variable <span class="math inline">\(X\)</span> s.t. <span class="math inline">\(\big|E[X]\big|&lt;\infty\)</span> but <span class="math inline">\(E\big[|X|\big]=\infty\)</span>?</p>
 </blockquote>
@@ -1459,7 +1459,7 @@ Take inf of RHS,
 <span class="math display">\[\begin{aligned}E[Y] &amp;\leq \inf_{k\geq n}E[X_k] \\
 E[\inf_{k\geq n} X_k] &amp;\leq \inf_{k\geq n}E[X_k] \\
 E[\text{lim inf}_{n\to\infty} X_n] &amp;\leq \text{lim inf}_{n\to\infty} E[X_n]\end{aligned}\]</span></p>
-<blockquote>
+<blockquote class="question">
 <p>PS3.Q5: Cauchy-Schwarz Inequality<br />
 Let <span class="math inline">\(X, Y\)</span> be real valued random variables with <span class="math inline">\(E[X^2],E[Y^2]&lt;\infty\)</span>.<br />
 Hint:</p>
@@ -1516,7 +1516,7 @@ For all <span class="math inline">\(ε&gt;0\)</span>, exists <span class="math i
 <span class="math inline">\(\sup_{θ\in Θ} \ \big| Q_n(θ) - Q(θ)\big| \overset{P}{\to} 0\)</span></li>
 </ol>
 </blockquote>
-<blockquote>
+<blockquote class="question">
 <p>Example<br />
 Proof: show that <span class="math inline">\(\hat{θ}\overset{P}{\to} θ_0\)</span>, that is, <span class="math inline">\(P(\|\hat{θ}-θ_0\|&gt;ε)\to 0\)</span></p>
 </blockquote>
@@ -1562,7 +1562,7 @@ Plugging (+) and (++) into (*), we have
 </ol>
 </blockquote>
 <p>Proof: exercise</p>
-<blockquote>
+<blockquote class="question">
 <p>Example: OLS<br />
 Let <span class="math inline">\(Y = g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε|X] = 0\)</span><br />
 Show that <span class="math inline">\(Q(θ) = E[\big(Y-g(X,θ)\big)^2]\)</span> has a unique minimizer <span class="math inline">\(θ_0\)</span>, given assumptions:</p>
@@ -1579,7 +1579,7 @@ Q(θ) &amp;= E[\big(Y-g(X,θ)\big)^2] \\
 &amp;&gt; E[ε^2] \\
 &amp;= E[\big(Y- g(θ_0)\big)^2] \\
 &amp;= Q(θ_0) \end{aligned}\]</span></p>
-<blockquote>
+<blockquote class="question">
 <p>Example: Maximum likelihood<br />
 Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by <span class="math inline">\(Q_n(θ) = \prod^n f_Z(Z_i, θ)\)</span><br />
 The ML-estimator of <span class="math inline">\(θ_0\)</span> is
@@ -1754,7 +1754,7 @@ Therefore, <span class="math inline">\(\{Q_n\}\)</span> is stochastically equico
 Let <span class="math inline">\(δ_n\to 0\)</span> and <span class="math inline">\(U_n=u(Z,δ_n)\)</span>,<br />
 <span class="math inline">\(\implies U_n\to 0\)</span> almost surely, <span class="math inline">\(U_n\leq 2\cdot \bar{q}(Z)\)</span> with <span class="math inline">\(E[\bar{q}(Z)]&lt;\infty\)</span><br />
 By dominated convergence, <span class="math inline">\(\implies E[U_n]\to 0\)</span></p>
-<blockquote>
+<blockquote class="question">
 <p>Example<br />
 Let <span class="math inline">\(Y=g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε\ |\ X]=0\)</span>, show that <span class="math inline">\(\{Q_n\}\)</span> is stochastically equicontinuous, assuming:</p>
 <ol style="list-style-type: lower-alpha">
@@ -1773,7 +1773,7 @@ Let <span class="math inline">\(Y=g(X,θ_0)+ε\)</span>, <span class="math inlin
 &amp;\leq 4y^2 + 4\cdot\bar{g}(x)^2  \\
 :&amp;= \bar{q}(z)\end{aligned}\]</span></li>
 </ol>
-<blockquote>
+<blockquote class="question">
 <p>Example: maximun likelihood<br />
 Let <span class="math inline">\(Z\sim f_Z(\cdot, θ_0)\)</span>, define the likelihood function by
 <span class="math display">\[Q_n(θ) = \prod_{i=1} f_Z(Z_i, θ)\]</span>
@@ -1827,7 +1827,7 @@ and <span class="math inline">\(H_0=H(θ_0)\)</span> is non-singular (invertible
 <p>Proof:<br />
 Since <span class="math inline">\(\hat{θ}\)</span> is the minimizer of <span class="math inline">\(Q_n(θ)\)</span>,<br />
 by (i) and (ii), <span class="math inline">\(\hat{θ}\)</span> must satisfy:
-<span class="math display">\[P\big(\underbrace{S_n(\hat{θ})=0}_{FOC})\big)\to 1\]</span>
+<span class="math display">\[P\big(\underbrace{S_n(\hat{θ})=0}_{FOC}\big)\to 1\]</span>
 Let <span class="math inline">\(H_n^{[ν]}(θ)\)</span> devote the ν-th row of <span class="math inline">\(H_n(θ)\)</span>,<br />
 where <span class="math inline">\(\bar{θ}_ν\)</span> are intermediate points between <span class="math inline">\(\hat{θ}\)</span> and <span class="math inline">\(θ_0\)</span>,<br />
 by Taylor expansion, with probability approaching 1:
@@ -1862,7 +1862,7 @@ if <span class="math inline">\(Q_n(θ)=\frac{1}{n}\sum^n q(Z_i,θ)\)</span>, ass
 <li><span class="math inline">\(θ\mapsto q(z,θ)\)</span> is twice continuously differentiable in an open neighbourhood <span class="math inline">\(\mathcal{N}\)</span> of <span class="math inline">\(θ_0\)</span> for all <span class="math inline">\(Z\)</span></li>
 <li><span class="math inline">\(E\big[ \partial_θ q(Z,θ_0)\big]=0\)</span>, and <span class="math inline">\(Ω_0=E\Big[\partial_θ q(Z,θ_0)\cdot \big(\partial_θ q(Z,θ_0)\big)^T\Big]&lt;\infty\)</span></li>
 <li><span class="math inline">\(\|\partial_{θθ}q(z,θ)\|\leq b(z)\)</span> for all <span class="math inline">\(θ\in\bar{\mathcal{N}}\)</span> (enclosure),<br />
-where <span class="math inline">\(E\big[b(Z)\big]&lt;\infty\)</span> and <span class="math inline">\(H_0=E[\partial^{\prime}_{θθ} q(Z,θ_0)]\)</span> is non-singular (intertible)</li>
+where <span class="math inline">\(E\big[b(Z)\big]&lt;\infty\)</span> and <span class="math inline">\(H_0=E[\partial^{\prime}_{θθ} q(Z,θ_0)]\)</span> is non-singular (invertible)</li>
 </ol>
 </blockquote>
 <p>Proof: exercise</p>
@@ -1870,7 +1870,7 @@ where <span class="math inline">\(E\big[b(Z)\big]&lt;\infty\)</span> and <span c
 <span class="math display">\[\begin{aligned}0=\partial_θ Q(θ_0)&amp;=\partial_θ E[q(Z,θ_0)]\\
 &amp;= E[\partial_θ q(Z,θ_0)] \end{aligned}\]</span>
 the last step of which does not hold generally</p>
-<blockquote>
+<blockquote class="question">
 <p>Example<br />
 Model: <span class="math inline">\(Y=g(X,θ_0)+ε\)</span>, <span class="math inline">\(E[ε|X]=0\)</span><br />
 Criterion function: <span class="math inline">\(Q_n(θ)=\frac{1}{n}\sum^n (Y_i-g(X_i,θ_))^2\)</span><br />
@@ -1880,7 +1880,7 @@ Assume:</p>
 <li><span class="math inline">\(θ\mapsto g(x,θ)\)</span> is twice continuously differentiable w.r.t <span class="math inline">\(θ\)</span> for each <span class="math inline">\(x\)</span></li>
 <li><span class="math inline">\(|g(x,θ)|\leq \bar{g}_0(x)\)</span>, and <span class="math inline">\(\|\partial_θ g(x,θ)\|\leq \bar{g}_1(x)\)</span>, and <span class="math inline">\(\|\partial_{θθ} g(x,θ)\|\leq \bar{g}_2(x)\)</span>, and <span class="math inline">\(E[\bar{g}^2_i(X)]&lt;\infty\)</span> for <span class="math inline">\(i=0,1,2\)</span></li>
 <li><span class="math inline">\(E[ε^2|X]=σ^2&gt;0\)</span></li>
-<li><span class="math inline">\(E\Big[\partial_θ q(X,θ_0)\cdot \big(\partial_θ q(X,θ_0)\big)^T\Big]\)</span> is non-singular (intertible)</li>
+<li><span class="math inline">\(E\Big[\partial_θ q(X,θ_0)\cdot \big(\partial_θ q(X,θ_0)\big)^T\Big]\)</span> is non-singular (invertible)</li>
 </ol>
 </blockquote>
 <p>Proof: use cor 3.2.</p>
@@ -2121,7 +2121,7 @@ Let <span class="math inline">\(V_{LM}^{-}\)</span> be any symmetric matrix with
 <div id="distance-metric-test" class="section level3">
 <h3>Distance Metric Test</h3>
 <ul>
-<li>Test statistics: <span class="math inline">\(2n(Q_n(\tilde{θ})-Q_n(\hat{θ})\overset{d}{\to}Χ^2(m)\)</span></li>
+<li>Test statistics: <span class="math inline">\(2n\big(Q_n(\tilde{θ})-Q_n(\hat{θ})\big)\overset{d}{\to}Χ^2(m)\)</span></li>
 </ul>
 </div>
 </div>
