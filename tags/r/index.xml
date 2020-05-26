@@ -49,7 +49,7 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Style Demonstration Words of Warning Rmd Reference Reference Cheatsheet Inline Code Executed Display Code R Code Chunk R Code (Inline) Code from Other Languages LaTeX Reference Image Reference Plot Style Demonstration Paragraph, inline code, underline, italic, strike, highlight Inline HTML, inline \(\LaTeX{}\) \[\text{Block }\LaTeX{}\] Unfinished task list item Finished task list item table with inline \(\LaTeX{}\) table with inline \(\LaTeX{}\) Normal blockquote Quote style blockquote Problem Set style blockquote Code</description>
+      <description>Style Demonstration Words of Warning Rmd Reference Reference Cheatsheet Inline Code Execution Display Code R Code Block Code of Other Languages Reference Image Reference Plot Style Demonstration Paragraph, inline code, keystroke , underline, italic, strike, highlight. Inline HTML, inline \(\LaTeX{}\) and footnotes1. \[\text{Block }\LaTeX{}\] Ordered list Nested list Types of ordered list Another item Unordered list Task list Finished task Table with inline \(\LaTeX{}\) Table with inline \(\LaTeX{}\) Hover me</description>
     </item>
     
   </channel>

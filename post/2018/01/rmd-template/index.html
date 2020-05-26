@@ -73,7 +73,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
     <h1 class="article-title">Rmd Template</h1>
     
@@ -107,16 +107,11 @@ if (!doNotTrack) {
 <li><a href="#reference">Reference</a></li>
 <li><a href="#cheatsheet">Cheatsheet</a></li>
 </ul></li>
-<li><a href="#inline-code">Inline Code</a>
-<ul>
-<li><a href="#executed">Executed</a></li>
-</ul></li>
+<li><a href="#inline-code-execution">Inline Code Execution</a></li>
 <li><a href="#display-code">Display Code</a>
 <ul>
-<li><a href="#r-code-chunk">R Code Chunk</a></li>
-<li><a href="#r-code-inline">R Code (Inline)</a></li>
-<li><a href="#code-from-other-languages">Code from Other Languages</a></li>
-<li><a href="#latex">LaTeX</a></li>
+<li><a href="#r-code-block">R Code Block</a></li>
+<li><a href="#code-of-other-languages">Code of Other Languages</a></li>
 <li><a href="#reference-1">Reference</a></li>
 </ul></li>
 <li><a href="#image-reference">Image Reference</a></li>
@@ -126,20 +121,31 @@ if (!doNotTrack) {
 
 <div id="style-demonstration" class="section level2">
 <h2>Style Demonstration</h2>
-<p>Paragraph, <code>inline code</code>, <strong>underline</strong>, <em>italic</em>, <del>strike</del>, <mark>highlight</mark></p>
-<p><span style="height: 50px; background-color: #222; display: inline-block; border-style: solid; border-color: #222; color:#FCFCFC; padding:0.3em; padding-top:0.4em;">Inline HTML</span>, inline <span class="math inline">\(\LaTeX{}\)</span></p>
+<p>Paragraph, <code>inline code</code>, <kbd>keystroke</kbd> , <strong>underline</strong>, <em>italic</em>, <del>strike</del>, <mark>highlight</mark>.</p>
+<p><span style="height: 50px; background-color: #222; display: inline-block; border-style: solid; border-color: #222; color:#FCFCFC; padding:0.3em; padding-top:0.4em;">Inline HTML</span>, inline <span class="math inline">\(\LaTeX{}\)</span> and footnotes<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p><span class="math display">\[\text{Block }\LaTeX{}\]</span></p>
 <hr />
-<ul class="task-list">
+<ol style="list-style-type: decimal">
+<li>Ordered list
+<ol style="list-style-type: lower-alpha">
+<li>Nested list
+<ol style="list-style-type: lower-roman">
+<li>Types of ordered list</li>
+<li>Another item</li>
+</ol></li>
+</ol></li>
+</ol>
+<ul>
+<li>Unordered list</li>
 <li><input type="checkbox" disabled="" />
-Unfinished task list item</li>
+Task list</li>
 <li><input type="checkbox" disabled="" checked="" />
-Finished task list item</li>
+Finished task</li>
 </ul>
 <table>
 <thead>
 <tr class="header">
-<th>table</th>
+<th>Table</th>
 <th>with</th>
 <th>inline</th>
 <th><span class="math inline">\(\LaTeX{}\)</span></th>
@@ -147,10 +153,16 @@ Finished task list item</li>
 </thead>
 <tbody>
 <tr class="odd">
-<td>table</td>
+<td>Table</td>
 <td>with</td>
 <td>inline</td>
 <td><span class="math inline">\(\LaTeX{}\)</span></td>
+</tr>
+<tr class="even">
+<td>Hover</td>
+<td>me</td>
+<td>!</td>
+<td>:)</td>
 </tr>
 </tbody>
 </table>
@@ -182,11 +194,6 @@ $\LaTeX$
 
 Not this:
 $ \LaTeX $</code></pre>
-<p>All codes will be displayed but not executed under default settings of this template. To turn on executing codes, use</p>
-<pre class="markdown"><code>```{r, eval = TRUE}
-    (your code here)
-```</code></pre>
-<p>for the chunk option.</p>
 </div>
 <div id="rmd-reference" class="section level2">
 <h2>Rmd Reference</h2>
@@ -211,42 +218,44 @@ $ \LaTeX $</code></pre>
 </ul>
 </div>
 </div>
-<div id="inline-code" class="section level2">
-<h2>Inline Code</h2>
-<div id="executed" class="section level3">
-<h3>Executed</h3>
+<div id="inline-code-execution" class="section level2">
+<h2>Inline Code Execution</h2>
 <p>Type</p>
-<pre class="markdown"><code>5</code></pre>
+<pre class="r"><code>`r 2 + 3`</code></pre>
 <p>to get: 5</p>
-</div>
 </div>
 <div id="display-code" class="section level2">
 <h2>Display Code</h2>
-<div id="r-code-chunk" class="section level3">
-<h3>R Code Chunk</h3>
+<div id="r-code-block" class="section level3">
+<h3>R Code Block</h3>
+<p>Type</p>
+<pre class="markdown"><code>​```{r}
+    (your code here)
+​```</code></pre>
+<p>All codes will be displayed but not executed under default settings of this template.
+To turn on executing codes, use the chunk option:</p>
+<pre class="markdown"><code>```{r, eval = TRUE}
+    (your code here)
+```</code></pre>
 </div>
-<div id="r-code-inline" class="section level3">
-<h3>R Code (Inline)</h3>
-</div>
-<div id="code-from-other-languages" class="section level3">
-<h3>Code from Other Languages</h3>
+<div id="code-of-other-languages" class="section level3">
+<h3>Code of Other Languages</h3>
+<p>Type:</p>
 <pre class="markdown"><code>​```js
     (your code here)
 ​```</code></pre>
-<!-- Potential ways to display code from other languages:  
-![](/post-img/rmd-template--display-code.png){ width=290px}  
-which all failed while all I wanted to display was this:  
-![](/post-img/rmd-template--latex-code.png){ width=90px }  
-This is hilarious. Currently I don't have  time to dig into this, but one day I will.
--->
-</div>
-<div id="latex" class="section level3">
-<h3>LaTeX</h3>
-<p><a href="https://tex.stackexchange.com/questions/171711/how-to-include-latex-package-in-r-markdown">knitr - How to include LaTeX package in R Markdown? - TeX - LaTeX Stack Exchange</a></p>
+<p>If blogdown is not properly highlighting your code,
+add the language name to <code>config.yaml</code> according to <a href="https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md">highlight.js/SUPPORTED_LANGUAGES.md</a>.</p>
+<pre class="yaml"><code>params:
+  highlightjsVersion: 10.0.0
+  highlightjsCDN: //cdnjs.cloudflare.com/ajax/libs
+  highlightjsLang: [&quot;r&quot;, &quot;applescript&quot;, &quot;python&quot;, &quot;vim&quot;] #&lt;&lt;
+  highlightjsTheme: &quot;atom-one-light&quot;</code></pre>
 </div>
 <div id="reference-1" class="section level3">
 <h3>Reference</h3>
 <ul>
+<li><a href="https://tex.stackexchange.com/questions/171711/how-to-include-latex-package-in-r-markdown">knitr - How to include LaTeX package in R Markdown? - TeX - LaTeX Stack Exchange</a></li>
 <li><a href="https://blogdown-demo.rbind.io/2017/10/06/adding-r-code-to-r-markdown-posts/">Adding R code to R Markdown posts - blogdown sample site</a></li>
 <li><a href="https://rviews.rstudio.com/2017/12/04/how-to-show-r-inline-code-blocks-in-r-markdown/">How to Show R Inline Code Blocks in R Markdown · R Views</a></li>
 <li><a href="https://yihui.name/en/2017/11/knitr-verbatim-code-chunk/">Generate A Verbatim Code Chunk or Inline R Expression in knitr Output - Yihui Xie</a></li>
@@ -281,6 +290,12 @@ pie(
 Figure 1: A fancy pie chart.
 </p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Aye there!<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
     </div>

@@ -69,6 +69,8 @@ a {
 
 mark {
 	background: var(--theme);
+	padding-left: 0.1em;
+	padding-right: 0.1em;
 }
 
 table {
@@ -78,13 +80,18 @@ table {
 	margin-block-start: 1em;
 	-webkit-margin-after: 1em;
 	margin-block-end: 1em;
+	line-height: 1.8;
 }
 
-table, table tr th, table tr td{
-	border: 1px solid var(--light-grey);
+table, table tr th {
+	border-top: 1px solid var(--dark-grey);
+	border-bottom: 1px solid var(--dark-grey);
 	border-collapse: collapse;
-	/*padding: 0.1em 1em 0.1em 1em;*/
 	text-align: center
+}
+
+table tr:hover {
+	background-color: var(--light-grey);
 }
 
 blockquote{
@@ -295,6 +302,8 @@ header.header::before {
 
 .article-content code {
 	background-color: var(--light-grey);
+	padding-left: 0.1em;
+	padding-right: 0.1em;
 }
 
 .article-content pre {
@@ -340,12 +349,9 @@ header.header::before {
 }
 
 .article-content hr {
-	width: 150px;
-	margin: 50px auto;
-	height: 1px;
-	overflow: hidden;
-	border: none;
-	background: #e5e5e5;
+	width: 50%;
+	margin: 2em auto;
+	border: 2.5px dashed var(--theme);
 }
 
 .highlight {
