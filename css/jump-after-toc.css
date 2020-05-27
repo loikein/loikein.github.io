@@ -1,0 +1,26 @@
+.a11y-links {
+    align-items: center;
+    background-color:  var(--white);
+    color: var(--black);
+    box-shadow: 0 1px 0 rgba(17,17,26,0.05),
+                0 0 8px rgba(17,17,26,0.1),
+                0 0 24px rgba(17,17,26,0.1),
+                0 0 48px rgba(17,17,26,0.1);
+    margin: 0.9rem auto 0 0;
+    position: absolute;
+    z-index: 1000;
+}
+
+.a11y-links__link:not(:focus) {
+    clip: rect(1px,1px,1px,1px);
+    position: absolute;
+    padding: 0;
+}
+
+.a11y-links__link {
+    /* style when focused */
+    cursor: pointer;
+    display: inline-block;
+    margin: 1em;
+    background-color:  var(--white);
+}
