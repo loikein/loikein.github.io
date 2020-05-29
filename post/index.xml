@@ -37,7 +37,7 @@ WIP.
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/2020/05/notes-rosenblatt-copulas/</guid>
-      <description>Reference  Relevant Repositories Links Papers &amp;amp; Books  Working With econsa  EOQ (Economic Order Quantity) Model Main Code Figure 2 from Borgonovo &amp;amp; Plischke (2016) Figure 3 from Borgonovo &amp;amp; Plischke (2016) Figure 4 from Borgonovo &amp;amp; Plischke (2016) Figure 1 from Harris (1990)  Local Sensitivity Analysis  One at a Time Method Scenario Decomposition One Way Sensitivity Function Differentiation-Based Methods Screening: Morris Method  Global Sensitivity Analysis  Non-Parametric Methods Variance-Based Methods Density-Based Methods Transformation Invariant Methods  Decision Sensitivity (Find the Maximiser) Estimate Sensitivity   Thesis Roadmap</description>
+      <description>Reference  Relevant Repositories Links Papers &amp;amp; Books  Working With econsa  EOQ (Economic Order Quantity) Model Main Code Figure 2 from Borgonovo &amp;amp; Plischke (2016) Figure 3 from Borgonovo &amp;amp; Plischke (2016) Figure 4 from Borgonovo &amp;amp; Plischke (2016) Figure 1 from Harris (1990)  Copulas  Basic Notations Definitions &amp;amp; Theorems  Local Sensitivity Analysis  One at a Time Method Scenario Decomposition One Way Sensitivity Function Differentiation-Based Methods  Global Sensitivity Analysis  Non-Parametric Methods Variance-Based Methods Density-Based Methods Transformation Invariant Methods  Decision Sensitivity (Find the Maximiser) Estimate Sensitivity   Thesis Roadmap</description>
     </item>
     
     <item>
@@ -267,7 +267,7 @@ Consider the wage regressions from slide 5 (text P86).
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018/01/rmd-template/</guid>
-      <description>Style Demonstration Words of Warning Rmd Reference Reference Cheatsheet Inline Code Execution Display Code R Code Block Code of Other Languages Reference Image Reference Plot Style Demonstration Paragraph, inline code, keystroke , underline, italic, strike, highlight. Inline HTML, inline \(\LaTeX{}\) and footnotes1. \[\text{Block }\LaTeX{}\] Ordered list Nested list Types of ordered list Another item Unordered list Task list Finished task Table with inline \(\LaTeX{}\) Table with inline \(\LaTeX{}\) Hover me</description>
+      <description>Style Demonstration Words of Warning Rmd Reference Reference Cheatsheet Inline Code Execution Display Code R Code Block Code of Other Languages Reference Image Reference Plot Style Demonstration Paragraph, inline code, keystroke , strong, emphasis, strike, highlight. Inline HTML, inline \(\LaTeX{}\) and footnotes1. \[\text{Block }\LaTeX{}\] Ordered list Nested list Types of ordered list Another item Unordered list Task list Finished task Table with inline \(\LaTeX{}\) Table with inline \(\LaTeX{}\) Hover me</description>
     </item>
     
   </channel>

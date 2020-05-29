@@ -78,7 +78,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">11 min read</span>
+    <span class="article-duration">13 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -118,13 +118,17 @@ if (!doNotTrack) {
 <li><a href="#figure-4-from-borgonovo-plischke-2016">Figure 4 from Borgonovo &amp; Plischke (2016)</a></li>
 <li><a href="#figure-1-from-harris-1990">Figure 1 from Harris (1990)</a></li>
 </ul></li>
+<li><a href="#copulas">Copulas</a>
+<ul>
+<li><a href="#basic-notations">Basic Notations</a></li>
+<li><a href="#definitions-theorems">Definitions &amp; Theorems</a></li>
+</ul></li>
 <li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a>
 <ul>
 <li><a href="#one-at-a-time-method">One at a Time Method</a></li>
 <li><a href="#scenario-decomposition">Scenario Decomposition</a></li>
 <li><a href="#one-way-sensitivity-function">One Way Sensitivity Function</a></li>
 <li><a href="#differentiation-based-methods">Differentiation-Based Methods</a></li>
-<li><a href="#screening-morris-method">Screening: Morris Method</a></li>
 </ul></li>
 <li><a href="#global-sensitivity-analysis">Global Sensitivity Analysis</a>
 <ul>
@@ -434,6 +438,151 @@ sns.lineplot(x=y, y=t)
 plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pre>
 </div>
 </div>
+<div id="copulas" class="section level2">
+<h2>Copulas</h2>
+<div id="basic-notations" class="section level3">
+<h3>Basic Notations</h3>
+<ul>
+<li>Little things
+<ul>
+<li>Real numbers: <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span></li>
+<li>Random variables: <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span></li>
+<li>Density functions: <span class="math inline">\(F(x)=\Pr (X\leq x)\)</span>, <span class="math inline">\(G(y)=\Pr (Y\leq y)\)</span></li>
+<li>Joint density function: <span class="math inline">\(H(x,y)=\Pr (X\leq x, Y\leq y)\)</span></li>
+<li>Marginal density functions:
+<span class="math display">\[\begin{aligned}H(x) &amp;= \int_{-\infty}^{\infty} H(x,y)\, dy\\
+  H(y) &amp;= \int_{-\infty}^{\infty} H(x,y)\, dx\end{aligned}\]</span></li>
+</ul></li>
+<li>Spacial things
+<ul>
+<li>Real line: <span class="math inline">\(\mathbb{R}=(-\infty, \infty)\)</span></li>
+<li>Extended real line: <span class="math inline">\(\bar{\mathbb{R}}=[-\infty, \infty]\)</span></li>
+<li>Extended real plane: <span class="math inline">\(\bar{\mathbb{R}}^2=\bar{\mathbb{R}}\times\bar{\mathbb{R}}\)</span></li>
+<li>Rectangle: <span class="math inline">\(B=[x_1,x_2]\times [y_1,y_2]\in\bar{\mathbb{R}}^2\)</span></li>
+<li>Unit square: <span class="math inline">\(\mathbf{I}^2=[0,1]\times [0,1]\)</span></li>
+<li>2-place real function: <span class="math inline">\(H: \text{Dom}H\to\text{Ran}H\)</span></li>
+<li>Domain of <span class="math inline">\(H\)</span>: <span class="math inline">\(\text{Dom}H\subset\bar{\mathbb{R}}^2\)</span></li>
+<li>Range of <span class="math inline">\(H\)</span>: <span class="math inline">\(\text{Ran}H\subset\mathbb{R}\)</span></li>
+</ul></li>
+<li>Copula-ish things
+<ul>
+<li>Subcopula: <span class="math inline">\(C&#39;\)</span></li>
+<li>Copula: <span class="math inline">\(C\)</span></li>
+<li>Survival copula: <span class="math inline">\(\widehat{C}\)</span></li>
+<li>Joint survival function: <span class="math inline">\(\bar{C}\)</span></li>
+<li>Dual of copula: <span class="math inline">\(\widetilde{C}\)</span></li>
+<li>Co-copula: <span class="math inline">\(C^*\)</span></li>
+</ul></li>
+</ul>
+<p>The great copulas table: (<a href="https://www.springer.com/de/book/9780387286594">Nelsen, 2006</a>, p.35)</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>i</th>
+<th>^</th>
+<th>~</th>
+<th>*</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>i</td>
+<td><span class="math inline">\(C\)</span></td>
+<td><span class="math inline">\(\widehat{C}\)</span></td>
+<td><span class="math inline">\(\widetilde{C}\)</span></td>
+<td><span class="math inline">\(C^*\)</span></td>
+</tr>
+<tr class="even">
+<td>^</td>
+<td></td>
+<td><span class="math inline">\(C\)</span></td>
+<td><span class="math inline">\(C^*\)</span></td>
+<td><span class="math inline">\(\widetilde{C}\)</span></td>
+</tr>
+<tr class="odd">
+<td>~</td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(C\)</span></td>
+<td><span class="math inline">\(\widehat{C}\)</span></td>
+</tr>
+<tr class="even">
+<td>*</td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(C\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="definitions-theorems" class="section level3">
+<h3>Definitions &amp; Theorems</h3>
+<blockquote>
+<p>Def 2.1.1. H-Volume of Rectangle <span class="math inline">\(B\)</span></p>
+<p>Let the first order differences be</p>
+<p><span class="math display">\[\begin{aligned}\Delta_{x_1}^{x_2}H(x,y) &amp;= H(x_2,y)-H(x_2,y)\\
+\Delta_{y_1}^{y_2} &amp;= H(x,y_2)-H(x,y_1) \end{aligned}\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[\begin{aligned}V_H(B) &amp;= \big(H(x_2,y_2)-H(x_2,y_1)\big) - \big( H(x_1,y_2)-H(x_1,y_1)\big)\\
+&amp;= \Delta_{y_1}^{y_2} \Delta_{x_1}^{x_2} H(x,y) \end{aligned}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Def 2.1.2. 2-Increasing Function (Quasi-Monotone Function)</p>
+<p>2-place real function: <span class="math inline">\(H: \text{Dom}H\to\text{Ran}H\)</span> is 2-increasing<br />
+if <span class="math inline">\(V_H(B)\geq 0\)</span> for all <span class="math inline">\(B\in \text{Dom}H\)</span></p>
+<p>H-volume for such functions are called <strong>H-measure</strong>.</p>
+</blockquote>
+<p>Remark: <span class="math inline">\(H\)</span> is 2-increasing and grounded <span class="math inline">\(\implies H\)</span> is non-decreasing in each argument</p>
+<blockquote>
+<p>Lemma 2.1.3.</p>
+<p>Let <span class="math inline">\(S_1,S_2\subset\bar{\mathbb{R}}\)</span> be non-empty,<br />
+<span class="math inline">\(x_1&lt;x_2\in S_1\)</span>, <span class="math inline">\(y_1&lt;y_2\in S_2\)</span>,<br />
+<span class="math inline">\(H\)</span> be 2-increasing, <span class="math inline">\(\text{Dom}H=S_1\times S_2\)</span>.</p>
+<p>Then <span class="math inline">\(t\mapsto H(t, y_2) - H(t,y_1)\)</span> is non-decreasing on <span class="math inline">\(S_1\)</span>,<br />
+<span class="math inline">\(t\mapsto H(x_2,t) - H(x_1,t)\)</span> is non-decreasing on <span class="math inline">\(S_2\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>Grounded Function</p>
+<p>Let <span class="math inline">\(S_1\)</span> has a least element <span class="math inline">\(a_1\)</span>, <span class="math inline">\(S_2\)</span> has a least element <span class="math inline">\(a_2\)</span>,<br />
+<span class="math inline">\(H: S_1\times S_2\to\mathbb{R}\)</span> is grounded<br />
+if <span class="math inline">\(H(x,a_2)= H(a_1, y)=0\)</span> for all <span class="math inline">\((x,y)\in S_1\times S_2\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>Lemma 2.1.5.</p>
+<p>Let <span class="math inline">\(S_1,S_2\subset\bar{\mathbb{R}}\)</span> be non-empty,<br />
+<span class="math inline">\(x_1,x_2\in S_1\)</span>, <span class="math inline">\(y_1,y_2\in S_2\)</span>,<br />
+<span class="math inline">\(H\)</span> be 2-increasing and grounded, has margins (??), <span class="math inline">\(\text{Dom}H=S_1\times S_2\)</span>,</p>
+<p>Then</p>
+<p><span class="math display">\[\big|H(x_2,y_2) - H(x_1,y_1)\big| \leq \big| F(x_2)-F(x_1)\big| + \big|G(y_2)-G(y_1)\big|\]</span></p>
+</blockquote>
+<blockquote>
+<p>Def 2.2.1. Subcopula</p>
+<p>Let <span class="math inline">\(S_1,S_2\subset I\)</span> both contain 0 and 1,<br />
+a 2-subcopula, or subcopula, is a function <span class="math inline">\(C&#39;\)</span> that:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\text{Dom}C&#39; = S_1\times S_2\)</span></li>
+<li><span class="math inline">\(C&#39;\)</span> is grounded and 2-increasing</li>
+<li>For every <span class="math inline">\(x\in S_1\)</span> and <span class="math inline">\(y\in S_2\)</span>,
+<span class="math display">\[\begin{cases}C&#39;(x,1) &amp;= x \\ C&#39;(1,y) &amp;= y \end{cases}\]</span></li>
+</ol>
+</blockquote>
+<p>Remark: (3) <span class="math inline">\(\implies\text{Ran}C&#39;\subset I\)</span>.</p>
+<blockquote>
+<p>Def 2.2.2. Copula</p>
+<p>A copula <span class="math inline">\(C\)</span> is a subcopula with <span class="math inline">\(\text{Dom}C=I^2\)</span>.</p>
+</blockquote>
+<p>Remarks:</p>
+<ol style="list-style-type: decimal">
+<li>For every <span class="math inline">\(x,y\in I\)</span>,
+<span class="math display">\[\begin{cases}C(x,0)=0 \\ C(0,y)=0 \end{cases}\]</span>
+<span class="math display">\[\begin{cases}C(x,1)=x \\ C(1,y)=y \end{cases}\]</span></li>
+<li>For <span class="math inline">\(x_1\leq x_2\in I\)</span>, <span class="math inline">\(y_1\leq y_2\in I\)</span>,
+<span class="math display">\[\big(C(x_2,y_2)-C(x_2,y_1)\big) - \big(C(x_1,y_2)-C(x_1,y_1)\big)\geq 0\]</span></li>
+</ol>
+</div>
+</div>
 <div id="local-sensitivity-analysis" class="section level2">
 <h2>Local Sensitivity Analysis</h2>
 <ul>
@@ -517,10 +666,6 @@ D_i &amp;= \frac{\frac{\partial g(\mathbf{x}^0)}{\partial x_i}\ dx_i}
 {\sum_{j=1}^n \big( \frac{\partial g(\mathbf{x}^0)}{\partial x_j}\cdot\frac{x_j^0}{g(\mathbf{x}^0)}} \\
 &amp;= \frac{E_i}{\sum_{j=1}^n E_j}\end{aligned}\]</span></li>
 </ul>
-</div>
-<div id="screening-morris-method" class="section level3">
-<h3>Screening: Morris Method</h3>
-<p>TBA</p>
 </div>
 </div>
 <div id="global-sensitivity-analysis" class="section level2">

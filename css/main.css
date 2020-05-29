@@ -16,7 +16,8 @@ html {
 	--theme-alt-dark: #037BBA; /* dark blue */
 }
 
-html,body {
+html,
+body {
 	background: var(--white);
 	height: 100%;
 }
@@ -29,9 +30,9 @@ body {
 }
 
 :focus:not([tabindex="-1"]) {
-  outline: 3px solid var(--theme-dark);
-  outline-offset: 3px;
-  border: 0;
+	outline: 3px solid var(--theme-dark);
+	outline-offset: 3px;
+	border: 0;
 }
 
 
@@ -40,7 +41,12 @@ main {
 	overflow-y: hidden;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	color: var(--black);
 }
 
@@ -83,14 +89,15 @@ table {
 	line-height: 1.8;
 }
 
-table, table tr th {
+table,
+table thead tr {
 	border-top: 1px solid var(--dark-grey);
 	border-bottom: 1px solid var(--dark-grey);
 	border-collapse: collapse;
 	text-align: center
 }
 
-table tr:hover {
+table tbody tr:hover {
 	background-color: var(--light-grey);
 }
 
@@ -113,7 +120,7 @@ blockquote.question {
 }
 
 strong {
-	font-weight: inherit;
+	font-weight: 700;
 	font-style: inherit;
 	text-decoration:underline;
 }

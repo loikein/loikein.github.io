@@ -1,45 +1,45 @@
 /* source-serif-pro-regular - latin-ext_latin */
 @font-face {
-  font-family: 'Source Serif Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Source Serif Pro'), local('SourceSerifPro-Regular'),
-       url('../fonts/source-serif-pro-v5-latin-ext_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/source-serif-pro-v5-latin-ext_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-family: 'Source Serif Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Source Serif Pro'), local('SourceSerifPro-Regular'),
+			 url('../fonts/source-serif-pro-v5-latin-ext_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			 url('../fonts/source-serif-pro-v5-latin-ext_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* source-sans-pro-regular - latin-ext_latin
+/* source-sans-pro-regular - latin-ext_latin */
 @font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
-       url('../fonts/source-sans-pro-v11-latin-ext_latin-regular.woff2') format('woff2'),
-       url('../fonts/source-sans-pro-v11-latin-ext_latin-regular.woff') format('woff');
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+			 url('../fonts/source-sans-pro-v11-latin-ext_latin-regular.woff2') format('woff2'),
+			 url('../fonts/source-sans-pro-v11-latin-ext_latin-regular.woff') format('woff');
 }
-*/
+
 
 /* source-code-pro-300 - latin */
 @font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Source Code Pro Light'), local('SourceCodePro-Light'),
-       url('../fonts/source-code-pro-v8-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/source-code-pro-v8-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-family: 'Source Code Pro';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Source Code Pro Light'), local('SourceCodePro-Light'),
+			 url('../fonts/source-code-pro-v8-latin-300.woff2') format('woff2'),
+			 url('../fonts/source-code-pro-v8-latin-300.woff') format('woff');
 }
 
 body {
-  font-family: 'Source Serif Pro', serif;
-  font-weight: 300;
+	font-family: 'Source Serif Pro', serif;
+	font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
-  font-family: 'Source Serif Pro', serif;
+	font-family: 'Source Serif Pro', serif;
 }
 
 code, kbd {
-  font-family: 'Source Code Pro', ;
-  font-weight: 300;
-  font-size: 0.85em;
+	font-family: 'Source Code Pro', ;
+	font-weight: 300;
+	font-size: 0.85em;
 }
