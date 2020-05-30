@@ -671,7 +671,7 @@ then exists a unique subcopula <span class="math inline">\(C&#39;\)</span> s.t.<
 <blockquote>
 <p>Lemma 2.3.5.</p>
 <p>Let <span class="math inline">\(C&#39;\)</span> be a subcopula,<br />
-then exists a copula <span class="math inline">\(C\)</span> s.t. <span class="math inline">\(C(x,y)=C&#39;(x,y)\)</span> for all <span class="math inline">\((x,y)\)</span> in <span class="math inline">\(\text{Dom}C&#39;\)</span>.</p>
+then exists a copula <span class="math inline">\(C\)</span> s.t. <span class="math inline">\(C(x,y)=C&#39;(x,y)\)</span> for all <span class="math inline">\((x,y)\in\text{Dom}C&#39;\)</span>.</p>
 </blockquote>
 <p>Remark: This extension is generally non-unique.</p>
 <blockquote>
@@ -687,6 +687,12 @@ then a quasi-inverse of <span class="math inline">\(F\)</span> is any function <
 </ol>
 <p>If <span class="math inline">\(F\)</span> is strictly increasing,<br />
 then <span class="math inline">\(F^{(-1)}\)</span> is unique and denoted as <span class="math inline">\(F^{-1}\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>Lemma 2.3.7.</p>
+<p>Let <span class="math inline">\(H,F,G,C&#39;\)</span> be as in Lemma 2.3.4., <span class="math inline">\(F^{(-1)},G^{(-1)}\)</span> be quasi-inverses,<br />
+then for any <span class="math inline">\((x,y)\in\text{Dom}C&#39;\)</span>,</p>
+<p><span class="math display">\[C&#39;(x,y)=H\big( F^{(-1)}(x), G^{(-1)}(y) \big)\]</span></p>
 </blockquote>
 </div>
 <div id="families-of-copulas" class="section level3">
@@ -704,6 +710,15 @@ then <span class="math inline">\(F^{(-1)}\)</span> is unique and denoted as <spa
 <p><span class="math display">\[\begin{aligned}C_{\theta}(x,y) &amp;= \big(\min(x,y)\big)^{\theta}\cdot(xy)^{1-\theta}\\
 &amp;= \begin{cases}xy^{1-\theta} &amp; x\leq y\\ x^{1-\theta}y &amp; x\geq y\end{cases}\end{aligned}\]</span></p>
 <p>note that <span class="math inline">\(C_0=\Pi(x,y)\)</span> and <span class="math inline">\(C_1=M(x,y)\)</span>.</p>
+</div>
+<div id="gumbels-bivariate-exponential-distribution" class="section level4">
+<h4>Gumbel’s Bivariate Exponential Distribution</h4>
+<p>Let <span class="math inline">\(H_{\theta}\)</span> be a joint distribution, <span class="math inline">\(\theta\in[0,1]\)</span>,</p>
+<p><span class="math display">\[H_{\theta} = \begin{cases}1-e^{-x}-e^{-y}+e^{-(x+y+\theta xy)} &amp; x,y&gt;0 \\ 0 &amp; \text{otherwise} \end{cases}\]</span></p>
+<p>then quasi-inverses are</p>
+<p><span class="math display">\[\begin{cases}F^{(-1)}(x)= -\ln(1-x)\\G^{(-1)}(y)= -\ln(1-y) \end{cases}\]</span></p>
+<p>and the copula is</p>
+<p><span class="math display">\[C_{\theta}(x,y) = x+y-1 + (1-x)(1-y) e^{-\theta \ln(1-x) \ln(1-y)}\]</span></p>
 </div>
 </div>
 </div>
