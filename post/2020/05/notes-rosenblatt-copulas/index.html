@@ -78,7 +78,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">13 min read</span>
+    <span class="article-duration">15 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -122,6 +122,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#basic-notations">Basic Notations</a></li>
 <li><a href="#definitions-theorems">Definitions &amp; Theorems</a></li>
+<li><a href="#families-of-copulas">Families of Copulas</a></li>
 </ul></li>
 <li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a>
 <ul>
@@ -449,9 +450,8 @@ plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pr
 <li>Random variables: <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span></li>
 <li>Density functions: <span class="math inline">\(F(x)=\Pr (X\leq x)\)</span>, <span class="math inline">\(G(y)=\Pr (Y\leq y)\)</span></li>
 <li>Joint density function: <span class="math inline">\(H(x,y)=\Pr (X\leq x, Y\leq y)\)</span></li>
-<li>Marginal density functions:
-<span class="math display">\[\begin{aligned}H(x) &amp;= \int_{-\infty}^{\infty} H(x,y)\, dy\\
-  H(y) &amp;= \int_{-\infty}^{\infty} H(x,y)\, dx\end{aligned}\]</span></li>
+<li>Margins of joint density function:
+<span class="math display">\[\begin{aligned}F(x) &amp;= H(x,\infty) \\ G(y) &amp;= H(\infty, y)\end{aligned}\]</span></li>
 </ul></li>
 <li>Spacial things
 <ul>
@@ -472,6 +472,9 @@ plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pr
 <li>Joint survival function: <span class="math inline">\(\bar{C}\)</span></li>
 <li>Dual of copula: <span class="math inline">\(\widetilde{C}\)</span></li>
 <li>Co-copula: <span class="math inline">\(C^*\)</span></li>
+<li>Frechét-Hoeffding upper bound: <span class="math inline">\(M(x,y)=\min(x,y)\)</span></li>
+<li>Frechét-Hoeffding lower bound: <span class="math inline">\(W(x,y) = \max(x+y01,\ 0)\)</span></li>
+<li>Product copula: <span class="math inline">\(\Pi(x,y)=xy\)</span></li>
 </ul></li>
 </ul>
 <p>The great copulas table: (<a href="https://www.springer.com/de/book/9780387286594">Nelsen, 2006</a>, p.35)</p>
@@ -516,11 +519,15 @@ plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pr
 </tr>
 </tbody>
 </table>
+<!-- Marginal density functions:
+$$\begin{aligned}H(x) &= \int_{-\infty}^{\infty} H(x,y)\, dy\\
+H(y) &= \int_{-\infty}^{\infty} H(x,y)\, dx\end{aligned}$$
+ -->
 </div>
 <div id="definitions-theorems" class="section level3">
 <h3>Definitions &amp; Theorems</h3>
 <blockquote>
-<p>Def 2.1.1. H-Volume of Rectangle <span class="math inline">\(B\)</span></p>
+<p>Definition 2.1.1. H-Volume of Rectangle <span class="math inline">\(B\)</span></p>
 <p>Let the first order differences be</p>
 <p><span class="math display">\[\begin{aligned}\Delta_{x_1}^{x_2}H(x,y) &amp;= H(x_2,y)-H(x_2,y)\\
 \Delta_{y_1}^{y_2} &amp;= H(x,y_2)-H(x,y_1) \end{aligned}\]</span></p>
@@ -529,7 +536,7 @@ plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pr
 &amp;= \Delta_{y_1}^{y_2} \Delta_{x_1}^{x_2} H(x,y) \end{aligned}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Def 2.1.2. 2-Increasing Function (Quasi-Monotone Function)</p>
+<p>Definition 2.1.2. 2-Increasing Function (Quasi-Monotone Function)</p>
 <p>2-place real function: <span class="math inline">\(H: \text{Dom}H\to\text{Ran}H\)</span> is 2-increasing<br />
 if <span class="math inline">\(V_H(B)\geq 0\)</span> for all <span class="math inline">\(B\in \text{Dom}H\)</span></p>
 <p>H-volume for such functions are called <strong>H-measure</strong>.</p>
@@ -558,7 +565,7 @@ if <span class="math inline">\(H(x,a_2)= H(a_1, y)=0\)</span> for all <span clas
 <p><span class="math display">\[\big|H(x_2,y_2) - H(x_1,y_1)\big| \leq \big| F(x_2)-F(x_1)\big| + \big|G(y_2)-G(y_1)\big|\]</span></p>
 </blockquote>
 <blockquote>
-<p>Def 2.2.1. Subcopula</p>
+<p>Definition 2.2.1. Subcopula</p>
 <p>Let <span class="math inline">\(S_1,S_2\subset I\)</span> both contain 0 and 1,<br />
 a 2-subcopula, or subcopula, is a function <span class="math inline">\(C&#39;\)</span> that:</p>
 <ol style="list-style-type: decimal">
@@ -570,7 +577,7 @@ a 2-subcopula, or subcopula, is a function <span class="math inline">\(C&#39;\)<
 </blockquote>
 <p>Remark: (3) <span class="math inline">\(\implies\text{Ran}C&#39;\subset I\)</span>.</p>
 <blockquote>
-<p>Def 2.2.2. Copula</p>
+<p>Definition 2.2.2. Copula</p>
 <p>A copula <span class="math inline">\(C\)</span> is a subcopula with <span class="math inline">\(\text{Dom}C=I^2\)</span>.</p>
 </blockquote>
 <p>Remarks:</p>
@@ -581,6 +588,123 @@ a 2-subcopula, or subcopula, is a function <span class="math inline">\(C&#39;\)<
 <li>For <span class="math inline">\(x_1\leq x_2\in I\)</span>, <span class="math inline">\(y_1\leq y_2\in I\)</span>,
 <span class="math display">\[\big(C(x_2,y_2)-C(x_2,y_1)\big) - \big(C(x_1,y_2)-C(x_1,y_1)\big)\geq 0\]</span></li>
 </ol>
+<blockquote>
+<p>Theorem 2.2.3.</p>
+<p>Let <span class="math inline">\(C&#39;\)</span> be a subcopula,<br />
+then for every <span class="math inline">\((x,y)\in\text{Dom}C&#39;\)</span>,</p>
+<p><span class="math display">\[\max(x+y01,\ 0) \leq C&#39;(x,y) \leq \min(x,y)\]</span></p>
+</blockquote>
+<p>Remark:</p>
+<p>Since every copula is also a subcopula,<br />
+let <span class="math inline">\(W(x,y) = \max(x+y01,\ 0)\)</span>, <span class="math inline">\(M(x,y)=\min(x,y)\)</span>,<br />
+then for every copula <span class="math inline">\(C\)</span> and every <span class="math inline">\((x,y)\in I^2\)</span>,</p>
+<p><span class="math display">\[W(x,y)\leq C(x,y)\leq M(x,y)\]</span></p>
+<p>which is the <strong>Frechét-Hoeffding bounds inequality</strong>.</p>
+<blockquote>
+<p>Theorem 2.2.4. Subcopula is Uniformly Continuous</p>
+<p>Let <span class="math inline">\(C&#39;\)</span> be a subcopula,<br />
+then for every <span class="math inline">\((x_1, x_2), (y_1, y_2)\)</span> in <span class="math inline">\(\text{Dom}C&#39;\)</span>,</p>
+<p><span class="math display">\[\big|C&#39;(x_2,y_2) - C&#39;(x_1,y_1)\big|\leq |x_2-x_1|+|y_2-y_1|\]</span></p>
+</blockquote>
+<blockquote>
+<p>Theorem 2.2.7.</p>
+<p>Let <span class="math inline">\(C\)</span> be a copula,<br />
+then for almost every <span class="math inline">\(x\in I\)</span> and for almost every <span class="math inline">\(y\in I\)</span>,<br />
+partial derivatives exist, and if they exist,</p>
+<p><span class="math display">\[\begin{aligned}\frac{\partial C(x,y)}{\partial x} &amp;\in [0, 1] \\
+\frac{\partial C(x,y)}{\partial y} &amp;\in [0, 1]\end{aligned}\]</span></p>
+<p>Furthermore, <span class="math inline">\(x\mapsto\frac{\partial C(x,y)}{\partial y}\)</span> and <span class="math inline">\(y\mapsto\frac{\partial C(x,y)}{\partial x}\)</span> are defined and non-decreasing almost everywhere in <span class="math inline">\(I\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>Theorem 2.2.8.</p>
+<p>Let <span class="math inline">\(C\)</span> be a copula,<br />
+if for all <span class="math inline">\(x\in I\)</span> when <span class="math inline">\(y=0\)</span>, <span class="math inline">\(\frac{\partial C(x,y)}{\partial y}\)</span> and <span class="math inline">\(\frac{\partial^2 C(x,y)}{\partial x\partial y}\)</span> are continuous,<br />
+then <span class="math inline">\(\frac{\partial C(x,y)}{\partial x}\)</span> and <span class="math inline">\(\frac{\partial^2 C(x,y)}{\partial y\partial x}\)</span> exist,
+and <span class="math inline">\(\frac{\partial^2 C(x,y)}{\partial x\partial y}=\frac{\partial^2 C(x,y)}{\partial y\partial x}\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>Definition 2.3.1. (Cumulative) Distribution Function</p>
+<p><span class="math inline">\(F\)</span> is a distribution function if:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\text{Dom}F=\bar{\mathbb{R}}\)</span></li>
+<li><span class="math inline">\(F\)</span> is non-decreasing</li>
+<li><span class="math inline">\(F(-\infty)=0\)</span> and <span class="math inline">\(F(\infty)=1\)</span></li>
+</ol>
+</blockquote>
+<p>Remark: Uniform distribution on <span class="math inline">\(a&lt;b\in\mathbb{R}\)</span>:</p>
+<p><span class="math display">\[U_{ab}(x)=\begin{cases}0, x\in[-\infty, a) \\ \frac{x-a}{b-a} &amp; x\in[a,b]\\ 1 &amp; x\in(b,\infty] \end{cases}\]</span></p>
+<blockquote>
+<p>Definition 2.3.2. Joint Distribution Function</p>
+<p><span class="math inline">\(H\)</span> is a joint distribution function if:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\text{Dom}H=\bar{\mathbb{R}}^2\)</span></li>
+<li><span class="math inline">\(H\)</span> is 2-increasing</li>
+<li><span class="math inline">\(H(x,-\infty)=H(-\infty,y)=0\)</span> and <span class="math inline">\(H(\infty,\infty)=1\)</span></li>
+</ol>
+<p>Then, <span class="math inline">\(H\)</span> is grounded, and <span class="math inline">\(H\)</span> has margins given by:</p>
+<p><span class="math display">\[\begin{cases}F(x)=H(x,\infty) \\ G(y)=H(\infty,y)\end{cases}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Theorem 2.3.3. Skalar’s Theorem</p>
+<p>Let <span class="math inline">\(H\)</span> be a joint distribution function with margins <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>,<br />
+then exists a copula <span class="math inline">\(C\)</span> s.t. for all <span class="math inline">\(x,y\in\bar{\mathbb{R}}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}H(x,y) &amp;= C\big( F(x), G(y) \big) \\
+&amp;= C\big( H(x,\infty), H(\infty,y) \big) \end{aligned}\]</span></p>
+<p>If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are continuous, then <span class="math inline">\(C\)</span> is unique (regardless),<br />
+otherwise, <span class="math inline">\(C\)</span> is <a href="https://math.stackexchange.com/questions/2897625/meaning-of-expression-uniquely-determined">uniquely determined</a> by <span class="math inline">\(\text{Ran}F\times\text{Ran}G\)</span>.</p>
+<hr />
+<p>If <span class="math inline">\(C\)</span> is a copula and <span class="math inline">\(F\)</span>, <span class="math inline">\(G\)</span> are distribution functions,
+then</p>
+<p><span class="math display">\[H(x,y) = C\big( F(x), G(y) \big)\]</span></p>
+<p>is a joint distribution function with margins:</p>
+<p><span class="math display">\[\begin{cases}H(x,\infty) = F(x) \\ H(\infty,y) = G(y)\end{cases}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Lemma 2.3.4.</p>
+<p>Let <span class="math inline">\(H\)</span> be a joint distribution with margins <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>,<br />
+then exists a unique subcopula <span class="math inline">\(C&#39;\)</span> s.t.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\text{Dom}C&#39;=\text{Ran}F\times\text{Ran}G\)</span></li>
+<li>For all <span class="math inline">\(x,y\in\bar{\mathbb{R}}\)</span>, <span class="math inline">\(H(x,y)=C\big(F(x),G(y)\big)\)</span></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Lemma 2.3.5.</p>
+<p>Let <span class="math inline">\(C&#39;\)</span> be a subcopula,<br />
+then exists a copula <span class="math inline">\(C\)</span> s.t. <span class="math inline">\(C(x,y)=C&#39;(x,y)\)</span> for all <span class="math inline">\((x,y)\)</span> in <span class="math inline">\(\text{Dom}C&#39;\)</span>.</p>
+</blockquote>
+<p>Remark: This extension is generally non-unique.</p>
+<blockquote>
+<p>Definition 2.3.6. Quasi-Inverse of Distribution Function</p>
+<p>Let <span class="math inline">\(F\)</span> be a distribution function,<br />
+then a quasi-inverse of <span class="math inline">\(F\)</span> is any function <span class="math inline">\(F^{(-1)}\)</span> s.t.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\text{Dom}F^{(-1)}=I\)</span></li>
+<li>For every <span class="math inline">\(t\in\text{Ran}F\)</span>,
+<span class="math display">\[F\big(F^{(-1)}(t)\big)= t\]</span></li>
+<li>For every <span class="math inline">\(t\not\in\text{Ran}F\)</span>,
+<span class="math display">\[\begin{aligned}F^{(-1)}(t) &amp;= \inf\{x\ |\ F(x)\geq t\}\\ &amp;= \sup\{x\ |\ F(x)\leq t\} \end{aligned}\]</span></li>
+</ol>
+<p>If <span class="math inline">\(F\)</span> is strictly increasing,<br />
+then <span class="math inline">\(F^{(-1)}\)</span> is unique and denoted as <span class="math inline">\(F^{-1}\)</span>.</p>
+</blockquote>
+</div>
+<div id="families-of-copulas" class="section level3">
+<h3>Families of Copulas</h3>
+<div id="frechét-mardia-families-of-copula" class="section level4">
+<h4>Frechét-Mardia Families of Copula</h4>
+<p>Let <span class="math inline">\(\alpha,\beta\in I\)</span> s.t. <span class="math inline">\(\alpha+\beta\leq 1\)</span>, a comprehensive copula:</p>
+<p><span class="math display">\[C_{\alpha,\beta}(x,y) = \alpha M(x,y) + (1-\alpha-\beta)\Pi(x,y) +\beta W(x,y)\]</span></p>
+<p>Let <span class="math inline">\(\theta\in[0,1]\)</span>, a comprehensive copula:</p>
+<p><span class="math display">\[C_{\theta} = \frac{\theta^2(1+\theta)}{2} M(x,y) + (1-\theta^2)\Pi(x,y) + \frac{\theta^2(1-\theta)}{2} W(x,y)\]</span></p>
+</div>
+<div id="cuadras-augé-family-of-copulas" class="section level4">
+<h4>Cuadras-Augé Family of Copulas</h4>
+<p>Let <span class="math inline">\(\theta\in[0,1]\)</span>, weighted geometric mean copula:</p>
+<p><span class="math display">\[\begin{aligned}C_{\theta}(x,y) &amp;= \big(\min(x,y)\big)^{\theta}\cdot(xy)^{1-\theta}\\
+&amp;= \begin{cases}xy^{1-\theta} &amp; x\leq y\\ x^{1-\theta}y &amp; x\geq y\end{cases}\end{aligned}\]</span></p>
+<p>note that <span class="math inline">\(C_0=\Pi(x,y)\)</span> and <span class="math inline">\(C_1=M(x,y)\)</span>.</p>
+</div>
 </div>
 </div>
 <div id="local-sensitivity-analysis" class="section level2">
