@@ -135,35 +135,18 @@ header.header {
 	padding: 25px 0;
 	position: relative;
 	border-bottom: 1px solid var(--light-grey);
-	border-top: 5px solid transparent;
-}
-
-header.header::before {
-	background: var(--theme);
-	background: -o-repeating-linear-gradient(290deg, var(--theme) 20px, var(--theme) 40px, var(--theme-alt) 40px, var(--theme-alt) 60px);
-	background: repeating-linear-gradient(160deg, var(--theme) 20px, var(--theme) 40px, var(--theme-alt) 40px, var(--theme-alt) 60px);
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 5px;
-	top: -5px;
 }
 
 .nav {
-	max-width: 800px;
-	margin: 0 auto;
+	max-width: 700px;
 	padding: 0 15px;
+	margin: 0 auto;
 	text-align: right;
 }
 
 .nav-logo {
 	float: left;
-	margin-top: -13px;
-	-webkit-transition: -webkit-transform 150ms ease-out;
-	transition: -webkit-transform 150ms ease-out;
-	-o-transition: transform 150ms ease-out;
-	transition: transform 150ms ease-out;
-	transition: transform 150ms ease-out, -webkit-transform 150ms ease-out;
+	margin-top: -15px;
 }
 
 .nav-logo:hover,
@@ -174,7 +157,6 @@ header.header::before {
 }
 
 .nav-logo img {
-	display: block;
 	max-height: 50px;
 	width: auto;
 	border-radius: 50%;
@@ -189,7 +171,7 @@ header.header::before {
 
 .nav-links li {
 	display: inline-block;
-	margin: 0 0 0 30px;
+	margin-left: 1em;
 }
 
 .nav-links li:first-child {
@@ -490,4 +472,3 @@ header.header::before {
 		--theme-alt-dark: #ACD7EE; /* light blue */
 	}
 }
-

@@ -92,7 +92,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">15 min read</span>
+    <span class="article-duration">17 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -135,7 +135,9 @@ if (!doNotTrack) {
 <li><a href="#copulas">Copulas</a>
 <ul>
 <li><a href="#basic-notations">Basic Notations</a></li>
-<li><a href="#definitions-theorems">Definitions &amp; Theorems</a></li>
+<li><a href="#definitions-theorems-for-2-dim-space">Definitions &amp; Theorems for 2-Dim Space</a></li>
+<li><a href="#definitions-theorems-for-n-dim-space">Definitions &amp; Theorems for N-Dim Space</a></li>
+<li><a href="#copula-sampling">Copula Sampling</a></li>
 <li><a href="#families-of-copulas">Families of Copulas</a></li>
 </ul></li>
 <li><a href="#local-sensitivity-analysis">Local Sensitivity Analysis</a>
@@ -538,8 +540,8 @@ $$\begin{aligned}H(x) &= \int_{-\infty}^{\infty} H(x,y)\, dy\\
 H(y) &= \int_{-\infty}^{\infty} H(x,y)\, dx\end{aligned}$$
  -->
 </div>
-<div id="definitions-theorems" class="section level3">
-<h3>Definitions &amp; Theorems</h3>
+<div id="definitions-theorems-for-2-dim-space" class="section level3">
+<h3>Definitions &amp; Theorems for 2-Dim Space</h3>
 <blockquote>
 <p>Definition 2.1.1. H-Volume of Rectangle <span class="math inline">\(B\)</span></p>
 <p>Let the first order differences be</p>
@@ -711,11 +713,67 @@ then for any <span class="math inline">\((x,y)\in\text{Dom}C&#39;\)</span>,</p>
 <blockquote>
 <p>Theorem 2.4.1. Skalar’s Theorem (Random Variables)</p>
 <p>Let <span class="math inline">\(X,Y\)</span> be random variables with distribution functions <span class="math inline">\(F,G\)</span> and joint distribution <span class="math inline">\(H\)</span>,<br />
-then exists a copula <span class="math inline">\(C\)</span> s.t.</p>
-<p><span class="math display">\[H(x,y) = C\big( F(x), G(y) \big)\]</span></p>
-<p>If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are continuous, then <span class="math inline">\(C\)</span> is unique (regardless),<br />
-otherwise, <span class="math inline">\(C\)</span> is <a href="https://math.stackexchange.com/questions/2897625/meaning-of-expression-uniquely-determined">uniquely determined</a> by <span class="math inline">\(\text{Ran}F\times\text{Ran}G\)</span>.</p>
+then exists a copula <span class="math inline">\(C_{XY}\)</span> s.t.</p>
+<p><span class="math display">\[H(x,y) = C_{XY}\big( F(x), G(y) \big)\]</span></p>
+<p>If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are continuous, then <span class="math inline">\(C_{XY}\)</span> is unique (regardless),<br />
+otherwise, <span class="math inline">\(C_{XY}\)</span> is <a href="https://math.stackexchange.com/questions/2897625/meaning-of-expression-uniquely-determined">uniquely determined</a> by <span class="math inline">\(\text{Ran}F\times\text{Ran}G\)</span>.</p>
 </blockquote>
+<blockquote>
+<p>Theorem 2.4.2.</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be continuous random variables,<br />
+then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent <span class="math inline">\(\iff\)</span></p>
+<p><span class="math display">\[\begin{aligned}C_{XY}&amp;= \Pi \\
+C_{XY}\big( F(x), G(y) \big) &amp;= F(x)\cdot G(y) \\
+H(x,y) &amp;= F(x)\cdot G(y) \end{aligned}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Theorem 2.4.3. Transformation Invariance (1)</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be continuous random variables with copula <span class="math inline">\(C_{XY}\)</span>,<br />
+functions <span class="math inline">\(\alpha, \beta\)</span> be strictly increasing on <span class="math inline">\(\text{Ran}X\)</span> and <span class="math inline">\(\text{Ran}Y\)</span>,<br />
+then <span class="math inline">\(C_{XY}\)</span> is invariant under strictly increasing transformations:</p>
+<p><span class="math display">\[C_{\alpha(X),\beta(Y)} = C_{XY}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Theorem 2.4.4. Transformation Invariance (2)</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be continuous random variables with copula <span class="math inline">\(C_{XY}\)</span>,<br />
+functions <span class="math inline">\(\alpha, \beta\)</span> be strictly monotone on <span class="math inline">\(\text{Ran}X\)</span> and <span class="math inline">\(\text{Ran}Y\)</span>,</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(\alpha\)</span> is strictly increasing, <span class="math inline">\(\beta\)</span> is strictly decreasing,<br />
+then
+<span class="math display">\[C_{\alpha(X),\beta(Y)}(x,y)= x - C_{XY}(x,1-y)\]</span></li>
+<li>If <span class="math inline">\(\alpha\)</span> is strictly decreasing, <span class="math inline">\(\beta\)</span> is strictly increasing,<br />
+then
+<span class="math display">\[C_{\alpha(X),\beta(Y)}(x,y)= y - C_{XY}(1-x,y)\]</span></li>
+<li>If <span class="math inline">\(\alpha,\beta\)</span> are both strictly decreasing,<br />
+then
+<span class="math display">\[C_{\alpha(X),\beta(Y)}(x,y)= x + y - 1 + C_{XY}(1-x,1-y)\]</span></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Order Statistics</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be continuous random variables with distribution functions <span class="math inline">\(F,G\)</span> and copula <span class="math inline">\(C_{XY}\)</span>,<br />
+then order statistics are the random variables <span class="math inline">\(\min(X,Y)\)</span> and <span class="math inline">\(\max(X,Y)\)</span> with distributions:</p>
+<p><span class="math display">\[\begin{aligned}\Pr(\max(X,Y)\leq t) &amp;= C\big( F(t), G(t) \big)\\
+\Pr(\min(X,Y)\leq t) &amp;= F(t) + G(t) - C\big( F(t), G(t) \big) \end{aligned}\]</span></p>
+<p>and they are bounded by</p>
+<p><span class="math display">\[\begin{aligned}\max\big(F(t)+G(t)-1,\ 0\big) &amp;\leq \Pr(\max(X,Y)\leq t) \leq\min\big(F(t), G(t)\big) \\
+\max\big(F(t),G(t)\big)&amp;\leq \Pr(\min(X,Y)\leq t) \mkern3.5mu\leq \min\big(F(t)+G(t),\ 1\big)\end{aligned}\]</span></p>
+</blockquote>
+</div>
+<div id="definitions-theorems-for-n-dim-space" class="section level3">
+<h3>Definitions &amp; Theorems for N-Dim Space</h3>
+</div>
+<div id="copula-sampling" class="section level3">
+<h3>Copula Sampling</h3>
+<div id="inverse-distribution-function-method" class="section level4">
+<h4>Inverse Distribution Function Method</h4>
+</div>
+<div id="conditional-distribution-method" class="section level4">
+<h4>Conditional Distribution Method</h4>
+</div>
+<div id="conditional-distribution-with-survival-copulas" class="section level4">
+<h4>Conditional Distribution With Survival Copulas</h4>
+</div>
 </div>
 <div id="families-of-copulas" class="section level3">
 <h3>Families of Copulas</h3>
@@ -741,6 +799,24 @@ otherwise, <span class="math inline">\(C\)</span> is <a href="https://math.stack
 <p><span class="math display">\[\begin{cases}F^{(-1)}(x)= -\ln(1-x)\\G^{(-1)}(y)= -\ln(1-y) \end{cases}\]</span></p>
 <p>and the copula is</p>
 <p><span class="math display">\[C_{\theta}(x,y) = x+y-1 + (1-x)(1-y) e^{-\theta \ln(1-x) \ln(1-y)}\]</span></p>
+</div>
+<div id="gumbel-hougaard-family-of-copulas" class="section level4">
+<h4>Gumbel-Hougaard Family of Copulas</h4>
+<p>Let <span class="math inline">\(X,Y\)</span> be random variables, <span class="math inline">\(\theta\geq 1\)</span>, then for all <span class="math inline">\(x,y\in\bar{\mathbb{R}}\)</span>,</p>
+<p><span class="math display">\[H_{\theta}(x,y)=\exp\big( -(e^{-\theta x} + e^{-\theta y})^{\frac{1}{\theta}} \big)\]</span></p>
+<p>and the copula is</p>
+<p><span class="math display">\[C_{\theta}(x,y)=\exp\Big( -\big((-\ln x)^{\theta} + (-\ln y)^{\theta}\big)^{\frac{1}{\theta}} \Big)\]</span></p>
+</div>
+<div id="ali-mikhail-haq-family-of-copulas" class="section level4">
+<h4>Ali-Mikhail-Haq Family of Copulas</h4>
+<p>Let <span class="math inline">\(X,Y\)</span> be random variables, <span class="math inline">\(\theta\in[-1,1]\)</span>, then for all <span class="math inline">\(x,y\in\bar{\mathbb{R}}\)</span>,</p>
+<p><span class="math display">\[H_{\theta} = \big( 1+e^{-x}-e^{-y}+(1-\theta)e^{-x-y} \big)^{-1}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(\theta=1\)</span>, the copula is <a href="#gumbels-bivariate-exponential-distribution">Gumbel’s Bivariate Exponential Distribution</a></li>
+<li>If <span class="math inline">\(\theta=0\)</span>, <span class="math inline">\(X,Y\)</span> are independent, and <span class="math inline">\(C_{XY}=\Pi\)</span></li>
+<li>Otherwise, the copula is</li>
+</ol>
+<p><span class="math display">\[C_{\theta}(x,y)=\frac{xy}{1-\theta(1-x)(1-y)}\]</span></p>
 </div>
 </div>
 </div>
