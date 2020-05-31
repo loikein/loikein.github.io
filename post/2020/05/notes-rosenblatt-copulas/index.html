@@ -55,21 +55,35 @@ if (!doNotTrack) {
 <header class="header">
 <nav class="nav">
 <a href="/" class="nav-logo">
-  <img src="/logo.png"
-       alt="Home">
+<img src="/logo.png" alt="Home">
 </a>
 <ul class="nav-links">
-  
-  <li><a href="/post/">Notes</a></li>
-  
-  <li><a href="/writings/">Writings</a></li>
-  
-  <li><a href="/tags/">Tags</a></li>
-  
-  <li><a href="https://duckduckgo.com/?q=site%3Anotes.loikein.one">Search</a></li>
-  
-  <li><a href="https://github.com/loikein/loikein.github.io">Source</a></li>
-  
+
+
+  <li>
+  <a class=" active" href="/post/">Notes</a>
+  </li>
+
+  <li>
+  <a class="" href="/writing/">Writings</a>
+  </li>
+
+  <li>
+  <a class="" href="/tags/">Tags</a>
+  </li>
+
+  <li>
+  <a class="" href="/archived/">Archived</a>
+  </li>
+
+  <li>
+  <a class="" href="https://duckduckgo.com/?q=site%3Anotes.loikein.one">Search</a>
+  </li>
+
+  <li>
+  <a class="" href="https://github.com/loikein/loikein.github.io">Source</a>
+  </li>
+
 </ul>
 </nav>
 
@@ -693,6 +707,14 @@ then <span class="math inline">\(F^{(-1)}\)</span> is unique and denoted as <spa
 <p>Let <span class="math inline">\(H,F,G,C&#39;\)</span> be as in Lemma 2.3.4., <span class="math inline">\(F^{(-1)},G^{(-1)}\)</span> be quasi-inverses,<br />
 then for any <span class="math inline">\((x,y)\in\text{Dom}C&#39;\)</span>,</p>
 <p><span class="math display">\[C&#39;(x,y)=H\big( F^{(-1)}(x), G^{(-1)}(y) \big)\]</span></p>
+</blockquote>
+<blockquote>
+<p>Theorem 2.4.1. Skalar’s Theorem (Random Variables)</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be random variables with distribution functions <span class="math inline">\(F,G\)</span> and joint distribution <span class="math inline">\(H\)</span>,<br />
+then exists a copula <span class="math inline">\(C\)</span> s.t.</p>
+<p><span class="math display">\[H(x,y) = C\big( F(x), G(y) \big)\]</span></p>
+<p>If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are continuous, then <span class="math inline">\(C\)</span> is unique (regardless),<br />
+otherwise, <span class="math inline">\(C\)</span> is <a href="https://math.stackexchange.com/questions/2897625/meaning-of-expression-uniquely-determined">uniquely determined</a> by <span class="math inline">\(\text{Ran}F\times\text{Ran}G\)</span>.</p>
 </blockquote>
 </div>
 <div id="families-of-copulas" class="section level3">

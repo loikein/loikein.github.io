@@ -63,15 +63,6 @@ Therefore, the overall budget constraint is given by (1): \[c_1 + c_2\cdot\frac{
     </item>
     
     <item>
-      <title>Writings</title>
-      <link>/writings/</link>
-      <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/writings/</guid>
-      <description>  Implementing the “Wisdom of the Crowd” (Kremer Mansour Perry 2014)  Slides Paper   </description>
-    </item>
-    
-    <item>
       <title>Effective Programming Practice: Final Project</title>
       <link>/post/2019/12/effective-programming-project/</link>
       <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
@@ -119,10 +110,10 @@ Your task is to implement those tools in Python and to integrate them in estimag
     
     <item>
       <title>Notes on Industrial Organization</title>
-      <link>/archive/notes-industrial-organization/</link>
+      <link>/archived/notes-industrial-organization/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/archive/notes-industrial-organization/</guid>
+      <guid>/archived/notes-industrial-organization/</guid>
       <description>Basic Ideas  Firm Consumer Discrete Choice Model Discrete Choice Model: Asymmetric Information Representative Consumer Model Welfare Perfect Competition    Basic Ideas Firm  Firm: transforms inputs into outputs Profit: \(Π = R(q) - C(q)\) Sales: \(q = f(k,l)\) Cost: technology, expenditure minimization
 Let \(q = \tilde{q}\), isovalue of production: \(f(k,l) = \tilde{q}\)
 Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expenditure: \(k = -\frac{p_l}{p_k}\cdot l + \frac{E}{p_k}\)</description>
@@ -148,10 +139,10 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
     
     <item>
       <title>Notes on Time Series</title>
-      <link>/archive/notes-time-series/</link>
+      <link>/archived/notes-time-series/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/archive/notes-time-series/</guid>
+      <guid>/archived/notes-time-series/</guid>
       <description>Definition  Property  Analysis  Procedure Trend Trend &amp;amp; Seasonality Lag &amp;amp; Difference Operator  ARMA  White Noise MA MA Stationarity AR AR (1) Stationarity AR (p) Stationarity AR (p) as MA (∞) Yule-Walker Equations ARMA  ARCH &amp;amp; GARCH  ARCH ARCH Stationarity GARCH GARCH Stationarity  Old Stuff  Integration OLS Estimation ML Estimation Model Selection Spurious Regression Cointegration    Definition  Time series: collection of observations indexed by date \[\begin{aligned}\{y_t\}_{t=-\infty}^{\infty} &amp;amp;= \{y_t\}_{t\in\mathbb{Z}} \\ &amp;amp;= \{ \dots, y_{-1}, y_0, y_1, y_2,\dots, y_{T-1}, y_{T}, y_{T+1},\dots\} \end{aligned}\]  Observed sample: \(\{ y_1, y_2,\dots, y_{T-1}, y_{T}\}\) Underlying random variables: \(\{ Y_1, Y_2,\dots, Y_{T-1}, Y_{T}\}\)  Stochastic process: ordered sequence of random variables \[\{Y_t\}_{t=0,\pm 1,\pm 2,\dots} =\{Y_t\}_{t\in\mathbb{Z}}\]  Probability space: \((Ω,\mathcal{A},P)\) Mapping: \(\{Y_t(\cdot)\}: Ω\mapsto \mathbb{R}^{\mathbb{Z}}\) s.</description>
     </item>
     
@@ -184,10 +175,10 @@ Let \(p_k\) be price of k, \(p_l\) be price of l, given \(E\), isovalue of expen
     
     <item>
       <title>Notes on Mechanism Design &amp; Social Choice</title>
-      <link>/archive/notes-mechanism-social/</link>
+      <link>/archived/notes-mechanism-social/</link>
       <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/archive/notes-mechanism-social/</guid>
+      <guid>/archived/notes-mechanism-social/</guid>
       <description>Mechanism Design Problem  Environment Mechanism Induced Game Social Choice Function &amp;amp; Implementation    I dropped this course.
 Textbook: (MWG) Microeconomic Theory
 Mechanism Design Problem Reference
@@ -205,10 +196,10 @@ Environment  Set of agents: \(i\in N = \{1,2,\dots, n\}\) Set of possible altern
     
     <item>
       <title>Notes on Probability Theory</title>
-      <link>/archive/notes-probability-theory/</link>
+      <link>/archived/notes-probability-theory/</link>
       <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/archive/notes-probability-theory/</guid>
+      <guid>/archived/notes-probability-theory/</guid>
       <description>Literature Personal Reference Measure Theory σ-algebra Ring Dynkin System (λ-system) π-system Measures I dropped this course. Literature Probability &amp;amp; Measure Theory Probability Theory and Elements of Measure Theory (Bauer, H.) Probability and Measure Probability Theory: Independence, Interchangeability, Martingales ★ measure A Course in Probability Theory Real</description>
     </item>
     
@@ -234,10 +225,10 @@ Assume that potato chips are a divisible good with quantities in gram.</descript
     
     <item>
       <title>Introduction to JavaScript</title>
-      <link>/archive/intro-js/</link>
+      <link>/archived/intro-js/</link>
       <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/archive/intro-js/</guid>
+      <guid>/archived/intro-js/</guid>
       <description>Basics Constant Variable Assignment Operator Increment Operator String + Varible Property Method Built-in Object Math Number Conditional Statement if Truthy and Falsy Short-Circuit Evaluation Ternary Operator else if switch Function Default Argument Arrow Function Function in Function Scope Scope Pollution Good Scoping Array let &amp;amp; const Array Method Nested Array Loop for while do ... while break Iteration Object Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop</description>
     </item>
     
@@ -322,10 +313,10 @@ Consider the wage regressions from slide 5 (text P86).
     
     <item>
       <title>Introduction to C Language</title>
-      <link>/archive/intro-c-rmd/</link>
+      <link>/archived/intro-c-rmd/</link>
       <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/archive/intro-c-rmd/</guid>
+      <guid>/archived/intro-c-rmd/</guid>
       <description>0419 1.2 プリント 2.a 変数 2.b 変数の型 2.c 演算子 2.d プリント2 3.a プリントと変数 3.b プリント：出力指定 3.3 円の面積 3.4 演算子2 4.a 読み込み 4.2 読み込みと円の面積 4.3 読み</description>
     </item>
     

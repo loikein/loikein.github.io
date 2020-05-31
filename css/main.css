@@ -202,10 +202,15 @@ header.header::before {
 	padding-bottom: 19px;
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
+.nav-links a.active {
 	color: var(--theme-dark);
 	border-bottom: 5px solid var(--theme);
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+	color: var(--theme-alt-dark);
+	border-bottom: 5px solid var(--theme-alt);
 }
 
 /* archive */
@@ -319,9 +324,11 @@ header.header::before {
 }
 
 .article-content kbd {
-	padding-left: 0.1em;
-	padding-right: 0.1em;
-	border: 2px outset var(--light-grey);
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+	border: 2px outset var(--dark-grey);
+	border-radius: 0.5em;
+	cursor: pointer;
 }
 
 /* mjx margin & scroll quick fix, introduce bug in Safari */
