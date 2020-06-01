@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.71.1" />
+<meta name="generator" content="Hugo 0.72.0" />
 
 <title>Notes on Sensitivity and Copulas - loikein&#39;s notes</title>
 <meta property="og:title" content="Notes on Sensitivity and Copulas - loikein&#39;s notes">
@@ -92,7 +92,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">17 min read</span>
+    <span class="article-duration">18 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -136,7 +136,6 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#basic-notations">Basic Notations</a></li>
 <li><a href="#definitions-theorems-for-2-dim-space">Definitions &amp; Theorems for 2-Dim Space</a></li>
-<li><a href="#definitions-theorems-for-n-dim-space">Definitions &amp; Theorems for N-Dim Space</a></li>
 <li><a href="#copula-sampling">Copula Sampling</a></li>
 <li><a href="#families-of-copulas">Families of Copulas</a></li>
 </ul></li>
@@ -468,6 +467,8 @@ plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pr
 <li>Joint density function: <span class="math inline">\(H(x,y)=\Pr (X\leq x, Y\leq y)\)</span></li>
 <li>Margins of joint density function:
 <span class="math display">\[\begin{aligned}F(x) &amp;= H(x,\infty) \\ G(y) &amp;= H(\infty, y)\end{aligned}\]</span></li>
+<li>Survival functions: <span class="math inline">\(\bar{F}(x)=\Pr(X&gt;x)\)</span>, <span class="math inline">\(\bar{G}(y)=\Pr(Y&gt;y)\)</span></li>
+<li>Joint survival function: <span class="math inline">\(\bar{H}(x,y)=\Pr(X&gt;x, Y&gt;y)\)</span></li>
 </ul></li>
 <li>Spacial things
 <ul>
@@ -484,12 +485,12 @@ plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pr
 <ul>
 <li>Subcopula: <span class="math inline">\(C&#39;\)</span></li>
 <li>Copula: <span class="math inline">\(C\)</span></li>
-<li>Survival copula: <span class="math inline">\(\widehat{C}\)</span></li>
-<li>Joint survival function: <span class="math inline">\(\bar{C}\)</span></li>
-<li>Dual of copula: <span class="math inline">\(\widetilde{C}\)</span></li>
-<li>Co-copula: <span class="math inline">\(C^*\)</span></li>
+<li>Survival copula: <span class="math display">\[\widehat{C}(x,y)=x+y+C(1-x,1-y)-1\]</span></li>
+<li>Joint survival function for <span class="math inline">\(X,Y\sim U(0,1)\)</span>: <span class="math display">\[\bar{C}(x,y)=1-x-y+C(x,y)\]</span></li>
+<li>Dual of copula: <span class="math display">\[\widetilde{C}(x,y)=x+y-C(x,y)\]</span></li>
+<li>Co-copula: <span class="math display">\[C^*=1-C(1-x, 1-y)\]</span></li>
 <li>Frechét-Hoeffding upper bound: <span class="math inline">\(M(x,y)=\min(x,y)\)</span></li>
-<li>Frechét-Hoeffding lower bound: <span class="math inline">\(W(x,y) = \max(x+y01,\ 0)\)</span></li>
+<li>Frechét-Hoeffding lower bound: <span class="math inline">\(W(x,y) = \max(x+y-1,0)\)</span></li>
 <li>Product copula: <span class="math inline">\(\Pi(x,y)=xy\)</span></li>
 </ul></li>
 </ul>
@@ -759,17 +760,53 @@ then order statistics are the random variables <span class="math inline">\(\min(
 <p><span class="math display">\[\begin{aligned}\max\big(F(t)+G(t)-1,\ 0\big) &amp;\leq \Pr(\max(X,Y)\leq t) \leq\min\big(F(t), G(t)\big) \\
 \max\big(F(t),G(t)\big)&amp;\leq \Pr(\min(X,Y)\leq t) \mkern3.5mu\leq \min\big(F(t)+G(t),\ 1\big)\end{aligned}\]</span></p>
 </blockquote>
-</div>
-<div id="definitions-theorems-for-n-dim-space" class="section level3">
-<h3>Definitions &amp; Theorems for N-Dim Space</h3>
+<blockquote>
+<p>Survival Function / Survivor Function / Reliability Function</p>
+<p>Let <span class="math inline">\(X\)</span> be random variable with distribution function <span class="math inline">\(F\)</span>,<br />
+the survival function of <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}\bar{F}(x) &amp;= \Pr (X&gt;x)\\ &amp;= 1-F(x) \end{aligned}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Joint Survival Function</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be random variables with distribution functions <span class="math inline">\(F,G\)</span> and copula <span class="math inline">\(C_{XY}\)</span>,<br />
+the joint survival function</p>
+<p><span class="math display">\[\bar{H}(x,y) = \Pr(X&gt;x, Y&gt;y)\]</span></p>
+<p>with margins (also the univariate survival functions):</p>
+<p><span class="math display">\[\begin{cases}\bar{F}(x)=\bar{H}(x,-\infty) \\ \bar{G}(y)=\bar{H}(-\infty,y)\end{cases}\]</span></p>
+<p>where
+<span class="math display">\[\begin{aligned}\bar{H}(x,y) &amp;= \big(1 - F(x)\big) + \big(1- G(y)\big) - \big(1 - H(x,y)\big)\\
+&amp;= \bar{F}(x) + \bar{G}(y) + C_{XY}\big(F(x), G(y)\big) - 1\\
+&amp;= \bar{F}(x) + \bar{G}(y) + C_{XY}\big(1-\bar{F}(x),\ 1-\bar{G}(y)\big) - 1\end{aligned}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Survival Copula</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be random variables with joint survival function <span class="math inline">\(\bar{H}\)</span> and copula <span class="math inline">\(C_{XY}\)</span>,<br />
+the survival copula is a function <span class="math inline">\(\widehat{C}:I^2\to I\)</span> s.t.</p>
+<p><span class="math display">\[\begin{aligned}\widehat{C} &amp;= x + y + C_{XY}(1-x, 1-y) - 1 \\
+\bar{H}(x,y) &amp;= \widehat{C}\big(\bar{F}(x), \bar{G}(y)\big) \end{aligned}\]</span></p>
+</blockquote>
+<!-- ### Definitions & Theorems for N-Dim Space -->
 </div>
 <div id="copula-sampling" class="section level3">
 <h3>Copula Sampling</h3>
-<div id="inverse-distribution-function-method" class="section level4">
-<h4>Inverse Distribution Function Method</h4>
+<p>Purpose: Given <span class="math inline">\(X\)</span> and density function <span class="math inline">\(F\)</span>, get a series of realisations <span class="math inline">\(x\)</span>.</p>
+<div id="inverse-distribution-function" class="section level4">
+<h4>Inverse Distribution Function</h4>
+<ol style="list-style-type: decimal">
+<li>Given <span class="math inline">\(X\)</span> and density function <span class="math inline">\(F\)</span></li>
+<li>Generate <span class="math inline">\(u\)</span> that is uniform on <span class="math inline">\((0,1)\)</span></li>
+<li>Set <span class="math inline">\(x=F^{(-1)}(u)\)</span></li>
+</ol>
 </div>
 <div id="conditional-distribution-method" class="section level4">
 <h4>Conditional Distribution Method</h4>
+<ol style="list-style-type: decimal">
+<li>Given <span class="math inline">\(X,Y\)</span> and copula <span class="math inline">\(C=C_{XY}\)</span></li>
+<li>Generate independent variables <span class="math inline">\(u,t\)</span> that are uniform on <span class="math inline">\((0,1)\)</span></li>
+<li>Set <span class="math inline">\(v=c_u^{(-1)}(t)\)</span>, where
+<span class="math display">\[\begin{aligned}c_u(x) &amp;= \Pr(X\leq x\ |\ U=u) \\ &amp;= \frac{\partial C(u,x)}{\partial u}\end{aligned}\]</span></li>
+<li>Then <span class="math inline">\((x,y)=(u,v)\)</span></li>
+</ol>
 </div>
 <div id="conditional-distribution-with-survival-copulas" class="section level4">
 <h4>Conditional Distribution With Survival Copulas</h4>
