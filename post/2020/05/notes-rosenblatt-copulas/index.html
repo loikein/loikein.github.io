@@ -136,6 +136,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#basic-notations">Basic Notations</a></li>
 <li><a href="#definitions-theorems-for-2-dim-space">Definitions &amp; Theorems for 2-Dim Space</a></li>
+<li><a href="#skalars-theorem">Skalar’s Theorem</a></li>
 <li><a href="#copula-sampling">Copula Sampling</a></li>
 <li><a href="#families-of-copulas">Families of Copulas</a></li>
 </ul></li>
@@ -461,8 +462,9 @@ plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pr
 <ul>
 <li>Little things
 <ul>
-<li>Real numbers: <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span></li>
-<li>Random variables: <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span></li>
+<li>Real numbers: <span class="math inline">\(u, v, t\)</span></li>
+<li>Random variables: <span class="math inline">\(X, Y\)</span></li>
+<li>Realisation of random variables: <span class="math inline">\(x, y\)</span></li>
 <li>Density functions: <span class="math inline">\(F(x)=\Pr (X\leq x)\)</span>, <span class="math inline">\(G(y)=\Pr (Y\leq y)\)</span></li>
 <li>Joint density function: <span class="math inline">\(H(x,y)=\Pr (X\leq x, Y\leq y)\)</span></li>
 <li>Margins of joint density function:
@@ -651,7 +653,7 @@ and <span class="math inline">\(\frac{\partial^2 C(x,y)}{\partial x\partial y}=\
 <p>Remark: Uniform distribution on <span class="math inline">\(a&lt;b\in\mathbb{R}\)</span>:</p>
 <p><span class="math display">\[U_{ab}(x)=\begin{cases}0, x\in[-\infty, a) \\ \frac{x-a}{b-a} &amp; x\in[a,b]\\ 1 &amp; x\in(b,\infty] \end{cases}\]</span></p>
 <blockquote>
-<p>Definition 2.3.2. Joint Distribution Function</p>
+<p>Definition 2.3.2. Joint (Cumulative) Distribution Function</p>
 <p><span class="math inline">\(H\)</span> is a joint distribution function if:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\text{Dom}H=\bar{\mathbb{R}}^2\)</span></li>
@@ -666,7 +668,8 @@ and <span class="math inline">\(\frac{\partial^2 C(x,y)}{\partial x\partial y}=\
 <p>Let <span class="math inline">\(H\)</span> be a joint distribution function with margins <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>,<br />
 then exists a copula <span class="math inline">\(C\)</span> s.t. for all <span class="math inline">\(x,y\in\bar{\mathbb{R}}\)</span>,</p>
 <p><span class="math display">\[\begin{aligned}H(x,y) &amp;= C\big( F(x), G(y) \big) \\
-&amp;= C\big( H(x,\infty), H(\infty,y) \big) \end{aligned}\]</span></p>
+&amp;= C\big( H(x,\infty), H(\infty,y) \big) \\
+&amp;= \Pr(X\leq x, Y\leq y) \end{aligned}\]</span></p>
 <p>If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are continuous, then <span class="math inline">\(C\)</span> is unique (regardless),<br />
 otherwise, <span class="math inline">\(C\)</span> is <a href="https://math.stackexchange.com/questions/2897625/meaning-of-expression-uniquely-determined">uniquely determined</a> by <span class="math inline">\(\text{Ran}F\times\text{Ran}G\)</span>.</p>
 <hr />
@@ -675,6 +678,13 @@ then</p>
 <p><span class="math display">\[H(x,y) = C\big( F(x), G(y) \big)\]</span></p>
 <p>is a joint distribution function with margins:</p>
 <p><span class="math display">\[\begin{cases}H(x,\infty) = F(x) \\ H(\infty,y) = G(y)\end{cases}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Dual of Copula</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be random variables with distribution functions <span class="math inline">\(F,G\)</span> and copula <span class="math inline">\(C_{XY}\)</span>,<br />
+the dual of copula of <span class="math inline">\(C_{XY}\)</span> is a function <span class="math inline">\(\widetilde{C}\)</span> s.t.</p>
+<p><span class="math display">\[\begin{aligned}\widetilde{C}(x,y) &amp;=  x + y - C_{XY}(x,y)\\
+\widetilde{C}\big(F(x), G(y)\big) &amp;= \Pr( X\leq x \text{ or } Y\leq y)\end{aligned}\]</span></p>
 </blockquote>
 <blockquote>
 <p>Lemma 2.3.4.</p>
@@ -711,6 +721,9 @@ then <span class="math inline">\(F^{(-1)}\)</span> is unique and denoted as <spa
 then for any <span class="math inline">\((x,y)\in\text{Dom}C&#39;\)</span>,</p>
 <p><span class="math display">\[C&#39;(x,y)=H\big( F^{(-1)}(x), G^{(-1)}(y) \big)\]</span></p>
 </blockquote>
+</div>
+<div id="skalars-theorem" class="section level3">
+<h3>Skalar’s Theorem</h3>
 <blockquote>
 <p>Theorem 2.4.1. Skalar’s Theorem (Random Variables)</p>
 <p>Let <span class="math inline">\(X,Y\)</span> be random variables with distribution functions <span class="math inline">\(F,G\)</span> and joint distribution <span class="math inline">\(H\)</span>,<br />
@@ -785,6 +798,13 @@ the survival copula is a function <span class="math inline">\(\widehat{C}:I^2\to
 <p><span class="math display">\[\begin{aligned}\widehat{C} &amp;= x + y + C_{XY}(1-x, 1-y) - 1 \\
 \bar{H}(x,y) &amp;= \widehat{C}\big(\bar{F}(x), \bar{G}(y)\big) \end{aligned}\]</span></p>
 </blockquote>
+<blockquote>
+<p>Co-Copula</p>
+<p>Let <span class="math inline">\(X,Y\)</span> be random variables with distribution functions <span class="math inline">\(F,G\)</span> and copula <span class="math inline">\(C_{XY}\)</span>,<br />
+the co-copula of <span class="math inline">\(C_{XY}\)</span> is a function <span class="math inline">\(C^*\)</span> s.t.</p>
+<p><span class="math display">\[\begin{aligned}C^*(x,y) &amp;= 1 - C_{XY}(1-x,1-y)\\
+C^*\big(\bar{F}(x), \bar{G}(y)\big) &amp;= \Pr( X&gt;x \text{ or } Y&gt;y) \end{aligned}\]</span></p>
+</blockquote>
 <!-- ### Definitions & Theorems for N-Dim Space -->
 </div>
 <div id="copula-sampling" class="section level3">
@@ -810,6 +830,9 @@ the survival copula is a function <span class="math inline">\(\widehat{C}:I^2\to
 </div>
 <div id="conditional-distribution-with-survival-copulas" class="section level4">
 <h4>Conditional Distribution With Survival Copulas</h4>
+<ol style="list-style-type: decimal">
+<li>Given <span class="math inline">\(X,Y\)</span> and copula <span class="math inline">\(C=C_{XY}\)</span></li>
+</ol>
 </div>
 </div>
 <div id="families-of-copulas" class="section level3">
