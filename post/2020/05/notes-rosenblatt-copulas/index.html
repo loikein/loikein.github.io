@@ -92,7 +92,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">18 min read</span>
+    <span class="article-duration">20 min read</span>
     
     <h1 class="article-title">Notes on Sensitivity and Copulas</h1>
     
@@ -119,9 +119,10 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#reference">Reference</a>
 <ul>
-<li><a href="#relevant-repositories">Relevant Repositories</a></li>
+<li><a href="#related-repositories">Related Repositories</a></li>
 <li><a href="#links">Links</a></li>
-<li><a href="#papers-books">Papers &amp; Books</a></li>
+<li><a href="#reference-papers">Reference Papers</a></li>
+<li><a href="#books">Books</a></li>
 </ul></li>
 <li><a href="#working-with-econsa">Working With <span><code>econsa</code></span></a>
 <ul>
@@ -132,9 +133,18 @@ if (!doNotTrack) {
 <li><a href="#figure-4-from-borgonovo-plischke-2016">Figure 4 from Borgonovo &amp; Plischke (2016)</a></li>
 <li><a href="#figure-1-from-harris-1990">Figure 1 from Harris (1990)</a></li>
 </ul></li>
+<li><a href="#rosenblatt-transformation">Rosenblatt Transformation</a>
+<ul>
+<li><a href="#notations">Notations</a></li>
+<li><a href="#forward-rosenblatt-transformation">Forward Rosenblatt Transformation</a></li>
+<li><a href="#inverse-rosenblatt-transformation">(Inverse) Rosenblatt Transformation</a></li>
+<li><a href="#double-rosenblatt-transformation">Double Rosenblatt Transformation</a></li>
+<li><a href="#nataf-transformation">Nataf Transformation</a></li>
+<li><a href="#rosenblatt-copula">Rosenblatt &lt;=&gt; Copula</a></li>
+</ul></li>
 <li><a href="#copulas">Copulas</a>
 <ul>
-<li><a href="#basic-notations">Basic Notations</a></li>
+<li><a href="#notations-1">Notations</a></li>
 <li><a href="#definitions-theorems-for-2-dim-space">Definitions &amp; Theorems for 2-Dim Space</a></li>
 <li><a href="#skalars-theorem">Skalar’s Theorem</a></li>
 <li><a href="#copula-sampling">Copula Sampling</a></li>
@@ -162,8 +172,8 @@ if (!doNotTrack) {
 <p><a href="https://app.clickup.com/2516680/v/dc/2ctp8-134/2ctp8-57">Thesis Roadmap</a></p>
 <div id="reference" class="section level2">
 <h2>Reference</h2>
-<div id="relevant-repositories" class="section level3">
-<h3>Relevant Repositories</h3>
+<div id="related-repositories" class="section level3">
+<h3>Related Repositories</h3>
 <ul>
 <li><a href="https://github.com/jonathf/chaospy">jonathf/chaospy</a>
 <ul>
@@ -173,11 +183,18 @@ if (!doNotTrack) {
 <ul>
 <li><a href="https://econsa.readthedocs.io/en/latest/">econsa 0.01 documentation</a></li>
 </ul></li>
-<li><a href="https://github.com/OpenSourceEconomics/tespy">OpenSourceEconomics/tespy</a></li>
+<li><a href="https://github.com/OpenSourceEconomics/temfpy">OpenSourceEconomics/temfpy</a>
+<ul>
+<li><a href="https://temfpy.readthedocs.io/en/latest/">temfpy documentation</a></li>
+</ul></li>
 <li><a href="https://github.com/covid-19-impact-lab/sid">covid-19-impact-lab/sid</a></li>
 <li><a href="https://github.com/simetenn/uncertainpy">simetenn/uncertainpy</a>
 <ul>
 <li><a href="https://uncertainpy.readthedocs.io/en/latest/index.html">Uncertainpy 1.2.1 documentation</a></li>
+</ul></li>
+<li><a href="https://github.com/openturns/openturns">openturns/openturns</a>
+<ul>
+<li><a href="https://openturns.github.io/openturns/master/index.html">OpenTURNS 1.16dev documentation</a></li>
 </ul></li>
 </ul>
 </div>
@@ -191,19 +208,26 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="https://uncertainpy.readthedocs.io/en/latest/theory/rosenblatt.html#rosenblatt">Dependency between uncertain parameters — Uncertainpy 1.2.1 documentation</a></li>
 <li><a href="https://ose-resources.readthedocs.io/en/latest/miscellaneous.html#continuous-integration">Continuous Integration — ose-resources documentation</a></li>
+<li><a href="https://openturns.github.io/openturns/master/theory/numerical_methods/isoprobabilistic_transformation.html#isoprobabilistic-transformation">Isoprobabilistic transformations — OpenTURNS 1.16dev documentation</a></li>
 </ul>
 </div>
-<div id="papers-books" class="section level3">
-<h3>Papers &amp; Books</h3>
+<div id="reference-papers" class="section level3">
+<h3>Reference Papers</h3>
 <ul>
 <li>(Finished) <a href="https://www.sciencedirect.com/science/article/abs/pii/S0377221715005469">Sensitivity analysis: A review of recent advances - ScienceDirect</a></li>
-<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0951832017300625?via%3Dihub">Extending Morris method for qualitative global sensitivity analysis of models with dependent inputs - ScienceDirect</a></li>
 <li><a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/master-theses/master-thesis-pages/pwiederkehr_MSc.pdf">Global Sensitivity Analysis with Dependent Inputs</a></li>
-<li>Chapter 1.5 of <a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/doctoral-theses/ThesisCaniou.pdf">Global Sensitivity Analysis for Nested and Multiscale Modelling</a></li>
-<li>Section 3 of <a href="https://www.sciencedirect.com/science/article/pii/S1877750315300119">Chaospy: An open source tool for designing methods of uncertainty quantification - ScienceDirect</a></li>
-<li>Section 4 of <a href="https://www.sciencedirect.com/science/article/pii/S0010465511004085">Estimation of global sensitivity indices for models with dependent variables - ScienceDirect</a></li>
+<li>Chapter 1.5 The copula theory, <a href="https://ethz.ch/content/dam/ethz/special-interest/baug/ibk/risk-safety-and-uncertainty-dam/publications/doctoral-theses/ThesisCaniou.pdf">Global Sensitivity Analysis for Nested and Multiscale Modelling</a></li>
+<li>Section 3. Modelling random variables, <a href="https://www.sciencedirect.com/science/article/pii/S1877750315300119">Chaospy: An open source tool for designing methods of uncertainty quantification - ScienceDirect</a></li>
+<li>Section 4. The general case of correlated variables, <a href="https://www.sciencedirect.com/science/article/pii/S0010465511004085">Estimation of global sensitivity indices for models with dependent variables - ScienceDirect</a></li>
+</ul>
+<!-- - [Extending Morris method for qualitative global sensitivity analysis of models with dependent inputs - ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0951832017300625?via%3Dihub) -->
+</div>
+<div id="books" class="section level3">
+<h3>Books</h3>
+<ul>
 <li><a href="https://www.amazon.de/dp/B00OD4140E/">Dependence Modeling with Copulas (Chapman &amp; Hall/CRC Monographs on Statistics and Applied Probability Book 133) (English Edition) eBook: Joe, Harry</a></li>
 <li><a href="https://www.amazon.de/dp/B00DZ0OVMU/">An Introduction to Copulas (Springer Series in Statistics) (English Edition) eBook: Nelsen, Roger B.</a></li>
+<li>Appendices B. Rosenblatt and Other Transformations, <a href="https://www.amazon.de/dp/B07MGL6X1D/">Structural Reliability Analysis and Prediction (English Edition) eBook: Melchers, Robert E., Beck, Andre T.</a></li>
 </ul>
 </div>
 </div>
@@ -283,7 +307,7 @@ import seaborn as sns</code></pre>
     r = params.flatten()[0]
     
     y = np.zeros(x_np.T.shape[0])
-    y = np.sqrt((24 * r * x_np[0] * x_np[2])/x_np[1])
+    y = np.sqrt((24 * r * x_np[0] * x_np[2]) / x_np[1])
     
     return(y)</code></pre>
 <p>Code for generating data (Monte Carlo):</p>
@@ -298,28 +322,28 @@ x0_1 = 1230
 x0_2 = 0.0135
 x0_3 = 2.15
 
-params = np.zeros(shape=(1,1))
-params[0,0] = 10
+params = np.zeros(shape=(1, 1))
+params[0, 0] = 10
 
 # Monte Carlo with rvs
 np.random.seed(seed)
-x_1 = stats.uniform(x_min_multiplier*x0_1,
-                    x_max_multiplier*x0_1).rvs(10000)
-x_2 = stats.uniform(x_min_multiplier*x0_2,
-                    x_max_multiplier*x0_2).rvs(10000)
-x_3 = stats.uniform(x_min_multiplier*x0_3,
-                    x_max_multiplier*x0_3).rvs(10000)
+x_1 = stats.uniform(x_min_multiplier * x0_1,
+                    x_max_multiplier * x0_1).rvs(10000)
+x_2 = stats.uniform(x_min_multiplier * x0_2,
+                    x_max_multiplier * x0_2).rvs(10000)
+x_3 = stats.uniform(x_min_multiplier * x0_3,
+                    x_max_multiplier * x0_3).rvs(10000)
 x = np.array([x_1, x_2, x_3])
 
 # Monte Carlo with Chaospy
 sample_rule = &quot;random&quot;
 np.random.seed(seed)
-x_1 = cp.Uniform(x_min_multiplier*x0_1,
-                 x_max_multiplier*x0_1).sample(n, rule=sample_rule)
-x_2 = cp.Uniform(x_min_multiplier*x0_2,
-                 x_max_multiplier*x0_2).sample(n, rule=sample_rule)
-x_3 = cp.Uniform(x_min_multiplier*x0_3,
-                 x_max_multiplier*x0_3).sample(n, rule=sample_rule)
+x_1 = cp.Uniform(x_min_multiplier * x0_1,
+                 x_max_multiplier * x0_1).sample(n, rule=sample_rule)
+x_2 = cp.Uniform(x_min_multiplier * x0_2,
+                 x_max_multiplier * x0_2).sample(n, rule=sample_rule)
+x_3 = cp.Uniform(x_min_multiplier * x0_3,
+                 x_max_multiplier * x0_3).sample(n, rule=sample_rule)
 x = np.array([x_1, x_2, x_3])
 
 # Calculate y
@@ -341,15 +365,15 @@ sns.distplot(y)</code></pre>
 <p><img src="/post-img/notes-rosenblatt-copulas--bp-fig3.png" width="702" /></p>
 <pre class="python"><code>plt.clf()
 sns.regplot(x=x[0], y=y,
-            scatter_kws={&quot;alpha&quot;:0.05})
+            scatter_kws={&quot;alpha&quot;: 0.05})
 
 plt.clf()
 sns.regplot(x=x[1], y=y, order=2,
-            scatter_kws={&quot;alpha&quot;:0.05})
+            scatter_kws={&quot;alpha&quot;: 0.05})
 
 plt.clf()
 sns.regplot(x=x[2], y=y,
-            scatter_kws={&quot;alpha&quot;:0.05}) </code></pre>
+            scatter_kws={&quot;alpha&quot;: 0.05}) </code></pre>
 </div>
 <div id="figure-4-from-borgonovo-plischke-2016" class="section level3">
 <h3>Figure 4 from Borgonovo &amp; Plischke (2016)</h3>
@@ -380,13 +404,13 @@ sns.regplot(x=x[2], y=y,
     
     if fix_num==0:
         for i,x_i in enumerate(x_np[fix_num]):
-            y[i] = np.sqrt((24 * r * x_i * x_np[2])/x_np[1])
+            y[i] = np.sqrt((24 * r * x_i * x_np[2]) / x_np[1])
     elif fix_num==1:
         for i,x_i in enumerate(x_np[fix_num]):
-            y[i] = np.sqrt((24 * r * x_np[0] * x_np[2])/x_i)
+            y[i] = np.sqrt((24 * r * x_np[0] * x_np[2]) / x_i)
     elif fix_num==2:
         for i,x_i in enumerate(x_np[fix_num]):
-            y[i] = np.sqrt((24 * r * x_np[0] * x_i)/x_np[1])
+            y[i] = np.sqrt((24 * r * x_np[0] * x_i) / x_np[1])
     return(y)</code></pre>
 <p>Calculate &amp; plotting:</p>
 <pre class="python"><code>y_fix_x_0 = eoq_harris_partial(params, x, fix_num=0)
@@ -429,10 +453,10 @@ for item in y_fix_x_0:
     t = np.zeros(y.shape)
     
     t_setup = np.zeros(y.shape)
-    t_setup = (1/y) * x[2]
+    t_setup = (1 / y) * x[2]
     
     t_interest = np.zeros(y.shape)
-    t_interest = 1/(24 * r * x[0]) * (y*x[1] + x[2])
+    t_interest = 1 / (24 * r * x[0]) * (y * x[1] + x[2])
     
     t = t_setup + t_interest
     
@@ -455,10 +479,71 @@ sns.lineplot(x=y, y=t)
 plt.axvline(2190, linestyle=&quot;--&quot;, color=&quot;silver&quot;)</code></pre>
 </div>
 </div>
+<div id="rosenblatt-transformation" class="section level2">
+<h2>Rosenblatt Transformation</h2>
+<p>This section is based on:</p>
+<ul>
+<li>Section 3. Modelling random variables, <a href="https://www.sciencedirect.com/science/article/pii/S1877750315300119">Chaospy: An open source tool for designing methods of uncertainty quantification - ScienceDirect</a></li>
+<li>Appendices B. Rosenblatt and Other Transformations, <a href="https://www.amazon.de/dp/B07MGL6X1D/">Structural Reliability Analysis and Prediction (English Edition) eBook: Melchers, Robert E., Beck, Andre T.: Amazon.de: Kindle Store</a></li>
+</ul>
+<div id="notations" class="section level3">
+<h3>Notations</h3>
+<ul>
+<li>Dependent random vectors: <span class="math inline">\(X = \{X_1, X_2,\dots,X_n\}\)</span>, <span class="math inline">\(Y = \{Y_1, Y_2,\dots,Y_n\}\)</span></li>
+<li>Uniformly distributed random vector: <span class="math inline">\(R = \{R_1,\dots,R_n\}\)</span></li>
+<li>Rosenblatt transformation: <span class="math inline">\(T\)</span></li>
+</ul>
+</div>
+<div id="forward-rosenblatt-transformation" class="section level3">
+<h3>Forward Rosenblatt Transformation</h3>
+<p>Forward Rosenblatt transformation <span class="math inline">\(R=T\cdot X\)</span> is given by:</p>
+<p><span class="math display">\[\begin{aligned}r_1 &amp;= F_1(x_1) = \Pr(X_1\leq x_1) \\
+r_2 &amp;= F_2(x_2\ |\ x_1) = \Pr(X_2\leq x_2\ |\ X_1=x_1) \\
+\vdots &amp; \\
+r_n &amp;= F_n(x_n\ |\ x_1,\dots,x_{n-1}) = \Pr(X_n\leq x_n\ |\ X_1=x_1,\dots,X_{n-1}=x_{n-1}) \end{aligned}\]</span></p>
+<p>where <span class="math inline">\(F_n\)</span> is given by:</p>
+<p><span class="math display">\[\begin{aligned}F_i(x_i | x_1,\dots,x_{i-1}) &amp;= \frac{\int_{-\infty}^{\infty} f_{X_i}(x_1,\dots,x_{i-1},t)\, dt}{f_{X_i}(x_1,\dots,x_{i-1})}\\
+f_{X_j}(x_1,\dots,x_j) &amp;= \int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty} f_X(x_1,\dots,x_n)\, dx_{j+1},\dots,dx_n \end{aligned}\]</span></p>
+</div>
+<div id="inverse-rosenblatt-transformation" class="section level3">
+<h3>(Inverse) Rosenblatt Transformation</h3>
+<p>Inverse Rosenblatt transformation <span class="math inline">\(X=T^{-1}\cdot R\)</span> is given by:</p>
+<p><span class="math display">\[\begin{aligned}x_1 &amp;= F_1^{-1}(r_1) \\
+x_2 &amp;= F_2^{-1}(r_2\ |\ x_1) \\
+\vdots &amp; \\
+x_n &amp;= F_n^{-1}(r_n\ |\ x_1,\dots,x_{n-1}) \end{aligned}\]</span></p>
+</div>
+<div id="double-rosenblatt-transformation" class="section level3">
+<h3>Double Rosenblatt Transformation</h3>
+<p>Rosenblatt transformation can be used to transfer between different distributions.</p>
+<p><span class="math display">\[\begin{aligned}r_1 &amp;= F_1(x_1) &amp;&amp; y_1 = F_1^{-1}(r_1) \\
+r_2 &amp;= F_2(x_2\ |\ x_1) &amp;&amp; y_2 = F_2^{-1}(r_2\ |\ y_1) \\
+\vdots &amp; \\
+r_n &amp;= F_n(x_n\ |\ x_1,\dots,x_{n-1}) &amp;&amp; y_n = F_n^{-1}(r_n\ |\ y_1,\dots,y_{n-1}) \end{aligned}\]</span></p>
+<p>When <span class="math inline">\(X\)</span> is standard normally distributed, then</p>
+<p><span class="math display">\[\begin{aligned}y_1 &amp;= F_1^{-1}\big[\Phi(x_1) \big] \\
+y_2 &amp;= F_2^{-1}\big[\Phi(x_2)\ |\ y_1 \big] \\
+\vdots &amp; \\
+y_n &amp;= F_n^{-1}\big[\Phi(x_n)\ |\ y_1,\dots,y_{n-1}\big] \end{aligned}\]</span></p>
+</div>
+<div id="nataf-transformation" class="section level3">
+<h3>Nataf Transformation</h3>
+<p>TBA when needed.</p>
+</div>
+<div id="rosenblatt-copula" class="section level3">
+<h3>Rosenblatt &lt;=&gt; Copula</h3>
+<p>To read:</p>
+<ul>
+<li><a href="https://www.jstor.org/stable/2684980">Generating Random Binary Deviates Having Fixed Marginal Distributions and Specified Degrees of Association on JSTOR</a></li>
+<li>pp. 89-91, Source: <a href="https://www.amazon.de/dp/B01N810GLT/">Monte-Carlo Simulation-Based Statistical Modeling (ICSA Book Series in Statistics) (English Edition) eBook: Chen, Ding-Geng (Din), Chen, John Dean</a></li>
+</ul>
+</div>
+</div>
 <div id="copulas" class="section level2">
 <h2>Copulas</h2>
-<div id="basic-notations" class="section level3">
-<h3>Basic Notations</h3>
+<p>This section is based on <a href="https://www.amazon.de/dp/B00DZ0OVMU/">An Introduction to Copulas (Springer Series in Statistics) (English Edition) eBook: Nelsen, Roger B.</a>.</p>
+<div id="notations-1" class="section level3">
+<h3>Notations</h3>
 <ul>
 <li>Little things
 <ul>
