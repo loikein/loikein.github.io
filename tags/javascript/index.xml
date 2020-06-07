@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on loikein&#39;s notes</title>
-    <link>/tags/javascript/</link>
+    <link>https://notes.loikein.one/tags/javascript/</link>
     <description>Recent content in JavaScript on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://notes.loikein.one/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Introduction to JavaScript, Refined</title>
-      <link>/post/2019/11/intro-js-refined/</link>
+      <link>https://notes.loikein.one/post/2019/11/intro-js-refined/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/11/intro-js-refined/</guid>
+      <guid>https://notes.loikein.one/post/2019/11/intro-js-refined/</guid>
       <description>References Basics Constant &amp;amp; Variable String Property Method Built-in Objects Conditionals if &amp;amp; else if Truthy and Falsy Short-Circuit Evaluation Ternary Operator switch Function Arrow Function Function in Function Scope Array Array Methods Nested Array for while do ... while break Iteration Object Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop in Object this get set Factory Function Class Static Method Inheritance Module Create Module Use Module</description>
     </item>
     

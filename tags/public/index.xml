@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>public on loikein&#39;s notes</title>
-    <link>/tags/public/</link>
+    <link>https://notes.loikein.one/tags/public/</link>
     <description>Recent content in public on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/public/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://notes.loikein.one/tags/public/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on Behavioural Public Policy - Problem Set</title>
-      <link>/post/2020/04/notes-behaviour-public-ps/</link>
+      <link>https://notes.loikein.one/post/2020/04/notes-behaviour-public-ps/</link>
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/04/notes-behaviour-public-ps/</guid>
+      <guid>https://notes.loikein.one/post/2020/04/notes-behaviour-public-ps/</guid>
       <description>Present Bias Optimal Taxation Salience Bias   Present Bias BPP.PS1.Q1
 An individual can choose how to distribute money across two time periods, \(t = 1, 2\) for consumption \(c_1\) and \(c_2\).
 The total amount of money available is \(m\).
@@ -26,10 +26,10 @@ Therefore, the overall budget constraint is given by (1): \[c_1 + c_2\cdot\frac{
     
     <item>
       <title>Notes on Behavioural Public Policy</title>
-      <link>/post/2019/11/notes-behaviour-public/</link>
+      <link>https://notes.loikein.one/post/2019/11/notes-behaviour-public/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/11/notes-behaviour-public/</guid>
+      <guid>https://notes.loikein.one/post/2019/11/notes-behaviour-public/</guid>
       <description>Behavioural Public Policy Present Bias Theory: Intertemporal Consumption Work Allocation: (2015 &amp;amp; 2016) Food Choice: Sadoff, Samek, Sprenger (2014 &amp;amp; 2019) Food Stamp: Shapiro (2005) Retirement: Haider &amp;amp; Stephens (2007) Financial Desicion: Chetty et al (2014) Increase Employee Saving: Thaler &amp;amp; Benartzi (2004) Power of Default: Blumenstock, Callen, Ghani (2018) Behavioral Welfare Analysis Theory Sufficient Statistic Welfare Analysis Taxation and Consumer Choise: O’Donogh</description>
     </item>
     

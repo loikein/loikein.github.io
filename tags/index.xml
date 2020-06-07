@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on loikein&#39;s notes</title>
-    <link>/tags/</link>
+    <link>https://notes.loikein.one/tags/</link>
     <description>Recent content in Tags on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://notes.loikein.one/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Programming</title>
-      <link>/tags/programming/</link>
+      <link>https://notes.loikein.one/tags/programming/</link>
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/programming/</guid>
+      <guid>https://notes.loikein.one/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>micro</title>
-      <link>/tags/micro/</link>
+      <link>https://notes.loikein.one/tags/micro/</link>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/micro/</guid>
+      <guid>https://notes.loikein.one/tags/micro/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AppleScript</title>
-      <link>/tags/applescript/</link>
+      <link>https://notes.loikein.one/tags/applescript/</link>
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/applescript/</guid>
+      <guid>https://notes.loikein.one/tags/applescript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>public</title>
-      <link>/tags/public/</link>
+      <link>https://notes.loikein.one/tags/public/</link>
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/public/</guid>
+      <guid>https://notes.loikein.one/tags/public/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>/tags/python/</link>
+      <link>https://notes.loikein.one/tags/python/</link>
       <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/python/</guid>
+      <guid>https://notes.loikein.one/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JavaScript</title>
-      <link>/tags/javascript/</link>
+      <link>https://notes.loikein.one/tags/javascript/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/javascript/</guid>
+      <guid>https://notes.loikein.one/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>stat</title>
-      <link>/tags/stat/</link>
+      <link>https://notes.loikein.one/tags/stat/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/stat/</guid>
+      <guid>https://notes.loikein.one/tags/stat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>/tags/math/</link>
+      <link>https://notes.loikein.one/tags/math/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/math/</guid>
+      <guid>https://notes.loikein.one/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GT</title>
-      <link>/tags/gt/</link>
+      <link>https://notes.loikein.one/tags/gt/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gt/</guid>
+      <guid>https://notes.loikein.one/tags/gt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
+      <link>https://notes.loikein.one/tags/r/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>https://notes.loikein.one/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>finance</title>
-      <link>/tags/finance/</link>
+      <link>https://notes.loikein.one/tags/finance/</link>
       <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/finance/</guid>
+      <guid>https://notes.loikein.one/tags/finance/</guid>
       <description></description>
     </item>
     

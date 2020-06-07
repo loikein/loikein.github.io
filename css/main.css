@@ -308,7 +308,7 @@ header.header {
 .article-content kbd {
 	padding-left: 0.2em;
 	padding-right: 0.2em;
-	border: 2px outset var(--dark-grey);
+	border: 2px outset var(--light-grey);
 	border-radius: 0.5em;
 	cursor: pointer;
 }

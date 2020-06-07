@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on loikein&#39;s notes</title>
-    <link>/tags/programming/</link>
+    <link>https://notes.loikein.one/tags/programming/</link>
     <description>Recent content in Programming on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://notes.loikein.one/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on SCSS</title>
-      <link>/post/2020/05/notes-scss/</link>
+      <link>https://notes.loikein.one/post/2020/05/notes-scss/</link>
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/05/notes-scss/</guid>
+      <guid>https://notes.loikein.one/post/2020/05/notes-scss/</guid>
       <description>Variable Nesting  Selector Pseudo-Things Property    Variable $white: #FCFCFC; $border-standard: 3px solid grey; .container { background: $white; border-bottom: $border-standard; }  Nesting Selector .container { /* style for .container*/ .item { /* style for .container .item */ } } .container { /* style for .container*/ &amp;gt; * { /* style for all children of .container */ } }  Pseudo-Things a { /* style for a */ &amp;amp;:hover, &amp;amp;:focus { /* style for a:hover and a:focus */ } }  Property .</description>
     </item>
     
     <item>
       <title>Notes on The Missing Semester of Your CS Education</title>
-      <link>/post/2020/05/notes-missing-semester/</link>
+      <link>https://notes.loikein.one/post/2020/05/notes-missing-semester/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/05/notes-missing-semester/</guid>
+      <guid>https://notes.loikein.one/post/2020/05/notes-missing-semester/</guid>
       <description>What was that cool tool they used…? Shell  Basics Piping  Vim  General Move in Normal Mode Search in Normal Mode Edit in Normal Mode Insert Mode Visual Mode    Only include things that I will need to refer to later.
 WIP.
  The Missing Semester of Your CS Education Missing Semester IAP 2020 - YouTube  What was that cool tool they used…?</description>
@@ -33,56 +33,56 @@ WIP.
     
     <item>
       <title>Notes on AppleScript</title>
-      <link>/post/2020/04/notes-applescript/</link>
+      <link>https://notes.loikein.one/post/2020/04/notes-applescript/</link>
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/04/notes-applescript/</guid>
+      <guid>https://notes.loikein.one/post/2020/04/notes-applescript/</guid>
       <description>References Basics Hello World Variables Types String Operation List Type Conversion Dictionary If Try File &amp;amp; Path Tell Application Actually Useful Scripts Finder Safari Version of macOS: 10.15.4 (19E266) Editor: Script Editor.app References AppleScript 脚本入门 - 从前端到全栈 - SegmentFault 思否 AppleScript Programming - Wikibooks, open books for an open world AppleScript 入门：探索 macOS 自动化 -</description>
     </item>
     
     <item>
       <title>Effective Programming Practice: Final Project</title>
-      <link>/post/2019/12/effective-programming-project/</link>
+      <link>https://notes.loikein.one/post/2019/12/effective-programming-project/</link>
       <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/12/effective-programming-project/</guid>
+      <guid>https://notes.loikein.one/post/2019/12/effective-programming-project/</guid>
       <description>Project Description  References Documentation Potentially Useful R Packages  Notes on Minimal Distance Estimation Notes on AGS (2017)  Motivation Model Sample Sensitivity Estimation Example: OLS Generalisation: Classical Minimal Distance (CMD) Instrumental Variable  Application on Gourinchas &amp;amp; Parker (2002)   Project Description Sensitivity Measures for Method of Simulated Moments: diagnostic tools for moments based estimation.
 Your task is to implement those tools in Python and to integrate them in estimagic.</description>
     </item>
     
     <item>
       <title>Introduction to JavaScript, Refined</title>
-      <link>/post/2019/11/intro-js-refined/</link>
+      <link>https://notes.loikein.one/post/2019/11/intro-js-refined/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/11/intro-js-refined/</guid>
+      <guid>https://notes.loikein.one/post/2019/11/intro-js-refined/</guid>
       <description>References Basics Constant &amp;amp; Variable String Property Method Built-in Objects Conditionals if &amp;amp; else if Truthy and Falsy Short-Circuit Evaluation Ternary Operator switch Function Arrow Function Function in Function Scope Array Array Methods Nested Array for while do ... while break Iteration Object Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop in Object this get set Factory Function Class Static Method Inheritance Module Create Module Use Module</description>
     </item>
     
     <item>
       <title>Notes on Effective Programming Practice</title>
-      <link>/post/2019/10/notes-effective-programming/</link>
+      <link>https://notes.loikein.one/post/2019/10/notes-effective-programming/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/10/notes-effective-programming/</guid>
+      <guid>https://notes.loikein.one/post/2019/10/notes-effective-programming/</guid>
       <description>Slides Example Process of A Project Clone from Remote Create from Local Create from cookiecutter Runtime: Building Runtime: Testing Shell Reference Basics Pipeline TeX Git Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Squash Collaboration (Ana)Conda Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode Python Waf Reference Config Build Miscellaneous Regular Expression Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
     </item>
     
     <item>
       <title>Notes on Python 3</title>
-      <link>/post/2019/06/notes-python-3/</link>
+      <link>https://notes.loikein.one/post/2019/06/notes-python-3/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/06/notes-python-3/</guid>
+      <guid>https://notes.loikein.one/post/2019/06/notes-python-3/</guid>
       <description>Reference Personal Notes continue, pass &amp;amp; break if __name__ == &#34;__main__&#34; Python on DataCamp Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages Package: Numpy on DataCamp Basics Comparison Methods Control Flows Package: Pandas on DataCamp Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows Package: Matplotlib on DataCamp Line &amp;amp;</description>
     </item>
     
     <item>
       <title>Rmd Template</title>
-      <link>/post/2018/01/rmd-template/</link>
+      <link>https://notes.loikein.one/post/2018/01/rmd-template/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018/01/rmd-template/</guid>
+      <guid>https://notes.loikein.one/post/2018/01/rmd-template/</guid>
       <description>Style Demonstration Words of Warning Rmd Reference Reference Cheatsheet Inline Code Execution Display Code R Code Block Code of Other Languages Reference Image Reference Plot Style Demonstration Paragraph, inline code, keystroke , strong, emphasis, strike, highlight. Inline HTML, inline \(\LaTeX{}\) and footnotes1. \[\text{Block }\LaTeX{}\] Ordered list Nested list Types of ordered list Another item Unordered list Task list Finished task Table with inline \(\LaTeX{}\) Table with inline \(\LaTeX{}\) Hover me</description>
     </item>
     

@@ -23,7 +23,7 @@ if (!doNotTrack) {
 </script>
 
 
-  <link rel='icon' href='/favicon.ico' type='image/x-icon'/>
+  <link rel='icon' href='https://notes.loikein.one/favicon.ico' type='image/x-icon'/>
 
 
   
@@ -206,6 +206,8 @@ Finished task</li>
 (Per <a href="https://github.com/digitalcraftsman/hugo-material-docs/issues/84">Issue #84 · digitalcraftsman/hugo-material-docs</a>)</li>
 <li>Never write styles for <code>.header</code>, only <code>header.header</code>.</li>
 <li>Always check twice and preview the <code>.html</code> page.</li>
+<li>Always run <code>blogdown::hugo_build()</code> before pushing to git, otherwise <code>baseURL</code> is not fully implemented.<br />
+Source: <a href="https://bookdown.org/yihui/blogdown/local-preview.html">D.3 Building a website for local preview | blogdown: Creating Websites with R Markdown</a></li>
 </ol>
 <p>When writing maths expressions,</p>
 <pre class="markdown"><code>Do this:

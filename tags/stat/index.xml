@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>stat on loikein&#39;s notes</title>
-    <link>/tags/stat/</link>
+    <link>https://notes.loikein.one/tags/stat/</link>
     <description>Recent content in stat on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/stat/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://notes.loikein.one/tags/stat/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on Econometric Theory</title>
-      <link>/post/2019/10/notes-econometric-theory/</link>
+      <link>https://notes.loikein.one/post/2019/10/notes-econometric-theory/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/10/notes-econometric-theory/</guid>
+      <guid>https://notes.loikein.one/post/2019/10/notes-econometric-theory/</guid>
       <description>Literature Probability Measures  σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables  Expectation Variance Moments of R^k  Stochastic Convergence  Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators  Linear Regression Model Parametric Model Consistency Uniform Convergence in Probability Asymphotic Normality Variance Matrix  Efficiency Testing  Wald Test Lagrange Multiplier Test Distance Metric Test     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed all the PS classes since PS4)  Literature Asymptotic Theory:</description>
     </item>
     
     <item>
       <title>Notes on Econometrics - Exercises</title>
-      <link>/post/2019/03/notes-stat-exercise/</link>
+      <link>https://notes.loikein.one/post/2019/03/notes-stat-exercise/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/03/notes-stat-exercise/</guid>
+      <guid>https://notes.loikein.one/post/2019/03/notes-stat-exercise/</guid>
       <description>Exercise 2.1 (Regression)  a b c d e f g h i j  Exercise 2.4 (Regression - True or False?)  a b c d e f g h i j k l m n  Exercise 3.2 (Regression - Empirical)  a b c d e f g h i  Exercise 3.4 (Regression - Empirical) Exercise 5.1 (Instrumental Variables)  a b c d e f g  Exercise 5.</description>
     </item>
     
     <item>
       <title>Notes on Econometrics - Tests and Statistics</title>
-      <link>/post/2019/02/notes-stat-test/</link>
+      <link>https://notes.loikein.one/post/2019/02/notes-stat-test/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/02/notes-stat-test/</guid>
+      <guid>https://notes.loikein.one/post/2019/02/notes-stat-test/</guid>
       <description>R^2 t-test F-test (Joint Test / Model Test) Wald Test  Wald statistic F-statistic  BIC &amp;amp; AIC  Nested Model Time Series  J Test (Non-Nested Model) PE Test (Linear vs Log) Chow (Breakpoint) Test Heteroskedasticity Test  Goldfeld-Quandt Breusch-Pagan Test  Autocorrelation Test  Durbin-Watson Breusch-Godfrey Box-Pierce  Instrumental Variable Test  Durbin-Wu-Hausman (Endogeneity) Sargan (Instrument Validity)  DF (Dickey-Fuller) Test  Unit Root Deterministic Trend ADF (Augmented Dickey-Fuller) Test Spurious Regression vs Cointegration  Ljung–Box (Portmanteau) Test (Residual Analysis) Hausman Test (FE vs RE) Read Regression Table   Warning: under proofreading</description>
     </item>
     
     <item>
       <title>Notes on Econometrics - Practice Part</title>
-      <link>/post/2019/01/notes-stat-practice/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-stat-practice/</link>
       <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-stat-practice/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-stat-practice/</guid>
       <description>Compare Models  Choose Explanatory Variables Choose Approach: OLS / GLS Weird Model  R Workout  Data Generation OLS Regression    Warning: under proofreading
 All I wanted was a clear &amp;amp; complete guidance (for upcoming exams).
 Textbook: A Guide to Modern Econometrics
@@ -54,10 +54,10 @@ Consider the wage regressions from slide 5 (text P86).
     
     <item>
       <title>Notes on Econometrics - Theory Part</title>
-      <link>/post/2019/01/notes-stat-theory/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-stat-theory/</link>
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-stat-theory/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-stat-theory/</guid>
       <description>OLS Model  OLS Method Statistical Model Gauss-Markov Assumptions Linear &amp;amp; Loglinear Elasticity  OLS Estimator  Derive b Unbiasedness of b BLUE Unbiasedness of s^2  Normality Assumption  Normality of ε Normality of b  Asymptotic Property  Converge in Probability &amp;amp; Mean Square LLN (Law of Large Numbers) Consistency of b Consistency of s^2 Asymptotic Nomality  Data Problems  Multicollinearity Outliers  Error Problems  Heteroskedasticity Autocorrelation (Serial Correlation) White (HC) Standard Error Newey-West (HAC) Standard Error GLS (Generalized Least Squares) Estimator EGLS (Feasible Estimated GLS) Estimator WLS (Weighted LS) Estimator  Regressor Problem: Endogeneity  Lagged Dependent Variable Measurement Error Omitted Variable Bias Reverse Causality IV (Instrumental Variable) GIVE (Generalized IV Estimator)  ML (Maximum Likelihood) Model  Assumption Property of ^θ Asymptotic Covariance Matrix  Binary Choice Model  Regression Model Probit Model Logit Model Likelihood Ratio  Time Series  Types of Process Lag Operator Stationary Difference Operator &amp;amp; Integration Deterministic (Linear) Trend OLS Estimation Model Selection Spurious Regression Cointegration  Panel Data  Entity Fixed Effect Time Fixed Effect Least Squares Dummy Variable (LSDV) Estimator Within Estimator First Difference Estimator Entity and Time Fixed Effect (2-way) Random Effect Feasible GLS (EGLS) Estimator    Warning: under proofreading</description>
     </item>
     

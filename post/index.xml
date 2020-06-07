@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on loikein&#39;s notes</title>
-    <link>/post/</link>
+    <link>https://notes.loikein.one/post/</link>
     <description>Recent content in Posts on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://notes.loikein.one/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes on SCSS</title>
-      <link>/post/2020/05/notes-scss/</link>
+      <link>https://notes.loikein.one/post/2020/05/notes-scss/</link>
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/05/notes-scss/</guid>
+      <guid>https://notes.loikein.one/post/2020/05/notes-scss/</guid>
       <description>Variable Nesting  Selector Pseudo-Things Property    Variable $white: #FCFCFC; $border-standard: 3px solid grey; .container { background: $white; border-bottom: $border-standard; }  Nesting Selector .container { /* style for .container*/ .item { /* style for .container .item */ } } .container { /* style for .container*/ &amp;gt; * { /* style for all children of .container */ } }  Pseudo-Things a { /* style for a */ &amp;amp;:hover, &amp;amp;:focus { /* style for a:hover and a:focus */ } }  Property .</description>
     </item>
     
     <item>
       <title>Notes on The Missing Semester of Your CS Education</title>
-      <link>/post/2020/05/notes-missing-semester/</link>
+      <link>https://notes.loikein.one/post/2020/05/notes-missing-semester/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/05/notes-missing-semester/</guid>
+      <guid>https://notes.loikein.one/post/2020/05/notes-missing-semester/</guid>
       <description>What was that cool tool they used…? Shell  Basics Piping  Vim  General Move in Normal Mode Search in Normal Mode Edit in Normal Mode Insert Mode Visual Mode    Only include things that I will need to refer to later.
 WIP.
  The Missing Semester of Your CS Education Missing Semester IAP 2020 - YouTube  What was that cool tool they used…?</description>
@@ -33,28 +33,28 @@ WIP.
     
     <item>
       <title>Notes on Sensitivity and Copulas</title>
-      <link>/post/2020/05/notes-rosenblatt-copulas/</link>
+      <link>https://notes.loikein.one/post/2020/05/notes-rosenblatt-copulas/</link>
       <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/05/notes-rosenblatt-copulas/</guid>
+      <guid>https://notes.loikein.one/post/2020/05/notes-rosenblatt-copulas/</guid>
       <description>Reference  Related Repositories Links Reference Papers Books  Working With econsa  EOQ (Economic Order Quantity) Model Main Code Figure 2 from Borgonovo &amp;amp; Plischke (2016) Figure 3 from Borgonovo &amp;amp; Plischke (2016) Figure 4 from Borgonovo &amp;amp; Plischke (2016) Figure 1 from Harris (1990)  Rosenblatt Transformation  Notations Forward Rosenblatt Transformation (Inverse) Rosenblatt Transformation Double Rosenblatt Transformation Nataf Transformation Rosenblatt &amp;lt;=&amp;gt; Copula  Copulas  Notations Definitions &amp;amp; Theorems for 2-Dim Space Skalar’s Theorem Copula Sampling Families of Copulas  Local Sensitivity Analysis  One at a Time Method Scenario Decomposition One Way Sensitivity Function Differentiation-Based Methods  Global Sensitivity Analysis  Non-Parametric Methods Variance-Based Methods Density-Based Methods Transformation Invariant Methods  Decision Sensitivity (Find the Maximiser) Estimate Sensitivity   Thesis Roadmap</description>
     </item>
     
     <item>
       <title>Notes on AppleScript</title>
-      <link>/post/2020/04/notes-applescript/</link>
+      <link>https://notes.loikein.one/post/2020/04/notes-applescript/</link>
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/04/notes-applescript/</guid>
+      <guid>https://notes.loikein.one/post/2020/04/notes-applescript/</guid>
       <description>References Basics Hello World Variables Types String Operation List Type Conversion Dictionary If Try File &amp;amp; Path Tell Application Actually Useful Scripts Finder Safari Version of macOS: 10.15.4 (19E266) Editor: Script Editor.app References AppleScript 脚本入门 - 从前端到全栈 - SegmentFault 思否 AppleScript Programming - Wikibooks, open books for an open world AppleScript 入门：探索 macOS 自动化 -</description>
     </item>
     
     <item>
       <title>Notes on Behavioural Public Policy - Problem Set</title>
-      <link>/post/2020/04/notes-behaviour-public-ps/</link>
+      <link>https://notes.loikein.one/post/2020/04/notes-behaviour-public-ps/</link>
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020/04/notes-behaviour-public-ps/</guid>
+      <guid>https://notes.loikein.one/post/2020/04/notes-behaviour-public-ps/</guid>
       <description>Present Bias Optimal Taxation Salience Bias   Present Bias BPP.PS1.Q1
 An individual can choose how to distribute money across two time periods, \(t = 1, 2\) for consumption \(c_1\) and \(c_2\).
 The total amount of money available is \(m\).
@@ -64,119 +64,119 @@ Therefore, the overall budget constraint is given by (1): \[c_1 + c_2\cdot\frac{
     
     <item>
       <title>Effective Programming Practice: Final Project</title>
-      <link>/post/2019/12/effective-programming-project/</link>
+      <link>https://notes.loikein.one/post/2019/12/effective-programming-project/</link>
       <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/12/effective-programming-project/</guid>
+      <guid>https://notes.loikein.one/post/2019/12/effective-programming-project/</guid>
       <description>Project Description  References Documentation Potentially Useful R Packages  Notes on Minimal Distance Estimation Notes on AGS (2017)  Motivation Model Sample Sensitivity Estimation Example: OLS Generalisation: Classical Minimal Distance (CMD) Instrumental Variable  Application on Gourinchas &amp;amp; Parker (2002)   Project Description Sensitivity Measures for Method of Simulated Moments: diagnostic tools for moments based estimation.
 Your task is to implement those tools in Python and to integrate them in estimagic.</description>
     </item>
     
     <item>
       <title>Introduction to JavaScript, Refined</title>
-      <link>/post/2019/11/intro-js-refined/</link>
+      <link>https://notes.loikein.one/post/2019/11/intro-js-refined/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/11/intro-js-refined/</guid>
+      <guid>https://notes.loikein.one/post/2019/11/intro-js-refined/</guid>
       <description>References Basics Constant &amp;amp; Variable String Property Method Built-in Objects Conditionals if &amp;amp; else if Truthy and Falsy Short-Circuit Evaluation Ternary Operator switch Function Arrow Function Function in Function Scope Array Array Methods Nested Array for while do ... while break Iteration Object Destructured Assignment Method Built-in Method Nested Object Pass by Reference Loop in Object this get set Factory Function Class Static Method Inheritance Module Create Module Use Module</description>
     </item>
     
     <item>
       <title>Notes on Behavioural Public Policy</title>
-      <link>/post/2019/11/notes-behaviour-public/</link>
+      <link>https://notes.loikein.one/post/2019/11/notes-behaviour-public/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/11/notes-behaviour-public/</guid>
+      <guid>https://notes.loikein.one/post/2019/11/notes-behaviour-public/</guid>
       <description>Behavioural Public Policy Present Bias Theory: Intertemporal Consumption Work Allocation: (2015 &amp;amp; 2016) Food Choice: Sadoff, Samek, Sprenger (2014 &amp;amp; 2019) Food Stamp: Shapiro (2005) Retirement: Haider &amp;amp; Stephens (2007) Financial Desicion: Chetty et al (2014) Increase Employee Saving: Thaler &amp;amp; Benartzi (2004) Power of Default: Blumenstock, Callen, Ghani (2018) Behavioral Welfare Analysis Theory Sufficient Statistic Welfare Analysis Taxation and Consumer Choise: O’Donogh</description>
     </item>
     
     <item>
       <title>Notes on Effective Programming Practice</title>
-      <link>/post/2019/10/notes-effective-programming/</link>
+      <link>https://notes.loikein.one/post/2019/10/notes-effective-programming/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/10/notes-effective-programming/</guid>
+      <guid>https://notes.loikein.one/post/2019/10/notes-effective-programming/</guid>
       <description>Slides Example Process of A Project Clone from Remote Create from Local Create from cookiecutter Runtime: Building Runtime: Testing Shell Reference Basics Pipeline TeX Git Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Squash Collaboration (Ana)Conda Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode Python Waf Reference Config Build Miscellaneous Regular Expression Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
     </item>
     
     <item>
       <title>Notes on Econometric Theory</title>
-      <link>/post/2019/10/notes-econometric-theory/</link>
+      <link>https://notes.loikein.one/post/2019/10/notes-econometric-theory/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/10/notes-econometric-theory/</guid>
+      <guid>https://notes.loikein.one/post/2019/10/notes-econometric-theory/</guid>
       <description>Literature Probability Measures  σ- &amp;amp; Borel Field Distribution Function Extension to R^k  Random Variables  Expectation Variance Moments of R^k  Stochastic Convergence  Convergence in Expectations &amp;amp; Almost Sure Convergence Convergence in Probability Convergence in Probability vs. Almost Convergence Convergence in Probability vs. Covergence in p-th Mean Convergence in Distribution Convergence in Distribution vs. Convergence in Probability Central Limit Theorem Stochastic Boundedness (Tightness) Calculus for Convergence in Probability &amp;amp; Tightness  M-Estimators  Linear Regression Model Parametric Model Consistency Uniform Convergence in Probability Asymphotic Normality Variance Matrix  Efficiency Testing  Wald Test Lagrange Multiplier Test Distance Metric Test     Uppercase variables: random variables Lowercase variables: deterministic variables (I missed all the PS classes since PS4)  Literature Asymptotic Theory:</description>
     </item>
     
     <item>
       <title>Notes on Research: Dynamic Programming</title>
-      <link>/post/2019/10/notes-research-dynamic-prog/</link>
+      <link>https://notes.loikein.one/post/2019/10/notes-research-dynamic-prog/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/10/notes-research-dynamic-prog/</guid>
+      <guid>https://notes.loikein.one/post/2019/10/notes-research-dynamic-prog/</guid>
       <description>Dynamic Programming: Discrete Time  Example: Corn Planting Sequence Problem Functional (Bellman) Equation Bounded and Continuous Rewards Bellman Operator  Stochastic Dynamic Programming  Example: Corn &amp;amp; Rain Random Shocks Example: Kiefer (1989)  Controlled Diffusion and Optimal Stopping  Wiener Process Diffusion Process Ito’s Lemma Example: Geometric Brownian Motion Optimal Control Binary Case: Optimal Stopping Example: Irreversible Investment Under Uncertainty Poisson Process Optimal Exploration in Two-Armed Bandit Problem  Presentation &amp;amp; Term Paper  Besanko Tong Wu 2018 Bonatti Hoerner 2011 Branco Sun Villas-Boas 2012 Che Hoerner 2018 Halac Kartik Liu 2016 Manso 2011 Strulovici 2010  Kremer Mansour Perry 2014 (My Bit)  Real Life Motivation Model Classes of Mechanisms Incentive Compatiblility Threshold Mechanism General Results Stochastic Model Imperfect Infomation Extension    wrt means with respect to</description>
     </item>
     
     <item>
       <title>Notes on Python 3</title>
-      <link>/post/2019/06/notes-python-3/</link>
+      <link>https://notes.loikein.one/post/2019/06/notes-python-3/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/06/notes-python-3/</guid>
+      <guid>https://notes.loikein.one/post/2019/06/notes-python-3/</guid>
       <description>Reference Personal Notes continue, pass &amp;amp; break if __name__ == &#34;__main__&#34; Python on DataCamp Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages Package: Numpy on DataCamp Basics Comparison Methods Control Flows Package: Pandas on DataCamp Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows Package: Matplotlib on DataCamp Line &amp;amp;</description>
     </item>
     
     <item>
       <title>Notes on Behavioural Economics</title>
-      <link>/post/2019/04/notes-behavioural/</link>
+      <link>https://notes.loikein.one/post/2019/04/notes-behavioural/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/04/notes-behavioural/</guid>
+      <guid>https://notes.loikein.one/post/2019/04/notes-behavioural/</guid>
       <description>Basic Ideas  Standard Neoclassical Model Behavioural = Non-Standard Model  Reference Dependence  Behaviour: Endowment Effect Gain–Loss Utility Linear (Piecewise) Loss Aversion Non-Linear Loss Aversion Endogenous Reference Formation  Choice over Lottery  Expected Utility Theory Behaviour: Attachment Effect &amp;amp; Comparison Effect Endogenous Reference Formation with Risk Example: Unit Demand with Random Price Behaviour: Allais Paradox Prospect Theory Non-Expected Utility Theory Regret Theory  Time Preference  Saving and Consumption Windfall Spending  Time Preference: Sophistication / Naivete  Immediate Cost Immediate Rewards Welfare Effect Procrastination in Infinite Time  Time Preference: Market Response  Monopolistic Market Time Consistent Consumer Sophisticated Consumer Partially Naive Consumer Competitive Market Shrouded Attributes  Social Preference  Distributional (Consequentialist) Model Inequity Aversion Competitive Bilateral Bargaining  Social Preference: Intensional Model  Behaviour: Preference for Fairness Model of Fairness Utility and Best Response Equilibrium  Social Preference: Interdependent Preference  Model of Spitefulness &amp;amp; Altruism Private Types: Signalling    textbook 1: (DS) The foundations of behavioral economic analysis</description>
     </item>
     
     <item>
       <title>Notes on Contract &amp; Informational Economics</title>
-      <link>/post/2019/04/notes-contract/</link>
+      <link>https://notes.loikein.one/post/2019/04/notes-contract/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/04/notes-contract/</guid>
+      <guid>https://notes.loikein.one/post/2019/04/notes-contract/</guid>
       <description>Literature Lemon Market: Continuous Quality  Perfect Information Unknown Quality Competitive Equilibrium  Lemon Market: Binary Quality  Cheap Repair Expensive Repair  Lemon Market: Signalling  Timing Strategy Separating Equilibrium Pooling Equilibrium  Adverse Selection: Continuous Types  Benchmark Unknown Type Competitive Equilibrium SPNE Constrained (Second-Best) Pareto Optimum  Job Market Signalling  Pooling Equilibria Separating Equilibria: Non-Envy Case Separating Equilibria: Envy Case Hybrid (Mixed) Equilibrium Perfect Bayesian Equilibrium (PBE) Equilibrium Refinements  Competitive Insurance Market  Identical Consumers Different Types of Consumers  Screening: Non-Linear Pricing  Perfect Information: Monopoly Asymmetric Information Continuous Types: Mechanism Approach  Moral Hazard  First Best Second Best Risk Neutral Parties &amp;amp; Unlimited Liability Risk Neutral Parties &amp;amp; Limited Liability  Moral Hazard: Constant Absolute Risk Aversion (CARA)  Linear Contract Step Contract First Order Approach    Literature  Microeconomic Theory (MWG) A Primer in Game Theory (PGT) The Theory of Industrial Organization (TIO) Contract Theory (CT)   Lemon Market: Continuous Quality  Quality of car: \(s\in [0,\bar{s}]\)  pdf: \(f(s) = α s^{α-1}\) cdf: \(F(s) = s^α\)  Seller’s type: \(θ_1\)  Seller’s preferences: \(\begin{cases}p &amp;amp; \text{sell} \\ θ_1s &amp;amp; \text{not sell} \end{cases}\)  Buyer’s type: \(θ_2\)  Consumption possibilities: 1 or 0 Buyer’s preferences: \(\begin{cases}θ_2s - p &amp;amp; \text{buy}\\ 0 &amp;amp; \text{not buy}\end{cases}\)  Assume \(θ_2 &amp;gt; θ_1\)  Perfect Information  Trade is efficient since \[\begin{aligned}θ_2 &amp;amp;&amp;gt; θ_1 \\ θ_2s &amp;amp;&amp;gt; θ_1s \\ p + (θ_2s - p) &amp;amp;&amp;gt; θ_1s + 0\end{aligned}\] Conditions for \(p\): \(\begin{cases}p \geq θ_1s &amp;amp; \text{(seller)} \\ θ_2s - p \geq 0 &amp;amp; \text{(buyer)}\end{cases}\) hold with \(θ_2s \geq p\geq θ_1s\)   Unknown Quality  Given price \(p\) Seller sells if \[\begin{aligned}θ_1s \leq p \\ s\leq \frac{p}{θ_1} \end{aligned}\] Buyer’s expected quality</description>
     </item>
     
     <item>
       <title>Notes on Institutional Economics</title>
-      <link>/post/2019/04/notes-institution/</link>
+      <link>https://notes.loikein.one/post/2019/04/notes-institution/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/04/notes-institution/</guid>
+      <guid>https://notes.loikein.one/post/2019/04/notes-institution/</guid>
       <description>Literature Moral Hazard: Hidden Action  Timing Benchmark (Unlimited Liability) Limited Liability Agent Offers Contract  Moral Hazard: Hidden Information  One-Sided Two-Sided  Adverse Selection  One-Sided: Timing First Best Second Best Agent Offers Contract Two-Sided: Timing Benchmark Impossible Case  Hold-Up Problem  First Best Observable &amp;amp; Non-Verifiable Information Private Information &amp;amp; Self-Investment Private Information &amp;amp; Cross-Investment  Property Rights  Vertical Integration Joint Venture Privatization    Literature Contract Theory Game Theory (multi-stage games) Institutions and Economic Theory (very general and theoretical) Institutional Economics: An Introduction (Groenewegen, J.</description>
     </item>
     
     <item>
       <title>Notes on Game Theory</title>
-      <link>/post/2019/04/notes-game-theory/</link>
+      <link>https://notes.loikein.one/post/2019/04/notes-game-theory/</link>
       <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/04/notes-game-theory/</guid>
+      <guid>https://notes.loikein.one/post/2019/04/notes-game-theory/</guid>
       <description>Extensive Game (Perfect Information)  Strategy Subgame Chance Moves  Bargaining  Ultimatum Game Two-Round Ultimatum Game Rubinstein Game Rubinstein Game (Small Time Interval)  Nash Bargaining Problem  Nash Axioms Nash Bargaining Solution (NBS) eg) Cournot vs Collusion Kalai-Smorodinsky BS  Coalitional Game  General Case (No Transfer) Analogy with Walreasian Equilibrium With Transfer eg) Exchange Economy Non-Emptiness of Core eg) Majority Game Shapley Value  Repeated Game  Stage Game (Normal-Form) δ-Discounted Repetition Perfect Folk Theorems Finitely Repeated Game eg) Battle of Sexes (BoS) eg) Prisoner’s Dilemma (PD) eg) Price Wars eg) Time Inconsistency in Public Good    textbook 1: (OR) A Course in Game Theory</description>
     </item>
     
     <item>
       <title>Notes on Econometrics - Exercises</title>
-      <link>/post/2019/03/notes-stat-exercise/</link>
+      <link>https://notes.loikein.one/post/2019/03/notes-stat-exercise/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/03/notes-stat-exercise/</guid>
+      <guid>https://notes.loikein.one/post/2019/03/notes-stat-exercise/</guid>
       <description>Exercise 2.1 (Regression)  a b c d e f g h i j  Exercise 2.4 (Regression - True or False?)  a b c d e f g h i j k l m n  Exercise 3.2 (Regression - Empirical)  a b c d e f g h i  Exercise 3.4 (Regression - Empirical) Exercise 5.1 (Instrumental Variables)  a b c d e f g  Exercise 5.</description>
     </item>
     
     <item>
       <title>Notes on Microeconomics - First Final</title>
-      <link>/post/2019/03/notes-micro-final/</link>
+      <link>https://notes.loikein.one/post/2019/03/notes-micro-final/</link>
       <pubDate>Mon, 18 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/03/notes-micro-final/</guid>
+      <guid>https://notes.loikein.one/post/2019/03/notes-micro-final/</guid>
       <description>Problem 1: Dual Consumer  a) b) c)  Problem 2: Law of Supply  a) b)  Problem 3: Cournot Competition  a) b) c)  Problem 4: Externality  a) b) c) d)    Warning: I failed this exam.
 Problem 1: Dual Consumer  Joey is a consumer in a world with a single commodity: potato chips.
 Assume that potato chips are a divisible good with quantities in gram.</description>
@@ -184,28 +184,28 @@ Assume that potato chips are a divisible good with quantities in gram.</descript
     
     <item>
       <title>Notes on Econometrics - Tests and Statistics</title>
-      <link>/post/2019/02/notes-stat-test/</link>
+      <link>https://notes.loikein.one/post/2019/02/notes-stat-test/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/02/notes-stat-test/</guid>
+      <guid>https://notes.loikein.one/post/2019/02/notes-stat-test/</guid>
       <description>R^2 t-test F-test (Joint Test / Model Test) Wald Test  Wald statistic F-statistic  BIC &amp;amp; AIC  Nested Model Time Series  J Test (Non-Nested Model) PE Test (Linear vs Log) Chow (Breakpoint) Test Heteroskedasticity Test  Goldfeld-Quandt Breusch-Pagan Test  Autocorrelation Test  Durbin-Watson Breusch-Godfrey Box-Pierce  Instrumental Variable Test  Durbin-Wu-Hausman (Endogeneity) Sargan (Instrument Validity)  DF (Dickey-Fuller) Test  Unit Root Deterministic Trend ADF (Augmented Dickey-Fuller) Test Spurious Regression vs Cointegration  Ljung–Box (Portmanteau) Test (Residual Analysis) Hausman Test (FE vs RE) Read Regression Table   Warning: under proofreading</description>
     </item>
     
     <item>
       <title>Notes on Mathematics - Past Exams</title>
-      <link>/post/2019/01/notes-math-exam/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-math-exam/</link>
       <pubDate>Thu, 31 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-math-exam/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-math-exam/</guid>
       <description>What Relation Space  Distance  Set Collection &amp;amp; Operation  Proof by Deduction Inclusion of ε  Set  Close / Open Closure &amp;amp; Interior &amp;amp; Boundary Convex Maximum &amp;amp; Supremum Dense  Function  Image Injection (One-to-one) &amp;amp; Surjection (Onto) Continuity Mean Value Intermediate Value Fix Point Contraction Limit &amp;amp; Differenciation Supremum / Infimum Maximum Maximizer &amp;amp; Argmax Concave &amp;amp; Convex Epigraph  Set × Function  Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence  Convergent Limit &amp;amp; Cluster Point (Un-)bounded  Set × Sequence   Words of warning:</description>
     </item>
     
     <item>
       <title>Notes on Mathematics - Optimization and Dynamics</title>
-      <link>/post/2019/01/notes-math-optimization-dynamics/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-math-optimization-dynamics/</link>
       <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-math-optimization-dynamics/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-math-optimization-dynamics/</guid>
       <description>Optimization  Lagrange Method Kuhn-Tucker Method Dual Problem  Dynamics  Recursive Analysis Finite Markov Chain Backward Induction    Optimization Lagrange Method  PS11.Q1
 Solve \(\max_{(x,y)\in \mathbb{R}^2} x+y\) s.t. \(x^2+y^2=2\)
  Lagrangian: \[\mathcal{L}(x,y,λ) = x+y+λ(x^2+y^2-2)\] FOC \[\begin{aligned} \frac{\partial\mathcal{L}}{\partial x} = 1 + 2λx = 0 &amp;amp;&amp;amp; x &amp;amp;= -\frac{1}{2λ} \\ \frac{\partial\mathcal{L}}{\partial y} = 1 + 2λy = 0 &amp;amp;&amp;amp; y &amp;amp;= -\frac{1}{2λ} \\ x^2+y^2=2 &amp;amp;&amp;amp; \frac{1}{4λ^2} &amp;amp;= 1 \implies λ = \pm \frac{1}{2}\end{aligned}\] 1.</description>
@@ -213,37 +213,37 @@ Solve \(\max_{(x,y)\in \mathbb{R}^2} x+y\) s.t. \(x^2+y^2=2\)
     
     <item>
       <title>Notes on Finance</title>
-      <link>/post/2019/01/notes-finance/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-finance/</link>
       <pubDate>Mon, 28 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-finance/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-finance/</guid>
       <description>General Principles  Net Present Value (NPV) Interest Rates Internal Rate of Return (IRR) Tax (Opportunity) Cost of Capital Time Travel for Money Arbitrage Law of One Price Efficient Markets Hypothesis  Cash Flow Stream  Perpetuity Annuity  Decision Rules  NPV Rule IRR Rule Payback Rule  Bond  Bond Price Zero-Coupon Bond Coupon Bond  Stock  Dividend-Discount Model Total Payout Model Discounted FCF (Free Cash Flow) Model  CAPM (Capital Asset Pricing Model)  CAPM Assumptions Risk and Return Risk Measurement and \(β\) Portfolio Combined Portfolio  Capital Structure  Perfect Capital Market Assumptions Finance A Firm Leverage and Risk  Debt and Tax  Interest Tax Shield Personal Tax  Financial Distress  Trade-Off Theory  Stock Payout  Dividend Share Repurchase Tax and Dividend  Options  Put-Call Parity Early Exercise (American) Binomial Option Pricing Model    textbook: Corporate Finance</description>
     </item>
     
     <item>
       <title>Notes on Microeconomics</title>
-      <link>/post/2019/01/notes-micro/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-micro/</link>
       <pubDate>Wed, 16 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-micro/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-micro/</guid>
       <description>Preference  Utility Function Continuity Rational Choice Function  Choice  Revealed Preference Relation WARP (Weak Axiom of Revealed Preference) SARP (Strong Axiom of Revealed Preference) Rationalizing Choice Function  Demand (Consumer Preference)  Continuity (revisited) Monotonicity Convexity Special Preferences UMP (Utility Maximization Problem) Indirect Preference &amp;amp; Utility Differentiability Consumer Problem with Differentiable Preference EMP (Expenditure Minimizationg Problem) Dual Consumer Duality Properties Consumer Welfare  Demand (Consumer Choice)  Consumer Problem Demand Function WARP (revisited) Rationalizing Demand Function SARP (revisited) Types of Commodity (Compensated) Law of Demand  Producer  Technology Production Function PMP (Profit Maximization Problem) Law of Supply CMP (Cost Minimization Problem)  Partial Equilibrium  Perfect Competition (Short Run) Perfect Competition (Long Run) Monopoly Cournot (Quantity) Bertrand Duopoly (Price) Total Welfare (Partial)  General Equilibrium (Exchange)  Core Efficiency &amp;amp; Edgeworth Box Competitive Market Equilibrium Total Welfare (Exchange)  General Equilibrium (Production)  Production Equilibrium Total Welfare (Production)  Externality (Perfect Information)  Bilateral Externality Quota Taxation Bargain (Property Right) Multilateral Externality Taxation  Externality (Asymmetric Information)  Bargain Government Intervention Quota Taxation  Public Goods  Private Provision Subsidy    Textbook 1: (RBST) Lecture Notes in Microeconomic Theory (~ #Producer)</description>
     </item>
     
     <item>
       <title>Notes on Mathematical Proofs</title>
-      <link>/post/2019/01/notes-math-proof/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-math-proof/</link>
       <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-math-proof/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-math-proof/</guid>
       <description>Logic  Truth table Proof by Deduction  Relation  Preorder (Quasi-order) Order Complete Order  Space  Distance Cauchy-Schwarz Inequality  Set Collection &amp;amp; Operation  Proof by Deduction Inclusion of ε  Set  Open / Closed Closure &amp;amp; Interior &amp;amp; Boundary Compact Convex Maximum &amp;amp; Supremum Dense Separated / Connected  Function  Image Injection (One-to-one) &amp;amp; Surjection (Onto) Continuity Value Theorems Contraction Limit &amp;amp; Differenciation Supremum / Infimum Maximum Maximizer &amp;amp; Argmax Concave &amp;amp; Convex Epigraph  Set × Function  Injection &amp;amp; Surjection (revisited) Finite &amp;amp; Countable  Sequence  Convergent Limit &amp;amp; Cluster Point (Un-)bounded  Set × Sequence   textbook: Mathematical Methods and Models for Economists</description>
     </item>
     
     <item>
       <title>Notes on Econometrics - Practice Part</title>
-      <link>/post/2019/01/notes-stat-practice/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-stat-practice/</link>
       <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-stat-practice/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-stat-practice/</guid>
       <description>Compare Models  Choose Explanatory Variables Choose Approach: OLS / GLS Weird Model  R Workout  Data Generation OLS Regression    Warning: under proofreading
 All I wanted was a clear &amp;amp; complete guidance (for upcoming exams).
 Textbook: A Guide to Modern Econometrics
@@ -254,19 +254,19 @@ Consider the wage regressions from slide 5 (text P86).
     
     <item>
       <title>Notes on Econometrics - Theory Part</title>
-      <link>/post/2019/01/notes-stat-theory/</link>
+      <link>https://notes.loikein.one/post/2019/01/notes-stat-theory/</link>
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/01/notes-stat-theory/</guid>
+      <guid>https://notes.loikein.one/post/2019/01/notes-stat-theory/</guid>
       <description>OLS Model  OLS Method Statistical Model Gauss-Markov Assumptions Linear &amp;amp; Loglinear Elasticity  OLS Estimator  Derive b Unbiasedness of b BLUE Unbiasedness of s^2  Normality Assumption  Normality of ε Normality of b  Asymptotic Property  Converge in Probability &amp;amp; Mean Square LLN (Law of Large Numbers) Consistency of b Consistency of s^2 Asymptotic Nomality  Data Problems  Multicollinearity Outliers  Error Problems  Heteroskedasticity Autocorrelation (Serial Correlation) White (HC) Standard Error Newey-West (HAC) Standard Error GLS (Generalized Least Squares) Estimator EGLS (Feasible Estimated GLS) Estimator WLS (Weighted LS) Estimator  Regressor Problem: Endogeneity  Lagged Dependent Variable Measurement Error Omitted Variable Bias Reverse Causality IV (Instrumental Variable) GIVE (Generalized IV Estimator)  ML (Maximum Likelihood) Model  Assumption Property of ^θ Asymptotic Covariance Matrix  Binary Choice Model  Regression Model Probit Model Logit Model Likelihood Ratio  Time Series  Types of Process Lag Operator Stationary Difference Operator &amp;amp; Integration Deterministic (Linear) Trend OLS Estimation Model Selection Spurious Regression Cointegration  Panel Data  Entity Fixed Effect Time Fixed Effect Least Squares Dummy Variable (LSDV) Estimator Within Estimator First Difference Estimator Entity and Time Fixed Effect (2-way) Random Effect Feasible GLS (EGLS) Estimator    Warning: under proofreading</description>
     </item>
     
     <item>
       <title>Rmd Template</title>
-      <link>/post/2018/01/rmd-template/</link>
+      <link>https://notes.loikein.one/post/2018/01/rmd-template/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018/01/rmd-template/</guid>
+      <guid>https://notes.loikein.one/post/2018/01/rmd-template/</guid>
       <description>Style Demonstration Words of Warning Rmd Reference Reference Cheatsheet Inline Code Execution Display Code R Code Block Code of Other Languages Reference Image Reference Plot Style Demonstration Paragraph, inline code, keystroke , strong, emphasis, strike, highlight. Inline HTML, inline \(\LaTeX{}\) and footnotes1. \[\text{Block }\LaTeX{}\] Ordered list Nested list Types of ordered list Another item Unordered list Task list Finished task Table with inline \(\LaTeX{}\) Table with inline \(\LaTeX{}\) Hover me</description>
     </item>
     

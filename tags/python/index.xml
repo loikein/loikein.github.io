@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on loikein&#39;s notes</title>
-    <link>/tags/python/</link>
+    <link>https://notes.loikein.one/tags/python/</link>
     <description>Recent content in Python on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Fri, 27 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://notes.loikein.one/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Effective Programming Practice: Final Project</title>
-      <link>/post/2019/12/effective-programming-project/</link>
+      <link>https://notes.loikein.one/post/2019/12/effective-programming-project/</link>
       <pubDate>Fri, 27 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/12/effective-programming-project/</guid>
+      <guid>https://notes.loikein.one/post/2019/12/effective-programming-project/</guid>
       <description>Project Description  References Documentation Potentially Useful R Packages  Notes on Minimal Distance Estimation Notes on AGS (2017)  Motivation Model Sample Sensitivity Estimation Example: OLS Generalisation: Classical Minimal Distance (CMD) Instrumental Variable  Application on Gourinchas &amp;amp; Parker (2002)   Project Description Sensitivity Measures for Method of Simulated Moments: diagnostic tools for moments based estimation.
 Your task is to implement those tools in Python and to integrate them in estimagic.</description>
     </item>
     
     <item>
       <title>Notes on Effective Programming Practice</title>
-      <link>/post/2019/10/notes-effective-programming/</link>
+      <link>https://notes.loikein.one/post/2019/10/notes-effective-programming/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/10/notes-effective-programming/</guid>
+      <guid>https://notes.loikein.one/post/2019/10/notes-effective-programming/</guid>
       <description>Slides Example Process of A Project Clone from Remote Create from Local Create from cookiecutter Runtime: Building Runtime: Testing Shell Reference Basics Pipeline TeX Git Reference Basics Escape Vim Late .gitignore Multiple Branches Tagging Squash Collaboration (Ana)Conda Reference Setup for Zsh Create &amp;amp; Delete Environment Kernels Use Sublime with SendCode Python Waf Reference Config Build Miscellaneous Regular Expression Note: I use macOS Catalina with Zsh (Oh-My-Zsh) and Sublime Text 3.</description>
     </item>
     
     <item>
       <title>Notes on Python 3</title>
-      <link>/post/2019/06/notes-python-3/</link>
+      <link>https://notes.loikein.one/post/2019/06/notes-python-3/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019/06/notes-python-3/</guid>
+      <guid>https://notes.loikein.one/post/2019/06/notes-python-3/</guid>
       <description>Reference Personal Notes continue, pass &amp;amp; break if __name__ == &#34;__main__&#34; Python on DataCamp Basics Boolean &amp;amp; Comparison Functions Condition &amp;amp; Control Flows Methods Dictionary Tuple Writing Functions Lambda Functions Error Handeling Using Packages Package: Numpy on DataCamp Basics Comparison Methods Control Flows Package: Pandas on DataCamp Create DataFrame Import &amp;amp; Export DataFrame Access DataFrame DataFrame &amp;amp; Series Filter DataFrame Manipulate DataFrame Control Flows Package: Matplotlib on DataCamp Line &amp;amp;</description>
     </item>
     
