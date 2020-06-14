@@ -284,6 +284,7 @@ header.header {
 	font-size: 18px;
 	line-height: 1.7;
 	text-align: justify;
+	hanging-punctuation: first force-end last;
 }
 
 .article-content p {
@@ -313,15 +314,19 @@ header.header {
 	cursor: pointer;
 }
 
-/* mjx margin & scroll quick fix, introduce bug in Safari */
-.article-content mjx-container[jax="CHTML"][display="true"]{
+/* math margin & scroll quick fix, introduce bug in Safari */
+.article-content .katex-display{
 	margin: 0.5em 0;
 	overflow-x: auto;
 	overflow-y: hidden;
 }
 
+.article-content .katex {
+	font-size: 1.1em !important;
+}
+
 /* experimenting */
-/* .article-content mjx-assistive-mml {
+/* .article-content .katex-display {
 	margin-top: 0;
 	margin-bottom: 0;
 	padding-top: 0 !important;

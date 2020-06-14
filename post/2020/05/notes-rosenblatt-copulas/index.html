@@ -30,15 +30,15 @@ if (!doNotTrack) {
 
 
 
+<link rel="stylesheet" href="/css/normalize.css" media="all">
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
 
 
 
 <link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/atom-one-light.min.css' rel='stylesheet' type='text/css' />
 
 
-<link rel="stylesheet" href="/css/normalize.css" media="all">
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
 
 
 <link rel="stylesheet" href="/css/clumsy-toc.css">
@@ -195,6 +195,10 @@ if (!doNotTrack) {
 <li><a href="https://github.com/openturns/openturns">openturns/openturns</a>
 <ul>
 <li><a href="https://openturns.github.io/openturns/master/index.html">OpenTURNS 1.16dev documentation</a></li>
+</ul></li>
+<li><a href="https://github.com/sdv-dev/Copulas">sdv-dev/Copulas: A library to model multivariate data using copulas.</a>
+<ul>
+<li><a href="https://sdv-dev.github.io/Copulas/">Copulas 0.3.0 documentation</a></li>
 </ul></li>
 </ul>
 </div>
@@ -431,10 +435,10 @@ for item in y_fix_x_0:
     https://doi.org/10.1287/opre.38.6.947,
     as seen in Borgonovoa &amp; Plischkeb (2016),
     https://doi.org/10.1016/j.ejor.2015.06.032
-    
+
     For plotting convenience, the total cost here excludes ordering cost,
     since it is assumed to be constant, as in Harris (1990).
-    
+
     Args: 
         params (np.array): 1d numpy array,
                            cuurrently only take the first param,
@@ -445,24 +449,24 @@ for item in y_fix_x_0:
     Output:
         t (np.array): 1d numpy array, total cost according to each size.
     &quot;&quot;&quot;
-    
+
     x_np = np.array(x)
     params_np = np.array(params)
     r = params_np.flatten()[0]
-    
+
     t = np.zeros(y.shape)
-    
+
     t_setup = np.zeros(y.shape)
     t_setup = (1 / y) * x[2]
-    
+
     t_interest = np.zeros(y.shape)
     t_interest = 1 / (24 * r * x[0]) * (y * x[1] + x[2])
-    
+
     t = t_setup + t_interest
-    
-    return(t_setup, t_interest, t)</code></pre>
+
+    return (t_setup, t_interest, t)</code></pre>
 <p>Data generation:</p>
-<pre class="python"><code>y = np.arange(300,5200,1)
+<pre class="python"><code>y = np.arange(300, 5200, 1)
 
 x_1 = 1000
 x_2 = 0.1
@@ -1257,6 +1261,18 @@ where <span class="math inline">\(\mathbb{P}, \mathbb{Q}\)</span> are probabilit
 <script async src="/js/jump-after-toc.js"></script>
 
 
+<script src="/js/math-code.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body);
+    });
+</script>
+
+
+
 
 
 
@@ -1270,11 +1286,6 @@ where <span class="math inline">\(\mathbb{P}, \mathbb{Q}\)</span> are probabilit
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/python.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/vim.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-
-<script src="/js/math-code.js"></script>
-<script async defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-MML-AM_CHTML"></script>
 
 
 
