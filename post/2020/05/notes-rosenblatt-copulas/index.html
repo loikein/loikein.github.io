@@ -998,18 +998,18 @@ C^*\big(\bar{F}(x), \bar{G}(y)\big) &amp;= \Pr( X&gt;x \text{ or } Y&gt;y) \end{
 <li>Graph: generalised tornado diagram</li>
 <li>Fix 2 or more base points of input
 <ul>
-<li><span class="math inline">\(\mathbf{x}^0\)</span>, <span class="math inline">\(\mathbf{x}^+\)</span> and <span class="math inline">\(\mathbf{x}^-\)</span></li>
-</ul></li>
-</ul>
-<p><span class="math display">\[\begin{aligned}\Delta y &amp;= g(\mathbf{x}^+) - g(\mathbf{x}^0)\\
+<li><span class="math inline">\(\mathbf{x}^0\)</span>, <span class="math inline">\(\mathbf{x}^+\)</span> and <span class="math inline">\(\mathbf{x}^-\)</span>
+<span class="math display">\[\begin{aligned}\Delta y &amp;= g(\mathbf{x}^+) - g(\mathbf{x}^0)\\
 &amp;= \sum_{i=1}^n \phi_i + \sum_{i&lt;j} \phi_{i,j} + \sum_{i&lt;j&lt;k} \phi_{i,j,k} +\dots + \phi_{1,2,\dots,n}\end{aligned}\]</span>
 where the <span class="math inline">\(2^n\)</span> terms are given by
 <span class="math display">\[\begin{aligned} \phi_i &amp;= g(x_i^+,\mathbf{x}^0_{\sim i}) - g(\mathbf{x}^0) \\
 \phi_{i,j} &amp;= g(x_i^+,x_j^+,\mathbf{x}^0_{\sim i,j}) - \phi_i - \phi_j - g(\mathbf{x}^0) \\
 \phi_{i,j,k} &amp;= g(x_i^+,x_j^+,x_k^+,\mathbf{x}^0_{\sim i,j,k}) - \phi_{i,j} - \phi_{i,k} - \phi_{j,k} - \phi_i - \phi_j - \phi_k - g(\mathbf{x}^0) \\
-\vdots &amp; \end{aligned}\]</span>
-- Individual effect: <span class="math inline">\(\phi_i = \Delta ^+_i y\)</span>
-- Residual interaction effect: <span class="math inline">\(\phi_{i,j}\)</span></p>
+\vdots &amp; \end{aligned}\]</span></li>
+</ul></li>
+<li>Individual effect: <span class="math inline">\(\phi_i = \Delta ^+_i y\)</span></li>
+<li>Residual interaction effect: <span class="math inline">\(\phi_{i,j}\)</span></li>
+</ul>
 </div>
 <div id="one-way-sensitivity-function" class="section level3">
 <h3>One Way Sensitivity Function</h3>

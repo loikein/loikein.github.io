@@ -2119,13 +2119,19 @@ Moreover,
 &amp;= \sqrt{n}\dot{A}(\bar{θ})(\tilde{θ}-θ_0)\end{aligned}\]</span>
 and
 <span class="math display">\[\begin{aligned}\sqrt{n}S_n(\tilde{θ})= \sqrt{n}S_n(θ_0)+ \mathcal{H}_n(θ_0,\tilde{θ})\sqrt{n}(\tilde{θ}-θ_0)\end{aligned}\]</span>
-Plug into FOC:
-<span class="math display">\[\begin{aligned}\begin{pmatrix}\sqrt{n}S_n(θ_0)+ \mathcal{H}_n(θ_0,\tilde{θ})\sqrt{n}(\tilde{θ}-θ_0)\\\sqrt{n}\dot{A}(\bar{θ})(\tilde{θ}-θ_0)\end{pmatrix}&amp;=\begin{pmatrix}0\\0\end{pmatrix}\\
-\begin{pmatrix}\sqrt{n}S_n(θ_0)\\0\end{pmatrix}&amp;=-\begin{pmatrix}\mathcal{H}_n(θ_0,\tilde{θ}) &amp; \dot{A}(\tilde{θ})^T\\\dot{A}(\bar{θ})&amp; 0\end{pmatrix}\sqrt{n}\begin{pmatrix}\tilde{θ}-θ_0\\\tilde{λ}\end{pmatrix}\\
-\sqrt{n}\begin{pmatrix}\tilde{θ}-θ_0\\\tilde{λ}\end{pmatrix} &amp;= -\begin{pmatrix}\mathcal{H}_n(θ_0,\tilde{θ}) &amp; \dot{A}(\tilde{θ})^T\\\dot{A}(\bar{θ}) &amp;0\end{pmatrix}^{-1}\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{pmatrix}\\
-&amp;=-\begin{pmatrix}H_0 &amp; \dot{A}_0^T\\\dot{A}_0 &amp;0\end{pmatrix}^{-1}\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{pmatrix}+o_P(1)\\
-&amp;=-\begin{pmatrix}H^{-1/2}_0M_0H^{-1/2}_0\\(\dot{A}_0H_0^{-1}\dot{A}_0^T)^{-1}\dot{A}_0H_0^{-1}\end{pmatrix}\underbrace{\sqrt{n}S_n(θ_0)}_{\overset{d}{\to}\mathcal{N}(0,Ω_0)} + o_P(1)\end{aligned}\]</span>
-Hence, we have
+Plug into FOC:</p>
+<p><img src="/post-img/notes-econometric-theory--thm-5-2.png" /></p>
+<!-- 
+$$\begin{aligned}
+\begin{pmatrix}\sqrt{n}S_n(θ_0)+ \mathcal{H}_n(θ_0,\tilde{θ})\sqrt{n}(\tilde{θ}-θ_0)\\\sqrt{n}\dot{A}(\bar{θ})(\tilde{θ}-θ_0)\end{pmatrix}&=\begin{pmatrix}0\\0\end{pmatrix} \\
+\begin{pmatrix}\sqrt{n}S_n(θ_0)\\0\end{pmatrix}&=-\begin{pmatrix}\mathcal{H}_n(θ_0,\tilde{θ}) & \dot{A}(\tilde{θ})^T\\\dot{A}(\bar{θ})& 0\end{pmatrix}\sqrt{n}\begin{pmatrix}\tilde{θ}-θ_0\\\tilde{λ}\end{pmatrix} \\
+\sqrt{n}
+\begin{pmatrix}\tilde{θ}-θ_0\\\tilde{λ}\end{pmatrix} &= -\begin{pmatrix}\mathcal{H}_n(θ_0,\tilde{θ}) & \dot{A}(\tilde{θ})^T\\\dot{A}(\bar{θ}) &0\end{pmatrix}^{-1}\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{pmatrix} \\
+&=-\begin{pmatrix}H_0 & \dot{A}_0^T\\\dot{A}_0 &0\end{pmatrix}^{-1}\begin{pmatrix} \sqrt{n}S_n(θ_0)\\0\end{pmatrix}+o_P(1) \\
+&=-\begin{pmatrix}H^{-1/2}_0M_0H^{-1/2}_0\\(\dot{A}_0H_0^{-1}\dot{A}_0^T)^{-1}\dot{A}_0H_0^{-1}\end{pmatrix}\underbrace{\sqrt{n}S_n(θ_0)}_{\overset{d}{\to}\mathcal{N}(0,Ω_0)} + o_P(1)
+\end{aligned}$$
+ -->
+<p>Hence, we have
 <span class="math display">\[\sqrt{n}(\tilde{θ}-θ_0)\overset{d}{\to}\text{something}\]</span></p>
 <p>From the proof of Thm 5.2., we know that
 <span class="math display">\[\begin{aligned}\sqrt{n}S_n(\tilde{θ})&amp;=-\dot{A}(\tilde{θ})^T\sqrt{n}\tilde{λ}\\
