@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://notes.loikein.one/sitemap.xml
