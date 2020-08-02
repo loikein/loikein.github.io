@@ -304,6 +304,7 @@ header.header {
 .article-content pre {
 	background-color: var(--light-grey);
 	line-height: 1.5;
+	padding: 1px 1rem 1px 1rem;
 }
 
 .article-content kbd {
@@ -334,7 +335,8 @@ header.header {
 
 /* links */
 
-.article-content a {
+.article-content a,
+#article-nav a {
 	text-decoration: none;
 	color: var(--theme-dark);
 	-webkit-box-shadow: inset 0 -1px 0 var(--theme);
@@ -343,7 +345,9 @@ header.header {
 }
 
 .article-content a:hover,
-.article-content a:focus {
+.article-content a:focus,
+#article-nav a:hover,
+#article-nav a:focus {
 	color: var(--theme-alt-dark);
 	-webkit-box-shadow: inset 0 -5px 0 var(--theme-alt);
 	box-shadow: inset 0 -5px 0 var(--theme-alt);
@@ -364,6 +368,31 @@ header.header {
 
 .highlight pre {
 	padding: 10px;
+}
+
+#article-nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	user-select: none;
+	border-top: solid 1px var(--dark-grey);
+	padding: 0.5rem;
+	margin-top: 1rem;
+}
+
+#article-nav .article-nav-older::before {
+	display: inline-block;
+	content: "<";
+	font-weight: 600;
+	margin: 0.5rem;
+}
+
+#article-nav .article-nav-newer::after {
+	display: inline-block;
+	content: ">";
+	font-weight: 600;
+	margin: 0.5rem;
 }
 
 .footer {
