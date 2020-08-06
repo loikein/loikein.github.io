@@ -92,7 +92,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">3 min read</span>
     
     <h1 class="article-title">Notes on The Missing Semester of Your CS Education</h1>
     
@@ -117,20 +117,40 @@ if (!doNotTrack) {
 
 <div id="TOC">
 <ul>
-<li><a href="#what-was-that-cool-tool-they-used">What was that cool tool they used…?</a></li>
+<li><a href="#what-was-that-cool-thing">What Was That Cool Thing…?</a></li>
 <li><a href="#shell">Shell</a>
 <ul>
 <li><a href="#basics">Basics</a></li>
 <li><a href="#piping">Piping</a></li>
 </ul></li>
+<li><a href="#command-line-environment">Command-Line Environment</a>
+<ul>
+<li><a href="#job-control">Job Control</a></li>
+<li><a href="#alias">Alias</a></li>
+<li><a href="#dotfiles">Dotfiles</a></li>
+</ul></li>
+<li><a href="#remote-login-via-ssh">Remote Login via SSH</a>
+<ul>
+<li><a href="#ssh-keys">SSH Keys</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#copy-over-ssh">Copy over SSH</a></li>
+</ul></li>
 <li><a href="#vim">Vim</a>
 <ul>
 <li><a href="#general">General</a></li>
-<li><a href="#move-in-normal-mode">Move in Normal Mode</a></li>
+<li><a href="#move-around-in-normal-mode">Move Around in Normal Mode</a></li>
 <li><a href="#search-in-normal-mode">Search in Normal Mode</a></li>
 <li><a href="#edit-in-normal-mode">Edit in Normal Mode</a></li>
+<li><a href="#copy-paste-in-normal-mode">Copy &amp; Paste in Normal Mode</a></li>
 <li><a href="#insert-mode">Insert Mode</a></li>
-<li><a href="#visual-mode">Visual Mode</a></li>
+<li><a href="#visual-mode-selection-mode">Visual Mode (Selection Mode)</a></li>
+<li><a href="#windows-panels-tabs">Windows (Panels) &amp; Tabs</a></li>
+</ul></li>
+<li><a href="#tmux">Tmux</a>
+<ul>
+<li><a href="#sessions">Sessions</a></li>
+<li><a href="#windows-tabs">Windows (Tabs)</a></li>
+<li><a href="#panes">Panes</a></li>
 </ul></li>
 </ul>
 </div>
@@ -141,11 +161,13 @@ if (!doNotTrack) {
 <li><a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a></li>
 <li><a href="https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J">Missing Semester IAP 2020 - YouTube</a></li>
 </ul>
-<div id="what-was-that-cool-tool-they-used" class="section level2">
-<h2>What was that cool tool they used…?</h2>
+<div id="what-was-that-cool-thing" class="section level2">
+<h2>What Was That Cool Thing…?</h2>
 <ul>
 <li><a href="https://github.com/ChesterYue/ohmyzsh-theme-passion">ChesterYue/ohmyzsh-theme-passion: An oh-my-zsh theme.</a></li>
 <li><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-users/zsh-autosuggestions: Fish-like autosuggestions for zsh</a></li>
+<li><a href="https://github.com/keycastr/keycastr">keycastr/keycastr: KeyCastr, an open-source keystroke visualizer</a></li>
+<li><a href="https://github.com/alacritty/alacritty">alacritty/alacritty: A cross-platform, GPU-accelerated terminal emulator</a></li>
 </ul>
 </div>
 <div id="shell" class="section level2">
@@ -186,6 +208,96 @@ $ curl --head --silent google.com | tail -n 2
 # </code></pre>
 </div>
 </div>
+<div id="command-line-environment" class="section level2">
+<h2>Command-Line Environment</h2>
+<div id="job-control" class="section level3">
+<h3>Job Control</h3>
+</div>
+<div id="alias" class="section level3">
+<h3>Alias</h3>
+<p>Note: no space around <code>=</code>.</p>
+<p>Examples:</p>
+<pre class="sh"><code># Make shorthands for common flags
+alias ll=&quot;ls -lh&quot;
+
+# Save a lot of typing for common commands
+alias v=&quot;vim&quot;
+
+# Save you from mistyping
+alias sl=ls
+
+# Overwrite existing commands for better defaults
+alias mv=&quot;mv -i&quot;           # -i prompts before overwrite
+alias mkdir=&quot;mkdir -p&quot;     # -p make parent dirs as needed
+alias df=&quot;df -h&quot;           # -h prints human readable format
+
+# Alias can be composed
+alias la=&quot;ls -A&quot;
+alias lla=&quot;la -l&quot;
+
+# To ignore an alias run it prepended with \
+\ls
+# Or disable an alias altogether with unalias
+unalias la</code></pre>
+<p>To get an alias definition:</p>
+<pre class="sh"><code>$ alias ll
+# or
+$ which ll</code></pre>
+</div>
+<div id="dotfiles" class="section level3">
+<h3>Dotfiles</h3>
+<p>Dotfiles from all three teachers:</p>
+<ul>
+<li><a href="https://github.com/JJGO/dotfiles">JJGO/dotfiles</a></li>
+<li><a href="https://github.com/jonhoo/configs">jonhoo/configs</a></li>
+<li><a href="https://github.com/anishathalye/dotfiles">anishathalye/dotfiles</a></li>
+</ul>
+</div>
+</div>
+<div id="remote-login-via-ssh" class="section level2">
+<h2>Remote Login via SSH</h2>
+<p>This is covered by the lecture <a href="#command-line-environment">#Command-Line Environment</a>.</p>
+<pre class="sh"><code># Log in
+$ ssh user@ip
+
+# Log out
+$ logout</code></pre>
+<div id="ssh-keys" class="section level3">
+<h3>SSH Keys</h3>
+<p>If you have the public key on remote machine, then when logging in, the computer only checks the private key instead of asking for password.</p>
+<pre class="sh"><code># Generate a key
+$ ssh-keygen -f ~/.ssh/id_for_remote
+
+# Copy a key to remote machine
+$ cat .ssh/id_for_remote.pub | ssh user@ip &#39;cat &gt;&gt; ~/.ssh/authorized_keys&#39;
+# or (i for identity file)
+$ ssh-copy-id -i .ssh/id_for_remote.pub user@ip</code></pre>
+</div>
+<div id="configuration" class="section level3">
+<h3>Configuration</h3>
+<p>In file <code>~/.ssh/config</code>:</p>
+<pre><code>Host my-vm
+    User user
+    HostName ip
+    Port 4444
+    IdentityFile ~/.ssh/id_for_remote
+    LocalForward 9999 localhost:8888</code></pre>
+<p>And next time you log in just type:</p>
+<pre class="sh"><code>$ ssh my-vm</code></pre>
+</div>
+<div id="copy-over-ssh" class="section level3">
+<h3>Copy over SSH</h3>
+<pre class="sh"><code># cat can only copy one file at a time
+$ cat /path/to/local/file | ssh user@ip tee /path/to/target
+
+# scp or rsync can copy whole directories
+$ scp /path/to/local/file user@ip:/path/to/target
+
+# rsync will try to continue previously partially copied files
+$ rsync --archive --verbose --partial --progress /path/to/local/file user@ip:/path/to/target
+$ rsync -a -v -P /path/to/local/file user@ip:/path/to/target</code></pre>
+</div>
+</div>
 <div id="vim" class="section level2">
 <h2>Vim</h2>
 <div id="general" class="section level3">
@@ -199,17 +311,29 @@ $ curl --head --silent google.com | tail -n 2
 </ul></li>
 <li>If some command has a upper-case key, you should press <kbd>shift</kbd>.</li>
 </ul>
-<pre class="vim"><code>&quot; Save changes
+<p><code>.vimrc</code> files from all three teachers:</p>
+<ul>
+<li><a href="https://github.com/JJGO/dotfiles/blob/master/vim/.vimrc">dotfiles/.vimrc at master · JJGO/dotfiles</a></li>
+<li><a href="https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim">configs/init.vim at master · jonhoo/configs</a></li>
+<li><a href="https://github.com/anishathalye/dotfiles/blob/master/vimrc">dotfiles/vimrc at master · anishathalye/dotfiles</a></li>
+</ul>
+<pre class="vim"><code>&quot; Save changes (write)
 :w
+
+&quot; Close file (quit)
+:q
 
 &quot; Close file without saving
 :q!
 
+&quot; Help with some command
+:help some command
+
 &quot; Enter normal mode
 &lt;Esc&gt;</code></pre>
 </div>
-<div id="move-in-normal-mode" class="section level3">
-<h3>Move in Normal Mode</h3>
+<div id="move-around-in-normal-mode" class="section level3">
+<h3>Move Around in Normal Mode</h3>
 <pre class="vim"><code>&quot; One line up
 k
 
@@ -222,13 +346,13 @@ h
 &quot; One character right
 l</code></pre>
 <p>In-line:</p>
-<pre class="vim"><code>&quot; Next word&#39;s first letter
+<pre class="vim"><code>&quot; Next word&#39;s first letter (word)
 w
 
-&quot; Next word&#39;s last letter
+&quot; Next word&#39;s last letter (end)
 e
 
-&quot; Previous word&#39;s first letter
+&quot; Previous word&#39;s first letter (back)
 b
 
 &quot; Beginning of the line
@@ -238,7 +362,10 @@ b
 ^
 
 &quot; End of the line
-$</code></pre>
+$
+
+&quot; Jump between a pair of parentheses
+%</code></pre>
 <p>Across lines:</p>
 <pre class="vim"><code>&quot; One screen up
 &lt;C&gt;u
@@ -250,10 +377,26 @@ $</code></pre>
 gg
 
 &quot; End of the file
-G</code></pre>
+G
+
+&quot; Last line on screen (low)
+L
+
+&quot; Middle line on screen
+M
+
+&quot; First line on screen (high)
+H</code></pre>
 </div>
 <div id="search-in-normal-mode" class="section level3">
 <h3>Search in Normal Mode</h3>
+<p>In line:</p>
+<pre class="vim"><code>&quot; First instance of some character (example: first o)
+fo
+
+&quot; Last instance of some character (example: first o)
+Fo</code></pre>
+<p>In whole file:</p>
 <pre class="vim"><code>&quot; Search text
 /text here
 
@@ -265,20 +408,160 @@ N</code></pre>
 </div>
 <div id="edit-in-normal-mode" class="section level3">
 <h3>Edit in Normal Mode</h3>
-<pre class="vim"><code>&quot; Delete this character
+<p>Basics:</p>
+<pre class="vim"><code>&quot; Delete the character under cursor
 x
+
+&quot; Flip text case
+~
+
+&quot; Repeat last change (after moving to another position)
+.
 
 &quot; Undo
 u
 
 &quot; Redo
 &lt;C&gt;r</code></pre>
+<p>Combined with content change:</p>
+<pre class="vim"><code>&quot; Replace the character under cursor with another character (example: o)
+ro</code></pre>
+<p>Combined with movement:</p>
+<pre class="vim"><code>&quot; Delete (example: current word)
+dw
+
+&quot; Delete the whole line
+dd
+
+&quot; Delete &amp; enter insert mode (example: from cursor until the end of the word) (change)
+ce
+
+&quot; Delete the whole line &amp; enter insert mode
+cc</code></pre>
+<p>Combined with modifier:</p>
+<pre class="vim"><code>&quot; Delete (example: everything inside []) (inside)
+di[
+
+&quot; Delete (example: everything inside [], including []) (around)
+da[
+
+&quot; Delete &amp; enter insert mode (example: everything inside &quot;&quot;)
+ci&quot;
+
+&quot; Delete &amp; enter insert mode (example: everything inside &quot;&quot;, including &quot;&quot;)
+ca&quot;</code></pre>
+</div>
+<div id="copy-paste-in-normal-mode" class="section level3">
+<h3>Copy &amp; Paste in Normal Mode</h3>
+<pre class="vim"><code>&quot; Copy (example: current word)
+yw
+
+&quot; Copy the whole line
+yy
+
+&quot; Copy (example: from cursor until the end of the word)
+ye
+
+&quot; Paste
+p</code></pre>
 </div>
 <div id="insert-mode" class="section level3">
 <h3>Insert Mode</h3>
+<p>Enter insert mode:</p>
+<pre class="vim"><code>&quot; Directly (cursor stays at current position)
+i
+
+&quot; Append (cursor goes one slot ahead)
+a
+
+&quot; Open new line below cursor
+o
+
+&quot; Open new line at cursor
+O</code></pre>
 </div>
-<div id="visual-mode" class="section level3">
-<h3>Visual Mode</h3>
+<div id="visual-mode-selection-mode" class="section level3">
+<h3>Visual Mode (Selection Mode)</h3>
+<p>Enter visual mode:</p>
+<pre class="vim"><code>&quot; Visual mode
+v
+
+&quot; Visual line mode
+V
+
+&quot; Visual block mode
+&lt;C&gt;v</code></pre>
+<p>Copy &amp; return to normal mode:</p>
+<pre class="vim"><code>y</code></pre>
+</div>
+<div id="windows-panels-tabs" class="section level3">
+<h3>Windows (Panels) &amp; Tabs</h3>
+<p>Windows (panels):</p>
+<pre class="vim"><code>&quot; Open horizontal panel with the same file (split)
+:sp
+
+&quot; Close current panel
+:q
+
+&quot; Save all panels (write all)
+:wa
+
+&quot; Close all panels (quit all)
+:qa</code></pre>
+<p>Tabs:</p>
+<pre class="vim"><code>&quot; Open new tab
+:tabnew</code></pre>
+</div>
+</div>
+<div id="tmux" class="section level2">
+<h2>Tmux</h2>
+<p>This is covered by the lecture <a href="#command-line-environment">#Command-Line Environment</a>.</p>
+<p>References:</p>
+<ul>
+<li><a href="https://github.com/tmux/tmux/wiki">Home · tmux/tmux Wiki</a></li>
+<li><a href="https://tmuxcheatsheet.com/">Tmux Cheat Sheet &amp; Quick Reference</a></li>
+<li><a href="https://man7.org/linux/man-pages/man1/tmux.1.html">tmux(1) - Linux manual page</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程 - 阮一峰的网络日志</a></li>
+</ul>
+<p>Note: consider changing the default key binding <span class="math inline">\(`&lt;C&gt;a`\)</span> on local machine to work more smoothly on remote machines.</p>
+<div id="sessions" class="section level3">
+<h3>Sessions</h3>
+<p>In shell:</p>
+<pre class="sh"><code># New session (s for session)
+$ tmux new -s my-session
+
+# Re-attach to existing session (t for target)
+$ tmux attach -t my-session
+$ tmux a -t my-session
+
+# Stop a session
+$ tmux kill-session -t my-session
+
+# List all Tmux sessions
+$ tmux ls</code></pre>
+<p>In Tmux sessions:</p>
+<ul>
+<li>Detach: <code>&lt;C&gt;b d</code></li>
+</ul>
+</div>
+<div id="windows-tabs" class="section level3">
+<h3>Windows (Tabs)</h3>
+<ul>
+<li>Create new window: <code>&lt;C&gt;b c</code></li>
+<li>Rename current window: <code>&lt;C&gt;b ,</code></li>
+<li>Go to window by order: <code>&lt;C&gt;b 0</code>, <code>&lt;C&gt;b 1</code>, etc.</li>
+<li>Go to previous window: <code>&lt;C&gt;b p</code></li>
+<li>Go to next window: <code>&lt;C&gt;b n</code></li>
+</ul>
+</div>
+<div id="panes" class="section level3">
+<h3>Panes</h3>
+<ul>
+<li>Split current window into horizontal panes: <code>&lt;C&gt;b "</code></li>
+<li>Split current window into vertical panes: <code>&lt;C&gt;b %</code></li>
+<li>Move between panes: <code>&lt;C&gt;b direction-key</code></li>
+<li>Zoom in &amp; out to a pane: <code>&lt;C&gt;b z</code></li>
+</ul>
 </div>
 </div>
 
