@@ -92,7 +92,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">2 min read</span>
     
     <h1 class="article-title">Notes on The Missing Semester of Your CS Education</h1>
     
@@ -120,7 +120,6 @@ if (!doNotTrack) {
 <li><a href="#what-was-that-cool-thing">What Was That Cool Thing…?</a></li>
 <li><a href="#shell">Shell</a>
 <ul>
-<li><a href="#basics">Basics</a></li>
 <li><a href="#piping">Piping</a></li>
 </ul></li>
 <li><a href="#command-line-environment">Command-Line Environment</a>
@@ -135,17 +134,9 @@ if (!doNotTrack) {
 <li><a href="#configuration">Configuration</a></li>
 <li><a href="#copy-over-ssh">Copy over SSH</a></li>
 </ul></li>
-<li><a href="#vim">Vim</a>
-<ul>
-<li><a href="#general">General</a></li>
-<li><a href="#move-around-in-normal-mode">Move Around in Normal Mode</a></li>
-<li><a href="#search-in-normal-mode">Search in Normal Mode</a></li>
-<li><a href="#edit-in-normal-mode">Edit in Normal Mode</a></li>
-<li><a href="#copy-paste-in-normal-mode">Copy &amp; Paste in Normal Mode</a></li>
-<li><a href="#insert-mode">Insert Mode</a></li>
-<li><a href="#visual-mode-selection-mode">Visual Mode (Selection Mode)</a></li>
-<li><a href="#windows-panels-tabs">Windows (Panels) &amp; Tabs</a></li>
-</ul></li>
+<li><a href="#data-wrangling">Data Wrangling</a></li>
+<li><a href="#git">Git</a></li>
+<li><a href="#vim">Vim</a></li>
 <li><a href="#tmux">Tmux</a>
 <ul>
 <li><a href="#sessions">Sessions</a></li>
@@ -156,7 +147,7 @@ if (!doNotTrack) {
 </div>
 
 <p>Only include things that I will need to refer to later.</p>
-<p>WIP.</p>
+<p>Work in progress.</p>
 <ul>
 <li><a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a></li>
 <li><a href="https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J">Missing Semester IAP 2020 - YouTube</a></li>
@@ -172,11 +163,7 @@ if (!doNotTrack) {
 </div>
 <div id="shell" class="section level2">
 <h2>Shell</h2>
-<div id="basics" class="section level3">
-<h3>Basics</h3>
-<pre class="sh"><code># Go to last directory
-$ cd -</code></pre>
-</div>
+<p>Also see <a href="https://wiki.loikein.one/computer/other-software/command-line-built-in">Built-In Shell Commands - wiki</a>.</p>
 <div id="piping" class="section level3">
 <h3>Piping</h3>
 <pre class="sh"><code># Write to a file
@@ -200,10 +187,6 @@ $ cat google.txt
 # Server: gws
 # Content-Length: 219
 # X-XSS-Protection: 0
-# X-Frame-Options: SAMEORIGIN
-# 
-
-$ curl --head --silent google.com | tail -n 2
 # X-Frame-Options: SAMEORIGIN
 # </code></pre>
 </div>
@@ -256,7 +239,7 @@ $ which ll</code></pre>
 </div>
 <div id="remote-login-via-ssh" class="section level2">
 <h2>Remote Login via SSH</h2>
-<p>This is covered by the lecture <a href="#command-line-environment">#Command-Line Environment</a>.</p>
+<p>This is covered in the lecture <a href="#command-line-environment">#Command-Line Environment</a>.</p>
 <pre class="sh"><code># Log in
 $ ssh user@ip
 
@@ -298,224 +281,21 @@ $ rsync --archive --verbose --partial --progress /path/to/local/file user@ip:/pa
 $ rsync -a -v -P /path/to/local/file user@ip:/path/to/target</code></pre>
 </div>
 </div>
+<div id="data-wrangling" class="section level2">
+<h2>Data Wrangling</h2>
+<p>See <a href="https://wiki.loikein.one/computer/other-software/command-line-built-in">Built-In Shell Commands - wiki</a>.</p>
+</div>
+<div id="git" class="section level2">
+<h2>Git</h2>
+<p>See <a href="https://wiki.loikein.one/programming/git">Git - wiki</a>.</p>
+</div>
 <div id="vim" class="section level2">
 <h2>Vim</h2>
-<div id="general" class="section level3">
-<h3>General</h3>
-<p>General notes:</p>
-<ul>
-<li><code>&lt;C&gt;</code>: <kbd>Ctrl</kbd> on Windows, <kbd>control</kbd> on Mac.</li>
-<li><code>&lt;Esc&gt;</code>: <kbd>Esc</kbd> on Windows, <kbd>esc</kbd> on Mac.
-<ul>
-<li>Consider remapping <kbd>caps lock</kbd> to <kbd>esc</kbd>.</li>
-</ul></li>
-<li>If some command has a upper-case key, you should press <kbd>shift</kbd>.</li>
-</ul>
-<p><code>.vimrc</code> files from all three teachers:</p>
-<ul>
-<li><a href="https://github.com/JJGO/dotfiles/blob/master/vim/.vimrc">dotfiles/.vimrc at master · JJGO/dotfiles</a></li>
-<li><a href="https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim">configs/init.vim at master · jonhoo/configs</a></li>
-<li><a href="https://github.com/anishathalye/dotfiles/blob/master/vimrc">dotfiles/vimrc at master · anishathalye/dotfiles</a></li>
-</ul>
-<pre class="vim"><code>&quot; Save changes (write)
-:w
-
-&quot; Close file (quit)
-:q
-
-&quot; Close file without saving
-:q!
-
-&quot; Help with some command
-:help some command
-
-&quot; Enter normal mode
-&lt;Esc&gt;</code></pre>
-</div>
-<div id="move-around-in-normal-mode" class="section level3">
-<h3>Move Around in Normal Mode</h3>
-<pre class="vim"><code>&quot; One line up
-k
-
-&quot; One line down
-j
-
-&quot; One character left
-h
-
-&quot; One character right
-l</code></pre>
-<p>In-line:</p>
-<pre class="vim"><code>&quot; Next word&#39;s first letter (word)
-w
-
-&quot; Next word&#39;s last letter (end)
-e
-
-&quot; Previous word&#39;s first letter (back)
-b
-
-&quot; Beginning of the line
-0
-
-&quot; First non-blank character of the line
-^
-
-&quot; End of the line
-$
-
-&quot; Jump between a pair of parentheses
-%</code></pre>
-<p>Across lines:</p>
-<pre class="vim"><code>&quot; One screen up
-&lt;C&gt;u
-
-&quot; One screen down
-&lt;C&gt;d
-
-&quot; Beginning of the file
-gg
-
-&quot; End of the file
-G
-
-&quot; Last line on screen (low)
-L
-
-&quot; Middle line on screen
-M
-
-&quot; First line on screen (high)
-H</code></pre>
-</div>
-<div id="search-in-normal-mode" class="section level3">
-<h3>Search in Normal Mode</h3>
-<p>In line:</p>
-<pre class="vim"><code>&quot; First instance of some character (example: first o)
-fo
-
-&quot; Last instance of some character (example: first o)
-Fo</code></pre>
-<p>In whole file:</p>
-<pre class="vim"><code>&quot; Search text
-/text here
-
-&quot; Go to next match
-n
-
-&quot; Go to previous match
-N</code></pre>
-</div>
-<div id="edit-in-normal-mode" class="section level3">
-<h3>Edit in Normal Mode</h3>
-<p>Basics:</p>
-<pre class="vim"><code>&quot; Delete the character under cursor
-x
-
-&quot; Flip text case
-~
-
-&quot; Repeat last change (after moving to another position)
-.
-
-&quot; Undo
-u
-
-&quot; Redo
-&lt;C&gt;r</code></pre>
-<p>Combined with content change:</p>
-<pre class="vim"><code>&quot; Replace the character under cursor with another character (example: o)
-ro</code></pre>
-<p>Combined with movement:</p>
-<pre class="vim"><code>&quot; Delete (example: current word)
-dw
-
-&quot; Delete the whole line
-dd
-
-&quot; Delete &amp; enter insert mode (example: from cursor until the end of the word) (change)
-ce
-
-&quot; Delete the whole line &amp; enter insert mode
-cc</code></pre>
-<p>Combined with modifier:</p>
-<pre class="vim"><code>&quot; Delete (example: everything inside []) (inside)
-di[
-
-&quot; Delete (example: everything inside [], including []) (around)
-da[
-
-&quot; Delete &amp; enter insert mode (example: everything inside &quot;&quot;)
-ci&quot;
-
-&quot; Delete &amp; enter insert mode (example: everything inside &quot;&quot;, including &quot;&quot;)
-ca&quot;</code></pre>
-</div>
-<div id="copy-paste-in-normal-mode" class="section level3">
-<h3>Copy &amp; Paste in Normal Mode</h3>
-<pre class="vim"><code>&quot; Copy (example: current word)
-yw
-
-&quot; Copy the whole line
-yy
-
-&quot; Copy (example: from cursor until the end of the word)
-ye
-
-&quot; Paste
-p</code></pre>
-</div>
-<div id="insert-mode" class="section level3">
-<h3>Insert Mode</h3>
-<p>Enter insert mode:</p>
-<pre class="vim"><code>&quot; Directly (cursor stays at current position)
-i
-
-&quot; Append (cursor goes one slot ahead)
-a
-
-&quot; Open new line below cursor
-o
-
-&quot; Open new line at cursor
-O</code></pre>
-</div>
-<div id="visual-mode-selection-mode" class="section level3">
-<h3>Visual Mode (Selection Mode)</h3>
-<p>Enter visual mode:</p>
-<pre class="vim"><code>&quot; Visual mode
-v
-
-&quot; Visual line mode
-V
-
-&quot; Visual block mode
-&lt;C&gt;v</code></pre>
-<p>Copy &amp; return to normal mode:</p>
-<pre class="vim"><code>y</code></pre>
-</div>
-<div id="windows-panels-tabs" class="section level3">
-<h3>Windows (Panels) &amp; Tabs</h3>
-<p>Windows (panels):</p>
-<pre class="vim"><code>&quot; Open horizontal panel with the same file (split)
-:sp
-
-&quot; Close current panel
-:q
-
-&quot; Save all panels (write all)
-:wa
-
-&quot; Close all panels (quit all)
-:qa</code></pre>
-<p>Tabs:</p>
-<pre class="vim"><code>&quot; Open new tab
-:tabnew</code></pre>
-</div>
+<p>See <a href="https://wiki.loikein.one/computer/other-software/vim">Vim - wiki</a>.</p>
 </div>
 <div id="tmux" class="section level2">
 <h2>Tmux</h2>
-<p>This is covered by the lecture <a href="#command-line-environment">#Command-Line Environment</a>.</p>
+<p>This is covered in the lecture <a href="#command-line-environment">#Command-Line Environment</a>.</p>
 <p>References:</p>
 <ul>
 <li><a href="https://github.com/tmux/tmux/wiki">Home · tmux/tmux Wiki</a></li>
@@ -632,7 +412,6 @@ $ tmux ls</code></pre>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/r.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/applescript.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/python.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/vim.min.js"></script>
 <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
 
 
