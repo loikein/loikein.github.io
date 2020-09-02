@@ -92,7 +92,7 @@ if (!doNotTrack) {
 <main class="content" role="main">
   <article class="article">
     
-    <span class="article-duration">2 min read</span>
+    <span class="article-duration">3 min read</span>
     
     <h1 class="article-title">Notes on The Missing Semester of Your CS Education</h1>
     
@@ -137,12 +137,7 @@ if (!doNotTrack) {
 <li><a href="#data-wrangling">Data Wrangling</a></li>
 <li><a href="#git">Git</a></li>
 <li><a href="#vim">Vim</a></li>
-<li><a href="#tmux">Tmux</a>
-<ul>
-<li><a href="#sessions">Sessions</a></li>
-<li><a href="#windows-tabs">Windows (Tabs)</a></li>
-<li><a href="#panes">Panes</a></li>
-</ul></li>
+<li><a href="#tmux">Tmux</a></li>
 </ul>
 </div>
 
@@ -295,54 +290,7 @@ $ rsync -a -v -P /path/to/local/file user@ip:/path/to/target</code></pre>
 </div>
 <div id="tmux" class="section level2">
 <h2>Tmux</h2>
-<p>This is covered in the lecture <a href="#command-line-environment">#Command-Line Environment</a>.</p>
-<p>References:</p>
-<ul>
-<li><a href="https://github.com/tmux/tmux/wiki">Home · tmux/tmux Wiki</a></li>
-<li><a href="https://tmuxcheatsheet.com/">Tmux Cheat Sheet &amp; Quick Reference</a></li>
-<li><a href="https://man7.org/linux/man-pages/man1/tmux.1.html">tmux(1) - Linux manual page</a></li>
-<li><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程 - 阮一峰的网络日志</a></li>
-</ul>
-<p>Note: consider changing the default key binding (<code>&lt;C&gt;a</code>) on local machine to work more smoothly on remote machines.</p>
-<div id="sessions" class="section level3">
-<h3>Sessions</h3>
-<p>In shell:</p>
-<pre class="sh"><code># New session (s for session)
-$ tmux new -s my-session
-
-# Re-attach to existing session (t for target)
-$ tmux attach -t my-session
-$ tmux a -t my-session
-
-# Stop a session
-$ tmux kill-session -t my-session
-
-# List all Tmux sessions
-$ tmux ls</code></pre>
-<p>In Tmux sessions:</p>
-<ul>
-<li>Detach: <code>&lt;C&gt;b d</code></li>
-</ul>
-</div>
-<div id="windows-tabs" class="section level3">
-<h3>Windows (Tabs)</h3>
-<ul>
-<li>Create new window: <code>&lt;C&gt;b c</code></li>
-<li>Rename current window: <code>&lt;C&gt;b ,</code></li>
-<li>Go to window by order: <code>&lt;C&gt;b 0</code>, <code>&lt;C&gt;b 1</code>, etc.</li>
-<li>Go to previous window: <code>&lt;C&gt;b p</code></li>
-<li>Go to next window: <code>&lt;C&gt;b n</code></li>
-</ul>
-</div>
-<div id="panes" class="section level3">
-<h3>Panes</h3>
-<ul>
-<li>Split current window into horizontal panes: <code>&lt;C&gt;b "</code></li>
-<li>Split current window into vertical panes: <code>&lt;C&gt;b %</code></li>
-<li>Move between panes: <code>&lt;C&gt;b direction-key</code></li>
-<li>Zoom in &amp; out to a pane: <code>&lt;C&gt;b z</code></li>
-</ul>
-</div>
+<p>See <a href="https://wiki.loikein.one/computer/other-software/tmux">tmux - wiki</a>.</p>
 </div>
 
     </div>
