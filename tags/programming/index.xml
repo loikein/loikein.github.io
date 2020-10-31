@@ -6,11 +6,7 @@
     <description>Recent content in Programming on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://notes.loikein.one/tags/programming/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://notes.loikein.one/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes on SCSS</title>
       <link>https://notes.loikein.one/post/2020/05/notes-scss/</link>

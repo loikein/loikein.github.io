@@ -5,10 +5,6 @@
     <link>https://notes.loikein.one/categories/</link>
     <description>Recent content in Categories on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    
-	<atom:link href="https://notes.loikein.one/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-gb</language><atom:link href="https://notes.loikein.one/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

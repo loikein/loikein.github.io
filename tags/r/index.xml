@@ -6,11 +6,7 @@
     <description>Recent content in R on loikein&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://notes.loikein.one/tags/r/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://notes.loikein.one/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes on Econometrics - Tests and Statistics</title>
       <link>https://notes.loikein.one/post/2019/02/notes-stat-test/</link>
